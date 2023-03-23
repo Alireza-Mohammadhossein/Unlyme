@@ -13,6 +13,7 @@
     "i18next": "^22.4.13",
     "i18next-icu": "^2.1.0",
     "lodash": "^4.17.21",
+    "material-icons": "^1.13.3",
     "memoize-one": "^6.0.0",
     "nanoid": "^4.0.1",
     "query-string": "^8.1.0",

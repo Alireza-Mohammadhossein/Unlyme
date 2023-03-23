@@ -1,0 +1,40 @@
+@import '../../../styles/sass/variables.scss';
+
+.right-menu {
+    box-sizing: border-box;
+    height: calc(100vh - 50px - 20px - 20px);
+    background-color: white;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+    transition: 0.2s;
+    width: 50px;
+    z-index: 10;
+    padding: 2 * $space;
+    overflow: hidden;
+    position: fixed;
+    border-top-left-radius: $border-radius-main;
+    border-bottom-left-radius: $border-radius-main;
+    right:0;
+    top: calc(50px + 20px);
+    &--showed {
+      width: 250px;
+    }
+    &__inner-container {
+      text-align: center;
+      margin-top: 3 * $space;
+      min-width: calc(250px - 40px);
+    }
+    &__toggle-icon {
+      width: 24px;
+      height: 24px;
+      background-image: url('../../../assets/icons/arrow-right.svg');
+      background-size: 6px auto;
+      background-color: $delimiter;
+      border-radius: 100%;
+      background-position: center;
+      cursor: pointer;
+      display: block;
+      transform: rotate(180deg);
+      background-repeat: no-repeat;
+    }
+  }
+  

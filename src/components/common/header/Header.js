@@ -1,6 +1,8 @@
 import React from 'react';
+// import { Link } from "react-router-dom";
 import "./header.scss";
-import language_flag from "../../assets/icons/en.svg"
+import language_flag from "../../../assets/icons/en.svg";
+
 
 const Header = () => {
   const SITE_NAME = 'WayWe';
@@ -8,7 +10,7 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <a href="/" className="header__site-name">
+        <a to="/" className="header__site-name">
           {SITE_NAME}
         </a>
         <div className="header__search-bar">
@@ -27,7 +29,7 @@ const Header = () => {
           // onClick={setLanguage}
           className="header__language"
         />
-        <a className="header__profile" href="/settings" />
+        <a className="header__profile" href="/settings"></a>
         <div className="header__notifications" onClick={() => alert('notification')} />
         <div className="header__exit" onClick={() => alert('exit')} />
       </div>

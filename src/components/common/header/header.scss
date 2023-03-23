@@ -1,4 +1,4 @@
-@import '../../styles/sass/variables.scss';
+@import '../../../styles/sass/variables.scss';
 
 .header {
   height: 50px;
@@ -60,7 +60,7 @@
       width: 28px;
       position: absolute;
       z-index: 1;
-      background-image: url('../../assets/icons/arrow-right-white.svg');
+      background-image: url('../../../assets/icons/arrow-right-white.svg');
       border-radius: 100%;
       right: 2px;
       background-size: 15px;
@@ -72,7 +72,7 @@
       cursor: pointer;
       width: 30px;
       height: 30px;
-      background-image: url('../../assets/icons/chat-white.svg');
+      background-image: url('../../../assets/icons/chat-white.svg');
       background-size: 17px auto;
       margin-left: $space;
       background-position: center;
@@ -110,7 +110,7 @@
     background-size: 12px auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../../assets/icons/notifications.svg');
+    background-image: url('../../../assets/icons/notifications.svg');
     position: relative;
     &:after {
       content: "";
@@ -142,6 +142,6 @@
     background-size: 15px auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../../assets/icons/exit.svg');
+    background-image: url('../../../assets/icons/exit.svg');
   }
 }
