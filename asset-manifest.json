@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/Unlyme/static/css/main.65d25b0c.css",
+    "main.js": "/Unlyme/static/js/main.9ddd1be9.js",
+    "static/media/material-icons-two-tone.woff": "/Unlyme/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
+    "static/media/material-icons-two-tone.woff2": "/Unlyme/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
+    "static/media/material-icons-round.woff": "/Unlyme/static/media/material-icons-round.5d681e2edae8c60630db.woff",
+    "static/media/material-icons-outlined.woff": "/Unlyme/static/media/material-icons-outlined.f882956fd323fd322f31.woff",
+    "static/media/material-icons-round.woff2": "/Unlyme/static/media/material-icons-round.c380809fd3677d7d6903.woff2",
+    "static/media/material-icons.woff": "/Unlyme/static/media/material-icons.4d73cb90e394b34b7670.woff",
+    "static/media/material-icons-sharp.woff": "/Unlyme/static/media/material-icons-sharp.3a4004a46a653d4b2166.woff",
+    "static/media/material-icons-outlined.woff2": "/Unlyme/static/media/material-icons-outlined.6f420cf17cc0d7676fad.woff2",
+    "static/media/material-icons-sharp.woff2": "/Unlyme/static/media/material-icons-sharp.219aa9140e099e6c72ed.woff2",
+    "static/media/material-icons.woff2": "/Unlyme/static/media/material-icons.0c35d18bf06992036b69.woff2",
+    "static/media/en.svg": "/Unlyme/static/media/en.2d19fed4fb288f7b8a8591bbe3b70429.svg",
+    "static/media/chat-white.svg": "/Unlyme/static/media/chat-white.9184297785bf4528af0a.svg",
+    "static/media/notifications.svg": "/Unlyme/static/media/notifications.70fef3895f0f02c3f7ff.svg",
+    "static/media/exit.svg": "/Unlyme/static/media/exit.a459a777a82091268ab7.svg",
+    "static/media/close.svg": "/Unlyme/static/media/close.d85316f5269a8762a3fe.svg",
+    "static/media/pencil.svg": "/Unlyme/static/media/pencil.88307ac845013df662a2.svg",
+    "static/media/arrow-right-white.svg": "/Unlyme/static/media/arrow-right-white.b7d930f56fca722872d1.svg",
+    "static/media/arrow-right.svg": "/Unlyme/static/media/arrow-right.b52e6820c6c241e6b5d4.svg",
+    "index.html": "/Unlyme/index.html",
+    "main.65d25b0c.css.map": "/Unlyme/static/css/main.65d25b0c.css.map",
+    "main.9ddd1be9.js.map": "/Unlyme/static/js/main.9ddd1be9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65d25b0c.css",
+    "static/js/main.9ddd1be9.js"
+  ]
+}
