@@ -4,6 +4,7 @@ import "./styles/sass/variables.scss";
 import "./styles/sass/app.scss"
 import Menu from "./components/common/menu/Menu";
 import RightMenu from "./components/common/right-menu/RightMenu";
+import Switcher from "./routes";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Header />
         <Menu />
         <RightMenu />
+        <Switcher />
+        <div className="modal-backdrop fade show" style={{ display: 'none' }} />
       </div>
     </div>
   );

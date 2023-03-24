@@ -1,0 +1,85 @@
+@import '../../../styles/sass/variables.scss';
+
+.cloud-block {
+    box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+    background-color: white;
+    border-radius: $border-radius-big;
+    overflow: hidden;
+    &__header {
+      border-bottom: 1px solid $delimiter;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      height: 30px;
+      justify-content: flex-start;
+      &_title {
+        font-size: 16px;
+      }
+      &_info {
+        border: 1px solid $light-gray;
+        border-radius: 100%;
+        color: $light-gray;
+        margin-left: $space;
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        line-height: 16px;
+        font-size: 10px;
+        transition: 0.2s;
+        cursor: pointer;
+        font-weight: bold;
+        &:hover {
+          border-color: $gray;
+          color: $gray;
+        }
+      }
+      &_btn {
+        margin-left: auto;
+      }
+      &_icon-container {
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        margin-right: $space;
+        background-size: 12px auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        line-height: 24px;
+        &--blue {
+          background-color: $blue;
+        }
+        &--red {
+          background-color: $red;
+        }
+        &--purple {
+          background-color: $purple;
+        }
+        &--orange {
+          background-color: $orange;
+        }
+        &--green {
+          background-color: $green;
+        }
+        &--silver {
+          background-color: $silver;
+        }
+        b {
+          color: white;
+        }
+        i {
+          font-size: 16px;
+          padding-top: 3px;
+        }
+      }
+    }
+    &__temp-gap {
+      height: 130px;
+    }
+    &__content {
+      padding: $space;
+    }
+  }
+  

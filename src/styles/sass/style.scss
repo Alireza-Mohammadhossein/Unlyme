@@ -928,10 +928,15 @@ button:disabled {
   width: 100% !important;
   .react-calendar__navigation {
     margin-bottom: 0;
+    height: 44px;
   }
   .react-calendar__navigation__next2-button,
   .react-calendar__navigation__prev2-button {
     display: none;
+  }
+  .react-calendar__navigation button{
+    min-width: 44px;
+    background: none;
   }
   .react-calendar__navigation button[disabled] {
     background-color: transparent;
@@ -939,6 +944,7 @@ button:disabled {
   }
   .react-calendar__navigation {
     justify-content: center;
+    display: flex;
   }
   .react-calendar__navigation__label {
    flex-grow: 0 !important;
@@ -957,15 +963,23 @@ button:disabled {
   }
   .react-calendar__month-view__weekdays {
     font-size: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
   }
   .react-calendar__month-view__weekdays__weekday {
     text-transform: none;
+    padding: 0.5em 0;
     abbr {
       text-decoration: none;
     }
   }
   .react-calendar__tile {
-    padding: 3px 0;
+    padding: 0.25em 0.5em;
+    background: none;
     abbr {
       height: 30px;
       width: 30px;
@@ -976,6 +990,8 @@ button:disabled {
   }
   .react-calendar__tile--active {
     background-color: transparent !important;
+    background: #006edc;
+    color: #fff;
     abbr {
       background-color: $blue;
     }

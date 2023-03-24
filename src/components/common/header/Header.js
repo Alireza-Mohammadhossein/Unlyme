@@ -5,7 +5,7 @@ import language_flag from "../../../assets/icons/en.svg";
 
 
 const Header = () => {
-  const SITE_NAME = 'WayWe';
+  const SITE_NAME = 'WAYWE';
 
   return (
     <>

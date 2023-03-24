@@ -1,0 +1,429 @@
+@import '../../styles/sass/variables.scss';
+
+
+.services {
+    &__connect-other {
+      width: 100%;
+      border: 2px dashed $delimiter;
+      text-align: center;
+      color: $gray;
+      margin-top: 2 * $space;
+      font-size: 16px;
+      padding: $space;
+      box-sizing: border-box;
+      cursor: pointer;
+      &:before {
+        content: "+";
+        color: $gray;
+        display: block;
+        font-size: 28px;
+      }
+    }
+    &__sites-copying {
+      &-page {
+        &_input-container {
+          margin-bottom: 30px;
+          display: inline-block;
+          width: 330px;
+          margin-left: 2 * $space;
+          position: relative;
+          .site-input {
+            width: calc(100% - 75px);
+            border-right-color: transparent;
+          }
+          .btn {
+            position: absolute;
+            right:0;
+            top: 0;
+          }
+          .site-input-error-label {
+            position: absolute;
+            top: 100%;
+          }
+        }
+      }
+      &_container {
+        position: relative;
+        margin-top: $space;
+        margin-bottom: $space;
+        padding-right: 60px;
+        .site-input {
+          border-right-color: transparent;
+        }
+      }
+      &_btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+    &__crm {
+      &_container {
+        display: flex;
+        justify-content: space-between;
+      }
+      &_col {
+        width:30%;
+        text-align: center;
+        padding-top: $space;
+        padding-bottom: $space;
+      }
+      &_col-number {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+      &_col-text {
+        font-size: 14px;
+      }
+    }
+    &__site-builder {
+      &-page {
+        &_frame {
+          width: 100%;
+          height: 600px;
+        }
+      }
+      &_btn-container {
+        margin-top: $space;
+        text-align: right;
+      }
+      &_col {
+        font-size: 13px;
+        line-height: 1.3;
+      }
+      &_header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: $space;
+        border-bottom: 1px solid $delimiter;
+        margin-bottom: $space;
+      }
+    }
+    &__online-consultant {
+      &_dialog {
+        padding: 10px 0;
+      }
+      &_dialog-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        font-size: 13px;
+      }
+      &_dialog-date {
+        font-size: 10px;
+        color: $gray;
+      }
+      &_separator {
+        height: 1px;
+        background-color: $delimiter;
+      }
+    }
+    &__domains {
+      &-page {
+        &_header {
+          justify-content: space-between;
+          padding-left: 2 * $space;
+          padding-right: 2 * $space;
+        }
+        &_header-col {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+        &_row {
+          display: flex;
+          flex-wrap: nowrap;
+          padding: $space;
+          border-top: 1px solid $delimiter;
+          &:first-of-type {
+            border-top: none;
+            padding-top: 0;
+          }
+        }
+        &_col {
+          width: 22%;
+          &:last-of-type {
+            width:12%;
+          }
+        }
+      }
+      &_container {
+        text-align: center;
+        padding-top: $space;
+        padding-bottom: $space;
+      }
+      &_item {
+        height: 30px;
+        border-radius: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 30px;
+        margin-right: $space;
+        border: 1px solid $blue;
+        display: inline-block;
+        font-size: 11px;
+        &--blue {
+          border-color: $blue;
+          color: $blue;
+        }
+        &--orange {
+          color: $orange;
+          border-color: $orange;
+        }
+        &--red {
+          color: $red;
+          border-color: $red;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    &__bank {
+      &-page {
+        &_accounts {
+          width: 290px;
+        }
+        &_accounts-history {
+          flex: 1;
+        }
+        &_date-col {
+          display: flex;
+          align-items: center;
+          .site-input {
+            margin-left: $space;
+          }
+        }
+        &_card {
+          margin: 30px auto;
+          .services__bank_balance {
+            margin-top: 2 * $space;
+          }
+          .services__bank_balance-text {
+            margin-bottom: 2 * $space;
+          }
+        }
+        &_card-separator {
+          height: 1px;
+          background-color: $delimiter;
+        }
+        &_h-separator {
+          width: 1px;
+          height: 100%;
+          position: absolute;
+          left: -1px;
+          top: 0;
+          background-color: $delimiter;
+        }
+      }
+      &_cards {
+        display: flex;
+        padding-bottom: $space;
+      }
+      &_card {
+        width: 33%;
+        text-align: center;
+      }
+      &_balance {
+        font-size: 15px;
+        line-height: 1.3;
+      }
+      &_balance-text {
+        font-size: 12px;
+      }
+      &_card-currency {
+        height: 30px;
+        padding-left: 2 * $space;
+        padding-right: 2 * $space;
+        border-radius: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        margin-bottom: $space;
+        display: inline-block;
+        &--light-orange {
+          background-color: $light-orange;
+        }
+        &--light-purple {
+          background-color: $light-purple;
+        }
+        &--light-green {
+          background-color: $light-green;
+        }
+      }
+      &_card-number {
+        margin-top: $space;
+        font-size: 12px;
+      }
+      &_history-section-date {
+        padding: $space;
+        color: $blue;
+        background-color: $silver;
+        font-size: 12px;
+        border-bottom: 1px solid $delimiter;
+      }
+      &_history-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        padding: $space;
+        line-height: 1.4;
+      }
+      &_history {
+        max-height: 190px;
+        overflow-y: scroll;
+      }
+      &_history-item-separator {
+        height: 1px;
+        background-color: $delimiter;
+      }
+    }
+    &__video-conferencing {
+      &_gap {
+        height: $space;
+      }
+      &_date-container {
+        display: flex;
+        .site-input {
+          margin-right: $space;
+        }
+      }
+      &_create-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: $space;
+      }
+    }
+    &__disc {
+      &_container {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        padding: $space 10%;
+      }
+      &_progress-label {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 13px;
+        justify-content: center;
+      }
+      &_col {
+        box-sizing: border-box;
+        &:nth-of-type(1) {
+          display: flex;
+          align-items: center;
+        }
+      }
+      &_item {
+        border-radius: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid $blue;
+        display: inline-flex;
+        font-size: 11px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 40px;
+        &--blue {
+          border-color: $blue;
+          color: $blue;
+        }
+        &--orange {
+          color: $orange;
+          border-color: $orange;
+        }
+        &--red {
+          color: $red;
+          border-color: $red;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+      &_label {
+        color: $gray;
+        width: 100%;
+        padding-bottom: 3px;
+        display: block;
+      }
+      &_number {
+        font-size: 13px;
+        line-height: 1.3;
+      }
+    }
+    &__invoice-manager {
+      &_item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: $space;
+        line-height: 1.2;
+        font-size: 12px;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      &_item-text-gray {
+        color: $gray;
+      }
+      &_item-col-1 {
+        min-width: 140px;
+      }
+      &_item-col-2 {
+        width: 100%;
+      }
+      &_item-status {
+        &--draft {
+          color: $light-gray;
+        }
+        &--sent {
+          color: $orange;
+        }
+        &--viewed {
+          color: $blue;
+        }
+      }
+    }
+    &__cloud-hosting {
+      &_container {
+        display: flex;
+      }
+      &_item {
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: 12px;
+        align-items: center;
+        margin-top: $space;
+        line-height: 1.3;
+      }
+      .btn {
+        margin-left: auto;
+      }
+      &_col {
+        &:nth-of-type(1) {
+          width: 55%;
+        }
+        &:nth-of-type(2) {
+          width: 45%;
+        }
+      }
+    }
+    &__tasks {
+      &_item {
+        padding: $space;
+        margin-bottom: $space;
+        cursor: pointer;
+        background-color: $silver;
+        box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+        border-radius: $border-radius-second;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
