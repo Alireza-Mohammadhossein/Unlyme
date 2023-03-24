@@ -66,6 +66,7 @@ const VideoConferencing = () => {
         rightButtonAction={() => alert('s')}
         content={content}
         infoContent="s"
+        mdiIcon="play_arrow"
         iconName="services/video-conferencing"
         iconContainerColor="green"
       />

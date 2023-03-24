@@ -1,0 +1,29 @@
+@import '../../../styles/sass/variables.scss';
+
+.progress-ring {
+    &__container {
+      position: relative;
+      svg {
+        transform: rotate(-90deg);
+        margin:0 auto;
+        display: block;
+      }
+    }
+    &__base {
+      fill: transparent;
+      stroke: $delimiter;
+    }
+    &__main {
+      fill: transparent;
+      stroke: $green;
+    }
+    &__inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      height: 100%;
+    }
+  }
+  
