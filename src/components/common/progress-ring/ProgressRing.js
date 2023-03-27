@@ -1,5 +1,5 @@
 import React from 'react';
-import './progressRing.scss';
+// import './progressRing.scss';
 
 const ProgressRing = ({ radius, stroke = 4, progress, innerContent }) => {
   const normalizedRadius = radius - stroke * 2;

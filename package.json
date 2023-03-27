@@ -30,6 +30,8 @@
     "react-resize-detector": "^8.0.4",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
+    "react-slider-swiper": "^2.0.6",
     "react-text-mask": "^5.5.0",
     "reactjs-tailwind": "^0.1.9",
     "reducers": "^3.0.0-alpha",

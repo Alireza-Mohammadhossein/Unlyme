@@ -1,5 +1,5 @@
 import {useState} from "react";
-import './right-menu.scss'
+// import './right-menu.scss'
 // import { useTranslation } from "react-i18next";
 // import { ASSETS_URL, SITE_NAME } from "../../types";
 

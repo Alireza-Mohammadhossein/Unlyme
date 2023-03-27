@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
 // import { SITE_NAME } from '../../types';
-import './menu.scss';
+// import './menu.scss';
 
 
 
@@ -41,7 +41,7 @@ const Menu = () => {
       </div>
       <div className="menu__line" />
       {data.map(item => (
-        <a key={item.id} href={item.a} className="menu__row menu__row--link">
+        <Link key={item.id} to={item.link} className="menu__row menu__row--link">
           <div className="menu__row_col-1">
             <i className='menu__row_icon material-icons'>
                 {item.icon}
@@ -51,7 +51,7 @@ const Menu = () => {
           <div className="menu__row_col-2">
             <span>{item.title}</span>
           </div>
-        </a>
+        </Link>
       ))}
     </div>
   );

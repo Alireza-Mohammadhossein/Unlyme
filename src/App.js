@@ -1,7 +1,6 @@
 import React from "react";
+import "./styles/sass/app.scss";
 import Header from "./components/common/header/Header";
-import "./styles/sass/variables.scss";
-import "./styles/sass/app.scss"
 import Menu from "./components/common/menu/Menu";
 import RightMenu from "./components/common/right-menu/RightMenu";
 import Switcher from "./routes";

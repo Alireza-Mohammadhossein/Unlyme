@@ -1,4 +1,4 @@
-@import '../../../styles/sass/variables.scss';
+// @import '../../../styles/sass/variables.scss';
 
 .cloud-block {
     box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
@@ -71,7 +71,7 @@
         }
         i {
           font-size: 16px;
-          padding-top: 3px;
+          padding: 4px 3px;
         }
       }
     }

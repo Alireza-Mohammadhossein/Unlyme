@@ -1,0 +1,41 @@
+// @import '../../styles/sass/variables.scss';
+
+.settings {
+  &__info {
+    &_avatar {
+      background-color: $silver;
+      width: 70px;
+      height: 70px;
+      margin-right: $space;
+      border-radius: 35px;
+    }
+    &_right {
+      flex: 1;
+    }
+    &_language {
+      margin-left: 40px;
+    }
+  }
+  &__employee {
+    margin-bottom: $space;
+    &_avatar {
+      background-color: $silver;
+      width: 40px;
+      height: 40px;
+      margin-right: $space;
+      border-radius: 20px;
+    }
+    &_info {
+      flex: 1;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__receipt {
+    margin-bottom: $space;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -11,7 +11,7 @@ import SitesCopying from './components/site-copying/SiteCopying';
 import SiteBuilder from './components/siteBuilder/SiteBuilder';
 import Tasks from './components/tasks/Tasks';
 import VideoConferencing from './components/videoConferencing/VideoConferencing';
-import './services.scss';
+// import './services.scss';
 // import { Link } from "react-router-dom";
 
 // This component is for loading components in homepage

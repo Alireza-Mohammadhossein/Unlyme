@@ -1,0 +1,136 @@
+// @import '../../styles/sass/variables.scss';
+
+.chat {
+    &__menu {
+      width: 100px;
+      &_option {
+        color: $gray;
+        text-align: center;
+        padding: 2*$space 0;
+        transition: 0.2s;
+        cursor: pointer;
+        &--active,
+        &:hover {
+          background-color: $blue;
+          color: white;
+        }
+      }
+      &_option-icon-container {
+        text-align: center;
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      &_separator {
+        height: 1px;
+        flex: 1;
+        margin: 0 $space;
+        background-color: $delimiter;
+      }
+    }
+    &__dialog-list {
+      width: 300px;
+      &_search-container {
+        position: relative;
+        flex: 1;
+        span {
+          position: absolute;
+          left: 13px;
+          color: $gray;
+          line-height: 30px;
+        }
+      }
+      &_search {
+        border-radius: 20px;
+        padding-left: 30px;
+      }
+      &_item {
+        padding-left: 30px;
+        cursor: pointer;
+        position: relative;
+      }
+      &_item-avatar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+      }
+      &_separator {
+        height: 1px;
+        flex: 1;
+        background-color: $delimiter;
+      }
+      &_gap {
+        height: 100%;
+        flex: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+    }
+    &__dialog-block {
+      flex: 1;
+      &_btn-container {
+        margin-left: 100px;
+        display: flex;
+        .btn {
+          margin-right: $space;
+          display: flex;
+          align-items: center;
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+      &_window {
+        display: flex;
+        flex-direction: column;
+        // max-width: 600px;
+        min-height: 500px;
+        // overflow-y: scroll;
+        box-sizing: border-box;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      &_compose-form {
+        margin: 2*$space;
+        display: flex;
+        .btn {
+          margin-left: $space;
+        }
+      }
+      &_gap {
+        height: 100%;
+        flex: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+      &_message {
+        align-self: flex-end;
+        padding: $space;
+        border-radius: $border-radius-main;
+        background-color: $blue;
+        color: white;
+        box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+        margin-bottom: $space;
+        max-width: 80%;
+        text-align: right;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        &--my {
+          text-align: left;
+          align-self: flex-start;
+          background-color: white;
+          color: inherit;
+        }
+      }
+      &_message-date {
+        margin-top: 3px;
+      }
+    }
+  }
+  

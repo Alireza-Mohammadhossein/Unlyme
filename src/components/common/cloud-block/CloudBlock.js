@@ -1,5 +1,5 @@
 import React from "react";
-import "./cloud-block.scss";
+// import "./cloud-block.scss";
 
 // const ASSETS_URL = window.assets_url;
 

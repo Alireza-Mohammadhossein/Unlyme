@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from "react-router-dom";
-import "./header.scss";
+// import "./header.scss";
 import language_flag from "../../../assets/icons/en.svg";
 
 
