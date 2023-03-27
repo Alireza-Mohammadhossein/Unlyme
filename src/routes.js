@@ -4,6 +4,7 @@ import Bank from './components/bank/Bank';
 import Calendar from './components/calendar/Calendar';
 import CopySites from './components/copy-sites/CopySites';
 import Domains from './components/domains/Domain';
+import NotFound from './components/notfound/NotFound';
 import OnlineConsultant from './components/online-consultant/OnlineConsultant';
 import Servises from './components/services/Services';
 import Settings from './components/settings/Settings';
@@ -45,6 +46,10 @@ const Switcher = () => {
       <Route 
         path="/services/online-consultant"
         element={<OnlineConsultant />}
+      />
+      <Route 
+        path="*"
+        element={<NotFound />}
       />
     </Routes>
   );

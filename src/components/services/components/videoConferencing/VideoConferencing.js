@@ -41,7 +41,6 @@ const VideoConferencing = () => {
             <MaskedInput
               mask={[/[1-9]/, /\d/, ':', /\d/, /\d/]}
               className="site-input"
-              maskChar={null}
               onChange={e => setTime(e.target.value)}
               value={time}
               placeholder="Type a time"
