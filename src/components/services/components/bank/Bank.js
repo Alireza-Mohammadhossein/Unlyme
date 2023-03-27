@@ -52,7 +52,8 @@ const Bank = ({ history }) => {
   return (
     <CloudBlock
       title='Bank'
-      rightButtonAction={() => history.push('/services/bank')}
+      // rightButtonAction={() => history.push('/services/bank')}
+      rightButtonAction="/services/bank"
       content={content}
       infoContent="s"
       mdiIcon="monetization_on"

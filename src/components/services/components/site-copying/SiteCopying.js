@@ -13,7 +13,7 @@ const SitesCopying = ({ history }) => {
   return (
     <CloudBlock
       title='Copy sites'
-      rightButtonAction={() => history.push('/services/copy-sites')}
+      rightButtonAction="/services/copy-sites"
       content={content}
       infoContent="s"
       mdiIcon="content_copy"

@@ -162,7 +162,7 @@ const SiteBuilder = () => {
               }
             }}
             title="Back to plans"
-            content={<iframe src="https://builder.waywe.ch/ru/brand/606112/" className="services__site-builder-page_frame" />}
+            content={<iframe title='sites' src="https://builder.waywe.ch/ru/brand/606112/" className="services__site-builder-page_frame" />}
           />
         </SwiperSlide>
       </Swiper>

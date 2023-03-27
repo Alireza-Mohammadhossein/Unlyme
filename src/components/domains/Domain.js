@@ -59,7 +59,7 @@ const Domains = () => {
                 <div className="services__domains-page_row" key={item.id}>
                   <div className="services__domains-page_col">{item.name}</div>
                   <div className="services__domains-page_col">
-                    <a href="#">{item.status}</a>
+                    <a href="/">{item.status}</a>
                   </div>
                   <div className="services__domains-page_col text">
                     <div>{moment.unix(item.paid_at).format('Y.MM.DD')}</div>

@@ -14,7 +14,7 @@ const Domains = ({ history }) => {
   return (
     <CloudBlock
       title='Domains'
-      rightButtonAction={() => history.push('/services/domains')}
+      rightButtonAction="/services/domains"
       infoContent="sd"
       content={content}
       mdiIcon="domain"

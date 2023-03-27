@@ -49,7 +49,7 @@ const VideoConferencing = () => {
             <span className="btn btn--transparent-blue">To plan</span>
           </div>
           <div className="services__video-conferencing_create-footer">
-            <a href="#" className="link">
+            <a href="/" className="link">
               Copy invitation link
             </a>
             <span className="btn">To begin</span>

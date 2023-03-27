@@ -1,14 +1,15 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
-import './calendarBlock.scss';
+// import './calendarBlock.scss';
 
 
 const CalendarBlock = ({ history }) => {
   return (
     <CloudBlock
       title="Calendar"
-      rightButtonAction={() => history.push('/services/calendar')}
+      // rightButtonAction={() => history.push('/services/calendar')}
+      rightButtonAction="/services/calendar"
       infoContent="asd"
       content={
         <Calendar

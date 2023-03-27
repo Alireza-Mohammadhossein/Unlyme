@@ -140,7 +140,7 @@ const CopySites = () => {
               }
             }}
             title="Back to plans"
-            content={<iframe src={`https://test.site.pro/?import=${value}`} className="services__site-builder-page_frame" />}
+            content={<iframe title='copy-sites' src={`https://test.site.pro/?import=${value}`} className="services__site-builder-page_frame" />}
           />
         </SwiperSlide>
       </Swiper>

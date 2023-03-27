@@ -37,7 +37,7 @@ const OnlineConsultant = ({ history }) => {
   return (
     <CloudBlock
       title='Online consultant'
-      rightButtonAction={() => history.push('/services/online-consultant')}
+      rightButtonAction="/services/online-consultant"
       content={content}
       infoContent="s"
       mdiIcon="mail_outline"

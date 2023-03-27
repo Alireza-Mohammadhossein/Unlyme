@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import "./cloud-block.scss";
 
 // const ASSETS_URL = window.assets_url;
@@ -39,8 +40,10 @@ const CloudBlock = ({
           )}
         </div>
         {rightButtonAction != null && (
-          <div className="btn btn--blue-text cloud-block__header_btn" onClick={rightButtonAction}>
-            {rightButtonTitle || 'Open'}
+          <div className="btn btn--blue-text cloud-block__header_btn">
+            <Link to={rightButtonAction}>
+              {rightButtonTitle || 'Open'}
+            </Link>
           </div>
         )}
       </div>

@@ -37,7 +37,7 @@ const SiteBuilder = ({ history }) => {
     <>
       <CloudBlock
         title='Site builder'
-        rightButtonAction={() => history.push('/services/site-builder')}
+        rightButtonAction="/services/site-builder"
         content={content}
         infoContent="s"
         mdiIcon="web"
