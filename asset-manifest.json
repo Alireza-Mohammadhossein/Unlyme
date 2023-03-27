@@ -1,17 +1,26 @@
 {
   "files": {
-    "main.css": "/Unlyme/static/css/main.057fd4fa.css",
-    "main.js": "/Unlyme/static/js/main.bf794c16.js",
+    "main.css": "/Unlyme/static/css/main.cc656e77.css",
+    "main.js": "/Unlyme/static/js/main.8cf1e52c.js",
     "static/media/material-icons-two-tone.woff": "/Unlyme/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/material-icons-two-tone.woff2": "/Unlyme/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
     "static/media/material-icons-round.woff": "/Unlyme/static/media/material-icons-round.5d681e2edae8c60630db.woff",
     "static/media/material-icons-outlined.woff": "/Unlyme/static/media/material-icons-outlined.f882956fd323fd322f31.woff",
+    "static/media/Roboto-Thin.eot": "/Unlyme/static/media/Roboto-Thin.ae807ad4142f3eae2e0c.eot",
+    "static/media/Roboto-Thin.ttf": "/Unlyme/static/media/Roboto-Thin.7d12c80b1925091e4fec.ttf",
+    "static/media/Roboto-Bold.eot": "/Unlyme/static/media/Roboto-Bold.6490694b37b0ee09bd91.eot",
+    "static/media/Roboto-Bold.ttf": "/Unlyme/static/media/Roboto-Bold.5e9f6556d3c0bf6230f0.ttf",
+    "static/media/Roboto-Light.eot": "/Unlyme/static/media/Roboto-Light.d592a653abb7a57fedd8.eot",
+    "static/media/Roboto-Light.ttf": "/Unlyme/static/media/Roboto-Light.13d61ef8e609b548d9b5.ttf",
     "static/media/material-icons-round.woff2": "/Unlyme/static/media/material-icons-round.c380809fd3677d7d6903.woff2",
     "static/media/material-icons.woff": "/Unlyme/static/media/material-icons.4d73cb90e394b34b7670.woff",
     "static/media/material-icons-sharp.woff": "/Unlyme/static/media/material-icons-sharp.3a4004a46a653d4b2166.woff",
     "static/media/material-icons-outlined.woff2": "/Unlyme/static/media/material-icons-outlined.6f420cf17cc0d7676fad.woff2",
     "static/media/material-icons-sharp.woff2": "/Unlyme/static/media/material-icons-sharp.219aa9140e099e6c72ed.woff2",
     "static/media/material-icons.woff2": "/Unlyme/static/media/material-icons.0c35d18bf06992036b69.woff2",
+    "static/media/Roboto-Bold.woff": "/Unlyme/static/media/Roboto-Bold.3f2cbde6b72e8d05669f.woff",
+    "static/media/Roboto-Light.woff": "/Unlyme/static/media/Roboto-Light.df0f59d80526acc6d0cd.woff",
+    "static/media/Roboto-Thin.woff": "/Unlyme/static/media/Roboto-Thin.674b1d2bd9d781457c17.woff",
     "static/media/en.svg": "/Unlyme/static/media/en.2d19fed4fb288f7b8a8591bbe3b70429.svg",
     "static/media/chat-white.svg": "/Unlyme/static/media/chat-white.9184297785bf4528af0a.svg",
     "static/media/notifications.svg": "/Unlyme/static/media/notifications.70fef3895f0f02c3f7ff.svg",
@@ -21,11 +30,11 @@
     "static/media/arrow-right-white.svg": "/Unlyme/static/media/arrow-right-white.b7d930f56fca722872d1.svg",
     "static/media/arrow-right.svg": "/Unlyme/static/media/arrow-right.b52e6820c6c241e6b5d4.svg",
     "index.html": "/Unlyme/index.html",
-    "main.057fd4fa.css.map": "/Unlyme/static/css/main.057fd4fa.css.map",
-    "main.bf794c16.js.map": "/Unlyme/static/js/main.bf794c16.js.map"
+    "main.cc656e77.css.map": "/Unlyme/static/css/main.cc656e77.css.map",
+    "main.8cf1e52c.js.map": "/Unlyme/static/js/main.8cf1e52c.js.map"
   },
   "entrypoints": [
-    "static/css/main.057fd4fa.css",
-    "static/js/main.bf794c16.js"
+    "static/css/main.cc656e77.css",
+    "static/js/main.8cf1e52c.js"
   ]
 }
