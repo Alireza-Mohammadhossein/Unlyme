@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Unlyme/static/css/main.2753fcaa.css",
-    "main.js": "/Unlyme/static/js/main.6b2f4d7a.js",
+    "main.css": "/Unlyme/static/css/main.057fd4fa.css",
+    "main.js": "/Unlyme/static/js/main.bf794c16.js",
     "static/media/material-icons-two-tone.woff": "/Unlyme/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/material-icons-two-tone.woff2": "/Unlyme/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
     "static/media/material-icons-round.woff": "/Unlyme/static/media/material-icons-round.5d681e2edae8c60630db.woff",
@@ -21,11 +21,11 @@
     "static/media/arrow-right-white.svg": "/Unlyme/static/media/arrow-right-white.b7d930f56fca722872d1.svg",
     "static/media/arrow-right.svg": "/Unlyme/static/media/arrow-right.b52e6820c6c241e6b5d4.svg",
     "index.html": "/Unlyme/index.html",
-    "main.2753fcaa.css.map": "/Unlyme/static/css/main.2753fcaa.css.map",
-    "main.6b2f4d7a.js.map": "/Unlyme/static/js/main.6b2f4d7a.js.map"
+    "main.057fd4fa.css.map": "/Unlyme/static/css/main.057fd4fa.css.map",
+    "main.bf794c16.js.map": "/Unlyme/static/js/main.bf794c16.js.map"
   },
   "entrypoints": [
-    "static/css/main.2753fcaa.css",
-    "static/js/main.6b2f4d7a.js"
+    "static/css/main.057fd4fa.css",
+    "static/js/main.bf794c16.js"
   ]
 }
