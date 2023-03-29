@@ -1,15 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-// import { useTranslation } from 'react-i18next';
-// import { SITE_NAME } from '../../types';
-// import './menu.scss';
-
-
 
 
 const Menu = () => {
     const SITE_NAME = "WayWe";
-//   const { t } = useTranslation();
   const [showed, setShowed] = useState(false);
 
   const data = [
@@ -46,7 +40,6 @@ const Menu = () => {
             <i className='menu__row_icon material-icons'>
                 {item.icon}
             </i>
-            {/* <b className={`menu__row_icon mdi mdi-${item.icon}`} /> */}
           </div>
           <div className="menu__row_col-2">
             <span>{item.title}</span>

@@ -1,0 +1,141 @@
+$signin-bg-color: rgba(0,0,0,0.3);
+
+.signin {
+  padding-top:60px;
+  padding-bottom: 100px;
+  text-align:center;
+  min-height:100vh;
+  min-width:100vw;
+  box-sizing: border-box;
+  position: relative;
+  background: silver;
+  &__form-group {
+    margin-bottom: 20px;
+  }
+  .btn {
+    margin-top:10px;
+  }
+  &__inner-container {
+    z-index:1;
+    color:white;
+    position: relative !important;
+  }
+  &__block {
+    width:240px;
+    padding: 40px 50px;
+    background: $signin-bg-color !important;
+    text-align: left;
+    background-color: unset;
+  }
+  &__logo {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  &__bg-swiper {
+    height: 100%;
+    width: 100%;
+    position: absolute !important;
+    top: 0;
+    z-index: 0 !important;
+    &_slide {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width:100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.2);
+      background-blend-mode: multiply;
+    }
+    &_slide-info {
+      text-align: right;
+      bottom:97px;
+      position: absolute;
+      width:100%;
+    }
+    &_slide-info-block {
+      background-color: $signin-bg-color;
+      color:white;
+      font-size: 16px;
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: $border-radius-second;
+      line-height: 1.3;
+    }
+    &_nav {
+      position: absolute;
+      bottom: 60px;
+      width: 100%;
+      z-index: 1;
+      color:white;
+      text-align: right;
+    }
+    &_prev,
+    &_next {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: $border-radius-second;
+      background-image: url('../../assets/icons/arrow-right-white.svg');
+      background-size: 10px auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $signin-bg-color;
+      cursor: pointer;
+      outline: none;
+      transition: 0.2s;
+    }
+    &_prev {
+      margin-right:7px;
+      transform: rotate(180deg);
+    }
+  }
+  &__language {
+    text-align: right;
+    font-size: 13px;
+  }
+  .site-input {
+    border-color: white;
+  }
+  &__error-message {
+    font-size: 15px;
+  }
+  &__footer {
+    text-align: right;
+    bottom:0;
+    position: absolute;
+    width:100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 1;
+    color:white;
+    font-size: 13px;
+    .fix {
+      &:before {
+        top:0;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left:0;
+        background: rgba(255,255,255,0.2);
+      }
+    }
+  }
+  &__main-table {
+    width:100%;
+    td {
+      vertical-align: middle;
+    }
+  }
+  &__offer {
+    color: white;
+    box-sizing: border-box;
+    padding: 0 20px;
+    line-height: 1.3;
+    font-size: 33px;
+    &_main {
+      font-weight: 600;
+      margin-bottom: 13px;
+    }
+  }
+}

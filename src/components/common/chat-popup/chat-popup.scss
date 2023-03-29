@@ -1,0 +1,27 @@
+.chat-popup {
+    .popup__inner {
+      padding: 0;
+    }
+    &__container {
+      position: relative;
+      width: 600px;
+    }
+    &__compose-form {
+      display: flex;
+      padding: $space * 2;
+      &_input {
+        margin-right: $space;
+      }
+    }
+    &__messages {
+      height: 300px;
+    }
+    &__footer {
+      background-color: $blue;
+      color: white;
+      padding: $space 2 * $space;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+  

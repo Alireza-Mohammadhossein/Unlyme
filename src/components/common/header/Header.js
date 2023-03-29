@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-// import "./header.scss";
+import ChatPopup from '../chat-popup/ChatPopup';
 import language_flag from "../../../assets/icons/en.svg";
 
 
 const Header = () => {
   const SITE_NAME = 'WAYWE';
+  const [chatIsShowed, setChatIsShowed] = useState(false);
 
   return (
     <>
@@ -21,7 +22,7 @@ const Header = () => {
           </div>
           <div
             className="header__search-bar_chat"
-            // onClick={() => setChatIsShowed(true)} 
+            onClick={() => setChatIsShowed(true)} 
           />
         </div>
         <div
@@ -33,7 +34,7 @@ const Header = () => {
         <div className="header__notifications" onClick={() => alert('notification')} />
         <div className="header__exit" onClick={() => alert('exit')} />
       </div>
-      {/* <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} /> */}
+      <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} />
     </>
   );
 };

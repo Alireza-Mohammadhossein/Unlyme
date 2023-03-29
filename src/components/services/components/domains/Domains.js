@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 
-const Domains = ({ history }) => {
-
+const Domains = () => {
+  const navigate = useNavigate();
   const content = (
     <div className="services__domains_container">
       <div className="services__domains_item services__domains_item--blue">2 Domains</div>
@@ -14,7 +15,7 @@ const Domains = ({ history }) => {
   return (
     <CloudBlock
       title='Domains'
-      rightButtonAction="/services/domains"
+      rightButtonAction={() => navigate('/services/domains')}
       infoContent="sd"
       content={content}
       mdiIcon="domain"

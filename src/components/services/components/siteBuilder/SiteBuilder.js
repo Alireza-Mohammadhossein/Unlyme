@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import Popup from '../../../common/popup/Popup';
 
-const SiteBuilder = ({ history }) => {
-
+const SiteBuilder = () => {
+  const navigate = useNavigate();
   const [popupVisible, setPopupVisible] = useState(false);
 
   const content = (
@@ -18,7 +19,7 @@ const SiteBuilder = ({ history }) => {
           <div>Feature set</div>
         </div>
         <div className="services__site-builder_col">
-          <div className="btn btn--transparent-blue" onClick={() => history.push('/services/site-builder')}>
+          <div className="btn btn--transparent-blue" onClick={() => navigate('/services/site-builder')}>
             Create a website
           </div>
         </div>
@@ -37,7 +38,7 @@ const SiteBuilder = ({ history }) => {
     <>
       <CloudBlock
         title='Site builder'
-        rightButtonAction="/services/site-builder"
+        rightButtonAction={() => navigate('/services/site-builder')}
         content={content}
         infoContent="s"
         mdiIcon="web"

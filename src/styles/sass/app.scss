@@ -4,6 +4,7 @@
 @import 'loader';
 @import 'rc-slider-custom.scss';
 @import 'style.scss';
+@import '../../components/common/chat-popup/chat-popup.scss';
 @import '../../components/common/menu/menu.scss';
 @import '../../components/common/progress-ring/progressRing.scss';
 @import '../../components/common/header/header.scss';
@@ -14,4 +15,5 @@
 @import '../../components/settings/settings.scss';
 @import '../../components/calendar/calendar.scss';
 @import '../../components/online-consultant/online-consultant.scss';
+@import '../../components/signin/signin.scss';
 @import 'styleMedia.scss';

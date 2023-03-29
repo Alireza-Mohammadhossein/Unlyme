@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import _ from 'lodash';
 import { accounts, accountsHistory } from '../../../../mocks/mocks';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 
-const Bank = ({ history }) => {
+const Bank = () => {
+  const navigate = useNavigate();
   const content = (
     <>
       <div className="services__bank_cards">
@@ -53,7 +55,7 @@ const Bank = ({ history }) => {
     <CloudBlock
       title='Bank'
       // rightButtonAction={() => history.push('/services/bank')}
-      rightButtonAction="/services/bank"
+      rightButtonAction={() => navigate('/services/bank')}
       content={content}
       infoContent="s"
       mdiIcon="monetization_on"

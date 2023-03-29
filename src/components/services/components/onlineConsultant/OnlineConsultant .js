@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import TabToolbar from '../tab-toolbar/TabToolbar';
 import { chatDialogs } from '../../../../mocks/mocks';
@@ -7,7 +8,8 @@ import { chatDialogs } from '../../../../mocks/mocks';
 const TAB_ALL_DIALOGS = '1';
 const TAB_ACTIVE_DIALOGS = '2';
 
-const OnlineConsultant = ({ history }) => {
+const OnlineConsultant = () => {
+  const navigate = useNavigate();
 
   const [tab, setTab] = useState(TAB_ACTIVE_DIALOGS);
 
@@ -37,7 +39,7 @@ const OnlineConsultant = ({ history }) => {
   return (
     <CloudBlock
       title='Online consultant'
-      rightButtonAction="/services/online-consultant"
+      rightButtonAction={() => navigate('/services/online-consultant')}
       content={content}
       infoContent="s"
       mdiIcon="mail_outline"
