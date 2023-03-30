@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 // import "./calendar.scss";
 
 const Calendar = () => {
-    const BACKEND_URL = "https://filexy.ru";
+  const { t } = useTranslation();
+  const BACKEND_URL = "https://filexy.ru";
   return (
     <div className="container">
       <h1>Calendar</h1>

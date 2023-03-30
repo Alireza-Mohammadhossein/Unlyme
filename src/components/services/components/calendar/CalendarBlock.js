@@ -1,20 +1,23 @@
 import React from 'react';
 import Calendar from 'react-calendar';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
-// import './calendarBlock.scss';
+import { getLangISOFormat } from '../../../../types';
 
 
 const CalendarBlock = () => {
+  const { t, i18n } = useTranslation();
+
   const navigate = useNavigate();
   return (
     <CloudBlock
-      title="Calendar"
+      title={t('SERVICES.CALENDAR.TITLE')}
       rightButtonAction={() => navigate('/services/calendar')}
       infoContent="asd"
       content={
         <Calendar
-        //   locale={getLangISOFormat(i18n.language)}
+          locale={getLangISOFormat(i18n.language)}
           minDetail="month"
           value={new Date()}
           onChange={() => navigate('/services/calendar')}

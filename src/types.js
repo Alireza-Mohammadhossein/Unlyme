@@ -5,7 +5,7 @@ import _ from 'lodash';
 export const BACKEND_URL = window.backend_url;
 
 // @ts-ignore
-export const ASSETS_URL = window.assets_url;
+export const ASSETS_URL = `${window.location}Unlyme`;
 
 export function convertToFormData(data) {
   const formData = new FormData();
@@ -15,10 +15,10 @@ export function convertToFormData(data) {
   return formData;
 }
 
-// Язык по умолчанию
+// Default language
 export const FALLBACK_LANGUAGE = 'en';
 
-// Поддерживаемы языка
+// Supported languages
 export const SUPPORTED_LANGUAGES = ['en', 'ru'];
 
 export const getLangISOFormat = lng => {
@@ -30,21 +30,21 @@ export const getLangISOFormat = lng => {
   return null;
 };
 
-// Создаем экземпляр axios тут, а настройки идут в index.js
+// We instantiate axios here, and the settings go to index.js
 export const HttpClient = axios.create({ baseURL: BACKEND_URL });
 
-// Колбэк по загрузке языка
+// Language loading callback
 export const I18NEXT_LANGUAGE_LOADED = 'i18next_language_loaded';
 
-/* Авторизация */
+/* Authorization */
 export const AUTH_USER = 'auth_user';
 export const UNAUTH_USER = 'unauth_user';
 export const AUTH_ERROR = 'auth_error';
 
-/* Управление title страницы */
+/* Page title control */
 export const SET_PAGE_TITLE = 'set_page_title';
 
-/* Получение информации о пользователе */
+/* Get information about the user */
 export const REQUEST_USER_INFO = 'request_user_info';
 export const RECEIVE_USER_INFO = 'receive_user_info';
 export const RECEIVE_USER_INFO_ERROR = 'receive_user_info_error';

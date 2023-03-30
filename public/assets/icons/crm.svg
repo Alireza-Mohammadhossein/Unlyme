@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="244.776px" height="262.144px" viewBox="134.489 65.536 244.776 262.144"
+	 enable-background="new 134.489 65.536 244.776 262.144" xml:space="preserve">
+<g display="none">
+	<path display="inline" d="M379.265,327.68c0-54.112-43.864-97.976-97.976-97.976h-48.824c-54.112,0-97.976,43.864-97.976,97.976
+		H379.265z"/>
+	<circle display="inline" cx="256.877" cy="135.168" r="69.632"/>
+	<polyline display="inline" points="281.944,229.376 257.368,253.952 232.792,229.376 	"/>
+	<polyline display="inline" points="231.621,335.872 257.368,231.252 284.557,335.831 	"/>
+</g>
+<g>
+	<g>
+		<circle fill="#FFFFFF" cx="256.877" cy="135.168" r="69.632"/>
+	</g>
+	<g>
+		<path fill="#FFFFFF" d="M262.054,249.266l20.382,78.414h96.829c0-54.006-43.692-97.792-97.657-97.968L262.054,249.266z"/>
+		<path fill="#FFFFFF" d="M252.883,249.467l-19.763-19.763h-0.655c-54.112,0-97.976,43.864-97.976,97.976h99.148L252.883,249.467z"
+			/>
+	</g>
+</g>
+</svg>

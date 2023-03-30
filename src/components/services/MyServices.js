@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Bank from './components/bank/Bank';
 import CalendarBlock from './components/calendar/CalendarBlock';
 import CloudHosting from './components/cloudHosting/CloudHosting';
@@ -16,10 +17,12 @@ import VideoConferencing from './components/videoConferencing/VideoConferencing'
 
 // This component is for loading components in homepage
 const Services = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="container">
       <h1>
-        Connected Apps and Services
+        {t('MY_SERVICES.H1')}
         <span className="btn btn--light-blue" style={{ marginLeft: 30 }}>
           Other services
         </span>

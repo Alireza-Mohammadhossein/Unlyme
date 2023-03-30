@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SITE_NAME, SUPPORTED_LANGUAGES } from '../../../types';
 
 
 const Menu = () => {
-    const SITE_NAME = "WayWe";
+  const { t, i18n } = useTranslation()
+
   const [showed, setShowed] = useState(false);
 
   const data = [
-    { id: 1, icon: 'dashboard', title: 'My services', link: '/' },
-    { id: 2, icon: 'domain', title: 'Domains', link: '/services/domains' },
-    { id: 3, icon: 'web', title: 'Site builder', link: '/services/site-builder' },
-    { id: 4, icon: 'content_copy', title: 'Copy sites', link: '/services/copy-sites' },
-    { id: 5, icon: 'monetization_on', title: 'Bank', link: '/services/bank' },
-    { id: 6, icon: 'settings', title: 'Setting', link: '/settings' },
-    { id: 8, icon: 'calendar_month', title: 'Calendar', link: '/services/calendar' },
-    { id: 7, icon: 'mail_outline', title: 'Online consultant', link: '/services/online-consultant' },
+    { id: 1, icon: 'dashboard', title: 'MY_SERVICES', link: '/' },
+    { id: 2, icon: 'domain', title: 'DOMAINS', link: '/services/domains' },
+    { id: 3, icon: 'web', title: 'SITE_BUILDER', link: '/services/site-builder' },
+    { id: 4, icon: 'content_copy', title: 'COPY_SITES', link: '/services/copy-sites' },
+    { id: 5, icon: 'monetization_on', title: 'BANK', link: '/services/bank' },
+    { id: 6, icon: 'settings', title: 'SETTINGS', link: '/settings' },
+    { id: 8, icon: 'calendar_month', title: 'CALENDAR', link: '/services/calendar' },
+    { id: 7, icon: 'mail_outline', title: 'ONLINE_CONSULTANT', link: '/services/online-consultant' },
   ];
 
   return (
@@ -42,7 +45,7 @@ const Menu = () => {
             </i>
           </div>
           <div className="menu__row_col-2">
-            <span>{item.title}</span>
+            <span>{t(`MENU.${item.title}`)}</span>
           </div>
         </Link>
       ))}
