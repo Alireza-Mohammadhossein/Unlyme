@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 import {
   CHAT_DIALOG_STATUS_ACTIVE,
   CHAT_DIALOG_STATUS_CLOSED,
@@ -7,10 +8,10 @@ import {
   chatDialogs,
   clientData,
 } from '../../mocks/mocks';
-// import "../services/services.scss";
-// import "./online-consultant.scss";
+
 
 const OnlineConsultant = () => {
+  const { t } = useTranslation();
 
   const menuOptions = [
     { id: null, label: 'All dialogs', icon: 'folder' },

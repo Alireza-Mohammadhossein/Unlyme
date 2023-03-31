@@ -4,8 +4,9 @@ import moment from 'moment';
 import _ from 'lodash';
 import { accounts, accountsHistory } from '../../../../mocks/mocks';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import Bank from '../../../bank/Bank';
 
-const Bank = () => {
+const BankBlock = () => {
   const navigate = useNavigate();
   const content = (
     <>
@@ -55,7 +56,9 @@ const Bank = () => {
     <CloudBlock
       title='Bank'
       // rightButtonAction={() => history.push('/services/bank')}
-      rightButtonAction={() => navigate('/services/bank')}
+      // rightButtonAction={() => navigate('/services/bank')}
+      iframeUrl = '../../../bank/Bank.js'
+      directComponent={<Bank />}
       content={content}
       infoContent="s"
       mdiIcon="monetization_on"
@@ -64,4 +67,4 @@ const Bank = () => {
   );
 };
 
-export default Bank;
+export default BankBlock;

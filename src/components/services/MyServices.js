@@ -1,17 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Bank from './components/bank/Bank';
+import BankBlock from './components/bank/BankBlock';
 import CalendarBlock from './components/calendar/CalendarBlock';
-import CloudHosting from './components/cloudHosting/CloudHosting';
-import CRM from './components/crm/CRM';
-import Disc from './components/disc/Disc';
-import Domains from './components/domains/Domains';
-import InvoiceManager from './components/invoiceManager/InvoiceManager';
-import OnlineConsultant from './components/onlineConsultant/OnlineConsultant ';
-import SitesCopying from './components/site-copying/SiteCopying';
-import SiteBuilder from './components/siteBuilder/SiteBuilder';
-import Tasks from './components/tasks/Tasks';
-import VideoConferencing from './components/videoConferencing/VideoConferencing';
+import CloudHostingBlock from './components/cloudHosting/CloudHostingBlock';
+import CRMBlock from './components/crm/CRMBlock';
+import DiscBlock from './components/disc/DiscBlock';
+import DomainsBlock from './components/domains/DomainsBlock';
+import InvoiceManagerBlock from './components/invoiceManager/InvoiceManagerBlock';
+import OnlineConsultantBlock from './components/onlineConsultant/OnlineConsultantBlock';
+import SiteCopyingBlock from './components/site-copying/SiteCopyingBlock';
+import SiteBuilderBlock from './components/siteBuilder/SiteBuilderBlock';
+import TasksBlock from './components/tasks/TasksBlock';
+import VideoConferencingBlock from './components/videoConferencing/VideoConferencingBlock';
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
@@ -31,29 +31,29 @@ const Services = () => {
         <div className="col-4">
           <CalendarBlock />
           <div className="site-vertical-separator" />
-          <OnlineConsultant />
+          <OnlineConsultantBlock />
           <div className="site-vertical-separator" />
-          <VideoConferencing />
+          <VideoConferencingBlock />
         </div>
         <div className="col-4">
-          <Tasks />
+          <TasksBlock />
           <div className="site-vertical-separator" />
-          <CloudHosting />
+          <CloudHostingBlock />
           <div className="site-vertical-separator" />
-          <SitesCopying />
+          <SiteCopyingBlock />
           <div className="site-vertical-separator" />
-          <CRM />
+          <CRMBlock />
           <div className="site-vertical-separator" />
-          <InvoiceManager />
+          <InvoiceManagerBlock />
         </div>
         <div className="col-4">
-          <Bank />
+          <BankBlock />
           <div className="site-vertical-separator" />
-          <SiteBuilder />
+          <SiteBuilderBlock />
           <div className="site-vertical-separator" />
-          <Domains />
+          <DomainsBlock />
           <div className="site-vertical-separator" />
-          <Disc />
+          <DiscBlock />
         </div>
       </div>
       <div onClick={() => alert('s')} className="services__connect-other">

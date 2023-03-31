@@ -6,7 +6,7 @@ const TAB_DEALS = '1';
 const TAB_TASKS = '2';
 const TAB_LEADS = '3';
 
-const CRM = () => {
+const CRMBlock = () => {
 
   const [tab, setTab] = useState(TAB_DEALS);
 
@@ -39,7 +39,8 @@ const CRM = () => {
   return (
     <CloudBlock
       title="CRM"
-      rightButtonAction={() => alert('s')}
+      // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       infoContent="sd"
       iconName="crm"
@@ -49,4 +50,4 @@ const CRM = () => {
   );
 };
 
-export default CRM;
+export default CRMBlock;

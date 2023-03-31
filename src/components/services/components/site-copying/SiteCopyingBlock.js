@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import CopySites from '../../../copy-sites/CopySites';
 
-const SitesCopying = ({ history }) => {
+
+const SiteCopyingBlock = ({ history }) => {
   const navigate = useNavigate();
   const content = (
     <div className="services__sites-copying_container">
@@ -16,6 +18,7 @@ const SitesCopying = ({ history }) => {
       title='Copy sites'
       rightButtonAction={() => navigate('/services/copy-sites')}
       content={content}
+      directComponent={<CopySites />}
       infoContent="s"
       mdiIcon="content_copy"
       iconContainerColor="blue"
@@ -23,4 +26,4 @@ const SitesCopying = ({ history }) => {
   );
 };
 
-export default SitesCopying;
+export default SiteCopyingBlock;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import Domain from '../../../domains/Domain'
 
-const Domains = () => {
+const DomainsBlock = () => {
   const navigate = useNavigate();
   const content = (
     <div className="services__domains_container">
@@ -17,6 +18,7 @@ const Domains = () => {
       title='Domains'
       rightButtonAction={() => navigate('/services/domains')}
       infoContent="sd"
+      directComponent={<Domain />}
       content={content}
       mdiIcon="domain"
       iconContainerColor="purple"
@@ -24,4 +26,4 @@ const Domains = () => {
   );
 };
 
-export default Domains;
+export default DomainsBlock;

@@ -2,7 +2,7 @@ import React from 'react';
 import ProgressRing from '../../../common/progress-ring/ProgressRing';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 
-const CloudHosting = () => {
+const CloudHostingBlock = () => {
   const content = (
     <div className="services__cloud-hosting">
       <div className="services__cloud-hosting_container">
@@ -35,7 +35,8 @@ const CloudHosting = () => {
   return (
     <CloudBlock
       title="Cloud hosting"
-      rightButtonAction={() => alert('s')}
+      // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       iconName="services/cloud-hosting"
       iconContainerColor="green"
@@ -44,4 +45,4 @@ const CloudHosting = () => {
   );
 };
 
-export default CloudHosting;
+export default CloudHostingBlock;

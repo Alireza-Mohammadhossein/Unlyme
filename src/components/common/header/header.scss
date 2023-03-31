@@ -21,6 +21,10 @@
     font-weight: 300;
     font-size: 24px;
   }
+  &__site-logo {
+    width: $logo-desktop-width;
+    height: auto;
+  }
   &__search-bar {
     margin-left: 2 * $space;
     margin-right: 2 * $space;

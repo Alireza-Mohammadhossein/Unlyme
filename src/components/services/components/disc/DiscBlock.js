@@ -2,7 +2,7 @@ import React from 'react';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import ProgressRing from '../../../common/progress-ring/ProgressRing';
 
-const Disc = () => {
+const DiscBlock = () => {
   const progress = 40;
 
   const content = (
@@ -32,7 +32,8 @@ const Disc = () => {
   return (
     <CloudBlock
       title='Disc'
-      rightButtonAction={() => alert('s')}
+      // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       infoContent="asd"
       iconName="services/disc"
@@ -42,4 +43,4 @@ const Disc = () => {
   );
 };
 
-export default Disc;
+export default DiscBlock;

@@ -78,6 +78,10 @@
       font-weight: 300;
       font-size: 24px;
     }
+    &__site-logo {
+      width: $logo-desktop-width;
+      height: auto;
+    }
     &--showed {
       width: 265px;
     }

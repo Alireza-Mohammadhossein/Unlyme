@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 // import "./calendar.scss";
 
-const Calendar = () => {
+const CalendarSite = () => {
   const { t } = useTranslation();
   const BACKEND_URL = "https://filexy.ru";
   return (
@@ -16,4 +16,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarSite;

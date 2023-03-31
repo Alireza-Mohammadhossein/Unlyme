@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SITE_NAME, SUPPORTED_LANGUAGES } from '../../../types';
+import logo_white from '../../../assets/images/logo_white.png';
 
 
 const Menu = () => {
@@ -32,7 +33,8 @@ const Menu = () => {
         </div>
         <div className="menu__row_col-2">
           <a href="/" className="menu__site-name">
-            {SITE_NAME}
+            <img src={logo_white} className="menu__site-logo" />
+            {/* {SITE_NAME} */}
           </a>
         </div>
       </div>

@@ -4,11 +4,10 @@ import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import ChatPopup from '../chat-popup/ChatPopup';
 import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SITE_NAME, SUPPORTED_LANGUAGES } from '../../../types';
+import logo from '../../../assets/images/logo.png'
 
 
 const Header = () => {
-  console.log(ASSETS_URL);
-  // const language_flag = "Unlyme/assets/icons";
 
   const { t, i18n } = useTranslation()
   const [chatIsShowed, setChatIsShowed] = useState(false);
@@ -25,10 +24,11 @@ const Header = () => {
     <>
       <div className="header">
         <Link to="/" className="header__site-name">
-          {SITE_NAME}
+          {/* {SITE_NAME} */}
+          <img src={logo} className="header__site-logo" />
         </Link>
         <div className="header__search-bar">
-          <span className="header__search-bar_title">{t('HEADER.HOW_CAN_WAYWE_HELP_YOU')}</span>
+          <span className="header__search-bar_title">{t('HEADER.HOW_CAN_UNLYME_HELP_YOU')}</span>
           <div className="header__search-bar_input-container">
             <input className="header__search-bar_input" placeholder={t('HEADER.SEARCH_PLACEHOLDER')} />
             <button onClick={() => alert('s')} className="header__search-bar_button" />
@@ -44,7 +44,7 @@ const Header = () => {
           className="header__language"
         />
         <Link className="header__profile" to="/settings"></Link>
-        <div className="header__notifications" onClick={() => alert('notification')} />
+        {/* <div className="header__notifications" onClick={() => alert('notification')} /> */}
         <div className="header__exit" onClick={() => alert('exit')} />
       </div>
       <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} />

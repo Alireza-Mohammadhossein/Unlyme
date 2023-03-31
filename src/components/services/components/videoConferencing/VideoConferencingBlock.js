@@ -8,7 +8,7 @@ import MaskedInput from 'react-text-mask';
 const TAB_CREATE = '1';
 const TAB_UPCOMING = '2';
 
-const VideoConferencing = () => {
+const VideoConferencingBlock = () => {
 
   const [tab, setTab] = useState(TAB_CREATE);
   const [dateSelectionPopupIsShowed, setDateSelectionPopupIsShowed] = useState(false);
@@ -62,7 +62,8 @@ const VideoConferencing = () => {
     <>
       <CloudBlock
         title='Video conferencing'
-        rightButtonAction={() => alert('s')}
+        // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()
         content={content}
         infoContent="s"
         mdiIcon="play_arrow"
@@ -83,4 +84,4 @@ const VideoConferencing = () => {
   );
 };
 
-export default VideoConferencing;
+export default VideoConferencingBlock;

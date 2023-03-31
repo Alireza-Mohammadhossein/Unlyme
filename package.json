@@ -4,6 +4,10 @@
   "homepage": "https://alireza-mohammadhossein.github.io/Unlyme",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.15",
+    "@mui/styled-engine-sc": "^5.11.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -45,6 +49,7 @@
     "redux-thunk": "^2.4.2",
     "sass": "^1.59.3",
     "scrollreveal": "^4.0.9",
+    "styled-components": "^5.3.9",
     "swiper": "^9.1.1",
     "tracekit": "^0.4.6",
     "typescript-react": "^0.2.2",

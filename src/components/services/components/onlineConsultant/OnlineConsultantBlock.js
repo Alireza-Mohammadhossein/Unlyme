@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import TabToolbar from '../tab-toolbar/TabToolbar';
 import { chatDialogs } from '../../../../mocks/mocks';
+import OnlineConsultant from '../../../online-consultant/OnlineConsultant';
+
 
 const TAB_ALL_DIALOGS = '1';
 const TAB_ACTIVE_DIALOGS = '2';
 
-const OnlineConsultant = () => {
+const OnlineConsultantBlock = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [tab, setTab] = useState(TAB_ACTIVE_DIALOGS);
 
   const options = [
-    { value: TAB_ALL_DIALOGS, label: 'All dialogs' },
-    { value: TAB_ACTIVE_DIALOGS, label: 'Active dialogs' },
+    { value: TAB_ALL_DIALOGS, label: t('SERVICES.ONLINE_CONSULTANT.TAB_ALL_DIALOGS') },
+    { value: TAB_ACTIVE_DIALOGS, label: t('SERVICES.ONLINE_CONSULTANT.TAB_ACTIVE_DIALOGS') },
   ];
 
   const content = (
@@ -42,10 +47,11 @@ const OnlineConsultant = () => {
       rightButtonAction={() => navigate('/services/online-consultant')}
       content={content}
       infoContent="s"
+      directComponent={<OnlineConsultant />}
       mdiIcon="mail_outline"
       iconContainerColor="purple"
     />
   );
 };
 
-export default OnlineConsultant;
+export default OnlineConsultantBlock;

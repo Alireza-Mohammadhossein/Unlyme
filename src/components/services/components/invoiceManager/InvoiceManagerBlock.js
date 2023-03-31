@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 
-const InvoiceManager = () => {
+const InvoiceManagerBlock = () => {
   const dateFormat = 'DD.MM.Y';
 
   const content = (
@@ -61,7 +61,8 @@ const InvoiceManager = () => {
   return (
     <CloudBlock
       title='Invoice manager'
-      rightButtonAction={() => alert('s')}
+      // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       infoContent="s"
       iconName="invoice-manager"
@@ -71,4 +72,4 @@ const InvoiceManager = () => {
   );
 };
 
-export default InvoiceManager;
+export default InvoiceManagerBlock;

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import Popup from '../../../common/popup/Popup';
+import SiteBuilder from '../../../site-builder/SiteBuilder';
 
-const SiteBuilder = () => {
+const SiteBuilderBlock = () => {
   const navigate = useNavigate();
   const [popupVisible, setPopupVisible] = useState(false);
 
@@ -42,6 +43,7 @@ const SiteBuilder = () => {
         content={content}
         infoContent="s"
         mdiIcon="web"
+        directComponent={<SiteBuilder />}
         iconContainerColor="red"
       />
       {popupVisible && (
@@ -54,4 +56,4 @@ const SiteBuilder = () => {
   );
 };
 
-export default SiteBuilder;
+export default SiteBuilderBlock;

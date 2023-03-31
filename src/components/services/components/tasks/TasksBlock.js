@@ -7,7 +7,7 @@ const TAB_IN_PROGRESS = 'TAB_IN_PROGRESS';
 const TAB_DONE = 'TAB_DONE';
 const TAB_CLOSED = 'TAB_CLOSED';
 
-const Tasks = () => {
+const TasksBlock = () => {
 
   const [tab, setTab] = useState(TAB_BACKLOG);
 
@@ -29,7 +29,8 @@ const Tasks = () => {
   return (
     <CloudBlock
       title="Tasks"
-      rightButtonAction={() => alert('s')}
+      // rightButtonAction={() => alert('s')}
+      // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       infoContent="s"
       mdiIcon="task"
@@ -39,4 +40,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default TasksBlock;
