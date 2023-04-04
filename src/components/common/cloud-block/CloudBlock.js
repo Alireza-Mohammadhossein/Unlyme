@@ -19,6 +19,7 @@ const CloudBlock = ({
   directComponent
 }) => {
 
+  
   const style = {
     position: 'absolute',
     top: '50%',
@@ -32,10 +33,15 @@ const CloudBlock = ({
     boxShadow: 24,
   };
   
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  }
 
 
   return (
@@ -61,14 +67,22 @@ const CloudBlock = ({
             </span>
           )}
         </div>
-      
+
         {directComponent != null && (
           <div className="btn btn--blue-text cloud-block__header_btn" onClick={handleOpen}>
             Open
           </div>
         )}
+        
+        <div className={`cloud-block__header_collapse ${directComponent ? '' : 'ml-auto'} `}>
+          <button className="material-icons cloud-block__header_collapse_btn" onClick={handleCollapse}>
+            {isCollapsed ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
+          </button>
+        </div>
+      
       </div>
-      <div className="cloud-block__content">{content}</div>
+      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div>
+      
       <Modal
         open={open}
         onClose={handleClose}
