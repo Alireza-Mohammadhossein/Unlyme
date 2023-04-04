@@ -5,9 +5,17 @@ import { useTranslation } from 'react-i18next';
 import ChatPopup from '../chat-popup/ChatPopup';
 import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SITE_NAME, SUPPORTED_LANGUAGES } from '../../../types';
 import logo from '../../../assets/images/logo.png'
+import { connect } from 'react-redux';
+// import { signoutUser } from '../../app/AppActions';
+import { useSelector, useDispatch } from 'react-redux';
+import { signoutUser } from '../../../redux/app/appSlice';
+
+
 
 
 const Header = () => {
+  const userTokenStatus = useSelector((state) => state.app.token)
+  const dispatch = useDispatch()
 
   const { t, i18n } = useTranslation()
   const [chatIsShowed, setChatIsShowed] = useState(false);
@@ -18,6 +26,8 @@ const Header = () => {
       localStorage.setItem(LOCAL_STORAGE_LOCALE, newLang);
     });
   };
+
+
 
 
   return (
@@ -45,11 +55,21 @@ const Header = () => {
         />
         <Link className="header__profile" to="/settings"></Link>
         {/* <div className="header__notifications" onClick={() => alert('notification')} /> */}
-        <div className="header__exit" onClick={() => alert('exit')} />
+        <div className="header__exit" onClick={() => dispatch(signoutUser())} />
       </div>
       <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} />
     </>
   );
 };
+
+// const mapStateToProps = state => ({
+//   token: state.app.token
+// });
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     signoutUser: () => dispatch(signoutUser())
+//   }
+// };
 
 export default Header;

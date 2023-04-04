@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as signinActionsList from './SigninActions';
 import SigninForm from './components/SigninForm';
 
 function Signin(props) {
@@ -7,7 +10,7 @@ function Signin(props) {
   useEffect(() => {
     document.body.classList.add('be-screen-silver');
     return () => {
-    //   signinActions.clearSigninForm();
+      signinActions.clearSigninForm();
       document.body.classList.remove('be-screen-silver');
     };
   }, [signinActions]);
@@ -15,5 +18,10 @@ function Signin(props) {
   return <SigninForm />;
 }
 
+function mapActionsToProps(dispatch) {
+  return {
+      signinActions: bindActionCreators(signinActionsList, dispatch),
+  };
+}
 
-export default Signin;
+export default connect(null, mapActionsToProps)(Signin);
