@@ -42,7 +42,7 @@ body {
   background-color: $silver;
   height: 100%;
   overflow-x:hidden;
-  min-width: $min-width;
+  // min-width: $min-width;
 }
 body * {
   font-family: 'Open Sans', sans-serif;
@@ -869,7 +869,7 @@ button:disabled {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   &--center {
     align-items: center;
   }

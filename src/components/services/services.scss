@@ -1,7 +1,27 @@
-// @import '../../styles/sass/variables.scss';
+@import '/node_modules/react-grid-layout/css/styles.css';
+@import '/node_modules/react-resizable/css/styles.css';
 
 
 .services {
+    &__layout {
+      justify-content: center;
+      width: 100%;
+      &.layoutXL {
+        max-width: 1600px;
+      } 
+      &.layoutLG {
+        max-width: 1200px;
+      }  
+      &.layoutMD {
+        max-width: 996px;
+      } 
+      &.layoutSM {
+        max-width: 768px;
+      } 
+      &.layoutXS {
+        max-width: 480px;
+      } 
+    }
     &__connect-other {
       width: 100%;
       border: 2px dashed $delimiter;

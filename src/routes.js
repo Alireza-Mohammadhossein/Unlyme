@@ -6,7 +6,7 @@ import CopySites from './components/copy-sites/CopySites';
 import Domains from './components/domains/Domain';
 import NotFound from './components/notfound/NotFound';
 import OnlineConsultant from './components/online-consultant/OnlineConsultant';
-import Servises from './components/services/MyServices';
+import MyServices from './components/services/MyServices';
 import Settings from './components/settings/Settings';
 import Signin from './components/signin/SignIn';
 import SiteBuilder from './components/site-builder/SiteBuilder';
@@ -19,7 +19,7 @@ const Switcher = () => {
       <Route element={<PrivateRoutes />}>
         <Route 
           path="/"
-          element={<Servises />}
+          element={<MyServices />}
         />
         <Route 
           path="/services/domains"
