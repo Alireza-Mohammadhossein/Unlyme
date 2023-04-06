@@ -6,11 +6,13 @@ import Switcher from "../../routes";
 import Spinner from '../common/spinner/Spinner';
 // import { connect } from 'react-redux';
 // import { fetchUserInfo } from './AppActions';
+import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 import { fetchUserInfo } from '../../redux/app/appSlice';
 import { useSelector, useDispatch } from 'react-redux';
 // import { useSelector, useDispatch } from 'react-redux';
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/sass/app.scss";
+
 
 function App() {
 
@@ -60,12 +62,47 @@ function App() {
   }, [data]);
 
 
+
+  // this part is for getting screensize for react grid layout
+  // const [screenSize, setscreenSize] = useState(
+  //   window.innerWidth >= 1600 ? 'XL' 
+  //     : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
+  //     : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
+  //     : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
+  //     : 'XS'
+  //     );
+
+
+  // useEffect(() => {
+  //   console.log('resize');
+  //   const handleResize = () => {
+  //     setscreenSize(
+  //       window.innerWidth >= 1600 ? 'XL' 
+  //         : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
+  //         : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
+  //         : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
+  //         : 'XS'
+  //     );
+  //   };
+  //   window.addEventListener('resize', handleResize);
+  // }, []);
+
+
+  
   // const { token } = data;
 
+  const screenSize = GetScreenSize();
 
 
   return (
-    <div id="siteWrapper">
+    <div id="siteWrapper" className={`
+    siteWrapper 
+    ${screenSize === 'XL' ? 'siteWrapperXL'
+    : screenSize === 'LG' ? 'siteWrapperLG'
+    : screenSize === 'MD' ? 'siteWrapperMD'
+    : screenSize === 'SM' ? 'siteWrapperSM'
+    : 'siteWrapperXS'
+  }`}>
       {!ready && (
         <div className="be-loading be-loading-active be-loading-full-size">
           <Spinner />
@@ -76,7 +113,7 @@ function App() {
             <Header />
             <Menu />
             <RightMenu />
-            <Switcher />
+            <Switcher screenSize={screenSize} />
             <div className="modal-backdrop fade show" style={{ display: "none" }} />
           </div>
       )}

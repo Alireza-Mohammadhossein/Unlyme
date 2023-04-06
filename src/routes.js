@@ -13,13 +13,13 @@ import SiteBuilder from './components/site-builder/SiteBuilder';
 
 
 // This component is responsible for page routing
-const Switcher = () => {
+const Switcher = ({ screenSize }) => {
   return (
     <Routes> 
       <Route element={<PrivateRoutes />}>
         <Route 
           path="/"
-          element={<MyServices />}
+          element={<MyServices screenSize={screenSize}/>}
         />
         <Route 
           path="/services/domains"

@@ -12,7 +12,7 @@ import { Provider } from "react-redux"  ;
 // import store from "./redux/store";
 import moment from "moment";
 import 'moment/locale/ru';
-import "./styles/sass/style.scss";
+// import "./styles/sass/style.scss";
 import "swiper/swiper-bundle.min.css";
 import "material-icons/iconfont/material-icons.css";
 import App from "./components/app/App";

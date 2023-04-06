@@ -14,6 +14,7 @@ import TasksBlock from './components/tasks/TasksBlock';
 import VideoConferencingBlock from './components/videoConferencing/VideoConferencingBlock';
 import { Responsive, WidthProvider } from "react-grid-layout";
 import DemoComponent from './DemoComponent';
+import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
@@ -21,6 +22,7 @@ import DemoComponent from './DemoComponent';
 
 
 const Services = () => {
+  const screenSize = GetScreenSize();
   const ResponsiveGridLayout = WidthProvider(Responsive);
   const { t } = useTranslation();
 
@@ -100,33 +102,12 @@ const Services = () => {
   ];
 
   
-  const [screenSize, setscreenSize] = useState(
-    window.innerWidth >= 1600 ? 'XL' 
-      : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
-      : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
-      : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
-      : 'XS'
-      );
   const gridLayout = { lg: screenSize === 'XL' ? layoutXL
     : screenSize === 'LG' ? layoutLG
     : screenSize === 'MD' ? layoutMD
     : screenSize === 'SM' ? layoutSM
     : layoutXS
   };
-
-  useEffect(() => {
-    console.log('resize');
-    const handleResize = () => {
-      setscreenSize(
-        window.innerWidth >= 1600 ? 'XL' 
-          : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
-          : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
-          : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
-          : 'XS'
-      );
-    };
-    window.addEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="container">

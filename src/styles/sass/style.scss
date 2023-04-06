@@ -107,6 +107,26 @@ h1, .div-h1 {
   display: flex;
   align-items: center;
 }
+.siteWrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  &.siteWrapperXL {
+    background-image: url('../../assets/images/services/XLback.jpg');
+  }
+  &.siteWrapperLG {
+    background-image: url('../../assets/images/services/LGback.jpg');
+  }
+  &.siteWrapperMD {
+    background-image: url('../../assets/images/services/LGback.jpg');
+  }
+  &.siteWrapperSM {
+    background-image: url('../../assets/images/services/LGback.jpg');
+  }
+  &.siteWrapperXS {
+    background-image: url('../../assets/images/services/LGback.jpg');
+  }
+}
 .cloud {
   box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
   background-color: white;

@@ -3,14 +3,64 @@
 .menu {
     box-sizing: border-box;
     height: 100vh;
-    background-color: $black;
+    background-color: transparent;
+    padding-top: 109px;
+    padding-left: 1.5 * $space;
     transition: 0.2s;
-    width: 50px;
+    width: 65px;
     z-index: 10;
     overflow: hidden;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     &--showed {
       width: 250px;
+    }
+    &.menuXL {
+      .menu__row_img{
+        width: 50px;
+        height: 50px;
+      }
+      .menu__row--link {
+        margin-bottom: 1.5 * $space;
+      }
+    }
+    
+    &.menuLG {
+      .menu__row_img{
+        width: 35px;
+        height: 35px;
+      }
+      .menu__row--link {
+        margin-bottom: 1.5 * $space;
+      }
+    }
+    &.menuMD {
+      .menu__row_img{
+        width: 35px;
+        height: 35px;
+      }
+      .menu__row--link {
+        margin-bottom: 1.5 * $space;
+      }
+    }
+    &.menuSM {
+      .menu__row_img{
+        width: 35px;
+        height: 35px;
+      }
+      .menu__row--link {
+        margin-bottom: 1.5 * $space;
+      }
+    }
+    &.menuXS {
+      .menu__row_img{
+        width: 35px;
+        height: 35px;
+      }
+      .menu__row--link {
+        margin-bottom: 1.5 * $space;
+      }
     }
     &__row {
       display: flex;
@@ -19,7 +69,7 @@
       align-items: center;
       justify-content: flex-start;
       &--link {
-        height: 34px;
+        // height: 34px;
         transition: 0.2s;
         &:hover {
           span {
@@ -48,6 +98,7 @@
       &_col-2 {
         min-width: 200px;
       }
+      
     }
     &__burger {
       width: 16px;
