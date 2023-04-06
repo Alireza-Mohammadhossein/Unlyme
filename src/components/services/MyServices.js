@@ -13,7 +13,6 @@ import SiteBuilderBlock from './components/siteBuilder/SiteBuilderBlock';
 import TasksBlock from './components/tasks/TasksBlock';
 import VideoConferencingBlock from './components/videoConferencing/VideoConferencingBlock';
 import { Responsive, WidthProvider } from "react-grid-layout";
-import DemoComponent from './DemoComponent';
 import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 // import './services.scss';
 // import { Link } from "react-router-dom";
@@ -21,10 +20,17 @@ import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 // This component is for loading components in homepage
 
 
+
+
 const Services = () => {
   const screenSize = GetScreenSize();
-  const ResponsiveGridLayout = WidthProvider(Responsive);
   const { t } = useTranslation();
+  const ResponsiveGridLayout = WidthProvider(Responsive);
+
+  const onLayoutChange = (layout, layouts) => {
+    saveToLS("layouts", layouts);
+    // setLayouts(layouts);
+  }
 
   const layoutXL = [
     { i: "1", x: 0, y: 0, w: 3, h: 1 },
@@ -101,14 +107,17 @@ const Services = () => {
     { i: "12", x: 0, y: 11, w: 12, h: 1 },
   ];
 
-  
-  const gridLayout = { lg: screenSize === 'XL' ? layoutXL
+  const originalLayouts = getFromLS("layouts") || {
+    lg: screenSize === 'XL' ? layoutXL
     : screenSize === 'LG' ? layoutLG
     : screenSize === 'MD' ? layoutMD
     : screenSize === 'SM' ? layoutSM
     : layoutXS
   };
 
+  const [layouts, setLayouts] = useState(JSON.parse(JSON.stringify(originalLayouts)));
+
+  
   return (
     <div className="container">
       <h1>
@@ -127,13 +136,14 @@ const Services = () => {
             : 'layoutXS'
           }`}
           // autoSize = {true}
-          layouts={gridLayout}
+          layouts={layouts}
           // breakpoints={{ lg: 1200 }}
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
           rowHeight={380}
           draggableCancel = '.MyNonDraggableAreaClassName'
           isResizable = {false}
           compactType = 'horizontal'
+          onLayoutChange={onLayoutChange}
           // width={1200}
         >
           <div key="1" >
@@ -179,7 +189,99 @@ const Services = () => {
   );
 
 
+
+  function getFromLS(key) {
+    let lsXL = {};
+    let lsLG = {};
+    let lsMD = {};
+    let lsSM = {};
+    let lsXS = {};
+    if (global.localStorage) {
+      try {
+        if(screenSize === 'XL') {
+          lsXL = JSON.parse(global.localStorage.getItem("rglXL")) || {};
+          return lsXL[key];
+        }
+        if(screenSize === 'LG') {
+          lsLG = JSON.parse(global.localStorage.getItem("rglLG")) || {};
+          return lsLG[key];
+        }
+        if(screenSize === 'MD') {
+          lsMD = JSON.parse(global.localStorage.getItem("rglMD")) || {};
+          return lsMD[key];
+        }
+        if(screenSize === 'SM') {
+          lsSM = JSON.parse(global.localStorage.getItem("rglSM")) || {};
+          return lsSM[key];
+        }
+        if(screenSize === 'XS') {
+          lsXS = JSON.parse(global.localStorage.getItem("rglXS")) || {};
+          return lsXS[key];
+        }
+        // ls = JSON.parse(global.localStorage.getItem("rgl")) || {};
+      } catch (e) {
+        /*Ignore*/
+      }
+    }
+  }
+  
+  function saveToLS(key, value) {
+  
+    if (global.localStorage) {
+      if(screenSize === 'XL') {
+        global.localStorage.setItem(
+          "rglXL",
+          JSON.stringify({
+            [key]: value
+          })
+        );
+      }
+  
+      if(screenSize === 'LG') {
+        global.localStorage.setItem(
+          "rglLG",
+          JSON.stringify({
+            [key]: value
+          })
+        );
+      }
+  
+      if(screenSize === 'MD') {
+        global.localStorage.setItem(
+          "rglMD",
+          JSON.stringify({
+            [key]: value
+          })
+        );
+      }
+  
+      if(screenSize === 'SM') {
+        global.localStorage.setItem(
+          "rglSM",
+          JSON.stringify({
+            [key]: value
+          })
+        );
+      }
+  
+      if(screenSize === 'XS') {
+        global.localStorage.setItem(
+          "rglXS",
+          JSON.stringify({
+            [key]: value
+          })
+        );
+      }
+    }
+  }
+
+
 };
+
+
+
+
+
 
 export default Services;
 
