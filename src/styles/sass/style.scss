@@ -958,13 +958,13 @@ button:disabled {
   .react-calendar__navigation button{
     min-width: 44px;
     background: none;
+    color: $gray-text;
   }
   .react-calendar__navigation button[disabled] {
     background-color: transparent;
-    color:black;
   }
   .react-calendar__navigation {
-    justify-content: center;
+    justify-content: space-between;
     display: flex;
   }
   .react-calendar__navigation__label {
@@ -972,7 +972,7 @@ button:disabled {
     font-size: 16px;
   }
   .react-calendar__navigation__arrow {
-    font-size: 20px;
+    font-size: 23px;
     padding-bottom: 0.1em;
   }
   .react-calendar__navigation button:enabled:hover,
@@ -994,17 +994,20 @@ button:disabled {
   .react-calendar__month-view__weekdays__weekday {
     text-transform: none;
     padding: 0.5em 0;
+    color: $gray-text;
+    font-size: 12px;
     abbr {
       text-decoration: none;
     }
   }
   .react-calendar__tile {
-    padding: 0.25em 0.5em;
+    // padding: 0.25em 0.5em;
     background: none;
+    font-size: 14px;
     abbr {
-      height: 30px;
-      width: 30px;
-      line-height: 30px;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
       border-radius: 100%;
       display: inline-block;
     }

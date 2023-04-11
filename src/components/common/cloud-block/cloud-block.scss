@@ -2,18 +2,30 @@
 
 .cloud-block {
     box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
-    background-color: white;
+    // background-color: white;
     border-radius: $border-radius-big;
     overflow: hidden;
+    height: 380px;
     &__header {
-      border-bottom: 1px solid $delimiter;
-      padding: 7px 10px;
+      // border-bottom: 1px solid $delimiter;
+      background-color: $cloud-header-background;
+      padding: 14px 30px;
       display: flex;
       align-items: center;
-      height: 30px;
+      height: 50px;
       justify-content: flex-start;
-      &_title {
-        font-size: 16px;
+      &_title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      &-title {
+        font-size: 22px;
+        color: $cloud-title-color;
+      }
+      &-subtitle {
+        font-size: 13px;
+        color: $cloud-subtitle-color;
       }
       &_collapse {
         &_btn{
@@ -45,15 +57,15 @@
         margin-left: auto;
       }
       &_icon-container {
-        width: 24px;
-        height: 24px;
-        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        // border-radius: 100%;
         margin-right: $space;
-        background-size: 12px auto;
-        background-position: center;
-        background-repeat: no-repeat;
-        text-align: center;
-        line-height: 24px;
+        // background-size: 12px auto;
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // text-align: center;
+        // line-height: 24px;
         &--blue {
           background-color: $blue;
         }
@@ -80,13 +92,18 @@
           padding: 4px 3px;
         }
       }
+      &-icon {
+        width: 100%;
+        height: 100%;
+      }
     }
     &__temp-gap {
       height: 130px;
     }
     &__content {
       padding: $space;
-      height: auto;
+      height: 282px;
+      background-color: #fff;
       opacity: 1;
       visibility: visible;
       &.isCollapsed {

@@ -27,10 +27,7 @@ const Services = () => {
   const { t } = useTranslation();
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
-  const onLayoutChange = (layout, layouts) => {
-    saveToLS("layouts", layouts);
-    // setLayouts(layouts);
-  }
+
 
   const layoutXL = [
     { i: "1", x: 0, y: 0, w: 3, h: 1 },
@@ -107,6 +104,8 @@ const Services = () => {
     { i: "12", x: 0, y: 11, w: 12, h: 1 },
   ];
 
+
+  // call getFromLS and set layouts to originalLayouts 
   const originalLayouts = getFromLS("layouts") || {
     lg: screenSize === 'XL' ? layoutXL
     : screenSize === 'LG' ? layoutLG
@@ -117,6 +116,17 @@ const Services = () => {
 
   const [layouts, setLayouts] = useState(JSON.parse(JSON.stringify(originalLayouts)));
 
+  // call saveToLS when screen size change
+  const onLayoutChange = (layout, layouts) => {
+    saveToLS("layouts", layouts);
+    // setLayouts(layouts);
+  }
+
+
+  // after loading content, when sizescreen change it will update the layout
+  useEffect(() => {
+    setLayouts(originalLayouts);
+  }, [screenSize])
   
   return (
     <div className="container">
@@ -135,16 +145,14 @@ const Services = () => {
             : screenSize === 'SM' ? 'layoutSM'
             : 'layoutXS'
           }`}
-          // autoSize = {true}
           layouts={layouts}
-          // breakpoints={{ lg: 1200 }}
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
           rowHeight={380}
+          // autoHeight={true}
           draggableCancel = '.MyNonDraggableAreaClassName'
           isResizable = {false}
           compactType = 'horizontal'
           onLayoutChange={onLayoutChange}
-          // width={1200}
         >
           <div key="1" >
             <CalendarBlock />
@@ -189,7 +197,7 @@ const Services = () => {
   );
 
 
-
+  // getting layouts from localstorag 
   function getFromLS(key) {
     let lsXL = {};
     let lsLG = {};
@@ -218,13 +226,13 @@ const Services = () => {
           lsXS = JSON.parse(global.localStorage.getItem("rglXS")) || {};
           return lsXS[key];
         }
-        // ls = JSON.parse(global.localStorage.getItem("rgl")) || {};
       } catch (e) {
         /*Ignore*/
       }
     }
   }
   
+  // saving layouts to localstorage
   function saveToLS(key, value) {
   
     if (global.localStorage) {

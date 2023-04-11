@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import TabToolbar from '../tab-toolbar/TabToolbar';
+import icon from '../../../../assets/images/services/tasks-widget.png';
 
 const TAB_BACKLOG = 'TAB_BACKLOG';
 const TAB_IN_PROGRESS = 'TAB_IN_PROGRESS';
@@ -8,7 +10,7 @@ const TAB_DONE = 'TAB_DONE';
 const TAB_CLOSED = 'TAB_CLOSED';
 
 const TasksBlock = () => {
-
+  const { t, i18n } = useTranslation();
   const [tab, setTab] = useState(TAB_BACKLOG);
 
   const options = [
@@ -28,14 +30,16 @@ const TasksBlock = () => {
 
   return (
     <CloudBlock
-      title="Tasks"
+      title={t('SERVICES.TASKS.TITLE')}
+      subtitle={t('SERVICES.TASKS.SUBTITLE')}
       // rightButtonAction={() => alert('s')}
       // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       infoContent="s"
-      mdiIcon="task"
+      // mdiIcon="task"
       iconName="services/tasks"
-      iconContainerColor="orange"
+      icon={icon}
+      // iconContainerColor="orange"
     />
   );
 };

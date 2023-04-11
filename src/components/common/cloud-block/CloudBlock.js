@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 
 const CloudBlock = ({ 
   title,
+  subtitle,
   iconContainerColor,
   iconName,
   iconAction,
@@ -16,7 +17,8 @@ const CloudBlock = ({
   infoContent,
   rightButtonAction,
   rightButtonTitle,
-  directComponent
+  directComponent,
+  icon
 }) => {
 
   
@@ -47,30 +49,33 @@ const CloudBlock = ({
   return (
     <div className="cloud-block">
       <div className="cloud-block__header">
-        {(iconName || mdiIcon) && (
+        {/* {(iconName || mdiIcon) && ( */}
           <div
-            className={`cloud-block__header_icon-container cloud-block__header_icon-container--${iconContainerColor}`}
+            className="cloud-block__header_icon-container"
             onClick={iconAction || undefined}
             style={{
               backgroundImage: iconName ? `../../../assets/icons/${iconName}.svg)` : '',
               cursor: iconAction ? 'pointer' : 'default',
             }}
           >
-            {mdiIcon && <i className="material-icons" style={{ color: mdiIconColor || 'white' }}>{mdiIcon}</i>}
+            {/* {mdiIcon && <i className="material-icons" style={{ color: mdiIconColor || 'white' }}>{mdiIcon}</i>} */}
+            <img className="cloud-block__header-icon" src={icon} />
           </div>
-        )}
-        <div className="cloud-block__header_title">
-          {title}
-          {infoContent != null && (
+        {/* )} */}
+        <div className="cloud-block__header_title-container">
+          <p className="cloud-block__header-title">{title}</p>
+          <p className="cloud-block__header-subtitle">{subtitle}</p>
+          {/* {infoContent != null && (
             <span className="cloud-block__header_info" onClick={() => alert('s')}>
               i
             </span>
-          )}
+          )} */}
         </div>
 
         {directComponent != null && (
           <div className="btn btn--blue-text cloud-block__header_btn" onClick={handleOpen}>
-            Open
+            {/* Open */}
+            <i className="material-icons">add</i>
           </div>
         )}
         

@@ -25,10 +25,10 @@ import InputBase from '@mui/material/InputBase';
 const Header = () => {
 
   const items = [
-    { id: 1, title: 'chat', link: '/', img:`${ASSETS_URL}/assets/images/hedaer/icon.png`},
-    { id: 2, title: 'mails', link: '/', img:`${ASSETS_URL}/assets/images/hedaer/icon.png`},
-    { id: 3, title: 'notes', link: '/', img:`${ASSETS_URL}/assets/images/hedaer/icon.png`},
-    { id: 4, title: 'notifications', link: '/', img:`${ASSETS_URL}/assets/images/hedaer/icon.png`},
+    { id: 1, title: 'chat', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
+    { id: 2, title: 'mails', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
+    { id: 3, title: 'notes', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
+    { id: 4, title: 'notifications', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
   ];
 
 
@@ -121,22 +121,22 @@ const Header = () => {
           <div className="header__details-area_items">
             <div className="header__details-area_items-icon">
               <Tooltip title='Chat' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/chat.png`} alt="chat" />
+                <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
               </Tooltip>
             </div>
             <div className="header__details-area_items-icon">
               <Tooltip title='Mails' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/mails.png`} alt="mails" />
+                <img src={`${ASSETS_URL}/assets/images/header/mails-icon.png`} alt="mails" />
               </Tooltip>
             </div>
             <div className="header__details-area_items-icon">
               <Tooltip title='Notes' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/notes.png`} alt="notes" />
+                <img src={`${ASSETS_URL}/assets/images/header/notes-icon.png`} alt="notes" />
               </Tooltip>
             </div>
             <div className="header__details-area_items-icon">
               <Tooltip title='Notifications' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/notifications.png`} alt="notifications" />
+                <img src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`} alt="notifications" />
               </Tooltip>
             </div>
           </div>

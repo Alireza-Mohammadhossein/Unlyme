@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import { getLangISOFormat } from '../../../../types';
 import CalendarSite from '../../../calendar/CalendarSite';
+import icon from '../../../../assets/images/services/calendar-widget.png';
 
 
 const CalendarBlock = () => {
@@ -14,6 +15,7 @@ const CalendarBlock = () => {
   return (
     <CloudBlock
       title={t('SERVICES.CALENDAR.TITLE')}
+      subtitle={t('SERVICES.CALENDAR.SUBTITLE')}
       // rightButtonAction={() => navigate('/services/calendar')}
       infoContent="asd"
       directComponent={<CalendarSite />}
@@ -25,8 +27,9 @@ const CalendarBlock = () => {
           onChange={() => navigate('/services/calendar')}
         />
       }
-      mdiIcon="calendar_month"
-      iconContainerColor="blue"
+      // mdiIcon="calendar_month"
+      icon={icon}
+      // iconContainerColor="blue"
     />
   );
 };
