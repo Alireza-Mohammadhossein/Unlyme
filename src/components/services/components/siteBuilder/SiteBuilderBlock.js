@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import Popup from '../../../common/popup/Popup';
 import SiteBuilder from '../../../site-builder/SiteBuilder';
+import icon from '../../../../assets/images/services/site-builder-widget.png'
 
 const SiteBuilderBlock = () => {
   const navigate = useNavigate();
@@ -42,9 +43,8 @@ const SiteBuilderBlock = () => {
         rightButtonAction={() => navigate('/services/site-builder')}
         content={content}
         infoContent="s"
-        mdiIcon="web"
+        icon={icon}
         directComponent={<SiteBuilder />}
-        iconContainerColor="red"
       />
       {popupVisible && (
         <Popup

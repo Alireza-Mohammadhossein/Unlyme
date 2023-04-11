@@ -88,6 +88,8 @@ const CloudBlock = ({
       </div>
       <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div>
       
+
+      {/* modal */}
       <Modal
         open={open}
         onClose={handleClose}

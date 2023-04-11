@@ -6,6 +6,7 @@ import CloudHostingBlock from './components/cloudHosting/CloudHostingBlock';
 import CRMBlock from './components/crm/CRMBlock';
 import DiscBlock from './components/disc/DiscBlock';
 import DomainsBlock from './components/domains/DomainsBlock';
+import GuideBlock from './components/guide/GuideBlock';
 import InvoiceManagerBlock from './components/invoiceManager/InvoiceManagerBlock';
 import OnlineConsultantBlock from './components/onlineConsultant/OnlineConsultantBlock';
 import SiteCopyingBlock from './components/site-copying/SiteCopyingBlock';
@@ -30,78 +31,91 @@ const Services = () => {
 
 
   const layoutXL = [
-    { i: "1", x: 0, y: 0, w: 3, h: 1 },
-    { i: "2", x: 3, y: 0, w: 3, h: 1 },
-    { i: "3", x: 6, y: 0, w: 3, h: 1 },
-    { i: "4", x: 9, y: 0, w: 3, h: 1 },
-    { i: "5", x: 0, y: 1, w: 3, h: 1 },
-    { i: "6", x: 3, y: 1, w: 3, h: 1 },
-    { i: "7", x: 6, y: 1, w: 3, h: 1 },
-    { i: "8", x: 9, y: 1, w: 3, h: 1 },
-    { i: "9", x: 0, y: 2, w: 3, h: 1 },
-    { i: "10", x: 3, y: 2, w: 3, h: 1 },
-    { i: "11", x: 6, y: 2, w: 3, h: 1 },
-    { i: "12", x: 9, y: 2, w: 3, h: 1 },
+    { i: "calendar", x: 0, y: 0, w: 3, h: 1 },
+    { i: "domains", x: 3, y: 0, w: 3, h: 1 },
+    { i: "guide", x: 6, y: 0, w: 6, h: 1 },
+
+    { i: "tasks", x: 0, y: 1, w: 6, h: 1 },
+    { i: "cloud", x: 6, y: 1, w: 3, h: 1 },
+    { i: "logo-builder", x: 9, y: 1, w: 3, h: 1 },
+    
+    { i: "drive", x: 0, y: 2, w: 3, h: 1 },
+    { i: "site-builder", x: 3, y: 2, w: 6, h: 1 },
+    { i: "bank", x: 9, y: 2, w: 3, h: 1 },
+
+    { i: "copy-site", x: 0, y: 3, w: 3, h: 1 },
+    { i: "video-conference", x: 3, y: 3, w: 6, h: 1 },
+    { i: "disc", x: 9, y: 3, w: 3, h: 1 },
   ];
 
   const layoutLG = [
-    { i: "1", x: 0, y: 0, w: 4, h: 1 },
-    { i: "2", x: 4, y: 0, w: 4, h: 1 },
-    { i: "3", x: 8, y: 0, w: 4, h: 1 },
-    { i: "4", x: 0, y: 1, w: 4, h: 1 },
-    { i: "5", x: 4, y: 1, w: 4, h: 1 },
-    { i: "6", x: 8, y: 1, w: 4, h: 1 },
-    { i: "7", x: 0, y: 2, w: 4, h: 1 },
-    { i: "8", x: 4, y: 2, w: 4, h: 1 },
-    { i: "9", x: 8, y: 2, w: 4, h: 1 },
-    { i: "10", x: 0, y: 3, w: 4, h: 1 },
-    { i: "11", x: 4, y: 3, w: 4, h: 1 },
-    { i: "12", x: 8, y: 3, w: 4, h: 1 },
+    { i: "calendar", x: 0, y: 0, w: 4, h: 1 },
+    { i: "guide", x: 4, y: 0, w: 8, h: 1 },
+
+    { i: "tasks", x: 0, y: 1, w: 8, h: 1 },
+    { i: "domains", x: 8, y: 1, w: 4, h: 1 },
+    
+    { i: "cloud", x: 0, y: 2, w: 4, h: 1 },
+    { i: "drive", x: 4, y: 2, w: 8, h: 1 },
+    
+    { i: "bank", x: 0, y: 3, w: 8, h: 1 },
+    { i: "logo-builder", x: 8, y: 3, w: 4, h: 1 },
+    
+    { i: "copy-site", x: 0, y: 4, w: 4, h: 1 },
+    { i: "site-builder", x: 4, y: 4, w: 8, h: 1 },
+    
+    { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
+    { i: "disc", x: 8, y: 5, w: 4, h: 1 },
   ];
 
   const layoutMD = [
-    { i: "1", x: 0, y: 0, w: 6, h: 1 },
-    { i: "2", x: 6, y: 0, w: 6, h: 1 },
-    { i: "3", x: 0, y: 1, w: 6, h: 1 },
-    { i: "4", x: 6, y: 1, w: 6, h: 1 },
-    { i: "5", x: 0, y: 2, w: 6, h: 1 },
-    { i: "6", x: 6, y: 2, w: 6, h: 1 },
-    { i: "7", x: 0, y: 3, w: 6, h: 1 },
-    { i: "8", x: 6, y: 3, w: 6, h: 1 },
-    { i: "9", x: 0, y: 4, w: 6, h: 1 },
-    { i: "10", x: 6, y: 4, w: 6, h: 1 },
-    { i: "11", x: 0, y: 5, w: 6, h: 1 },
-    { i: "12", x: 6, y: 5, w: 6, h: 1 },
+    { i: "calendar", x: 0, y: 0, w: 6, h: 1 },
+    { i: "domains", x: 6, y: 0, w: 6, h: 1 },
+
+    { i: "guide", x: 0, y: 1, w: 6, h: 1 },
+    { i: "tasks", x: 6, y: 1, w: 6, h: 1 },
+
+    { i: "cloud", x: 0, y: 2, w: 6, h: 1 },
+    { i: "drive", x: 6, y: 2, w: 6, h: 1 },
+    
+    { i: "bank", x: 0, y: 3, w: 6, h: 1 },
+    { i: "logo-builder", x: 6, y: 3, w: 6, h: 1 },
+
+    { i: "copy-site", x: 0, y: 4, w: 6, h: 1 },
+    { i: "site-builder", x: 6, y: 4, w: 6, h: 1 },
+
+    { i: "video-conference", x: 0, y: 5, w: 6, h: 1 },
+    { i: "disc", x: 6, y: 5, w: 6, h: 1 },
   ];
 
   const layoutSM = [
-    { i: "1", x: 0, y: 0, w: 12, h: 1 },
-    { i: "2", x: 0, y: 1, w: 12, h: 1 },
-    { i: "3", x: 0, y: 2, w: 12, h: 1 },
-    { i: "4", x: 0, y: 3, w: 12, h: 1 },
-    { i: "5", x: 0, y: 4, w: 12, h: 1 },
-    { i: "6", x: 0, y: 5, w: 12, h: 1 },
-    { i: "7", x: 0, y: 6, w: 12, h: 1 },
-    { i: "8", x: 0, y: 7, w: 12, h: 1 },
-    { i: "9", x: 0, y: 8, w: 12, h: 1 },
-    { i: "10", x: 0, y: 9, w: 12, h: 1 },
-    { i: "11", x: 0, y: 10, w: 12, h: 1 },
-    { i: "12", x: 0, y: 11, w: 12, h: 1 },
+    { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
+    { i: "domains", x: 0, y: 1, w: 12, h: 1 },
+    { i: "guide", x: 0, y: 2, w: 12, h: 1 },
+    { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
+    { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
+    { i: "drive", x: 0, y: 5, w: 12, h: 1 },
+    { i: "bank", x: 0, y: 6, w: 12, h: 1 },
+    { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
+    { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
+    { i: "site-builder", x: 0, y: 9, w: 12, h: 1 },
+    { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
+    { i: "disc", x: 0, y: 11, w: 12, h: 1 },
   ];
   
   const layoutXS = [
-    { i: "1", x: 0, y: 0, w: 12, h: 1 },
-    { i: "2", x: 0, y: 1, w: 12, h: 1 },
-    { i: "3", x: 0, y: 2, w: 12, h: 1 },
-    { i: "4", x: 0, y: 3, w: 12, h: 1 },
-    { i: "5", x: 0, y: 4, w: 12, h: 1 },
-    { i: "6", x: 0, y: 5, w: 12, h: 1 },
-    { i: "7", x: 0, y: 6, w: 12, h: 1 },
-    { i: "8", x: 0, y: 7, w: 12, h: 1 },
-    { i: "9", x: 0, y: 8, w: 12, h: 1 },
-    { i: "10", x: 0, y: 9, w: 12, h: 1 },
-    { i: "11", x: 0, y: 10, w: 12, h: 1 },
-    { i: "12", x: 0, y: 11, w: 12, h: 1 },
+    { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
+    { i: "domains", x: 0, y: 1, w: 12, h: 1 },
+    { i: "guide", x: 0, y: 2, w: 12, h: 1 },
+    { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
+    { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
+    { i: "drive", x: 0, y: 5, w: 12, h: 1 },
+    { i: "bank", x: 0, y: 6, w: 12, h: 1 },
+    { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
+    { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
+    { i: "site-builder", x: 0, y: 9, w: 12, h: 1 },
+    { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
+    { i: "disc", x: 0, y: 11, w: 12, h: 1 },
   ];
 
 
@@ -148,22 +162,62 @@ const Services = () => {
           layouts={layouts}
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
           rowHeight={380}
-          // autoHeight={true}
+          margin= {[30, 30]}
           draggableCancel = '.MyNonDraggableAreaClassName'
           isResizable = {false}
           compactType = 'horizontal'
           onLayoutChange={onLayoutChange}
         >
-          <div key="1" >
+          
+          <div key="calendar" >
             <CalendarBlock />
           </div>
-          <div key="2">
+          
+          <div key="domains">
+            <DomainsBlock />
+          </div>
+          
+          <div key="guide">
+            <GuideBlock />
+          </div>
+          
+          <div key="tasks">
             <TasksBlock />
           </div>
-          <div key="3">
+          
+          <div key="cloud">
+            <CloudHostingBlock />
+          </div>
+          
+          <div key="logo-builder">
+            <TasksBlock />
+          </div>
+          
+          <div key="drive">
+            <SiteCopyingBlock />
+          </div>
+          
+          <div key="site-builder">
+            <SiteBuilderBlock />
+          </div>
+          
+          <div key="bank">
             <BankBlock />
           </div>
-          <div key="4">
+          
+          <div key="copy-site">
+            <SiteCopyingBlock />
+          </div>
+          
+          <div key="video-conference">
+            <VideoConferencingBlock />
+          </div>
+          
+          <div key="disc">
+            <DiscBlock />
+          </div>
+          
+          {/* <div key="4">
             <OnlineConsultantBlock />
           </div>
           <div key="5">
@@ -189,7 +243,7 @@ const Services = () => {
           </div>
           <div key="12">
             <SiteCopyingBlock />
-          </div>
+          </div> */}
         </ResponsiveGridLayout>
       </div>
     </div>

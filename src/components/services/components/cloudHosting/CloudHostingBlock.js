@@ -1,6 +1,7 @@
 import React from 'react';
 import ProgressRing from '../../../common/progress-ring/ProgressRing';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import icon from '../../../../assets/images/services/cloud-widget.png';
 
 const CloudHostingBlock = () => {
   const content = (
@@ -39,8 +40,7 @@ const CloudHostingBlock = () => {
       // rightButtonAction={(e) => e.preventDefault()}
       content={content}
       iconName="services/cloud-hosting"
-      iconContainerColor="green"
-      mdiIcon="cloud"
+      icon={icon}
     />
   );
 };

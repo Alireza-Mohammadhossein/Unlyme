@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { accounts, accountsHistory } from '../../../../mocks/mocks';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import Bank from '../../../bank/Bank';
+import icon from '../../../../assets/images/services/bank-widget.png';
 
 const BankBlock = () => {
   const navigate = useNavigate();
@@ -61,8 +62,7 @@ const BankBlock = () => {
       directComponent={<Bank />}
       content={content}
       infoContent="s"
-      mdiIcon="monetization_on"
-      iconContainerColor="purple"
+      icon={icon}
     />
   );
 };

@@ -4,6 +4,7 @@ import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import TabToolbar from '../tab-toolbar/TabToolbar';
 import DateSelectionPopup from '../../../common/date-selection-popup/DateSelectionPopup';
 import MaskedInput from 'react-text-mask';
+import icon from '../../../../assets/images/services/video-conference-widget.png'
 
 const TAB_CREATE = '1';
 const TAB_UPCOMING = '2';
@@ -66,9 +67,8 @@ const VideoConferencingBlock = () => {
       // rightButtonAction={(e) => e.preventDefault()
         content={content}
         infoContent="s"
-        mdiIcon="play_arrow"
         iconName="services/video-conferencing"
-        iconContainerColor="green"
+        icon={icon}
       />
       <DateSelectionPopup
         value={selectedDate ? selectedDate.toDate() : null}

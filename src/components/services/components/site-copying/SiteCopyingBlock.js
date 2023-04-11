@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import CopySites from '../../../copy-sites/CopySites';
+import icon from '../../../../assets/images/services/copy-sites-widget.png'
 
 
 const SiteCopyingBlock = ({ history }) => {
@@ -20,8 +21,7 @@ const SiteCopyingBlock = ({ history }) => {
       content={content}
       directComponent={<CopySites />}
       infoContent="s"
-      mdiIcon="content_copy"
-      iconContainerColor="blue"
+      icon={icon}
     />
   );
 };

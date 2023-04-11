@@ -1,6 +1,7 @@
 import React from 'react';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import ProgressRing from '../../../common/progress-ring/ProgressRing';
+import icon from '../../../../assets/images/services/disc-widget.png';
 
 const DiscBlock = () => {
   const progress = 40;
@@ -37,8 +38,7 @@ const DiscBlock = () => {
       content={content}
       infoContent="asd"
       iconName="services/disc"
-      iconContainerColor="orange"
-      mdiIcon="disc_full"
+      icon={icon}
     />
   );
 };
