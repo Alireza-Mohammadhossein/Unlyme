@@ -170,8 +170,11 @@
       }
       &_container {
         text-align: center;
-        padding-top: $space;
-        padding-bottom: $space;
+        padding: 4*$space 3*$space;
+      }
+      &_header {
+        text-align: left;
+
       }
       &_item {
         height: 30px;
@@ -433,16 +436,62 @@
       }
     }
     &__tasks {
-      &_item {
-        padding: $space;
-        margin-bottom: $space;
-        cursor: pointer;
-        background-color: $silver;
-        box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
-        border-radius: $border-radius-second;
-        &:last-of-type {
-          margin-bottom: 0;
+      &_container {
+        padding: $space 3*$space;
+      }
+      &_list {
+
+      }
+      &_tab {
+        & .MuiButtonBase-root {
+          text-transform: none;
+          color: #000;
+          font-size: 15px;
+          font-weight: 600;
         }
+        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
+          color: #51A3FF;
+        }
+        & .MuiTabs-indicator {
+          background-color: #51A3FF;
+        }
+      }
+      &_item {
+        &.MuiListItem-root {
+          margin: 10px 0;
+          padding: 0;
+          align-items: center;
+        }
+
+        & .MuiTypography-body1{
+          color: #000;
+          font-weight: 600;
+        }
+
+        & .MuiTypography-body2{
+          color: #000;
+          font-size: 15px;
+        }
+        & .MuiListItemIcon-root {
+          min-width: unset;
+          margin-right: 10px;
+        }
+        & .MuiListItemText-root {
+          margin: 0;
+        }
+        & .MuiSvgIcon-root {
+          font-size: 15px;
+          color: #74BA6A;
+        }
+        // padding: $space;
+        // margin-bottom: $space;
+        // cursor: pointer;
+        // background-color: $silver;
+        // box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+        // border-radius: $border-radius-second;
+        // &:last-of-type {
+        //   margin-bottom: 0;
+        // }
       }
     }
   }

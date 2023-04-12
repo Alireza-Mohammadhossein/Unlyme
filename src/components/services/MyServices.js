@@ -29,7 +29,7 @@ const Services = () => {
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
 
-
+// default layout for all screens
   const layoutXL = [
     { i: "calendar", x: 0, y: 0, w: 3, h: 1 },
     { i: "domains", x: 3, y: 0, w: 3, h: 1 },

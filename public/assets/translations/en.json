@@ -14,11 +14,6 @@
   "SERVICES.CALENDAR.TITLE": "Calendar",
   "SERVICES.CALENDAR.SUBTITLE": "All calendars",
  
-
-
-
-
-
   "SERVICES.GUIDE.TITLE": "Start up guide",
   "SERVICES.GUIDE.FIRST": "Choose your business structure",
   "SERVICES.GUIDE.SECOND": "Reserve a company name ",
@@ -29,6 +24,10 @@
 
   "SERVICES.TASKS.TITLE": "Tasks",
   "SERVICES.TASKS.SUBTITLE": "Your and your team’s tasks",
+  "SERVICES.TASKS.TAB_BACKLOG": "Backlog",
+  "SERVICES.TASKS.TAB_INPROGRESS": "In Progress",
+  "SERVICES.TASKS.TAB_DONE": "Done",
+  "SERVICES.TASKS.TAB_CLOSED": "Closed",
   
   "SERVICES.SITES_COPYING.TITLE": "Copy sites",
   "SERVICES.SITES_COPYING.SEARCH_PLACEHOLDER": "Enter the site address...",
@@ -48,6 +47,14 @@
   "SERVICES.SITE_BUILDER.TITLE": "Site builder",
   
   "SERVICES.DOMAINS.TITLE": "Domains",
+  "SERVICES.DOMAINS.SUBTITLE": "All your domains",
+  "SERVICES.DOMAINS.HEADER1": "You have",
+  "SERVICES.DOMAINS.HEADER2": "registered domains",
+  "SERVICES.DOMAINS.EXPIRED": "Expired domains",
+  "SERVICES.DOMAINS.EXPIRING": "Expiring domains",
+  "SERVICES.DOMAINS.SUBEXPIRING1": "EXPIRING IN",
+  "SERVICES.DOMAINS.SUBEXPIRING2": "DAYS",
+  "SERVICES.DOMAINS.PENDING": "Pending transfer",
   
   "SERVICES.BANK.TITLE": "Bank",
   

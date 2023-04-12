@@ -48,8 +48,9 @@ const CloudBlock = ({
 
   return (
     <div className="cloud-block">
+
+      {/* header */}
       <div className="cloud-block__header">
-        {/* {(iconName || mdiIcon) && ( */}
           <div
             className="cloud-block__header_icon-container"
             onClick={iconAction || undefined}
@@ -61,20 +62,13 @@ const CloudBlock = ({
             {/* {mdiIcon && <i className="material-icons" style={{ color: mdiIconColor || 'white' }}>{mdiIcon}</i>} */}
             <img className="cloud-block__header-icon" src={icon} />
           </div>
-        {/* )} */}
         <div className="cloud-block__header_title-container">
           <p className="cloud-block__header-title">{title}</p>
           <p className="cloud-block__header-subtitle">{subtitle}</p>
-          {/* {infoContent != null && (
-            <span className="cloud-block__header_info" onClick={() => alert('s')}>
-              i
-            </span>
-          )} */}
         </div>
 
         {directComponent != null && (
           <div className="btn btn--blue-text cloud-block__header_btn" onClick={handleOpen}>
-            {/* Open */}
             <i className="material-icons">add</i>
           </div>
         )}
@@ -84,8 +78,10 @@ const CloudBlock = ({
             {isCollapsed ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}
           </button>
         </div>
-      
       </div>
+
+
+      {/* content */}
       <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div>
       
 
