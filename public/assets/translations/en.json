@@ -13,9 +13,19 @@
 
   "SERVICES.CALENDAR.TITLE": "Calendar",
   "SERVICES.CALENDAR.SUBTITLE": "All calendars",
+ 
 
-  
+
+
+
+
   "SERVICES.GUIDE.TITLE": "Start up guide",
+  "SERVICES.GUIDE.FIRST": "Choose your business structure",
+  "SERVICES.GUIDE.SECOND": "Reserve a company name ",
+  "SERVICES.GUIDE.THIRD": "Register your business",
+  "SERVICES.GUIDE.FORTH": "Obtain necessary licenses & permits",
+  "SERVICES.GUIDE.FIFTH": "Register for VAT",
+  "SERVICES.GUIDE.SIXTH": "Set up bank account",
 
   "SERVICES.TASKS.TITLE": "Tasks",
   "SERVICES.TASKS.SUBTITLE": "Your and your team’s tasks",
