@@ -6,7 +6,12 @@ import _ from 'lodash';
 export const BACKEND_URL = window.backend_url;
 
 // @ts-ignore
+// assetst url for localhost
 export const ASSETS_URL = `${window.location}Unlyme`;
+
+// assetst url for server
+// export const ASSETS_URL = window.location;
+
 
 export function convertToFormData(data) {
   const formData = new FormData();

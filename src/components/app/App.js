@@ -29,7 +29,8 @@ function App() {
   const data = useSelector((state) => state.app)
   const dispatch = useDispatch();
 
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
+  const token = true;
 
   console.log('app token', token)
 

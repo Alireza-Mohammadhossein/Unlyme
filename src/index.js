@@ -21,6 +21,7 @@ import App from "./components/app/App";
 // import queryString from "query-string";
 // import { ReactQueryConfigProvider } from 'react-query';
 import {
+  ASSETS_URL,
   AUTH_USER,
   HttpClient,
   setCatchingHttpClientErrors,
@@ -28,7 +29,7 @@ import {
   SUPPORTED_LANGUAGES,
   FALLBACK_LANGUAGE,
   LOCAL_STORAGE_LOCALE,
-  convertToFormData, ASSETS_URL,
+  convertToFormData
 } from './types';
 
 
@@ -163,6 +164,8 @@ try {
 
 
     const fallbackLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE) || FALLBACK_LANGUAGE;
+    console.log('fallback language', FALLBACK_LANGUAGE);
+    console.log('fallbacklocale', fallbackLocale);
     moment.locale(FALLBACK_LANGUAGE);
     i18n
       .use(initReactI18next) // passes i18n down to react-i18next
@@ -184,7 +187,10 @@ try {
           // loadPath: '/public/assets/locales/{{lng}}/translation.json',
           // loadPath: '/assets/translations/{{lng}}.json',
           // loadPath: `${ASSETS_URL}/Unlyme/assets/translations/{{lng}}.json`,
-          loadPath: 'Unlyme/assets/translations/{{lng}}.json',
+
+          
+          // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
+          loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
         },
       });
 
