@@ -1,0 +1,71 @@
+{
+  "MENU.MY_SERVICES": "My services",
+  "MENU.DOMAINS": "Domains",
+  "MENU.SITE_BUILDER": "Site builder",
+  "MENU.COPY_SITES": "Copy sites",
+  "MENU.BANK": "Bank",
+  "MENU.SETTINGS": "Settings",
+  "MENU.CALENDAR": "Calendar",
+  "MENU.ONLINE_CONSULTANT": "Online consultant",
+  "HEADER.HOW_CAN_UNLYME_HELP_YOU": "How can Unlyme help you?",
+  "HEADER.SEARCH_PLACEHOLDER": "Describe your task...",
+  "MY_SERVICES.H1": "Connected Apps and Services",
+
+  "SERVICES.CALENDAR.TITLE": "Calendar",
+  "SERVICES.CALENDAR.SUBTITLE": "All calendars",
+ 
+  "SERVICES.GUIDE.TITLE": "Start up guide",
+  "SERVICES.GUIDE.FIRST": "Choose your business structure",
+  "SERVICES.GUIDE.SECOND": "Reserve a company name ",
+  "SERVICES.GUIDE.THIRD": "Register your business",
+  "SERVICES.GUIDE.FORTH": "Obtain necessary licenses & permits",
+  "SERVICES.GUIDE.FIFTH": "Register for VAT",
+  "SERVICES.GUIDE.SIXTH": "Set up bank account",
+
+  "SERVICES.TASKS.TITLE": "Tasks",
+  "SERVICES.TASKS.SUBTITLE": "Your and your team’s tasks",
+  "SERVICES.TASKS.TAB_BACKLOG": "Backlog",
+  "SERVICES.TASKS.TAB_INPROGRESS": "In Progress",
+  "SERVICES.TASKS.TAB_DONE": "Done",
+  "SERVICES.TASKS.TAB_CLOSED": "Closed",
+  
+  "SERVICES.SITES_COPYING.TITLE": "Copy sites",
+  "SERVICES.SITES_COPYING.SEARCH_PLACEHOLDER": "Enter the site address...",
+  "SERVICES.SITES_COPYING.BUTTON_TEXT": "Copy",
+  
+  "SERVICES.CRM.NEW_DEALS": "New deals",
+  "SERVICES.CRM.TOTAL_DEALS": "Total deals",
+  "SERVICES.CRM.NO_DEAL": "No-deal",
+  "SERVICES.CRM.TAB_DEALS": "Deals",
+  "SERVICES.CRM.TAB_TASKS": "Tasks",
+  "SERVICES.CRM.TAB_LEADS": "Leads",
+  
+  "SERVICES.ONLINE_CONSULTANT.TITLE": "Online consultant",
+  "SERVICES.ONLINE_CONSULTANT.TAB_ALL_DIALOGS": "All dialogs",
+  "SERVICES.ONLINE_CONSULTANT.TAB_ACTIVE_DIALOGS": "Active dialogs",
+  
+  "SERVICES.SITE_BUILDER.TITLE": "Site builder",
+  
+  "SERVICES.DOMAINS.TITLE": "Domains",
+  "SERVICES.DOMAINS.SUBTITLE": "All your domains",
+  "SERVICES.DOMAINS.HEADER1": "You have",
+  "SERVICES.DOMAINS.HEADER2": "registered domains",
+  "SERVICES.DOMAINS.EXPIRED": "Expired domains",
+  "SERVICES.DOMAINS.EXPIRING": "Expiring domains",
+  "SERVICES.DOMAINS.SUBEXPIRING1": "EXPIRING IN",
+  "SERVICES.DOMAINS.SUBEXPIRING2": "DAYS",
+  "SERVICES.DOMAINS.PENDING": "Pending transfer",
+  
+  "SERVICES.BANK.TITLE": "Bank",
+  
+  "SERVICES.DISC.TITLE": "Disc",
+  
+  "SERVICES.INVOICE_MANAGER.TITLE": "Invoice Manager",
+
+  "SERVICES.CLOUD_HOSTING.TITLE": "Cloud hosting",
+  
+  "SERVICES.VIDEO_CONFERENCING.TITLE": "Video conferencing",
+  "SERVICES.VIDEO_CONFERENCING.CREATE": "Create",
+  "SERVICES.VIDEO_CONFERENCING.UPCOMING": "Upcoming"
+}
+

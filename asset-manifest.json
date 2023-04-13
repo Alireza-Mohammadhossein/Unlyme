@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/Unlyme/static/css/main.9375d725.css",
-    "main.js": "/Unlyme/static/js/main.9e1f0357.js",
+    "main.css": "/Unlyme/static/css/main.8eed5245.css",
+    "main.js": "/Unlyme/static/js/main.0b45ddf3.js",
+    "static/media/search.gif": "/Unlyme/static/media/search.6a63dbc8d2f4e544d555.gif",
     "static/media/material-icons-two-tone.woff": "/Unlyme/static/media/material-icons-two-tone.3baa5b8f3469222b822d.woff",
     "static/media/1.jpg": "/Unlyme/static/media/1.98ce1ea60a7230acb411.jpg",
     "static/media/material-icons-two-tone.woff2": "/Unlyme/static/media/material-icons-two-tone.4ef4218c522f1eb6b5b1.woff2",
@@ -18,24 +19,29 @@
     "static/media/material-icons-sharp.woff": "/Unlyme/static/media/material-icons-sharp.3a4004a46a653d4b2166.woff",
     "static/media/material-icons-outlined.woff2": "/Unlyme/static/media/material-icons-outlined.6f420cf17cc0d7676fad.woff2",
     "static/media/material-icons-sharp.woff2": "/Unlyme/static/media/material-icons-sharp.219aa9140e099e6c72ed.woff2",
+    "static/media/XLback.jpg": "/Unlyme/static/media/XLback.c7d8ea90e908695f764b.jpg",
     "static/media/material-icons.woff2": "/Unlyme/static/media/material-icons.0c35d18bf06992036b69.woff2",
+    "static/media/LGback.jpg": "/Unlyme/static/media/LGback.8e1ab6c91395ae78e4b8.jpg",
     "static/media/Roboto-Bold.woff": "/Unlyme/static/media/Roboto-Bold.3f2cbde6b72e8d05669f.woff",
     "static/media/Roboto-Light.woff": "/Unlyme/static/media/Roboto-Light.df0f59d80526acc6d0cd.woff",
     "static/media/Roboto-Thin.woff": "/Unlyme/static/media/Roboto-Thin.674b1d2bd9d781457c17.woff",
-    "static/media/en.svg": "/Unlyme/static/media/en.2d19fed4fb288f7b8a8591bbe3b70429.svg",
-    "static/media/chat-white.svg": "/Unlyme/static/media/chat-white.9184297785bf4528af0a.svg",
-    "static/media/notifications.svg": "/Unlyme/static/media/notifications.70fef3895f0f02c3f7ff.svg",
-    "static/media/exit.svg": "/Unlyme/static/media/exit.a459a777a82091268ab7.svg",
+    "static/media/logo_white.png": "/Unlyme/static/media/logo_white.e85506e2480aed035fa1.png",
+    "static/media/guide-back.jpg": "/Unlyme/static/media/guide-back.2e665c41fc21f35577ea.jpg",
+    "static/media/calendar-widget.png": "/Unlyme/static/media/calendar-widget.5abf5fb8cf11e6d60544.png",
+    "static/media/video-conference-widget.png": "/Unlyme/static/media/video-conference-widget.8f20c2345b893922add1.png",
+    "static/media/tasks-widget.png": "/Unlyme/static/media/tasks-widget.7397514b731b724bcf43.png",
+    "static/media/site-builder-widget.png": "/Unlyme/static/media/site-builder-widget.be82ac850f5135622086.png",
     "static/media/close.svg": "/Unlyme/static/media/close.d85316f5269a8762a3fe.svg",
     "static/media/pencil.svg": "/Unlyme/static/media/pencil.88307ac845013df662a2.svg",
     "static/media/arrow-right-white.svg": "/Unlyme/static/media/arrow-right-white.b7d930f56fca722872d1.svg",
     "static/media/arrow-right.svg": "/Unlyme/static/media/arrow-right.b52e6820c6c241e6b5d4.svg",
     "index.html": "/Unlyme/index.html",
-    "main.9375d725.css.map": "/Unlyme/static/css/main.9375d725.css.map",
-    "main.9e1f0357.js.map": "/Unlyme/static/js/main.9e1f0357.js.map"
+    "static/media/getFetch.cjs": "/Unlyme/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.8eed5245.css.map": "/Unlyme/static/css/main.8eed5245.css.map",
+    "main.0b45ddf3.js.map": "/Unlyme/static/js/main.0b45ddf3.js.map"
   },
   "entrypoints": [
-    "static/css/main.9375d725.css",
-    "static/js/main.9e1f0357.js"
+    "static/css/main.8eed5245.css",
+    "static/js/main.0b45ddf3.js"
   ]
 }
