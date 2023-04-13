@@ -111,6 +111,7 @@ h1, .div-h1 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  min-height: 100vh;
   &.siteWrapperXL {
     background-image: url('../../assets/images/services/XLback.jpg');
   }

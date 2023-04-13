@@ -144,13 +144,6 @@ const Services = () => {
   
   return (
     <div className="container">
-      {/* <h1>
-        {t('MY_SERVICES.H1')}
-        <span className="btn btn--light-blue" style={{ marginLeft: 30 }}>
-          Other services
-        </span>
-      </h1> */}
-
         <div className='row'>
         <ResponsiveGridLayout
           className={`services__layout ${screenSize === 'XL' ? 'layoutXL'

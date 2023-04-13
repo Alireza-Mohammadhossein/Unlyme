@@ -113,7 +113,7 @@ function App() {
           <div id="be-wrapper" className="be-wrapper">
             <Header />
             <Menu />
-            <RightMenu />
+            {/* <RightMenu /> */}
             <Switcher screenSize={screenSize} />
             <div className="modal-backdrop fade show" style={{ display: "none" }} />
           </div>
