@@ -15,11 +15,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import icon from '../../../../assets/images/services/tasks-widget.png';
+import { backlogLists, inprogressLists, doneLists, closedLists } from '../../../../mocks/mocks';
 
-// const TAB_BACKLOG = 'TAB_BACKLOG';
-// const TAB_IN_PROGRESS = 'TAB_IN_PROGRESS';
-// const TAB_DONE = 'TAB_DONE';
-// const TAB_CLOSED = 'TAB_CLOSED';
 
 
 const options = [
@@ -73,30 +70,7 @@ const TasksBlock = () => {
 
 
 
-  // mock datas for tabs
-  const backlogLists = [
-    {id: 1, title: 'Make new logo', description: 'create at least three initial design concepts'},
-    {id: 2, title: 'Test new website', description: 'manual testing & heuristics'},
-    {id: 3, title: 'Revise marketing plan', description: 'define new objectives + develop action plan'}
-  ];
-  
-  const inprogressLists = [
-    {id: 1, title: 'Change logo design', description: 'change at least three initial design concepts'},
-    {id: 2, title: 'Change new website', description: 'change manual testing & heuristics'},
-    {id: 3, title: 'Change marketing plan', description: 'change new objectives + develop action plan'}
-  ];
-  
-  const doneLists = [
-    {id: 1, title: 'Remove new logo', description: 'remove at least three initial design concepts'},
-    {id: 2, title: 'Remove new website', description: 'remove testing & heuristics'},
-    {id: 3, title: 'Remove marketing plan', description: 'remove new objectives + develop action plan'}
-  ];
-  
-  const closedLists = [
-    {id: 1, title: 'Delete new logo', description: 'delete at least three initial design concepts'},
-    {id: 2, title: 'Delete new website', description: 'delete testing & heuristics'},
-    {id: 3, title: 'Delete marketing plan', description: 'delete new objectives + develop action plan'}
-  ];
+
 
 
   const content = (
@@ -160,8 +134,6 @@ const TasksBlock = () => {
                       ))}
                     </Menu>
                   </div>
-
-
                 </ListItem>
                 
                 <Divider />

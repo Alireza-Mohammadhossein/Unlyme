@@ -10,6 +10,36 @@ export const accounts = [
   { id: 3, balance: '5 800', currency: 'USD', cardNumber: 'CH93**43436' },
 ];
 
+
+  // start mock datas for tasks block tabs
+  export const backlogLists = [
+    {id: 1, title: 'Make new logo', description: 'create at least three initial design concepts'},
+    {id: 2, title: 'Test new website', description: 'manual testing & heuristics'},
+    {id: 3, title: 'Revise marketing plan', description: 'define new objectives + develop action plan'}
+  ];
+  
+  export const inprogressLists = [
+    {id: 1, title: 'Change logo design', description: 'change at least three initial design concepts'},
+    {id: 2, title: 'Change new website', description: 'change manual testing & heuristics'},
+    {id: 3, title: 'Change marketing plan', description: 'change new objectives + develop action plan'}
+  ];
+  
+  export const doneLists = [
+    {id: 1, title: 'Remove new logo', description: 'remove at least three initial design concepts'},
+    {id: 2, title: 'Remove new website', description: 'remove testing & heuristics'},
+    {id: 3, title: 'Remove marketing plan', description: 'remove new objectives + develop action plan'}
+  ];
+  
+  export const closedLists = [
+    {id: 1, title: 'Delete new logo', description: 'delete at least three initial design concepts'},
+    {id: 2, title: 'Delete new website', description: 'delete testing & heuristics'},
+    {id: 3, title: 'Delete marketing plan', description: 'delete new objectives + develop action plan'}
+  ];
+  // end mock datas for tasks block tabs
+
+
+
+
 export const accountsHistory = [
   {
     id: 1,

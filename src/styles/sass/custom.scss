@@ -16,3 +16,25 @@
 .MuiTooltip-arrow {
     color: #181F33 !important;
 }
+
+
+  
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #4A96EA;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #EAEEF3;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+

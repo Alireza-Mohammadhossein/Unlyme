@@ -414,15 +414,48 @@
     &__cloud-hosting {
       &_container {
         display: flex;
+        flex-direction: column;
+        padding: 2*$space 3*$space;
       }
-      &_item {
-        display: flex;
-        flex-wrap: nowrap;
-        font-size: 12px;
-        align-items: center;
-        margin-top: $space;
-        line-height: 1.3;
+
+      &_storage {
+        &-heading {
+          font-weight: 600;
+          color: #000;
+          margin-bottom: $space;
+        }
+        
+        &_ring {
+          width: 137px;
+          height: 137px;
+          margin: 0 auto;
+          &-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+          }
+          &-subtitle {
+            font-size: 12px;
+            font-weight: 400;
+            color: #9B9B9B;
+          }
+        }
       }
+
+      &_site {
+        &-heading {
+          font-weight: 600;
+          color: #000;
+          margin-top: $space;
+        }
+
+        &-list {
+
+        }
+
+      }
+
       .btn {
         margin-left: auto;
       }
