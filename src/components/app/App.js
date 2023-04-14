@@ -119,20 +119,6 @@ function App() {
           </div>
       )}
     </div>
-
-    // <div id="siteWrapper">
-    //   <div>
-    //     <h1>Counter - {state.counter}</h1>
-    //     <button onClick={() => dispatch(increase())}>Increase</button>
-    //   </div>
-    //     <div id="be-wrapper" className="be-wrapper">
-    //       <Header />
-    //       <Menu />
-    //       <RightMenu />
-    //       <Switcher />
-    //       <div className="modal-backdrop fade show" style={{ display: "none" }} />
-    //     </div>  
-    // </div>
   );
 }
 

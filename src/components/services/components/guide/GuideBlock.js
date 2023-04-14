@@ -13,7 +13,7 @@ const GuideBlock = () => {
   const { t, i18n } = useTranslation();
   
   return (
-    <div className='guide'>
+    <div className='guide' data-test='guide'>
         <div className='guide-container'>
             <div className='guide__header'>
                 <h2 className='guide__header-title'>
