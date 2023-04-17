@@ -546,19 +546,16 @@ button:disabled {
   }
 }
 .btn {
-  font-size: 12px;
+  font-size: 15px;
   color:white;
   border-radius: 30px;
-  height: 30px;
-  line-height: 30px;
   text-align: center;
   display: inline-block;
   white-space: nowrap;
   outline: none;
   border: none;
   background-color: $blue;
-  padding-left:30px;
-  padding-right: 30px;
+  padding: 10px 24px;
   box-sizing: border-box;
   transition: 0.2s;
   cursor: pointer;

@@ -45,6 +45,14 @@
   "SERVICES.BANK.TITLE": "Bank",
   "SERVICES.BANK.SUBTITLE": "Attached bank accounts",
   "SERVICES.BANK.ACCOUNT_BALANCE": "Account balance",
+
+  "SERVICES.LOGO_BUILDER.TITLE": "Logo builder",
+  "SERVICES.LOGO_BUILDER.SUBTITLE": "Create your logo",
+  "SERVICES.LOGO_BUILDER.DESCRIPTON": "Lorem inpsum",
+  "SERVICES.LOGO_BUILDER.LOGO_NAME": "Logo name",
+  "SERVICES.LOGO_BUILDER.PLACEHOLDER": "Enter logo name...",
+  "SERVICES.LOGO_BUILDER.BUTTON": "Generate",
+
   
   "SERVICES.SITES_COPYING.TITLE": "Copy sites",
   "SERVICES.SITES_COPYING.SEARCH_PLACEHOLDER": "Enter the site address...",

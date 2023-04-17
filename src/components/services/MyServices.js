@@ -16,6 +16,7 @@ import TasksBlock from './components/tasks/TasksBlock';
 import VideoConferencingBlock from './components/videoConferencing/VideoConferencingBlock';
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
+import LogoBuilder from './components/logoBuilder/LogoBuilder';
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
@@ -184,7 +185,7 @@ const Services = () => {
           </div>
           
           <div key="logo-builder">
-            <TasksBlock />
+            <LogoBuilder />
           </div>
           
           <div key="drive">

@@ -1,0 +1,44 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import CopySites from '../../../copy-sites/CopySites';
+import icon from '../../../../assets/images/services/logo-builder-widget.png';
+
+
+const LogoBuilder = () => {
+    const { t } = useTranslation();
+  const navigate = useNavigate();
+  const content = (
+    <div className='services__logo-builder'>
+      <div className="services__logo-builder_container">
+        <div className='services__logo-builder_description'>
+          <p>{t('SERVICES.LOGO_BUILDER.DESCRIPTON')}</p>
+        </div>
+        <div className='services__logo-builder_form-wrapper'>
+          <p className='services__logo-builder_form_title'>{t('SERVICES.LOGO_BUILDER.LOGO_NAME')}</p>
+
+          <input className="services__logo-builder_form_input" placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')} />
+          
+          <div className='services__logo-builder_form_btn'>
+            <button className="btn" onClick={() => navigate('/services/copy-sites')}>{t('SERVICES.LOGO_BUILDER.BUTTON')}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <CloudBlock
+      title={t('SERVICES.LOGO_BUILDER.TITLE')}
+      subtitle={t('SERVICES.LOGO_BUILDER.SUBTITLE')}
+      rightButtonAction={() => navigate('/services/copy-sites')}
+      content={content}
+      directComponent={<CopySites />}
+      infoContent="s"
+      icon={icon}
+    />
+  );
+};
+
+export default LogoBuilder;
