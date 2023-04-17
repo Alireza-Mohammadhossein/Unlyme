@@ -60,6 +60,13 @@
   "SERVICES.SITES_COPYING.PLACEHOLDER": "Enter website address...",
   "SERVICES.SITES_COPYING.BUTTON": "Copy",
   
+  "SERVICES.WEBSITE_BUILDER.TITLE": "Website builder",
+  "SERVICES.WEBSITE_BUILDER.SUBTITLE": "Create or order a website",
+  "SERVICES.WEBSITE_BUILDER.DESCRIPTON": "250 templates & premium feature set",
+  "SERVICES.WEBSITE_BUILDER.LOGO_NAME": "Order a website",
+  "SERVICES.WEBSITE_BUILDER.PLACEHOLDER": "Describe your vision in details...",
+  "SERVICES.WEBSITE_BUILDER.BUTTON": "Generate",
+  
   "SERVICES.CRM.NEW_DEALS": "New deals",
   "SERVICES.CRM.TOTAL_DEALS": "Total deals",
   "SERVICES.CRM.NO_DEAL": "No-deal",

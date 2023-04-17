@@ -11,7 +11,7 @@ import InvoiceManagerBlock from './components/invoiceManager/InvoiceManagerBlock
 import OnlineConsultantBlock from './components/onlineConsultant/OnlineConsultantBlock';
 import WorkDrive from './components/workDrive/WorkDrive';
 import SiteCopyingBlock from './components/site-copying/SiteCopyingBlock';
-import SiteBuilderBlock from './components/siteBuilder/SiteBuilderBlock';
+import WebsiteBuilderBlock from './components/websiteBuilder/WebsiteBuilderBlock';
 import TasksBlock from './components/tasks/TasksBlock';
 import VideoConferencingBlock from './components/videoConferencing/VideoConferencingBlock';
 import { Responsive, WidthProvider } from "react-grid-layout";
@@ -42,7 +42,7 @@ const Services = () => {
     { i: "logo-builder", x: 9, y: 1, w: 3, h: 1 },
     
     { i: "drive", x: 0, y: 2, w: 3, h: 1 },
-    { i: "site-builder", x: 3, y: 2, w: 6, h: 1 },
+    { i: "website-builder", x: 3, y: 2, w: 6, h: 1 },
     { i: "bank", x: 9, y: 2, w: 3, h: 1 },
 
     { i: "copy-site", x: 0, y: 3, w: 3, h: 1 },
@@ -64,7 +64,7 @@ const Services = () => {
     { i: "logo-builder", x: 8, y: 3, w: 4, h: 1 },
     
     { i: "copy-site", x: 0, y: 4, w: 4, h: 1 },
-    { i: "site-builder", x: 4, y: 4, w: 8, h: 1 },
+    { i: "website-builder", x: 4, y: 4, w: 8, h: 1 },
     
     { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
     { i: "disc", x: 8, y: 5, w: 4, h: 1 },
@@ -84,7 +84,7 @@ const Services = () => {
     { i: "logo-builder", x: 6, y: 3, w: 6, h: 1 },
 
     { i: "copy-site", x: 0, y: 4, w: 6, h: 1 },
-    { i: "site-builder", x: 6, y: 4, w: 6, h: 1 },
+    { i: "website-builder", x: 6, y: 4, w: 6, h: 1 },
 
     { i: "video-conference", x: 0, y: 5, w: 6, h: 1 },
     { i: "disc", x: 6, y: 5, w: 6, h: 1 },
@@ -100,7 +100,7 @@ const Services = () => {
     { i: "bank", x: 0, y: 6, w: 12, h: 1 },
     { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
     { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
-    { i: "site-builder", x: 0, y: 9, w: 12, h: 1 },
+    { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
   ];
@@ -115,7 +115,7 @@ const Services = () => {
     { i: "bank", x: 0, y: 6, w: 12, h: 1 },
     { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
     { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
-    { i: "site-builder", x: 0, y: 9, w: 12, h: 1 },
+    { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
   ];
@@ -192,8 +192,8 @@ const Services = () => {
             <WorkDrive />
           </div>
           
-          <div key="site-builder">
-            <SiteBuilderBlock />
+          <div key="website-builder">
+            <WebsiteBuilderBlock />
           </div>
           
           <div key="bank">
