@@ -9,6 +9,7 @@ import DomainsBlock from './components/domains/DomainsBlock';
 import GuideBlock from './components/guide/GuideBlock';
 import InvoiceManagerBlock from './components/invoiceManager/InvoiceManagerBlock';
 import OnlineConsultantBlock from './components/onlineConsultant/OnlineConsultantBlock';
+import WorkDrive from './components/workDrive/WorkDrive';
 import SiteCopyingBlock from './components/site-copying/SiteCopyingBlock';
 import SiteBuilderBlock from './components/siteBuilder/SiteBuilderBlock';
 import TasksBlock from './components/tasks/TasksBlock';
@@ -161,7 +162,7 @@ const Services = () => {
           compactType = 'horizontal'
           onLayoutChange={onLayoutChange}
         >
-          
+
           <div key="calendar" >
             <CalendarBlock />
           </div>
@@ -187,7 +188,7 @@ const Services = () => {
           </div>
           
           <div key="drive">
-            <SiteCopyingBlock />
+            <WorkDrive />
           </div>
           
           <div key="site-builder">

@@ -22,6 +22,7 @@
         max-width: 480px;
       } 
     }
+
     &__connect-other {
       width: 100%;
       border: 2px dashed $delimiter;
@@ -39,6 +40,7 @@
         font-size: 28px;
       }
     }
+
     &__sites-copying {
       &-page {
         &_input-container {
@@ -77,6 +79,7 @@
         top: 0;
       }
     }
+
     &__crm {
       &_container {
         display: flex;
@@ -96,6 +99,7 @@
         font-size: 14px;
       }
     }
+
     &__site-builder {
       &-page {
         &_frame {
@@ -119,6 +123,7 @@
         margin-bottom: $space;
       }
     }
+
     &__online-consultant {
       &_dialog {
         padding: 10px 0;
@@ -139,6 +144,7 @@
         background-color: $delimiter;
       }
     }
+
     &__domains {
       &-page {
         &_header {
@@ -203,6 +209,261 @@
         }
       }
     }
+
+    &__video-conferencing {
+      &_gap {
+        height: $space;
+      }
+      &_date-container {
+        display: flex;
+        .site-input {
+          margin-right: $space;
+        }
+      }
+      &_create-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: $space;
+      }
+    }
+
+    &__disc {
+      &_container {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        padding: $space 10%;
+      }
+      &_progress-label {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 13px;
+        justify-content: center;
+      }
+      &_col {
+        box-sizing: border-box;
+        &:nth-of-type(1) {
+          display: flex;
+          align-items: center;
+        }
+      }
+      &_item {
+        border-radius: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid $blue;
+        display: inline-flex;
+        font-size: 11px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 40px;
+        &--blue {
+          border-color: $blue;
+          color: $blue;
+        }
+        &--orange {
+          color: $orange;
+          border-color: $orange;
+        }
+        &--red {
+          color: $red;
+          border-color: $red;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+      &_label {
+        color: $gray;
+        width: 100%;
+        padding-bottom: 3px;
+        display: block;
+      }
+      &_number {
+        font-size: 13px;
+        line-height: 1.3;
+      }
+    }
+    
+    &__invoice-manager {
+      &_item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: $space;
+        line-height: 1.2;
+        font-size: 12px;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      &_item-text-gray {
+        color: $gray;
+      }
+      &_item-col-1 {
+        min-width: 140px;
+      }
+      &_item-col-2 {
+        width: 100%;
+      }
+      &_item-status {
+        &--draft {
+          color: $light-gray;
+        }
+        &--sent {
+          color: $orange;
+        }
+        &--viewed {
+          color: $blue;
+        }
+      }
+    }
+
+    &__cloud-hosting {
+      &_container {
+        display: flex;
+        flex-direction: column;
+        padding: 2*$space 3*$space;
+      }
+
+      &_storage {
+        &-heading {
+          font-weight: 600;
+          color: #000;
+          margin-bottom: $space;
+        }
+        
+        &_ring {
+          width: 137px;
+          height: 137px;
+          margin: 0 auto;
+          &-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+          }
+          &-subtitle {
+            font-size: 12px;
+            font-weight: 400;
+            color: #9B9B9B;
+          }
+        }
+      }
+
+      &_site {
+        &-heading {
+          font-weight: 600;
+          color: #000;
+          margin-top: $space;
+        }
+
+        &-list {
+
+        }
+
+      }
+
+      .btn {
+        margin-left: auto;
+      }
+      &_col {
+        &:nth-of-type(1) {
+          width: 55%;
+        }
+        &:nth-of-type(2) {
+          width: 45%;
+        }
+      }
+    }
+
+    &__tasks {
+      &_container {
+        padding: $space 3*$space;
+      }
+      &_list {
+
+      }
+      &_tab {
+        & .MuiButtonBase-root {
+          text-transform: none;
+          color: #000;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
+          color: #51A3FF;
+        }
+        & .MuiTabs-indicator {
+          background-color: #51A3FF;
+        }
+      }
+      &_item {
+        &.MuiListItem-root {
+          margin: 10px 0;
+          padding: 0;
+          align-items: center;
+        }
+
+        & .MuiTypography-body1{
+          color: #000;
+          font-weight: 600;
+        }
+
+        & .MuiTypography-body2{
+          color: #000;
+          font-size: 15px;
+        }
+        & .MuiListItemIcon-root {
+          min-width: unset;
+          margin-right: 10px;
+        }
+        & .MuiListItemText-root {
+          margin: 0;
+        }
+        & .MuiSvgIcon-root {
+          font-size: 15px;
+          color: #74BA6A;
+        }
+        // padding: $space;
+        // margin-bottom: $space;
+        // cursor: pointer;
+        // background-color: $silver;
+        // box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+        // border-radius: $border-radius-second;
+        // &:last-of-type {
+        //   margin-bottom: 0;
+        // }
+      }
+    }
+    
+    &__work-drive {
+      width: 100%;
+      height: 100%;
+      
+      &_container {
+        padding: $space 3*$space;
+        box-sizing: border-box;
+
+        width: inherit;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      &_upload-icon {
+
+      } 
+      &_upload-text {
+        
+      }  
+    }
+
     &__bank {
       &-page {
         &_accounts {
@@ -299,232 +560,6 @@
       &_history-item-separator {
         height: 1px;
         background-color: $delimiter;
-      }
-    }
-    &__video-conferencing {
-      &_gap {
-        height: $space;
-      }
-      &_date-container {
-        display: flex;
-        .site-input {
-          margin-right: $space;
-        }
-      }
-      &_create-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: $space;
-      }
-    }
-    &__disc {
-      &_container {
-        display: flex;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: space-between;
-        padding: $space 10%;
-      }
-      &_progress-label {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        font-size: 13px;
-        justify-content: center;
-      }
-      &_col {
-        box-sizing: border-box;
-        &:nth-of-type(1) {
-          display: flex;
-          align-items: center;
-        }
-      }
-      &_item {
-        border-radius: 30px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border: 1px solid $blue;
-        display: inline-flex;
-        font-size: 11px;
-        justify-content: center;
-        flex-direction: column;
-        align-items: flex-start;
-        height: 40px;
-        &--blue {
-          border-color: $blue;
-          color: $blue;
-        }
-        &--orange {
-          color: $orange;
-          border-color: $orange;
-        }
-        &--red {
-          color: $red;
-          border-color: $red;
-        }
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-      &_label {
-        color: $gray;
-        width: 100%;
-        padding-bottom: 3px;
-        display: block;
-      }
-      &_number {
-        font-size: 13px;
-        line-height: 1.3;
-      }
-    }
-    &__invoice-manager {
-      &_item {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-bottom: $space;
-        line-height: 1.2;
-        font-size: 12px;
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-      &_item-text-gray {
-        color: $gray;
-      }
-      &_item-col-1 {
-        min-width: 140px;
-      }
-      &_item-col-2 {
-        width: 100%;
-      }
-      &_item-status {
-        &--draft {
-          color: $light-gray;
-        }
-        &--sent {
-          color: $orange;
-        }
-        &--viewed {
-          color: $blue;
-        }
-      }
-    }
-    &__cloud-hosting {
-      &_container {
-        display: flex;
-        flex-direction: column;
-        padding: 2*$space 3*$space;
-      }
-
-      &_storage {
-        &-heading {
-          font-weight: 600;
-          color: #000;
-          margin-bottom: $space;
-        }
-        
-        &_ring {
-          width: 137px;
-          height: 137px;
-          margin: 0 auto;
-          &-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 5px;
-          }
-          &-subtitle {
-            font-size: 12px;
-            font-weight: 400;
-            color: #9B9B9B;
-          }
-        }
-      }
-
-      &_site {
-        &-heading {
-          font-weight: 600;
-          color: #000;
-          margin-top: $space;
-        }
-
-        &-list {
-
-        }
-
-      }
-
-      .btn {
-        margin-left: auto;
-      }
-      &_col {
-        &:nth-of-type(1) {
-          width: 55%;
-        }
-        &:nth-of-type(2) {
-          width: 45%;
-        }
-      }
-    }
-    &__tasks {
-      &_container {
-        padding: $space 3*$space;
-      }
-      &_list {
-
-      }
-      &_tab {
-        & .MuiButtonBase-root {
-          text-transform: none;
-          color: #000;
-          font-size: 15px;
-          font-weight: 600;
-        }
-        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
-          color: #51A3FF;
-        }
-        & .MuiTabs-indicator {
-          background-color: #51A3FF;
-        }
-      }
-      &_item {
-        &.MuiListItem-root {
-          margin: 10px 0;
-          padding: 0;
-          align-items: center;
-        }
-
-        & .MuiTypography-body1{
-          color: #000;
-          font-weight: 600;
-        }
-
-        & .MuiTypography-body2{
-          color: #000;
-          font-size: 15px;
-        }
-        & .MuiListItemIcon-root {
-          min-width: unset;
-          margin-right: 10px;
-        }
-        & .MuiListItemText-root {
-          margin: 0;
-        }
-        & .MuiSvgIcon-root {
-          font-size: 15px;
-          color: #74BA6A;
-        }
-        // padding: $space;
-        // margin-bottom: $space;
-        // cursor: pointer;
-        // background-color: $silver;
-        // box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
-        // border-radius: $border-radius-second;
-        // &:last-of-type {
-        //   margin-bottom: 0;
-        // }
       }
     }
   }
