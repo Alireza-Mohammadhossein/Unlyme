@@ -288,7 +288,7 @@
         line-height: 1.3;
       }
     }
-    
+
     &__invoice-manager {
       &_item {
         display: flex;
@@ -465,101 +465,63 @@
     }
 
     &__bank {
-      &-page {
-        &_accounts {
-          width: 290px;
+      width: 100%;
+      height: 100%;
+      
+      &_container {
+        padding: $space 2*$space;
+        box-sizing: border-box;
+
+        width: inherit;
+        height: inherit;
+      }
+
+      &_list {
+        & .MuiListItem-root {
+          padding: 10px 0;
         }
-        &_accounts-history {
-          flex: 1;
-        }
-        &_date-col {
+      }
+
+      &_item {
+        &-currency {
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+          color: #fff;
           display: flex;
+          justify-content: center;
           align-items: center;
-          .site-input {
-            margin-left: $space;
+        }
+        
+        &-currency-eur {
+          background-color: #EDC7A4;
+        }
+
+        &-currency-usd {
+          background-color: #A8DFE2;
+        }
+
+        &-currency-other {
+          background-color: #B596D5;
+        }
+
+        &-balance-info{
+          margin-left: 10px;
+
+          & .MuiListItemText-primary {
+            font-size: 12px;
+          }
+          & .MuiListItemText-secondary {
+            font-size: 18px;
+            font-weight: 500;
+            color: #000;
           }
         }
-        &_card {
-          margin: 30px auto;
-          .services__bank_balance {
-            margin-top: 2 * $space;
-          }
-          .services__bank_balance-text {
-            margin-bottom: 2 * $space;
-          }
+
+        &-balance-card {
+          text-align: right;
+          margin-right: 40px;
         }
-        &_card-separator {
-          height: 1px;
-          background-color: $delimiter;
-        }
-        &_h-separator {
-          width: 1px;
-          height: 100%;
-          position: absolute;
-          left: -1px;
-          top: 0;
-          background-color: $delimiter;
-        }
-      }
-      &_cards {
-        display: flex;
-        padding-bottom: $space;
-      }
-      &_card {
-        width: 33%;
-        text-align: center;
-      }
-      &_balance {
-        font-size: 15px;
-        line-height: 1.3;
-      }
-      &_balance-text {
-        font-size: 12px;
-      }
-      &_card-currency {
-        height: 30px;
-        padding-left: 2 * $space;
-        padding-right: 2 * $space;
-        border-radius: 30px;
-        line-height: 30px;
-        font-size: 12px;
-        margin-bottom: $space;
-        display: inline-block;
-        &--light-orange {
-          background-color: $light-orange;
-        }
-        &--light-purple {
-          background-color: $light-purple;
-        }
-        &--light-green {
-          background-color: $light-green;
-        }
-      }
-      &_card-number {
-        margin-top: $space;
-        font-size: 12px;
-      }
-      &_history-section-date {
-        padding: $space;
-        color: $blue;
-        background-color: $silver;
-        font-size: 12px;
-        border-bottom: 1px solid $delimiter;
-      }
-      &_history-item {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        padding: $space;
-        line-height: 1.4;
-      }
-      &_history {
-        max-height: 190px;
-        overflow-y: scroll;
-      }
-      &_history-item-separator {
-        height: 1px;
-        background-color: $delimiter;
       }
     }
   }

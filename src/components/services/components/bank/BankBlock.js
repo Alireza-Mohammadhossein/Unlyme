@@ -1,61 +1,125 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import _ from 'lodash';
 import { accounts, accountsHistory } from '../../../../mocks/mocks';
+import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import Bank from '../../../bank/Bank';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import CircleIcon from '@mui/icons-material/Circle';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import icon from '../../../../assets/images/services/bank-widget.png';
 
 const BankBlock = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const [value, setValue] = useState(0);
+  const ITEM_HEIGHT = 48;
+
+
+  const options = [
+    'Edit',
+    'Add description',
+    'Delete',
+  ];
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const content = (
-    <>
-      <div className="services__bank_cards">
-        {accounts.map((card, index) => {
-          const colors = ['light-orange', 'light-purple', 'light-green'];
-          return (
-            <div key={card.id} className="services__bank_card">
-              <div className={`services__bank_card-currency services__bank_card-currency--${colors[index % 3]}`}>{card.currency}</div>
-              <div className="services__bank_balance">{card.balance}</div>
-              <div className="services__bank_balance-text">Balance</div>
-              <div className="services__bank_card-number">{card.cardNumber}</div>
-            </div>
-          );
-        })}
+    <div className='services__bank'>
+      <div className='services__bank_container'>
+        <List className='services__bank_list'>
+          {accounts.map(card => (
+            <>
+              <ListItem key={card.id} className='services__bank_item'>
+                <ListItemIcon>
+                  <div className={`services__bank_item-currency ${card.currency === 'EUR' ? 'services__bank_item-currency-eur' 
+                    : card.currency === 'USD' ? 'services__bank_item-currency-usd'
+                    : 'services__bank_item-currency-other'
+                    }`}
+                  >
+                    {card.currency}
+                  </div>
+                </ListItemIcon>
+                <ListItemText 
+                  className='services__bank_item-balance-info'
+                  primary= {t('SERVICES.BANK.ACCOUNT_BALANCE')}
+                  secondary={`${card.balance} ${card.currency}`}
+                />
+                <ListItemText 
+                  className='services__bank_item-balance-card'
+                  primary= {card.cardNumber}
+                />
+
+                <div>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? 'long-menu' : undefined}
+                    aria-expanded={open ? 'true' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreHorizIcon />
+                  </IconButton>
+                  
+                  <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                      'aria-labelledby': 'long-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: '20ch',
+                      },
+                    }}
+                  >
+                    {options.map((option) => (
+                      <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
+              </ListItem>
+              
+              <Divider />
+            </>
+          ))}
+        </List>
       </div>
-      <div className="services__bank_history">
-        {_.map(
-          _.groupBy(accountsHistory, item => moment.unix(item.created_at).format('DD.MM.Y')),
-          (data, date) => {
-            return (
-              <div key={date} className="services__bank_history-section">
-                <div className="services__bank_history-section-date">{date}</div>
-                {data.map((item, index) => (
-                  <React.Fragment key={item.id}>
-                    <div className="services__bank_history-item">
-                      <div>
-                        <div className="services__bank_history-item-title">{item.title}</div>
-                        <div className="services__bank_history-item-subtitle">{item.subtitle}</div>
-                      </div>
-                      <div className={item.amount > 0 ? 'text-green' : 'text-red'}>
-                        {item.amount > 0 ? `+${item.amount}` : `${item.amount}`} {item.currency}
-                      </div>
-                    </div>
-                    {index !== data.length - 1 && <div className="services__bank_history-item-separator" />}
-                  </React.Fragment>
-                ))}
-              </div>
-            );
-          }
-        )}
-      </div>
-    </>
+    </div>
   );
 
   return (
     <CloudBlock
-      title='Bank'
+      title={t('SERVICES.BANK.TITLE')}
+      subtitle={t('SERVICES.BANK.SUBTITLE')}
       // rightButtonAction={() => history.push('/services/bank')}
       // rightButtonAction={() => navigate('/services/bank')}
       iframeUrl = '../../../bank/Bank.js'

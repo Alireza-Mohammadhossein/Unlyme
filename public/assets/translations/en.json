@@ -42,7 +42,9 @@
   "SERVICES.WORKDRIVE.SUBTITLE": "All files",
   "SERVICES.WORKDRIVE.UPLOAD_TEXT": "Upload your first file",
 
-
+  "SERVICES.BANK.TITLE": "Bank",
+  "SERVICES.BANK.SUBTITLE": "Attached bank accounts",
+  "SERVICES.BANK.ACCOUNT_BALANCE": "Account balance",
   
   "SERVICES.SITES_COPYING.TITLE": "Copy sites",
   "SERVICES.SITES_COPYING.SEARCH_PLACEHOLDER": "Enter the site address...",
@@ -71,9 +73,7 @@
   "SERVICES.DOMAINS.SUBEXPIRING2": "DAYS",
   "SERVICES.DOMAINS.PENDING": "Pending transfer",
   
-  
-  "SERVICES.BANK.TITLE": "Bank",
-  
+    
   "SERVICES.DISC.TITLE": "Disc",
   
   "SERVICES.INVOICE_MANAGER.TITLE": "Invoice Manager",

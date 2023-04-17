@@ -10,7 +10,6 @@ import upload from '../../../../assets/images/services/upload.png';
 const WorkDrive = () => {
   const { t, i18n } = useTranslation();
 
-
   const content = (
     <div className='services__work-drive'>
       <div className='services__work-drive_container'>

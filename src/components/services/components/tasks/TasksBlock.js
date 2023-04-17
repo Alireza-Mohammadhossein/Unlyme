@@ -13,19 +13,12 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import icon from '../../../../assets/images/services/tasks-widget.png';
 import { backlogLists, inprogressLists, doneLists, closedLists } from '../../../../mocks/mocks';
 
 
 
-const options = [
-  'Edit',
-  'Add description',
-  'Delete',
-];
-
-const ITEM_HEIGHT = 48;
 
 
 function TabPanel(props) {
@@ -49,8 +42,15 @@ function TabPanel(props) {
 }
 
 const TasksBlock = () => {
+  const ITEM_HEIGHT = 48;  
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState(0);
+  
+  const options = [
+    'Edit',
+    'Add description',
+    'Delete',
+  ];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -110,7 +110,7 @@ const TasksBlock = () => {
                       aria-haspopup="true"
                       onClick={handleClick}
                     >
-                      <MoreVertIcon />
+                      <MoreHorizIcon />
                     </IconButton>
                     <Menu
                       id="long-menu"

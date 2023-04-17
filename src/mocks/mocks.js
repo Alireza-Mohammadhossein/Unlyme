@@ -5,9 +5,9 @@ export const clientData = {
 };
 
 export const accounts = [
-  { id: 1, balance: '24 500', currency: 'CHF', cardNumber: 'CH83**13125' },
-  { id: 2, balance: '7 300', currency: 'EUR', cardNumber: 'CH83**13436' },
-  { id: 3, balance: '5 800', currency: 'USD', cardNumber: 'CH93**43436' },
+  { id: 1, balance: '24 500', currency: 'CHF', cardNumber: '56988486 02851435 86629320' },
+  { id: 2, balance: '7 300', currency: 'EUR', cardNumber: '90013942 82544594 49005189' },
+  { id: 3, balance: '5 800', currency: 'USD', cardNumber: '29120575 66891365 54023171' },
 ];
 
 
