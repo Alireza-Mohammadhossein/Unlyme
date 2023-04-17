@@ -17,7 +17,7 @@ const LogoBuilder = () => {
           <p>{t('SERVICES.SITES_COPYING.DESCRIPTON')}</p>
         </div>
         <div className='services__sites-copying_form-wrapper'>
-          <p className='services__sites-copying_form_title'>{t('SERVICES.SITES_COPYING.LOGO_NAME')}</p>
+          <p className='services__sites-copying_form_title'>{t('SERVICES.SITES_COPYING.WEBSITE_ADDRESS')}</p>
 
           <input className="services__sites-copying_form_input" placeholder={t('SERVICES.SITES_COPYING.PLACEHOLDER')} />
           

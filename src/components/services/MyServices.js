@@ -156,8 +156,9 @@ const Services = () => {
           }`}
           layouts={layouts}
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
-          rowHeight={380}
+          rowHeight = {380}
           margin= {[30, 30]}
+          // useCSSTransforms= {true}
           draggableCancel = '.MyNonDraggableAreaClassName'
           isResizable = {false}
           compactType = 'horizontal'

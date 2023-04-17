@@ -56,16 +56,23 @@
   "SERVICES.SITES_COPYING.TITLE": "Copy website",
   "SERVICES.SITES_COPYING.SUBTITLE": "Copy any websites",
   "SERVICES.SITES_COPYING.DESCRIPTON": "Lorem inpsum",
-  "SERVICES.SITES_COPYING.LOGO_NAME": "Website address",
+  "SERVICES.SITES_COPYING.WEBSITE_ADDRESS": "Website address",
   "SERVICES.SITES_COPYING.PLACEHOLDER": "Enter website address...",
   "SERVICES.SITES_COPYING.BUTTON": "Copy",
   
   "SERVICES.WEBSITE_BUILDER.TITLE": "Website builder",
   "SERVICES.WEBSITE_BUILDER.SUBTITLE": "Create or order a website",
   "SERVICES.WEBSITE_BUILDER.DESCRIPTON": "250 templates & premium feature set",
-  "SERVICES.WEBSITE_BUILDER.LOGO_NAME": "Order a website",
+  "SERVICES.WEBSITE_BUILDER.ORDER_WEBSITE": "Order a website",
   "SERVICES.WEBSITE_BUILDER.PLACEHOLDER": "Describe your vision in details...",
   "SERVICES.WEBSITE_BUILDER.BUTTON": "Generate",
+
+  "SERVICES.DISC.TITLE": "Disc",
+  "SERVICES.DISC.SUBTITLE": "Lorem ipsum",
+  "SERVICES.DISC.DISC_SPACE": "Disc space",
+  "SERVICES.DISC.BUTTON": "Buy storage",
+  "SERVICES.DISC.FREESPACE1": "free of",
+  "SERVICES.DISC.FREESPACE2": "SITES USED",
   
   "SERVICES.CRM.NEW_DEALS": "New deals",
   "SERVICES.CRM.TOTAL_DEALS": "Total deals",
@@ -90,8 +97,6 @@
   "SERVICES.DOMAINS.SUBEXPIRING2": "DAYS",
   "SERVICES.DOMAINS.PENDING": "Pending transfer",
   
-    
-  "SERVICES.DISC.TITLE": "Disc",
   
   "SERVICES.INVOICE_MANAGER.TITLE": "Invoice Manager",
 
