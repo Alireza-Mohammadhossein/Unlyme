@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
+import TextField from '@mui/material/TextField';
 import CopySites from '../../../copy-sites/CopySites';
 import icon from '../../../../assets/images/services/logo-builder-widget.png';
 
@@ -17,8 +18,14 @@ const LogoBuilder = () => {
         </div>
         <div className='services__logo-builder_form-wrapper'>
           <p className='services__logo-builder_form_title'>{t('SERVICES.LOGO_BUILDER.LOGO_NAME')}</p>
-
-          <input className="services__logo-builder_form_input" placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')} />
+          <TextField
+                  className='services__logo-builder_form_input'
+                  id=""
+                  placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')}
+                  variant="outlined"
+                  size="small"
+          />
+          {/* <input className="services__logo-builder_form_input" placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')} /> */}
           
           <div className='services__logo-builder_form_btn'>
             <button className="btn" onClick={() => navigate('/services/copy-sites')}>{t('SERVICES.LOGO_BUILDER.BUTTON')}</button>

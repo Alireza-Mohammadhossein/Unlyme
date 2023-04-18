@@ -71,10 +71,22 @@ const VideoConferencingBlock = () => {
                 <p className='services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME')}</p>
               </Grid>
               <Grid item xs={8}>
-                <TextField className='services__video-conference_form_input' id="conference_name" label={t('SERVICES.VIDEO_CONFERENCING.TYPE_NAME')} variant="outlined" size="small" />
+                <TextField
+                  className='services__video-conference_form_input'
+                  id="conference_name"
+                  placeholder={t('SERVICES.VIDEO_CONFERENCING.TYPE_NAME')}
+                  variant="outlined"
+                  size="small"
+                />
               </Grid>
               <Grid item xs={4}>
-                <TextField  className='services__video-conference_form_input' id="conference_topic" label={t('SERVICES.VIDEO_CONFERENCING.TYPE_TOPIC')} variant="outlined" size="small" />
+                <TextField 
+                  className='services__video-conference_form_input'
+                  id="conference_topic"
+                  placeholder={t('SERVICES.VIDEO_CONFERENCING.TYPE_TOPIC')}
+                  variant="outlined"
+                  size="small" 
+                />
               </Grid>
             </Grid>
 
@@ -90,13 +102,13 @@ const VideoConferencingBlock = () => {
               </Grid>
               <Grid item xs={3}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimeField
-                  value={timeValue}
-                  onChange={(newValue) => setTimeValue(newValue)}
-                  format="hh:mm a"
-                  className='services__video-conference_form_time'
-                  size="small"
-                />
+                  <TimeField
+                    value={timeValue}
+                    onChange={(newValue) => setTimeValue(newValue)}
+                    format="hh:mm a"
+                    className='services__video-conference_form_time'
+                    size="small"
+                  />
                 </LocalizationProvider>
               </Grid>
             </Grid>

@@ -216,7 +216,6 @@ const Services = () => {
         </ResponsiveGridLayout>
       </div>
     </div>
-
   );
 
 
