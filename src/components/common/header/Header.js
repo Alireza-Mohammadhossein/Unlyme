@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import ChatPopup from '../chat-popup/ChatPopup';
 import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SUPPORTED_LANGUAGES } from '../../../types';
-import logo from '../../../assets/images/unlyme-logo.png'
+import logo from '../../../assets/images/header/logo.png';
 // import { connect } from 'react-redux';
 // import { signoutUser } from '../../app/AppActions';
 import { useSelector, useDispatch } from 'react-redux';
@@ -34,7 +34,7 @@ const Header = () => {
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
-    color: '#fff',
+    color: '#666666',
     marginLeft: 0,
     width: '100%',
     marginRight: '10px',
@@ -65,8 +65,9 @@ const Header = () => {
       paddingRight: '45px',
       height: '19px',
       position: 'relative',
-      backgroundColor: 'rgba(130, 130, 130, 0.3)',
-      boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+      // backgroundColor: 'rgba(130, 130, 130, 0.3)',
+      backgroundColor: '#FFF',
+      // boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
       transition: theme.transitions.create('all'),
       [theme.breakpoints.up('sm')]: {
         right: '40px',
