@@ -37,6 +37,7 @@ const DiscBlock = () => {
         <div className='services__disc_form-wrapper'>
           <p className='services__disc_title'>{t('SERVICES.DISC.DISC_SPACE')}</p>
 
+
           
           <div className='services__disc_info'> 
             <BorderLinearProgress className='services__disc_info-progress' variant="determinate" value={value} />

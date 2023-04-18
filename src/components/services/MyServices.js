@@ -41,13 +41,14 @@ const Services = () => {
     { i: "cloud", x: 6, y: 1, w: 3, h: 1 },
     { i: "logo-builder", x: 9, y: 1, w: 3, h: 1 },
     
-    { i: "drive", x: 0, y: 2, w: 3, h: 1 },
-    { i: "website-builder", x: 3, y: 2, w: 6, h: 1 },
-    { i: "bank", x: 9, y: 2, w: 3, h: 1 },
+    { i: "copy-site", x: 0, y: 2, w: 3, h: 1 },
+    { i: "drive", x: 3, y: 2, w: 6, h: 1 },
+    { i: "disc", x: 9, y: 2, w: 3, h: 1 },
 
-    { i: "copy-site", x: 0, y: 3, w: 3, h: 1 },
-    { i: "video-conference", x: 3, y: 3, w: 6, h: 1 },
-    { i: "disc", x: 9, y: 3, w: 3, h: 1 },
+    { i: "bank", x: 0, y: 3, w: 6, h: 1 },
+    { i: "website-builder", x: 6, y: 3, w: 6, h: 1 },
+
+    { i: "video-conference",  x: 0, y: 4, w: 6, h: 1 },
   ];
 
   const layoutLG = [
@@ -212,34 +213,6 @@ const Services = () => {
           <div key="disc">
             <DiscBlock />
           </div>
-          
-          {/* <div key="4">
-            <OnlineConsultantBlock />
-          </div>
-          <div key="5">
-            <CloudHostingBlock />
-          </div>
-          <div key="6">
-            <SiteBuilderBlock />
-          </div>
-          <div key="7">
-            <VideoConferencingBlock />
-          </div>
-          <div key="8">
-            <CRMBlock />
-          </div>
-          <div key="9">
-            <DomainsBlock />
-          </div>
-          <div key="10">
-            <InvoiceManagerBlock />
-          </div>
-          <div key="11">
-            <DiscBlock />
-          </div>
-          <div key="12">
-            <SiteCopyingBlock />
-          </div> */}
         </ResponsiveGridLayout>
       </div>
     </div>

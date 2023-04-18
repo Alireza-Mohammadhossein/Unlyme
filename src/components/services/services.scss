@@ -147,24 +147,6 @@
       }
     }
 
-    &__video-conferencing {
-      &_gap {
-        height: $space;
-      }
-      &_date-container {
-        display: flex;
-        .site-input {
-          margin-right: $space;
-        }
-      }
-      &_create-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: $space;
-      }
-    }
-
     &__invoice-manager {
       &_item {
         display: flex;
@@ -591,6 +573,124 @@
         margin-top: 20px;
         text-align: right;
       }
+    }
+
+    &__video-conference {
+      &_container {
+        padding: 0 3*$space;
+      }
+      &_list {
+
+      }
+      &_tab {
+        & .MuiButtonBase-root {
+          text-transform: none;
+          color: #000;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
+          color: #51A3FF;
+        }
+        & .MuiTabs-indicator {
+          background-color: #51A3FF;
+        }
+      }
+
+      &_tabpanel {
+        padding: 2*$space 0 $space;
+        & .MuiFormControl-root {
+          width: 100%;
+        }
+      }
+      &_form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        &_label {
+          color: #000;
+        }
+       
+        &_input {
+          font-size: 15px;
+          background-color: #F8FAFC;
+          & label {
+            color: #ACACAC;
+          }
+          & .MuiInputBase-root {
+            border-radius: 8px;
+          }          
+          & .MuiInput-underline:after {
+            border-bottom-color: green;
+          }
+          & .MuiOutlinedInput-root {
+            & fieldset {
+              border-color: #ECECEC;
+            }
+            &:hover fieldset {
+             border-color: $blue;
+            }
+            &.Mui-focused fieldset {
+              border-color: $blue;
+            }
+          }
+        }
+
+        &_date {
+          font-size: 15px;
+          background-color: #F8FAFC;
+          & label {
+            color: #ACACAC;
+          }
+          & .MuiInputBase-root {
+            border-radius: 8px;
+          }          
+          & .MuiInput-underline:after {
+            border-bottom-color: green;
+          }
+          & .MuiOutlinedInput-root {
+            & fieldset {
+              border-color: #ECECEC;
+            }
+            &:hover fieldset {
+             border-color: $blue;
+            }
+            &.Mui-focused fieldset {
+              border-color: $blue;
+            }
+          }
+          & input {
+            padding: 8.5px 14px;
+          }
+        }
+
+        &_time {
+          font-size: 15px;
+          background-color: #F8FAFC;
+          & label {
+            color: #ACACAC;
+          }
+          & .MuiInputBase-root {
+            border-radius: 8px;
+          }          
+          & .MuiInput-underline:after {
+            border-bottom-color: green;
+          }
+          & .MuiOutlinedInput-root {
+            & fieldset {
+              border-color: #ECECEC;
+            }
+            &:hover fieldset {
+             border-color: $blue;
+            }
+            &.Mui-focused fieldset {
+              border-color: $blue;
+            }
+          }
+        }
+      }
+
     }
 
   }

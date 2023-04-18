@@ -1,86 +1,139 @@
 import React, { useState } from 'react';
-import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
-import TabToolbar from '../tab-toolbar/TabToolbar';
-import DateSelectionPopup from '../../../common/date-selection-popup/DateSelectionPopup';
-import MaskedInput from 'react-text-mask';
-import icon from '../../../../assets/images/services/video-conference-widget.png'
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
+import dayjs from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { TimeField } from '@mui/x-date-pickers/TimeField';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import icon from '../../../../assets/images/services/video-conference-widget.png';
 
-const TAB_CREATE = '1';
-const TAB_UPCOMING = '2';
+
+
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <>
+          {children}
+        </>
+      )}
+    </div>
+  );
+}
 
 const VideoConferencingBlock = () => {
+  const { t, i18n } = useTranslation();
+  const [value, setValue] = useState(0);
 
-  const [tab, setTab] = useState(TAB_CREATE);
-  const [dateSelectionPopupIsShowed, setDateSelectionPopupIsShowed] = useState(false);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [time, setTime] = useState('');
+  const [timeValue, setTimeValue] = useState(dayjs());
 
-  const options = [
-    { value: TAB_CREATE, label: 'Create'},
-    { value: TAB_UPCOMING, label: `Upcoming(2)` },
-  ];
+
 
   const content = (
-    <>
-      <TabToolbar value={tab} options={options} onChange={val => setTab(val.toString())} />
-      {tab === TAB_CREATE && (
-        <div>
-          <div className="site-input-label">Conference Name</div>
-          <input className="site-input" placeholder="Write a name" />
-          <div className="services__video-conferencing_gap" />
-          <div className="site-input-label">Start</div>
-          <div className="services__video-conferencing_date-container">
-            <input
-              className="site-input"
-              onChange={() => {}}
-              value={selectedDate ? selectedDate.format('DD.MM.Y') : ''}
-              onFocus={() => setDateSelectionPopupIsShowed(true)}
-              placeholder="Choose a date"
-            />
-            <MaskedInput
-              mask={[/[1-9]/, /\d/, ':', /\d/, /\d/]}
-              className="site-input"
-              onChange={e => setTime(e.target.value)}
-              value={time}
-              placeholder="Type a time"
-            />
-            <span className="btn btn--transparent-blue">To plan</span>
-          </div>
-          <div className="services__video-conferencing_create-footer">
-            <a href="/" className="link">
-              Copy invitation link
-            </a>
-            <span className="btn">To begin</span>
-          </div>
-        </div>
-      )}
-    </>
+    <div className='services__video-conference'>
+      <div className='services__video-conference_container'>
+        <Tabs
+          value={value} 
+          onChange={handleChange} 
+          aria-label="basic tabs example"
+          className='services__video-conference_tab'
+        >
+          <Tab label={t('SERVICES.VIDEO_CONFERENCING.SCHEDULE')} />
+          <Tab label={t('SERVICES.VIDEO_CONFERENCING.UPCOMING')} />
+        </Tabs>
+
+        <TabPanel value={value} index={0} className='services__video-conference_tabpanel' >
+          <FormControl className='services__video-conference_form'>
+
+            <Grid container spacing={4} rowSpacing={1} >
+              <Grid item xs={12}>
+                <p className='services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME')}</p>
+              </Grid>
+              <Grid item xs={8}>
+                <TextField className='services__video-conference_form_input' id="conference_name" label={t('SERVICES.VIDEO_CONFERENCING.TYPE_NAME')} variant="outlined" size="small" />
+              </Grid>
+              <Grid item xs={4}>
+                <TextField  className='services__video-conference_form_input' id="conference_topic" label={t('SERVICES.VIDEO_CONFERENCING.TYPE_TOPIC')} variant="outlined" size="small" />
+              </Grid>
+            </Grid>
+
+            
+            <Grid container spacing={4} rowSpacing={1} >
+              <Grid item xs={12}>
+                <p className='services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.WHEN')}</p>
+              </Grid>
+              <Grid item xs={3}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <MobileDatePicker defaultValue={dayjs()} disablePast className='services__video-conference_form_date' />   
+                </LocalizationProvider>
+              </Grid>
+              <Grid item xs={3}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <TimeField
+                  value={timeValue}
+                  onChange={(newValue) => setTimeValue(newValue)}
+                  format="hh:mm a"
+                  className='services__video-conference_form_time'
+                  size="small"
+                />
+                </LocalizationProvider>
+              </Grid>
+            </Grid>
+
+                        
+            <Grid container spacing={4} rowSpacing={1} alignItems='center'>
+              <Grid item xs={6}>
+                <a href='#'>
+                  {t('SERVICES.VIDEO_CONFERENCING.COPY_LINK')}
+                </a>
+              </Grid>
+              <Grid item xs={6} textAlign='right'>
+                <button className="btn-outline mr-2">{t('SERVICES.VIDEO_CONFERENCING.PLAN_BUTTON')}</button>
+                <button className="btn">{t('SERVICES.VIDEO_CONFERENCING.BEGIN_BUTTON')}</button>
+              </Grid>
+            </Grid>
+          </FormControl>
+
+        </TabPanel>
+        
+        <TabPanel value={value} index={1} className='services__video-conference_tabpanel'>
+
+        </TabPanel>
+        
+      </div>
+    </div>
   );
 
   return (
-    <>
-      <CloudBlock
-        title='Video conferencing'
-        // rightButtonAction={() => alert('s')}
-      // rightButtonAction={(e) => e.preventDefault()
-        content={content}
-        infoContent="s"
-        iconName="services/video-conferencing"
-        icon={icon}
-      />
-      <DateSelectionPopup
-        value={selectedDate ? selectedDate.toDate() : null}
-        onChange={val => {
-          // @ts-ignore
-          setSelectedDate(moment(val));
-          setDateSelectionPopupIsShowed(false);
-        }}
-        visible={dateSelectionPopupIsShowed}
-        onClose={() => setDateSelectionPopupIsShowed(false)}
-      />
-    </>
+    <CloudBlock
+      title={t('SERVICES.VIDEO_CONFERENCING.TITLE')}
+      subtitle={t('SERVICES.VIDEO_CONFERENCING.SUBTITLE')}
+      content={content}
+      infoContent="s"
+      iconName="services/tasks"
+      icon={icon}
+    />
   );
 };
 

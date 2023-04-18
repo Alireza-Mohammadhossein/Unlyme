@@ -376,6 +376,18 @@ button:disabled {
 .mt-2 {
   margin-top: 2*$space;
 }
+.mr-1 {
+  margin-right: $space;
+}
+.mr-2 {
+  margin-right: 2*$space;
+}
+.ml-1 {
+  margin-left: $space;
+}
+.ml-2 {
+  margin-left: 2*$space;
+}
 .site-vertical-separator {
   height: 2*$space;
 }
@@ -676,6 +688,28 @@ button:disabled {
       position: relative;
       margin-right: 10px;
     }
+  }
+}
+.btn-outline {
+  font-size: 15px;
+  color:$blue;
+  border-radius: 30px;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  outline: none;
+  border: 1px solid $blue;
+  background-color: #FFF;
+  padding: 10px 24px;
+  box-sizing: border-box;
+  transition: 0.2s;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.5 !important;
+    cursor: default !important;
+  }
+  &:hover {
+    opacity: 0.8;
   }
 }
 .layout {
