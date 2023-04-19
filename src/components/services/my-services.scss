@@ -241,11 +241,6 @@
           color: #000;
           margin-top: $space;
         }
-
-        &-list {
-
-        }
-
       }
 
       .btn {
@@ -264,9 +259,6 @@
     &__tasks {
       &_container {
         padding: $space 3*$space;
-      }
-      &_list {
-
       }
       &_tab {
         & .MuiButtonBase-root {
@@ -305,19 +297,10 @@
         & .MuiListItemText-root {
           margin: 0;
         }
-        & .MuiSvgIcon-root {
+        &-icon .MuiSvgIcon-root {
           font-size: 15px;
           color: #74BA6A;
         }
-        // padding: $space;
-        // margin-bottom: $space;
-        // cursor: pointer;
-        // background-color: $silver;
-        // box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
-        // border-radius: $border-radius-second;
-        // &:last-of-type {
-        //   margin-bottom: 0;
-        // }
       }
     }
     
@@ -336,12 +319,6 @@
         justify-content: center;
         align-items: center;
       }
-      &_upload-icon {
-
-      } 
-      &_upload-text {
-        
-      }  
     }
 
     &__bank {
@@ -418,10 +395,6 @@
         display: flex;
         flex-direction: column;
       }
-
-      &_description {
-
-      }
       
       &_form-wrapper {
         margin-top: 50px;
@@ -492,10 +465,6 @@
         display: flex;
         flex-direction: column;
       }
-
-      &_description {
-
-      }
       
       &_form-wrapper {
         margin-top: 50px;
@@ -564,10 +533,6 @@
         
         display: flex;
         flex-direction: column;
-      }
-
-      &_description {
-
       }
       
       &_form-wrapper {
@@ -666,9 +631,7 @@
       &_container {
         padding: 0 3*$space;
       }
-      &_list {
 
-      }
       &_tab {
         & .MuiButtonBase-root {
           text-transform: none;

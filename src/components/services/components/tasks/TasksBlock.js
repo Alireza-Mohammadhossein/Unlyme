@@ -18,9 +18,6 @@ import icon from '../../../../assets/images/my-services/tasks-widget.png';
 import { backlogLists, inprogressLists, doneLists, closedLists } from '../../../../mocks/mocks';
 
 
-
-
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -93,7 +90,7 @@ const TasksBlock = () => {
             {backlogLists.map(item => (
               <>
                 <ListItem key={item.id} className='my-services__tasks_item'>
-                  <ListItemIcon>
+                  <ListItemIcon className='my-services__tasks_item-icon'>
                     <CircleIcon />
                   </ListItemIcon>
                   <ListItemText
