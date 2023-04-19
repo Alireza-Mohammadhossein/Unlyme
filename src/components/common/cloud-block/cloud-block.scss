@@ -1,11 +1,11 @@
 // @import '../../../styles/sass/variables.scss';
 
 .cloud-block {
-    box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
+    // box-shadow: 0 2px 3px rgba(60, 65, 140, 0.08);
     // background-color: white;
     border-radius: $border-radius-big;
     overflow: hidden;
-    height: 380px;
+    // height: 380px;
     &__header {
       // border-bottom: 1px solid $delimiter;
       background-color: $cloud-header-background;

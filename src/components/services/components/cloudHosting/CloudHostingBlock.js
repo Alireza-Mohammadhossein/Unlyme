@@ -8,7 +8,7 @@ import CircleIcon from '@mui/icons-material/Circle';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import { CircularProgressbarWithChildren  } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import icon from '../../../../assets/images/services/cloud-widget.png';
+import icon from '../../../../assets/images/my-services/cloud-widget.png';
 
 const CloudHostingBlock = () => {
   const { t, i18n } = useTranslation();
@@ -23,20 +23,20 @@ const CloudHostingBlock = () => {
 
 
   const content = (
-    <div className="services__cloud-hosting">
-      <div className="services__cloud-hosting_container">
-        <div className="services__cloud-hosting_storage">
-          <p className='services__cloud-hosting_storage-heading'>{t('SERVICES.CLOUDHOSTING.YOURSTORAGE')}</p>
-          <div className="services__cloud-hosting_storage_ring">
+    <div className="my-services__cloud-hosting">
+      <div className="my-services__cloud-hosting_container">
+        <div className="my-services__cloud-hosting_storage">
+          <p className='my-services__cloud-hosting_storage-heading'>{t('SERVICES.CLOUDHOSTING.YOURSTORAGE')}</p>
+          <div className="my-services__cloud-hosting_storage_ring">
             <CircularProgressbarWithChildren  value={usedStorage} minValue={0} maxValue={totalStorage}>
-              <p className='services__cloud-hosting_storage_ring-title'>{freeStorage}Mb</p>
-              <span className='services__cloud-hosting_storage_ring-subtitle'>{t('SERVICES.CLOUDHOSTING.FREEOF')} {totalStorage}</span>
+              <p className='my-services__cloud-hosting_storage_ring-title'>{freeStorage}Mb</p>
+              <span className='my-services__cloud-hosting_storage_ring-subtitle'>{t('SERVICES.CLOUDHOSTING.FREEOF')} {totalStorage}</span>
             </CircularProgressbarWithChildren>
           </div>
         </div>
-        <div className="services__cloud-hosting_site">
-          <p className='services__cloud-hosting_site-heading'>{t('SERVICES.CLOUDHOSTING.SITES')}</p>
-          <div className="services__cloud-hosting_site-list">
+        <div className="my-services__cloud-hosting_site">
+          <p className='my-services__cloud-hosting_site-heading'>{t('SERVICES.CLOUDHOSTING.SITES')}</p>
+          <div className="my-services__cloud-hosting_site-list">
             <List
             sx={{ 
               '& .MuiListItem-root': { padding: 0, alignItems: 'center' },

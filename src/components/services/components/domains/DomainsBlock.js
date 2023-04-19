@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import CircleIcon from '@mui/icons-material/Circle';
-import icon from '../../../../assets/images/services/domain-widget.png'
+import icon from '../../../../assets/images/my-services/domain-widget.png'
 
 const DomainsBlock = () => {
   const { t, i18n } = useTranslation();
@@ -23,12 +23,12 @@ const DomainsBlock = () => {
   const expiringDomainsDayCounter = 7;
 
   const content = (
-    <div className="services__domains_container">
-      <div className='services__domains_header'>
+    <div className="my-services__domains_container">
+      <div className='my-services__domains_header'>
         {t('SERVICES.DOMAINS.HEADER1')} {registeredDomainsCounter} {t('SERVICES.DOMAINS.HEADER2')}
       </div>
 
-      <div className='servces__domains_items'>
+      <div className='my-servces__domains_items'>
         <List
           sx={{ 
             '& .MuiListItem-root': { marginTop: '25px', padding: 0, alignItems: 'center' },

@@ -14,7 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import icon from '../../../../assets/images/services/tasks-widget.png';
+import icon from '../../../../assets/images/my-services/tasks-widget.png';
 import { backlogLists, inprogressLists, doneLists, closedLists } from '../../../../mocks/mocks';
 
 
@@ -74,13 +74,13 @@ const TasksBlock = () => {
 
 
   const content = (
-    <div className='services__tasks'>
-      <div className='services__tasks_container'>
+    <div className='my-services__tasks'>
+      <div className='my-services__tasks_container'>
         <Tabs
           value={value} 
           onChange={handleChange} 
           aria-label="basic tabs example"
-          className='services__tasks_tab'
+          className='my-services__tasks_tab'
         >
           <Tab label={t('SERVICES.TASKS.TAB_BACKLOG')} />
           <Tab label={t('SERVICES.TASKS.TAB_INPROGRESS')} />
@@ -89,10 +89,10 @@ const TasksBlock = () => {
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <List className='services__tasks_list'>
+          <List className='my-services__tasks_list'>
             {backlogLists.map(item => (
               <>
-                <ListItem key={item.id} className='services__tasks_item'>
+                <ListItem key={item.id} className='my-services__tasks_item'>
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -143,10 +143,10 @@ const TasksBlock = () => {
         </TabPanel>
         
         <TabPanel value={value} index={1}>
-          <List className='services__tasks_list'>
+          <List className='my-services__tasks_list'>
             {inprogressLists.map(item => (
               <>
-                <ListItem key={item.id} className='services__tasks_item'>
+                <ListItem key={item.id} className='my-services__tasks_item'>
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -163,10 +163,10 @@ const TasksBlock = () => {
         </TabPanel>
         
         <TabPanel value={value} index={2}>
-          <List className='services__tasks_list'>
+          <List className='my-services__tasks_list'>
             {doneLists.map(item => (
               <>
-                <ListItem key={item.id} className='services__tasks_item'>
+                <ListItem key={item.id} className='my-services__tasks_item'>
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -183,10 +183,10 @@ const TasksBlock = () => {
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-          <List className='services__tasks_list'>
+          <List className='my-services__tasks_list'>
             {closedLists.map(item => (
               <>
-                <ListItem key={item.id} className='services__tasks_item'>
+                <ListItem key={item.id} className='my-services__tasks_item'>
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>

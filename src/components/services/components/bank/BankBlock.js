@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import icon from '../../../../assets/images/services/bank-widget.png';
+import icon from '../../../../assets/images/my-services/bank-widget.png';
 
 const BankBlock = () => {
   const { t, i18n } = useTranslation();
@@ -47,28 +47,28 @@ const BankBlock = () => {
   };
 
   const content = (
-    <div className='services__bank'>
-      <div className='services__bank_container'>
-        <List className='services__bank_list'>
+    <div className='my-services__bank'>
+      <div className='my-services__bank_container'>
+        <List className='my-services__bank_list'>
           {accounts.map(card => (
             <>
-              <ListItem key={card.id} className='services__bank_item'>
+              <ListItem key={card.id} className='my-services__bank_item'>
                 <ListItemIcon>
-                  <div className={`services__bank_item-currency ${card.currency === 'EUR' ? 'services__bank_item-currency-eur' 
-                    : card.currency === 'USD' ? 'services__bank_item-currency-usd'
-                    : 'services__bank_item-currency-other'
+                  <div className={`my-services__bank_item-currency ${card.currency === 'EUR' ? 'my-services__bank_item-currency-eur' 
+                    : card.currency === 'USD' ? 'my-services__bank_item-currency-usd'
+                    : 'my-services__bank_item-currency-other'
                     }`}
                   >
                     {card.currency}
                   </div>
                 </ListItemIcon>
                 <ListItemText 
-                  className='services__bank_item-balance-info'
+                  className='my-services__bank_item-balance-info'
                   primary= {t('SERVICES.BANK.ACCOUNT_BALANCE')}
                   secondary={`${card.balance} ${card.currency}`}
                 />
                 <ListItemText 
-                  className='services__bank_item-balance-card'
+                  className='my-services__bank_item-balance-card'
                   primary= {card.cardNumber}
                 />
 

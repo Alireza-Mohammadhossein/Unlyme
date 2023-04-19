@@ -4,22 +4,22 @@ import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import TextField from '@mui/material/TextField';
 import CopySites from '../../../copy-sites/CopySites';
-import icon from '../../../../assets/images/services/logo-builder-widget.png';
+import icon from '../../../../assets/images/my-services/logo-builder-widget.png';
 
 
 const LogoBuilder = () => {
     const { t } = useTranslation();
   const navigate = useNavigate();
   const content = (
-    <div className='services__logo-builder'>
-      <div className="services__logo-builder_container">
-        <div className='services__logo-builder_description'>
+    <div className='my-services__logo-builder'>
+      <div className="my-services__logo-builder_container">
+        <div className='my-services__logo-builder_description'>
           <p>{t('SERVICES.LOGO_BUILDER.DESCRIPTON')}</p>
         </div>
-        <div className='services__logo-builder_form-wrapper'>
-          <p className='services__logo-builder_form_title'>{t('SERVICES.LOGO_BUILDER.LOGO_NAME')}</p>
+        <div className='my-services__logo-builder_form-wrapper'>
+          <p className='my-services__logo-builder_form_title'>{t('SERVICES.LOGO_BUILDER.LOGO_NAME')}</p>
           <TextField
-                  className='services__logo-builder_form_input'
+                  className='my-services__logo-builder_form_input'
                   id=""
                   placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')}
                   variant="outlined"
@@ -27,7 +27,7 @@ const LogoBuilder = () => {
           />
           {/* <input className="services__logo-builder_form_input" placeholder={t('SERVICES.LOGO_BUILDER.PLACEHOLDER')} /> */}
           
-          <div className='services__logo-builder_form_btn'>
+          <div className='my-services__logo-builder_form_btn'>
             <button className="btn" onClick={() => navigate('/services/copy-sites')}>{t('SERVICES.LOGO_BUILDER.BUTTON')}</button>
           </div>
         </div>

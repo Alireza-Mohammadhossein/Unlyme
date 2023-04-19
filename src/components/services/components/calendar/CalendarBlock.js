@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import { getLangISOFormat } from '../../../../types';
 import CalendarSite from '../../../calendar/CalendarSite';
-import icon from '../../../../assets/images/services/calendar-widget.png';
+import icon from '../../../../assets/images/my-services/calendar-widget.png';
 
 
 const CalendarBlock = () => {

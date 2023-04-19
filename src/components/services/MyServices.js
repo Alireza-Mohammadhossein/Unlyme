@@ -9,6 +9,7 @@ import DomainsBlock from './components/domains/DomainsBlock';
 import GuideBlock from './components/guide/GuideBlock';
 import InvoiceManagerBlock from './components/invoiceManager/InvoiceManagerBlock';
 import OnlineConsultantBlock from './components/onlineConsultant/OnlineConsultantBlock';
+import Services from './components/services/ServicesBlock';
 import WorkDrive from './components/workDrive/WorkDrive';
 import SiteCopyingBlock from './components/site-copying/SiteCopyingBlock';
 import WebsiteBuilderBlock from './components/websiteBuilder/WebsiteBuilderBlock';
@@ -25,7 +26,7 @@ import LogoBuilder from './components/logoBuilder/LogoBuilder';
 
 
 
-const Services = () => {
+const MyServices = () => {
   const screenSize = GetScreenSize();
   const { t } = useTranslation();
   const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -49,6 +50,7 @@ const Services = () => {
     { i: "website-builder", x: 6, y: 3, w: 6, h: 1 },
 
     { i: "video-conference",  x: 0, y: 4, w: 6, h: 1 },
+    { i: "services",  x: 6, y: 4, w: 3, h: 1 },
   ];
 
   const layoutLG = [
@@ -69,6 +71,8 @@ const Services = () => {
     
     { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
     { i: "disc", x: 8, y: 5, w: 4, h: 1 },
+
+    { i: "services", x: 0, y: 6, w: 4, h: 1 },
   ];
 
   const layoutMD = [
@@ -89,6 +93,8 @@ const Services = () => {
 
     { i: "video-conference", x: 0, y: 5, w: 6, h: 1 },
     { i: "disc", x: 6, y: 5, w: 6, h: 1 },
+
+    { i: "services", x: 0, y: 6, w: 6, h: 1 },
   ];
 
   const layoutSM = [
@@ -104,6 +110,7 @@ const Services = () => {
     { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
+    { i: "services", x: 0, y: 12, w: 12, h: 1 },
   ];
   
   const layoutXS = [
@@ -119,6 +126,7 @@ const Services = () => {
     { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
+    { i: "services", x: 0, y: 12, w: 12, h: 1 },
   ];
 
 
@@ -149,7 +157,7 @@ const Services = () => {
     <div className="container">
         <div className='row'>
         <ResponsiveGridLayout
-          className={`services__layout ${screenSize === 'XL' ? 'layoutXL'
+          className={`my-services my-services__layout ${screenSize === 'XL' ? 'layoutXL'
             : screenSize === 'LG' ? 'layoutLG'
             : screenSize === 'MD' ? 'layoutMD'
             : screenSize === 'SM' ? 'layoutSM'
@@ -210,8 +218,12 @@ const Services = () => {
             <VideoConferencingBlock />
           </div>
           
-          <div key="disc">
+          <div key="disc"> 
             <DiscBlock />
+          </div>
+                    
+          <div key="services"> 
+            <Services />
           </div>
         </ResponsiveGridLayout>
       </div>
@@ -313,7 +325,7 @@ const Services = () => {
 
 
 
-export default Services;
+export default MyServices;
 
 // if (process.env.STATIC_EXAMPLES === true) {
 //   import("../test-hook.jsx").then((fn) => fn.default(Services));

@@ -13,15 +13,15 @@ const GuideBlock = () => {
   const { t, i18n } = useTranslation();
   
   return (
-    <div className='guide' data-test='guide'>
-        <div className='guide-container'>
-            <div className='guide__header'>
-                <h2 className='guide__header-title'>
+    <div className='my-services__guide' data-test='guide'>
+        <div className='my-services__guide-container'>
+            <div className='my-services__guide_header'>
+                <h2 className='my-services__guide_header-title'>
                     {t('SERVICES.GUIDE.TITLE')}
                 </h2>
             </div>
 
-            <div className='guide__list'>
+            <div className='my-services__guide_list'>
               <FormGroup>
                 <FormControlLabel 
                   control={

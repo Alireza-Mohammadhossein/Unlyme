@@ -28,14 +28,14 @@ const OnlineConsultantBlock = () => {
       <TabToolbar value={tab} options={options} onChange={val => setTab(val.toString())} />
       {chatDialogs.map((dialog, index) => (
         <React.Fragment key={dialog.id}>
-          <div className="services__online-consultant_dialog" style={index === 0 ? { paddingTop: 0 } : null}>
-            <div className="services__online-consultant_dialog-header">
+          <div className="my-services__online-consultant_dialog" style={index === 0 ? { paddingTop: 0 } : null}>
+            <div className="my-services__online-consultant_dialog-header">
               <div className="">Client {dialog.id}</div>
-              <div className="services__online-consultant_dialog-date">{moment.unix(dialog.date).format('DD.MM.Y HH:mm')}</div>
+              <div className="my-services__online-consultant_dialog-date">{moment.unix(dialog.date).format('DD.MM.Y HH:mm')}</div>
             </div>
-            <div className="services__online-consultant_dialog-body">{dialog.message}</div>
+            <div className="my-services__online-consultant_dialog-body">{dialog.message}</div>
           </div>
-          {index !== chatDialogs.length - 1 && <div className="services__online-consultant_separator" />}
+          {index !== chatDialogs.length - 1 && <div className="my-services__online-consultant_separator" />}
         </React.Fragment>
       ))}
     </>

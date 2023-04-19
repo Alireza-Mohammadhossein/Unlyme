@@ -12,7 +12,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { TimeField } from '@mui/x-date-pickers/TimeField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import icon from '../../../../assets/images/services/video-conference-widget.png';
+import icon from '../../../../assets/images/my-services/video-conference-widget.png';
 
 
 
@@ -51,28 +51,28 @@ const VideoConferencingBlock = () => {
 
 
   const content = (
-    <div className='services__video-conference'>
-      <div className='services__video-conference_container'>
+    <div className='my-services__video-conference'>
+      <div className='my-services__video-conference_container'>
         <Tabs
           value={value} 
           onChange={handleChange} 
           aria-label="basic tabs example"
-          className='services__video-conference_tab'
+          className='my-services__video-conference_tab'
         >
           <Tab label={t('SERVICES.VIDEO_CONFERENCING.SCHEDULE')} />
           <Tab label={t('SERVICES.VIDEO_CONFERENCING.UPCOMING')} />
         </Tabs>
 
-        <TabPanel value={value} index={0} className='services__video-conference_tabpanel' >
-          <FormControl className='services__video-conference_form'>
+        <TabPanel value={value} index={0} className='my-services__video-conference_tabpanel' >
+          <FormControl className='my-services__video-conference_form'>
 
             <Grid container spacing={4} rowSpacing={1} >
               <Grid item xs={12}>
-                <p className='services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME')}</p>
+                <p className='my-services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME')}</p>
               </Grid>
               <Grid item xs={8}>
                 <TextField
-                  className='services__video-conference_form_input'
+                  className='my-services__video-conference_form_input'
                   id="conference_name"
                   placeholder={t('SERVICES.VIDEO_CONFERENCING.TYPE_NAME')}
                   variant="outlined"
@@ -81,7 +81,7 @@ const VideoConferencingBlock = () => {
               </Grid>
               <Grid item xs={4}>
                 <TextField 
-                  className='services__video-conference_form_input'
+                  className='my-services__video-conference_form_input'
                   id="conference_topic"
                   placeholder={t('SERVICES.VIDEO_CONFERENCING.TYPE_TOPIC')}
                   variant="outlined"
@@ -93,11 +93,11 @@ const VideoConferencingBlock = () => {
             
             <Grid container spacing={4} rowSpacing={1} >
               <Grid item xs={12}>
-                <p className='services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.WHEN')}</p>
+                <p className='my-services__video-conference_form_label'>{t('SERVICES.VIDEO_CONFERENCING.WHEN')}</p>
               </Grid>
               <Grid item xs={3}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <MobileDatePicker defaultValue={dayjs()} disablePast className='services__video-conference_form_date' />   
+                  <MobileDatePicker defaultValue={dayjs()} disablePast className='my-services__video-conference_form_date' />   
                 </LocalizationProvider>
               </Grid>
               <Grid item xs={3}>
@@ -106,7 +106,7 @@ const VideoConferencingBlock = () => {
                     value={timeValue}
                     onChange={(newValue) => setTimeValue(newValue)}
                     format="hh:mm a"
-                    className='services__video-conference_form_time'
+                    className='my-services__video-conference_form_time'
                     size="small"
                   />
                 </LocalizationProvider>
@@ -129,7 +129,7 @@ const VideoConferencingBlock = () => {
 
         </TabPanel>
         
-        <TabPanel value={value} index={1} className='services__video-conference_tabpanel'>
+        <TabPanel value={value} index={1} className='my-services__video-conference_tabpanel'>
 
         </TabPanel>
         

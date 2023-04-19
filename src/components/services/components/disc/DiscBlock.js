@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import CloudBlock from '../../../common/cloud-block/CloudBlock';
 import CopySites from '../../../copy-sites/CopySites';
-import icon from '../../../../assets/images/services/disc-widget.png';
+import icon from '../../../../assets/images/my-services/disc-widget.png';
 import { styled } from '@mui/material/styles';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
@@ -32,19 +32,19 @@ const DiscBlock = () => {
 
   
   const content = (
-    <div className='services__disc'>
-      <div className="services__disc_container">
-        <div className='services__disc_form-wrapper'>
-          <p className='services__disc_title'>{t('SERVICES.DISC.DISC_SPACE')}</p>
+    <div className='my-services__disc'>
+      <div className="my-services__disc_container">
+        <div className='my-services__disc_form-wrapper'>
+          <p className='my-services__disc_title'>{t('SERVICES.DISC.DISC_SPACE')}</p>
 
 
           
-          <div className='services__disc_info'> 
-            <BorderLinearProgress className='services__disc_info-progress' variant="determinate" value={value} />
-            <div className='services__disc_info-text'>{freeSpace} GB {t('SERVICES.DISC.FREESPACE1')} {totalSpace} GB</div>
+          <div className='my-services__disc_info'> 
+            <BorderLinearProgress className='my-services__disc_info-progress' variant="determinate" value={value} />
+            <div className='my-services__disc_info-text'>{freeSpace} GB {t('SERVICES.DISC.FREESPACE1')} {totalSpace} GB</div>
           </div>
           
-          <div className='services__disc_btn'>
+          <div className='my-services__disc_btn'>
             <button className="btn" onClick={() => navigate('/services/copy-sites')}>{t('SERVICES.DISC.BUTTON')}</button>
           </div>
         </div>
