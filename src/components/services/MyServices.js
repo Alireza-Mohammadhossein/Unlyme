@@ -152,6 +152,22 @@ const MyServices = () => {
   useEffect(() => {
     setLayouts(originalLayouts);
   }, [screenSize])
+
+
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const handleCollapse = (event) => {
+    if(!isCollapsed) {
+      const parent = event.target.parentNode.parentNode.parentNode.parentNode;
+      parent.style.height = '78px';
+      parent.style.overflowY = 'hidden';
+    } else {
+      const parent = event.target.parentNode.parentNode.parentNode.parentNode;
+      parent.style.height = '380px';
+      parent.style.overflowY = '';
+    }
+
+    setIsCollapsed(!isCollapsed);
+  }
   
   return (
     <div className="container">
@@ -175,19 +191,19 @@ const MyServices = () => {
         >
 
           <div key="calendar" >
-            <CalendarBlock />
+            <CalendarBlock handleCollapse={handleCollapse} />
           </div>
           
           <div key="domains">
-            <DomainsBlock />
+            <DomainsBlock handleCollapse={handleCollapse} />
           </div>
           
           <div key="guide">
-            <GuideBlock />
+            <GuideBlock/>
           </div>
           
           <div key="tasks">
-            <TasksBlock />
+            <TasksBlock handleCollapse={handleCollapse} />
           </div>
           
           <div key="cloud">

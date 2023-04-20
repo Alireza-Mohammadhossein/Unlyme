@@ -926,6 +926,9 @@ button:disabled {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  &--space-between {
+    justify-content: space-between;
+  }
   &--center {
     align-items: center;
   }

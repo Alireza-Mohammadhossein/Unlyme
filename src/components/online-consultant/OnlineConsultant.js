@@ -29,7 +29,7 @@ const OnlineConsultant = () => {
     <div className="container">
       <h1>Online Chat</h1>
       <div className="row">
-        <div className="cloud-block chat__menu">
+        <div className="cloud-page chat__menu">
           {menuOptions.map((option, index) => (
             <React.Fragment key={option.label}>
               <div
@@ -48,14 +48,14 @@ const OnlineConsultant = () => {
           ))}
         </div>
         <div className="site-horizontal-separator" />
-        <div className="cloud-block chat__dialog-list">
-          <div className="cloud-block__header">
+        <div className="cloud-page chat__dialog-list">
+          <div className="cloud-page__header">
             <div className="chat__dialog-list_search-container">
               <span className="mdi mdi-search" />
               <input className="site-input chat__dialog-list_search" placeholder="Enter your search query" />
             </div>
           </div>
-          <div className={`cloud-block__content ${chatDialogsFiltered.length === 0 ? 'chat__dialog-list_gap' : ''}`}>
+          <div className={`cloud-page__content ${chatDialogsFiltered.length === 0 ? 'chat__dialog-list_gap' : ''}`}>
             {chatDialogsFiltered.map((dialog, index) => (
               <React.Fragment key={dialog.id}>
                 <div
@@ -82,9 +82,9 @@ const OnlineConsultant = () => {
         </div>
         <div className="site-horizontal-separator" />
         <div className="chat__dialog-block">
-          <div className="cloud-block">
-            <div className="cloud-block__header">
-              <span className="cloud-block__header_title">Client {selectedDialog.id}</span>
+          <div className="cloud-page">
+            <div className="cloud-page__header">
+              <span className="cloud-page__header_title">Client {selectedDialog.id}</span>
               <div className="chat__dialog-block_btn-container">
                 <button className="btn" disabled>
                   <i className='menu__row_icon material-icons'>
@@ -100,7 +100,7 @@ const OnlineConsultant = () => {
                 </button>
               </div>
             </div>
-            <div className="cloud-block__content chat__dialog-block_window">
+            <div className="cloud-page__content chat__dialog-block_window">
               {selectedDialog.messages.map(message => (
                 <div
                   key={message.id}

@@ -111,6 +111,8 @@
 
   "SERVICES.INVOICE_MANAGER.TITLE": "Invoice Manager",
 
-  "SERVICES.CLOUD_HOSTING.TITLE": "Cloud hosting"
+  "SERVICES.CLOUD_HOSTING.TITLE": "Cloud hosting",
+
+  "SERVICES.CALENDAR_PAGE.TITLE": "Calendar"
 }
 

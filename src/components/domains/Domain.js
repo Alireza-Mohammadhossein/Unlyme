@@ -41,20 +41,20 @@ const Domains = () => {
       <h1>Domains</h1>
       <div className="row">
         <div className="col-12">
-          <div className="cloud-block services__domains-page">
-            <div className="cloud-block__header services__domains-page_header">
+          <div className="cloud-page services__domains-page">
+            <div className="cloud-page__header services__domains-page_header">
               {headerColumns.map(col => (
                 <div className="services__domains-page_col services__domains-page_header-col" key={col.id}>
-                  <div className={`cloud-block__header_icon-container cloud-block__header_icon-container--${col.color}`}>
+                  <div className={`cloud-page__header_icon-container cloud-page__header_icon-container--${col.color}`}>
                       <i className='menu__row_icon material-icons' style={{ color: 'white' }}>
                           {col.icon}
                       </i>
                   </div>
-                  <div className="cloud-block__header_title">{col.title}</div>
+                  <div className="cloud-page__header_title">{col.title}</div>
                 </div>
               ))}
             </div>
-            <div className="cloud-block__content">
+            <div className="cloud-page__content">
               {data.map(item => (
                 <div className="services__domains-page_row" key={item.id}>
                   <div className="services__domains-page_col">{item.name}</div>

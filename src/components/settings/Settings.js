@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 // import { ASSETS_URL } from '../../types';
-import CloudBlock from '../common/cloud-block/CloudBlock';
+import CloudPage from '../cloud-page/CloudPage';
 import TabToolbar from '../services/components/tab-toolbar/TabToolbar';
 import { receipts } from '../../mocks/mocks'; 
 // import "./settings.scss"
@@ -50,16 +50,16 @@ const Settings = () => {
   return (
     <div className="container">
       <h1>Settings</h1>
-      <div className="row">
+      <div className="row row--space-between">
         <div className="col-5">
-          <CloudBlock
+          <CloudPage
             title="Basic information"
             content={
-              <div className="row">
+              <div className="row row--space-between">
                 <div className="settings__info_avatar" />
                 <div className="settings__info_right text">
                   <div>
-                    <div className="row">
+                    <div className="row row--space-between">
                       <b>Oliver Berger</b>
                       <span>Contract No. 32</span>
                     </div>
@@ -90,7 +90,7 @@ const Settings = () => {
           />
         </div>
         <div className="col-4">
-          <CloudBlock
+          <CloudPage
             title="Information about receipts and write-offs"
             content={
               <>
@@ -117,7 +117,7 @@ const Settings = () => {
           />
         </div>
         <div className="col-3">
-          <CloudBlock
+          <CloudPage
             title="Employees"
             rightButtonTitle="Add employee"
             rightButtonAction={() => {}}

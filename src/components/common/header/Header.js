@@ -11,6 +11,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { signoutUser } from '../../../redux/app/appSlice';
 import Tooltip from '@mui/material/Tooltip';
 import searchIcon from '../../../assets/images/header/search.gif';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -94,6 +98,28 @@ const Header = () => {
   };
 
 
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  }
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '100%',
+    height: '100%',
+    overflowY: 'scroll',
+    bgcolor: 'background.paper',
+    // border: '2px solid #000',
+    boxShadow: 24,
+  };
 
 
   return (
@@ -122,7 +148,7 @@ const Header = () => {
           <div className="header__details-area_items">
             <div className="header__details-area_items-icon">
               <Tooltip title='Chat' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
+                <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" onClick={handleOpen} />
               </Tooltip>
             </div>
             <div className="header__details-area_items-icon">
@@ -172,6 +198,29 @@ const Header = () => {
         {/* <div className="header__exit" onClick={() => dispatch(signoutUser())} /> */}
       </div>
       <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} />
+
+            {/* modal */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        sx={{ maxHeight: '80%', maxWidth: '80%', m: 'auto' }}
+      >
+        <Box sx={style}>
+          <Button
+            onClick={handleClose}
+            sx={{position: 'sticky', left: '100%', top: '10px', minWidth: '40px'}}
+          >
+            <i className='material-icons'>
+              close
+            </i>
+          </Button>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            hello
+          </Typography>
+        </Box>
+      </Modal>
     </>
   );
 };

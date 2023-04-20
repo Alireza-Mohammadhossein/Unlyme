@@ -41,17 +41,7 @@ const CloudBlock = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleCollapse = (event) => {
-    if(!isCollapsed) {
-      const parent = event.target.parentNode.parentNode.parentNode.parentNode;
-      parent.style.height = '78px';
-      parent.style.overflowY = 'hidden';
-    } else {
-      const parent = event.target.parentNode.parentNode.parentNode.parentNode;
-      parent.style.height = '380px';
-      parent.style.overflowY = '';
-    }
-
+  const handleCollapse = () => {
     setIsCollapsed(!isCollapsed);
   }
 
@@ -92,8 +82,7 @@ const CloudBlock = ({
 
 
       {/* content */}
-      {/* <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div> */}
-      <div className='cloud-block__content'>{content}</div>
+      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div>
       
 
       {/* modal */}

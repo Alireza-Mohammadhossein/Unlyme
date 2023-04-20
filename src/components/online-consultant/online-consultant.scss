@@ -97,6 +97,7 @@
       &_compose-form {
         margin: 2*$space;
         display: flex;
+        align-items: center;
         .btn {
           margin-left: $space;
         }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CloudBlock from '../common/cloud-block/CloudBlock';
+import CloudPage from '../cloud-page/CloudPage';
 import Popup from '../common/popup/Popup';
 
 const SiteBuilder = () => {
@@ -19,7 +19,7 @@ const SiteBuilder = () => {
         pagination={{ clickable: false }}
       >
         <SwiperSlide key="start">
-          <CloudBlock
+          <CloudPage
             iconContainerColor="orange"
             mdiIcon="web"
             title="Create your own unique website or online store"
@@ -41,7 +41,7 @@ const SiteBuilder = () => {
             }
           />
           <div className="site-vertical-separator" />
-          <CloudBlock
+          <CloudPage
             title="Plans and opportunities"
             iconContainerColor="green"
             mdiIcon="paid"
@@ -152,7 +152,7 @@ const SiteBuilder = () => {
           />
         </SwiperSlide>
         <SwiperSlide key="1">
-          <CloudBlock
+          <CloudPage
             mdiIcon="keyboard_arrow_left"
             mdiIconColor="black"
             iconContainerColor="silver"

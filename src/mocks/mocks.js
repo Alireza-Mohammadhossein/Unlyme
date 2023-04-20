@@ -242,3 +242,9 @@ export const receipts = [
       .unix(),
   },
 ];
+
+
+export const events = [
+  { start_date:'2023-04-18 6:00', end_date:'2023-04-18 8:00', text:'Event 1', id: 1 },
+  { start_date:'2023-04-21 10:00', end_date:'2023-04-21 18:00', text:'Event 2', id: 2 }
+];
