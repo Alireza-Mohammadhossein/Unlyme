@@ -26,7 +26,7 @@ const OnlineConsultant = () => {
   const chatDialogsFiltered = chatDialogs.filter(dialog => dialog.status === selectedStatus || selectedStatus === null);
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h1>Online Chat</h1>
       <div className="row">
         <div className="cloud-page chat__menu">

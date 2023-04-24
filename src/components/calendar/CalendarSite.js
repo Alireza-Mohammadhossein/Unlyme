@@ -10,7 +10,7 @@ const CalendarSite = () => {
 
     
   return ( 
-    <div className="container">
+    <div className="page-container">
       <h1>{t('SERVICES.CALENDAR_PAGE.TITLE')}</h1>
       <div className="cloud-page">
         {/* <iframe title={'Calendar'} src={`${BACKEND_URL}/widgets/calendar`} className="calendar__container" /> */}

@@ -37,7 +37,7 @@ const Domains = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h1>Domains</h1>
       <div className="row">
         <div className="col-12">

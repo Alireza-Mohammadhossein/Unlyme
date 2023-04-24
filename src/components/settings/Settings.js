@@ -48,7 +48,7 @@ const Settings = () => {
   });
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h1>Settings</h1>
       <div className="row row--space-between">
         <div className="col-5">

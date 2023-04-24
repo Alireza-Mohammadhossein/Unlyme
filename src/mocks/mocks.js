@@ -1,4 +1,8 @@
 import moment from 'moment';
+import annAvatar from '../assets/chat-users/Ann.png';
+import aspenAvatar from '../assets/chat-users/Aspen.png';
+import gretchenAvatar from '../assets/chat-users/Gretchen.png';
+import tomAvatar from '../assets/chat-users/Tom.png';
 
 export const clientData = {
   user_id: 1,
@@ -142,6 +146,9 @@ export const accountsHistory = [
 export const CHAT_DIALOG_STATUS_ACTIVE = 0;
 export const CHAT_DIALOG_STATUS_DEFERRED = 1;
 export const CHAT_DIALOG_STATUS_CLOSED = 2;
+export const UNREAD = 'unread';
+export const READ = 'read';
+
 
 export const chatDialogs = [
   {
@@ -247,4 +254,169 @@ export const receipts = [
 export const events = [
   { start_date:'2023-04-18 6:00', end_date:'2023-04-18 8:00', text:'Event 1', id: 1 },
   { start_date:'2023-04-21 10:00', end_date:'2023-04-21 18:00', text:'Event 2', id: 2 }
+];
+
+
+export const chatMessages = [
+  {
+    id: 444,
+    firstName: 'Tom',
+    lastName: 'Westervelt',
+    lastMessage: 'Sure you do, no worries about this problem',
+    status: UNREAD,
+    avatar: tomAvatar,
+    date: moment()
+      .subtract(10, 'days')
+      .unix(),
+  },
+  {
+    id: 111,
+    firstName: 'Ann',
+    lastName: 'Aminoff',
+    lastMessage: 'Yes, and also the other tasks are copmlete',
+    status: UNREAD,
+    avatar: annAvatar,
+    messages: [
+      {
+        id: 1,
+        text: 'Hello!',
+        user_id: 1,
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        text: 'Hello! How can I help you?',
+        user_id: 2,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        text: 'Please tell me how I can place an order on your site?',
+        user_id: 1,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        text:
+          'You need to select the desired item and add it to the cart, then pay for the order and we will deliver it to the specific address.',
+        user_id: 2,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+    ],
+    date: moment().unix(),
+  },
+  {
+    id: 222,
+    firstName: 'Aspen',
+    lastName: 'Vaccaro',
+    lastMessage: 'Ok, I will update the chart and come back to you',
+    status: READ,
+    avatar: aspenAvatar,
+    date: moment()
+      .subtract(2, 'days')
+      .unix(),
+  },
+  {
+    id: 333,
+    firstName: 'Gretchen',
+    lastName: 'Carder',
+    lastMessage: 'Can you please send your location?',
+    status: READ,
+    avatar: gretchenAvatar,
+    date: moment()
+      .subtract(10, 'days')
+      .unix(),
+  },
+
+  {
+    id: 555,
+    firstName: 'Tom',
+    lastName: 'Westervelt',
+    lastMessage: 'Sure you do, no worries about this problem',
+    status: UNREAD,
+    avatar: tomAvatar,
+    date: moment()
+      .subtract(10, 'days')
+      .unix(),
+  },
+  {
+    id: 666,
+    firstName: 'Ann',
+    lastName: 'Aminoff',
+    lastMessage: 'Yes, and also the other tasks are copmlete',
+    status: UNREAD,
+    avatar: annAvatar,
+    messages: [
+      {
+        id: 1,
+        text: 'Hello!',
+        user_id: 1,
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        text: 'Hello! How can I help you?',
+        user_id: 2,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        text: 'Please tell me how I can place an order on your site?',
+        user_id: 1,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        text:
+          'You need to select the desired item and add it to the cart, then pay for the order and we will deliver it to the specific address.',
+        user_id: 2,
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+    ],
+    date: moment().unix(),
+  },
+  {
+    id: 777,
+    firstName: 'Aspen',
+    lastName: 'Vaccaro',
+    lastMessage: 'Ok, I will update the chart and come back to you',
+    status: READ,
+    avatar: aspenAvatar,
+    date: moment()
+      .subtract(2, 'days')
+      .unix(),
+  },
+  {
+    id: 888,
+    firstName: 'Gretchen',
+    lastName: 'Carder',
+    lastMessage: 'Can you please send your location?',
+    status: READ,
+    avatar: gretchenAvatar,
+    date: moment()
+      .subtract(10, 'days')
+      .unix(),
+  }
 ];

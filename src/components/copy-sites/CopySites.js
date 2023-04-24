@@ -11,7 +11,7 @@ const CopySites = () => {
   const [popupVisible, setPopupVisible] = useState(null);
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h1>Copy sites</h1>
       <Swiper
         style={{ overflow: "hidden" }}

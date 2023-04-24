@@ -72,7 +72,7 @@ const Bank = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="page-container">
         <h1>Bank</h1>
         <div className="row">
           <div className="services__bank-page_accounts">

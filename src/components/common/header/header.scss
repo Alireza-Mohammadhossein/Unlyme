@@ -33,6 +33,7 @@
 
   &__details-area {
     display: flex;
+    position: relative;
 
     &_searchbar {
       position: relative;
@@ -84,6 +85,10 @@
         }
       }
     }
+  }
+
+  &__popup-area {
+    position: relative;
   }
 
   // &__search-bar {

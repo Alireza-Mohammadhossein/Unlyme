@@ -11,6 +11,11 @@
   "HEADER.SEARCH_PLACEHOLDER": "Describe your task...",
   "MY_SERVICES.H1": "Connected Apps and Services",
 
+  "CHAT_POPUP.LIST.HEADER.TITLE": "Messenger",
+  "CHAT_POPUP.LIST.HEADER.SEARCH": "Search",
+  "CHAT_POPUP.MESSAGE.TERMS": "This conversation is private between you and",
+
+
   "SERVICES.CALENDAR.TITLE": "Calendar",
   "SERVICES.CALENDAR.SUBTITLE": "All calendars",
  

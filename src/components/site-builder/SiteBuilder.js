@@ -8,7 +8,7 @@ const SiteBuilder = () => {
   const [popupVisible, setPopupVisible] = useState(null);
 
   return (
-    <div className="container">
+    <div className="page-container">
       <h1>Site builder</h1>
       <Swiper
         style={{ overflow: 'hidden' }}
