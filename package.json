@@ -4,6 +4,8 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
+    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/react": "^1.1.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.16",
@@ -20,6 +22,7 @@
     "core-js": "^3.29.1",
     "dayjs": "^1.11.7",
     "dhtmlx-scheduler": "^6.0.3",
+    "emoji-mart": "^5.5.2",
     "gh-pages": "^5.0.0",
     "history": "^5.3.0",
     "i18next": "^22.4.13",

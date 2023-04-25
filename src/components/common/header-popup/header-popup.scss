@@ -202,6 +202,11 @@
     }
 
     &__body {
+      height: 710px;
+      position: relative;    
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       &-terms {
         padding: 15px;
@@ -228,7 +233,185 @@
       }
 
       &-content {
+        padding: 20px 15px;
+        height: 480px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
+        &_friend {
+          padding-right: 25px;
+          display: flex;
+          justify-content: flex-start;
+          gap: 10px;
+
+          &-avatar {
+            width: 30px;
+            height: 30px;
+
+            & img {
+              width: inherit;
+              height: inherit;
+            }
+          }
+
+          &-message {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            &_text {
+              background-color: #F6F6F6;
+              padding: 10px 15px 10px 20px;
+              border-radius: 25px;
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              gap: 3px;
+
+              & p {
+                font-size: 15px;
+                color: #000000;
+              }
+
+              & span {
+                display: inline-block;
+                text-align: right;
+                font-size: 12px;
+                color: #909090;
+              }
+            }
+            
+            &_text:first-child {
+              border-radius: 0 25px 25px 25px;
+            }
+
+          }
+          
+        }
+
+
+        &_own {
+          padding-left: 40px;
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+
+          &-message {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            &_text {
+              background-color: #E5F1FF;
+              padding: 10px 15px 10px 20px;
+              border-radius: 25px;
+              display: flex;
+              align-items: flex-end;
+              justify-content: space-between;
+              gap: 3px;
+
+              & p {
+                font-size: 15px;
+                color: #000000;
+              }
+
+              & span {
+                display: inline-block;
+                text-align: right;
+                font-size: 12px;
+                color: #909090;
+              }
+            }
+            
+            &_text:first-child {
+              border-radius: 25px 0 25px 25px;
+            }
+
+          }
+          
+        }
+      }
+
+      &-footer {
+        position: relative;
+
+        & .emoji-picker {
+          position: absolute;
+          bottom: 100%;
+        }
+
+        &_container {
+          padding: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+        }
+
+        &_inputs {
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          padding: 10px 5px;
+          border: 1px solid #CFCFCF;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+
+          border-radius: 25px;
+
+          &-emoji {
+            cursor: pointer;
+
+            & label {
+              color: #909090;
+            }
+          }
+
+          &-text {
+            width: 100%;
+
+            & .MuiFormControl-root {
+              margin-top: 0 !important;
+              width: 100%;
+            }
+            & .MuiInputBase-root  {
+              padding: 0 !important;
+            }
+            & .MuiInputBase-input {
+              padding: 8.5px 5px !important;
+            }
+            & fieldset {
+              border: unset;
+            }
+            & .MuiInputBase-input {
+              height: 22px !important;
+              line-height: 22px;
+            } 
+          }
+
+          &-upload {
+
+            & label {
+              color: #909090;
+            }
+
+          }
+        }
+
+        &_send-btn {
+          & .MuiIconButton-root {
+            background-color: $blue;
+            color: white;
+          }
+
+          
+          & .MuiIconButton-root:hover {
+            background-color: $blue;
+            color: white;
+          }
+
+        }
       }
     }
   }

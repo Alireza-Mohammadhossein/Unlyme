@@ -264,6 +264,91 @@ export const chatMessages = [
     lastName: 'Westervelt',
     lastMessage: 'Sure you do, no worries about this problem',
     status: UNREAD,
+    new_messages: 1,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hi there, where are you?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'I am going to take a photo',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'What type of photo?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Wedding photography :)',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },
+          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: tomAvatar,
     date: moment()
       .subtract(10, 'days')
@@ -275,20 +360,29 @@ export const chatMessages = [
     lastName: 'Aminoff',
     lastMessage: 'Yes, and also the other tasks are copmlete',
     status: UNREAD,
+    new_messages: 2,
     avatar: annAvatar,
     messages: [
       {
         id: 1,
-        text: 'Hello!',
-        user_id: 1,
+        texts: [
+          {
+            text: 'Hey, have you finished that report for the deadline tomorrow?!',
+          }
+        ],
+        user_id: 'friend',
         created_at: moment()
           .subtract(5, 'day')
           .unix(),
       },
       {
         id: 2,
-        text: 'Hello! How can I help you?',
-        user_id: 2,
+        texts: [
+          {
+            text: 'Almost done, just need to send the file. Hold on a sec...',
+          }
+        ],
+        user_id: 'own',
         created_at: moment()
           .subtract(5, 'day')
           .add(2, 'minutes')
@@ -296,8 +390,12 @@ export const chatMessages = [
       },
       {
         id: 3,
-        text: 'Please tell me how I can place an order on your site?',
-        user_id: 1,
+        texts: [
+          {
+            text: 'No worries, take your time.',
+          }
+        ],
+        user_id: 'friend',
         created_at: moment()
           .subtract(5, 'day')
           .add(10, 'minutes')
@@ -305,13 +403,35 @@ export const chatMessages = [
       },
       {
         id: 4,
-        text:
-          'You need to select the desired item and add it to the cart, then pay for the order and we will deliver it to the specific address.',
-        user_id: 2,
+        texts: [
+          {
+            text: 'Okay, sending it now.',
+          }
+        ],
+        user_id: 'own',
         created_at: moment()
           .subtract(5, 'day')
           .add(10, 'minutes')
           .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
       },
     ],
     date: moment().unix(),
@@ -322,6 +442,90 @@ export const chatMessages = [
     lastName: 'Vaccaro',
     lastMessage: 'Ok, I will update the chart and come back to you',
     status: READ,
+    new_messages: 0,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hey, how are you?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Thanks I am good',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'Where ar you now?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'At gym',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: aspenAvatar,
     date: moment()
       .subtract(2, 'days')
@@ -332,19 +536,183 @@ export const chatMessages = [
     firstName: 'Gretchen',
     lastName: 'Carder',
     lastMessage: 'Can you please send your location?',
-    status: READ,
+    status: UNREAD,
+    new_messages: 3,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hi there, where are you?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'I am going to take a photo',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'What type of photo?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Wedding photography :)',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: gretchenAvatar,
     date: moment()
       .subtract(10, 'days')
       .unix(),
   },
-
   {
     id: 555,
     firstName: 'Tom',
     lastName: 'Westervelt',
     lastMessage: 'Sure you do, no worries about this problem',
-    status: UNREAD,
+    status: READ,
+    new_messages: 0,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hey, have you finished that report for the deadline tomorrow?!',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Almost done, just need to send the file. Hold on a sec...',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'No worries, take your time.',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Okay, sending it now.',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: tomAvatar,
     date: moment()
       .subtract(10, 'days')
@@ -356,20 +724,28 @@ export const chatMessages = [
     lastName: 'Aminoff',
     lastMessage: 'Yes, and also the other tasks are copmlete',
     status: UNREAD,
-    avatar: annAvatar,
+    new_messages: 1,
     messages: [
       {
         id: 1,
-        text: 'Hello!',
-        user_id: 1,
+        texts: [
+          {
+            text: 'Hey, how are you?',
+          }
+        ],
+        user_id: 'friend',
         created_at: moment()
           .subtract(5, 'day')
           .unix(),
       },
       {
         id: 2,
-        text: 'Hello! How can I help you?',
-        user_id: 2,
+        texts: [
+          {
+            text: 'Thanks I am good',
+          }
+        ],
+        user_id: 'own',
         created_at: moment()
           .subtract(5, 'day')
           .add(2, 'minutes')
@@ -377,8 +753,12 @@ export const chatMessages = [
       },
       {
         id: 3,
-        text: 'Please tell me how I can place an order on your site?',
-        user_id: 1,
+        texts: [
+          {
+            text: 'Where ar you now?',
+          }
+        ],
+        user_id: 'friend',
         created_at: moment()
           .subtract(5, 'day')
           .add(10, 'minutes')
@@ -386,15 +766,49 @@ export const chatMessages = [
       },
       {
         id: 4,
-        text:
-          'You need to select the desired item and add it to the cart, then pay for the order and we will deliver it to the specific address.',
-        user_id: 2,
+        texts: [
+          {
+            text: 'At gym',
+          }
+        ],
+        user_id: 'own',
         created_at: moment()
           .subtract(5, 'day')
           .add(10, 'minutes')
           .unix(),
       },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
     ],
+    avatar: annAvatar,
     date: moment().unix(),
   },
   {
@@ -403,6 +817,90 @@ export const chatMessages = [
     lastName: 'Vaccaro',
     lastMessage: 'Ok, I will update the chart and come back to you',
     status: READ,
+    new_messages: 0,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hi there, where are you?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'I am going to take a photo',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'What type of photo?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Wedding photography :)',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: aspenAvatar,
     date: moment()
       .subtract(2, 'days')
@@ -413,7 +911,91 @@ export const chatMessages = [
     firstName: 'Gretchen',
     lastName: 'Carder',
     lastMessage: 'Can you please send your location?',
-    status: READ,
+    status: UNREAD,
+    new_messages: 1,
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Hi there, where are you?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .unix(),
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'I am going to take a photo',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(2, 'minutes')
+          .unix(),
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: 'What type of photo?',
+          }
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Wedding photography :)',
+          }
+        ],
+        user_id: 'own',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Great!',
+          },
+          {
+            text: 'Let me know',
+          },
+          {
+            text: 'when you are free',
+          },
+          {
+            text: 'I have a good news for you',
+          },          {
+            text: 'Great, thanks! Wait, did you just send me a picture of a cat?',
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+          },
+          {
+            text: 'Lorem ipsum',
+          },
+        ],
+        user_id: 'friend',
+        created_at: moment()
+          .subtract(5, 'day')
+          .add(10, 'minutes')
+          .unix(),  
+      },
+    ],
     avatar: gretchenAvatar,
     date: moment()
       .subtract(10, 'days')

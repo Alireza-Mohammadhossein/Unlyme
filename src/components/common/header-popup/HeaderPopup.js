@@ -18,6 +18,12 @@ import Box from '@mui/material/Box';
 import CircleIcon from '@mui/icons-material/Circle';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { chatMessages } from '../../../mocks/mocks';
+import friend from '../../../assets/chat-users/Ann.png';
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import SendIcon from '@mui/icons-material/Send';
 import { isNull } from 'lodash';
 
 
@@ -60,7 +66,7 @@ function a11yProps(index) {
 
 
 
-const HeaderPopup = ({ setChatPopupToggler }) => {
+const HeaderPopup = ({ setChatPopupToggler, props }) => {
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -79,6 +85,29 @@ const HeaderPopup = ({ setChatPopupToggler }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
+
+  const [message, setMessage] = useState("");
+  const [selectedEmoji, setSelectedEmoji] = useState(null);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    props.onFileUpload(file); // Pass the uploaded file to the parent component
+  };
+
+  const handleTextChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+
+
+  const [isPickerVisible, setIsPickerVisible] = useState(false);
+
+
+  const objDiv = document.getElementsByClassName("popup-messages__body-content");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
 
 
   return (
@@ -201,12 +230,12 @@ const HeaderPopup = ({ setChatPopupToggler }) => {
                               <p className='popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
                               <p
                                 className='popup-list__body-messages_item_content_last-message'
-                                style={item.status === 'unread' ? { color:'#51A3FF' , fontWeight: '600'} : {}}  
+                                style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '600'} : {}}  
                               >{item.lastMessage}</p>
                               </div>
                         
                               <div className='popup-list__body-messages_item_status'>
-                              {item.status === 'unread' ?
+                              {item.new_messages > 0 ?
                                 <CircleIcon className='popup-list__body-messages_item_status-unread' />
                                 :
                                 <DoneAllIcon className='popup-list__body-messages_item_status-read' />
@@ -242,7 +271,7 @@ const HeaderPopup = ({ setChatPopupToggler }) => {
               <div className='popup-messages__header'>
                 <div className='popup-messages__header-info'>
                   <img src={item.avatar} alt={item.firstName} className='popup-messages__header-info_img' />
-                    
+
                   <p className='popup-messages__header-info_name'>{item.firstName}</p>
                 </div>
   
@@ -310,7 +339,119 @@ const HeaderPopup = ({ setChatPopupToggler }) => {
                 </div>
   
                 <div className='popup-messages__body-content'>
-                    text test 1
+
+                  {item.messages &&
+                    item.messages.map((message) => (
+                      message.user_id === 'friend' ? 
+                        <div className='popup-messages__body-content_friend'>
+                          <div className='popup-messages__body-content_friend-avatar'>
+                            <img src={item.avatar} alt={item.name} />
+                          </div>
+                          <div className='popup-messages__body-content_friend-message'>
+                            { message.texts &&
+                              message.texts.map(text => (
+                                <div className='popup-messages__body-content_friend-message_text'>
+                                  <p>{text.text}</p>
+                                  <span>11:25</span>
+                                </div>
+                              ))
+                            }
+                          </div>
+                        </div> 
+                      : 
+                        <div className='popup-messages__body-content_own'>
+                          <div className='popup-messages__body-content_own-message'>
+                            { message.texts &&
+                              message.texts.map(text => (
+                                <div className='popup-messages__body-content_own-message_text'>
+                                  <p>{text.text}</p>
+                                  <span>11:25</span>
+                                </div>
+                              ))
+                            }
+                          </div>
+                        </div> 
+                    ))
+                  }
+
+                </div>
+
+                <div className='popup-messages__body-footer'>
+                  <form>
+                    <div className='popup-messages__body-footer_container'>
+                      <div className='popup-messages__body-footer_inputs'>
+                        <div className='popup-messages__body-footer_inputs-emoji'>
+                          <IconButton
+                            aria-label="upload file"
+                            component="label"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setIsPickerVisible(!isPickerVisible)
+                            }}>
+                            <SentimentSatisfiedAltIcon />
+                          </IconButton>
+                        </div>
+
+                        <div className='popup-messages__body-footer_inputs-text'>
+                          <TextField
+                            // className="my-services__sites-copying_form_input"
+                            id=""
+                            value={message}
+                            onChange={handleTextChange}
+                            placeholder='Type a message...'
+                            variant="outlined"
+                            size="small"
+                            multiline
+                            maxRows={1}
+                          />
+                        </div>
+
+                        <div className='popup-messages__body-footer_inputs-upload'>
+                          <IconButton aria-label="upload file" component="label">
+                            <input hidden type="file" />
+                            <AttachFileIcon />
+                          </IconButton>
+                        </div>
+
+                        {/* <input type="file" onChange={handleFileUpload} /> */}
+                      </div>
+
+                      <div style={isPickerVisible ? {display: 'block'} : {display: 'none'}} className='emoji-picker'>
+                        <Picker
+                          data={data}
+                          previewPosition='none'
+                          navPosition='bottom'
+                          searchPosition='none'
+                          set='apple'
+                          onClickOutside={() => {
+                            if(isPickerVisible) {
+                              setIsPickerVisible(false);
+                            }
+                            // isPickerVisible ? setIsPickerVisible(false)
+                          }}
+                          onEmojiSelect={(e) => {
+                            setSelectedEmoji(e.native);
+                            setMessage(message + e.native);
+                            setIsPickerVisible(!isPickerVisible);
+                          }} 
+                        />
+                      </div>
+
+                      <div className='popup-messages__body-footer_send-btn'>
+                        <IconButton
+                          aria-label="send message"
+                          component="label"
+                          onClick={(e) => {
+                            setMessage('')
+                          }}>
+                          <SendIcon />
+                        </IconButton>
+                      </div>
+                    </div>
+
+                  </form>
+
+
                 </div>
               </div>
             
