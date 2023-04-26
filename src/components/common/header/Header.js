@@ -12,7 +12,8 @@ import Tooltip from '@mui/material/Tooltip';
 import searchIcon from '../../../assets/images/header/search.gif';
 import { styled} from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import HeaderPopup from '../header-popup/HeaderPopup';
+import HeaderChatPopup from '../header-chatpopup/HeaderChatPopup';
+import HeaderNotePopup from '../header-notepopup/HeaderNotePopup';
 
 
 
@@ -123,7 +124,12 @@ const Header = () => {
           </div>
 
           <div className="header__details-area_items">
-            <div className="header__details-area_items-icon" onClick={() => setChatPopupToggler(!chatPopupToggler)}>
+            <div
+              className="header__details-area_items-icon"
+              onClick={() => {
+                setChatPopupToggler(!chatPopupToggler);
+                setNotePopupToggler(false);
+              }}>
               <Tooltip title='Chat' arrow placement="bottom">
                 <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
               </Tooltip>
@@ -133,7 +139,12 @@ const Header = () => {
                 <img src={`${ASSETS_URL}/assets/images/header/mails-icon.png`} alt="mails" />
               </Tooltip>
             </div>
-            <div className="header__details-area_items-icon">
+            <div
+              className="header__details-area_items-icon" 
+              onClick={() => {
+                setNotePopupToggler(!notePopupToggler);
+                setChatPopupToggler(false);
+              }}>
               <Tooltip title='Notes' arrow placement="bottom">
                 <img src={`${ASSETS_URL}/assets/images/header/notes-icon.png`} alt="notes" />
               </Tooltip>
@@ -155,7 +166,14 @@ const Header = () => {
 
           {chatPopupToggler ? 
             <div className="header__popup-area">
-              <HeaderPopup setChatPopupToggler={setChatPopupToggler} />
+              <HeaderChatPopup setChatPopupToggler={setChatPopupToggler} />
+            </div>
+            : ''
+          }
+
+          {notePopupToggler ? 
+            <div className="header__popup-area">
+              <HeaderNotePopup setNotePopupToggler={setNotePopupToggler} />
             </div>
             : ''
           }

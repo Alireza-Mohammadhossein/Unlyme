@@ -1377,3 +1377,67 @@ export const chatMessages = [
       .unix(),
   }
 ];
+
+
+export const notes = [
+  {
+    id: 1,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description',
+  },
+  {
+    id: 2,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 3,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description',
+  },
+  {
+    id: 4,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 5,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 6,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description',
+  },
+  {
+    id: 7,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 8,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 9,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description',
+  },
+  {
+    id: 10,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 11,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+  },
+  {
+    id: 12,
+    title: 'Lorem ipsum Note title',
+    message: 'Lorem ipsum test description Lorem ipsum test description',
+  },
+];

@@ -15,6 +15,10 @@
   "CHAT_POPUP.LIST.HEADER.SEARCH": "Search",
   "CHAT_POPUP.MESSAGE.TERMS": "This conversation is private between you and",
 
+  "NOTE_POPUP.TITLE": "Notes",
+  "NOTE_POPUP.CREATE_NOTE": "Create note",
+
+
 
   "SERVICES.CALENDAR.TITLE": "Calendar",
   "SERVICES.CALENDAR.SUBTITLE": "All calendars",
