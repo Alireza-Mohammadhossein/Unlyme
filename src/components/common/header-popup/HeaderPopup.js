@@ -18,12 +18,14 @@ import Box from '@mui/material/Box';
 import CircleIcon from '@mui/icons-material/Circle';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { chatMessages } from '../../../mocks/mocks';
-import friend from '../../../assets/chat-users/Ann.png';
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import SendIcon from '@mui/icons-material/Send';
+import ChatIcon from '@mui/icons-material/Chat';
+import PeopleIcon from '@mui/icons-material/People';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import { isNull } from 'lodash';
 
 
@@ -71,10 +73,24 @@ const HeaderPopup = ({ setChatPopupToggler, props }) => {
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
 
-  const [value, setValue] = useState(null);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  
+  
+  // start showing main tabs
+    const [maintab, setMainTab] = useState(0);
+    const handleMainTabs = (event, newValue) => {
+      setMainTab(newValue);
+      setShowChat(null);
+    };
+  // end showing main tabs
+  
+  
+  // start showing chat tab
+  const [showChat, setShowChat] = useState(null);
+  const handleShowChat = (event, newValue) => {
+    setShowChat(newValue);
   };
+// end showing chat tab
+
 
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -203,59 +219,80 @@ const HeaderPopup = ({ setChatPopupToggler, props }) => {
                     />
                 </FormControl>
             </div>
+            
+            <TabPanel value={maintab} index={0} className='popup-list__body-messages_container' >
+              <div className='popup-list__body-messages'>
+                  <div className='popup-list__body-messages_list'>
+                    <Tabs
+                      orientation="vertical"
+                      variant="scrollable"
+                      value={showChat}
+                      onChange={handleShowChat}
+                      aria-label="Vertical tabs example"
+                      // sx={{ borderRight: 1, borderColor: 'divider' }}
+                    >
 
-            <div className='popup-list__body-messages'>
-                <div className='popup-list__body-messages_list'>
-                  <Tabs
-                    orientation="vertical"
-                    variant="scrollable"
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="Vertical tabs example"
-                    // sx={{ borderRight: 1, borderColor: 'divider' }}
-                  >
-
-                      {chatMessages.map((item, index) => (
-                        <Tab
-                          className='popup-list__body-messages_item'
-                          key={item.id}
-                          {...a11yProps(index)}
-                          label={
-                            <>
-                              <div className='popup-list__body-messages_item_avatar'>
-                                <img src={item.avatar} alt={item.name}/>
-                              </div>
-                        
-                              <div className='popup-list__body-messages_item_content'>
-                              <p className='popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
-                              <p
-                                className='popup-list__body-messages_item_content_last-message'
-                                style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '600'} : {}}  
-                              >{item.lastMessage}</p>
-                              </div>
-                        
-                              <div className='popup-list__body-messages_item_status'>
-                              {item.new_messages > 0 ?
-                                <CircleIcon className='popup-list__body-messages_item_status-unread' />
-                                :
-                                <DoneAllIcon className='popup-list__body-messages_item_status-read' />
-                              }
-                              </div>
-                            </>
-                          } 
-                        />
-                      ))}
-                  </Tabs>
+                        {chatMessages.map((item, index) => (
+                          <Tab
+                            className='popup-list__body-messages_item'
+                            key={item.id}
+                            {...a11yProps(index)}
+                            label={
+                              <>
+                                <div className='popup-list__body-messages_item_avatar'>
+                                  <img src={item.avatar} alt={item.name}/>
+                                </div>
+                          
+                                <div className='popup-list__body-messages_item_content'>
+                                <p className='popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
+                                <p
+                                  className='popup-list__body-messages_item_content_last-message'
+                                  style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '600'} : {}}  
+                                >{item.lastMessage}</p>
+                                </div>
+                          
+                                <div className='popup-list__body-messages_item_status'>
+                                {item.new_messages > 0 ?
+                                  <CircleIcon className='popup-list__body-messages_item_status-unread' />
+                                  :
+                                  <DoneAllIcon className='popup-list__body-messages_item_status-read' />
+                                }
+                                </div>
+                              </>
+                            } 
+                          />
+                        ))}
+                    </Tabs>
 
 
-                  {/* {chatMessages.map((item, index) => (
-                    <TabPanel value={value} index={index}>
-                      {item.name}
-                    </TabPanel>
-                  ))} */}
+                    {/* {chatMessages.map((item, index) => (
+                      <TabPanel value={value} index={index}>
+                        {item.name}
+                      </TabPanel>
+                    ))} */}
 
-                </div>
-            </div>
+                  </div>
+              </div>
+            </TabPanel>
+
+            <TabPanel value={maintab} index={1} className='popup-list__body-chanels_container'>
+              <div className='popup-list__body-chanels'>
+              </div>
+            </TabPanel>
+            
+
+            <TabPanel value={maintab} index={2} className='popup-list__body-contacts_container'>
+              <div className='popup-list__body-contacts'>
+              </div>
+            </TabPanel>
+        </div>
+
+        <div className='popup-list__footer'>
+            <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='popup-list__footer_container' >
+                <Tab icon={<ChatIcon />} label="Chats" />
+                <Tab icon={<PeopleIcon />} label="Chanels" />
+                <Tab icon={<PermContactCalendarIcon />} label="Contacts" />
+            </Tabs>
         </div>
       </div>
 
@@ -263,11 +300,11 @@ const HeaderPopup = ({ setChatPopupToggler, props }) => {
 
 
 
-      {value !== null
+      {showChat !== null
         ? 
         <div className='popup-messages'>
           {chatMessages.map((item, index) => (
-          <TabPanel value={value} index={index} className='popup-messages-tabpanel'>
+          <TabPanel value={showChat} index={index} className='popup-messages-tabpanel'>
               <div className='popup-messages__header'>
                 <div className='popup-messages__header-info'>
                   <img src={item.avatar} alt={item.firstName} className='popup-messages__header-info_img' />
@@ -322,7 +359,7 @@ const HeaderPopup = ({ setChatPopupToggler, props }) => {
                       aria-controls={open ? "long-menu" : undefined}
                       aria-expanded={open ? "true" : undefined}
                       aria-haspopup="true"
-                      onClick={() => setValue(null)}
+                      onClick={() => setShowChat(null)}
                     >
                       <CloseIcon  sx={{ color: '#000000' }}/>
                     </IconButton>
