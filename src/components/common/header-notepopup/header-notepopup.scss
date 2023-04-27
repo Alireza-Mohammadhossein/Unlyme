@@ -10,6 +10,7 @@
     right: 0;
     top: 69px;
     box-sizing: border-box;
+
     &-list {
       width: 380px;
       height: 100%;
@@ -70,10 +71,9 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 20px;
     
             & .MuiTabs-flexContainerVertical {
-              gap: 20px;
+              // gap: 20px;
             }
           }
     
@@ -85,7 +85,8 @@
             gap: 15px;
             text-transform: unset !important;
             flex-direction: row !important;
-            padding: 0 10px 0 0 !important;
+            padding: 15px 0 !important;
+            border-bottom: 1px solid #ECECEC !important;
         
             &_content {
               overflow: hidden;
@@ -135,6 +136,14 @@
                 display: flex;
             }
           }
+
+          &_item:first-child {
+            padding-top: 0 !important;
+          }
+          
+          &_item:last-child {
+            border: unset !important;
+          }
         }
 
       }
@@ -153,22 +162,29 @@
       }
     }
   
+
+
     &-messages {
       width: 380px;
-      height: 790px;
+      height: 100%;
       background-color: #fff;
       border-left: 1px solid #ECECEC;
       border-radius: 0 18px 18px 0;
   
       &-tabpanel {
-  
+        height: 100%;
+
         & .MuiBox-root {
           padding: 0 !important;
+          height: 100%;
         } 
+        & .MuiTypography-root {
+          height: 100%;
+        }
       }
   
       &__header {
-        padding: 20px 30px 18px;
+        padding: 20px 30px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
@@ -179,12 +195,7 @@
           justify-content: flex-start;
           flex-direction: row;
           gap: 10px;
-  
-          &_img {
-            width: 40px;
-            height: 40px;
-          }
-  
+    
           &_name {
             font-size: 22px;
             color: #000000;
@@ -197,133 +208,52 @@
       }
   
       &__body {
-        height: 710px;
+        height: calc(100% - 80px);
+        padding-bottom: 30px;
         position: relative;    
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-  
-        &-terms {
-          padding: 15px;
-          font-size: 13px;
-          color: #525252;
-        }
+        box-sizing: border-box;
   
         &-date {
           text-align: center;
-          margin-top: 15px;
-          border-top: 1px solid #ECECEC;
+          padding: 15px 0;
+          height: 20px;
   
           & p {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
-            color: #000000;
-            padding: 5px 25px;
-            border: 1px solid #ECECEC;
-            border-radius: 30px;
-            display: inline-block;
-            transform: translateY(-15px);
-            background-color: #FFFFFF;
+            color: #6E6F6F;
           }
         }
   
         &-content {
-          padding: 20px 15px;
-          height: 480px;
-          overflow-y: scroll;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
+          padding: 20px 30px;
+          height: calc(100% - 50px);
+          overflow-y: auto;
   
-          &_friend {
-            padding-right: 25px;
-            display: flex;
-            justify-content: flex-start;
-            gap: 10px;
-  
-            &-avatar {
-              width: 30px;
-              height: 30px;
-  
-              & img {
-                width: inherit;
-                height: inherit;
+          &_text {
+            height: 100%;
+
+            &-area {
+              width: 100%;
+              height: 100%;
+
+              & fieldset {
+                border: unset;
+                padding: 0;
+              }
+
+              & .MuiInputBase-root {
+                padding: 0 !important;
+                align-items: start !important;
+                height: 100%;
+              }
+
+              & textarea {
+                height: 100%;
               }
             }
-  
-            &-message {
-              display: flex;
-              flex-direction: column;
-              gap: 15px;
-              &_text {
-                background-color: #F6F6F6;
-                padding: 10px 15px 10px 20px;
-                border-radius: 25px;
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-                gap: 3px;
-  
-                & p {
-                  font-size: 15px;
-                  color: #000000;
-                }
-  
-                & span {
-                  display: inline-block;
-                  text-align: right;
-                  font-size: 12px;
-                  color: #909090;
-                }
-              }
-              
-              &_text:first-child {
-                border-radius: 0 25px 25px 25px;
-              }
-  
-            }
-            
-          }
-  
-  
-          &_own {
-            padding-left: 40px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-  
-            &-message {
-              display: flex;
-              flex-direction: column;
-              gap: 15px;
-              &_text {
-                background-color: #E5F1FF;
-                padding: 10px 15px 10px 20px;
-                border-radius: 25px;
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-                gap: 3px;
-  
-                & p {
-                  font-size: 15px;
-                  color: #000000;
-                }
-  
-                & span {
-                  display: inline-block;
-                  text-align: right;
-                  font-size: 12px;
-                  color: #909090;
-                }
-              }
-              
-              &_text:first-child {
-                border-radius: 25px 0 25px 25px;
-              }
-  
-            }
-            
           }
         }
   

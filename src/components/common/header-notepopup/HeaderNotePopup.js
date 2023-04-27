@@ -31,6 +31,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import PeopleIcon from '@mui/icons-material/People';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import { isNull } from 'lodash';
+import dayjs from 'dayjs';
 
 
 
@@ -100,25 +101,11 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
 
 
-  const [message, setMessage] = useState("");
-  const [selectedEmoji, setSelectedEmoji] = useState(null);
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    props.onFileUpload(file); // Pass the uploaded file to the parent component
-  };
-
-  const handleTextChange = (event) => {
-    setMessage(event.target.value);
-  };
-
-
-
-  const [isPickerVisible, setIsPickerVisible] = useState(false);
-
-
-  const objDiv = document.getElementsByClassName("popup-messages__body-content");
-    objDiv.scrollTop = objDiv.scrollHeight;
+  
+  const dayNow = dayjs().date();
+  const monthNow = dayjs().format('MMM');
+  const yearNow = dayjs().format('YYYY');
+  const timeNow = dayjs().format('HH:mm');
 
 
 
@@ -260,197 +247,88 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
         ? 
         <div className='note-popup-messages'>
           {notes.map((item, index) => (
-          <TabPanel value={showNote} index={index} className='note-popup-messages-tabpanel'>
-              <div className='note-popup-messages__header'>
-                <div className='note-popup-messages__header-info'>
-                  <img src={item.avatar} alt={item.firstName} className='note-popup-messages__header-info_img' />
-
-                  <p className='note-popup-messages__header-info_name'>{item.firstName}</p>
-                </div>
-  
-                <div className='note-popup-messages__header-actions'>
-                  <div className='note-popup-messages__header-actions_edit'>
-                    <IconButton
-                      aria-label="edit"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon sx={{ color: '#000000' }} />
-                    </IconButton>
-  
-                    <Menu
-                      id="long-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "long-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          selected={option === "Pyxis"}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
+            <TabPanel value={showNote} index={index} className='note-popup-messages-tabpanel'>
+                <div className='note-popup-messages__header'>
+                  <div className='note-popup-messages__header-info'>
+                    <p className='note-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
                   </div>
-                  
-                  <div className='note-popup-messages__header-actions_close'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={() => setShowNote(null)}
-                    >
-                      <DeleteOutlineIcon  sx={{ color: '#000000' }}/>
-                    </IconButton>
-  
-                  </div>
-                </div>
-              </div>
-  
-              <div className='note-popup-messages__body'>
-                <p className='note-popup-messages__body-terms'>{t('CHAT_POPUP.MESSAGE.TERMS')}</p>
-  
-                <div className='note-popup-messages__body-date'>
-                  <p>Today</p>
-                </div>
-  
-                <div className='note-popup-messages__body-content'>
-
-                  {item.messages &&
-                    item.messages.map((message) => (
-                      message.user_id === 'friend' ? 
-                        <div className='note-popup-messages__body-content_friend'>
-                          <div className='note-popup-messages__body-content_friend-avatar'>
-                            <img src={item.avatar} alt={item.name} />
-                          </div>
-                          <div className='note-popup-messages__body-content_friend-message'>
-                            { message.texts &&
-                              message.texts.map(text => (
-                                <div className='note-popup-messages__body-content_friend-message_text'>
-                                  <p>{text.text}</p>
-                                  <span>11:25</span>
-                                </div>
-                              ))
-                            }
-                          </div>
-                        </div> 
-                      : 
-                        <div className='note-popup-messages__body-content_own'>
-                          <div className='note-popup-messages__body-content_own-message'>
-                            { message.texts &&
-                              message.texts.map(text => (
-                                <div className='note-popup-messages__body-content_own-message_text'>
-                                  <p>{text.text}</p>
-                                  <span>11:25</span>
-                                </div>
-                              ))
-                            }
-                          </div>
-                        </div> 
-                    ))
-                  }
-
-                </div>
-
-                <div className='note-popup-messages__body-footer'>
-                  <form>
-                    <div className='note-popup-messages__body-footer_container'>
-                      <div className='note-popup-messages__body-footer_inputs'>
-                        <div className='note-popup-messages__body-footer_inputs-emoji'>
-                          <IconButton
-                            aria-label="upload file"
-                            component="label"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setIsPickerVisible(!isPickerVisible)
-                            }}>
-                            <SentimentSatisfiedAltIcon />
-                          </IconButton>
-                        </div>
-
-                        <div className='note-popup-messages__body-footer_inputs-text'>
-                          <TextField
-                            // className="my-services__sites-copying_form_input"
-                            id=""
-                            value={message}
-                            onChange={handleTextChange}
-                            placeholder='Type a message...'
-                            variant="outlined"
-                            size="small"
-                            multiline
-                            maxRows={1}
-                          />
-                        </div>
-
-                        <div className='note-popup-messages__body-footer_inputs-upload'>
-                          <IconButton aria-label="upload file" component="label">
-                            <input hidden type="file" />
-                            <AttachFileIcon />
-                          </IconButton>
-                        </div>
-
-                        {/* <input type="file" onChange={handleFileUpload} /> */}
-                      </div>
-
-                      <div style={isPickerVisible ? {display: 'block'} : {display: 'none'}} className='emoji-picker'>
-                        <Picker
-                          data={data}
-                          previewPosition='none'
-                          navPosition='bottom'
-                          searchPosition='none'
-                          set='apple'
-                          onClickOutside={() => {
-                            if(isPickerVisible) {
-                              setIsPickerVisible(false);
-                            }
-                            // isPickerVisible ? setIsPickerVisible(false)
-                          }}
-                          onEmojiSelect={(e) => {
-                            setSelectedEmoji(e.native);
-                            setMessage(message + e.native);
-                            setIsPickerVisible(!isPickerVisible);
-                          }} 
-                        />
-                      </div>
-
-                      <div className='note-popup-messages__body-footer_send-btn'>
-                        <IconButton
-                          aria-label="send message"
-                          component="label"
-                          onClick={(e) => {
-                            setMessage('')
-                          }}>
-                          <SendIcon />
-                        </IconButton>
-                      </div>
+    
+                  <div className='note-popup-messages__header-actions'>
+                    <div className='note-popup-messages__header-actions_edit'>
+                      <IconButton
+                        aria-label="edit"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                      </IconButton>
+    
+                      <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                          "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{
+                          style: {
+                            maxHeight: ITEM_HEIGHT * 4.5,
+                            width: "20ch",
+                          },
+                        }}
+                      >
+                        {options.map((option) => (
+                          <MenuItem
+                            key={option}
+                            selected={option === "Pyxis"}
+                            onClick={handleClose}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Menu>
                     </div>
-
-                  </form>
-
-
+                    
+                    <div className='note-popup-messages__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => setShowNote(null)}
+                      >
+                        <DeleteOutlineIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
+    
+                    </div>
+                  </div>
                 </div>
-              </div>
-            
-          </TabPanel>
+    
+                <div className='note-popup-messages__body'>
+    
+                  <div className='note-popup-messages__body-date'>
+                    <p>{item.day} {item.month} {item.year} at {item.time}</p>
+                  </div>
+    
+                  <div className='note-popup-messages__body-content'> 
+                    <div className='note-popup-messages__body-content_text'>
+                      <TextField
+                        className='note-popup-messages__body-content_text-area'
+                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+                        defaultValue={item.message ? item.message : ''}
+                        multiline
+                      />
+                    </div>
+                  </div>
+                </div>
+              
+            </TabPanel>
         ))}
-  
         </div>
         : ''
       }

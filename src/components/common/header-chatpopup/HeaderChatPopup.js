@@ -300,195 +300,195 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
         ? 
         <div className='chat-popup-messages'>
           {chatMessages.map((item, index) => (
-          <TabPanel value={showChat} index={index} className='chat-popup-messages-tabpanel'>
-              <div className='chat-popup-messages__header'>
-                <div className='chat-popup-messages__header-info'>
-                  <img src={item.avatar} alt={item.firstName} className='chat-popup-messages__header-info_img' />
+            <TabPanel value={showChat} index={index} className='chat-popup-messages-tabpanel'>
+                <div className='chat-popup-messages__header'>
+                  <div className='chat-popup-messages__header-info'>
+                    <img src={item.avatar} alt={item.firstName} className='chat-popup-messages__header-info_img' />
 
-                  <p className='chat-popup-messages__header-info_name'>{item.firstName}</p>
-                </div>
-  
-                <div className='chat-popup-messages__header-actions'>
-                  <div className='chat-popup-messages__header-actions_more'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon sx={{ color: '#000000' }} />
-                    </IconButton>
-  
-                    <Menu
-                      id="long-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "long-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          selected={option === "Pyxis"}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
+                    <p className='chat-popup-messages__header-info_name'>{item.firstName}</p>
                   </div>
-                  
-                  <div className='chat-popup-messages__header-actions_close'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={() => setShowChat(null)}
-                    >
-                      <CloseIcon  sx={{ color: '#000000' }}/>
-                    </IconButton>
-  
+    
+                  <div className='chat-popup-messages__header-actions'>
+                    <div className='chat-popup-messages__header-actions_more'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                      </IconButton>
+    
+                      <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                          "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{
+                          style: {
+                            maxHeight: ITEM_HEIGHT * 4.5,
+                            width: "20ch",
+                          },
+                        }}
+                      >
+                        {options.map((option) => (
+                          <MenuItem
+                            key={option}
+                            selected={option === "Pyxis"}
+                            onClick={handleClose}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
+                    
+                    <div className='chat-popup-messages__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => setShowChat(null)}
+                      >
+                        <CloseIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
+    
+                    </div>
                   </div>
                 </div>
-              </div>
-  
-              <div className='chat-popup-messages__body'>
-                <p className='chat-popup-messages__body-terms'>{t('CHAT_POPUP.MESSAGE.TERMS')}</p>
-  
-                <div className='chat-popup-messages__body-date'>
-                  <p>Today</p>
-                </div>
-  
-                <div className='chat-popup-messages__body-content'>
+    
+                <div className='chat-popup-messages__body'>
+                  <p className='chat-popup-messages__body-terms'>{t('CHAT_POPUP.MESSAGE.TERMS')} {item.firstName}</p>
+    
+                  <div className='chat-popup-messages__body-date'>
+                    <p>Today</p>
+                  </div>
+    
+                  <div className='chat-popup-messages__body-content'>
 
-                  {item.messages &&
-                    item.messages.map((message) => (
-                      message.user_id === 'friend' ? 
-                        <div className='chat-popup-messages__body-content_friend'>
-                          <div className='chat-popup-messages__body-content_friend-avatar'>
-                            <img src={item.avatar} alt={item.name} />
-                          </div>
-                          <div className='chat-popup-messages__body-content_friend-message'>
-                            { message.texts &&
-                              message.texts.map(text => (
-                                <div className='chat-popup-messages__body-content_friend-message_text'>
-                                  <p>{text.text}</p>
-                                  <span>11:25</span>
-                                </div>
-                              ))
-                            }
-                          </div>
-                        </div> 
-                      : 
-                        <div className='chat-popup-messages__body-content_own'>
-                          <div className='chat-popup-messages__body-content_own-message'>
-                            { message.texts &&
-                              message.texts.map(text => (
-                                <div className='chat-popup-messages__body-content_own-message_text'>
-                                  <p>{text.text}</p>
-                                  <span>11:25</span>
-                                </div>
-                              ))
-                            }
-                          </div>
-                        </div> 
-                    ))
-                  }
+                    {item.messages &&
+                      item.messages.map((message) => (
+                        message.user_id === 'friend' ? 
+                          <div className='chat-popup-messages__body-content_friend'>
+                            <div className='chat-popup-messages__body-content_friend-avatar'>
+                              <img src={item.avatar} alt={item.name} />
+                            </div>
+                            <div className='chat-popup-messages__body-content_friend-message'>
+                              { message.texts &&
+                                message.texts.map(text => (
+                                  <div className='chat-popup-messages__body-content_friend-message_text'>
+                                    <p>{text.text}</p>
+                                    <span>11:25</span>
+                                  </div>
+                                ))
+                              }
+                            </div>
+                          </div> 
+                        : 
+                          <div className='chat-popup-messages__body-content_own'>
+                            <div className='chat-popup-messages__body-content_own-message'>
+                              { message.texts &&
+                                message.texts.map(text => (
+                                  <div className='chat-popup-messages__body-content_own-message_text'>
+                                    <p>{text.text}</p>
+                                    <span>11:25</span>
+                                  </div>
+                                ))
+                              }
+                            </div>
+                          </div> 
+                      ))
+                    }
 
-                </div>
+                  </div>
 
-                <div className='chat-popup-messages__body-footer'>
-                  <form>
-                    <div className='chat-popup-messages__body-footer_container'>
-                      <div className='chat-popup-messages__body-footer_inputs'>
-                        <div className='chat-popup-messages__body-footer_inputs-emoji'>
-                          <IconButton
-                            aria-label="upload file"
-                            component="label"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setIsPickerVisible(!isPickerVisible)
-                            }}>
-                            <SentimentSatisfiedAltIcon />
-                          </IconButton>
+                  <div className='chat-popup-messages__body-footer'>
+                    <form>
+                      <div className='chat-popup-messages__body-footer_container'>
+                        <div className='chat-popup-messages__body-footer_inputs'>
+                          <div className='chat-popup-messages__body-footer_inputs-emoji'>
+                            <IconButton
+                              aria-label="upload file"
+                              component="label"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsPickerVisible(!isPickerVisible)
+                              }}>
+                              <SentimentSatisfiedAltIcon />
+                            </IconButton>
+                          </div>
+
+                          <div className='chat-popup-messages__body-footer_inputs-text'>
+                            <TextField
+                              // className="my-services__sites-copying_form_input"
+                              id=""
+                              value={message}
+                              onChange={handleTextChange}
+                              placeholder='Type a message...'
+                              variant="outlined"
+                              size="small"
+                              multiline
+                              maxRows={1}
+                            />
+                          </div>
+
+                          <div className='chat-popup-messages__body-footer_inputs-upload'>
+                            <IconButton aria-label="upload file" component="label">
+                              <input hidden type="file" />
+                              <AttachFileIcon />
+                            </IconButton>
+                          </div>
+
+                          {/* <input type="file" onChange={handleFileUpload} /> */}
                         </div>
 
-                        <div className='chat-popup-messages__body-footer_inputs-text'>
-                          <TextField
-                            // className="my-services__sites-copying_form_input"
-                            id=""
-                            value={message}
-                            onChange={handleTextChange}
-                            placeholder='Type a message...'
-                            variant="outlined"
-                            size="small"
-                            multiline
-                            maxRows={1}
+                        <div style={isPickerVisible ? {display: 'block'} : {display: 'none'}} className='emoji-picker'>
+                          <Picker
+                            data={data}
+                            previewPosition='none'
+                            navPosition='bottom'
+                            searchPosition='none'
+                            set='apple'
+                            onClickOutside={() => {
+                              if(isPickerVisible) {
+                                setIsPickerVisible(false);
+                              }
+                              // isPickerVisible ? setIsPickerVisible(false)
+                            }}
+                            onEmojiSelect={(e) => {
+                              setSelectedEmoji(e.native);
+                              setMessage(message + e.native);
+                              setIsPickerVisible(!isPickerVisible);
+                            }} 
                           />
                         </div>
 
-                        <div className='chat-popup-messages__body-footer_inputs-upload'>
-                          <IconButton aria-label="upload file" component="label">
-                            <input hidden type="file" />
-                            <AttachFileIcon />
+                        <div className='chat-popup-messages__body-footer_send-btn'>
+                          <IconButton
+                            aria-label="send message"
+                            component="label"
+                            onClick={(e) => {
+                              setMessage('')
+                            }}>
+                            <SendIcon />
                           </IconButton>
                         </div>
-
-                        {/* <input type="file" onChange={handleFileUpload} /> */}
                       </div>
 
-                      <div style={isPickerVisible ? {display: 'block'} : {display: 'none'}} className='emoji-picker'>
-                        <Picker
-                          data={data}
-                          previewPosition='none'
-                          navPosition='bottom'
-                          searchPosition='none'
-                          set='apple'
-                          onClickOutside={() => {
-                            if(isPickerVisible) {
-                              setIsPickerVisible(false);
-                            }
-                            // isPickerVisible ? setIsPickerVisible(false)
-                          }}
-                          onEmojiSelect={(e) => {
-                            setSelectedEmoji(e.native);
-                            setMessage(message + e.native);
-                            setIsPickerVisible(!isPickerVisible);
-                          }} 
-                        />
-                      </div>
-
-                      <div className='chat-popup-messages__body-footer_send-btn'>
-                        <IconButton
-                          aria-label="send message"
-                          component="label"
-                          onClick={(e) => {
-                            setMessage('')
-                          }}>
-                          <SendIcon />
-                        </IconButton>
-                      </div>
-                    </div>
-
-                  </form>
+                    </form>
 
 
+                  </div>
                 </div>
-              </div>
-            
-          </TabPanel>
+              
+            </TabPanel>
         ))}
   
         </div>

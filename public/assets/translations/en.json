@@ -16,7 +16,8 @@
   "CHAT_POPUP.MESSAGE.TERMS": "This conversation is private between you and",
 
   "NOTE_POPUP.TITLE": "Notes",
-  "NOTE_POPUP.CREATE_NOTE": "Create note",
+  "NOTE_POPUP.CREATE_NOTE": "Create a note",
+  "NOTE_POPUP.CREATE_NOTE.PLACEHOLDER": "Write something here...",
 
 
 
