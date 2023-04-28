@@ -27,7 +27,6 @@ const LogoBuilder = () => {
             variant="outlined"
             size="small"
           />
-          {/* <input className="services__sites-copying_form_input" placeholder={t('SERVICES.SITES_COPYING.PLACEHOLDER')} /> */}
 
           <div className="my-services__sites-copying_form_btn">
             <button

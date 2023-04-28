@@ -2,35 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 import CloseIcon from '@mui/icons-material/Close';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import CircleIcon from '@mui/icons-material/Circle';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
-import { notes } from '../../../mocks/mocks';
-import data from '@emoji-mart/data'
-import Picker from '@emoji-mart/react';
-import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
-import AttachFileIcon from '@mui/icons-material/AttachFile';
-import SendIcon from '@mui/icons-material/Send';
+// import { notes } from '../../../mocks/mocks';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import ChatIcon from '@mui/icons-material/Chat';
-import PeopleIcon from '@mui/icons-material/People';
-import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-import { isNull } from 'lodash';
 import dayjs from 'dayjs';
 
 
@@ -49,7 +34,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={'div'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -82,11 +67,72 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
   
   
   // start showing chat tab
-  const [showNote, setShowNote] = useState(null);
+  const [showNote, setShowNote] = useState(false);
   const handleShowNote = (event, newValue) => {
-    setShowNote(newValue);
+    event.preventDefault();
+
+    if (event.target === event.currentTarget) {      
+      setShowNote(newValue);
+      setNewNoteToggler(false);
+    }
   };
-// end showing chat tab
+  // end showing chat tab
+
+  // start create new note
+  const [newNoteToggler, setNewNoteToggler] = useState(false);
+  const [newNote, setNewNote] = useState([]);
+  const handleCreateNote = () => {
+    setNewNoteToggler(true);
+    setShowNote(false);
+    setNewNote([]);
+  } 
+  // end create new note
+
+
+
+  const [notes, setNotes] = useState([]);
+  const [currentMessage, setCurrentMessage] = useState('');
+  const [currentTitle, setCurrentTitle] = useState('')
+
+  // start getting notes from localstorage
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem('notes'));
+    if (storedNotes) setNotes(storedNotes);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
+  // end getting notes from localstorage
+
+  const handleAddNote = (dayNow, monthNow, yearNow, timeNow, currenTitle, currentMessage) => {
+    if (currentMessage !== '' && currentTitle !== '') {
+      const newNote = {
+        id: new Date().getTime(),
+        day: dayNow,
+        month: monthNow,
+        year: yearNow,
+        time: timeNow,
+        title: currenTitle,
+        message: currentMessage
+      }
+      setNotes([...notes, newNote]);
+      setCurrentTitle('');
+      setCurrentMessage('');
+      setNewNoteToggler(false);
+    }
+  };
+
+
+  const handleDeleteNote = (index) => {
+    const updatedNotes = [...notes];
+    updatedNotes.splice(index, 1);
+    setNotes(updatedNotes);
+    setNewNoteToggler(false);
+    setShowNote(false);
+  };
+
+
 
 
 
@@ -172,7 +218,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
         <div className='note-popup-list__body'>
             <div className='note-popup-list__body-create'>
-                <Button variant="outlined" startIcon={<AddIcon />} className='note-popup-list__body-create_btn'>
+                <Button variant="outlined" startIcon={<AddIcon />} className='note-popup-list__body-create_btn' onClick={handleCreateNote}>
                     {t("NOTE_POPUP.CREATE_NOTE")}
                 </Button>
             </div>
@@ -193,6 +239,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                             className='note-popup-list__body-messages_item'
                             key={item.id}
                             {...a11yProps(index)}
+                            component={'div'}
                             label={
                               <>                          
                                 <div className='note-popup-list__body-messages_item_content'>
@@ -221,7 +268,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                                             aria-controls={open ? "long-menu" : undefined}
                                             aria-expanded={open ? "true" : undefined}
                                             aria-haspopup="true"
-                                        // onClick={handleClick}
+                                            onClick={() => handleDeleteNote(index)}
                                         >
                                             <DeleteOutlineIcon sx={{ color: '#6E6F6F' }} />
                                         </IconButton>
@@ -242,12 +289,11 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
 
 
-
-      {showNote !== null
+      {showNote !== false
         ? 
         <div className='note-popup-messages'>
           {notes.map((item, index) => (
-            <TabPanel value={showNote} index={index} className='note-popup-messages-tabpanel'>
+            <TabPanel key={item.id} value={showNote} index={index} className='note-popup-messages-tabpanel'>
                 <div className='note-popup-messages__header'>
                   <div className='note-popup-messages__header-info'>
                     <p className='note-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
@@ -300,9 +346,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         aria-controls={open ? "long-menu" : undefined}
                         aria-expanded={open ? "true" : undefined}
                         aria-haspopup="true"
-                        onClick={() => setShowNote(null)}
+                        onClick={() => setShowNote(false)}
                       >
-                        <DeleteOutlineIcon  sx={{ color: '#000000' }}/>
+                        <CloseIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>
@@ -318,10 +364,17 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                   <div className='note-popup-messages__body-content'> 
                     <div className='note-popup-messages__body-content_text'>
                       <TextField
-                        className='note-popup-messages__body-content_text-area'
-                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
-                        defaultValue={item.message ? item.message : ''}
+                        className='note-popup-messages__body-content_text-title'
+                        placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
                         multiline
+                        value={item.title}
+                      />
+
+                      <TextField
+                        className='note-popup-messages__body-content_text-message'
+                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+                        multiline
+                        value={item.message}
                       />
                     </div>
                   </div>
@@ -331,6 +384,114 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
         ))}
         </div>
         : ''
+      }
+
+      {newNoteToggler 
+        ?
+          <div className='note-popup-messages'>
+            <div className='note-popup-messages-tabpanel'>
+                <div className='note-popup-messages__header'>
+                  <div className='note-popup-messages__header-info'>
+                    <p className='note-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
+                  </div>
+    
+                  <div className='note-popup-messages__header-actions'>
+                    <div className='note-popup-messages__header-actions_edit'>
+                      <IconButton
+                        aria-label="edit"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                      </IconButton>
+    
+                      <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                          "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        PaperProps={{
+                          style: {
+                            maxHeight: ITEM_HEIGHT * 4.5,
+                            width: "20ch",
+                          },
+                        }}
+                      >
+                        {options.map((option) => (
+                          <MenuItem
+                            key={option}
+                            selected={option === "Pyxis"}
+                            onClick={handleClose}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
+                    
+                    <div className='note-popup-messages__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => setNewNoteToggler(false)}
+                      >
+                        <CloseIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
+    
+                    </div>
+                  </div>
+                </div>
+    
+                <div className='note-popup-messages__body'>
+    
+                  <div className='note-popup-messages__body-date'>
+                    <p>{dayNow} {monthNow} {yearNow} at {timeNow}</p>
+                  </div>
+    
+                  <div className='note-popup-messages__body-content'> 
+                    <div className='note-popup-messages__body-content_text'>
+                      <TextField
+                        className='note-popup-messages__body-content_text-title'
+                        placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
+                        multiline
+                        value={currentTitle}
+                        onChange={(e) => setCurrentTitle(e.target.value)}
+                      />
+                      <TextField
+                        className='note-popup-messages__body-content_text-message'
+                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+                        multiline
+                        value={currentMessage}
+                        onChange={(e) => setCurrentMessage(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='note-popup-messages__body-submit' >
+                    <button
+                      className='btn' 
+                      onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
+                      Add
+                    </button>
+                  </div>
+
+
+
+                </div>
+              
+            </div>
+          </div>
+        :
+        ''
       }
 
     </div>

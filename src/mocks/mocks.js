@@ -4,6 +4,7 @@ import aspenAvatar from '../assets/chat-users/Aspen.png';
 import gretchenAvatar from '../assets/chat-users/Gretchen.png';
 import tomAvatar from '../assets/chat-users/Tom.png';
 
+
 export const clientData = {
   user_id: 1,
 };
@@ -15,31 +16,31 @@ export const accounts = [
 ];
 
 
-  // start mock datas for tasks block tabs
-  export const backlogLists = [
-    {id: 1, title: 'Make new logo', description: 'create at least three initial design concepts'},
-    {id: 2, title: 'Test new website', description: 'manual testing & heuristics'},
-    {id: 3, title: 'Revise marketing plan', description: 'define new objectives + develop action plan'}
-  ];
-  
-  export const inprogressLists = [
-    {id: 1, title: 'Change logo design', description: 'change at least three initial design concepts'},
-    {id: 2, title: 'Change new website', description: 'change manual testing & heuristics'},
-    {id: 3, title: 'Change marketing plan', description: 'change new objectives + develop action plan'}
-  ];
-  
-  export const doneLists = [
-    {id: 1, title: 'Remove new logo', description: 'remove at least three initial design concepts'},
-    {id: 2, title: 'Remove new website', description: 'remove testing & heuristics'},
-    {id: 3, title: 'Remove marketing plan', description: 'remove new objectives + develop action plan'}
-  ];
-  
-  export const closedLists = [
-    {id: 1, title: 'Delete new logo', description: 'delete at least three initial design concepts'},
-    {id: 2, title: 'Delete new website', description: 'delete testing & heuristics'},
-    {id: 3, title: 'Delete marketing plan', description: 'delete new objectives + develop action plan'}
-  ];
-  // end mock datas for tasks block tabs
+// start mock datas for tasks block tabs
+export const backlogLists = [
+  {id: 1, title: 'Make new logo', description: 'create at least three initial design concepts'},
+  {id: 2, title: 'Test new website', description: 'manual testing & heuristics'},
+  {id: 3, title: 'Revise marketing plan', description: 'define new objectives + develop action plan'}
+];
+
+export const inprogressLists = [
+  {id: 4, title: 'Change logo design', description: 'change at least three initial design concepts'},
+  {id: 5, title: 'Change new website', description: 'change manual testing & heuristics'},
+  {id: 6, title: 'Change marketing plan', description: 'change new objectives + develop action plan'}
+];
+
+export const doneLists = [
+  {id: 7, title: 'Remove new logo', description: 'remove at least three initial design concepts'},
+  {id: 8, title: 'Remove new website', description: 'remove testing & heuristics'},
+  {id: 9, title: 'Remove marketing plan', description: 'remove new objectives + develop action plan'}
+];
+
+export const closedLists = [
+  {id: 10, title: 'Delete new logo', description: 'delete at least three initial design concepts'},
+  {id: 11, title: 'Delete new website', description: 'delete testing & heuristics'},
+  {id: 12, title: 'Delete marketing plan', description: 'delete new objectives + develop action plan'}
+];
+// end mock datas for tasks block tabs
 
 
 
@@ -214,6 +215,7 @@ export const chatDialogs = [
       .unix(),
   },
 ];
+
 
 export const receipts = [
   {

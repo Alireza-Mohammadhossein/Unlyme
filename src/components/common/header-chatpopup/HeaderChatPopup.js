@@ -44,7 +44,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={'div'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -79,13 +79,13 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
     const [maintab, setMainTab] = useState(0);
     const handleMainTabs = (event, newValue) => {
       setMainTab(newValue);
-      setShowChat(null);
+      setShowChat(false);
     };
   // end showing main tabs
   
   
   // start showing chat tab
-  const [showChat, setShowChat] = useState(null);
+  const [showChat, setShowChat] = useState(false);
   const handleShowChat = (event, newValue) => {
     setShowChat(newValue);
   };
@@ -200,8 +200,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
             <div className='chat-popup-list__body-search'>
                 <FormControl variant="standard" className='chat-popup-list__body-search_form'>
                     <TextField
-                        className="popup-list__body-search_input"
-                        id=""
+                        className="chat-popup-list__body-search_input"
                         placeholder={t("CHAT_POPUP.LIST.HEADER.SEARCH")}
                         variant="outlined"
                         size="small"
@@ -233,6 +232,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                             className='chat-popup-list__body-messages_item'
                             key={item.id}
                             {...a11yProps(index)}
+                            component={'div'}
                             label={
                               <>
                                 <div className='chat-popup-list__body-messages_item_avatar'>
@@ -271,6 +271,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
               </div>
             </TabPanel>
 
+
             <TabPanel value={maintab} index={1} className='chat-popup-list__body-chanels_container'>
               <div className='chat-popup-list__body-chanels'>
               </div>
@@ -285,9 +286,9 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
 
         <div className='chat-popup-list__footer'>
             <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='chat-popup-list__footer_container' >
-                <Tab icon={<ChatIcon />} label="Chats" />
-                <Tab icon={<PeopleIcon />} label="Chanels" />
-                <Tab icon={<PermContactCalendarIcon />} label="Contacts" />
+                <Tab icon={<ChatIcon />} label="Chats" component={'div'}/>
+                <Tab icon={<PeopleIcon />} label="Chanels" component={'div'} />
+                <Tab icon={<PermContactCalendarIcon />} label="Contacts" component={'div'} />
             </Tabs>
         </div>
       </div>
@@ -296,11 +297,11 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
 
 
 
-      {showChat !== null
+      {showChat !== false
         ? 
         <div className='chat-popup-messages'>
           {chatMessages.map((item, index) => (
-            <TabPanel value={showChat} index={index} className='chat-popup-messages-tabpanel'>
+            <TabPanel key={item.id} value={showChat} index={index} className='chat-popup-messages-tabpanel'>
                 <div className='chat-popup-messages__header'>
                   <div className='chat-popup-messages__header-info'>
                     <img src={item.avatar} alt={item.firstName} className='chat-popup-messages__header-info_img' />
@@ -355,7 +356,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                         aria-controls={open ? "long-menu" : undefined}
                         aria-expanded={open ? "true" : undefined}
                         aria-haspopup="true"
-                        onClick={() => setShowChat(null)}
+                        onClick={() => setShowChat(false)}
                       >
                         <CloseIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
@@ -376,7 +377,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                     {item.messages &&
                       item.messages.map((message) => (
                         message.user_id === 'friend' ? 
-                          <div className='chat-popup-messages__body-content_friend'>
+                          <div key={message.id} className='chat-popup-messages__body-content_friend'>
                             <div className='chat-popup-messages__body-content_friend-avatar'>
                               <img src={item.avatar} alt={item.name} />
                             </div>
@@ -396,7 +397,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                             <div className='chat-popup-messages__body-content_own-message'>
                               { message.texts &&
                                 message.texts.map(text => (
-                                  <div className='chat-popup-messages__body-content_own-message_text'>
+                                  <div key={message.id} className='chat-popup-messages__body-content_own-message_text'>
                                     <p>{text.text}</p>
                                     <span>11:25</span>
                                   </div>

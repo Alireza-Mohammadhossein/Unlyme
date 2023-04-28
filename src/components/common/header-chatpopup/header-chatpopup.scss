@@ -200,16 +200,20 @@
 
   &-messages {
     width: 380px;
-    height: 790px;
+    height: 100%;
     background-color: #fff;
     border-left: 1px solid #ECECEC;
     border-radius: 0 18px 18px 0;
 
     &-tabpanel {
-
+      height: 100%;
       & .MuiBox-root {
         padding: 0 !important;
+        height: 100%;
       } 
+      & .MuiTypography-root  {
+        height: 100%;
+      }
     }
 
     &__header {
@@ -242,7 +246,7 @@
     }
 
     &__body {
-      height: 710px;
+      height: calc(100% - 80px);
       position: relative;    
       display: flex;
       flex-direction: column;
