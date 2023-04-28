@@ -69,8 +69,6 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
   // start showing chat tab
   const [showNote, setShowNote] = useState(false);
   const handleShowNote = (event, newValue) => {
-    event.preventDefault();
-
     if (event.target === event.currentTarget) {      
       setShowNote(newValue);
       setNewNoteToggler(false);
@@ -132,6 +130,23 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
     setShowNote(false);
   };
 
+
+
+  const [newTitleValue, setNewTitleValue] = useState('');
+  const [newMessageValue, setNewMessageValue] = useState('');
+
+  const handleUpdateNote = (index, newTitleValue, newMessageValue) => {
+    const updatedNotes = [...notes];
+    updatedNotes[index] = {
+      ...updatedNotes[index],
+      title: newTitleValue,
+      message: newMessageValue
+    };
+    setNotes(updatedNotes);
+    setNewTitleValue('');
+    setNewMessageValue('');
+    setShowNote(false);
+  };
 
 
 
@@ -233,7 +248,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                       onChange={handleShowNote}
                       aria-label="Vertical tabs example"
                     >
-
+                      
                         {notes.map((item, index) => (
                           <Tab
                             className='note-popup-list__body-messages_item'
@@ -241,14 +256,14 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                             {...a11yProps(index)}
                             component={'div'}
                             label={
-                              <>                          
+                              <>
                                 <div className='note-popup-list__body-messages_item_content'>
                                     <p className='note-popup-list__body-messages_item_content_name'>{item.title}</p>
                                     <p className='note-popup-list__body-messages_item_content_last-message'>{item.message}</p>
                                 </div>
                                 
                                 <div className='note-popup-list__body-messages_item_actions'>
-                                    <div className='note-popup-list__body-messages_item_actions-edit'>
+                                    {/* <div className='note-popup-list__body-messages_item_actions-edit'>
                                         <IconButton
                                             aria-label="edit"
                                             id="long-button"
@@ -259,7 +274,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                                         >
                                             <DriveFileRenameOutlineIcon sx={{ color: '#6E6F6F' }} />
                                         </IconButton>
-                                    </div>
+                                    </div> */}
                                     
                                     <div className='note-popup-list__body-messages_item_actions-delete'>
                                         <IconButton
@@ -288,100 +303,113 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
 
 
-
       {showNote !== false
         ? 
         <div className='note-popup-messages'>
-          {notes.map((item, index) => (
-            <TabPanel key={item.id} value={showNote} index={index} className='note-popup-messages-tabpanel'>
-                <div className='note-popup-messages__header'>
-                  <div className='note-popup-messages__header-info'>
-                    <p className='note-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
-                  </div>
-    
-                  <div className='note-popup-messages__header-actions'>
-                    <div className='note-popup-messages__header-actions_edit'>
-                      <IconButton
-                        aria-label="edit"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleClick}
-                      >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
-                      </IconButton>
-    
-                      <Menu
-                        id="long-menu"
-                        MenuListProps={{
-                          "aria-labelledby": "long-button",
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        PaperProps={{
-                          style: {
-                            maxHeight: ITEM_HEIGHT * 4.5,
-                            width: "20ch",
-                          },
-                        }}
-                      >
-                        {options.map((option) => (
-                          <MenuItem
-                            key={option}
-                            selected={option === "Pyxis"}
-                            onClick={handleClose}
-                          >
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Menu>
+          {notes.map((item, index) => {
+            return (
+              <TabPanel key={item.id} value={showNote} index={index} className='note-popup-messages-tabpanel'>
+                  <div className='note-popup-messages__header'>
+                    <div className='note-popup-messages__header-info'>
+                      <p className='note-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
                     </div>
-                    
-                    <div className='note-popup-messages__header-actions_close'>
-                      <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={() => setShowNote(false)}
-                      >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
-                      </IconButton>
-    
-                    </div>
-                  </div>
-                </div>
-    
-                <div className='note-popup-messages__body'>
-    
-                  <div className='note-popup-messages__body-date'>
-                    <p>{item.day} {item.month} {item.year} at {item.time}</p>
-                  </div>
-    
-                  <div className='note-popup-messages__body-content'> 
-                    <div className='note-popup-messages__body-content_text'>
-                      <TextField
-                        className='note-popup-messages__body-content_text-title'
-                        placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
-                        multiline
-                        value={item.title}
-                      />
-
-                      <TextField
-                        className='note-popup-messages__body-content_text-message'
-                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
-                        multiline
-                        value={item.message}
-                      />
+      
+                    <div className='note-popup-messages__header-actions'>
+                      <div className='note-popup-messages__header-actions_edit'>
+                        <IconButton
+                          aria-label="edit"
+                          id="long-button"
+                          aria-controls={open ? "long-menu" : undefined}
+                          aria-expanded={open ? "true" : undefined}
+                          aria-haspopup="true"
+                          onClick={handleClick}
+                        >
+                          <MoreHorizIcon sx={{ color: '#000000' }} />
+                        </IconButton>
+      
+                        <Menu
+                          id="long-menu"
+                          MenuListProps={{
+                            "aria-labelledby": "long-button",
+                          }}
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          PaperProps={{
+                            style: {
+                              maxHeight: ITEM_HEIGHT * 4.5,
+                              width: "20ch",
+                            },
+                          }}
+                        >
+                          {options.map((option) => (
+                            <MenuItem
+                              key={option}
+                              selected={option === "Pyxis"}
+                              onClick={handleClose}
+                            >
+                              {option}
+                            </MenuItem>
+                          ))}
+                        </Menu>
+                      </div>
+                      
+                      <div className='note-popup-messages__header-actions_close'>
+                        <IconButton
+                          aria-label="more"
+                          id="long-button"
+                          aria-controls={open ? "long-menu" : undefined}
+                          aria-expanded={open ? "true" : undefined}
+                          aria-haspopup="true"
+                          onClick={() => setShowNote(false)}
+                        >
+                          <CloseIcon  sx={{ color: '#000000' }}/>
+                        </IconButton>
+      
+                      </div>
                     </div>
                   </div>
-                </div>
-              
-            </TabPanel>
-        ))}
+      
+                  <div className='note-popup-messages__body'>
+      
+                    <div className='note-popup-messages__body-date'>
+                      <p>{item.day} {item.month} {item.year} at {item.time}</p>
+                    </div>
+      
+                    <div className='note-popup-messages__body-content'> 
+                      <div className='note-popup-messages__body-content_text'>
+                        <TextField
+                          className='note-popup-messages__body-content_text-title'
+                          placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
+                          multiline
+                          value={newTitleValue || item.title}
+                          onChange={(e) => setNewTitleValue(e.target.value)}
+                        />
+  
+                        <TextField
+                          className='note-popup-messages__body-content_text-message'
+                          placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+                          multiline
+                          value={newMessageValue || item.message}
+                          onChange={(e) => setNewMessageValue(e.target.value)}
+                        />
+                      </div>
+                    </div>
+  
+                    <div className='note-popup-messages__body-submit' >
+                      <button
+                        className='btn'
+                        disabled= {!newTitleValue || !newMessageValue}
+                        onClick={() => handleUpdateNote(index, newTitleValue, newMessageValue)}>
+                          Update note
+                      </button>
+                    </div>
+                  </div>
+                
+              </TabPanel>
+            )
+          }
+        )}
         </div>
         : ''
       }
@@ -478,7 +506,8 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
                   <div className='note-popup-messages__body-submit' >
                     <button
-                      className='btn' 
+                      className='btn'
+                      disabled={!currentTitle || ! currentMessage}
                       onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
                       Add
                     </button>
