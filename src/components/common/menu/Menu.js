@@ -9,13 +9,10 @@ import {
   SITE_NAME,
   SUPPORTED_LANGUAGES,
 } from "../../../types";
-import logo_white from "../../../assets/images/logo_white.png";
 
 const Menu = () => {
   const screenSize = GetScreenSize();
   const { t, i18n } = useTranslation();
-
-  const [showed, setShowed] = useState(false);
 
   const data = [
     {

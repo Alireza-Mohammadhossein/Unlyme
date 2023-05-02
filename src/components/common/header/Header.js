@@ -14,6 +14,7 @@ import { styled} from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import HeaderChatPopup from '../header-chatpopup/HeaderChatPopup';
 import HeaderNotePopup from '../header-notepopup/HeaderNotePopup';
+import HeaderNotificationPopup from '../header-notificationpopup/HeaderNotificationPopup';
 
 
 
@@ -96,6 +97,7 @@ const Header = () => {
   const [chatPopupToggler, setChatPopupToggler] = useState(false);
   const [mailPopupToggler, setMailPopupToggler] = useState(false);
   const [notePopupToggler, setNotePopupToggler] = useState(false);
+  const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
 
 
 
@@ -129,6 +131,7 @@ const Header = () => {
               onClick={() => {
                 setChatPopupToggler(!chatPopupToggler);
                 setNotePopupToggler(false);
+                setNotificationPopupToggler(false);
               }}>
               <Tooltip title='Chat' arrow placement="bottom">
                 <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
@@ -144,15 +147,23 @@ const Header = () => {
               onClick={() => {
                 setNotePopupToggler(!notePopupToggler);
                 setChatPopupToggler(false);
+                setNotificationPopupToggler(false);
               }}>
               <Tooltip title='Notes' arrow placement="bottom">
                 <img src={`${ASSETS_URL}/assets/images/header/notes-icon.png`} alt="notes" />
               </Tooltip>
             </div>
-            <div className="header__details-area_items-icon">
-              <Tooltip title='Notifications' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`} alt="notifications" />
-              </Tooltip>
+            <div 
+              className="header__details-area_items-icon"
+              onClick={() => {
+                setNotificationPopupToggler(!notificationPopupToggler);
+                setChatPopupToggler(false);
+                setNotePopupToggler(false);
+              }}
+            >
+                <Tooltip title='Notifications' arrow placement="bottom">
+                  <img src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`} alt="notifications" />
+                </Tooltip>
             </div>
           </div>
           
@@ -174,6 +185,13 @@ const Header = () => {
           {notePopupToggler ? 
             <div className="header__popup-area">
               <HeaderNotePopup setNotePopupToggler={setNotePopupToggler} />
+            </div>
+            : ''
+          }
+
+          {notificationPopupToggler ? 
+            <div className="header__popup-area">
+              <HeaderNotificationPopup setNotificationPopupToggler={setNotificationPopupToggler} />
             </div>
             : ''
           }
