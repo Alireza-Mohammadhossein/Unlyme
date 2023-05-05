@@ -1646,6 +1646,24 @@ export const assistants = [
         ],
         user_id: 'bot',
       },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'bot',
+      },
     ],
     avatar: searchIcon,
   },
@@ -1724,6 +1742,24 @@ export const assistants = [
             
             Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
             `,
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
           }
         ],
         user_id: 'bot',
@@ -1810,6 +1846,24 @@ export const assistants = [
         ],
         user_id: 'bot',
       },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'bot',
+      },
     ],
     avatar: searchIcon,
   },
@@ -1888,6 +1942,24 @@ export const assistants = [
             
             Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
             `,
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
           }
         ],
         user_id: 'bot',
@@ -1974,6 +2046,24 @@ export const assistants = [
         ],
         user_id: 'bot',
       },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'bot',
+      },
     ],
     avatar: searchIcon,
   },
@@ -2056,6 +2146,24 @@ export const assistants = [
         ],
         user_id: 'bot',
       },
+      {
+        id: 4,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 5,
+        texts: [
+          {
+            text: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ',
+          }
+        ],
+        user_id: 'bot',
+      },
     ],
     avatar: searchIcon,
   },
@@ -2100,5 +2208,4 @@ export const assistants = [
     ],
     avatar: searchIcon,
   },
-
 ];

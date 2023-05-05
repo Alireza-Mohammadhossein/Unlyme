@@ -36,6 +36,14 @@
       input::-webkit-input-placeholder, input:-moz-placeholder {
         color: #fff !important;
       }
+
+      &_container {
+        position: relative;
+        color: #666666;
+        margin-left: 0;
+        width: 100%;
+        margin-right: 5px;
+      }
       &-gif {
         width: 30px;
         height: 30px;
@@ -46,6 +54,7 @@
     &_items {
       display: flex;
       column-gap: 12px;
+      z-index: 2;
     
       &-icon {
         width: 32px;
@@ -60,6 +69,20 @@
         img {
           width: 16px;
           height: 16px;
+        }
+      }
+      &-globe {
+        width: 32px;
+        height: 33px;
+        border-radius: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
     }

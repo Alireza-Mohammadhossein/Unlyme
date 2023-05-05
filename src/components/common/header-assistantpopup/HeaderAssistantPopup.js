@@ -63,7 +63,7 @@ function a11yProps(index) {
 
 
 
-const HeaderAssistantPopup = ({ setAssistantPopupToggler, props }) => {
+const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, setNewAssistantToggler, assistantText, props }) => {
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -83,44 +83,15 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, props }) => {
   // end showing chat tab
 
   // start create new note
-  const [newAssistantToggler, setNewAssistantToggler] = useState(false);
-  // const [newNote, setNewNote] = useState([]);
+  // const [newAssistantToggler, setNewAssistantToggler] = useState(false);
+  const [newAssistant, setNewAssistant] = useState([]);
   const handleCreateAssitant = () => {
-    // setNewNoteToggler(true);
-    // setShowNote(false);
-    // setNewNote([]);
-    console.log('create assistant')
+    setNewAssistantToggler(true);
+    setShowAssistant(false);
+    setNewAssistant([]);
   } 
   // end create new note
 
-
-
-  // const [notes, setNotes] = useState([]);
-  // const [currentMessage, setCurrentMessage] = useState('');
-  // const [currentTitle, setCurrentTitle] = useState('')
-
-
-  // const handleAddNote = (dayNow, monthNow, yearNow, timeNow, currenTitle, currentMessage) => {
-  //   if (currentMessage !== '' && currentTitle !== '') {
-  //     const newNote = {
-  //       id: new Date().getTime(),
-  //       day: dayNow,
-  //       month: monthNow,
-  //       year: yearNow,
-  //       time: timeNow,
-  //       title: currenTitle,
-  //       message: currentMessage
-  //     }
-  //     setNotes([...notes, newNote]);
-  //     setCurrentTitle('');
-  //     setCurrentMessage('');
-  //     setNewNoteToggler(false);
-  //   }
-  // };
-
-  const handleAddAssistant = () => {
-    console.log('add')
-  };
 
 
   const handleDeleteAssistant = (index) => {
@@ -164,7 +135,7 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, props }) => {
 
 
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(assistantText);
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -463,231 +434,130 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, props }) => {
                 </div>
               
             </TabPanel>
-        ))}
-  
+          ))}
         </div>
+        
         : ''
       }
 
-      {/* {showNote !== false
-        ? 
-        <div className='assistant-popup-messages'>
-          {notes.map((item, index) => {
-            return (
-              <TabPanel key={item.id} value={showNote} index={index} className='assistant-popup-messages-tabpanel'>
-                  <div className='assistant-popup-messages__header'>
-                    <div className='assistant-popup-messages__header-info'>
-                      <p className='assistant-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
-                    </div>
-      
-                    <div className='assistant-popup-messages__header-actions'>
-                      <div className='assistant-popup-messages__header-actions_edit'>
-                        <IconButton
-                          aria-label="edit"
-                          id="long-button"
-                          aria-controls={open ? "long-menu" : undefined}
-                          aria-expanded={open ? "true" : undefined}
-                          aria-haspopup="true"
-                          onClick={handleClick}
-                        >
-                          <MoreHorizIcon sx={{ color: '#000000' }} />
-                        </IconButton>
-      
-                        <Menu
-                          id="long-menu"
-                          MenuListProps={{
-                            "aria-labelledby": "long-button",
-                          }}
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
-                          PaperProps={{
-                            style: {
-                              maxHeight: ITEM_HEIGHT * 4.5,
-                              width: "20ch",
-                            },
-                          }}
-                        >
-                          {options.map((option) => (
-                            <MenuItem
-                              key={option}
-                              selected={option === "Pyxis"}
-                              onClick={handleClose}
-                            >
-                              {option}
-                            </MenuItem>
-                          ))}
-                        </Menu>
-                      </div>
-                      
-                      <div className='assistant-popup-messages__header-actions_close'>
-                        <IconButton
-                          aria-label="more"
-                          id="long-button"
-                          aria-controls={open ? "long-menu" : undefined}
-                          aria-expanded={open ? "true" : undefined}
-                          aria-haspopup="true"
-                          onClick={() => setShowNote(false)}
-                        >
-                          <CloseIcon  sx={{ color: '#000000' }}/>
-                        </IconButton>
-      
-                      </div>
-                    </div>
-                  </div>
-      
-                  <div className='assistant-popup-messages__body'>
-      
-                    <div className='assistant-popup-messages__body-date'>
-                      <p>{item.day} {item.month} {item.year} at {item.time}</p>
-                    </div>
-      
-                    <div className='assistant-popup-messages__body-content'> 
-                      <div className='assistant-popup-messages__body-content_text'>
-                        <TextField
-                          className='assistant-popup-messages__body-content_text-title'
-                          placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
-                          multiline
-                          value={newTitleValue || item.title}
-                          onChange={(e) => setNewTitleValue(e.target.value)}
-                        />
-  
-                        <TextField
-                          className='assistant-popup-messages__body-content_text-message'
-                          placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
-                          multiline
-                          value={newMessageValue || item.message}
-                          onChange={(e) => setNewMessageValue(e.target.value)}
-                        />
-                      </div>
-                    </div>
-  
-                    <div className='assistant-popup-messages__body-submit' >
-                      <button
-                        className='btn'
-                        disabled= {!newTitleValue || !newMessageValue}
-                        onClick={() => handleUpdateNote(index, newTitleValue, newMessageValue)}>
-                          Update note
-                      </button>
-                    </div>
-                  </div>
-                
-              </TabPanel>
-            )
-          }
-        )}
-        </div>
-        : ''
-      }
-
-      {newNoteToggler 
+      {newAssistantToggler 
         ?
-          <div className='assistant-popup-messages'>
-            <div className='assistant-popup-messages-tabpanel'>
-                <div className='assistant-popup-messages__header'>
-                  <div className='assistant-popup-messages__header-info'>
-                    <p className='assistant-popup-messages__header-info_name'>{t('NOTE_POPUP.CREATE_NOTE')}</p>
+        <div className='assistant-popup-messages'>
+              <div className='assistant-popup-messages__header'>
+                <div className='assistant-popup-messages__header-info'>
+                  <img src={searchIcon} alt='Unlyme assistant' className='assistant-popup-messages__header-info_img' />
+
+                  <p className='assistant-popup-messages__header-info_name'>Unlyme Assistant</p>
+                </div>
+  
+                <div className='assistant-popup-messages__header-actions'>
+                  <div className='assistant-popup-messages__header-actions_more'>
+                    <IconButton
+                      aria-label="more"
+                      id="long-button"
+                      aria-controls={open ? "long-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={handleClick}
+                    >
+                      <MoreHorizIcon sx={{ color: '#000000' }} />
+                    </IconButton>
+  
+                    <Menu
+                      id="long-menu"
+                      MenuListProps={{
+                        "aria-labelledby": "long-button",
+                      }}
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      PaperProps={{
+                        style: {
+                          maxHeight: ITEM_HEIGHT * 4.5,
+                          width: "20ch",
+                        },
+                      }}
+                    >
+                      {options.map((option) => (
+                        <MenuItem
+                          key={option}
+                          selected={option === "Pyxis"}
+                          onClick={handleClose}
+                        >
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </Menu>
                   </div>
-    
-                  <div className='assistant-popup-messages__header-actions'>
-                    <div className='assistant-popup-messages__header-actions_edit'>
-                      <IconButton
-                        aria-label="edit"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleClick}
-                      >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
-                      </IconButton>
-    
-                      <Menu
-                        id="long-menu"
-                        MenuListProps={{
-                          "aria-labelledby": "long-button",
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        PaperProps={{
-                          style: {
-                            maxHeight: ITEM_HEIGHT * 4.5,
-                            width: "20ch",
-                          },
-                        }}
-                      >
-                        {options.map((option) => (
-                          <MenuItem
-                            key={option}
-                            selected={option === "Pyxis"}
-                            onClick={handleClose}
-                          >
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Menu>
-                    </div>
-                    
-                    <div className='assistant-popup-messages__header-actions_close'>
-                      <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={() => setNewNoteToggler(false)}
-                      >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
-                      </IconButton>
-    
-                    </div>
+                  
+                  <div className='assistant-popup-messages__header-actions_close'>
+                    <IconButton
+                      aria-label="more"
+                      id="long-button"
+                      aria-controls={open ? "long-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={() => setNewAssistantToggler(false)}
+                    >
+                      <CloseIcon  sx={{ color: '#000000' }}/>
+                    </IconButton>
+  
                   </div>
                 </div>
-    
-                <div className='assistant-popup-messages__body'>
-    
-                  <div className='assistant-popup-messages__body-date'>
-                    <p>{dayNow} {monthNow} {yearNow} at {timeNow}</p>
-                  </div>
-    
-                  <div className='assistant-popup-messages__body-content'> 
-                    <div className='assistant-popup-messages__body-content_text'>
-                      <TextField
-                        className='assistant-popup-messages__body-content_text-title'
-                        placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
-                        multiline
-                        value={currentTitle}
-                        onChange={(e) => setCurrentTitle(e.target.value)}
-                      />
-                      <TextField
-                        className='assistant-popup-messages__body-content_text-message'
-                        placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
-                        multiline
-                        value={currentMessage}
-                        onChange={(e) => setCurrentMessage(e.target.value)}
-                      />
+              </div>
+  
+              <div className='assistant-popup-messages__body'>
+                {/* <p className='assistant-popup-messages__body-terms'>{item.title}</p> */}
+  
+                <div className='assistant-popup-messages__body-content'>
+
+                </div>
+
+                <div className='assistant-popup-messages__body-footer'>
+                  <form>
+                    <div className='assistant-popup-messages__body-footer_container'>
+                      <div className='assistant-popup-messages__body-footer_inputs'>
+
+                        <div className='assistant-popup-messages__body-footer_inputs-text'>
+                          <TextField
+                            // className="my-services__sites-copying_form_input"
+                            id=""
+                            value={message}
+                            onChange={handleTextChange}
+                            placeholder='Type a message...'
+                            variant="outlined"
+                            size="small"
+                            multiline
+                            focused
+                            maxRows={1}
+                          />
+                        </div>
+
+                      </div>
+
+                      <div className='assistant-popup-messages__body-footer_send-btn'>
+                        <IconButton
+                          aria-label="send message"
+                          component="label"
+                          onClick={(e) => {
+                            setMessage('')
+                          }}
+                          disabled = {message ? false : true}
+                        >
+                          <SendIcon />
+                        </IconButton>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className='assistant-popup-messages__body-submit' >
-                    <button
-                      className='btn'
-                      disabled={!currentTitle || ! currentMessage}
-                      onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
-                      Add
-                    </button>
-                  </div>
-
+                  </form>
 
 
                 </div>
-              
-            </div>
-          </div>
+              </div>
+        </div>
         :
         ''
-      } */}
+      }
 
     </div>
   )

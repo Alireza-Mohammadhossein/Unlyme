@@ -26,29 +26,14 @@ import HeaderAssistantPopup from '../header-assistantpopup/HeaderAssistantPopup'
 const Header = () => {
 
 
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    color: '#666666',
-    marginLeft: 0,
-    width: '100%',
-    marginRight: '10px',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  }));
-  
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: 0,
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    right: '12px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-  
+  // const Search = styled('div')(({ theme }) => ({
+  //   position: 'relative',
+  //   color: '#666666',
+  //   marginLeft: 0,
+  //   width: '100%',
+  //   marginRight: '10px',
+  // }));
+    
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
@@ -64,10 +49,10 @@ const Header = () => {
       // boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
       transition: theme.transitions.create('all'),
       [theme.breakpoints.up('sm')]: {
-        right: '40px',
+        right: '0',
         width: '215px',
         '&:focus': {
-          right: 0,
+          right: '-40px',
           width: '700px',
         },
       },
@@ -92,7 +77,9 @@ const Header = () => {
   const [mailPopupToggler, setMailPopupToggler] = useState(false);
   const [notePopupToggler, setNotePopupToggler] = useState(false);
   const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
-  const [assistantPopupToggler, setAssistantPopupToggler] = useState(true);
+  const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
+  const [newAssistantToggler, setNewAssistantToggler] = useState(false);
+
 
   const [assistantText, setAssistantText] = useState('');
   
@@ -112,18 +99,14 @@ const Header = () => {
           <div className="header__details-area_searchbar">
             <form onSubmit={(e) => {
               e.preventDefault();
-              console.log(assistantText);
-
-              if (!assistantPopupToggler && assistantText) {
+              
+              if (!assistantPopupToggler) {
                 setAssistantPopupToggler(true);
+                setNewAssistantToggler(true);
                 setAssistantText('');
               }
-            }}>
-              <SearchIconWrapper>
-                <img src={searchIcon} className="header__details-area_searchbar-gif" />
-              </SearchIconWrapper>
-              
-              <Search>
+            }}>              
+              <div className='header__details-area_searchbar_container'>
                 <StyledInputBase
                   key='searchinput'
                   placeholder={t('HEADER.SEARCH_PLACEHOLDER')}
@@ -133,11 +116,24 @@ const Header = () => {
                   //   setAssistantText(e.target.value)
                   // }}
                 />
-              </Search>
+              </div>
             </form>
           </div>
 
           <div className="header__details-area_items">
+            <div
+              className="header__details-area_items-globe"
+              onClick={() => {
+                setAssistantPopupToggler(true);
+                setChatPopupToggler(false);
+                setNotePopupToggler(false);
+                setNotificationPopupToggler(false);
+              }}>
+              <Tooltip title='Unlyme Assistant' arrow placement="bottom">
+                <img src={searchIcon} alt="assistant" />
+              </Tooltip>
+            </div>
+
             <div
               className="header__details-area_items-icon"
               onClick={() => {
@@ -149,11 +145,13 @@ const Header = () => {
                 <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
               </Tooltip>
             </div>
+
             <div className="header__details-area_items-icon">
               <Tooltip title='Mails' arrow placement="bottom">
                 <img src={`${ASSETS_URL}/assets/images/header/mails-icon.png`} alt="mails" />
               </Tooltip>
             </div>
+            
             <div
               className="header__details-area_items-icon" 
               onClick={() => {
@@ -165,6 +163,7 @@ const Header = () => {
                 <img src={`${ASSETS_URL}/assets/images/header/notes-icon.png`} alt="notes" />
               </Tooltip>
             </div>
+            
             <div 
               className="header__details-area_items-icon"
               onClick={() => {
@@ -211,7 +210,12 @@ const Header = () => {
 
           {assistantPopupToggler ? 
             <div className="header__popup-area">
-              <HeaderAssistantPopup setAssistantPopupToggler={setAssistantPopupToggler} />
+              <HeaderAssistantPopup
+                setAssistantPopupToggler={setAssistantPopupToggler}
+                setNewAssistantToggler={setNewAssistantToggler}
+                newAssistantToggler={newAssistantToggler}
+                assistantText={assistantText}
+              />
             </div>
             : ''
           }
