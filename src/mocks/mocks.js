@@ -3,6 +3,7 @@ import annAvatar from '../assets/chat-users/Ann.png';
 import aspenAvatar from '../assets/chat-users/Aspen.png';
 import gretchenAvatar from '../assets/chat-users/Gretchen.png';
 import tomAvatar from '../assets/chat-users/Tom.png';
+import searchIcon from '../assets/images/header/search.gif';
 
 
 export const clientData = {
@@ -1602,4 +1603,502 @@ export const notifications = [
     day: '15',
     time: '09:45',
   },
+];
+
+
+
+export const assistants = [
+  {
+    id: 1,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 2,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 3,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 4,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 5,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 6,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 7,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 8,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 9,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 10,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 11,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+  {
+    id: 12,
+    title: 'Lorem ipsum Assistant title',
+    subtitle: 'Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test',
+    messages: [
+      {
+        id: 1,
+        texts: [
+          {
+            text: 'Welcome message from AI assistant',
+          }
+        ],
+        user_id: 'bot',
+      },
+      {
+        id: 2,
+        texts: [
+          {
+            text: 'Pellentesque lobortis, velit eget, est arcu tristique leo, suscipit consequat augue?',
+          }
+        ],
+        user_id: 'own',
+      },
+      {
+        id: 3,
+        texts: [
+          {
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet nisi ex.
+
+            1. Vestibulum odio mauris, sagus a, euismod 
+            2. Sagittis mauris. Lorem: Lorem Ipsum
+            
+            Vestibulum odio mauris, sagittis et lacus sagittis mauris. Lorem.
+            `,
+          }
+        ],
+        user_id: 'bot',
+      },
+    ],
+    avatar: searchIcon,
+  },
+
 ];

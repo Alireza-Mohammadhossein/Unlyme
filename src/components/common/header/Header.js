@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SUPPORTED_LANGUAGES } from '../../../types';
-import logo from '../../../assets/images/header/logo.png';
+import logo from '../../../assets/images/header/white-logo.svg';
 // import { connect } from 'react-redux';
 // import { signoutUser } from '../../app/AppActions';
 import { useSelector, useDispatch } from 'react-redux';
 import { signoutUser } from '../../../redux/app/appSlice';
 import Tooltip from '@mui/material/Tooltip';
 import searchIcon from '../../../assets/images/header/search.gif';
-import { styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import HeaderChatPopup from '../header-chatpopup/HeaderChatPopup';
 import HeaderNotePopup from '../header-notepopup/HeaderNotePopup';
 import HeaderNotificationPopup from '../header-notificationpopup/HeaderNotificationPopup';
+import { FormControl } from '@mui/material';
+import HeaderAssistantPopup from '../header-assistantpopup/HeaderAssistantPopup';
 
 
 
@@ -22,13 +24,6 @@ import HeaderNotificationPopup from '../header-notificationpopup/HeaderNotificat
 
 
 const Header = () => {
-
-  const items = [
-    { id: 1, title: 'chat', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
-    { id: 2, title: 'mails', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
-    { id: 3, title: 'notes', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
-    { id: 4, title: 'notifications', link: '/', img:`${ASSETS_URL}/assets/images/header/icon.png`},
-  ];
 
 
   const Search = styled('div')(({ theme }) => ({
@@ -83,7 +78,6 @@ const Header = () => {
   const dispatch = useDispatch()
 
   const { t, i18n } = useTranslation()
-  const [chatIsShowed, setChatIsShowed] = useState(false);
 
   const setLanguage = () => {
     const newLang = _.find(SUPPORTED_LANGUAGES, id => id !== i18n.language);
@@ -98,8 +92,10 @@ const Header = () => {
   const [mailPopupToggler, setMailPopupToggler] = useState(false);
   const [notePopupToggler, setNotePopupToggler] = useState(false);
   const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
+  const [assistantPopupToggler, setAssistantPopupToggler] = useState(true);
 
-
+  const [assistantText, setAssistantText] = useState('');
+  
 
 
   return (
@@ -114,15 +110,31 @@ const Header = () => {
 
         <div className="header__details-area">
           <div className="header__details-area_searchbar">
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              console.log(assistantText);
+
+              if (!assistantPopupToggler && assistantText) {
+                setAssistantPopupToggler(true);
+                setAssistantText('');
+              }
+            }}>
               <SearchIconWrapper>
                 <img src={searchIcon} className="header__details-area_searchbar-gif" />
               </SearchIconWrapper>
-            <Search>
-              <StyledInputBase
-                placeholder="Type your question..."
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
+              
+              <Search>
+                <StyledInputBase
+                  key='searchinput'
+                  placeholder={t('HEADER.SEARCH_PLACEHOLDER')}
+                  inputProps={{ 'aria-label': 'search' }}
+                  // value={assistantText}
+                  // onChange={(e) => {
+                  //   setAssistantText(e.target.value)
+                  // }}
+                />
+              </Search>
+            </form>
           </div>
 
           <div className="header__details-area_items">
@@ -167,6 +179,7 @@ const Header = () => {
             </div>
           </div>
           
+        
           <div className="header__details-area_account">
             <div className="header__details-area_account-icon">
               <Link className="header__details-area_account-link" to="/settings">
@@ -192,6 +205,13 @@ const Header = () => {
           {notificationPopupToggler ? 
             <div className="header__popup-area">
               <HeaderNotificationPopup setNotificationPopupToggler={setNotificationPopupToggler} />
+            </div>
+            : ''
+          }
+
+          {assistantPopupToggler ? 
+            <div className="header__popup-area">
+              <HeaderAssistantPopup setAssistantPopupToggler={setAssistantPopupToggler} />
             </div>
             : ''
           }

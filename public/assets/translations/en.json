@@ -8,7 +8,7 @@
   "MENU.CALENDAR": "Calendar",
   "MENU.ONLINE_CONSULTANT": "Online consultant",
   "HEADER.HOW_CAN_UNLYME_HELP_YOU": "How can Unlyme help you?",
-  "HEADER.SEARCH_PLACEHOLDER": "Describe your task...",
+  "HEADER.SEARCH_PLACEHOLDER": "How can Unlyme help you?",
   "MY_SERVICES.H1": "Connected Apps and Services",
 
   "CHAT_POPUP.LIST.HEADER.TITLE": "Messenger",
@@ -22,6 +22,9 @@
 
 
   "NOTIFICATION_POPUP.TITLE": "Notifications",
+
+  "ASSISTANT_POPUP.TITLE": "Chats",
+  "ASSISTANT_POPUP.NEW_CHAT": "New chat",
 
 
   "SERVICES.CALENDAR.TITLE": "Calendar",

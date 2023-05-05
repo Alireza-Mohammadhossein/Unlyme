@@ -101,7 +101,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  
 
 
   const [message, setMessage] = useState("");

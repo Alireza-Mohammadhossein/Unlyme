@@ -10,21 +10,17 @@
   padding-left: 1.5 * $space;
   padding-right: 2 * $space;
   z-index: 9;
-  // background-color: white;
   position: fixed;
-  background: rgba(130, 130, 130, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
-  // -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.17);
-  // -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.17);
-  // box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.17);
+  
   
   &__logo-area {
     &_link {
-      color: $blue;
-      font-family: "Roboto";
-      font-weight: 300;
-      font-size: 24px;
+      display: flex;
+      align-items: center;
     }
+
     &_img {
       width: $logo-desktop-width;
       height: auto;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from '@mui/icons-material/Close';
@@ -109,7 +109,7 @@ const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
                         {item.month} {item.day} at {item.time}
                       </div>
                     </div>
-    
+
                     <div className='notification-popup-list__body-messages_item_content'>
                       <ListItemText
                         primary={item.title}

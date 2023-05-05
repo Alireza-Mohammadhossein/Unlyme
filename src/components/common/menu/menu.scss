@@ -29,30 +29,21 @@
       }
     }
     &.menuMD {
-      .menu__row_img{
+      .menu__item-img{
         width: 35px;
         height: 35px;
-      }
-      .menu__row--link {
-        margin-bottom: 1.5 * $space;
       }
     }
     &.menuSM {
-      .menu__row_img{
+      .menu__item-img{
         width: 35px;
         height: 35px;
-      }
-      .menu__row--link {
-        margin-bottom: 1.5 * $space;
       }
     }
     &.menuXS {
-      .menu__row_img{
+      .menu__item-img{
         width: 35px;
         height: 35px;
-      }
-      .menu__row--link {
-        margin-bottom: 1.5 * $space;
       }
     }
     &__item {
