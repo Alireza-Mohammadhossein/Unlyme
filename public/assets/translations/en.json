@@ -39,6 +39,13 @@
   "SERVICES.GUIDE.FIFTH": "Register for VAT",
   "SERVICES.GUIDE.SIXTH": "Set up bank account",
 
+  "SERVICES.AI_ENGINE.TAB.TITLE": "AI Business Engine",
+  "SERVICES.AI_ENGINE.TAB.ALL": "All",
+  "SERVICES.AI_ENGINE.TAB.IMPORTANT": "Important notices",
+  "SERVICES.AI_ENGINE.TAB.PAYMENT": "Payments",
+  "SERVICES.AI_ENGINE.TAB.REPORT": "Reports",
+
+
   "SERVICES.TASKS.TITLE": "Tasks",
   "SERVICES.TASKS.SUBTITLE": "Your and your team’s tasks",
   "SERVICES.TASKS.TAB_BACKLOG": "Backlog",

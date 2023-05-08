@@ -45,6 +45,36 @@ export const closedLists = [
 
 
 
+// start mock datas for ai engine block tabs
+export const all = [
+  {id: 1, time: '[18-Apr-2023 10:12:19]', description: 'New order #3128 in the amount of 520 CHF.'},
+  {id: 2, time: '[18-Apr-2023 10:13:29]', description: 'Order #3128 has been sent for processing.'},
+  {id: 3, time: '[18-Apr-2023 10:15:46]', description: 'An email was sent to users who did not complete the order.'},
+  {id: 4, time: '[18-Apr-2023 10:17:12]', description: 'Prepared a report on site traffic - Open'},
+  {id: 5, time: '[18-Apr-2023 10:23:37]', description: 'Payment received 520 CHF'},
+];
+
+export const important = [
+  {id: 1, time: '[18-Apr-2023 10:12:19]', description: 'New order #3128 in the amount of 520 CHF.'},
+  {id: 2, time: '[18-Apr-2023 10:13:29]', description: 'Order #3128 has been sent for processing.'},
+  {id: 3, time: '[18-Apr-2023 10:15:46]', description: 'An email was sent to users who did not complete the order.'},
+];
+
+export const payment = [
+  {id: 4, time: '[18-Apr-2023 10:17:12]', description: 'Prepared a report on site traffic - Open'},
+  {id: 5, time: '[18-Apr-2023 10:23:37]', description: 'Payment received 520 CHF'},
+];
+
+export const report = [
+  {id: 1, time: '[18-Apr-2023 10:12:19]', description: 'New order #3128 in the amount of 520 CHF.'},
+  {id: 2, time: '[18-Apr-2023 10:13:29]', description: 'Order #3128 has been sent for processing.'},
+  {id: 4, time: '[18-Apr-2023 10:17:12]', description: 'Prepared a report on site traffic - Open'},
+  {id: 5, time: '[18-Apr-2023 10:23:37]', description: 'Payment received 520 CHF'},
+];
+// end mock datas for ai engine block tabs
+
+
+
 
 export const accountsHistory = [
   {

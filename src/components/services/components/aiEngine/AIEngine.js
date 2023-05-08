@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import CloudBlock from "../cloud-block/CloudBlock";
-import TabToolbar from "../tab-toolbar/TabToolbar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import List from "@mui/material/List";
@@ -14,12 +13,12 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import icon from "../../../../assets/images/my-services/tasks-widget.png";
+import icon from "../../../../assets/images/header/search.gif";
 import {
-  backlogLists,
-  inprogressLists,
-  doneLists,
-  closedLists,
+  all,
+  important,
+  payment,
+  report,
 } from "../../../../mocks/mocks";
 
 function TabPanel(props) {
@@ -38,7 +37,7 @@ function TabPanel(props) {
   );
 }
 
-const TasksBlock = () => {
+const AIEngine = () => {
   const ITEM_HEIGHT = 48;
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState(0);
@@ -59,67 +58,35 @@ const TasksBlock = () => {
   };
 
   const content = (
-    <div className="my-services__tasks">
-      <div className="my-services__tasks_container">
+    <div className="my-services__ai">
+      <div className="my-services__ai_container">
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
-          className="my-services__tasks_tab"
+          className="my-services__ai_tab"
         >
-          <Tab label={t("SERVICES.TASKS.TAB_BACKLOG")} />
-          <Tab label={t("SERVICES.TASKS.TAB_INPROGRESS")} />
-          <Tab label={t("SERVICES.TASKS.TAB_DONE")} />
-          <Tab label={t("SERVICES.TASKS.TAB_CLOSED")} />
+          <Tab label={t('SERVICES.AI_ENGINE.TAB.ALL')} />
+          <Tab label={t('SERVICES.AI_ENGINE.TAB.IMPORTANT')} />
+          <Tab label={t('SERVICES.AI_ENGINE.TAB.PAYMENT')} />
+          <Tab label={t('SERVICES.AI_ENGINE.TAB.REPORT')} />
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <List className="my-services__tasks_list">
-            {backlogLists.map((item) => (
+          <List className="my-services__ai_list">
+            {all.map((item) => (
               <>
-                <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon className="my-services__tasks_item-icon">
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
-
-                  <div>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
-                    <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
+                <ListItem key={item.id} className="my-services__ai_item">
+                    <div className="my-services__ai_item-time">
+                        <p>
+                            {item.time}
+                        </p>
+                    </div>
+                    <div className="my-services__ai_item-log">
+                        <p>
+                            {item.description}
+                        </p>
+                    </div>
                 </ListItem>
 
                 <Divider />
@@ -129,10 +96,10 @@ const TasksBlock = () => {
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <List className="my-services__tasks_list">
-            {inprogressLists.map((item) => (
+          <List className="my-services__ai_list">
+            {important.map((item) => (
               <>
-                <ListItem key={item.id} className="my-services__tasks_item">
+                <ListItem key={item.id} className="my-services__ai_item">
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -149,10 +116,10 @@ const TasksBlock = () => {
         </TabPanel>
 
         <TabPanel value={value} index={2}>
-          <List className="my-services__tasks_list">
-            {doneLists.map((item) => (
+          <List className="my-services__ai_list">
+            {payment.map((item) => (
               <>
-                <ListItem key={item.id} className="my-services__tasks_item">
+                <ListItem key={item.id} className="my-services__ai_item">
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -169,10 +136,10 @@ const TasksBlock = () => {
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-          <List className="my-services__tasks_list">
-            {closedLists.map((item) => (
+          <List className="my-services__ai_list">
+            {report.map((item) => (
               <>
-                <ListItem key={item.id} className="my-services__tasks_item">
+                <ListItem key={item.id} className="my-services__ai_item">
                   <ListItemIcon>
                     <CircleIcon />
                   </ListItemIcon>
@@ -193,14 +160,14 @@ const TasksBlock = () => {
 
   return (
     <CloudBlock
-      title={t("SERVICES.TASKS.TITLE")}
-      subtitle={t("SERVICES.TASKS.SUBTITLE")}
+      title={t("SERVICES.AI_ENGINE.TAB.TITLE")}
+    //   subtitle={t("SERVICES.TASKS.SUBTITLE")}
       content={content}
       infoContent="s"
-      iconName="services/tasks"
+      iconName="services/ai"
       icon={icon}
     />
   );
 };
 
-export default TasksBlock;
+export default AIEngine;

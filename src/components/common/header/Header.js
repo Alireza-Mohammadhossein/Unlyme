@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import _ from 'lodash';
-import { useTranslation } from 'react-i18next';
-import { ASSETS_URL, LOCAL_STORAGE_LOCALE, SUPPORTED_LANGUAGES } from '../../../types';
-import logo from '../../../assets/images/header/white-logo.svg';
+import _ from "lodash";
+import { useTranslation } from "react-i18next";
+import {
+  ASSETS_URL,
+  LOCAL_STORAGE_LOCALE,
+  SUPPORTED_LANGUAGES,
+} from "../../../types";
+import logo from "../../../assets/images/header/white-logo.svg";
 // import { connect } from 'react-redux';
 // import { signoutUser } from '../../app/AppActions';
-import { useSelector, useDispatch } from 'react-redux';
-import { signoutUser } from '../../../redux/app/appSlice';
-import Tooltip from '@mui/material/Tooltip';
-import searchIcon from '../../../assets/images/header/search.gif';
-import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import HeaderChatPopup from '../header-chatpopup/HeaderChatPopup';
-import HeaderNotePopup from '../header-notepopup/HeaderNotePopup';
-import HeaderNotificationPopup from '../header-notificationpopup/HeaderNotificationPopup';
-import { FormControl } from '@mui/material';
-import HeaderAssistantPopup from '../header-assistantpopup/HeaderAssistantPopup';
-
-
-
-
-
+import { useSelector, useDispatch } from "react-redux";
+import { signoutUser } from "../../../redux/app/appSlice";
+import Tooltip from "@mui/material/Tooltip";
+import searchIcon from "../../../assets/images/header/search.gif";
+import { styled } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
+import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
+import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
+import { FormControl } from "@mui/material";
+import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
 
 const Header = () => {
-
-
   // const Search = styled('div')(({ theme }) => ({
   //   position: 'relative',
   //   color: '#666666',
@@ -33,21 +30,18 @@ const Header = () => {
   //   width: '100%',
   //   marginRight: '10px',
   // }));
-    
 
+  const userTokenStatus = useSelector((state) => state.app.token);
+  const dispatch = useDispatch();
 
-  const userTokenStatus = useSelector((state) => state.app.token)
-  const dispatch = useDispatch()
-
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation();
 
   const setLanguage = () => {
-    const newLang = _.find(SUPPORTED_LANGUAGES, id => id !== i18n.language);
+    const newLang = _.find(SUPPORTED_LANGUAGES, (id) => id !== i18n.language);
     i18n.changeLanguage(newLang, () => {
       localStorage.setItem(LOCAL_STORAGE_LOCALE, newLang);
     });
   };
-
 
   // popups toggler
   const [chatPopupToggler, setChatPopupToggler] = useState(false);
@@ -57,42 +51,44 @@ const Header = () => {
   const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
   const [newAssistantToggler, setNewAssistantToggler] = useState(false);
 
-
-  const [assistantText, setAssistantText] = useState('');
-  const [message, setMessage] = useState('')
-  
-
+  const [assistantText, setAssistantText] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
     <>
       <div className="header">
-
         <div className="header__logo-area">
           <Link to="/" className="header__logo-area_link">
-            <img src={logo} alt='Unlyme logo' className="header__logo-area_img" />
+            <img
+              src={logo}
+              alt="Unlyme logo"
+              className="header__logo-area_img"
+            />
           </Link>
         </div>
 
         <div className="header__details-area">
           <div className="header__details-area_searchbar">
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              
-              if (!assistantPopupToggler) {
-                setAssistantPopupToggler(true);
-                setNewAssistantToggler(true);
-                setMessage(assistantText);
-                setAssistantText('');
-              }
-            }}>
-              <div className='header__details-area_searchbar_container'>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                if (!assistantPopupToggler) {
+                  setAssistantPopupToggler(true);
+                  setNewAssistantToggler(true);
+                  setMessage(assistantText);
+                  setAssistantText("");
+                }
+              }}
+            >
+              <div className="header__details-area_searchbar_container">
                 <input
-                  className='header__details-area_searchbar-input'
-                  placeholder={t('HEADER.SEARCH_PLACEHOLDER')}
-                  inputProps={{ 'aria-label': 'search' }}
+                  className="header__details-area_searchbar-input"
+                  placeholder={t("HEADER.SEARCH_PLACEHOLDER")}
+                  inputProps={{ "aria-label": "search" }}
                   value={assistantText}
                   onChange={(e) => {
-                    setAssistantText(e.target.value)
+                    setAssistantText(e.target.value);
                   }}
                 />
               </div>
@@ -107,8 +103,9 @@ const Header = () => {
                 setChatPopupToggler(false);
                 setNotePopupToggler(false);
                 setNotificationPopupToggler(false);
-              }}>
-              <Tooltip title='Unlyme Assistant' arrow placement="bottom">
+              }}
+            >
+              <Tooltip title="Unlyme Assistant" arrow placement="bottom">
                 <img src={searchIcon} alt="assistant" />
               </Tooltip>
             </div>
@@ -119,31 +116,42 @@ const Header = () => {
                 setChatPopupToggler(!chatPopupToggler);
                 setNotePopupToggler(false);
                 setNotificationPopupToggler(false);
-              }}>
-              <Tooltip title='Chat' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/chat-icon.png`} alt="chat" />
+              }}
+            >
+              <Tooltip title="Chat" arrow placement="bottom">
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/chat-icon.png`}
+                  alt="chat"
+                />
               </Tooltip>
             </div>
 
             <div className="header__details-area_items-icon">
-              <Tooltip title='Mails' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/mails-icon.png`} alt="mails" />
+              <Tooltip title="Mails" arrow placement="bottom">
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/mails-icon.png`}
+                  alt="mails"
+                />
               </Tooltip>
             </div>
-            
+
             <div
-              className="header__details-area_items-icon" 
+              className="header__details-area_items-icon"
               onClick={() => {
                 setNotePopupToggler(!notePopupToggler);
                 setChatPopupToggler(false);
                 setNotificationPopupToggler(false);
-              }}>
-              <Tooltip title='Notes' arrow placement="bottom">
-                <img src={`${ASSETS_URL}/assets/images/header/notes-icon.png`} alt="notes" />
+              }}
+            >
+              <Tooltip title="Notes" arrow placement="bottom">
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/notes-icon.png`}
+                  alt="notes"
+                />
               </Tooltip>
             </div>
-            
-            <div 
+
+            <div
               className="header__details-area_items-icon"
               onClick={() => {
                 setNotificationPopupToggler(!notificationPopupToggler);
@@ -151,43 +159,56 @@ const Header = () => {
                 setNotePopupToggler(false);
               }}
             >
-                <Tooltip title='Notifications' arrow placement="bottom">
-                  <img src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`} alt="notifications" />
-                </Tooltip>
+              <Tooltip title="Notifications" arrow placement="bottom">
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`}
+                  alt="notifications"
+                />
+              </Tooltip>
             </div>
           </div>
-          
-        
+
           <div className="header__details-area_account">
             <div className="header__details-area_account-icon">
-              <Link className="header__details-area_account-link" to="/settings">
-                <img src={`${ASSETS_URL}/assets/images/header/account.png`} alt="chat" />
+              <Link
+                className="header__details-area_account-link"
+                to="/settings"
+              >
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/account.png`}
+                  alt="chat"
+                />
               </Link>
             </div>
           </div>
 
-          {chatPopupToggler ? 
+          {chatPopupToggler ? (
             <div className="header__popup-area">
               <HeaderChatPopup setChatPopupToggler={setChatPopupToggler} />
             </div>
-            : ''
-          }
+          ) : (
+            ""
+          )}
 
-          {notePopupToggler ? 
+          {notePopupToggler ? (
             <div className="header__popup-area">
               <HeaderNotePopup setNotePopupToggler={setNotePopupToggler} />
             </div>
-            : ''
-          }
+          ) : (
+            ""
+          )}
 
-          {notificationPopupToggler ? 
+          {notificationPopupToggler ? (
             <div className="header__popup-area">
-              <HeaderNotificationPopup setNotificationPopupToggler={setNotificationPopupToggler} />
+              <HeaderNotificationPopup
+                setNotificationPopupToggler={setNotificationPopupToggler}
+              />
             </div>
-            : ''
-          }
+          ) : (
+            ""
+          )}
 
-          {assistantPopupToggler ? 
+          {assistantPopupToggler ? (
             <div className="header__popup-area">
               <HeaderAssistantPopup
                 setAssistantPopupToggler={setAssistantPopupToggler}
@@ -198,9 +219,9 @@ const Header = () => {
                 setMessage={setMessage}
               />
             </div>
-            : ''
-          }
-
+          ) : (
+            ""
+          )}
         </div>
 
         {/* <div className="header__search-bar">

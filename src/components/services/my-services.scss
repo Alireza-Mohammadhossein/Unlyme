@@ -29,7 +29,7 @@
       justify-content: center;
       width: 100%;
       &.layoutXL {
-        max-width: 1600px;
+        max-width: 1500px;
       } 
       &.layoutLG {
         max-width: 1200px;
@@ -212,7 +212,7 @@
 
       &_storage {
         &-heading {
-          font-weight: 600;
+          font-weight: 500;
           color: #000;
           margin-bottom: $space;
         }
@@ -223,7 +223,7 @@
           margin: 0 auto;
           &-title {
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
             color: #000;
             margin-bottom: 5px;
           }
@@ -237,7 +237,7 @@
 
       &_site {
         &-heading {
-          font-weight: 600;
+          font-weight: 500;
           color: #000;
           margin-top: $space;
         }
@@ -258,14 +258,14 @@
 
     &__tasks {
       &_container {
-        padding: $space 3*$space;
+        padding: 0 3*$space;
       }
       &_tab {
         & .MuiButtonBase-root {
           text-transform: none;
           color: #000;
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 500;
         }
         & .MuiButtonBase-root.MuiTab-root.Mui-selected {
           color: #51A3FF;
@@ -283,7 +283,7 @@
 
         & .MuiTypography-body1{
           color: #000;
-          font-weight: 600;
+          font-weight: 500;
         }
 
         & .MuiTypography-body2{
@@ -303,13 +303,57 @@
         }
       }
     }
+
+    &__ai {
+      &_container {
+        padding: 0 3*$space;
+      }
+      &_tab {
+        & .MuiButtonBase-root {
+          text-transform: none;
+          color: #000;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
+          color: #51A3FF;
+        }
+        & .MuiTabs-indicator {
+          background-color: #51A3FF;
+        }
+      }
+      &_item {
+        &.MuiListItem-root {
+          margin: 10px 0;
+          padding: 0;
+          align-items: center;
+        }
+
+        & .MuiTypography-body1{
+          color: #000;
+          font-weight: 500;
+        }
+
+        & .MuiTypography-body2{
+          color: #000;
+          font-size: 15px;
+        }
+        & .MuiListItemIcon-root {
+          min-width: unset;
+          margin-right: 10px;
+        }
+        & .MuiListItemText-root {
+          margin: 0;
+        }
+      }
+    }
     
     &__work-drive {
       width: 100%;
       height: 100%;
       
       &_container {
-        padding: $space 3*$space;
+        padding: 0 3*$space;
         box-sizing: border-box;
 
         width: inherit;
@@ -637,7 +681,7 @@
           text-transform: none;
           color: #000;
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 500;
         }
         & .MuiButtonBase-root.MuiTab-root.Mui-selected {
           color: #51A3FF;

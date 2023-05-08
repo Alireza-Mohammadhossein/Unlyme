@@ -18,6 +18,7 @@ import VideoConferencingBlock from './components/videoConferencing/VideoConferen
 import { Responsive, WidthProvider } from "react-grid-layout";
 import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 import LogoBuilder from './components/logoBuilder/LogoBuilder';
+import AIEngine from './components/aiEngine/AIEngine';
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
@@ -36,7 +37,7 @@ const MyServices = () => {
   const layoutXL = [
     { i: "calendar", x: 0, y: 0, w: 3, h: 1 },
     { i: "domains", x: 3, y: 0, w: 3, h: 1 },
-    { i: "guide", x: 6, y: 0, w: 6, h: 1 },
+    { i: "ai", x: 6, y: 0, w: 6, h: 1 },
 
     { i: "tasks", x: 0, y: 1, w: 6, h: 1 },
     { i: "cloud", x: 6, y: 1, w: 3, h: 1 },
@@ -55,7 +56,7 @@ const MyServices = () => {
 
   const layoutLG = [
     { i: "calendar", x: 0, y: 0, w: 4, h: 1 },
-    { i: "guide", x: 4, y: 0, w: 8, h: 1 },
+    { i: "ai", x: 4, y: 0, w: 8, h: 1 },
 
     { i: "tasks", x: 0, y: 1, w: 8, h: 1 },
     { i: "domains", x: 8, y: 1, w: 4, h: 1 },
@@ -79,7 +80,7 @@ const MyServices = () => {
     { i: "calendar", x: 0, y: 0, w: 6, h: 1 },
     { i: "domains", x: 6, y: 0, w: 6, h: 1 },
 
-    { i: "guide", x: 0, y: 1, w: 6, h: 1 },
+    { i: "ai", x: 0, y: 1, w: 6, h: 1 },
     { i: "tasks", x: 6, y: 1, w: 6, h: 1 },
 
     { i: "cloud", x: 0, y: 2, w: 6, h: 1 },
@@ -100,7 +101,7 @@ const MyServices = () => {
   const layoutSM = [
     { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
     { i: "domains", x: 0, y: 1, w: 12, h: 1 },
-    { i: "guide", x: 0, y: 2, w: 12, h: 1 },
+    { i: "ai", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
     { i: "drive", x: 0, y: 5, w: 12, h: 1 },
@@ -116,7 +117,7 @@ const MyServices = () => {
   const layoutXS = [
     { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
     { i: "domains", x: 0, y: 1, w: 12, h: 1 },
-    { i: "guide", x: 0, y: 2, w: 12, h: 1 },
+    { i: "ai", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
     { i: "drive", x: 0, y: 5, w: 12, h: 1 },
@@ -198,8 +199,12 @@ const MyServices = () => {
             <DomainsBlock handleCollapse={handleCollapse} />
           </div>
           
-          <div key="guide">
+          {/* <div key="guide">
             <GuideBlock/>
+          </div> */}
+
+          <div key="ai">
+            <AIEngine/>
           </div>
           
           <div key="tasks">

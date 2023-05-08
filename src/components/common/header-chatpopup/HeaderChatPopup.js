@@ -148,6 +148,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                       anchorEl={anchorEl}
                       open={open}
                       onClose={handleClose}
+                      disableScrollLock = {true}
                       PaperProps={{
                         style: {
                           maxHeight: ITEM_HEIGHT * 4.5,
@@ -330,6 +331,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleClose}
+                        disableScrollLock = {true}
                         PaperProps={{
                           style: {
                             maxHeight: ITEM_HEIGHT * 4.5,

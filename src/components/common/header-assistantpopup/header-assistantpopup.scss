@@ -417,13 +417,6 @@
     
               border-radius: 25px;
     
-              &-emoji {
-                cursor: pointer;
-    
-                & label {
-                  color: #909090;
-                }
-              }
     
               &-text {
                 width: 100%;
@@ -446,18 +439,11 @@
                   line-height: 22px;
                 } 
               }
-    
-              &-upload {
-    
-                & label {
-                  color: #909090;
-                }
-    
-              }
             }
     
             &_send-btn {
               & .MuiIconButton-root {
+                transition: all 0.3s ease;
                 background-color: $blue;
                 color: white;
               }
