@@ -63,7 +63,7 @@ function a11yProps(index) {
 
 
 
-const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, setNewAssistantToggler, assistantText, props }) => {
+const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, setNewAssistantToggler, assistantText, props, message, setMessage}) => {
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -102,6 +102,7 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
     // setShowNote(false);
     console.log('deleted')
   };
+  
 
 
 
@@ -135,12 +136,7 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
 
 
 
-  const [message, setMessage] = useState(assistantText);
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    props.onFileUpload(file); // Pass the uploaded file to the parent component
-  };
+  // const [message, setMessage] = useState(assistantText);
 
   const handleTextChange = (event) => {
     setMessage(event.target.value);
@@ -399,7 +395,6 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
 
                           <div className='assistant-popup-messages__body-footer_inputs-text'>
                             <TextField
-                              // className="my-services__sites-copying_form_input"
                               id=""
                               value={message}
                               onChange={handleTextChange}
@@ -407,6 +402,7 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
                               variant="outlined"
                               size="small"
                               multiline
+                              autoFocus
                               maxRows={1}
                             />
                           </div>
@@ -436,8 +432,8 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
             </TabPanel>
           ))}
         </div>
-        
-        : ''
+        :
+        ''
       }
 
       {newAssistantToggler 
@@ -507,7 +503,6 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
               </div>
   
               <div className='assistant-popup-messages__body'>
-                {/* <p className='assistant-popup-messages__body-terms'>{item.title}</p> */}
   
                 <div className='assistant-popup-messages__body-content'>
 
@@ -520,7 +515,6 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
 
                         <div className='assistant-popup-messages__body-footer_inputs-text'>
                           <TextField
-                            // className="my-services__sites-copying_form_input"
                             id=""
                             value={message}
                             onChange={handleTextChange}
@@ -528,7 +522,7 @@ const HeaderAssistantPopup = ({ setAssistantPopupToggler, newAssistantToggler, s
                             variant="outlined"
                             size="small"
                             multiline
-                            focused
+                            autoFocus
                             maxRows={1}
                           />
                         </div>

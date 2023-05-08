@@ -44,6 +44,30 @@
         width: 100%;
         margin-right: 5px;
       }
+
+      &-input {
+        width: 215px;
+        background-color: #FFF;
+        border-radius: 25px;
+        padding: 0 13px;
+        height: 33px;
+        line-height: 33px;
+        border: unset;
+        transition: all 0.3s ease;
+        color: #000000;
+        transform: translateX(0);
+
+        &::placeholder {
+          color: #686868;
+          
+        }
+
+        &:focus {
+          width: 700px;
+          transform: translateX(40px);
+        }
+      }
+
       &-gif {
         width: 30px;
         height: 30px;

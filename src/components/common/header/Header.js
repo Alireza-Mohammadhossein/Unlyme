@@ -34,30 +34,7 @@ const Header = () => {
   //   marginRight: '10px',
   // }));
     
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      borderRadius: '25px',
-      padding: '8px 6px 6px 0',
-      // vertical padding + font size from searchIcon
-      paddingLeft: '15px',
-      paddingRight: '45px',
-      height: '19px',
-      position: 'relative',
-      // backgroundColor: 'rgba(130, 130, 130, 0.3)',
-      backgroundColor: '#FFF',
-      // boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
-      transition: theme.transitions.create('all'),
-      [theme.breakpoints.up('sm')]: {
-        right: '0',
-        width: '215px',
-        '&:focus': {
-          right: '-40px',
-          width: '700px',
-        },
-      },
-    },
-  }));
+
 
   const userTokenStatus = useSelector((state) => state.app.token)
   const dispatch = useDispatch()
@@ -82,6 +59,7 @@ const Header = () => {
 
 
   const [assistantText, setAssistantText] = useState('');
+  const [message, setMessage] = useState('')
   
 
 
@@ -91,7 +69,7 @@ const Header = () => {
 
         <div className="header__logo-area">
           <Link to="/" className="header__logo-area_link">
-            <img src={logo} className="header__logo-area_img" />
+            <img src={logo} alt='Unlyme logo' className="header__logo-area_img" />
           </Link>
         </div>
 
@@ -103,18 +81,19 @@ const Header = () => {
               if (!assistantPopupToggler) {
                 setAssistantPopupToggler(true);
                 setNewAssistantToggler(true);
+                setMessage(assistantText);
                 setAssistantText('');
               }
-            }}>              
+            }}>
               <div className='header__details-area_searchbar_container'>
-                <StyledInputBase
-                  key='searchinput'
+                <input
+                  className='header__details-area_searchbar-input'
                   placeholder={t('HEADER.SEARCH_PLACEHOLDER')}
                   inputProps={{ 'aria-label': 'search' }}
-                  // value={assistantText}
-                  // onChange={(e) => {
-                  //   setAssistantText(e.target.value)
-                  // }}
+                  value={assistantText}
+                  onChange={(e) => {
+                    setAssistantText(e.target.value)
+                  }}
                 />
               </div>
             </form>
@@ -215,6 +194,8 @@ const Header = () => {
                 setNewAssistantToggler={setNewAssistantToggler}
                 newAssistantToggler={newAssistantToggler}
                 assistantText={assistantText}
+                message={message}
+                setMessage={setMessage}
               />
             </div>
             : ''
