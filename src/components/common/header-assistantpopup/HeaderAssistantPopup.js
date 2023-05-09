@@ -21,6 +21,8 @@ import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
 import searchIcon from "../../../assets/images/header/search.gif";
 import SendIcon from "@mui/icons-material/Send";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -505,7 +507,7 @@ const HeaderAssistantPopup = ({
                   aria-haspopup="true"
                   onClick={() => setNewAssistantToggler(false)}
                 >
-                  <CloseIcon sx={{ color: "#000000" }} />
+                  <ArrowBackIcon sx={{ color: "#000000" }} />
                 </IconButton>
               </div>
             </div>

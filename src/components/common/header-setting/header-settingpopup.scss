@@ -1,0 +1,95 @@
+.setting-popup {    
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    background-color: #ffffff;
+    border-radius: 18px;
+    position: absolute;
+    transition: all 0.3s ease;
+    right: 0;
+    top: 69px;
+    box-sizing: border-box;
+
+    &-list {
+      width: 380px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    
+      &__header {
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ececec;
+        align-items: center;
+    
+        &_user {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          &-avatar {
+
+          }
+
+          &-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            &-name {
+              text-transform: capitalize;
+            }
+            &-mail {
+              font-size: 14px;
+              color: $cloud-subtitle-color;
+            }
+          }
+        }
+
+        &-actions {
+          display: flex;
+        }
+      }
+    
+      &__body {
+        overflow: hidden;
+        height: calc(100% - 80px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &_container {
+          height: 100%;
+
+          & .MuiBox-root {
+            padding: 0;
+            height: 100%;
+          }
+          & .MuiTypography-root {
+            height: 100%;
+          }
+        }
+        
+
+        &-content {
+          height: 90%;
+          // padding: 20px 30px !important;
+          gap: 15px;
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+
+          &_night-mode {
+            border-bottom: 1px solid #ececec;
+            padding: 10px 30px !important;
+          }
+
+        }
+
+      }
+    }  
+  }
+  

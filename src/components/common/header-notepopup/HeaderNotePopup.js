@@ -14,7 +14,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 // import { notes } from '../../../mocks/mocks';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import dayjs from 'dayjs';
 
@@ -365,7 +365,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           aria-haspopup="true"
                           onClick={() => setShowNote(false)}
                         >
-                          <CloseIcon  sx={{ color: '#000000' }}/>
+                          <ArrowBackIcon  sx={{ color: '#000000' }}/>
                         </IconButton>
       
                       </div>
@@ -475,7 +475,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         aria-haspopup="true"
                         onClick={() => setNewNoteToggler(false)}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        <ArrowBackIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>

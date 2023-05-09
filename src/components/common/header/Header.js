@@ -21,6 +21,7 @@ import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
 import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
 import { FormControl } from "@mui/material";
 import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
+import HeaderSettingPopup from "../header-setting/HeaderSettingPopup";
 
 const Header = () => {
   // const Search = styled('div')(({ theme }) => ({
@@ -48,6 +49,7 @@ const Header = () => {
   const [mailPopupToggler, setMailPopupToggler] = useState(false);
   const [notePopupToggler, setNotePopupToggler] = useState(false);
   const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
+  const [settingPopupToggler, setSettingPopupToggler] = useState(false);
   const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
   const [newAssistantToggler, setNewAssistantToggler] = useState(false);
 
@@ -103,6 +105,7 @@ const Header = () => {
                 setChatPopupToggler(false);
                 setNotePopupToggler(false);
                 setNotificationPopupToggler(false);
+                setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Unlyme Assistant" arrow placement="bottom">
@@ -116,6 +119,7 @@ const Header = () => {
                 setChatPopupToggler(!chatPopupToggler);
                 setNotePopupToggler(false);
                 setNotificationPopupToggler(false);
+                setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Chat" arrow placement="bottom">
@@ -141,6 +145,7 @@ const Header = () => {
                 setNotePopupToggler(!notePopupToggler);
                 setChatPopupToggler(false);
                 setNotificationPopupToggler(false);
+                setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Notes" arrow placement="bottom">
@@ -157,6 +162,7 @@ const Header = () => {
                 setNotificationPopupToggler(!notificationPopupToggler);
                 setChatPopupToggler(false);
                 setNotePopupToggler(false);
+                setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Notifications" arrow placement="bottom">
@@ -170,7 +176,7 @@ const Header = () => {
 
           <div className="header__details-area_account">
             <div className="header__details-area_account-icon">
-              <Link
+              {/* <Link
                 className="header__details-area_account-link"
                 to="/settings"
               >
@@ -178,7 +184,22 @@ const Header = () => {
                   src={`${ASSETS_URL}/assets/images/header/account.png`}
                   alt="chat"
                 />
-              </Link>
+              </Link> */}
+
+              <div
+                className="header__details-area_account-link"
+                onClick={() => {
+                  setSettingPopupToggler(!settingPopupToggler);
+                  setChatPopupToggler(false);
+                  setNotePopupToggler(false);
+                  setNotificationPopupToggler(false);
+                }}
+              >
+                <img
+                  src={`${ASSETS_URL}/assets/images/header/account.png`}
+                  alt="chat"
+                />
+              </div>
             </div>
           </div>
 
@@ -222,6 +243,17 @@ const Header = () => {
           ) : (
             ""
           )}
+
+          {settingPopupToggler ? (
+            <div className="header__popup-area">
+              <HeaderSettingPopup
+                setSettingPopupToggler={setSettingPopupToggler}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+
         </div>
 
         {/* <div className="header__search-bar">

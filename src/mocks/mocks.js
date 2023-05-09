@@ -2182,3 +2182,11 @@ export const assistants = [
     avatar: searchIcon,
   },
 ];
+
+export const user_info = {
+    id: 1,
+    firstname: 'david',
+    lastname: 'ackerman',
+    mail: 'david.ackerman@gmail.com',
+    // avatar: tomAvatar,
+  }

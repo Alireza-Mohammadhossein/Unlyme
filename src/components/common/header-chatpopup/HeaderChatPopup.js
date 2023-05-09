@@ -26,6 +26,7 @@ import SendIcon from '@mui/icons-material/Send';
 import ChatIcon from '@mui/icons-material/Chat';
 import PeopleIcon from '@mui/icons-material/People';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { isNull } from 'lodash';
 
 
@@ -360,7 +361,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                         aria-haspopup="true"
                         onClick={() => setShowChat(false)}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        <ArrowBackIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>
