@@ -5,14 +5,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import CircleIcon from "@mui/icons-material/Circle";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import icon from "../../../../assets/images/header/search.gif";
 import {
   all,
@@ -38,24 +30,14 @@ function TabPanel(props) {
 }
 
 const AIEngine = () => {
-  const ITEM_HEIGHT = 48;
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState(0);
 
-  const options = ["Edit", "Add description", "Delete"];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const content = (
     <div className="my-services__ai">
