@@ -75,22 +75,18 @@ const AIEngine = () => {
         <TabPanel value={value} index={0}>
           <List className="my-services__ai_list">
             {all.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__ai_item">
-                    <div className="my-services__ai_item-time">
-                        <p>
-                            {item.time}
-                        </p>
-                    </div>
-                    <div className="my-services__ai_item-log">
-                        <p>
-                            {item.description}
-                        </p>
-                    </div>
-                </ListItem>
-
-                <Divider />
-              </>
+              <ListItem key={item.id} className="my-services__ai_item">
+                  <div className="my-services__ai_item-time">
+                      <p>
+                          {item.time}
+                      </p>
+                  </div>
+                  <div className="my-services__ai_item-log">
+                      <p>
+                          {item.description}
+                      </p>
+                  </div>
+              </ListItem>
             ))}
           </List>
         </TabPanel>
@@ -98,19 +94,18 @@ const AIEngine = () => {
         <TabPanel value={value} index={1}>
           <List className="my-services__ai_list">
             {important.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__ai_item">
-                  <ListItemIcon>
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
-                </ListItem>
-
-                <Divider />
-              </>
+              <ListItem key={item.id} className="my-services__ai_item">
+              <div className="my-services__ai_item-time">
+                  <p>
+                      {item.time}
+                  </p>
+              </div>
+              <div className="my-services__ai_item-log">
+                  <p>
+                      {item.description}
+                  </p>
+              </div>
+            </ListItem>
             ))}
           </List>
         </TabPanel>
@@ -118,19 +113,18 @@ const AIEngine = () => {
         <TabPanel value={value} index={2}>
           <List className="my-services__ai_list">
             {payment.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__ai_item">
-                  <ListItemIcon>
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
-                </ListItem>
-
-                <Divider />
-              </>
+              <ListItem key={item.id} className="my-services__ai_item">
+                <div className="my-services__ai_item-time">
+                    <p>
+                        {item.time}
+                    </p>
+                </div>
+                <div className="my-services__ai_item-log">
+                    <p>
+                        {item.description}
+                    </p>
+                </div>
+            </ListItem>
             ))}
           </List>
         </TabPanel>
@@ -138,19 +132,18 @@ const AIEngine = () => {
         <TabPanel value={value} index={3}>
           <List className="my-services__ai_list">
             {report.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__ai_item">
-                  <ListItemIcon>
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
-                </ListItem>
-
-                <Divider />
-              </>
+              <ListItem key={item.id} className="my-services__ai_item">
+                <div className="my-services__ai_item-time">
+                    <p>
+                        {item.time}
+                    </p>
+                </div>
+                <div className="my-services__ai_item-log">
+                    <p>
+                        {item.description}
+                    </p>
+                </div>
+            </ListItem>
             ))}
           </List>
         </TabPanel>

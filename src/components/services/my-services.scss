@@ -1,5 +1,6 @@
 @import '/node_modules/react-grid-layout/css/styles.css';
 @import '/node_modules/react-resizable/css/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
 
 
 .my-services {
@@ -307,13 +308,17 @@
     &__ai {
       &_container {
         padding: 0 3*$space;
-      }
+      } 
+
       &_tab {
+        min-height: unset !important;
         & .MuiButtonBase-root {
           text-transform: none;
           color: #000;
           font-size: 15px;
           font-weight: 500;
+          min-width: unset !important;
+          min-height: unset;
         }
         & .MuiButtonBase-root.MuiTab-root.Mui-selected {
           color: #51A3FF;
@@ -322,28 +327,47 @@
           background-color: #51A3FF;
         }
       }
+
+      &_list {
+        display: flex;
+        flex-direction: column;
+        height: 190px;
+        overflow-y: auto;
+        background-color: #F8FAFC;
+        border: 1px solid #EEEEEE;
+        padding: 5px 5px 5px 10px !important;
+        margin-top: 15px !important;
+        border-radius: 15px;
+        gap: 5px;
+      }
+
       &_item {
-        &.MuiListItem-root {
-          margin: 10px 0;
-          padding: 0;
-          align-items: center;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #F2F2F2;
         }
 
-        & .MuiTypography-body1{
-          color: #000;
-          font-weight: 500;
+        &-time {
+          width: 172px;
+          padding: 10px 0 !important;
+          border-right: 1px solid #F2F2F2;
+          margin-right: 6px;
+
+          P {
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 14px;
+          }
         }
 
-        & .MuiTypography-body2{
-          color: #000;
-          font-size: 15px;
-        }
-        & .MuiListItemIcon-root {
-          min-width: unset;
-          margin-right: 10px;
-        }
-        & .MuiListItemText-root {
-          margin: 0;
+        &-log {
+          padding: 10px 0 !important;
+          P {
+            font-family: 'Anonymous Pro', monospace;
+            font-size: 14px;
+          }
         }
       }
     }
