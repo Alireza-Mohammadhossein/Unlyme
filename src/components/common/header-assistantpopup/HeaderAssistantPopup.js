@@ -351,7 +351,7 @@ const HeaderAssistantPopup = ({
                       aria-haspopup="true"
                       onClick={() => setShowAssistant(false)}
                     >
-                      <CloseIcon sx={{ color: "#000000" }} />
+                      <ArrowBackIcon sx={{ color: "#000000" }} />
                     </IconButton>
                   </div>
                 </div>

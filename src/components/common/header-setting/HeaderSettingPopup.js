@@ -12,6 +12,10 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Button from '@mui/material/Button';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { ToastContainer, toast } from 'react-toastify';
+import { useSelector, useDispatch } from "react-redux";
+import { signoutUser } from "../../../redux/app/appSlice";
+
 
 
 
@@ -19,6 +23,9 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
   const { t } = useTranslation();
+
+  const userTokenStatus = useSelector((state) => state.app.token);
+  const dispatch = useDispatch();
 
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -96,17 +103,17 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
                 onChange={handleChangeTheme}
                 aria-label="select theme"
               >
-                <ToggleButton className='setting-popup-list__body-content_item-selector' value="light" aria-label="light theme">
+                <ToggleButton className='setting-popup-list__body-content_item-selector' value="light" aria-label="theme light">
                   <img src={lightIcon} />
-                  <span>Light</span>
+                  <span>{t('SETTING_POPUP.THEME_LIGHT')}</span>
                 </ToggleButton>
-                <ToggleButton className='setting-popup-list__body-content_item-selector' value="dark" aria-label="dark theme">
+                <ToggleButton className='setting-popup-list__body-content_item-selector' value="dark" aria-label="theme dark">
                   <img src={darkIcon} />
-                  <span>Dark</span>
+                  <span>{t('SETTING_POPUP.THEME_DARK')}</span>
                 </ToggleButton>
-                <ToggleButton className='setting-popup-list__body-content_item-selector' value="auto" aria-label="auto theme">
+                <ToggleButton className='setting-popup-list__body-content_item-selector' value="auto" aria-label="theme auto">
                   <img src={autoIcon} />
-                  <span>Auto</span>
+                  <span>{t('SETTING_POPUP.THEME_AUTO')}</span>
                 </ToggleButton>
               </ToggleButtonGroup>
 
@@ -117,14 +124,34 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
         <div className='setting-popup-list__footer'>
           <div className='setting-popup-list__footer-options'>
             <Button className='setting-popup-list__footer-options-setting' startIcon={<SettingsIcon />}>
-              Settings
+              {t('SETTING_POPUP.SETTINGS')}
             </Button>
           </div>
 
           <div className='setting-popup-list__footer-options'>
-            <Button className='setting-popup-list__footer-options-logout' startIcon={<LogoutIcon />}>
-              Logout
+            <Button 
+              className='setting-popup-list__footer-options-logout'
+              startIcon={<LogoutIcon />}
+              onClick={() => {
+                toast.info('You are about to logging out...', {
+                  position: "top-center",
+                  autoClose: 2000,
+                  hideProgressBar: true,
+                  closeOnClick: true,
+                  pauseOnHover: false,
+                  pauseOnFocusLoss: false,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                  });
+
+                dispatch(signoutUser())
+              }}   
+            >
+              {t('SETTING_POPUP.LOGOUT')}
             </Button>
+
+            <ToastContainer />
           </div>
         </div>
       </div>

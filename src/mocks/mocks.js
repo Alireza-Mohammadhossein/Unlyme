@@ -2188,5 +2188,5 @@ export const user_info = {
     firstname: 'david',
     lastname: 'ackerman',
     mail: 'david.ackerman@gmail.com',
-    // avatar: tomAvatar,
+    avatar: tomAvatar,
   }

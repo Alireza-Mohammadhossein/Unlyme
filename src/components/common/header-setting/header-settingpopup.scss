@@ -56,7 +56,8 @@
     
       &__body {
         overflow: hidden;
-        height: calc(100% - 80px);
+        // height: calc(100% - 80px);
+        height: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -76,7 +77,7 @@
         
 
         &-content {
-          height: 90%;
+          height: 100%;
           // padding: 20px 30px !important;
           gap: 15px;
           display: flex;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../common/header/Header";
 import Menu from "../common/menu/Menu";
-import RightMenu from "../common/right-menu/RightMenu";
 import Switcher from "../../routes";
 import Spinner from '../common/spinner/Spinner';
 // import { connect } from 'react-redux';
@@ -48,9 +47,11 @@ function App() {
 
 
     const readyCurrent = token;
-
+ 
     if(!token) {
-      window.location.href = "http://unlyme.com";
+      setTimeout(() => {
+        window.location.href = "http://unlyme.com";
+      }, 3000)
     }
     
     if (ready !== readyCurrent) {
@@ -115,7 +116,7 @@ function App() {
             <Menu />
             {/* <RightMenu /> */}
             <Switcher screenSize={screenSize} />
-            <div className="modal-backdrop fade show" style={{ display: "none" }} />
+            {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
           </div>
       )}
     </div>

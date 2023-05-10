@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as t from '../../types';
 
 
+
 const COMMONS_APP_INITIAL_STATE = {
     authenticated: false,
-    token: null,
+    token: true,
     user: null,
     userInfoFetching: false,
     userInfoError: null,
@@ -56,7 +57,9 @@ export const appSlice = createSlice({
             // dispatch({ type: t.UNAUTH_USER });
           });
 
-        window.location.href = "http://unlyme.com";
+          setTimeout(() => {
+            window.location.href = "http://unlyme.com";
+          }, 3000);
       },
   },
 })

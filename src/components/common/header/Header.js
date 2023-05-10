@@ -10,30 +10,22 @@ import {
 import logo from "../../../assets/images/header/white-logo.svg";
 // import { connect } from 'react-redux';
 // import { signoutUser } from '../../app/AppActions';
-import { useSelector, useDispatch } from "react-redux";
-import { signoutUser } from "../../../redux/app/appSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { signoutUser } from "../../../redux/app/appSlice";
 import Tooltip from "@mui/material/Tooltip";
 import searchIcon from "../../../assets/images/header/search.gif";
-import { styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
 import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
 import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
 import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
-import { FormControl } from "@mui/material";
 import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
 import HeaderSettingPopup from "../header-setting/HeaderSettingPopup";
 
-const Header = () => {
-  // const Search = styled('div')(({ theme }) => ({
-  //   position: 'relative',
-  //   color: '#666666',
-  //   marginLeft: 0,
-  //   width: '100%',
-  //   marginRight: '10px',
-  // }));
 
-  const userTokenStatus = useSelector((state) => state.app.token);
-  const dispatch = useDispatch();
+
+const Header = () => {
+
+  // const userTokenStatus = useSelector((state) => state.app.token);
+  // const dispatch = useDispatch();
 
   const { t, i18n } = useTranslation();
 
@@ -137,6 +129,8 @@ const Header = () => {
                   alt="mails"
                 />
               </Tooltip>
+
+
             </div>
 
             <div
@@ -146,6 +140,7 @@ const Header = () => {
                 setChatPopupToggler(false);
                 setNotificationPopupToggler(false);
                 setSettingPopupToggler(false);
+                setAssistantPopupToggler(false);
               }}
             >
               <Tooltip title="Notes" arrow placement="bottom">
