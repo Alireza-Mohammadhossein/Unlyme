@@ -69,7 +69,7 @@ const BankBlock = () => {
                   primary={card.cardNumber}
                 />
 
-                <div>
+                <div className="my-services__bank_item-more">
                   <IconButton
                     aria-label="more"
                     id="long-button"
@@ -109,8 +109,6 @@ const BankBlock = () => {
                   </Menu>
                 </div>
               </ListItem>
-
-              <Divider />
             </>
           ))}
         </List>

@@ -86,7 +86,7 @@ const TasksBlock = () => {
                     secondary={item.description ? item.description : null}
                   />
 
-                  <div>
+                  <div className="my-services__tasks_item-more">
                     <IconButton
                       aria-label="more"
                       id="long-button"
@@ -121,8 +121,6 @@ const TasksBlock = () => {
                     </Menu>
                   </div>
                 </ListItem>
-
-                <Divider />
               </>
             ))}
           </List>
@@ -133,16 +131,49 @@ const TasksBlock = () => {
             {inprogressLists.map((item) => (
               <>
                 <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon>
+                  <ListItemIcon className="my-services__tasks_item-icon">
                     <CircleIcon />
                   </ListItemIcon>
                   <ListItemText
                     primary={item.title}
                     secondary={item.description ? item.description : null}
                   />
-                </ListItem>
 
-                <Divider />
+                  <div className="my-services__tasks_item-more">
+                    <IconButton
+                      aria-label="more"
+                      id="long-button"
+                      aria-controls={open ? "long-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={handleClick}
+                    >
+                      <MoreHorizIcon />
+                    </IconButton>
+                    <Menu
+                      id="long-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      disableScrollLock = {true}
+                      PaperProps={{
+                        style: {
+                          maxHeight: ITEM_HEIGHT * 4.5,
+                          width: "20ch",
+                        },
+                      }}
+                    >
+                      {options.map((option) => (
+                        <MenuItem
+                          key={option}
+                          onClick={handleClose}
+                        >
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </div>
+                </ListItem>
               </>
             ))}
           </List>
@@ -153,16 +184,49 @@ const TasksBlock = () => {
             {doneLists.map((item) => (
               <>
                 <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon>
+                  <ListItemIcon className="my-services__tasks_item-icon">
                     <CircleIcon />
                   </ListItemIcon>
                   <ListItemText
                     primary={item.title}
                     secondary={item.description ? item.description : null}
                   />
-                </ListItem>
 
-                <Divider />
+                  <div className="my-services__tasks_item-more">
+                    <IconButton
+                      aria-label="more"
+                      id="long-button"
+                      aria-controls={open ? "long-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={handleClick}
+                    >
+                      <MoreHorizIcon />
+                    </IconButton>
+                    <Menu
+                      id="long-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      disableScrollLock = {true}
+                      PaperProps={{
+                        style: {
+                          maxHeight: ITEM_HEIGHT * 4.5,
+                          width: "20ch",
+                        },
+                      }}
+                    >
+                      {options.map((option) => (
+                        <MenuItem
+                          key={option}
+                          onClick={handleClose}
+                        >
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </div>
+                </ListItem>
               </>
             ))}
           </List>
@@ -173,16 +237,49 @@ const TasksBlock = () => {
             {closedLists.map((item) => (
               <>
                 <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon>
+                  <ListItemIcon className="my-services__tasks_item-icon">
                     <CircleIcon />
                   </ListItemIcon>
                   <ListItemText
                     primary={item.title}
                     secondary={item.description ? item.description : null}
                   />
-                </ListItem>
 
-                <Divider />
+                  <div className="my-services__tasks_item-more">
+                    <IconButton
+                      aria-label="more"
+                      id="long-button"
+                      aria-controls={open ? "long-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={handleClick}
+                    >
+                      <MoreHorizIcon />
+                    </IconButton>
+                    <Menu
+                      id="long-menu"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      disableScrollLock = {true}
+                      PaperProps={{
+                        style: {
+                          maxHeight: ITEM_HEIGHT * 4.5,
+                          width: "20ch",
+                        },
+                      }}
+                    >
+                      {options.map((option) => (
+                        <MenuItem
+                          key={option}
+                          onClick={handleClose}
+                        >
+                          {option}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </div>
+                </ListItem>
               </>
             ))}
           </List>

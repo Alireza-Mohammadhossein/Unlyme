@@ -15,6 +15,25 @@ import "../../styles/sass/app.scss";
 
 function App() {
 
+
+  // start selecting theme
+  const [theme, setTheme] = useState('');
+  
+  useEffect(() => {
+    const storedTheme = JSON.parse(localStorage.getItem('theme'));
+    if (storedTheme) {
+      setTheme(storedTheme);
+    } else {
+      setTheme('light');
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
+  // end selecting theme
+  
+
   // const state = useSelector(state => ({
   //   userInfoFetching: state.app.userInfoFetching,
   //   i18nextLanguageLoaded: state.app.i18nextLanguageLoaded,
@@ -98,13 +117,17 @@ function App() {
 
   return (
     <div id="siteWrapper" className={`
-    siteWrapper 
-    ${screenSize === 'XL' ? 'siteWrapperXL'
-    : screenSize === 'LG' ? 'siteWrapperLG'
-    : screenSize === 'MD' ? 'siteWrapperMD'
-    : screenSize === 'SM' ? 'siteWrapperSM'
-    : 'siteWrapperXS'
-  }`}>
+      siteWrapper 
+      ${screenSize === 'XL' ? 'siteWrapperXL'
+        : screenSize === 'LG' ? 'siteWrapperLG'
+        : screenSize === 'MD' ? 'siteWrapperMD'
+        : screenSize === 'SM' ? 'siteWrapperSM'
+        : 'siteWrapperXS'
+      }
+
+      ${theme === 'light' ? 'light' : 'dark'}
+
+    `}>
       {!ready && (
         <div className="be-loading be-loading-active be-loading-full-size">
           <Spinner />
@@ -112,9 +135,8 @@ function App() {
       )}
       {token && (
           <div id="be-wrapper" className="be-wrapper">
-            <Header />
+            <Header theme={theme} setTheme={setTheme} />
             <Menu />
-            {/* <RightMenu /> */}
             <Switcher screenSize={screenSize} />
             {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
           </div>

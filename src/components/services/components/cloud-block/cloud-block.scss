@@ -112,4 +112,22 @@
       }
     }
 }
+
+.dark .cloud-block {
+  &__header {
+    background-color: $dark-theme-lighter-background-color;
+
+    &-title {
+      color: $dark-theme-title-color;
+    }
+    
+    &-subtitle {
+      color: $dark-theme-subtitle-color;
+    }
+  }
+
+  &__content {
+    background-color: $dark-theme-background-color;
+  }
+}
   

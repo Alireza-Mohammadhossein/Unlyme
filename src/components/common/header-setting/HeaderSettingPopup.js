@@ -21,7 +21,7 @@ import { signoutUser } from "../../../redux/app/appSlice";
 
 
 
-const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
+const HeaderSettingPopup = ({ setSettingPopupToggler, theme, setTheme }) => {
   const { t } = useTranslation();
 
   const userTokenStatus = useSelector((state) => state.app.token);
@@ -37,7 +37,6 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
   const avatar = user_info.avatar;
 
   // start selecting theme
-  const [theme, setTheme] = useState('light');
   const handleChangeTheme = (event, newTheme) => {
     if (newTheme !== null) {
       setTheme(newTheme);

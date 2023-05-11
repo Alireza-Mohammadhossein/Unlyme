@@ -28,22 +28,8 @@ const DomainsBlock = () => {
         {t("SERVICES.DOMAINS.HEADER2")}
       </div>
 
-      <div className="my-servces__domains_items">
-        <List
-          sx={{
-            "& .MuiListItem-root": {
-              marginTop: "25px",
-              padding: 0,
-              alignItems: "center",
-            },
-            "& .MuiListItemIcon-root": {
-              minWidth: "unset",
-              marginRight: "10px",
-            },
-            "& .MuiListItemText-root": { margin: 0 },
-            "& .MuiSvgIcon-root": { fontSize: "15px", color: "#74BA6A" },
-          }}
-        >
+      <div className="my-services__domains_items">
+        <List>
           <ListItem>
             <ListItemIcon>
               <CircleIcon />
