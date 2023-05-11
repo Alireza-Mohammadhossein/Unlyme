@@ -323,4 +323,109 @@
       }
     }
     
+}
+
+
+.dark .note-popup {
+  background-color: $dark-theme-background-color;
+  
+  &-list {
+    &__header {
+      border-color:#7c7c7c;
+  
+      &-title {
+        color: $dark-theme-title-color;
+      }
+  
+      &-actions {
+        & .MuiSvgIcon-root  {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+  
+    &__body {
+      &-messages {  
+        &_item {
+          border-color: #7c7c7c !important;
+      
+          &_content {
+            &_name {
+              color: $dark-theme-title-color;
+            }
+  
+            &_last-message {
+              color: $dark-theme-subtitle-color;
+            }
+          }
+  
+          &_actions {
+            & .MuiSvgIcon-root {
+              color: $dark-theme-title-color;
+            }
+          }
+        }
+      }
+
+    }
   }
+
+  &-messages {
+    background-color: $dark-theme-background-color;
+    border-color:#7c7c7c;
+
+    &__header {
+      border-color: #7c7c7c;
+  
+      &-info {
+        &_name {
+          color: $dark-theme-title-color;
+        }
+      }
+      &-actions {
+        & .MuiSvgIcon-root {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          color: $dark-theme-title-color;
+        }
+      }
+
+      &-content {
+        &_text {
+          &-title {
+            color: $dark-theme-title-color;
+            background-color: $dark-theme-darker-background-color;
+            border-color: #7c7c7c;
+
+            & .MuiOutlinedInput-root {
+              &:hover fieldset {
+               border-color: $dark-theme-title-color;
+              }
+
+              &.Mui-focused fieldset {
+                border-color: $dark-theme-title-color;
+              }
+
+              & textarea {
+                color: $dark-theme-title-color;
+              }
+            }
+          }
+
+          &-message {
+            & textarea {
+              color: $dark-theme-title-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}

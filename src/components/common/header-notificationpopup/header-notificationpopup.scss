@@ -126,5 +126,61 @@
 
       }
     }  
-  }
+}
+
+
+.dark .notification-popup {
+  background-color: $dark-theme-background-color;
+
+  &-list {
+    &__header {
+      border-color: #7c7c7c;
+  
+      &-title {
+        color: $dark-theme-title-color;
+      }
+  
+      &-actions {
+        & .MuiSvgIcon-root {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          border-color: #7c7c7c;
+
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root {
+                  color: #51a3ff; 
+                  }
+              }
+
+              &-category {
+                  color: #51a3ff;
+              }
+
+              &-time {
+                  color: $dark-theme-subtitle-color;
+              }
+          }
+
+          &_content {
+            & .MuiListItemText-primary {
+                color: $dark-theme-title-color;
+            }
+            
+            & .MuiListItemText-secondary {
+                color: $dark-theme-subtitle-color;
+            } 
+          }
+        }
+      }
+
+    }
+  }  
+}
   

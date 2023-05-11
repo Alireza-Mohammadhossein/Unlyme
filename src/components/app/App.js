@@ -18,14 +18,21 @@ function App() {
 
   // start selecting theme
   const [theme, setTheme] = useState('');
+  const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   
+
   useEffect(() => {
     const storedTheme = JSON.parse(localStorage.getItem('theme'));
     if (storedTheme) {
       setTheme(storedTheme);
-    } else {
+    } 
+    // else if (defaultBrowserDarkTheme) {
+    //   setTheme('dark');
+    // } 
+    else {
       setTheme('light');
     }
+    
   }, []);
 
   useEffect(() => {

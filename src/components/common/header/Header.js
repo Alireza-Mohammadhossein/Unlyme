@@ -110,6 +110,7 @@ const Header = ({theme, setTheme}) => {
               onClick={() => {
                 setChatPopupToggler(!chatPopupToggler);
                 setNotePopupToggler(false);
+                setAssistantPopupToggler(false);
                 setNotificationPopupToggler(false);
                 setSettingPopupToggler(false);
               }}
@@ -155,6 +156,7 @@ const Header = ({theme, setTheme}) => {
               className="header__details-area_items-icon"
               onClick={() => {
                 setNotificationPopupToggler(!notificationPopupToggler);
+                setAssistantPopupToggler(false);
                 setChatPopupToggler(false);
                 setNotePopupToggler(false);
                 setSettingPopupToggler(false);

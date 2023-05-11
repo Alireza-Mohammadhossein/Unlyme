@@ -463,3 +463,201 @@
   }
   
 }
+
+
+.dark .chat-popup {
+  background-color: $dark-theme-background-color;
+  
+  &-list {  
+    &__header {
+      border-bottom: 1px solid #7c7c7c;
+  
+      &-title {
+        color: $dark-theme-title-color;
+      }
+  
+      &-actions {
+
+        &_more .MuiSvgIcon-root, &_close .MuiSvgIcon-root  {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+  
+    &__body {
+      &-search {
+        &_input {
+          color: $dark-theme-title-color;
+          background-color: $dark-theme-darker-background-color;
+          border-color: #7c7c7c;
+
+          & input {
+            color:  $dark-theme-title-color;
+          }
+  
+          & label {
+            color:  $dark-theme-title-color;
+          }
+          & .MuiOutlinedInput-root {
+            &:hover fieldset {
+              border-color:  $dark-theme-title-color;
+            }
+            &.Mui-focused fieldset {
+              border-color:  $dark-theme-title-color;
+            }
+          }
+        }
+      }
+  
+      &-messages {
+        &_item {
+
+          &_content {
+
+            &_name {
+              color: $dark-theme-title-color;
+            }
+  
+            &_last-message {
+              color:  $dark-theme-subtitle-color;
+            }
+          }
+          &_status {
+            &-read {
+              color:  $dark-theme-subtitle-color;
+            }
+          }
+        }
+
+        & .MuiTabScrollButton-root .MuiSvgIcon-root {
+          color: $dark-theme-title-color;
+        }
+      }
+
+      &-chanels {
+      }
+
+      &-contacts {
+      }
+    }
+
+    &__footer {
+      border-color: #7c7c7c;
+
+      &_container {
+        & .MuiTabs-flexContainer {
+          justify-content: space-between !important;
+        }
+
+        & .MuiButtonBase-root:not(.Mui-selected) {
+          color:  $dark-theme-title-color;
+
+          & .MuiSvgIcon-root {
+            color:  $dark-theme-title-color;
+          } 
+        }
+      }
+    }
+  }
+
+  &-messages {
+    background-color: $dark-theme-background-color;
+    border-color: #7c7c7c;
+
+    &__header {
+      border-color:#7c7c7c;
+  
+      &-info {
+        &_name {
+          color: $dark-theme-title-color;
+        }
+      }
+  
+      &-actions {
+        & .MuiSvgIcon-root {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+
+    &__body {
+      &-terms {
+        color: $dark-theme-title-color;
+      }
+
+      &-date {
+        border-color: #7c7c7c;
+
+        & p {
+          color: $dark-theme-title-color;
+          border-color: #7c7c7c;
+          background-color: $dark-theme-darker-background-color;
+        }
+      }
+
+      &-content {
+
+        &_friend {
+          &-message {
+
+            &_text {
+              background-color: $dark-theme-friend-chat-background;
+              & p {
+                color: $dark-theme-title-color;
+              }
+
+              & span {
+                color: $dark-theme-subtitle-color;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          
+          &-message {
+            &_text {
+              background-color: $dark-theme-own-chat-background;
+
+              & p {
+                color: $dark-theme-title-color;
+              }
+
+              & span {
+                color: $dark-theme-subtitle-color;
+              }
+            }
+
+          }
+          
+        }
+      }
+
+      &-footer {
+        &_inputs {
+          &-emoji {
+            & label {
+              color: $dark-theme-title-color;
+            }
+          }
+
+          &-text {
+            & .MuiInputBase-input {
+              color: $dark-theme-title-color;
+            } 
+          }
+
+          &-upload {
+            & label {
+              color: $dark-theme-title-color;
+            }
+
+          }
+        }
+      }
+    }
+  }
+  
+}

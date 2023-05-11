@@ -459,7 +459,7 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                             previewPosition='none'
                             navPosition='bottom'
                             searchPosition='none'
-                            set='apple'
+                            // set='apple'
                             onClickOutside={() => {
                               if(isPickerVisible) {
                                 setIsPickerVisible(false);

@@ -1,4 +1,4 @@
-.assistant-popup {    
+.assistant-popup {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -271,25 +271,7 @@
             text-align: center;
             border-bottom: 1px solid #ececec;
           }
-    
-          &-date {
-            text-align: center;
-            margin-top: 15px;
-            border-top: 1px solid #ECECEC;
-    
-            & p {
-              font-size: 13px;
-              font-weight: 500;
-              color: #000000;
-              padding: 5px 25px;
-              border: 1px solid #ECECEC;
-              border-radius: 30px;
-              display: inline-block;
-              transform: translateY(-15px);
-              background-color: #FFFFFF;
-            }
-          }
-    
+
           &-content {
             padding: 20px 15px;
             height: 480px;
@@ -459,4 +441,160 @@
         }   
     }
     
+}
+
+
+.dark .assistant-popup {
+  background-color: $dark-theme-background-color;
+
+  &-list {
+    &__header {
+      border-color: #7c7c7c;
+  
+      &-title {
+        color: $dark-theme-title-color;
+      }
+  
+      &-actions {
+        & .MuiSvgIcon-root{
+          color: $dark-theme-title-color;
+        } 
+      }
+    }
+  
+    &__body {
+      &-search {
+          &_input {
+            background-color: $dark-theme-darker-background-color;
+            // border: 1px solid #ececec;
+
+            & input {
+              color: $dark-theme-title-color;
+            }
+
+            & label {
+              color: $dark-theme-subtitle-color;
+            }
+            & .MuiOutlinedInput-root {
+              & fieldset {
+                border-color: #ececec;
+              }
+              &:hover fieldset {
+                border-color: $dark-theme-title-color;
+              }
+              &.Mui-focused fieldset {
+                border-color: $dark-theme-title-color;
+              }
+            }
+          }
+        }
+  
+      &-messages {
+        
+        &_list {
+          & .MuiTabs-scrollButtons .MuiSvgIcon-root {
+            color: $dark-theme-title-color;
+          }
+        }
+
+        &_item {
+          border-color: #7c7c7c !important;
+      
+          &_content {
+            &_name {
+              color: $dark-theme-title-color;
+            }
+  
+            &_last-message {
+              color: $dark-theme-subtitle-color;
+            }
+          }
+  
+          &_actions {
+            &-delete {
+              & button {
+                & .MuiSvgIcon-root {
+                  color: $dark-theme-title-color;
+                } 
+              }
+            }
+          }
+        }
+      }
+
+    }
   }
+
+
+
+  &-messages {
+      background-color: $dark-theme-background-color;
+      border-color: #7c7c7c;
+  
+      &__header {
+        border-bottom: 1px solid #7c7c7c;
+    
+        &-info {
+          &_name {
+            color: $dark-theme-title-color;
+          }
+        }
+    
+        &-actions {
+          & .MuiSvgIcon-root {
+            color: $dark-theme-title-color;
+          }
+        }
+      }
+  
+      &__body {
+        &-terms {
+          color: $dark-theme-title-color;
+          border-color: #7c7c7c;
+        }
+  
+        &-content {
+          &_friend {
+            &-message {
+
+              &_text {
+                background-color: $dark-theme-friend-chat-background;
+                & p {
+                  color: $dark-theme-title-color;
+                }
+              }
+            }
+            
+          }
+  
+  
+          &_own {
+            
+            &-message {
+              &_text {
+                background-color: $dark-theme-own-chat-background;
+
+                & p {
+                  color: $dark-theme-title-color;
+                }
+              }
+  
+            }
+            
+          }
+        }
+  
+        &-footer {  
+          &_inputs {
+            border: 1px solid #CFCFCF;
+            &-text {
+              & .MuiInputBase-input {
+                color: $dark-theme-title-color;
+              } 
+            }
+          }
+        }
+      }   
+  }
+  
+}

@@ -50,4 +50,10 @@
       list-style: none;
     }
   }
+
+  .dark .menu {
+    &__list {
+      background-color: rgba(92, 92, 92, 0.6901960784);
+    }
+  }
   
