@@ -163,57 +163,57 @@ try {
   //   }
 
 
-    const fallbackLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE) || FALLBACK_LANGUAGE;
-    console.log('fallback language', FALLBACK_LANGUAGE);
-    console.log('fallbacklocale', fallbackLocale);
-    moment.locale(FALLBACK_LANGUAGE);
-    i18n
-      .use(initReactI18next) // passes i18n down to react-i18next
-      .use(LanguageDetector)
-      .use(HttpApi)
-      .init({
-        lng: fallbackLocale,
-        supportedLngs: SUPPORTED_LANGUAGES,
-        // fallbackLng: "en",
-        fallbackLng: fallbackLocale,
-        cleanCode: true,
-        keySeparator: false,
-        detection: {
-          // order and from where user language should be detected
-          order: ['htmlTag', 'cookie', 'localStorage', 'querystring', 'path', 'subdomain'],
-          caches: ['localStorage', 'cookie'],
-        },
-        backend: {
-          // loadPath: '/public/assets/locales/{{lng}}/translation.json',
-          // loadPath: '/assets/translations/{{lng}}.json',
-          // loadPath: `${ASSETS_URL}/Unlyme/assets/translations/{{lng}}.json`,
+const fallbackLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE) || FALLBACK_LANGUAGE;
+console.log('fallback language', FALLBACK_LANGUAGE);
+console.log('fallbacklocale', fallbackLocale);
+moment.locale(FALLBACK_LANGUAGE);
+i18n
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector)
+  .use(HttpApi)
+  .init({
+    lng: fallbackLocale,
+    supportedLngs: SUPPORTED_LANGUAGES,
+    // fallbackLng: "en",
+    fallbackLng: fallbackLocale,
+    cleanCode: true,
+    keySeparator: false,
+    detection: {
+      // order and from where user language should be detected
+      order: ['htmlTag', 'cookie', 'localStorage', 'querystring', 'path', 'subdomain'],
+      caches: ['localStorage', 'cookie'],
+    },
+    backend: {
+      // loadPath: '/public/assets/locales/{{lng}}/translation.json',
+      // loadPath: '/assets/translations/{{lng}}.json',
+      // loadPath: `${ASSETS_URL}/Unlyme/assets/translations/{{lng}}.json`,
 
-          
-          // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
-          loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
-        },
-      });
+      
+      // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
+      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+    },
+  });
 
-      i18n.on('loaded', () => {
-        store.dispatch({ type: I18NEXT_LANGUAGE_LOADED });
-      });
-    
-      i18n.on('initialized', options => {
-        moment.locale(options.lng);
-      });
-      i18n.on('languageChanged', lng => {
-        moment.locale(lng);
-      });
+  i18n.on('loaded', () => {
+    store.dispatch({ type: I18NEXT_LANGUAGE_LOADED });
+  });
+
+  i18n.on('initialized', options => {
+    moment.locale(options.lng);
+  });
+  i18n.on('languageChanged', lng => {
+    moment.locale(lng);
+  });
 
 
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <App />
-          </Provider>
-        </BrowserRouter>
-      );
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  );
 
 
 } catch(e) {

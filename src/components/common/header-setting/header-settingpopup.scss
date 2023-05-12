@@ -78,7 +78,6 @@
 
         &-content {
           height: 100%;
-          // padding: 20px 30px !important;
           gap: 15px;
           display: flex;
           flex-direction: column;
@@ -90,6 +89,10 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+
+            & .MuiToggleButtonGroup-root  {
+              justify-content: center;
+            }
 
             &-title {
 

@@ -15,40 +15,11 @@ import "../../styles/sass/app.scss";
 
 function App() {
 
-
-  // start selecting theme
-  const [theme, setTheme] = useState('');
-  const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-
-  useEffect(() => {
-    const storedTheme = JSON.parse(localStorage.getItem('theme'));
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } 
-    // else if (defaultBrowserDarkTheme) {
-    //   setTheme('dark');
-    // } 
-    else {
-      setTheme('light');
-    }
-    
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(theme));
-  }, [theme]);
-  // end selecting theme
-  
-
-  // const state = useSelector(state => ({
-  //   userInfoFetching: state.app.userInfoFetching,
-  //   i18nextLanguageLoaded: state.app.i18nextLanguageLoaded,
-  //   authenticated: state.app.authenticated,
-  //   user: state.app.user,
-  // }));
-
   // const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
+  // // const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
 
   const [ready, setReady] = useState(false);
   const data = useSelector((state) => state.app)
@@ -90,51 +61,25 @@ function App() {
   }, [data]);
 
 
-
-  // this part is for getting screensize for react grid layout
-  // const [screenSize, setscreenSize] = useState(
-  //   window.innerWidth >= 1600 ? 'XL' 
-  //     : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
-  //     : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
-  //     : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
-  //     : 'XS'
-  //     );
-
-
-  // useEffect(() => {
-  //   console.log('resize');
-  //   const handleResize = () => {
-  //     setscreenSize(
-  //       window.innerWidth >= 1600 ? 'XL' 
-  //         : (window.innerWidth < 1600 && window.innerWidth >= 1200) ? 'LG'
-  //         : (window.innerWidth < 1200 && window.innerWidth >= 996) ? 'MD'
-  //         : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
-  //         : 'XS'
-  //     );
-  //   };
-  //   window.addEventListener('resize', handleResize);
-  // }, []);
-
-
-  
-  // const { token } = data;
-
   const screenSize = GetScreenSize();
 
 
   return (
-    <div id="siteWrapper" className={`
-      siteWrapper 
-      ${screenSize === 'XL' ? 'siteWrapperXL'
-        : screenSize === 'LG' ? 'siteWrapperLG'
-        : screenSize === 'MD' ? 'siteWrapperMD'
-        : screenSize === 'SM' ? 'siteWrapperSM'
-        : 'siteWrapperXS'
-      }
+    <div
+      id="siteWrapper"
+      className={`
+        siteWrapper 
 
-      ${theme === 'light' ? 'light' : 'dark'}
-
-    `}>
+        ${screenSize === 'XL' ? 'siteWrapperXL'
+          : screenSize === 'LG' ? 'siteWrapperLG'
+          : screenSize === 'MD' ? 'siteWrapperMD'
+          : screenSize === 'SM' ? 'siteWrapperSM'
+          : 'siteWrapperXS'
+        }
+          
+        ${darkMode ? 'dark' : ''}
+      `}
+    >
       {!ready && (
         <div className="be-loading be-loading-active be-loading-full-size">
           <Spinner />
@@ -142,7 +87,7 @@ function App() {
       )}
       {token && (
           <div id="be-wrapper" className="be-wrapper">
-            <Header theme={theme} setTheme={setTheme} />
+            <Header />
             <Menu />
             <Switcher screenSize={screenSize} />
             {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}

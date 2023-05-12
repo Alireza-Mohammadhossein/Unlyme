@@ -22,7 +22,7 @@ import HeaderSettingPopup from "../header-setting/HeaderSettingPopup";
 
 
 
-const Header = ({theme, setTheme}) => {
+const Header = () => {
 
   // const userTokenStatus = useSelector((state) => state.app.token);
   // const dispatch = useDispatch();
@@ -245,8 +245,6 @@ const Header = ({theme, setTheme}) => {
             <div className="header__popup-area">
               <HeaderSettingPopup
                 setSettingPopupToggler={setSettingPopupToggler}
-                theme={theme}
-                setTheme={setTheme}
               />
             </div>
           ) : (

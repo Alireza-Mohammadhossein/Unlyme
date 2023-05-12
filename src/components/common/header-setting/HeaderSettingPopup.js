@@ -15,17 +15,20 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { ToastContainer, toast } from 'react-toastify';
 import { useSelector, useDispatch } from "react-redux";
 import { signoutUser } from "../../../redux/app/appSlice";
+import { asyncToggleTheme } from '../../../redux/app/themeSlice'; 
 
 
 
 
 
 
-const HeaderSettingPopup = ({ setSettingPopupToggler, theme, setTheme }) => {
+const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
   const { t } = useTranslation();
 
-  const userTokenStatus = useSelector((state) => state.app.token);
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
+  const [mode, setMode] = useState(darkMode ? 'dark' : 'light')
 
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -36,13 +39,14 @@ const HeaderSettingPopup = ({ setSettingPopupToggler, theme, setTheme }) => {
   const mail = user_info.mail;
   const avatar = user_info.avatar;
 
-  // start selecting theme
+  // start changing theme
   const handleChangeTheme = (event, newTheme) => {
     if (newTheme !== null) {
-      setTheme(newTheme);
+      dispatch(asyncToggleTheme());
+      setMode(newTheme);
     }
   };
-  // end selecting theme
+  // end changing theme
 
 
 
@@ -97,7 +101,7 @@ const HeaderSettingPopup = ({ setSettingPopupToggler, theme, setTheme }) => {
               </div>
 
               <ToggleButtonGroup
-                value={theme}
+                value={mode}
                 exclusive
                 onChange={handleChangeTheme}
                 aria-label="select theme"
@@ -110,10 +114,10 @@ const HeaderSettingPopup = ({ setSettingPopupToggler, theme, setTheme }) => {
                   <img src={darkIcon} />
                   <span>{t('SETTING_POPUP.THEME_DARK')}</span>
                 </ToggleButton>
-                <ToggleButton className='setting-popup-list__body-content_item-selector' value="auto" aria-label="theme auto">
+                {/* <ToggleButton className='setting-popup-list__body-content_item-selector' value="auto" aria-label="theme auto">
                   <img src={autoIcon} />
                   <span>{t('SETTING_POPUP.THEME_AUTO')}</span>
-                </ToggleButton>
+                </ToggleButton> */}
               </ToggleButtonGroup>
 
             </div>
