@@ -27,8 +27,8 @@ import AIEngine from './components/aiEngine/AIEngine';
 
 
 
-const MyServices = () => {
-  const screenSize = GetScreenSize();
+const MyServices = ({screenSize}) => {
+  // const screenSize = GetScreenSize();
   const { t } = useTranslation();
   const ResponsiveGridLayout = WidthProvider(Responsive);
 

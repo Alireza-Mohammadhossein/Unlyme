@@ -10,8 +10,8 @@ import {
   SUPPORTED_LANGUAGES,
 } from "../../../types";
 
-const Menu = () => {
-  const screenSize = GetScreenSize();
+const Menu = ({screenSize}) => {
+  // const screenSize = GetScreenSize();
   const { t, i18n } = useTranslation();
 
   const data = [

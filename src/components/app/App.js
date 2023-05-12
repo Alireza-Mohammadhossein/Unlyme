@@ -3,8 +3,6 @@ import Header from "../common/header/Header";
 import Menu from "../common/menu/Menu";
 import Switcher from "../../routes";
 import Spinner from '../common/spinner/Spinner';
-// import { connect } from 'react-redux';
-// import { fetchUserInfo } from './AppActions';
 import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
 import { fetchUserInfo } from '../../redux/app/appSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -19,10 +17,12 @@ function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   // // const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const screenSize = GetScreenSize();
   
 
   const [ready, setReady] = useState(false);
-  const data = useSelector((state) => state.app)
+  const data = useSelector((state) => state.app);
   const dispatch = useDispatch();
 
   // const token = localStorage.getItem('token');
@@ -58,10 +58,8 @@ function App() {
     if (authenticated && user === null && !userInfoFetching) {
       dispatch(fetchUserInfo());
     }
+
   }, [data]);
-
-
-  const screenSize = GetScreenSize();
 
 
   return (
@@ -88,7 +86,7 @@ function App() {
       {token && (
           <div id="be-wrapper" className="be-wrapper">
             <Header />
-            <Menu />
+            <Menu screenSize={screenSize} />
             <Switcher screenSize={screenSize} />
             {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
           </div>

@@ -10,10 +10,9 @@ export const GetScreenSize = () => {
           : (window.innerWidth < 996 && window.innerWidth >= 768) ? 'SM'
           : 'XS'
           );
-    
-    
+
       useEffect(() => {
-        console.log('resize');
+        console.log('resize', screenSize);
         const handleResize = () => {
           setscreenSize(
             window.innerWidth >= 1600 ? 'XL' 
@@ -24,7 +23,7 @@ export const GetScreenSize = () => {
           );
         };
         window.addEventListener('resize', handleResize);
-      }, []);
+      }, [screenSize]);
 
       return screenSize;
 }

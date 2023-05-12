@@ -97,7 +97,7 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
           <div className='setting-popup-list__body-content'>
             <div className='setting-popup-list__body-content_item'>
               <div className='setting-popup-list__body-content_item-title'>
-                Select theme
+                {t('SETTING_POPUP.SELECTING')}
               </div>
 
               <ToggleButtonGroup
