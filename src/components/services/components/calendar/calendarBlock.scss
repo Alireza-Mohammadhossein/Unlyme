@@ -37,7 +37,10 @@
 
   &__navigation button:enabled:hover,
   &__tile:enabled:hover {
-      background-color: $delimiter;
+      // background-color: $delimiter;
+      abbr {
+        background-color: $delimiter;
+      }
   }
 
   &__month-view__weekdays {
@@ -62,19 +65,28 @@
     background: none;
     font-size: 14px;
     border-radius: 50%;
+    width: 40px;
+    height: 40px;
     abbr {
-      height: 40px;
-      width: 40px;
+      width: inherit;
+      height: inherit;
       line-height: 40px;
       border-radius: 100%;
       display: inline-block;
     }
   }
   &__tile--active {
-    background-color: #006edc;
+    // background-color: #006edc;
     color: #fff;
-    &:enabled:hover {
+
+    abbr {
       background-color: #006edc;
+    }
+    &:enabled:hover {
+      // background-color: #006edc;
+      abbr {
+        background-color: #006edc;
+      }
     }
   }
 }
@@ -106,10 +118,12 @@
 
     &__tile {
       font-size: 13px;
+      height: 43px;
 
       abbr {
-        width: auto;
-        height: auto;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
       }
     }
   }

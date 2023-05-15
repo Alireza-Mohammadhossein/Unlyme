@@ -134,6 +134,10 @@ h1, .div-h1 {
   }
   &.siteWrapperXS {
     background-image: url('../../assets/images/my-services/LGback.jpg');
+
+    & .container {
+      padding: 45px 0 20px 50px;
+    }
   }
 }
 .cloud {
