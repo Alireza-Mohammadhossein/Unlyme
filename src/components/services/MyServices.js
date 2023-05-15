@@ -22,13 +22,12 @@ import AIEngine from './components/aiEngine/AIEngine';
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
+
+
 // This component is for loading components in homepage
 
-
-
-
-const MyServices = ({screenSize}) => {
-  // const screenSize = GetScreenSize();
+const MyServices = () => {
+  const screenSize = GetScreenSize();
   const { t } = useTranslation();
   const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -140,6 +139,8 @@ const MyServices = ({screenSize}) => {
     : layoutXS
   };
 
+  const rowHeight = screenSize === 'LG' ? 315 : 380; 
+
   const [layouts, setLayouts] = useState(JSON.parse(JSON.stringify(originalLayouts)));
 
   // call saveToLS when screen size change
@@ -182,7 +183,7 @@ const MyServices = ({screenSize}) => {
           }`}
           layouts={layouts}
           cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
-          rowHeight = {380}
+          rowHeight = {rowHeight}
           margin= {[30, 30]}
           useCSSTransforms= {false}
           draggableCancel = '.MyNonDraggableAreaClassName'

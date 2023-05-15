@@ -22,8 +22,9 @@ export const GetScreenSize = () => {
               : 'XS'
           );
         };
+
         window.addEventListener('resize', handleResize);
-      }, [screenSize]);
+      }, []);
 
       return screenSize;
 }

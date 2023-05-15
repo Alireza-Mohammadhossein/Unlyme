@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Header from "../common/header/Header";
 import Menu from "../common/menu/Menu";
 import Switcher from "../../routes";
-import Spinner from '../common/spinner/Spinner';
-import { GetScreenSize } from '../common/getScreenSize/GetScreenSize';
-import { fetchUserInfo } from '../../redux/app/appSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import Spinner from "../common/spinner/Spinner";
+import { GetScreenSize } from "../common/getScreenSize/GetScreenSize";
+import { fetchUserInfo } from "../../redux/app/appSlice";
+import { useSelector, useDispatch } from "react-redux";
 // import { useSelector, useDispatch } from 'react-redux';
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/sass/app.scss";
 
-
 function App() {
-
   // const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   // // const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const screenSize = GetScreenSize();
-  
 
   const [ready, setReady] = useState(false);
   const data = useSelector((state) => state.app);
@@ -28,11 +25,16 @@ function App() {
   // const token = localStorage.getItem('token');
   const token = true;
 
-  console.log('app token', token)
+  console.log("app token", token);
 
   useEffect(() => {
-    
-    const { user, authenticated, fetchUserInfo, i18nextLanguageLoaded, userInfoFetching } = data;
+    const {
+      user,
+      authenticated,
+      fetchUserInfo,
+      i18nextLanguageLoaded,
+      userInfoFetching,
+    } = data;
     // console.log('token', token);
     // console.log('user', user);
 
@@ -42,15 +44,14 @@ function App() {
     // b) either unauthorized
     // const readyCurrent = ((authenticated && user != null) || !authenticated) && i18nextLanguageLoaded;
 
-
     const readyCurrent = token;
- 
-    if(!token) {
+
+    if (!token) {
       setTimeout(() => {
         window.location.href = "http://unlyme.com";
-      }, 3000)
+      }, 3000);
     }
-    
+
     if (ready !== readyCurrent) {
       setReady(readyCurrent);
     }
@@ -58,24 +59,25 @@ function App() {
     if (authenticated && user === null && !userInfoFetching) {
       dispatch(fetchUserInfo());
     }
-
   }, [data]);
-
 
   return (
     <div
       id="siteWrapper"
       className={`
-        siteWrapper 
-
-        ${screenSize === 'XL' ? 'siteWrapperXL'
-          : screenSize === 'LG' ? 'siteWrapperLG'
-          : screenSize === 'MD' ? 'siteWrapperMD'
-          : screenSize === 'SM' ? 'siteWrapperSM'
-          : 'siteWrapperXS'
+        siteWrapper
+        ${
+          screenSize === "XL"
+            ? "siteWrapperXL"
+            : screenSize === "LG"
+            ? "siteWrapperLG"
+            : screenSize === "MD"
+            ? "siteWrapperMD"
+            : screenSize === "SM"
+            ? "siteWrapperSM"
+            : "siteWrapperXS"
         }
-          
-        ${darkMode ? 'dark' : ''}
+        ${darkMode ? "dark" : ""}
       `}
     >
       {!ready && (
@@ -84,12 +86,12 @@ function App() {
         </div>
       )}
       {token && (
-          <div id="be-wrapper" className="be-wrapper">
-            <Header />
-            <Menu screenSize={screenSize} />
-            <Switcher screenSize={screenSize} />
-            {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
-          </div>
+        <div id="be-wrapper" className="be-wrapper">
+          <Header />
+          <Menu screenSize={screenSize} />
+          <Switcher screenSize={screenSize} />
+          {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
+        </div>
       )}
     </div>
   );
@@ -106,6 +108,5 @@ function App() {
 // const mapDispatchToProps = {
 //   fetchUserInfoAction: fetchUserInfo,
 // };
-
 
 export default App;

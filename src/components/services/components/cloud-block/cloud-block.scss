@@ -130,4 +130,20 @@
     background-color: $dark-theme-background-color;
   }
 }
-  
+
+
+.layoutLG {
+  .cloud-block {
+    &__header {
+      height: 40px;
+
+      &-title {
+        font-size: 19px;
+      }
+    }
+
+    &__content {
+      height: 227px;
+    }
+  }
+}
