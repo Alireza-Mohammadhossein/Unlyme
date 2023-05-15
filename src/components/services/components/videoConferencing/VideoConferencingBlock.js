@@ -113,7 +113,7 @@ const VideoConferencingBlock = () => {
               </Grid>
             </Grid>
 
-            <Grid container spacing={4} rowSpacing={1} alignItems="center">
+            <Grid container spacing={4} rowSpacing={1} alignItems="center" className="my-services__video-conference_form-copy-link">
               <Grid item xs={6}>
                 <a href="#">{t("SERVICES.VIDEO_CONFERENCING.COPY_LINK")}</a>
               </Grid>

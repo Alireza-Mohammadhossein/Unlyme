@@ -198,7 +198,10 @@
   }
 
   &__cloud-hosting {
+    height: 100%;
+
     &_container {
+      height: 100%;
       display: flex;
       flex-direction: column;
       padding: 2 * $space 2 * $space;
@@ -235,23 +238,19 @@
         color: #000;
         margin-top: $space;
       }
+
+      & .MuiListItemText-secondary {
+        text-transform: none;
+      }
     }
 
-    .btn {
-      margin-left: auto;
-    }
-    &_col {
-      &:nth-of-type(1) {
-        width: 55%;
-      }
-      &:nth-of-type(2) {
-        width: 45%;
-      }
-    }
   }
 
   &__tasks {
+    height: 100%;
+
     &_container {
+      height: 100%;
       padding: 0 2 * $space;
     }
     &_tab {
@@ -694,7 +693,10 @@
   }
 
   &__video-conference {
+    height: 100%;
+
     &_container {
+      height: 100%;
       padding: 0 2 * $space;
     }
 
@@ -855,108 +857,57 @@
 
 .layoutLG {
   .my-services {
-    &__layout {
-      justify-content: center;
-      width: 100%;
-      &.layoutXL {
-        max-width: 1500px;
-      }
-      &.layoutLG {
-        max-width: 1050px;
-      }
-      &.layoutMD {
-        max-width: 996px;
-      }
-      &.layoutSM {
-        max-width: 768px;
-      }
-      &.layoutXS {
-        max-width: 480px;
-      }
-    }
-
-    &__guide {
-      width: 100%;
-      height: 380px;
+    &__ai {
   
-      background-image: url("../../assets/images/my-services/guide/guide-back.jpg");
-      background-size: cover;
-      background-position: center;
-      border-radius: $border-radius-big;
-  
-      &-container {
-        padding: 50px 30px;
+      &_tab {
+        & .MuiButtonBase-root {
+          font-size: 13px;
+        }
       }
   
-      &_header {
-        &-title {
-          font-size: 32px;
-          color: $gray-text;
-          font-weight: normal;
+      &_list {
+        height: 170px;
+        margin-top: 10px !important;
+      }
+  
+      &_item {
+        &-time {
+          width: 163px;
+          P {
+            font-size: 13px;
+          }
+        }
+  
+        &-log {
+          width: calc(100% - 163px);
+          P {
+            font-size: 13px;
+          }
         }
       }
     }
+
+    &__tasks {
+      &_tab {
+        min-height: unset;
+      }
+      &_item {
+        &.MuiListItem-root {
+          padding: 9px 0 !important;
+        }
   
-    &__connect-other {
-      width: 100%;
-      border: 2px dashed $delimiter;
-      text-align: center;
-      color: $gray;
-      margin-top: 2 * $space;
-      font-size: 16px;
-      padding: $space;
-      box-sizing: border-box;
-      cursor: pointer;
-      &:before {
-        content: "+";
-        color: $gray;
-        display: block;
-        font-size: 28px;
+        & .MuiTypography-body1 {
+          font-size: 14px;
+        }
+  
+        & .MuiTypography-body2 {
+          font-size: 14px;
+        }
       }
     }
-  
-    &__crm {
-      &_container {
-        display: flex;
-        justify-content: space-between;
-      }
-      &_col {
-        width: 30%;
-        text-align: center;
-        padding-top: $space;
-        padding-bottom: $space;
-      }
-      &_col-number {
-        font-size: 16px;
-        margin-bottom: 5px;
-      }
-      &_col-text {
-        font-size: 14px;
-      }
-    }
-  
-    &__online-consultant {
-      &_dialog {
-        padding: 10px 0;
-      }
-      &_dialog-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 5px;
-        font-size: 13px;
-      }
-      &_dialog-date {
-        font-size: 10px;
-        color: $gray;
-      }
-      &_separator {
-        height: 1px;
-        background-color: $delimiter;
-      }
-    }
-  
+
     &__domains {
+
       &-page {
         &_header {
           justify-content: space-between;
@@ -985,685 +936,263 @@
           }
         }
       }
+
       &_container {
-        text-align: center;
-        padding: 4 * $space 2 * $space;
+        padding: 15px 20px;
       }
+
       &_header {
-        text-align: left;
+        font-size: 14px;
       }
   
       &_items {
-        & .MuiListItem-root {
-          margin-top: 25px;
-          padding: 0;
-          align-items: center;
-        }
-  
-        & .MuiListItemIcon-root {
-          min-width: unset;
-          margin-right: 10px;
-        }
-  
         & .MuiListItemText-root {
-          margin: 0;
-        }
-  
-        & .MuiSvgIcon-root {
-          font-size: 15px;
-          color: #74ba6a;
-        }
-      }
-    }
-  
-    &__invoice-manager {
-      &_item {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-bottom: $space;
-        line-height: 1.2;
-        font-size: 12px;
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-      &_item-text-gray {
-        color: $gray;
-      }
-      &_item-col-1 {
-        min-width: 140px;
-      }
-      &_item-col-2 {
-        width: 100%;
-      }
-      &_item-status {
-        &--draft {
-          color: $light-gray;
-        }
-        &--sent {
-          color: $orange;
-        }
-        &--viewed {
-          color: $blue;
+          & .MuiListItemText-primary {
+            font-size: 14px;
+          } 
+
+          & .MuiListItemText-secondary {
+            font-size: 13px;
+          } 
         }
       }
     }
-  
+
     &__cloud-hosting {
       &_container {
-        display: flex;
-        flex-direction: column;
-        padding: 2 * $space 2 * $space;
+        padding: 10px 20px;
       }
-  
+
       &_storage {
         &-heading {
-          font-weight: 500;
-          color: #000;
-          margin-bottom: $space;
+          font-size: 14px;
         }
   
         &_ring {
-          width: 137px;
-          height: 137px;
-          margin: 0 auto;
+          width: 120px;
+          height: 120px;
           &-title {
-            font-size: 15px;
-            font-weight: 500;
-            color: #000;
-            margin-bottom: 5px;
-          }
-          &-subtitle {
-            font-size: 12px;
-            font-weight: 400;
-            color: #9b9b9b;
+            font-size: 14px;
           }
         }
       }
   
       &_site {
         &-heading {
-          font-weight: 500;
-          color: #000;
-          margin-top: $space;
+          font-size: 14px;
+          margin-top: 5px;
         }
-      }
-  
-      .btn {
-        margin-left: auto;
-      }
-      &_col {
-        &:nth-of-type(1) {
-          width: 55%;
-        }
-        &:nth-of-type(2) {
-          width: 45%;
-        }
-      }
-    }
-  
-    &__tasks {
-      &_container {
-        padding: 0 2 * $space;
-      }
-      &_tab {
-        & .MuiButtonBase-root {
-          text-transform: none;
-          color: #000;
-          font-size: 15px;
-          font-weight: 500;
-        }
-        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
-          color: #51a3ff;
-        }
-        & .MuiTabs-indicator {
-          background-color: #51a3ff;
-        }
-      }
-      &_item {
-        &.MuiListItem-root {
-          padding: 10px !important;
-          align-items: center;
-        }
-  
-        & .MuiTypography-body1 {
-          color: #000;
-          font-weight: 500;
-        }
-  
-        & .MuiTypography-body2 {
-          color: #000;
-          font-size: 15px;
-        }
-        & .MuiListItemIcon-root {
-          min-width: unset;
-          margin-right: 10px;
-        }
-        & .MuiListItemText-root {
-          margin: 0;
-        }
-        &-icon .MuiSvgIcon-root {
-          font-size: 15px;
-          color: #74ba6a;
-        }
-      }
-  
-      &_item:not(:last-child) {
-        border-bottom: 1px solid #f2f2f2;
-      }
-    }
-  
-    &__ai {
-  
-      &_tab {
-        & .MuiButtonBase-root {
-          font-size: 13px;
-        }
-      }
-  
-      &_list {
-        height: 175px;
-      }
-  
-      &_item {
-        &-time {
-          width: 163px;
-          P {
-            font-size: 13px;
+
+
+        &-list {
+          & .MuiListItemText-primary {
+            font-size: 14px;
           }
-        }
-  
-        &-log {
-          width: calc(100% - 163px);
-          P {
+
+          & .MuiListItemText-secondary {
             font-size: 13px;
+
           }
         }
       }
+
     }
-  
+
     &__work-drive {
-      width: 100%;
-      height: 100%;
-  
-      &_container {
-        padding: 0 2 * $space;
-        box-sizing: border-box;
-  
-        width: inherit;
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      &_upload-text {
+        h3 {
+          font-size: 14px;  
+        }
       }
     }
-  
+
     &__bank {
-      width: 100%;
-      height: 100%;
-  
+      
       &_container {
-        padding: $space 2 * $space;
-        box-sizing: border-box;
-  
-        width: inherit;
-        height: inherit;
+        padding: 5px 20px;
       }
-  
+      
       &_list {
         & .MuiListItem-root {
-          padding: 10px 0;
+          padding: 8px 0;
         }
       }
   
       &_item {
         &-currency {
-          width: 50px;
-          height: 50px;
-          border-radius: 12px;
-          color: #fff;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-  
-        &-currency-eur {
-          background-color: #edc7a4;
-        }
-  
-        &-currency-usd {
-          background-color: #a8dfe2;
-        }
-  
-        &-currency-other {
-          background-color: #b596d5;
+          width: 45px;
+          height: 45px;
         }
   
         &-balance-info {
-          margin-left: 10px;
-  
-          & .MuiListItemText-primary {
-            font-size: 12px;
-          }
           & .MuiListItemText-secondary {
-            font-size: 18px;
-            font-weight: 500;
-            color: #000;
+            font-size: 16px;
           }
         }
   
         &-balance-card {
-          text-align: right;
-          margin-right: 40px;
-        }
-      }
-  
-      &_item:not(:last-child) {
-        border-bottom: 1px solid #f2f2f2;
-      }
-    }
-  
-    &__logo-builder {
-      width: 100%;
-      height: 100%;
-  
-      &_container {
-        width: inherit;
-        height: inherit;
-        padding: 2 * $space 2 * $space;
-        box-sizing: border-box;
-  
-        display: flex;
-        flex-direction: column;
-      }
-  
-      &_form-wrapper {
-        margin-top: 50px;
-      }
-  
-      &_form {
-        &_title {
-          color: #000;
-        }
-        &_input {
-          margin-top: 20px !important;
-          font-size: 15px;
-          color: #363c65;
-          border-radius: 8px;
-          outline: none;
-          width: 100%;
-          box-sizing: border-box;
-          background-color: #f8fafc;
-          transition: 0.2s;
-          border: 1px solid #ececec;
-          padding: 10px 8px;
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
+          .MuiListItemText-primary {
+            font-size: 14px;
           }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
-            }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
-            }
-          }
-  
-          &::placeholder {
-            color: #acacac;
-          }
-        }
-  
-        &_btn {
-          margin-top: 20px;
-          text-align: right;
         }
       }
     }
-  
+
     &__sites-copying {
-      width: 100%;
-      height: 100%;
-  
+
       &_container {
-        width: inherit;
-        height: inherit;
-        padding: 2 * $space 2 * $space;
-        box-sizing: border-box;
-  
-        display: flex;
-        flex-direction: column;
+        padding: 15px 20px;
       }
   
+      &_description {
+        font-size: 14px;
+      }
+
       &_form-wrapper {
-        margin-top: 50px;
+        margin-top: 30px;
       }
-  
+
       &_form {
         &_title {
-          color: #000;
+          font-size: 14px;
         }
         &_input {
-          margin-top: 20px !important;
-          font-size: 15px;
-          color: #363c65;
-          border-radius: 8px;
-          outline: none;
-          width: 100%;
-          box-sizing: border-box;
-          background-color: #f8fafc;
-          transition: 0.2s;
-          border: 1px solid #ececec;
-          padding: 10px 8px;
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
-          }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
-            }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
-            }
-          }
-  
-          &::placeholder {
-            color: #acacac;
-          }
+          font-size: 14px;
         }
   
         &_btn {
-          margin-top: 20px;
-          text-align: right;
+          .btn {
+            font-size: 14px;
+          }
         }
       }
     }
-  
+
     &__website-builder {
-      width: 100%;
-      height: 100%;
-  
       &_container {
-        width: inherit;
-        height: inherit;
-        padding: 2 * $space 2 * $space;
-        box-sizing: border-box;
-  
-        display: flex;
-        flex-direction: column;
+        padding: 10px 20px;
+      }
+
+      &_description {
+        font-size: 14px;
       }
   
       &_form-wrapper {
-        margin-top: 40px;
+        margin-top: 25px;
       }
   
       &_form {
         &_title {
-          color: #000;
+          font-size: 14px;
         }
+
         &_input {
-          margin-top: 20px !important;
-          font-size: 15px;
-          color: #363c65;
-          border-radius: 8px;
-          outline: none;
-          width: 100%;
-          box-sizing: border-box;
-          background-color: #f8fafc;
-          transition: 0.2s;
-          border: 1px solid #ececec;
-          padding: 10px 8px;
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
-          }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
-            }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
-            }
-          }
-  
-          &::placeholder {
-            color: #acacac;
-          }
+          font-size: 14px;
+          margin-top: 15px !important;
         }
   
         &_btn {
-          margin-top: 20px;
-          text-align: right;
+          .btn {
+            font-size: 14px;
+          }
         }
       }
     }
-  
-    &__disc {
-      width: 100%;
-      height: 100%;
-  
-      &_container {
-        width: inherit;
-        height: inherit;
-        padding: 2 * $space 2 * $space;
-        box-sizing: border-box;
-  
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-  
-      &_title {
-        color: #000;
-        margin-bottom: 20px;
-      }
-  
-      &_info {
-        &-progress {
-          height: 15px !important;
-        }
-  
-        &-text {
-          margin-top: $space;
-          font-size: 12px;
-        }
-      }
-  
-      &_btn {
-        margin-top: 20px;
-        text-align: right;
-      }
-    }
-  
+
     &__video-conference {
-      &_container {
-        padding: 0 2 * $space;
-      }
-  
+
       &_tab {
+        min-height: unset;
+
         & .MuiButtonBase-root {
-          text-transform: none;
-          color: #000;
-          font-size: 15px;
-          font-weight: 500;
-        }
-        & .MuiButtonBase-root.MuiTab-root.Mui-selected {
-          color: #51a3ff;
-        }
-        & .MuiTabs-indicator {
-          background-color: #51a3ff;
+          font-size: 14px;
         }
       }
   
       &_tabpanel {
-        padding: 2 * $space 0 $space;
-        & .MuiFormControl-root {
-          width: 100%;
-        }
+        padding: 10px 0 10px;
       }
+
       &_form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        gap: 15px;
   
         &_label {
-          color: #000;
+          font-size: 14px;
         }
   
         &_input {
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
-          }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
-            }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
-            }
-          }
+          font-size: 14px;
         }
   
         &_date {
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
-          }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
-            }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
-            }
-          }
+          font-size: 14px;
+          
           & input {
-            padding: 8.5px 14px;
+            font-size: 14px;
           }
         }
   
         &_time {
-          font-size: 15px;
-          background-color: #f8fafc;
-          & label {
-            color: #acacac;
+          font-size: 14px;
+
+          & input {
+            font-size: 14px;
           }
-          & .MuiInputBase-root {
-            border-radius: 8px;
-          }
-          & .MuiInput-underline:after {
-            border-bottom-color: green;
-          }
-          & .MuiOutlinedInput-root {
-            & fieldset {
-              border-color: #ececec;
+        }
+
+        &-copy-link {
+          & .MuiGrid-root {
+            padding-top: 0 !important;
+
+            & .btn {
+              font-size: 14px;
+              padding: 8px 20px;
             }
-            &:hover fieldset {
-              border-color: $blue;
-            }
-            &.Mui-focused fieldset {
-              border-color: $blue;
+
+            .btn-outline {
+              font-size: 14px;
+              padding: 8px 20px;
             }
           }
         }
       }
     }
-  
-    &__services {
-      width: 100%;
-      height: 100%;
-  
-      background: rgba(220, 220, 220, 0.5);
-      backdrop-filter: blur(10px);
-      border-radius: 18px;
-  
-      &_container {
-        padding: 3 * $space;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-      }
+
+    &__disc {
   
       &_title {
-        font-size: 22px;
-        color: #000;
-        font-weight: 400;
+        font-size: 14px;
+      }
+  
+      &_info {
+        &-progress {
+          height: 13px !important;
+        }
+      }
+  
+      &_btn {
+
+        & .btn {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__services {
+  
+      &_title {
+        font-size: 20px;
       }
   
       &_list {
-        margin-top: 30px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 18px;
+        margin-top: 20px;
+        gap: 15px;
       }
   
       &_item {
-        justify-self: center;
-  
         &-icon {
-          display: inline-block;
-          width: 55px;
-          height: 55px;
-  
-          & img {
-            width: inherit;
-            height: inherit;
-          }
+          width: 50px;
+          height: 50px;
         }
       }
     }
@@ -1964,10 +1493,6 @@
     }
 
     &_form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
       &_label {
         color: $dark-theme-title-color;
       }
@@ -1999,7 +1524,6 @@
           }
         }
         & input {
-          padding: 8.5px 14px;
           color: $dark-theme-title-color;
         }
       }
@@ -2016,7 +1540,6 @@
           }
         }
         & input {
-          padding: 8.5px 14px;
           color: $dark-theme-title-color;
         }
       }
