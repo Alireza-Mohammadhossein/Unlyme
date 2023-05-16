@@ -129,6 +129,185 @@
 }
 
 
+.siteWrapperLG .notification-popup {
+
+  &-list {
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperMD .notification-popup {
+
+  &-list {
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperSM .notification-popup {
+
+  &-list {
+    width: 350px;
+    
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperXS .notification-popup {
+  &-list {
+    width: 350px;
+    
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
 .dark .notification-popup {
   background-color: $dark-theme-background-color;
 
@@ -179,8 +358,6 @@
           }
         }
       }
-
     }
   }  
 }
-  

@@ -18,12 +18,11 @@ import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
 import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
 import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
 import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
-import HeaderSettingPopup from "../header-setting/HeaderSettingPopup";
+import HeaderSettingPopup from "../header-settingpopup/HeaderSettingPopup";
 
 
 
 const Header = () => {
-
   // const userTokenStatus = useSelector((state) => state.app.token);
   // const dispatch = useDispatch();
 

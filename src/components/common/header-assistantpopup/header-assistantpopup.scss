@@ -496,6 +496,244 @@
   
 }
 
+.siteWrapperMD .assistant-popup {
+  &-list {
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-create {
+          &_btn {
+              padding: 15px 12px !important;
+            }
+      }
+  
+      &-messages {
+        &_container {
+          height: 97%;
+        }
+  
+        &_item {
+          &_content {
+            &_name {
+              font-size: 14px;
+            }
+  
+            &_last-message {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  &-messages {
+      &__header {
+        &-info {
+          &_name {
+            font-size: 20px;
+          }
+        }
+      }
+  
+      &__body {
+        &-terms {
+          font-size: 13px;
+        }
+
+        &-content {  
+          &_friend {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+  
+  
+          &_own {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+      }
+    }   
+  }
+  
+}
+
+.siteWrapperSM .assistant-popup {
+  &-list {
+    width: 350px;
+
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-create {
+          &_btn {
+              padding: 15px 12px !important;
+            }
+      }
+  
+      &-messages {
+        &_container {
+          height: 97%;
+        }
+  
+        &_item {
+          &_content {
+            &_name {
+              font-size: 14px;
+            }
+  
+            &_last-message {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  &-messages {
+    width: 350px;
+
+      &__header {
+        &-info {
+          &_name {
+            font-size: 20px;
+          }
+        }
+      }
+  
+      &__body {
+        &-terms {
+          font-size: 13px;
+        }
+
+        &-content {  
+          &_friend {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+  
+  
+          &_own {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+      }
+    }   
+  }
+  
+}
+
+.siteWrapperXS .assistant-popup {
+  &-list {
+    width: 350px;
+
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-create {
+          &_btn {
+              padding: 15px 12px !important;
+            }
+      }
+  
+      &-messages {
+        &_container {
+          height: 97%;
+        }
+  
+        &_item {
+          &_content {
+            &_name {
+              font-size: 14px;
+            }
+  
+            &_last-message {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  &-messages {
+    width: 350px;
+
+      &__header {
+        &-info {
+          &_name {
+            font-size: 20px;
+          }
+        }
+      }
+  
+      &__body {
+        &-terms {
+          font-size: 13px;
+        }
+
+        &-content {  
+          &_friend {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+  
+  
+          &_own {
+            &-message {
+              &_text {
+                & p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+      }
+    }   
+  }
+  
+}
 
 .dark .assistant-popup {
   background-color: $dark-theme-background-color;

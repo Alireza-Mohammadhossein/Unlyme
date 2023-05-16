@@ -144,6 +144,173 @@
     }
 }
 
+.siteWrapperLG .setting-popup {
+  &-list {
+    &__header {
+      &_user {
+        &-info {
+          &-name {
+            font-size: 14px;
+          }
+          &-mail {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  
+    &__body {
+      &-content {
+        &_item {
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+
+    }
+
+    &__footer {
+      &-options {
+
+        &-setting {
+          font-size: 14px !important;
+        }
+        
+        &-logout {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.siteWrapperMD .setting-popup {
+  &-list {
+    &__header {
+      &_user {
+        &-info {
+          &-name {
+            font-size: 14px;
+          }
+          &-mail {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  
+    &__body {
+      &-content {
+        &_item {
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+
+    }
+
+    &__footer {
+      &-options {
+
+        &-setting {
+          font-size: 14px !important;
+        }
+        
+        &-logout {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.siteWrapperSM .setting-popup {
+  &-list {
+    width: 350px;
+
+    &__header {
+      &_user {
+        &-info {
+          &-name {
+            font-size: 14px;
+          }
+          &-mail {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  
+    &__body {
+      &-content {
+        &_item {
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+
+    }
+
+    &__footer {
+      &-options {
+
+        &-setting {
+          font-size: 14px !important;
+        }
+        
+        &-logout {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+.siteWrapperXS .setting-popup {
+  &-list {
+    width: 350px;
+
+    &__header {
+      &_user {
+        &-info {
+          &-name {
+            font-size: 14px;
+          }
+          &-mail {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  
+    &__body {
+      &-content {
+        &_item {
+          &-title {
+            font-size: 14px;
+          }
+        }
+      }
+
+    }
+
+    &__footer {
+      &-options {
+
+        &-setting {
+          font-size: 14px !important;
+        }
+        
+        &-logout {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
 
 .dark .setting-popup {
   background-color: $dark-theme-background-color;
