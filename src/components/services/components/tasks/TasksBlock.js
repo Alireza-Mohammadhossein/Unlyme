@@ -66,6 +66,9 @@ const TasksBlock = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
           className="my-services__tasks_tab"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
         >
           <Tab label={t("SERVICES.TASKS.TAB_BACKLOG")} />
           <Tab label={t("SERVICES.TASKS.TAB_INPROGRESS")} />

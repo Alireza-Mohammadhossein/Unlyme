@@ -45,10 +45,23 @@
 }
 
 
-.layoutLG {
+.layoutLG, .layoutMD, .layoutSM, .layoutXS {
   .MuiButtonBase-root.MuiTab-root {
     padding: 0 16px;
     font-size: 13px !important;
     min-height: 35px;
   } 
+}
+
+.MuiGrid-container {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.MuiGrid-item {    
+  padding-left: 0 !important;
+}
+
+.MuiGrid-item.pl-10 {    
+  padding-left: 10px !important;
 }

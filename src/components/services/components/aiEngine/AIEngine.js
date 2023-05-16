@@ -46,6 +46,9 @@ const AIEngine = () => {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
           className="my-services__ai_tab"
         >
           <Tab label={t('SERVICES.AI_ENGINE.TAB.ALL')} />

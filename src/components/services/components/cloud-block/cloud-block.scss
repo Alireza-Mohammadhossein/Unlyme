@@ -147,3 +147,45 @@
     }
   }
 }
+
+.layoutMD {
+  .cloud-block {
+    &__header {
+      &-title {
+        font-size: 18px;
+      }
+
+      &-subtitle {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.layoutSM {
+  .cloud-block {
+    &__header {
+      &-title {
+        font-size: 18px;
+      }
+
+      &-subtitle {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.layoutXS {
+  .cloud-block {
+    &__header {
+      &-title {
+        font-size: 16px;
+      }
+
+      &-subtitle {
+        font-size: 11px;
+      }
+    }
+  }
+}

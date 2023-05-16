@@ -189,6 +189,7 @@ const Header = () => {
                   setSettingPopupToggler(!settingPopupToggler);
                   setChatPopupToggler(false);
                   setNotePopupToggler(false);
+                  setAssistantPopupToggler(false);
                   setNotificationPopupToggler(false);
                 }}
               >

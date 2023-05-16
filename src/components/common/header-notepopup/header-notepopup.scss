@@ -1,4 +1,4 @@
-.note-popup {    
+.note-popup {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -143,19 +143,6 @@
           }
         }
 
-      }
-  
-      &__footer {
-        height: 79px;
-        border-top: 1px solid #ececec;
-  
-        &_container {
-          padding: 0 30px;
-  
-          & .MuiTabs-flexContainer {
-            justify-content: space-between !important;
-          }
-        }
       }
     }
   
@@ -323,6 +310,79 @@
       }
     }
     
+}
+
+
+.siteWrapperLG .note-popup {
+  &-list {
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-create {
+          &_btn {
+              padding: 15px 12px !important;
+          }
+      }
+  
+      &-messages {
+        &_item {
+          &_content {
+            &_name {
+              font-size: 14px;
+            }
+  
+            &_last-message {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+
+
+  &-messages {
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 13px;
+        }
+      }
+
+      &-content {
+        &_text {
+          height: 100%;
+
+          &-title {
+            & textarea {
+              font-size: 14px;
+            }
+          }
+
+          &-message {
+            & textarea {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
 }
 
 

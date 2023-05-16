@@ -65,7 +65,7 @@ const VideoConferencingBlock = () => {
                   {t("SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME")}
                 </p>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={6} sm={6} md={6} lg={8}>
                 <TextField
                   className="my-services__video-conference_form_input"
                   id="conference_name"
@@ -74,7 +74,7 @@ const VideoConferencingBlock = () => {
                   size="small"
                 />
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={6} sm={6} md={6} lg={4} className="pl-10">
                 <TextField
                   className="my-services__video-conference_form_input"
                   id="conference_topic"
@@ -91,7 +91,7 @@ const VideoConferencingBlock = () => {
                   {t("SERVICES.VIDEO_CONFERENCING.WHEN")}
                 </p>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={6} sm={6} md={6} lg={3}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <MobileDatePicker
                     defaultValue={dayjs()}
@@ -100,7 +100,7 @@ const VideoConferencingBlock = () => {
                   />
                 </LocalizationProvider>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={6} sm={6} md={6} lg={3} className="pl-10">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <TimeField
                     value={timeValue}
@@ -114,10 +114,10 @@ const VideoConferencingBlock = () => {
             </Grid>
 
             <Grid container spacing={4} rowSpacing={1} alignItems="center" className="my-services__video-conference_form-copy-link">
-              <Grid item xs={6}>
+              <Grid item xs={4} sm={4} md={5} lg={6}>
                 <a href="#">{t("SERVICES.VIDEO_CONFERENCING.COPY_LINK")}</a>
               </Grid>
-              <Grid item xs={6} textAlign="right">
+              <Grid item xs={8} sm={8} md={7} lg={6} textAlign="right">
                 <button className="btn-outline mr-2">
                   {t("SERVICES.VIDEO_CONFERENCING.PLAN_BUTTON")}
                 </button>

@@ -707,6 +707,17 @@ button:disabled {
     }
   }
 }
+.layoutLG .btn {
+  font-size: 14px;
+}
+.layoutMD .btn {
+  font-size: 13px;
+  padding: 8px 18px;
+}
+.layoutXS .btn {
+  font-size: 13px;
+  padding: 6px 15px;
+}
 .btn-outline {
   font-size: 15px;
   color:$blue;
@@ -728,6 +739,17 @@ button:disabled {
   &:hover {
     opacity: 0.8;
   }
+}
+.layoutLG .btn-outline {
+  font-size: 14px;
+}
+.layoutMD .btn-outline {
+  font-size: 13px;
+  padding: 8px 18px;
+}
+.layoutXS .btn-outline {
+  font-size: 13px;
+  padding: 6px 15px;
 }
 .layout {
   &__table-1-3 {

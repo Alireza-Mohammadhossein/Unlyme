@@ -465,6 +465,93 @@
 }
 
 
+.siteWrapperLG .chat-popup { 
+  &-list {
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_container {
+          height: 97%;
+        }
+        &_item {
+          &_avatar {
+            width: 45px;
+            height: 45px;
+          }
+  
+          &_content {
+            &_name {
+              font-size: 14px;
+            }
+  
+            &_last-message {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-messages {
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 12px;
+        }
+      }
+
+      &-content {
+        &_friend {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
+  
+}
+
+
 .dark .chat-popup {
   background-color: $dark-theme-background-color;
   
