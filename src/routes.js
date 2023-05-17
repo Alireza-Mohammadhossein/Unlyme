@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, Outlet, Navigate} from 'react-router-dom';
 import Bank from './components/bank/Bank';
-import CalendarSite from './components/calendar/CalendarSite';
+import CalendarPage from './components/calendar/CalendarPage';
 import CopySites from './components/copy-sites/CopySites';
 import Domains from './components/domains/Domain';
 import NotFound from './components/notfound/NotFound';
@@ -43,7 +43,7 @@ const Switcher = ({ screenSize }) => {
         />
         <Route 
           path="/services/calendar"
-          element={<CalendarSite />}
+          element={<CalendarPage />}
         />
         <Route 
           path="/services/online-consultant"

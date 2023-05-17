@@ -2189,4 +2189,4 @@ export const user_info = {
     lastname: 'ackerman',
     mail: 'david.ackerman@gmail.com',
     avatar: tomAvatar,
-  }
+}

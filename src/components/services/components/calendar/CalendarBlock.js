@@ -4,8 +4,9 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import CloudBlock from "../cloud-block/CloudBlock";
 import { getLangISOFormat } from "../../../../types";
-import CalendarSite from "../../../calendar/CalendarSite";
+import CalendarPage from "../../../calendar/CalendarPage";
 import icon from "../../../../assets/images/my-services/calendar-widget.png";
+
 
 const CalendarBlock = () => {
   const { t, i18n } = useTranslation();
@@ -17,7 +18,7 @@ const CalendarBlock = () => {
       subtitle={t("SERVICES.CALENDAR.SUBTITLE")}
       // rightButtonAction={() => navigate('/services/calendar')}
       infoContent="asd"
-      directComponent={<CalendarSite />}
+      directComponent={<CalendarPage />}
       content={
         <Calendar
           locale={getLangISOFormat(i18n.language)}

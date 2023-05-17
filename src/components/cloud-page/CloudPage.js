@@ -9,32 +9,23 @@ const CloudPage = ({
   iconName,
   iconAction,
   content,
-  mdiIcon,
-  mdiIconColor,
+  icon,
+  iconColor,
   infoContent,
   rightButtonAction,
   rightButtonTitle,
 }) => {
+
 
   const { t } = useTranslation();
 
   return (
     <div className="cloud-page">
       <div className="cloud-page__header">
-        {(iconName || mdiIcon) && (
-          <div
-            className={`cloud-page__header_icon-container cloud-page__header_icon-container--${iconContainerColor}`}
-            onClick={iconAction || undefined}
-            style={{
-              backgroundImage: iconName ? `url(${ASSETS_URL}/images/icons/${iconName}.svg)` : null,
-              cursor: iconAction ? 'pointer' : 'default',
-            }}
-          >
-            {/* {mdiIcon && <b className={`mdi mdi-${mdiIcon}`} style={{ color: mdiIconColor || 'white' }} />} */}
-            {mdiIcon && <i className="menu__row_icon material-icons" style={{ color: mdiIconColor || 'white' }}>{mdiIcon}</i>}
+        <div className='cloud-page__header_icon'>
+          <img src={icon} />
+        </div>
 
-          </div>
-        )}
         <div className="cloud-page__header_title">
           {title}
           {infoContent != null && (
@@ -43,11 +34,7 @@ const CloudPage = ({
             </span>
           )}
         </div>
-        {rightButtonAction != null && (
-          <div className="btn btn--blue-text cloud-page__header_btn" onClick={rightButtonAction}>
-            {rightButtonTitle || 'Open'}
-          </div>
-        )}
+
       </div>
       <div className="cloud-page__content">{content}</div>
     </div>
