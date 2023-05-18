@@ -2190,3 +2190,27 @@ export const user_info = {
     mail: 'david.ackerman@gmail.com',
     avatar: tomAvatar,
 }
+
+
+export const Calendar_page_current_events = [
+  {
+    id: 1,
+    name: 'Personal',
+    color: '#653EB9',
+  },
+  {
+    id: 2,
+    name: 'Public',
+    color: '#4C9FBE',
+  },
+  {
+    id: 3,
+    name: 'Birthday',
+    color: '#C6870E',
+  },
+  {
+    id: 4,
+    name: 'Holiday',
+    color: '#4C91DD',
+  }
+]

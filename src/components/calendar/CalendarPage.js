@@ -35,12 +35,18 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 import CloudPage from '../cloud-page/CloudPage';
 import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid';
+import Calendar from 'react-calendar';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import icon from "../../assets/images/my-services/calendar-widget.png";
 import './calendar-site.scss';
+import { Calendar_page_current_events } from '../../mocks/mocks';
 
 
 function CalendarPageContent() {
@@ -99,6 +105,24 @@ function CalendarPageContent() {
     );
   }
 
+
+  // const [date, setDate] = useState(new Date());
+  const [date, onChangeDate] = useState(new Date());
+
+  const [selectedEvents, setSelectedEvents] = useState([]);
+
+  const eventsHandler = (event) => {
+    if (!selectedEvents.includes(event.target.value)) {
+      selectedEvents.push(event.target.value);
+      console.log('added event', selectedEvents)
+    } else if (selectedEvents.includes(event.target.value)) {
+      const index = selectedEvents.indexOf(event.target.value);
+      selectedEvents.splice(index, 1)
+      console.log('deleted event', selectedEvents)
+    }
+  }
+
+
   return (
     <div className='calendar-page'>
       <Grid container spacing={2}>
@@ -110,48 +134,62 @@ function CalendarPageContent() {
 
 
             <div className='calendar-page_sidebar-section'>
-              <label>
+              {/* <label>
                 <input
                   type='checkbox'
                   checked={weekendsVisible}
                   onChange={handleWeekendsToggle}
                 ></input>
                 toggle weekends
-              </label>
+              </label> */}
+
+              <Calendar onChange={onChangeDate} value={date} />
+
             </div>
             <div className='calendar-page_sidebar-section'>
-              <h2>All Events ({currentEvents.length})</h2>
-              <ul>{currentEvents.map(renderSidebarEvent)}</ul>
+              <FormGroup className='calendar-page_sidebar-section_filter'>
+                {Calendar_page_current_events.map((item) => (
+                  <FormControlLabel
+                    control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} onChange={eventsHandler} />}
+                    label={item.name}
+                  />
+                ))}
+              </FormGroup>
+
+              {/* <h2>All Events ({currentEvents.length})</h2> */}
+              {/* <ul>{currentEvents.map(renderSidebarEvent)}</ul> */}
             </div>
           </div>
         </Grid>
 
         <Grid item xs={9}>
           <div className='calendar-page_main'>
-          <FullCalendar
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-            headerToolbar={{
-              left: 'prev,next today',
-              center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay',
-            }}
-            initialView='dayGridMonth'
-            editable={true}
-            selectable={true}
-            selectMirror={true}
-            dayMaxEvents={true}
-            weekends={weekendsVisible}
-            initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-            select={handleDateSelect}
-            eventContent={renderEventContent} // custom render function
-            eventClick={handleEventClick}
-            eventsSet={handleEvents} // called after events are initialized/added/changed/removed
-            /* you can update a remote database when these fire:
-            eventAdd={function(){}}
-            eventChange={function(){}}
-            eventRemove={function(){}}
-            */
-          />
+            <div className='calendar-page_main_calendar'>
+              <FullCalendar
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+                headerToolbar={{
+                  left: 'prev title next today',
+                  center: '',
+                  right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                }}
+                initialView='dayGridMonth'
+                editable={true}
+                selectable={true}
+                selectMirror={true}
+                dayMaxEvents={true}
+                weekends={weekendsVisible}
+                initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+                select={handleDateSelect}
+                eventContent={renderEventContent} // custom render function
+                eventClick={handleEventClick}
+                eventsSet={handleEvents} // called after events are initialized/added/changed/removed
+                /* you can update a remote database when these fire:
+                eventAdd={function(){}}
+                eventChange={function(){}}
+                eventRemove={function(){}}
+                */
+              />
+            </div>
           </div>
         </Grid>
       </Grid>
