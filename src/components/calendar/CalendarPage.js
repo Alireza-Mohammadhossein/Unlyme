@@ -55,9 +55,13 @@ function CalendarPageContent() {
   const [weekendsVisible, setWeekendsVisible] = useState(true);
   const [currentEvents, setCurrentEvents] = useState([]);
 
+
+
   function handleWeekendsToggle() {
     setWeekendsVisible(!weekendsVisible);
   }
+
+
 
   function handleDateSelect(selectInfo) {
     let title = prompt('Please enter a new title for your event');
@@ -107,7 +111,12 @@ function CalendarPageContent() {
 
 
   // const [date, setDate] = useState(new Date());
-  const [date, onChangeDate] = useState(new Date());
+  const [date, setDate] = useState(new Date());
+
+  const onChangeDate = (newDate) => {
+    setDate(newDate);
+    console.log(date)
+  }
 
   const [selectedEvents, setSelectedEvents] = useState([]);
 
@@ -143,7 +152,10 @@ function CalendarPageContent() {
                 toggle weekends
               </label> */}
 
-              <Calendar onChange={onChangeDate} value={date} />
+              <Calendar
+                onChange={onChangeDate}
+                value={date}
+              />
 
             </div>
             <div className='calendar-page_sidebar-section'>
@@ -177,7 +189,18 @@ function CalendarPageContent() {
                 selectable={true}
                 selectMirror={true}
                 dayMaxEvents={true}
-                weekends={weekendsVisible}
+                fixedWeekCount={false}
+                weekends={true}
+                // contentHeight = {700}
+                navLinks={true}
+                selectOverlap={true}
+                nowIndicator={true}
+                showNonCurrentDates={true}
+                displayEventTime={true}
+                displayEventEnd={true}
+                // editable={true}
+                eventStartEditable={true}
+                eventResizableFromStart={true}
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
                 select={handleDateSelect}
                 eventContent={renderEventContent} // custom render function

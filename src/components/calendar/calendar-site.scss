@@ -159,6 +159,39 @@
                                     font-size: 13px;
                                 }
                             }
+
+                            
+                            & .fc-daygrid-day-number {
+                                padding: 5px;
+                            }
+
+                            & .fc-daygrid-day-events {
+                                & .fc-event {
+                                    text-align: center;
+                                    padding: 5px;
+                                    background-color: $blue;
+                                    color: #fff;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: block;
+
+                                    & .fc-event-main {
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                            }
+                        }
+
+                        & .fc-day-today {
+                            background-color: unset;
+
+                            & .fc-daygrid-day-number {
+                                border: 1px solid $blue;
+                                border-radius: 50%;
+                            }
                         }
                     }
                 }

@@ -67,12 +67,17 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     abbr {
-      width: inherit;
-      height: inherit;
-      line-height: 40px;
+      // width: inherit;
+      // height: inherit;
+      // line-height: 40px;
       border-radius: 100%;
       display: inline-block;
+      padding: 8px;
     }
   }
   &__tile--active {
@@ -87,6 +92,12 @@
       abbr {
         background-color: #006edc;
       }
+    }
+  }
+
+  &__month-view__days {
+    &__day--neighboringMonth {
+      color: #B8B8B8;
     }
   }
 }
@@ -121,9 +132,6 @@
       height: 43px;
 
       abbr {
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
       }
     }
   }
