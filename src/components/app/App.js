@@ -9,6 +9,9 @@ import { useSelector, useDispatch } from "react-redux";
 // import { useSelector, useDispatch } from 'react-redux';
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/sass/app.scss";
+import HeaderPopups from "../common/header-popups/HeaderPopups";
+
+
 
 function App() {
   // const dispatch = useDispatch();
@@ -89,7 +92,10 @@ function App() {
         <div id="be-wrapper" className="be-wrapper">
           <Header />
           <Menu screenSize={screenSize} />
-          <Switcher screenSize={screenSize} />
+          <div className="content-wrapper">
+            <HeaderPopups />
+            <Switcher screenSize={screenSize} />
+          </div>
           {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
         </div>
       )}

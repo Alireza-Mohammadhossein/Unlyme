@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CircleIcon from '@mui/icons-material/Circle';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
-import { chatMessages } from '../../../mocks/mocks';
+import { chatMessages } from '../../../../mocks/mocks';
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
@@ -28,6 +28,8 @@ import PeopleIcon from '@mui/icons-material/People';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { isNull } from 'lodash';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleChatPopup } from '../../../../redux/app/popupSlice';
 
 
 
@@ -69,7 +71,11 @@ function a11yProps(index) {
 
 
 
-const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
+const HeaderChatPopup = ({ props }) => {
+  const dispatch = useDispatch();
+  const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
+
+
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -89,6 +95,9 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
   const [showChat, setShowChat] = useState(false);
   const handleShowChat = (event, newValue) => {
     setShowChat(newValue);
+    
+      // document.getElementById('cloud-page').classList.add('second-shrink');
+    
   };
 // end showing chat tab
 
@@ -189,7 +198,11 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                       aria-controls={open ? "long-menu" : undefined}
                       aria-expanded={open ? "true" : undefined}
                       aria-haspopup="true"
-                      onClick={() => setChatPopupToggler(false)}
+                      onClick={() => {
+                        dispatch(toggleChatPopup());
+                        // setChatPopupToggler(false)
+                        // document.getElementById('cloud-page').classList.remove('first-shrink');
+                      }}
                     >
                       <CloseIcon  sx={{ color: '#000000' }}/>
                     </IconButton>
@@ -359,7 +372,10 @@ const HeaderChatPopup = ({ setChatPopupToggler, props }) => {
                         aria-controls={open ? "long-menu" : undefined}
                         aria-expanded={open ? "true" : undefined}
                         aria-haspopup="true"
-                        onClick={() => setShowChat(false)}
+                        onClick={() => {
+                          setShowChat(false)
+                          // document.getElementById('cloud-page').classList.remove('second-shrink');
+                        }}
                       >
                         <ArrowBackIcon  sx={{ color: '#000000' }}/>
                       </IconButton>

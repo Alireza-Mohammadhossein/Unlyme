@@ -14,11 +14,15 @@ import logo from "../../../assets/images/header/white-logo.svg";
 // import { signoutUser } from "../../../redux/app/appSlice";
 import Tooltip from "@mui/material/Tooltip";
 import searchIcon from "../../../assets/images/header/search.gif";
-import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
-import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
-import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
-import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
-import HeaderSettingPopup from "../header-settingpopup/HeaderSettingPopup";
+// import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
+// import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
+// import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
+// import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
+// import HeaderSettingPopup from "../header-settingpopup/HeaderSettingPopup";
+import FullCalendar from "@fullcalendar/react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleChatPopup, toggleNotePopup, toggleNotificationPopup, toggleSettingPopup, toggleAssistantPopup, toggleNewAssistantPopup, setAssistantText, setAssistantMessage } from '../../../redux/app/popupSlice';
+
 
 
 
@@ -36,15 +40,25 @@ const Header = () => {
   };
 
   // popups toggler
-  const [chatPopupToggler, setChatPopupToggler] = useState(false);
-  const [mailPopupToggler, setMailPopupToggler] = useState(false);
-  const [notePopupToggler, setNotePopupToggler] = useState(false);
-  const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
-  const [settingPopupToggler, setSettingPopupToggler] = useState(false);
-  const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
-  const [newAssistantToggler, setNewAssistantToggler] = useState(false);
+  const dispatch = useDispatch();
 
-  const [assistantText, setAssistantText] = useState("");
+
+  const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
+  const mailPopup = useSelector((state) => state.popup.mailPopupToggler);
+  const notePopup = useSelector((state) => state.popup.notePopupToggler);
+  const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
+  const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
+  const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
+  const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
+  // const [chatPopupToggler, setChatPopupToggler] = useState(false);
+  // const [mailPopupToggler, setMailPopupToggler] = useState(false);
+  // const [notePopupToggler, setNotePopupToggler] = useState(false);
+  // const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
+  // const [settingPopupToggler, setSettingPopupToggler] = useState(false);
+  // const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
+  // const [newAssistantToggler, setNewAssistantToggler] = useState(false);
+
+  const [assistantInputText, setAssistantInputText] = useState("");
   const [message, setMessage] = useState("");
 
   return (
@@ -66,11 +80,15 @@ const Header = () => {
               onSubmit={(e) => {
                 e.preventDefault();
 
-                if (!assistantPopupToggler) {
-                  setAssistantPopupToggler(true);
-                  setNewAssistantToggler(true);
-                  setMessage(assistantText);
-                  setAssistantText("");
+                if (!assistantPopup) {
+                  dispatch(toggleAssistantPopup());
+                  dispatch(toggleNewAssistantPopup())
+                  // setAssistantPopupToggler(true);
+                  // setNewAssistantToggler(true);
+                  dispatch(setAssistantMessage(assistantInputText))
+                  // setAssistantMessage()
+                  // setMessage(assistantInputText);
+                  setAssistantInputText("");
                 }
               }}
             >
@@ -79,9 +97,10 @@ const Header = () => {
                   className="header__details-area_searchbar-input"
                   placeholder={t("HEADER.SEARCH_PLACEHOLDER")}
                   inputProps={{ "aria-label": "search" }}
-                  value={assistantText}
+                  value={assistantInputText}
                   onChange={(e) => {
-                    setAssistantText(e.target.value);
+                    // dispatch(setAssistantText(e.target.value))
+                    setAssistantInputText(e.target.value);
                   }}
                 />
               </div>
@@ -92,11 +111,12 @@ const Header = () => {
             <div
               className="header__details-area_items-globe"
               onClick={() => {
-                setAssistantPopupToggler(true);
-                setChatPopupToggler(false);
-                setNotePopupToggler(false);
-                setNotificationPopupToggler(false);
-                setSettingPopupToggler(false);
+                dispatch(toggleAssistantPopup())
+                // setAssistantPopupToggler(true);
+                // setChatPopupToggler(false);
+                // setNotePopupToggler(false);
+                // setNotificationPopupToggler(false);
+                // setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Unlyme Assistant" arrow placement="bottom">
@@ -107,11 +127,18 @@ const Header = () => {
             <div
               className="header__details-area_items-icon"
               onClick={() => {
-                setChatPopupToggler(!chatPopupToggler);
-                setNotePopupToggler(false);
-                setAssistantPopupToggler(false);
-                setNotificationPopupToggler(false);
-                setSettingPopupToggler(false);
+                dispatch(toggleChatPopup())
+                // setChatPopupToggler(!chatPopupToggler);
+                // setNotePopupToggler(false);
+                // setAssistantPopupToggler(false);
+                // setNotificationPopupToggler(false);
+                // setSettingPopupToggler(false);
+
+                // if(chatPopupToggler === false) {
+                //   document.getElementById('cloud-page').classList.add('first-shrink');
+                // } else if(chatPopupToggler === true) {
+                //   document.getElementById('cloud-page').classList.remove('first-shrink');
+                // }
               }}
             >
               <Tooltip title="Chat" arrow placement="bottom">
@@ -136,11 +163,12 @@ const Header = () => {
             <div
               className="header__details-area_items-icon"
               onClick={() => {
-                setNotePopupToggler(!notePopupToggler);
-                setChatPopupToggler(false);
-                setNotificationPopupToggler(false);
-                setSettingPopupToggler(false);
-                setAssistantPopupToggler(false);
+                dispatch(toggleNotePopup())
+                // setNotePopupToggler(!notePopupToggler);
+                // setChatPopupToggler(false);
+                // setNotificationPopupToggler(false);
+                // setSettingPopupToggler(false);
+                // setAssistantPopupToggler(false);
               }}
             >
               <Tooltip title="Notes" arrow placement="bottom">
@@ -154,11 +182,12 @@ const Header = () => {
             <div
               className="header__details-area_items-icon"
               onClick={() => {
-                setNotificationPopupToggler(!notificationPopupToggler);
-                setAssistantPopupToggler(false);
-                setChatPopupToggler(false);
-                setNotePopupToggler(false);
-                setSettingPopupToggler(false);
+                dispatch(toggleNotificationPopup())
+                // setNotificationPopupToggler(!notificationPopupToggler);
+                // setAssistantPopupToggler(false);
+                // setChatPopupToggler(false);
+                // setNotePopupToggler(false);
+                // setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Notifications" arrow placement="bottom">
@@ -185,11 +214,12 @@ const Header = () => {
               <div
                 className="header__details-area_account-link"
                 onClick={() => {
-                  setSettingPopupToggler(!settingPopupToggler);
-                  setChatPopupToggler(false);
-                  setNotePopupToggler(false);
-                  setAssistantPopupToggler(false);
-                  setNotificationPopupToggler(false);
+                  dispatch(toggleSettingPopup())
+                  // setSettingPopupToggler(!settingPopupToggler);
+                  // setChatPopupToggler(false);
+                  // setNotePopupToggler(false);
+                  // setAssistantPopupToggler(false);
+                  // setNotificationPopupToggler(false);
                 }}
               >
                 <img
@@ -200,9 +230,9 @@ const Header = () => {
             </div>
           </div>
 
-          {chatPopupToggler ? (
+          {/* {chatPopupToggler ? (
             <div className="header__popup-area">
-              <HeaderChatPopup setChatPopupToggler={setChatPopupToggler} />
+              <HeaderChatPopup chatPopupToggler={chatPopupToggler} setChatPopupToggler={setChatPopupToggler} />
             </div>
           ) : (
             ""
@@ -249,7 +279,7 @@ const Header = () => {
             </div>
           ) : (
             ""
-          )}
+          )} */}
 
         </div>
 

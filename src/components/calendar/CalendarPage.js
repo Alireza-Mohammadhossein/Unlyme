@@ -191,7 +191,7 @@ function CalendarPageContent() {
                 dayMaxEvents={true}
                 fixedWeekCount={false}
                 weekends={true}
-                // contentHeight = {700}
+                contentHeight = {700}
                 navLinks={true}
                 selectOverlap={true}
                 nowIndicator={true}
@@ -201,6 +201,7 @@ function CalendarPageContent() {
                 // editable={true}
                 eventStartEditable={true}
                 eventResizableFromStart={true}
+                aspectRatio={2}
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
                 select={handleDateSelect}
                 eventContent={renderEventContent} // custom render function

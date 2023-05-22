@@ -7,16 +7,21 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import { notifications } from '../../../mocks/mocks';
+import { notifications } from '../../../../mocks/mocks';
 import ListItemText from "@mui/material/ListItemText";
 import CircleIcon from "@mui/icons-material/Circle";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleNotificationPopup } from '../../../../redux/app/popupSlice';
 
 
 
 
 const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
+  
+  const dispatch = useDispatch();
+  const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
+  
   const { t } = useTranslation();
-
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -36,7 +41,10 @@ const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
                     aria-controls={open ? "long-menu" : undefined}
                     aria-expanded={open ? "true" : undefined}
                     aria-haspopup="true"
-                    onClick={() => setNotificationPopupToggler(false)}
+                    onClick={() => 
+                      dispatch(toggleNotificationPopup())
+                      // setNotificationPopupToggler(false)
+                    }
                   >
                     <CloseIcon  sx={{ color: '#000000' }}/>
                   </IconButton>

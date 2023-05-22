@@ -17,6 +17,8 @@ import Box from '@mui/material/Box';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import dayjs from 'dayjs';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleNotePopup } from '../../../../redux/app/popupSlice';
 
 
 
@@ -59,6 +61,11 @@ function a11yProps(index) {
 
 
 const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
+
+  const dispatch = useDispatch();
+  const notePopup = useSelector((state) => state.popup.notePopupToggler);
+
+
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -223,7 +230,10 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                       aria-controls={open ? "long-menu" : undefined}
                       aria-expanded={open ? "true" : undefined}
                       aria-haspopup="true"
-                      onClick={() => setNotePopupToggler(false)}
+                      onClick={() => 
+                        // setNotePopupToggler(false)
+                        dispatch(toggleNotePopup())
+                      }
                     >
                       <CloseIcon  sx={{ color: '#000000' }}/>
                     </IconButton>

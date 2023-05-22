@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from '@mui/icons-material/Close';
 import Avatar from '@mui/material/Avatar';
-import { user_info } from '../../../mocks/mocks';
-import lightIcon from '../../../assets/images/header/theme_light.svg';
-import darkIcon from '../../../assets/images/header/theme_dark.svg';
-import autoIcon from '../../../assets/images/header/theme_auto.svg';
+import { user_info } from '../../../../mocks/mocks';
+import lightIcon from '../../../../assets/images/header/theme_light.svg';
+import darkIcon from '../../../../assets/images/header/theme_dark.svg';
+import autoIcon from '../../../../assets/images/header/theme_auto.svg';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Button from '@mui/material/Button';
@@ -14,8 +14,10 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { ToastContainer, toast } from 'react-toastify';
 import { useSelector, useDispatch } from "react-redux";
-import { signoutUser } from "../../../redux/app/appSlice";
-import { asyncToggleTheme } from '../../../redux/app/themeSlice'; 
+import { signoutUser } from "../../../../redux/app/appSlice";
+import { asyncToggleTheme } from '../../../../redux/app/themeSlice'; 
+import { toggleSettingPopup } from '../../../../redux/app/popupSlice';
+
 
 
 
@@ -27,6 +29,9 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
 
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
+  const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
+
+
 
   const [mode, setMode] = useState(darkMode ? 'dark' : 'light')
 
@@ -84,7 +89,10 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
                 aria-controls={open ? "long-menu" : undefined}
                 aria-expanded={open ? "true" : undefined}
                 aria-haspopup="true"
-                onClick={() => setSettingPopupToggler(false)}
+                onClick={() => 
+                  // setSettingPopupToggler(false)
+                  dispatch(toggleSettingPopup())
+                }
               >
                 <CloseIcon  sx={{ color: '#000000' }}/>
               </IconButton>

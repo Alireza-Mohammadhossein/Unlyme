@@ -20,7 +20,7 @@ const CloudPage = ({
   const { t } = useTranslation();
 
   return (
-    <div className="cloud-page">
+    <div className="cloud-page" id='cloud-page'>
       <div className="cloud-page__header">
         <div className='cloud-page__header_icon'>
           <img src={icon} />

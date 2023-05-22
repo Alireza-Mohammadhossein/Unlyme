@@ -13,15 +13,17 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { assistants } from "../../../mocks/mocks";
+import { assistants } from "../../../../mocks/mocks";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import dayjs from "dayjs";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
-import searchIcon from "../../../assets/images/header/search.gif";
+import searchIcon from "../../../../assets/images/header/search.gif";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleAssistantPopup ,toggleNewAssistantPopup } from '../../../../redux/app/popupSlice';
 
 
 function TabPanel(props) {
@@ -58,14 +60,20 @@ function a11yProps(index) {
 }
 
 const HeaderAssistantPopup = ({
-  setAssistantPopupToggler,
-  newAssistantToggler,
-  setNewAssistantToggler,
+  // setAssistantPopupToggler,
+  // newAssistantToggler,
+  // setNewAssistantToggler,
   assistantText,
   props,
   message,
   setMessage,
 }) => {
+
+  const dispatch = useDispatch();
+  const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
+  const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
+
+
   const { t } = useTranslation();
   const options = ["Edit", "Add description", "Delete"];
   const ITEM_HEIGHT = 48;
@@ -74,7 +82,9 @@ const HeaderAssistantPopup = ({
   const [showAssistant, setShowAssistant] = useState(false);
   const handleShowAssistant = (event, newValue) => {
     setShowAssistant(newValue);
-    setNewAssistantToggler(false);
+    dispatch(toggleNewAssistantPopup())
+
+    // setNewAssistantToggler(false);
 
     // if (event.target === event.currentTarget) {
     // }
@@ -85,7 +95,9 @@ const HeaderAssistantPopup = ({
   // const [newAssistantToggler, setNewAssistantToggler] = useState(false);
   const [newAssistant, setNewAssistant] = useState([]);
   const handleCreateAssitant = () => {
-    setNewAssistantToggler(true);
+    // setNewAssistantToggler(true);
+    dispatch(toggleNewAssistantPopup())
+
     setShowAssistant(false);
     setNewAssistant([]);
   };
@@ -186,7 +198,10 @@ const HeaderAssistantPopup = ({
                 aria-controls={open ? "long-menu" : undefined}
                 aria-expanded={open ? "true" : undefined}
                 aria-haspopup="true"
-                onClick={() => setAssistantPopupToggler(false)}
+                onClick={() => 
+                  dispatch(toggleAssistantPopup())
+                  // setAssistantPopupToggler(false)
+                }
               >
                 <CloseIcon sx={{ color: "#000000" }} />
               </IconButton>
@@ -442,7 +457,7 @@ const HeaderAssistantPopup = ({
         ""
       )}
 
-      {newAssistantToggler ? (
+      {newAssistantPopup ? (
         <div className="assistant-popup-messages">
           <div className="assistant-popup-messages__header">
             <div className="assistant-popup-messages__header-info">
@@ -505,7 +520,10 @@ const HeaderAssistantPopup = ({
                   aria-controls={open ? "long-menu" : undefined}
                   aria-expanded={open ? "true" : undefined}
                   aria-haspopup="true"
-                  onClick={() => setNewAssistantToggler(false)}
+                  onClick={() => 
+                    // setNewAssistantToggler(false)
+                    dispatch(toggleNewAssistantPopup())
+                  }
                 >
                   <ArrowBackIcon sx={{ color: "#000000" }} />
                 </IconButton>
@@ -555,6 +573,7 @@ const HeaderAssistantPopup = ({
       ) : (
         ""
       )}
+
     </div>
   );
 };
