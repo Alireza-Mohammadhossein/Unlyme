@@ -72,6 +72,7 @@ const HeaderAssistantPopup = ({
   const dispatch = useDispatch();
   const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
   const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
+  const assistantMessage = useSelector((state) => state.popup.assistantMessage);
 
 
   const { t } = useTranslation();
@@ -82,7 +83,7 @@ const HeaderAssistantPopup = ({
   const [showAssistant, setShowAssistant] = useState(false);
   const handleShowAssistant = (event, newValue) => {
     setShowAssistant(newValue);
-    dispatch(toggleNewAssistantPopup())
+    dispatch(toggleNewAssistantPopup(false))
 
     // setNewAssistantToggler(false);
 
@@ -144,7 +145,7 @@ const HeaderAssistantPopup = ({
   };
 
   return (
-    <div className="assistant-popup">
+    <div className="header-popup assistant-popup">
       <div className="assistant-popup-list">
         <div className="assistant-popup-list__header">
           <p className="assistant-popup-list__header-title">
@@ -522,7 +523,7 @@ const HeaderAssistantPopup = ({
                   aria-haspopup="true"
                   onClick={() => 
                     // setNewAssistantToggler(false)
-                    dispatch(toggleNewAssistantPopup())
+                    dispatch(toggleNewAssistantPopup(false))
                   }
                 >
                   <ArrowBackIcon sx={{ color: "#000000" }} />
@@ -541,7 +542,7 @@ const HeaderAssistantPopup = ({
                     <div className="assistant-popup-messages__body-footer_inputs-text">
                       <TextField
                         id=""
-                        value={message}
+                        value={assistantMessage}
                         onChange={handleTextChange}
                         placeholder="Type a message..."
                         variant="outlined"

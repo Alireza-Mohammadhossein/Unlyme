@@ -178,7 +178,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
 
 
   return (
-    <div className='note-popup'>
+    <div className='header-popup note-popup'>
       <div className='note-popup-list'>
         <div className='note-popup-list__header'>
               <p className='note-popup-list__header-title'>{t('NOTE_POPUP.TITLE')}</p>

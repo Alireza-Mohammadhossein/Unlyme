@@ -56,7 +56,7 @@ const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
 
 
   return (
-    <div className='setting-popup'>
+    <div className='header-popup setting-popup'>
       <div className='setting-popup-list'>
         <div className='setting-popup-list__header'>
           <div className='setting-popup-list__header_user'>

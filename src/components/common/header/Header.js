@@ -14,14 +14,17 @@ import logo from "../../../assets/images/header/white-logo.svg";
 // import { signoutUser } from "../../../redux/app/appSlice";
 import Tooltip from "@mui/material/Tooltip";
 import searchIcon from "../../../assets/images/header/search.gif";
-// import HeaderChatPopup from "../header-chatpopup/HeaderChatPopup";
-// import HeaderNotePopup from "../header-notepopup/HeaderNotePopup";
-// import HeaderNotificationPopup from "../header-notificationpopup/HeaderNotificationPopup";
-// import HeaderAssistantPopup from "../header-assistantpopup/HeaderAssistantPopup";
-// import HeaderSettingPopup from "../header-settingpopup/HeaderSettingPopup";
-import FullCalendar from "@fullcalendar/react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChatPopup, toggleNotePopup, toggleNotificationPopup, toggleSettingPopup, toggleAssistantPopup, toggleNewAssistantPopup, setAssistantText, setAssistantMessage } from '../../../redux/app/popupSlice';
+import { 
+  toggleChatPopup,
+  toggleNotePopup, 
+  toggleNotificationPopup, 
+  toggleSettingPopup, 
+  toggleAssistantPopup, 
+  toggleNewAssistantPopup, 
+  setAssistantText, 
+  setAssistantMessage 
+} from '../../../redux/app/popupSlice';
 
 
 
@@ -39,24 +42,10 @@ const Header = () => {
     });
   };
 
-  // popups toggler
   const dispatch = useDispatch();
-
-
-  const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
-  const mailPopup = useSelector((state) => state.popup.mailPopupToggler);
-  const notePopup = useSelector((state) => state.popup.notePopupToggler);
-  const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
-  const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
+  
+  // popups toggler
   const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
-  const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
-  // const [chatPopupToggler, setChatPopupToggler] = useState(false);
-  // const [mailPopupToggler, setMailPopupToggler] = useState(false);
-  // const [notePopupToggler, setNotePopupToggler] = useState(false);
-  // const [notificationPopupToggler, setNotificationPopupToggler] = useState(false);
-  // const [settingPopupToggler, setSettingPopupToggler] = useState(false);
-  // const [assistantPopupToggler, setAssistantPopupToggler] = useState(false);
-  // const [newAssistantToggler, setNewAssistantToggler] = useState(false);
 
   const [assistantInputText, setAssistantInputText] = useState("");
   const [message, setMessage] = useState("");
@@ -229,57 +218,6 @@ const Header = () => {
               </div>
             </div>
           </div>
-
-          {/* {chatPopupToggler ? (
-            <div className="header__popup-area">
-              <HeaderChatPopup chatPopupToggler={chatPopupToggler} setChatPopupToggler={setChatPopupToggler} />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {notePopupToggler ? (
-            <div className="header__popup-area">
-              <HeaderNotePopup setNotePopupToggler={setNotePopupToggler} />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {notificationPopupToggler ? (
-            <div className="header__popup-area">
-              <HeaderNotificationPopup
-                setNotificationPopupToggler={setNotificationPopupToggler}
-              />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {assistantPopupToggler ? (
-            <div className="header__popup-area">
-              <HeaderAssistantPopup
-                setAssistantPopupToggler={setAssistantPopupToggler}
-                setNewAssistantToggler={setNewAssistantToggler}
-                newAssistantToggler={newAssistantToggler}
-                assistantText={assistantText}
-                message={message}
-                setMessage={setMessage}
-              />
-            </div>
-          ) : (
-            ""
-          )}
-
-          {settingPopupToggler ? (
-            <div className="header__popup-area">
-              <HeaderSettingPopup
-                setSettingPopupToggler={setSettingPopupToggler}
-              />
-            </div>
-          ) : (
-            ""
-          )} */}
 
         </div>
 

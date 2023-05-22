@@ -1,3 +1,8 @@
+.isnot-home .note-popup {
+  width: max-content;
+  position: relative;
+} 
+
 .note-popup {
     width: auto;
     display: flex;
@@ -7,7 +12,7 @@
     border-radius: 18px;
     position: absolute;
     transition: all 0.3s ease;
-    right: 0;
+    right: 20px;
     top: 69px;
     box-sizing: border-box;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
@@ -315,6 +320,8 @@
 
 .siteWrapperLG .note-popup {
   &-list {
+    width: 340px;
+
     &__header {
       &-title {
         font-size: 20px;
@@ -346,6 +353,8 @@
   }
 
   &-messages {
+    width: 340px;
+
     &__header {
       &-info {
         &_name {
@@ -384,6 +393,8 @@
 
 .siteWrapperMD .note-popup {
   &-list {
+    width: 340px;
+
     &__header {
       &-title {
         font-size: 20px;
@@ -415,6 +426,8 @@
   }
 
   &-messages {
+    width: 340px;
+
     &__header {
       &-info {
         &_name {

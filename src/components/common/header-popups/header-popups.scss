@@ -1,0 +1,9 @@
+
+.isnot-home {
+  display: flex;
+  flex-direction: row;
+  
+  & .header__popup-area {
+        position: relative;
+  }
+}

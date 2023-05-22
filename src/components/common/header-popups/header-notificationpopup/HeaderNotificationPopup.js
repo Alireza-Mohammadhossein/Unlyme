@@ -29,7 +29,7 @@ const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
 
 
   return (
-    <div className='notification-popup'>
+    <div className='header-popup notification-popup'>
       <div className='notification-popup-list'>
         <div className='notification-popup-list__header'>
               <p className='notification-popup-list__header-title'>{t('NOTIFICATION_POPUP.TITLE')}</p>

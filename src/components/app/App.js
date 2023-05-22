@@ -10,12 +10,25 @@ import { useSelector, useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/sass/app.scss";
 import HeaderPopups from "../common/header-popups/HeaderPopups";
+import { useLocation } from "react-router-dom";
 
 
 
 function App() {
-  // const dispatch = useDispatch();
+  const location = useLocation();
+  const isNotHome = location.pathname !== '/';
+
+  const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
+
+  const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
+  const mailPopup = useSelector((state) => state.popup.mailPopupToggler);
+  const notePopup = useSelector((state) => state.popup.notePopupToggler);
+  const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
+  const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
+  const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
+
+  const popupShow = chatPopup || mailPopup || notePopup || notificationPopup || settingPopup || assistantPopup;
 
   // // const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -23,7 +36,6 @@ function App() {
 
   const [ready, setReady] = useState(false);
   const data = useSelector((state) => state.app);
-  const dispatch = useDispatch();
 
   // const token = localStorage.getItem('token');
   const token = true;
@@ -92,9 +104,9 @@ function App() {
         <div id="be-wrapper" className="be-wrapper">
           <Header />
           <Menu screenSize={screenSize} />
-          <div className="content-wrapper">
-            <HeaderPopups />
+          <div className={`contentWrapper ${isNotHome ? 'isnot-home' : ''} ${popupShow ? 'popup-show' : ''}`} >
             <Switcher screenSize={screenSize} />
+            <HeaderPopups />
           </div>
           {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
         </div>

@@ -4,7 +4,6 @@ import HeaderNotePopup from './header-notepopup/HeaderNotePopup';
 import HeaderNotificationPopup from './header-notificationpopup/HeaderNotificationPopup';
 import HeaderSettingPopup from './header-settingpopup/HeaderSettingPopup';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChatPopup, toggleNotePopup } from '../../../redux/app/popupSlice';
 
 
 
@@ -18,7 +17,6 @@ const HeaderPopups = () => {
     const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
     const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
     const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
-    const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
 
 
 
@@ -50,14 +48,7 @@ const HeaderPopups = () => {
 
       {assistantPopup ? (
         <div className="header__popup-area">
-          <HeaderAssistantPopup
-            // setAssistantPopupToggler={setAssistantPopupToggler}
-            // setNewAssistantToggler={setNewAssistantToggler}
-            // newAssistantToggler={newAssistantPopup}
-            // assistantText={assistantText}
-            // message={message}
-            // setMessage={setMessage}
-          />
+          <HeaderAssistantPopup />
         </div>
       ) : (
         ""

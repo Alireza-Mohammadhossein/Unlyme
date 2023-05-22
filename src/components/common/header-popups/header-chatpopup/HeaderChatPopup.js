@@ -133,7 +133,7 @@ const HeaderChatPopup = ({ props }) => {
 
 
   return (
-    <div className='chat-popup'>
+    <div className='header-popup chat-popup'>
       <div className='chat-popup-list'>
         <div className='chat-popup-list__header'>
               <p className='chat-popup-list__header-title'>{t('CHAT_POPUP.LIST.HEADER.TITLE')}</p>
