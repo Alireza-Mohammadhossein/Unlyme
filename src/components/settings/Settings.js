@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment';
 // import { ASSETS_URL } from '../../types';
 import CloudPage from '../pages/cloud-page/CloudPage';
-import TabToolbar from '../services/components/tab-toolbar/TabToolbar';
+import TabToolbar from '../pages/services/components/tab-toolbar/TabToolbar';
 import { receipts } from '../../mocks/mocks'; 
 // import "./settings.scss"
 

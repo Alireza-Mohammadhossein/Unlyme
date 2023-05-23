@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes, Outlet, Navigate} from 'react-router-dom';
 import Bank from './components/bank/Bank';
 import CalendarPage from './components/pages/calendar/CalendarPage';
+import NotesPage from './components/pages/notes/NotesPage';
 import CopySites from './components/copy-sites/CopySites';
 import Domains from './components/domains/Domain';
 import NotFound from './components/notfound/NotFound';
@@ -48,6 +49,10 @@ const Switcher = ({ screenSize }) => {
         <Route 
           path="/services/online-consultant"
           element={<OnlineConsultant />}
+        />
+        <Route 
+          path="/services/notes"
+          element={<NotesPage />}
         />
         <Route 
           path="*"

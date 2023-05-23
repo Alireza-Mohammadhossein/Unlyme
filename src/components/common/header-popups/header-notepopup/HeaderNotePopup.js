@@ -529,7 +529,11 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                     <button
                       className='btn'
                       disabled={!currentTitle || ! currentMessage}
-                      onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
+                      onClick={() => {
+                        handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)
+                        dispatch(toggleSecondPopupTab(false))
+                      }
+                        }>
                       Add
                     </button>
                   </div>

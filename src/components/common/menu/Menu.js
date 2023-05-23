@@ -58,6 +58,13 @@ const Menu = ({screenSize}) => {
       img: `${ASSETS_URL}/assets/images/services/settings.png`,
     },
     {
+      id: 7,
+      icon: "mail_outline",
+      title: "ONLINE_CONSULTANT",
+      link: "/services/online-consultant",
+      img: `${ASSETS_URL}/assets/images/services/online-consultant.png`,
+    },
+    {
       id: 8,
       icon: "calendar_month",
       title: "CALENDAR",
@@ -65,11 +72,11 @@ const Menu = ({screenSize}) => {
       img: `${ASSETS_URL}/assets/images/services/calendar.png`,
     },
     {
-      id: 7,
-      icon: "mail_outline",
-      title: "ONLINE_CONSULTANT",
-      link: "/services/online-consultant",
-      img: `${ASSETS_URL}/assets/images/services/online-consultant.png`,
+      id: 9,
+      icon: "calendar_month",
+      title: "NOTES",
+      link: "/services/notes",
+      img: `${ASSETS_URL}/assets/images/services/notes.png`,
     },
   ];
 
