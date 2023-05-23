@@ -23,7 +23,7 @@ import searchIcon from "../../../../assets/images/header/search.gif";
 import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleAssistantPopup ,toggleNewAssistantPopup } from '../../../../redux/app/popupSlice';
+import { toggleAssistantPopup ,toggleNewAssistantPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 
 
 function TabPanel(props) {
@@ -84,6 +84,7 @@ const HeaderAssistantPopup = ({
   const handleShowAssistant = (event, newValue) => {
     setShowAssistant(newValue);
     dispatch(toggleNewAssistantPopup(false))
+    dispatch(toggleSecondPopupTab())
 
     // setNewAssistantToggler(false);
 
@@ -365,7 +366,10 @@ const HeaderAssistantPopup = ({
                       aria-controls={open ? "long-menu" : undefined}
                       aria-expanded={open ? "true" : undefined}
                       aria-haspopup="true"
-                      onClick={() => setShowAssistant(false)}
+                      onClick={() => {
+                        setShowAssistant(false)
+                        dispatch(toggleSecondPopupTab(false))
+                      }}
                     >
                       <ArrowBackIcon sx={{ color: "#000000" }} />
                     </IconButton>
@@ -521,9 +525,11 @@ const HeaderAssistantPopup = ({
                   aria-controls={open ? "long-menu" : undefined}
                   aria-expanded={open ? "true" : undefined}
                   aria-haspopup="true"
-                  onClick={() => 
-                    // setNewAssistantToggler(false)
-                    dispatch(toggleNewAssistantPopup(false))
+                  onClick={() => {
+                      // setNewAssistantToggler(false)
+                      dispatch(toggleNewAssistantPopup(false))
+                      dispatch(toggleSecondPopupTab(false))
+                    }
                   }
                 >
                   <ArrowBackIcon sx={{ color: "#000000" }} />

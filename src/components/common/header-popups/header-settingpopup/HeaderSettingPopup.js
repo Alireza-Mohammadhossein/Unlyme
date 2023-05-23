@@ -24,7 +24,7 @@ import { toggleSettingPopup } from '../../../../redux/app/popupSlice';
 
 
 
-const HeaderSettingPopup = ({ setSettingPopupToggler }) => {
+const HeaderSettingPopup = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();

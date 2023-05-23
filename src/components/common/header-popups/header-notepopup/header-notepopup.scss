@@ -320,15 +320,19 @@
 
 .siteWrapperLG .note-popup {
   &-list {
-    width: 340px;
+    width: 330px;
 
     &__header {
+      padding: 20px;
+
       &-title {
         font-size: 20px;
       }
     }
   
     &__body {
+      padding: 20px;
+
       &-create {
           &_btn {
               padding: 15px 12px !important;
@@ -353,9 +357,11 @@
   }
 
   &-messages {
-    width: 340px;
+    width: 330px;
 
     &__header {
+      padding: 20px;
+
       &-info {
         &_name {
           font-size: 20px;
@@ -371,6 +377,8 @@
       }
 
       &-content {
+        padding: 20px;
+        
         &_text {
           height: 100%;
 
@@ -393,7 +401,7 @@
 
 .siteWrapperMD .note-popup {
   &-list {
-    width: 340px;
+    width: 330px;
 
     &__header {
       &-title {
@@ -426,7 +434,7 @@
   }
 
   &-messages {
-    width: 340px;
+    width: 330px;
 
     &__header {
       &-info {

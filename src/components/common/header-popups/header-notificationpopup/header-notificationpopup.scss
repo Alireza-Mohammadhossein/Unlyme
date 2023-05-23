@@ -3,7 +3,7 @@
   position: relative;
 } 
 
-.notification-popup {    
+.notification-popup {
     width: auto;
     display: flex;
     flex-direction: row;
@@ -137,9 +137,12 @@
 .siteWrapperLG .notification-popup {
 
   &-list {
-    width: 340px;
+    width: 330px;
+
 
     &__header {
+      padding: 20px;
+
       &-title {
         font-size: 20px;
       }
@@ -147,6 +150,8 @@
   
     &__body {
       &-messages {
+        padding: 20px !important;
+
         &_item {
           &_header {
               &-icon {
@@ -183,7 +188,7 @@
 .siteWrapperMD .notification-popup {
 
   &-list {
-    width: 340px;
+    width: 330px;
 
     &__header {
       &-title {

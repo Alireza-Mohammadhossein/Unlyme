@@ -8,10 +8,6 @@ import {
   SUPPORTED_LANGUAGES,
 } from "../../../types";
 import logo from "../../../assets/images/header/white-logo.svg";
-// import { connect } from 'react-redux';
-// import { signoutUser } from '../../app/AppActions';
-// import { useSelector, useDispatch } from "react-redux";
-// import { signoutUser } from "../../../redux/app/appSlice";
 import Tooltip from "@mui/material/Tooltip";
 import searchIcon from "../../../assets/images/header/search.gif";
 import { useSelector, useDispatch } from "react-redux";
@@ -21,9 +17,10 @@ import {
   toggleNotificationPopup, 
   toggleSettingPopup, 
   toggleAssistantPopup, 
-  toggleNewAssistantPopup, 
+  toggleNewAssistantPopup,
+  toggleSecondPopupTab, 
   setAssistantText, 
-  setAssistantMessage 
+  setAssistantMessage
 } from '../../../redux/app/popupSlice';
 
 
@@ -31,7 +28,7 @@ import {
 
 const Header = () => {
   // const userTokenStatus = useSelector((state) => state.app.token);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const { t, i18n } = useTranslation();
 
@@ -42,7 +39,6 @@ const Header = () => {
     });
   };
 
-  const dispatch = useDispatch();
   
   // popups toggler
   const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
@@ -72,12 +68,9 @@ const Header = () => {
                 if (!assistantPopup) {
                   dispatch(toggleAssistantPopup());
                   dispatch(toggleNewAssistantPopup())
-                  // setAssistantPopupToggler(true);
-                  // setNewAssistantToggler(true);
                   dispatch(setAssistantMessage(assistantInputText))
-                  // setAssistantMessage()
-                  // setMessage(assistantInputText);
                   setAssistantInputText("");
+                  dispatch(toggleSecondPopupTab())
                 }
               }}
             >
@@ -85,7 +78,7 @@ const Header = () => {
                 <input
                   className="header__details-area_searchbar-input"
                   placeholder={t("HEADER.SEARCH_PLACEHOLDER")}
-                  inputProps={{ "aria-label": "search" }}
+                  InputProps={{ "aria-label": "search" }}
                   value={assistantInputText}
                   onChange={(e) => {
                     // dispatch(setAssistantText(e.target.value))
@@ -220,40 +213,10 @@ const Header = () => {
           </div>
 
         </div>
-
-        {/* <div className="header__search-bar">
-          <span className="header__search-bar_title">{t('HEADER.HOW_CAN_UNLYME_HELP_YOU')}</span>
-          <div className="header__search-bar_input-container">
-            <input className="header__search-bar_input" placeholder={t('HEADER.SEARCH_PLACEHOLDER')} />
-            <button onClick={() => alert('s')} className="header__search-bar_button" />
-          </div>
-          <div
-            className="header__search-bar_chat"
-            onClick={() => setChatIsShowed(true)} 
-          />
-        </div>
-        <div
-          style={{backgroundImage: `url(${ASSETS_URL}/assets/icons/${i18n.language}.svg)`}}
-          onClick={setLanguage}
-          className="header__language"
-        />
-        <Link className="header__profile" to="/settings"></Link>
-        {/* <div className="header__notifications" onClick={() => alert('notification')} /> */}
-        {/* <div className="header__exit" onClick={() => dispatch(signoutUser())} /> */}
       </div>
-      {/* <ChatPopup visible={chatIsShowed} onClose={() => setChatIsShowed(false)} /> */}
     </>
   );
 };
 
-// const mapStateToProps = state => ({
-//   token: state.app.token
-// });
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     signoutUser: () => dispatch(signoutUser())
-//   }
-// };
 
 export default Header;

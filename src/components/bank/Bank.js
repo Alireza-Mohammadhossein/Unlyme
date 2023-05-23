@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import _ from "lodash";
 import { accounts, accountsHistory } from "../../mocks/mocks";
-import CloudPage from "../cloud-page/CloudPage";
+import CloudPage from "../pages/cloud-page/CloudPage";
 import DateSelectionPopup from "../common/date-selection-popup/DateSelectionPopup";
 import SegmentedControl from "../common/segmented-control/SegmentedControl";
 import CustomSelect from "../common/custom-select/CustomSelect";

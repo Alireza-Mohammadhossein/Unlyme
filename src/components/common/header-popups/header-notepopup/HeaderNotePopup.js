@@ -18,7 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleNotePopup } from '../../../../redux/app/popupSlice';
+import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 
 
 
@@ -79,6 +79,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
     if (event.target === event.currentTarget) {      
       setShowNote(newValue);
       setNewNoteToggler(false);
+      dispatch(toggleSecondPopupTab())
     }
   };
   // end showing chat tab
@@ -90,7 +91,8 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
     setNewNoteToggler(true);
     setShowNote(false);
     setNewNote([]);
-  } 
+    dispatch(toggleSecondPopupTab())
+  }
   // end create new note
 
 
@@ -373,7 +375,10 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           aria-controls={open ? "long-menu" : undefined}
                           aria-expanded={open ? "true" : undefined}
                           aria-haspopup="true"
-                          onClick={() => setShowNote(false)}
+                          onClick={() => {
+                            setShowNote(false)
+                            dispatch(toggleSecondPopupTab(false))
+                          }}
                         >
                           <ArrowBackIcon  sx={{ color: '#000000' }}/>
                         </IconButton>
@@ -483,7 +488,10 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         aria-controls={open ? "long-menu" : undefined}
                         aria-expanded={open ? "true" : undefined}
                         aria-haspopup="true"
-                        onClick={() => setNewNoteToggler(false)}
+                        onClick={() => {
+                          setNewNoteToggler(false)
+                          dispatch(toggleSecondPopupTab(false))
+                        }}
                       >
                         <ArrowBackIcon  sx={{ color: '#000000' }}/>
                       </IconButton>

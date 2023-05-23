@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes, Outlet, Navigate} from 'react-router-dom';
 import Bank from './components/bank/Bank';
-import CalendarPage from './components/calendar/CalendarPage';
+import CalendarPage from './components/pages/calendar/CalendarPage';
 import CopySites from './components/copy-sites/CopySites';
 import Domains from './components/domains/Domain';
 import NotFound from './components/notfound/NotFound';
 import OnlineConsultant from './components/online-consultant/OnlineConsultant';
-import MyServices from './components/services/MyServices';
+import MyServices from './components/pages/services/MyServices';
 import Settings from './components/settings/Settings';
 import Signin from './components/signin/SignIn';
 import SiteBuilder from './components/site-builder/SiteBuilder';

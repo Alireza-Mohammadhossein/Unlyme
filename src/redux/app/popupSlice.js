@@ -8,6 +8,7 @@ const initialState = {
     settingPopupToggler: false,
     assistantPopupToggler: false,
     newAssistantPopupToggler: false,
+    secondPopupTab : false,
     assistantText: '',
     assistantMessage: '',
 };
@@ -88,6 +89,14 @@ export const popupSlice = createSlice({
         }
     },
 
+    toggleSecondPopupTab: (state, status) => {
+        if (status.payload === false) {
+            state.secondPopupTab = false;
+        } else {
+            state.secondPopupTab = true;
+        }
+    },
+
     setAssistantText: (state, text) => {
         state.assistantText = text;
         console.log('assistant text', state.assistantText);
@@ -98,6 +107,8 @@ export const popupSlice = createSlice({
         console.log('assistant message', state.assistantMessage);
 
     }
+
+
   },
 });
 
@@ -111,6 +122,7 @@ export const {
     toggleSettingPopup, 
     toggleAssistantPopup, 
     toggleNewAssistantPopup,
+    toggleSecondPopupTab,
     setAssistantText,
     setAssistantMessage
 } = popupSlice.actions;

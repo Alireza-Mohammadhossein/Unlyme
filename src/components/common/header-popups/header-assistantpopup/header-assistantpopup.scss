@@ -419,15 +419,18 @@
 
 .siteWrapperLG .assistant-popup {
   &-list {
-    width: 340px;
+    width: 330px;
+    // padding: ;
 
     &__header {
+      padding: 20px;
       &-title {
         font-size: 20px;
       }
     }
   
     &__body {
+      padding: 20px;
       &-create {
           &_btn {
               padding: 15px 12px !important;
@@ -455,10 +458,8 @@
     }
   }
 
-
-
   &-messages {
-    width: 340px;
+    width: 330px;
     
       &__header {
         &-info {
@@ -502,7 +503,7 @@
 
 .siteWrapperMD .assistant-popup {
   &-list {
-    width: 340px;
+    width: 330px;
     
     &__header {
       &-title {
@@ -539,7 +540,7 @@
   }
 
   &-messages {
-    width: 340px;
+    width: 330px;
 
       &__header {
         &-info {

@@ -151,9 +151,11 @@
 
 .siteWrapperLG .setting-popup {
   &-list {
-    width: 340px;
+    width: 330px;
 
     &__header {
+      padding: 20px;
+
       &_user {
         &-info {
           &-name {
@@ -167,6 +169,8 @@
     }
   
     &__body {
+      padding: 20px;
+
       &-content {
         &_item {
           &-title {
@@ -178,6 +182,8 @@
     }
 
     &__footer {
+      padding: 20px;
+      
       &-options {
 
         &-setting {
@@ -194,7 +200,7 @@
 
 .siteWrapperMD .setting-popup {
   &-list {
-    width: 340px;
+    width: 330px;
 
     &__header {
       &_user {

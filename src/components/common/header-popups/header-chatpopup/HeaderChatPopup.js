@@ -29,7 +29,7 @@ import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { isNull } from 'lodash';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChatPopup } from '../../../../redux/app/popupSlice';
+import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 
 
 
@@ -95,6 +95,7 @@ const HeaderChatPopup = ({ props }) => {
   const [showChat, setShowChat] = useState(false);
   const handleShowChat = (event, newValue) => {
     setShowChat(newValue);
+    dispatch(toggleSecondPopupTab())
     
       // document.getElementById('cloud-page').classList.add('second-shrink');
     
@@ -374,7 +375,7 @@ const HeaderChatPopup = ({ props }) => {
                         aria-haspopup="true"
                         onClick={() => {
                           setShowChat(false)
-                          // document.getElementById('cloud-page').classList.remove('second-shrink');
+                          dispatch(toggleSecondPopupTab(false))
                         }}
                       >
                         <ArrowBackIcon  sx={{ color: '#000000' }}/>

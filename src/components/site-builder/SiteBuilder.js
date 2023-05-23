@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CloudPage from '../cloud-page/CloudPage';
+import CloudPage from '../pages/cloud-page/CloudPage';
 import Popup from '../common/popup/Popup';
 
 const SiteBuilder = () => {
