@@ -9,7 +9,8 @@ import {
 } from "../../../types";
 import logo from "../../../assets/images/header/white-logo.svg";
 import Tooltip from "@mui/material/Tooltip";
-import searchIcon from "../../../assets/images/header/search.gif";
+// import searchIcon from "../../../assets/images/header/search.gif";
+import searchIcon from "../../../assets/images/header/AI-icon.png";
 import { useSelector, useDispatch } from "react-redux";
 import { 
   toggleChatPopup,
@@ -94,11 +95,6 @@ const Header = () => {
               className="header__details-area_items-globe"
               onClick={() => {
                 dispatch(toggleAssistantPopup())
-                // setAssistantPopupToggler(true);
-                // setChatPopupToggler(false);
-                // setNotePopupToggler(false);
-                // setNotificationPopupToggler(false);
-                // setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Unlyme Assistant" arrow placement="bottom">
@@ -110,17 +106,6 @@ const Header = () => {
               className="header__details-area_items-icon"
               onClick={() => {
                 dispatch(toggleChatPopup())
-                // setChatPopupToggler(!chatPopupToggler);
-                // setNotePopupToggler(false);
-                // setAssistantPopupToggler(false);
-                // setNotificationPopupToggler(false);
-                // setSettingPopupToggler(false);
-
-                // if(chatPopupToggler === false) {
-                //   document.getElementById('cloud-page').classList.add('first-shrink');
-                // } else if(chatPopupToggler === true) {
-                //   document.getElementById('cloud-page').classList.remove('first-shrink');
-                // }
               }}
             >
               <Tooltip title="Chat" arrow placement="bottom">
@@ -146,11 +131,6 @@ const Header = () => {
               className="header__details-area_items-icon"
               onClick={() => {
                 dispatch(toggleNotePopup())
-                // setNotePopupToggler(!notePopupToggler);
-                // setChatPopupToggler(false);
-                // setNotificationPopupToggler(false);
-                // setSettingPopupToggler(false);
-                // setAssistantPopupToggler(false);
               }}
             >
               <Tooltip title="Notes" arrow placement="bottom">
@@ -165,11 +145,6 @@ const Header = () => {
               className="header__details-area_items-icon"
               onClick={() => {
                 dispatch(toggleNotificationPopup())
-                // setNotificationPopupToggler(!notificationPopupToggler);
-                // setAssistantPopupToggler(false);
-                // setChatPopupToggler(false);
-                // setNotePopupToggler(false);
-                // setSettingPopupToggler(false);
               }}
             >
               <Tooltip title="Notifications" arrow placement="bottom">
@@ -182,33 +157,14 @@ const Header = () => {
           </div>
 
           <div className="header__details-area_account">
-            <div className="header__details-area_account-icon">
-              {/* <Link
-                className="header__details-area_account-link"
-                to="/settings"
-              >
-                <img
-                  src={`${ASSETS_URL}/assets/images/header/account.png`}
-                  alt="chat"
-                />
-              </Link> */}
-
-              <div
-                className="header__details-area_account-link"
-                onClick={() => {
+            <div className="header__details-area_account-icon" onClick={() => {
                   dispatch(toggleSettingPopup())
-                  // setSettingPopupToggler(!settingPopupToggler);
-                  // setChatPopupToggler(false);
-                  // setNotePopupToggler(false);
-                  // setAssistantPopupToggler(false);
-                  // setNotificationPopupToggler(false);
-                }}
-              >
+                }}>
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/account.png`}
+                  src={`${ASSETS_URL}/assets/images/header/setting.png`}
                   alt="chat"
                 />
-              </div>
+
             </div>
           </div>
 

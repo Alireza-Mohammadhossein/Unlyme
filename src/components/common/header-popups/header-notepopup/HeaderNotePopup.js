@@ -107,6 +107,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
     if (storedNotes) setNotes(storedNotes);
   }, []);
 
+  
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);

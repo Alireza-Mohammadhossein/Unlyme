@@ -11,7 +11,9 @@
   padding-right: 2 * $space;
   z-index: 9;
   position: fixed;
-  background: rgba(255, 255, 255, 0.5);
+  // background: rgba(255, 255, 255, 0.5);
+  // backdrop-filter: blur(10px);
+  background: rgba(223, 233, 248, 0.5);
   backdrop-filter: blur(10px);
   
   
@@ -42,13 +44,13 @@
         color: #666666;
         margin-left: 0;
         width: 100%;
-        margin-right: 5px;
+        margin-right: 10px;
       }
 
       &-input {
         width: 215px;
-        background-color: #FFF;
-        border-radius: 25px;
+        // background-color: #FFF;
+        // border-radius: 25px;
         padding: 0 13px;
         height: 33px;
         line-height: 33px;
@@ -56,6 +58,8 @@
         transition: all 0.3s ease;
         color: #000000;
         transform: translateX(0);
+        background: rgba(240, 242, 245, 0.8);
+        border-radius: 8px;
 
         &::placeholder {
           color: #686868;
@@ -64,7 +68,7 @@
 
         &:focus {
           width: 700px;
-          transform: translateX(40px);
+          transform: translateX(45px);
         }
       }
 
@@ -85,14 +89,14 @@
         height: 32px;
         border-radius: 16px;
         cursor: pointer;
-        background-color: #4382C4;
+        // background-color: #4382C4;
         display: flex;
         align-items: center;
         justify-content: center;
         
         img {
-          width: 16px;
-          height: 16px;
+          width: 23px;
+          height: 23px;
         }
       }
       &-globe {
@@ -113,148 +117,25 @@
 
     &_account {
       display: flex;
-      margin-left: 20px;
+      margin-left: 12px;
     
       &-icon {
-        width: 34px;
-        height: 34px;
-      }
-
-      &-link {
-        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
         cursor: pointer;
+        // background-color: #4382C4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
         img {
-          width: 100%;
-          height: 100%;
+          width: 23px;
+          height: 23px;
         }
       }
     }
   }
-
-
-  // &__search-bar {
-  //   margin-left: 2 * $space;
-  //   margin-right: 2 * $space;
-  //   padding: $space 3 * $space;
-  //   box-sizing: border-box;
-  //   flex: 1;
-  //   height: calc(100% + 5px);
-  //   align-items: center;
-  //   display: flex;
-  //   background-color: $blue;
-  //   max-width: 1200px;
-  //   border-bottom-left-radius: $border-radius-big;
-  //   border-bottom-right-radius: $border-radius-big;
-  //   &_title {
-  //     font-size: 18px;
-  //     color: white;
-  //     white-space: nowrap;
-  //     margin-right: 4 * $space;
-  //   }
-  //   &_input-container {
-  //     display: flex;
-  //     flex: 1;
-  //     height: calc(100% - 5px);
-  //     position: relative;
-  //   }
-  //   &_input {
-  //     width: 100%;
-  //     height: 100%;
-  //     border-radius: 2 * $space;
-  //     background-color: white;
-  //     padding-left: $space;
-  //     border: none;
-  //   }
-  //   &_button {
-  //     background-color: $orange;
-  //     height: calc(100% - 2px);
-  //     width: 28px;
-  //     position: absolute;
-  //     z-index: 1;
-  //     background-image: url('../../../assets/icons/arrow-right-white.svg');
-  //     border-radius: 100%;
-  //     right: 2px;
-  //     background-size: 15px;
-  //     background-position: center;
-  //     background-repeat: no-repeat;
-  //     top: 2px;
-  //   }
-  //   &_chat {
-  //     cursor: pointer;
-  //     width: 30px;
-  //     height: 30px;
-  //     background-image: url('../../../assets/icons/chat-white.svg');
-  //     background-size: 17px auto;
-  //     margin-left: $space;
-  //     background-position: center;
-  //     background-repeat: no-repeat;
-  //     position: relative;
-  //     &:after {
-  //       content: "";
-  //       display: block;
-  //       width: 4px;
-  //       height: 4px;
-  //       border: 1px solid white;
-  //       position: absolute;
-  //       top: 20%;
-  //       right: 20%;
-  //       border-radius: 100%;
-  //       background-color: $orange;
-  //     }
-  //   }
-  // }
-  // &__language {
-  //   width: 3 * $space;
-  //   height: 3 * $space;
-  //   cursor: pointer;
-  //   background-size: 18px auto;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   border-radius: 100%;
-  //   margin-left: auto;
-  // }
-  // &__notifications {
-  //   width: 2 * $space;
-  //   height: 2 * $space;
-  //   cursor: pointer;
-  //   margin-left: $space;
-  //   background-size: 12px auto;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-image: url('../../../assets/icons/notifications.svg');
-  //   position: relative;
-  //   &:after {
-  //     content: "";
-  //     display: block;
-  //     width: 4px;
-  //     height: 4px;
-  //     border: 1px solid white;
-  //     position: absolute;
-  //     top: 10%;
-  //     right: 10%;
-  //     border-radius: 100%;
-  //     background-color: $orange;
-  //   }
-  // }
-  // &__profile {
-  //   width: 3 * $space;
-  //   height: 3 * $space;
-  //   cursor: pointer;
-  //   margin-left: $space;
-  //   box-sizing: border-box;
-  //   border: 1px solid $blue;
-  //   border-radius: 100%;
-  // }
-  // &__exit {
-  //   width: 2 * $space;
-  //   height: 2 * $space;
-  //   cursor: pointer;
-  //   margin-left: $space;
-  //   background-size: 15px auto;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-image: url('../../../assets/icons/exit.svg');
-  // }
 }
 
 .dark .header {
