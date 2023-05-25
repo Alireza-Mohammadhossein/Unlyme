@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import TextField from "@mui/material/TextField";
 import CloudBlock from "../cloud-block/CloudBlock";
 import CopySites from "../../../../copy-sites/CopySites";
-import icon from "../../../../../assets/images/my-services/site-builder-widget.png";
+import icon from "../../../../../assets/images/my-services/setting.png";
 
 const LogoBuilder = () => {
   const { t } = useTranslation();

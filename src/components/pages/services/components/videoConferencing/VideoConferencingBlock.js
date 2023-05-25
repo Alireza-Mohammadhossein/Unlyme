@@ -12,7 +12,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { TimeField } from "@mui/x-date-pickers/TimeField";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import icon from "../../../../../assets/images/my-services/video-conference-widget.png";
+import icon from "../../../../../assets/images/my-services/video-conference.png";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

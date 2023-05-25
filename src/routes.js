@@ -11,6 +11,7 @@ import MyServices from './components/pages/services/MyServices';
 import Settings from './components/settings/Settings';
 import Signin from './components/signin/SignIn';
 import SiteBuilder from './components/site-builder/SiteBuilder';
+import EmailPage from './components/pages/email/EmailPage';
 
 
 // This component is responsible for page routing
@@ -53,6 +54,10 @@ const Switcher = ({ screenSize }) => {
         <Route 
           path="/services/notes"
           element={<NotesPage />}
+        />
+        <Route 
+          path="/services/email"
+          element={<EmailPage />}
         />
         <Route 
           path="*"

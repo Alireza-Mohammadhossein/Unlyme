@@ -14,7 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import icon from "../../../../../assets/images/my-services/tasks-widget.png";
+import icon from "../../../../../assets/images/my-services/tasks.png";
 import {
   backlogLists,
   inprogressLists,

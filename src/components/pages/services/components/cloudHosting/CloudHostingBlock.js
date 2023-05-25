@@ -8,7 +8,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import CloudBlock from "../cloud-block/CloudBlock";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import icon from "../../../../../assets/images/my-services/cloud-widget.png";
+import icon from "../../../../../assets/images/my-services/cloud.png";
 
 const CloudHostingBlock = () => {
   const { t, i18n } = useTranslation();

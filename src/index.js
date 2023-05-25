@@ -3,23 +3,15 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import i18n from "i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import reduxThunk from 'redux-thunk';
 import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from "react-i18next";
 import { store } from "./redux/store";
-import { Provider } from "react-redux"  ;
-// import store from "./redux/store";
+import { Provider } from "react-redux";
 import moment from "moment";
 import 'moment/locale/ru';
-// import "./styles/sass/style.scss";
 import "swiper/swiper-bundle.min.css";
 import "material-icons/iconfont/material-icons.css";
 import App from "./components/app/App";
-// import reducers from './reducers';
-// import * as appActions from './components/app/AppActions';
-// import queryString from "query-string";
-// import { ReactQueryConfigProvider } from 'react-query';
 import {
   ASSETS_URL,
   AUTH_USER,
@@ -190,7 +182,7 @@ i18n
 
       
       // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
-      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+      loadPath: './assets/translations/{{lng}}.json',
     },
   });
 
@@ -204,6 +196,8 @@ i18n
   i18n.on('languageChanged', lng => {
     moment.locale(lng);
   });
+
+  
 
 
   const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -5,8 +5,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import icon from "../../../../../assets/images/header/search.gif";
+import icon from "../../../../../assets/images/header/AI-icon.png";
 import { all, important, payment, report } from "../../../../../mocks/mocks";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -9,6 +9,19 @@ import {
   SITE_NAME,
   SUPPORTED_LANGUAGES,
 } from "../../../types";
+import dashboardIcon from '../../../assets/images/my-services/dashboard.png';
+import domainsIcon from '../../../assets/images/my-services/domains.png';
+import webIcon from '../../../assets/images/my-services/drive.png';
+import copySitesIcon from '../../../assets/images/my-services/copy-sites.png';
+import bankIcon from '../../../assets/images/my-services/bank.png';
+import settingIcon from '../../../assets/images/my-services/setting.png';
+import onlineConsultantIcon from '../../../assets/images/my-services/logo-builder.png';
+import calendarIcon from '../../../assets/images/my-services/calendar.png';
+import notesIcon from '../../../assets/images/my-services/notes.png';
+import emailIcon from '../../../assets/images/my-services/email.png';
+
+
+
 
 const Menu = ({screenSize}) => {
   // const screenSize = GetScreenSize();
@@ -20,63 +33,70 @@ const Menu = ({screenSize}) => {
       icon: "dashboard",
       title: "MY_SERVICES",
       link: "/",
-      img: `${ASSETS_URL}/assets/images/services/dashboard.png`,
+      img: `${dashboardIcon}`,
     },
     {
       id: 2,
       icon: "domain",
       title: "DOMAINS",
       link: "/services/domains",
-      img: `${ASSETS_URL}/assets/images/services/domains.png`,
+      img: `${domainsIcon}`,
     },
     {
       id: 3,
       icon: "web",
       title: "SITE_BUILDER",
       link: "/services/site-builder",
-      img: `${ASSETS_URL}/assets/images/services/web.png`,
+      img: `${webIcon}`,
     },
     {
       id: 4,
       icon: "content_copy",
       title: "COPY_SITES",
       link: "/services/copy-sites",
-      img: `${ASSETS_URL}/assets/images/services/copy-sites.png`,
+      img: `${copySitesIcon}`,
     },
     {
       id: 5,
       icon: "monetization_on",
       title: "BANK",
       link: "/services/bank",
-      img: `${ASSETS_URL}/assets/images/services/bank.png`,
+      img: `${bankIcon}`,
     },
     {
       id: 6,
       icon: "settings",
       title: "SETTINGS",
       link: "/settings",
-      img: `${ASSETS_URL}/assets/images/services/settings.png`,
+      img: `${settingIcon}`,
     },
     {
       id: 7,
       icon: "mail_outline",
       title: "ONLINE_CONSULTANT",
       link: "/services/online-consultant",
-      img: `${ASSETS_URL}/assets/images/services/online-consultant.png`,
+      img: `${onlineConsultantIcon}`,
     },
     {
       id: 8,
       icon: "calendar_month",
       title: "CALENDAR",
       link: "/services/calendar",
-      img: `${ASSETS_URL}/assets/images/services/calendar.png`,
+      img: `${calendarIcon}`,
     },
     {
       id: 9,
       icon: "calendar_month",
       title: "NOTES",
       link: "/services/notes",
-      img: `${ASSETS_URL}/assets/images/services/notes.png`,
+      img: `${notesIcon}`,
+    },
+    {
+      id: 10,
+      icon: "calendar_month",
+      title: "NOTES",
+      link: "/services/email",
+      img: `${emailIcon}`,
     },
   ];
 

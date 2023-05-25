@@ -11,7 +11,7 @@ export const BACKEND_URL = window.backend_url;
 
 // assetst url for server
 // export const ASSETS_URL = window.location;
-export const ASSETS_URL = 'http://localhost:3000';
+// export const ASSETS_URL = 'http://localhost:3000';
 
 
 export function convertToFormData(data) {

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CloudBlock from "../cloud-block/CloudBlock";
 import { getLangISOFormat } from "../../../../../types";
 import CalendarPage from "../../../calendar/CalendarPage";
-import icon from "../../../../../assets/images/my-services/calendar-widget.png";
+import icon from "../../../../../assets/images/my-services/calendar.png";
 
 const CalendarBlock = () => {
   const { t, i18n } = useTranslation();

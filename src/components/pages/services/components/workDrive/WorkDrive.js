@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import CloudBlock from "../cloud-block/CloudBlock";
-import icon from "../../../../../assets/images/my-services/drive-widget.png";
+import icon from "../../../../../assets/images/my-services/drive.png";
 import upload from "../../../../../assets/images/my-services/upload.png";
 
 const WorkDrive = () => {

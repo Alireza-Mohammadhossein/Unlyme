@@ -152,7 +152,10 @@
   "CALENDAR_PAGE.CREATE__EVENT_BUTTON": "Create Event",
 
   "NOTES_PAGE.TITLE": "Notes",
-  "NOTES_PAGE.CREATE_NOTE_BUTON": "New Note"
+  "NOTES_PAGE.CREATE_NOTE_BUTON": "New Note",
 
+  
+  "EMAIL_PAGE.TITLE": "Mail",
+  "EMAIL_PAGE.CREATE_MAIL_BUTON": "New message"
 }
 

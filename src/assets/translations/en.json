@@ -1,0 +1,158 @@
+{
+  "MENU.MY_SERVICES": "My services",
+  "MENU.DOMAINS": "Domains",
+  "MENU.SITE_BUILDER": "Site builder",
+  "MENU.COPY_SITES": "Copy sites",
+  "MENU.BANK": "Bank",
+  "MENU.SETTINGS": "Settings",
+  "MENU.CALENDAR": "Calendar",
+  "MENU.NOTES": "Notes",
+  "MENU.ONLINE_CONSULTANT": "Online consultant",
+  "HEADER.HOW_CAN_UNLYME_HELP_YOU": "How can Unlyme help you?",
+  "HEADER.SEARCH_PLACEHOLDER": "How can Unlyme help you?",
+  "MY_SERVICES.H1": "Connected Apps and Services",
+
+  "CHAT_POPUP.LIST.HEADER.TITLE": "Messenger",
+  "CHAT_POPUP.LIST.HEADER.SEARCH": "Search",
+  "CHAT_POPUP.MESSAGE.TERMS": "This conversation is private between you and",
+
+  "NOTE_POPUP.TITLE": "Notes",
+  "NOTE_POPUP.CREATE_NOTE": "Create a note",
+  "NOTE_POPUP.CREATE_NOTE.TITLE": "Write your title here...",
+  "NOTE_POPUP.CREATE_NOTE.PLACEHOLDER": "Write your message here...",
+
+
+  "NOTIFICATION_POPUP.TITLE": "Notifications",
+
+  "SETTING_POPUP.TITLE": "Setting",
+  "SETTING_POPUP.SELECTING": "Select theme",
+  "SETTING_POPUP.THEME_LIGHT": "Light",
+  "SETTING_POPUP.THEME_DARK": "Dark",
+  "SETTING_POPUP.THEME_AUTO": "Auto",
+  "SETTING_POPUP.SETTINGS": "Settings",
+  "SETTING_POPUP.LOGOUT": "Logout",
+
+
+  "ASSISTANT_POPUP.TITLE": "Chats",
+  "ASSISTANT_POPUP.NEW_CHAT": "New chat",
+  "ASSISTANT_POPUP.CREATE.TITLE": "New chat",
+
+
+  "SERVICES.CALENDAR.TITLE": "Calendar",
+  "SERVICES.CALENDAR.SUBTITLE": "All calendars",
+ 
+  "SERVICES.GUIDE.TITLE": "Start up guide",
+  "SERVICES.GUIDE.FIRST": "Choose your business structure",
+  "SERVICES.GUIDE.SECOND": "Reserve a company name ",
+  "SERVICES.GUIDE.THIRD": "Register your business",
+  "SERVICES.GUIDE.FORTH": "Obtain necessary licenses & permits",
+  "SERVICES.GUIDE.FIFTH": "Register for VAT",
+  "SERVICES.GUIDE.SIXTH": "Set up bank account",
+
+  "SERVICES.AI_ENGINE.TAB.TITLE": "AI Business Engine",
+  "SERVICES.AI_ENGINE.TAB.ALL": "All",
+  "SERVICES.AI_ENGINE.TAB.IMPORTANT": "Important notices",
+  "SERVICES.AI_ENGINE.TAB.PAYMENT": "Payments",
+  "SERVICES.AI_ENGINE.TAB.REPORT": "Reports",
+
+
+  "SERVICES.TASKS.TITLE": "Tasks",
+  "SERVICES.TASKS.SUBTITLE": "Your and your team’s tasks",
+  "SERVICES.TASKS.TAB_BACKLOG": "Backlog",
+  "SERVICES.TASKS.TAB_INPROGRESS": "In Progress",
+  "SERVICES.TASKS.TAB_DONE": "Done",
+  "SERVICES.TASKS.TAB_CLOSED": "Closed",
+
+  "SERVICES.CLOUDHOSTING.TITLE": "Cloud hosting",
+  "SERVICES.CLOUDHOSTING.SUBTITLE": "Lorem ipsum",
+  "SERVICES.CLOUDHOSTING.YOURSTORAGE": "Your storage",
+  "SERVICES.CLOUDHOSTING.FREEOF": "free of",
+  "SERVICES.CLOUDHOSTING.SITES": "Sites",
+  "SERVICES.CLOUDHOSTING.AVAILABLESITES": "sites available",
+  "SERVICES.CLOUDHOSTING.USEDSITES1": "of",
+  "SERVICES.CLOUDHOSTING.USEDSITES2": "SITES USED",
+
+  "SERVICES.WORKDRIVE.TITLE": "Work drive",
+  "SERVICES.WORKDRIVE.SUBTITLE": "All files",
+  "SERVICES.WORKDRIVE.UPLOAD_TEXT": "Upload your first file",
+
+  "SERVICES.BANK.TITLE": "Bank",
+  "SERVICES.BANK.SUBTITLE": "Attached bank accounts",
+  "SERVICES.BANK.ACCOUNT_BALANCE": "Account balance",
+
+  "SERVICES.LOGO_BUILDER.TITLE": "Logo builder",
+  "SERVICES.LOGO_BUILDER.SUBTITLE": "Create your logo",
+  "SERVICES.LOGO_BUILDER.DESCRIPTON": "Lorem inpsum",
+  "SERVICES.LOGO_BUILDER.LOGO_NAME": "Logo name",
+  "SERVICES.LOGO_BUILDER.PLACEHOLDER": "Enter logo name...",
+  "SERVICES.LOGO_BUILDER.BUTTON": "Generate",
+
+  "SERVICES.SITES_COPYING.TITLE": "Copy website",
+  "SERVICES.SITES_COPYING.SUBTITLE": "Copy any websites",
+  "SERVICES.SITES_COPYING.DESCRIPTON": "Lorem inpsum",
+  "SERVICES.SITES_COPYING.WEBSITE_ADDRESS": "Website address",
+  "SERVICES.SITES_COPYING.PLACEHOLDER": "Enter website address...",
+  "SERVICES.SITES_COPYING.BUTTON": "Copy",
+  
+  "SERVICES.WEBSITE_BUILDER.TITLE": "Website builder",
+  "SERVICES.WEBSITE_BUILDER.SUBTITLE": "Create or order a website",
+  "SERVICES.WEBSITE_BUILDER.DESCRIPTON": "250 templates & premium feature set",
+  "SERVICES.WEBSITE_BUILDER.ORDER_WEBSITE": "Order a website",
+  "SERVICES.WEBSITE_BUILDER.PLACEHOLDER": "Describe your vision in details...",
+  "SERVICES.WEBSITE_BUILDER.BUTTON": "Generate",
+
+  "SERVICES.DISC.TITLE": "Disc",
+  "SERVICES.DISC.SUBTITLE": "Lorem ipsum",
+  "SERVICES.DISC.DISC_SPACE": "Disc space",
+  "SERVICES.DISC.BUTTON": "Buy storage",
+  "SERVICES.DISC.FREESPACE1": "free of",
+  "SERVICES.DISC.FREESPACE2": "SITES USED",
+  
+  "SERVICES.CRM.NEW_DEALS": "New deals",
+  "SERVICES.CRM.TOTAL_DEALS": "Total deals",
+  "SERVICES.CRM.NO_DEAL": "No-deal",
+  "SERVICES.CRM.TAB_DEALS": "Deals",
+  "SERVICES.CRM.TAB_TASKS": "Tasks",
+  "SERVICES.CRM.TAB_LEADS": "Leads",
+  
+  "SERVICES.ONLINE_CONSULTANT.TITLE": "Online consultant",
+  "SERVICES.ONLINE_CONSULTANT.TAB_ALL_DIALOGS": "All dialogs",
+  "SERVICES.ONLINE_CONSULTANT.TAB_ACTIVE_DIALOGS": "Active dialogs",
+  
+  "SERVICES.DOMAINS.TITLE": "Domains",
+  "SERVICES.DOMAINS.SUBTITLE": "All your domains",
+  "SERVICES.DOMAINS.HEADER1": "You have",
+  "SERVICES.DOMAINS.HEADER2": "registered domains",
+  "SERVICES.DOMAINS.EXPIRED": "Expired domains",
+  "SERVICES.DOMAINS.EXPIRING": "Expiring domains",
+  "SERVICES.DOMAINS.SUBEXPIRING1": "EXPIRING IN",
+  "SERVICES.DOMAINS.SUBEXPIRING2": "DAYS",
+  "SERVICES.DOMAINS.PENDING": "Pending transfer",
+  
+  "SERVICES.VIDEO_CONFERENCING.TITLE": "Video conferencing",
+  "SERVICES.VIDEO_CONFERENCING.SUBTITLE": "Meet your colleagues",
+  "SERVICES.VIDEO_CONFERENCING.SCHEDULE": "Schedule meeting",
+  "SERVICES.VIDEO_CONFERENCING.UPCOMING": "Upcoming",
+  "SERVICES.VIDEO_CONFERENCING.CONFERENCE_NAME": "Conference name",
+  "SERVICES.VIDEO_CONFERENCING.TYPE_NAME": "Type a name",
+  "SERVICES.VIDEO_CONFERENCING.TYPE_TOPIC": "Type a topic",
+  "SERVICES.VIDEO_CONFERENCING.WHEN": "When",
+  "SERVICES.VIDEO_CONFERENCING.COPY_LINK": "Copy invitation link",
+  "SERVICES.VIDEO_CONFERENCING.PLAN_BUTTON": "To plan",
+  "SERVICES.VIDEO_CONFERENCING.BEGIN_BUTTON": "To begin",
+  
+  "SERVICES.SERVICES.TITLE": "Services",
+
+  "SERVICES.INVOICE_MANAGER.TITLE": "Invoice Manager",
+
+  "SERVICES.CLOUD_HOSTING.TITLE": "Cloud hosting",
+
+  "SERVICES.CALENDAR_PAGE.TITLE": "Calendar",
+
+  "CALENDAR_PAGE.CREATE__EVENT_BUTTON": "Create Event",
+
+  "NOTES_PAGE.TITLE": "Notes",
+  "NOTES_PAGE.CREATE_NOTE_BUTON": "New Note"
+
+}
+

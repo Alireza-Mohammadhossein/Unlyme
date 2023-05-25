@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import CloudBlock from "../cloud-block/CloudBlock";
 import CopySites from "../../../../copy-sites/CopySites";
-import icon from "../../../../../assets/images/my-services/disc-widget.png";
+import icon from "../../../../../assets/images/my-services/disc.png";
 import { styled } from "@mui/material/styles";
 import LinearProgress, {
   linearProgressClasses,

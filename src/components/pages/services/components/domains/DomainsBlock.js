@@ -8,7 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CircleIcon from "@mui/icons-material/Circle";
-import icon from "../../../../../assets/images/my-services/domain-widget.png";
+import icon from "../../../../../assets/images/my-services/domains.png";
 
 const DomainsBlock = () => {
   const { t, i18n } = useTranslation();

@@ -10,7 +10,6 @@ import {
 import logo from "../../../assets/images/header/white-logo.svg";
 import Tooltip from "@mui/material/Tooltip";
 // import searchIcon from "../../../assets/images/header/search.gif";
-import searchIcon from "../../../assets/images/header/AI-icon.png";
 import { useSelector, useDispatch } from "react-redux";
 import { 
   toggleChatPopup,
@@ -23,7 +22,12 @@ import {
   setAssistantText, 
   setAssistantMessage
 } from '../../../redux/app/popupSlice';
-
+import searchIcon from "../../../assets/images/header/AI-icon.png";
+import chatIcon from '../../../assets/images/header/chat-icon.png';
+import mailIcon from '../../../assets/images/header/mails-icon.png';
+import notesIcon from '../../../assets/images/header/notes-icon.png';
+import notificationIcon from '../../../assets/images/header/notifications-icon.png';
+import settingIcon from '../../../assets/images/header/setting.png';
 
 
 
@@ -110,7 +114,7 @@ const Header = () => {
             >
               <Tooltip title="Chat" arrow placement="bottom">
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/chat-icon.png`}
+                  src={chatIcon}
                   alt="chat"
                 />
               </Tooltip>
@@ -119,7 +123,7 @@ const Header = () => {
             <div className="header__details-area_items-icon">
               <Tooltip title="Mails" arrow placement="bottom">
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/mails-icon.png`}
+                  src={mailIcon}
                   alt="mails"
                 />
               </Tooltip>
@@ -135,7 +139,7 @@ const Header = () => {
             >
               <Tooltip title="Notes" arrow placement="bottom">
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/notes-icon.png`}
+                  src={notesIcon}
                   alt="notes"
                 />
               </Tooltip>
@@ -149,7 +153,7 @@ const Header = () => {
             >
               <Tooltip title="Notifications" arrow placement="bottom">
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/notifications-icon.png`}
+                  src={notificationIcon}
                   alt="notifications"
                 />
               </Tooltip>
@@ -161,7 +165,7 @@ const Header = () => {
                   dispatch(toggleSettingPopup())
                 }}>
                 <img
-                  src={`${ASSETS_URL}/assets/images/header/setting.png`}
+                  src={settingIcon}
                   alt="chat"
                 />
 

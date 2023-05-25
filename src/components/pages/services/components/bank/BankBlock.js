@@ -16,7 +16,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import icon from "../../../../../assets/images/my-services/bank-widget.png";
+import icon from "../../../../../assets/images/my-services/bank.png";
 
 const BankBlock = () => {
   const { t, i18n } = useTranslation();
