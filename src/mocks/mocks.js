@@ -4,6 +4,17 @@ import aspenAvatar from "../assets/chat-users/Aspen.png";
 import gretchenAvatar from "../assets/chat-users/Gretchen.png";
 import tomAvatar from "../assets/chat-users/Tom.png";
 import searchIcon from "../assets/images/header/search.gif";
+import inboxIconGray from '../assets/images/my-services/email/inbox-gray.png';
+import inboxIconBlue from '../assets/images/my-services/email/inbox-blue.png';
+import draftsIconGray from '../assets/images/my-services/email/drafts-gray.png';
+import draftsIconBlue from '../assets/images/my-services/email/drafts-blue.png';
+import sentIconGray from '../assets/images/my-services/email/sent-gray.png';
+import sentIconBlue from '../assets/images/my-services/email/sent-blue.png';
+import starredIconGray from '../assets/images/my-services/email/star-gray.png';
+import starredIconBlue from '../assets/images/my-services/email/star-blue.png';
+
+
+
 
 export const clientData = {
   user_id: 1,
@@ -2213,4 +2224,33 @@ export const Calendar_page_current_events = [
     name: 'Holiday',
     color: '#4C91DD',
   }
+]
+
+
+export const mailsCategory = [
+  {
+    id: 1,
+    title: 'Inbox',
+    grayIcon: inboxIconGray,
+    blueIcon: inboxIconBlue,
+    unreadNum: 2
+  },
+  {
+    id: 2,
+    title: 'Drafts',
+    grayIcon: draftsIconGray,
+    blueIcon: draftsIconBlue,
+  },
+  {
+    id: 3,
+    title: 'Sent',
+    grayIcon: sentIconGray,
+    blueIcon: sentIconBlue,
+  },
+  {
+    id: 4,
+    title: 'Starred',
+    grayIcon: starredIconGray,
+    blueIcon: starredIconBlue,
+  },
 ]

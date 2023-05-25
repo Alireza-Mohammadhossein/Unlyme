@@ -2,14 +2,20 @@
 
 .email-page {
     width: 100%;
+    padding-bottom: 10px;
+    height: 75vh;
 
     & .MuiGrid-container {
         margin: 0;
-    }
-
-    & .MuiGrid-item {
+      }
+    
+      & .MuiGrid-item {
         padding-top: 0 !important;
-    }
+      }
+    
+      & .MuiGrid-root {
+        height: 100%;
+      }
 
     &_sidebar {
         padding: 50px 5px;
@@ -21,7 +27,7 @@
             & button {
                 background-color: $blue;
                 width: 100%;
-                padding: 10px;
+                padding: 12px;
                 text-align: center;
                 color: #FFF;
                 border-radius: 8px;
@@ -29,173 +35,76 @@
         }
 
         &-section {
-            &_filter {
-                & .MuiFormControlLabel-root {
-                    margin: 0;
+            &_category {
+                &-list {
+
+                    & .MuiTabs-flexContainer {
+                        gap: 5px;
+                    }
+
                 }
 
-                & .MuiFormControlLabel-root:not(:last-child) {
-                    border-bottom: 1px solid #D2D2D2;
-                }
-                
+                &-item {
+                    &.MuiButtonBase-root {
+                        text-transform: none;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        max-width: unset;
+                        
+                        &:hover {
+                            background-color: rgba(67, 130, 196, 0.1);
+                        }
+                    }
 
-                & .MuiTypography-root {
-                    color: #333333;
+                    &.Mui-selected {
+                        background-color: #4382C41A;
+                    }
+
+
+                    
+                    &_content {
+                        display: flex;
+                        gap: 15px;
+
+                        &-icon {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        &-title {
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+                    }
+
+                    &_unreadnum {
+                        background-color: #4382C4;
+                        border-radius: 5px;
+                        padding: 4px 8px;
+                        color: white;
+                    }
+                }
+
+                & .MuiTabs-indicator {
+                    display: none;
                 }
             }
         }
     }
 
     &_main {
-        padding: 0 10px;
+        height: 100%;
+        padding: 0 10px 0 15px;
 
-        &_calendar {
-            & .fc-header-toolbar {
-                & .fc-toolbar-chunk {
-                    display: flex;
-                    gap: 10px;
-                    
-                    .fc-prev-button,
-                    .fc-next-button,
-                    .fc-prev-button:not(:disabled):active,
-                    .fc-next-button:not(:disabled):active {
-                        background-color: transparent;
-                        border: unset;
-                        color: #333333;
-                        font-size: 14px;
-                    }
-    
-                    .fc-prev-button:focus,
-                    .fc-next-button:focus,
-                    .fc-today-button:focus,
-                    .fc-prev-button:not(:disabled):active:focus
-                    .fc-next-button:not(:disabled):active:focus,
-                    .fc-today-button:not(:disabled):active:focus {
-                        box-shadow: unset;
-                    }
-    
-                    .fc-toolbar-title {
-                        font-size: 15px;
-                        color: #414141;
-                        display: flex;
-                        align-items: center;
-                        padding: 0 20px;
-                    }
-    
-                    .fc-today-button {
-                        font-size: 15px;
-                        background-color: transparent;
-                        border: unset;
-                        color: #414141;
-                        opacity: 1;
-                        cursor: pointer;
-                    }
-
-
-                    .fc-button-group {
-                        gap: 10px;
-
-                        .fc-button:not(:disabled).fc-button-active {
-                            font-size: 14px;
-                            background-color: #A0B6D6;
-                            border-radius: 4px;
-                            padding: 8px 10px;
-                            border: unset;
-                            line-height: unset;
-                        }
-
-                        .fc-button:not(.fc-button-active) {
-                            font-size: 14px;
-                            color: #333333;
-                            background-color: unset;
-                            border-radius: 4px;
-                            padding: 8px 10px;
-                            border: unset;
-                            line-height: unset;
-                        }
-
-                        .fc-button:not(:disabled):focus {
-                            box-shadow: unset;
-                        }
-                    }
-    
-                }
-            } 
-
-
-            & .fc-view-harness {
-                background-color: white;
-                border-radius: 8px;
-
-                & .fc-scrollgrid {
-                    border: unset;
-
-                    & .fc-scroller {
-
-                        & .fc-col-header-cell {
-                            border-left: unset;
-                            border-right: unset;
-
-                            & .fc-scrollgrid-sync-inner {
-                                padding: 5px 0;
-    
-                                .fc-col-header-cell-cushion {
-                                    color: #333333;
-                                    font-size: 13px;
-                                } 
-                            }
-                        }
-                    }
-
-                    & .fc-daygrid-body {
-                        & .fc-day {
-                            padding: 5px;
-
-                            .fc-daygrid-day-frame .fc-daygrid-day-top {
-                                flex-direction: row;
-
-                                .fc-daygrid-day-number {
-                                    color: #333333;
-                                    font-size: 13px;
-                                }
-                            }
-
-                            
-                            & .fc-daygrid-day-number {
-                                padding: 5px;
-                            }
-
-                            & .fc-daygrid-day-events {
-                                & .fc-event {
-                                    text-align: center;
-                                    padding: 5px;
-                                    background-color: $blue;
-                                    color: #fff;
-                                    white-space: nowrap;
-                                    overflow: hidden;
-                                    text-overflow: ellipsis;
-                                    display: block;
-
-                                    & .fc-event-main {
-                                        white-space: nowrap;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                    }
-                                }
-                            }
-                        }
-
-                        & .fc-day-today {
-                            background-color: unset;
-
-                            & .fc-daygrid-day-number {
-                                border: 1px solid $blue;
-                                border-radius: 50%;
-                            }
-                        }
-                    }
-                }
-            }
+        &_email {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 8px;
         }
+
     }
 }

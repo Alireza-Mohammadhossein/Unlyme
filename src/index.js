@@ -153,6 +153,7 @@ try {
   //     store.dispatch({ type: AUTH_USER, token });
   //     store.dispatch(appActions.fetchUserInfo());
   //   }
+const ASSETS_URL = 'http://localhost:3000';
 
 
 const fallbackLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE) || FALLBACK_LANGUAGE;
@@ -178,11 +179,11 @@ i18n
     backend: {
       // loadPath: '/public/assets/locales/{{lng}}/translation.json',
       // loadPath: '/assets/translations/{{lng}}.json',
-      // loadPath: `${ASSETS_URL}/Unlyme/assets/translations/{{lng}}.json`,
-
-      
       // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
-      loadPath: './assets/translations/{{lng}}.json',
+      
+      
+      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+      // loadPath: './assets/translations/{{lng}}.json',
     },
   });
 

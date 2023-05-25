@@ -15,33 +15,95 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import IconButton from "@mui/material/IconButton";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import EditIcon from '@mui/icons-material/Edit';
+import CloseIcon from '@mui/icons-material/Close';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
+
+import { mailsCategory } from '../../../mocks/mocks';
 import icon from "../../../assets/images/my-services/email.png";
 import './email-page.scss';
 import { useSelector } from 'react-redux';
 
 
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography component={'div'}>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
+}
+
+
 function EmailPageContent() {
   const { t, i18n } = useTranslation();
-
-
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index);
-    };
 
-    const [open, setOpen] = React.useState(true);
 
-    const handleClick = () => {
-      setOpen(!open);
-    };
+  // start showing mail category tab
+  const [showMail, setShowMail] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
+  const handleShowMail = (event, newValue) => {
+    if (event.target === event.currentTarget) {
+      setShowMail(newValue);
+      setNewMailToggler(false);
+
+    }
+  };
+  // end showing chat tab
+
+  // start create new mail
+  const [newMailToggler, setNewMailToggler] = useState(false);
+  const [newMail, setNewMail] = useState([]);
+  const handleCreateMessage = () => {
+  }
+  // end create new mail
+
+  
+  
 
   
   return (
-    <div className='calendar-page'>
+    <div className='email-page'>
       <Grid container spacing={3}>
         <Grid 
           item 
@@ -57,52 +119,44 @@ function EmailPageContent() {
               <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button>
             </div>
 
+            <div className='email-page_sidebar-section'>
+              <div className='email-page_sidebar-section_category'>
+                <Tabs
+                  orientation="vertical"
+                  // variant="scrollable"
+                  value={showMail}
+                  onChange={handleShowMail}
+                  aria-label="Vertical tabs example"
+                  className='email-page_sidebar-section_category-list'
+                >
+                  {mailsCategory.map((item, index) => (
+                    <Tab
+                      className='email-page_sidebar-section_category-item'
+                      key={item.id}
+                      {...a11yProps(index)}
+                      component={'div'}
+                      label={
+                        <>
+                          <div className='email-page_sidebar-section_category-item_content'>
+                              <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar-section_category-item_content-icon' />
+                              <p className='email-page_sidebar-section_category-item_content-title'>{item.title}</p>
+                          </div>
 
-            <div className='calendar-page_sidebar-section'>
-                <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                    <List component="nav" aria-label="main mailbox folders">
-                        <ListItemButton
-                        selected={selectedIndex === 0}
-                        onClick={(event) => handleListItemClick(event, 0)}
-                        >
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                        </ListItemButton>
-
-                        <ListItemButton
-                        selected={selectedIndex === 1}
-                        onClick={(event) => handleListItemClick(event, 1)}
-                        >
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Drafts" />
-                        </ListItemButton>
-
-                        <ListItemButton onClick={handleClick}>
-                            <ListItemIcon>
-                            <InboxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Inbox" />
-                            {open ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-
-                        <Collapse in={open} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                            <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemIcon>
-                                <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText primary="Starred" />
-                            </ListItemButton>
-                            </List>
-                        </Collapse>
-
-
-                    </List>
-                </Box>
+                          {item.unreadNum > 0 ?
+                            <div className='email-page_sidebar-section_category-item_unreadnum'>
+                              <p>{item.unreadNum}</p>
+                            </div>
+                            :
+                            ''
+                          }
+                          
+                        </>
+                      } 
+                    />
+                  ))}
+                
+                </Tabs>
+              </div>
             </div>
           </div>
         </Grid>
@@ -114,8 +168,22 @@ function EmailPageContent() {
           xs={12}
         >
           <div className='email-page_main'>
-            <div className='email-page_main'>
-             right sidebar
+            <div className='email-page_main_email'>
+            <TabPanel value={showMail} index={0}>
+              inbox
+            </TabPanel>
+            
+            <TabPanel value={showMail} index={1}>
+              drafts
+            </TabPanel>
+            
+            <TabPanel value={showMail} index={2}>
+              sent
+            </TabPanel>
+            
+            <TabPanel value={showMail} index={3}>
+              starred
+            </TabPanel>
             </div>
           </div>
         </Grid>
