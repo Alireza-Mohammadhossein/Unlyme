@@ -32,6 +32,7 @@ import { mailsCategory } from '../../../mocks/mocks';
 import icon from "../../../assets/images/my-services/email.png";
 import './email-page.scss';
 import { useSelector } from 'react-redux';
+import EmailTable from './EmailTable';
 
 
 
@@ -170,7 +171,7 @@ function EmailPageContent() {
           <div className='email-page_main'>
             <div className='email-page_main_email'>
             <TabPanel value={showMail} index={0}>
-              inbox
+              <EmailTable />
             </TabPanel>
             
             <TabPanel value={showMail} index={1}>
