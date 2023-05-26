@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useMemo }from 'react';
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -22,6 +22,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { emails } from '../../../mocks/mocks';
+import star from '../../../assets/images/my-services/email/star.png';
+import activeStar from '../../../assets/images/my-services/email/favorite.png';
+import attached from '../../../assets/images/my-services/email/attached.png';
 
 
 
@@ -86,34 +89,46 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'name',
+    id: 1,
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'Logo',
+    with: 70
   },
   {
-    id: 'calories',
+    id: 2,
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Starred',
+    with: 70
   },
   {
-    id: 'fat',
+    id: 3,
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'Title',
+    with: 130
   },
   {
-    id: 'carbs',
+    id: 4,
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'Message',
+    with: 190
   },
   {
-    id: 'protein',
+    id: 5,
     numeric: true,
     disablePadding: false,
-    label: 'Protein (g)',
+    label: 'Attached',
+    with: 70
+  },
+  {
+    id: 6,
+    numeric: true,
+    disablePadding: false,
+    label: 'Date',
+    with: 130
   },
 ];
 
@@ -141,9 +156,10 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            // align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{ cursor: 'pointer', width: 100, maxHeight: 50, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -164,14 +180,6 @@ function EnhancedTableHead(props) {
   );
 }
 
-EnhancedTableHead.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-  onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
-  orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired,
-};
 
 function EnhancedTableToolbar(props) {
   const { numSelected } = props;
@@ -224,17 +232,14 @@ function EnhancedTableToolbar(props) {
   );
 }
 
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-};
 
 export default function EmailTable() {
-  const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
-  const [selected, setSelected] = React.useState([]);
-  const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('calories');
+  const [selected, setSelected] = useState([]);
+  const [page, setPage] = useState(0);
+  const [dense, setDense] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -244,19 +249,20 @@ export default function EmailTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = emails.map((n) => n.name);
+      const newSelected = emails.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+
+  const handleClick = (event, id) => {
+    const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -284,13 +290,13 @@ export default function EmailTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = (id) => selected.indexOf(id) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - emails.length) : 0;
 
-  const visibleRows = React.useMemo(
+  const visibleRows = useMemo(
     () =>
       stableSort(emails, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
@@ -299,13 +305,18 @@ export default function EmailTable() {
     [order, orderBy, page, rowsPerPage],
   );
 
+
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
+        <TableContainer
+          sx={{
+            width: '100%',
+          }}
+        >
           <Table
-            sx={{ minWidth: 750 }}
+            sx={{  }}
             aria-labelledby="tableTitle"
             size={dense ? 'small' : 'medium'}
           >
@@ -319,20 +330,21 @@ export default function EmailTable() {
             />
             <TableBody>
               {visibleRows.map((row, index) => {
-                const isItemSelected = isSelected(row.name);
+                const isItemSelected = isSelected(row.id);
                 const labelId = `enhanced-table-checkbox-${index}`;
 
                 return (
                   <TableRow
                     hover
-                    onClick={(event) => handleClick(event, row.name)}
+                    onClick={(event) => handleClick(event, row.id)}
                     role="checkbox"
                     aria-checked={isItemSelected}
                     tabIndex={-1}
-                    key={row.name}
+                    key={row.id}
                     selected={isItemSelected}
-                    sx={{ cursor: 'pointer' }}
+                    sx={{ cursor: 'pointer'}}
                   >
+
                     <TableCell padding="checkbox">
                       <Checkbox
                         color="primary"
@@ -348,12 +360,19 @@ export default function EmailTable() {
                       scope="row"
                       padding="none"
                     >
-                      {row.name}
+                      <img src={row.logo} />
+
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell>
+                      <img src={row.starred ? activeStar : star} />
+                    </TableCell>
+                    <TableCell>{row.title}</TableCell>
+                    <TableCell>{row.message}</TableCell>
+                    <TableCell>
+                      {row.attached ? <img src={attached} /> : ''}
+                      
+                    </TableCell>
+                    <TableCell>{row.date}</TableCell>
                   </TableRow>
                 );
               })}
