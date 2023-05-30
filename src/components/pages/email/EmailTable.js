@@ -93,40 +93,45 @@ const headCells = [
     numeric: false,
     disablePadding: true,
     label: 'Logo',
+    sortable: false,
     with: 70
   },
   {
     id: 2,
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Starred',
+    sortable: false,
     with: 70
   },
   {
     id: 3,
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Title',
+    sortable: false,
     with: 130
   },
   {
     id: 4,
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Message',
+    sortable: false,
     with: 190
   },
   {
     id: 5,
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Attached',
+    sortable: false,
     with: 70
   },
   {
     id: 6,
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Date',
     with: 130
   },
@@ -157,16 +162,19 @@ function EnhancedTableHead(props) {
           <TableCell
             key={headCell.id}
             // align={headCell.numeric ? 'right' : 'left'}
+            align="center"
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
-            sx={{ cursor: 'pointer', width: 100, maxHeight: 50, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+            sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+              padding: headCell.label === 'Logo' ? '0' : '' 
+            }}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
-              {headCell.label}
+              {headCell.label === 'Date' ? 'Date' : ''}
               {orderBy === headCell.id ? (
                 <Box component="span" sx={visuallyHidden}>
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
@@ -239,7 +247,7 @@ export default function EmailTable() {
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -316,9 +324,7 @@ export default function EmailTable() {
           }}
         >
           <Table
-            sx={{  }}
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
           >
             <EnhancedTableHead
               numSelected={selected.length}
@@ -345,7 +351,9 @@ export default function EmailTable() {
                     sx={{ cursor: 'pointer'}}
                   >
 
-                    <TableCell padding="checkbox">
+                    <TableCell padding="checkbox"
+                      sx={{ cursor: 'pointer', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
                       <Checkbox
                         color="primary"
                         checked={isItemSelected}
@@ -358,21 +366,47 @@ export default function EmailTable() {
                       component="th"
                       id={labelId}
                       scope="row"
-                      padding="none"
+                      // padding="none"
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 50, maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                     >
                       <img src={row.logo} />
-
                     </TableCell>
-                    <TableCell>
+                    
+                    <TableCell
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 50, maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                    >
                       <img src={row.starred ? activeStar : star} />
                     </TableCell>
-                    <TableCell>{row.title}</TableCell>
-                    <TableCell>{row.message}</TableCell>
-                    <TableCell>
-                      {row.attached ? <img src={attached} /> : ''}
-                      
+                    
+                    <TableCell
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 100, maxWidth: 100, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
+                    >
+                      {row.title}
                     </TableCell>
-                    <TableCell>{row.date}</TableCell>
+                    
+                    <TableCell
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 150, maxWidth: 150, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
+                    >
+                      {row.message}
+                    </TableCell>
+                    
+                    <TableCell
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 50, maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                    >
+                      {row.attached ? <img src={attached} /> : ''}
+                    </TableCell>
+                    
+                    <TableCell
+                      align="center"
+                      sx={{ cursor: 'pointer',width: 100, maxWidth: 100, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                    >
+                      {row.date}
+                    </TableCell>
                   </TableRow>
                 );
               })}
@@ -389,7 +423,7 @@ export default function EmailTable() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[10, 20, 50]}
           component="div"
           count={emails.length}
           rowsPerPage={rowsPerPage}
@@ -398,10 +432,10 @@ export default function EmailTable() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
+      {/* <FormControlLabel
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"
-      />
+      /> */}
     </Box>
   );
 }

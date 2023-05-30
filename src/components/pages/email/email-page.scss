@@ -104,6 +104,27 @@
             height: 100%;
             background-color: #ffffff;
             border-radius: 8px;
+
+            &-tab {
+                height: 100%;
+                box-sizing: border-box;
+
+                .MuiBox-root, .MuiTypography-root {
+                    height: 100%;
+                    box-sizing: border-box;
+                }
+
+                .MuiTablePagination-root {
+                    overflow: hidden;
+                }
+                
+                .MuiPaper-root {
+                    height: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
         }
 
     }

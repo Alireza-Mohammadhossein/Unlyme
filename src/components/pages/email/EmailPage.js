@@ -170,21 +170,21 @@ function EmailPageContent() {
         >
           <div className='email-page_main'>
             <div className='email-page_main_email'>
-            <TabPanel value={showMail} index={0}>
-              <EmailTable />
-            </TabPanel>
-            
-            <TabPanel value={showMail} index={1}>
-              drafts
-            </TabPanel>
-            
-            <TabPanel value={showMail} index={2}>
-              sent
-            </TabPanel>
-            
-            <TabPanel value={showMail} index={3}>
-              starred
-            </TabPanel>
+              <TabPanel value={showMail} index={0} className='email-page_main_email-tab'>
+                <EmailTable />
+              </TabPanel>
+              
+              <TabPanel value={showMail} index={1}>
+                drafts
+              </TabPanel>
+              
+              <TabPanel value={showMail} index={2}>
+                sent
+              </TabPanel>
+              
+              <TabPanel value={showMail} index={3}>
+                starred
+              </TabPanel>
             </div>
           </div>
         </Grid>
