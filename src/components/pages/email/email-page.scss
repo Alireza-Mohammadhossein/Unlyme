@@ -116,6 +116,7 @@
 
                 .MuiTablePagination-root {
                     overflow: hidden;
+                    min-height: 50px;
                 }
                 
                 .MuiPaper-root {
@@ -124,6 +125,12 @@
                     display: flex;
                     flex-direction: column;
                 }
+
+                .MuiTableCell-root {
+                    img {
+                        vertical-align: middle;
+                    }
+                } 
             }
         }
 

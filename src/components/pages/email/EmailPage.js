@@ -33,6 +33,7 @@ import icon from "../../../assets/images/my-services/email.png";
 import './email-page.scss';
 import { useSelector } from 'react-redux';
 import EmailTable from './EmailTable';
+import { Visibility } from '@mui/icons-material';
 
 
 
@@ -82,25 +83,24 @@ function EmailPageContent() {
 
   // start showing mail category tab
   const [showMail, setShowMail] = useState(0);
-  const [activeTab, setActiveTab] = useState(0);
   const handleShowMail = (event, newValue) => {
     if (event.target === event.currentTarget) {
       setShowMail(newValue);
-      setNewMailToggler(false);
+      // setNewMailToggler(false);
 
     }
   };
   // end showing chat tab
 
-  // start create new mail
-  const [newMailToggler, setNewMailToggler] = useState(false);
-  const [newMail, setNewMail] = useState([]);
-  const handleCreateMessage = () => {
-  }
-  // end create new mail
+  
+  // start handle category show
+  const [showCategory, setShowCategory] = useState(true);
+  // end handle category show
+  
+  // start handle single mail show
+  const [activeSingleMail, setActiveSingleMail] = useState(false);
+  // end handle single mail show
 
-  
-  
 
   
   return (
@@ -108,11 +108,11 @@ function EmailPageContent() {
       <Grid container spacing={3}>
         <Grid 
           item 
-          lg={3} 
-          md={3} 
+          lg={activeSingleMail ? 0 : 3} 
+          md={activeSingleMail ? 0 : 3} 
           xs={12}
           sx={{
-            display: {lg: secondPopupTab ? 'none' : 'block', md: secondPopupTab ? 'none' : 'block'}
+            display: {lg: secondPopupTab || activeSingleMail ? 'none' : 'block', md: secondPopupTab || activeSingleMail ? 'none' : 'block'},
           }}
         >
           <div className='email-page_sidebar'>
@@ -164,14 +164,14 @@ function EmailPageContent() {
 
         <Grid
           item
-          lg={secondPopupTab ? 12 : 9}
-          md={secondPopupTab ? 12 : 9}
+          lg={secondPopupTab || activeSingleMail ? 12 : 9}
+          md={secondPopupTab || activeSingleMail ? 12 : 9}
           xs={12}
         >
           <div className='email-page_main'>
             <div className='email-page_main_email'>
               <TabPanel value={showMail} index={0} className='email-page_main_email-tab'>
-                <EmailTable />
+                <EmailTable activeSingleMail={activeSingleMail} setActiveSingleMail={setActiveSingleMail} />
               </TabPanel>
               
               <TabPanel value={showMail} index={1}>
