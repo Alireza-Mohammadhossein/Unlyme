@@ -27,6 +27,11 @@ import star from '../../../assets/images/my-services/email/star.png';
 import activeStar from '../../../assets/images/my-services/email/favorite.png';
 import attached from '../../../assets/images/my-services/email/attached.png';
 import SingleMail from './single-mail/SingleMail';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 
@@ -121,9 +126,9 @@ function EnhancedTableHead(props) {
   };
 
   return (
-    <TableHead>
+    <TableHead className='email-header'>
       <TableRow>
-        <TableCell padding="checkbox">
+        <TableCell padding="checkbox" className='email-header_selected'>
           <Checkbox
             color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -134,18 +139,60 @@ function EnhancedTableHead(props) {
             }}
           />
         </TableCell>
+
+        
+        <TableCell padding="checkbox"  className='email-header_selected'>
+          {numSelected > 0 ?
+            numSelected
+          : 
+            ''
+          }
+        </TableCell>
+
+        <TableCell colSpan={4} className='email-header_search'>
+          <FormControl>
+              <Input
+                className='email-header_search-input'
+                placeholder='Search messages...'
+                startAdornment={
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                }
+              />
+          </FormControl>
+        </TableCell>
+        
         {headCells.map((headCell) => (
-          <TableCell
-            key={headCell.id}
-            // align={headCell.numeric ? 'right' : 'left'}
-            align="center"
-            padding={headCell.disablePadding ? 'none' : 'normal'}
-            sortDirection={orderBy === headCell.id ? order : false}
-            sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-              padding: headCell.label === 'Logo' ? '0' : '' 
-            }}
-          >
-            <TableSortLabel
+            headCell.label === 'Date' ?
+              <TableCell
+                key={headCell.id}
+                // align={headCell.numeric ? 'right' : 'left'}
+                align="center"
+                padding={headCell.disablePadding ? 'none' : 'normal'}
+                sortDirection={orderBy === headCell.id ? order : false}
+                sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                  padding: headCell.label === 'Logo' ? '0' : '' 
+                }}
+              >
+                <TableSortLabel
+                  active={orderBy === headCell.id}
+                  direction={orderBy === headCell.id ? order : 'asc'}
+                  onClick={createSortHandler(headCell.id)}
+                >
+                  Date
+                  {orderBy === headCell.id ? (
+                    <Box component="span" sx={visuallyHidden}>
+                      {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                    </Box>
+                  ) : null}
+                </TableSortLabel>
+              </TableCell>
+            :
+            ''
+
+
+            /* <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
@@ -156,8 +203,7 @@ function EnhancedTableHead(props) {
                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </Box>
               ) : null}
-            </TableSortLabel>
-          </TableCell>
+            </TableSortLabel> */
         ))}
       </TableRow>
     </TableHead>
@@ -171,7 +217,7 @@ function EnhancedTableToolbar(props) {
   return (
     <Toolbar
       sx={{
-        pl: { sm: 2 },
+        pl: { sm: 1 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
@@ -179,27 +225,15 @@ function EnhancedTableToolbar(props) {
         }),
       }}
     >
-      {numSelected > 0 ? (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
-          {numSelected} selected
-        </Typography>
-      ) : (
-        <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          Nutrition
-        </Typography>
-      )}
+      <div className='email-toolbar'>
+        <div className='email-toolbar_selected'>
 
-      {numSelected > 0 ? (
+        </div>
+      </div>
+
+
+
+      {/* {numSelected > 0 ? (
         <Tooltip title="Delete">
           <IconButton>
             <DeleteIcon />
@@ -211,7 +245,8 @@ function EnhancedTableToolbar(props) {
             <FilterListIcon />
           </IconButton>
         </Tooltip>
-      )}
+      )} */}
+
     </Toolbar>
   );
 }
@@ -280,9 +315,6 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
     setPage(0);
   };
 
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
 
@@ -334,10 +366,11 @@ const showSingleMailHanlder = (row) => {
           xs = {activeSingleMail ? 6 : 12}
         >
           <Paper sx={{ width: '100%', mb: 2}}>
-            <EnhancedTableToolbar numSelected={selected.length} />
+            {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
             <TableContainer
               sx={{
                 width: '100%',
+                height: '100%'
               }}
             >
               <Table
@@ -351,6 +384,7 @@ const showSingleMailHanlder = (row) => {
                   onRequestSort={handleRequestSort}
                   rowCount={emails.length}
                 />
+
                 <TableBody>
                   {visibleRows.map((row, index) => {
                     const isItemSelected = isSelected(row.id);

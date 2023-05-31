@@ -135,4 +135,32 @@
         }
 
     }
+
+
+    .email-header {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+
+        &_selected {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        &_search {
+
+            &-input {
+                border: 1px solid #ADABA8;
+                border-radius: 8px;
+                padding: 5px 10px;
+                width: 300px;
+
+                &::before, &::after {
+                    display: none;
+                }
+            }
+        }
+    }
 }
