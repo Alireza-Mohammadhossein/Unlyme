@@ -151,11 +151,16 @@
 
         &_search {
 
+            .MuiFormControl-root {
+                width: 100%;
+            }
+
             &-input {
                 border: 1px solid #ADABA8;
                 border-radius: 8px;
                 padding: 5px 10px;
-                width: 300px;
+                width: 100%;
+                max-width: 300px;
 
                 &::before, &::after {
                     display: none;

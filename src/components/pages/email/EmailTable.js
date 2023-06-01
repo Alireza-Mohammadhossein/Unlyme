@@ -1,5 +1,4 @@
 import React, { useState, useMemo }from 'react';
-import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -12,15 +11,8 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { emails } from '../../../mocks/mocks';
 import star from '../../../assets/images/my-services/email/star.png';
@@ -28,10 +20,10 @@ import activeStar from '../../../assets/images/my-services/email/favorite.png';
 import attached from '../../../assets/images/my-services/email/attached.png';
 import SingleMail from './single-mail/SingleMail';
 import Input from '@mui/material/Input';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import { useEffect } from 'react';
 
 
 
@@ -119,7 +111,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
+  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText } =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -153,6 +145,7 @@ function EnhancedTableHead(props) {
           <FormControl>
               <Input
                 className='email-header_search-input'
+                onChange={(e) => setSearchText(e.target.value)}
                 placeholder='Search messages...'
                 startAdornment={
                   <InputAdornment position="start">
@@ -254,7 +247,7 @@ function EnhancedTableToolbar(props) {
 
 export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
   const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('calories');
+  const [orderBy, setOrderBy] = useState('date');
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(0);
   const [dense, setDense] = useState(false);
@@ -318,20 +311,39 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - emails.length) : 0;
+
+
+
+
+  const [searchText, setSearchText] = useState('');
+  const [filteredEmails, setFilteredEmails] = useState(emails);
+  
+  useEffect(() => {
+    if (!searchText) {
+      setFilteredEmails(emails);
+    }
+
+    if (searchText) {
+      setFilteredEmails(emails.filter( email => {
+        const filterValue = searchText.toLowerCase();
+  
+        return (
+          email.title.toLowerCase().match(filterValue) ||
+          email.message.toLowerCase().match(filterValue) ||
+          email.subject.toLowerCase().match(filterValue)
+        );
+      }));
+    }
+  }, [searchText])
 
   const visibleRows = useMemo(
     () =>
-      stableSort(emails, getComparator(order, orderBy)).slice(
+      stableSort(filteredEmails, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage,
       ),
     [order, orderBy, page, rowsPerPage],
   );
-
-
 
 
   // start showing mail category tab
@@ -383,10 +395,11 @@ const showSingleMailHanlder = (row) => {
                   onSelectAllClick={handleSelectAllClick}
                   onRequestSort={handleRequestSort}
                   rowCount={emails.length}
+                  setSearchText={setSearchText}
                 />
 
                 <TableBody>
-                  {visibleRows.map((row, index) => {
+                  {filteredEmails.map((row, index) => {
                     const isItemSelected = isSelected(row.id);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
