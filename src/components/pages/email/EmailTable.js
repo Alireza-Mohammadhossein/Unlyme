@@ -23,6 +23,7 @@ import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { useEffect } from 'react';
 
 
@@ -111,7 +112,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText } =
+  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler } =
     props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -164,22 +165,11 @@ function EnhancedTableHead(props) {
                 align="center"
                 padding={headCell.disablePadding ? 'none' : 'normal'}
                 sortDirection={orderBy === headCell.id ? order : false}
-                sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                  padding: headCell.label === 'Logo' ? '0' : '' 
-                }}
+                onClick={sortByDateHandler}
+                sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
               >
-                <TableSortLabel
-                  active={orderBy === headCell.id}
-                  direction={orderBy === headCell.id ? order : 'asc'}
-                  onClick={createSortHandler(headCell.id)}
-                >
                   Date
-                  {orderBy === headCell.id ? (
-                    <Box component="span" sx={visuallyHidden}>
-                      {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                    </Box>
-                  ) : null}
-                </TableSortLabel>
+                  <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} />
               </TableCell>
             :
             ''
@@ -304,14 +294,12 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    setRowsPerPage(parseInt(event.target.value, 20));
     setPage(0);
   };
 
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
-
-
 
 
 
@@ -334,25 +322,50 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
         );
       }));
     }
-  }, [searchText])
+  }, [searchText]);
 
-  const visibleRows = useMemo(
-    () =>
-      stableSort(filteredEmails, getComparator(order, orderBy)).slice(
-        page * rowsPerPage,
-        page * rowsPerPage + rowsPerPage,
-      ),
-    [order, orderBy, page, rowsPerPage],
-  );
+
+
+// start sort by date
+  const [isDesc, setIsDesc] = useState(true);
+  const sortByDateHandler = () => {
+    const sortedList = [...filteredEmails].sort((a, b) => {
+      if(isDesc) {
+        setIsDesc(!isDesc);
+        return Date.parse(b.date) - Date.parse(a.date);
+      }
+
+      if(!isDesc) {
+        setIsDesc(!isDesc);
+        return Date.parse(a.date) - Date.parse(b.date);
+      }
+    });
+
+    setFilteredEmails(sortedList);
+  }
+
+// end sort by date
+
+
+
+
+  // const visibleRows = useMemo(
+  //   () =>
+  //     stableSort(filteredEmails, getComparator(order, orderBy)).slice(
+  //       page * rowsPerPage,
+  //       page * rowsPerPage + rowsPerPage,
+  //     ),
+  //   [order, orderBy, page, rowsPerPage],
+  // );
 
 
   // start showing mail category tab
   // const [activeMail, setActiveMail] = useState(false);
-  const handleActiveMail = (event, newValue) => {
-    if (event.target === event.currentTarget) {
-      setActiveSingleMail(newValue);
-    }
-  };
+  // const handleActiveMail = (event, newValue) => {
+  //   if (event.target === event.currentTarget) {
+  //     setActiveSingleMail(newValue);
+  //   }
+  // };
   // end showing chat tab
 
 
@@ -396,6 +409,7 @@ const showSingleMailHanlder = (row) => {
                   onRequestSort={handleRequestSort}
                   rowCount={emails.length}
                   setSearchText={setSearchText}
+                  sortByDateHandler={sortByDateHandler}
                 />
 
                 <TableBody>
@@ -503,7 +517,6 @@ const showSingleMailHanlder = (row) => {
           sx={{display: activeSingleMail ? 'block' : 'none'}}
             xs = {6}
           >
-
 
           <SingleMail userIcon={userIcon} mailFrom={mailFrom} mailTo={mailTo} mailSubject={mailSubject} mailTitle={mailTitle} mailMessage={mailMessage} setActiveSingleMail={setActiveSingleMail} />
         
