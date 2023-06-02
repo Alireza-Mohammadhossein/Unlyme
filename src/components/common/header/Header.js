@@ -7,7 +7,8 @@ import {
   LOCAL_STORAGE_LOCALE,
   SUPPORTED_LANGUAGES,
 } from "../../../types";
-import logo from "../../../assets/images/header/white-logo.svg";
+// import logo from "../../../assets/images/header/white-logo.svg";
+import logo from "../../../assets/images/logo.png";
 import Tooltip from "@mui/material/Tooltip";
 // import searchIcon from "../../../assets/images/header/search.gif";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,11 +24,12 @@ import {
   setAssistantMessage
 } from '../../../redux/app/popupSlice';
 import searchIcon from "../../../assets/images/header/AI-icon.png";
-import chatIcon from '../../../assets/images/header/chat-icon.png';
-import mailIcon from '../../../assets/images/header/mails-icon.png';
-import notesIcon from '../../../assets/images/header/notes-icon.png';
-import notificationIcon from '../../../assets/images/header/notifications-icon.png';
-import settingIcon from '../../../assets/images/header/setting.png';
+import search from "../../../assets/images/header/new-icons/search.png";
+import chatIcon from '../../../assets/images/header/new-icons/chat-icon.png';
+import mailIcon from '../../../assets/images/header/new-icons/mails-icon.png';
+import notesIcon from '../../../assets/images/header/new-icons/notes-icon.png';
+import notificationIcon from '../../../assets/images/header/new-icons/notifications-icon.png';
+import settingIcon from '../../../assets/images/header/new-icons/setting.png';
 
 
 
@@ -79,7 +81,9 @@ const Header = () => {
                 }
               }}
             >
+
               <div className="header__details-area_searchbar_container">
+                <label><img src={search} /></label>
                 <input
                   className="header__details-area_searchbar-input"
                   placeholder={t("HEADER.SEARCH_PLACEHOLDER")}
@@ -90,12 +94,23 @@ const Header = () => {
                     setAssistantInputText(e.target.value);
                   }}
                 />
+
+                <div
+                  className="header__details-area_searchbar-globe"
+                  onClick={() => {
+                    dispatch(toggleAssistantPopup())
+                  }}
+                >
+                  <Tooltip title="Unlyme Assistant" arrow placement="bottom">
+                    <img src={searchIcon} alt="assistant" />
+                  </Tooltip>
+                </div>
               </div>
             </form>
           </div>
 
           <div className="header__details-area_items">
-            <div
+            {/* <div
               className="header__details-area_items-globe"
               onClick={() => {
                 dispatch(toggleAssistantPopup())
@@ -104,7 +119,7 @@ const Header = () => {
               <Tooltip title="Unlyme Assistant" arrow placement="bottom">
                 <img src={searchIcon} alt="assistant" />
               </Tooltip>
-            </div>
+            </div> */}
 
             <div
               className="header__details-area_items-icon"
@@ -158,10 +173,8 @@ const Header = () => {
                 />
               </Tooltip>
             </div>
-          </div>
 
-          <div className="header__details-area_account">
-            <div className="header__details-area_account-icon" onClick={() => {
+            <div className="header__details-area_items-icon" onClick={() => {
                   dispatch(toggleSettingPopup())
                 }}>
                 <img
@@ -171,6 +184,18 @@ const Header = () => {
 
             </div>
           </div>
+
+          {/* <div className="header__details-area_account">
+            <div className="header__details-area_account-icon" onClick={() => {
+                  dispatch(toggleSettingPopup())
+                }}>
+                <img
+                  src={settingIcon}
+                  alt="chat"
+                />
+
+            </div>
+          </div> */}
         </div>
       </div>
     </>
