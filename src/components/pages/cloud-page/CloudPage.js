@@ -17,7 +17,7 @@ const CloudPage = ({
   return (
     <div className="cloud-page" id='cloud-page'>
       <div className="cloud-page__header">
-            <div className='cloud-page__header_icon'>
+            {/* <div className='cloud-page__header_icon'>
               <img src={icon} />
             </div>
 
@@ -26,15 +26,15 @@ const CloudPage = ({
             </div>
             <div className='cloud-page__header_details'>
               {details}
-            </div>
+            </div> */}
 
-        {/* <Grid container spacing={2}>
-          <Grid item lg={3} md={3} xs={12}>
-            <div className='cloud-page__header_icon'>
+        <Grid container spacing={2}>
+          <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
+            <div className='cloud-page__header_share_icon'>
               <img src={icon} />
             </div>
 
-            <div className="cloud-page__header_title">
+            <div className="cloud-page__header_share_title">
               {title}
             </div>
           </Grid>
@@ -43,7 +43,7 @@ const CloudPage = ({
               {details}
             </div>
           </Grid>
-        </Grid> */}
+        </Grid>
 
 
       </div>

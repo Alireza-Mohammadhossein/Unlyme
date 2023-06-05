@@ -9,20 +9,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import { visuallyHidden } from '@mui/utils';
-import { emails } from '../../../mocks/mocks';
 import star from '../../../assets/images/my-services/email/star.png';
 import activeStar from '../../../assets/images/my-services/email/favorite.png';
 import attached from '../../../assets/images/my-services/email/attached.png';
 import SingleMail from './single-mail/SingleMail';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { useEffect } from 'react';
 
@@ -134,7 +126,7 @@ function EnhancedTableHead(props) {
         </TableCell>
 
         
-        <TableCell padding="checkbox"  className='email-header_selected'>
+        <TableCell colSpan={5} padding="checkbox" className='email-header_selected'>
           {numSelected > 0 ?
             numSelected
           : 
@@ -142,20 +134,7 @@ function EnhancedTableHead(props) {
           }
         </TableCell>
 
-        <TableCell colSpan={4} className='email-header_search'>
-          <FormControl>
-              <Input
-                className='email-header_search-input'
-                onChange={(e) => setSearchText(e.target.value)}
-                placeholder='Search messages...'
-                startAdornment={
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                }
-              />
-          </FormControl>
-        </TableCell>
+
         
         {headCells.map((headCell) => (
             headCell.label === 'Date' ?
@@ -194,48 +173,8 @@ function EnhancedTableHead(props) {
 }
 
 
-function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
 
-  return (
-    <Toolbar
-      sx={{
-        pl: { sm: 1 },
-        pr: { xs: 1, sm: 1 },
-        ...(numSelected > 0 && {
-          bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
-      }}
-    >
-      <div className='email-toolbar'>
-        <div className='email-toolbar_selected'>
-
-        </div>
-      </div>
-
-
-
-      {/* {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )} */}
-
-    </Toolbar>
-  );
-}
-
-
-export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
+export default function EmailTable({ activeSingleMail, setActiveSingleMail, emails, searchText, setSearchText }) {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('date');
   const [selected, setSelected] = useState([]);
@@ -303,7 +242,6 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail }) {
 
 
 
-  const [searchText, setSearchText] = useState('');
   const [filteredEmails, setFilteredEmails] = useState(emails);
   
   useEffect(() => {
