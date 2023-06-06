@@ -159,14 +159,15 @@
                     outline: none;
                     width: 100%;
                     box-sizing: border-box;
-                    background-color: #F8FAFC;
+                    // background-color: #F8FAFC;
                     transition: 0.2s;
-                    border: 1px solid #ECECEC;
+                    // border: 1px solid #ECECEC;
                     padding: 10px 8px;
                     font-size: 15px;
 
                         & .MuiInputBase-root {
                             border-radius: 8px;
+                            background-color: #F8FAFC;
                         }
                         
                         & .MuiInput-underline:after {

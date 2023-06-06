@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     chatPopupToggler: false,
-    mailPopupToggler: false,
+    emailPopupToggler: false,
     notePopupToggler: false,
     notificationPopupToggler: false,
     settingPopupToggler: false,
@@ -19,7 +19,7 @@ export const popupSlice = createSlice({
   reducers: {
     toggleChatPopup: (state) => {
         state.chatPopupToggler = !state.chatPopupToggler;
-        state.mailPopupToggler = false;
+        state.emailPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
         state.settingPopupToggler = false;
@@ -27,8 +27,8 @@ export const popupSlice = createSlice({
         state.newAssistantPopupToggler = false;
     },
 
-    toggleMailpopup: (state) => {
-        state.mailPopupToggler = !state.mailPopupToggler;
+    toggleEmailpopup: (state) => {
+        state.emailPopupToggler = !state.emailPopupToggler;
         state.chatPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
@@ -40,7 +40,7 @@ export const popupSlice = createSlice({
     toggleNotePopup: (state) => {
         state.notePopupToggler = !state.notePopupToggler;
         state.chatPopupToggler = false;
-        state.mailPopupToggler = false;
+        state.emailPopupToggler = false;
         state.notificationPopupToggler = false;
         state.settingPopupToggler = false;
         state.assistantPopupToggler = false;
@@ -50,7 +50,7 @@ export const popupSlice = createSlice({
     toggleNotificationPopup: (state) => {
         state.notificationPopupToggler = !state.notificationPopupToggler;
         state.chatPopupToggler = false;
-        state.mailPopupToggler = false;
+        state.emailPopupToggler = false;
         state.notePopupToggler = false;
         state.settingPopupToggler = false;
         state.assistantPopupToggler = false;
@@ -60,7 +60,7 @@ export const popupSlice = createSlice({
     toggleSettingPopup: (state) => {
         state.settingPopupToggler = !state.settingPopupToggler;
         state.chatPopupToggler = false;
-        state.mailPopupToggler = false;
+        state.emailPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
         state.assistantPopupToggler = false;
@@ -70,7 +70,7 @@ export const popupSlice = createSlice({
     toggleAssistantPopup: (state) => {
         state.assistantPopupToggler = !state.assistantPopupToggler;
         state.chatPopupToggler = false;
-        state.mailPopupToggler = false;
+        state.emailPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
         state.settingPopupToggler = false;
@@ -82,7 +82,7 @@ export const popupSlice = createSlice({
         } else {
             state.newAssistantPopupToggler = true;
             state.chatPopupToggler = false;
-            state.mailPopupToggler = false;
+            state.emailPopupToggler = false;
             state.notePopupToggler = false;
             state.notificationPopupToggler = false;
             state.settingPopupToggler = false;
@@ -116,7 +116,7 @@ export const popupSlice = createSlice({
 
 export const {
     toggleChatPopup,
-    toggleMailpopup, 
+    toggleEmailpopup, 
     toggleNotePopup, 
     toggleNotificationPopup, 
     toggleSettingPopup, 

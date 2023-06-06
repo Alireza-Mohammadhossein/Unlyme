@@ -22,13 +22,13 @@ function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
 
   const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
-  const mailPopup = useSelector((state) => state.popup.mailPopupToggler);
+  const emailPopup = useSelector((state) => state.popup.emailPopupToggler);
   const notePopup = useSelector((state) => state.popup.notePopupToggler);
   const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
   const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
   const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
 
-  const popupShow = chatPopup || mailPopup || notePopup || notificationPopup || settingPopup || assistantPopup;
+  const popupShow = chatPopup || emailPopup || notePopup || notificationPopup || settingPopup || assistantPopup;
 
   // // const defaultBrowserDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 

@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { useSelector, useDispatch } from "react-redux";
 import { 
   toggleChatPopup,
+  toggleEmailpopup,
   toggleNotePopup, 
   toggleNotificationPopup, 
   toggleSettingPopup, 
@@ -135,7 +136,12 @@ const Header = () => {
               </Tooltip>
             </div>
 
-            <div className="header__details-area_items-icon">
+            <div
+              className="header__details-area_items-icon"
+              onClick={() => {
+                dispatch(toggleEmailpopup())
+              }}
+            >
               <Tooltip title="Mails" arrow placement="bottom">
                 <img
                   src={mailIcon}

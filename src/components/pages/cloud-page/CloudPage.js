@@ -28,7 +28,7 @@ const CloudPage = ({
               {details}
             </div> */}
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2}>  
           <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
             <div className='cloud-page__header_share_icon'>
               <img src={icon} />

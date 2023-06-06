@@ -1,5 +1,6 @@
 import HeaderAssistantPopup from './header-assistantpopup/HeaderAssistantPopup';
 import HeaderChatPopup from './header-chatpopup/HeaderChatPopup';
+import HeaderEmailPopup from './header-emailpopup/HeaderEmailPopup';
 import HeaderNotePopup from './header-notepopup/HeaderNotePopup';
 import HeaderNotificationPopup from './header-notificationpopup/HeaderNotificationPopup';
 import HeaderSettingPopup from './header-settingpopup/HeaderSettingPopup';
@@ -12,7 +13,7 @@ const HeaderPopups = () => {
 
 
     const chatPopup = useSelector((state) => state.popup.chatPopupToggler);
-    const mailPopup = useSelector((state) => state.popup.mailPopupToggler);
+    const emailPopup = useSelector((state) => state.popup.emailPopupToggler);
     const notePopup = useSelector((state) => state.popup.notePopupToggler);
     const notificationPopup = useSelector((state) => state.popup.notificationPopupToggler);
     const settingPopup = useSelector((state) => state.popup.settingPopupToggler);
@@ -38,6 +39,14 @@ const HeaderPopups = () => {
         ""
       )}
 
+      {emailPopup ? (
+        <div className="header__popup-area">
+          <HeaderEmailPopup />
+        </div>
+      ) : (
+        ""
+      )}
+      
       {notificationPopup ? (
         <div className="header__popup-area">
           <HeaderNotificationPopup />

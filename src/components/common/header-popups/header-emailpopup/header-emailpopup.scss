@@ -1,0 +1,393 @@
+.isnot-home .email-popup {
+  width: max-content;
+  position: relative;
+} 
+
+.email-popup {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    background-color: #ffffff;
+    border-radius: 18px;
+    position: absolute;
+    transition: all 0.3s ease;
+    right: 20px;
+    top: 69px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+    &-list {
+      width: 380px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    
+      &__header {
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ececec;
+        align-items: center;
+    
+        &-title {
+          font-size: 22px;
+          color: #000000;
+        }
+    
+        &-actions {
+          display: flex;
+        }
+      }
+    
+      &__body {
+        overflow: hidden;
+        height: calc(100% - 80px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &-messages {
+          height: 94%;
+          padding: 20px 30px !important;
+          gap: 15px;
+          display: flex;
+          flex-direction: column;
+          overflow-y: scroll;
+          
+  
+          &_container {
+            height: 100%;
+  
+            & .MuiBox-root {
+              padding: 0;
+              height: 100%;
+            }
+            & .MuiTypography-root {
+              height: 100%;
+            }
+          }
+  
+          &_item {
+            flex-direction: column;
+            padding: 0 !important;
+            gap: 5px;
+            border-bottom: 1px solid #ececec;
+    
+            & .MuiTabs-flexContainer  {
+              flex-direction: column-reverse;
+            }
+
+            &_header {
+                display: flex;
+                width: 100%;
+                gap: 8px;
+                align-items: center;
+
+                &-category {
+                    color: $gray-text;
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+
+                &-time {
+                    color: #515154;
+                    font-size: 13px;
+                }
+            }
+
+            &_content {
+              display: flex;
+              align-items: baseline;
+              gap: 5px;
+              width: 100%;
+
+                & .MuiListItemText-root {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                & .MuiListItemText-primary {
+                    color: #000000;
+                    font-size: 14px;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                } 
+                
+                & .MuiListItemText-secondary {
+                    color: $gray-text;
+                    font-size: 13px;
+                    width: 100%;
+                    overflow: hidden;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                } 
+                
+                &-icon {
+
+                  & .MuiSvgIcon-root { 
+                  font-size: 12px;
+                  color: #3E6DC5; 
+                  }
+                }
+
+            }
+
+            &:last-child {
+                border-bottom: unset;
+            }
+          }
+        }
+
+      }
+    }  
+}
+
+
+.siteWrapperLG .email-popup {
+
+  &-list {
+    width: 330px;
+
+
+    &__header {
+      padding: 20px;
+
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        padding: 20px !important;
+
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperMD .email-popup {
+
+  &-list {
+    width: 330px;
+
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperSM .email-popup {
+
+  &-list {
+    width: 350px;
+    
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.siteWrapperXS .email-popup {
+  &-list {
+    width: 350px;
+    
+    &__header {
+      &-title {
+        font-size: 20px;
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root { 
+                  font-size: 11px; 
+                  }
+              }
+
+              &-category {
+                  font-size: 13px;
+              }
+
+              &-time {
+                  font-size: 12px;
+              }
+          }
+
+          &_content {
+              & .MuiListItemText-primary {
+                  font-size: 13px;
+              } 
+              
+              & .MuiListItemText-secondary {
+                  font-size: 12px;
+              } 
+          }
+        }
+      }
+
+    }
+  }  
+}
+
+.dark .email-popup {
+  background-color: $dark-theme-background-color;
+
+  &-list {
+    &__header {
+      border-color: #7c7c7c;
+  
+      &-title {
+        color: $dark-theme-title-color;
+      }
+  
+      &-actions {
+        & .MuiSvgIcon-root {
+          color: $dark-theme-title-color;
+        }
+      }
+    }
+  
+    &__body {
+      &-messages {
+        &_item {
+          border-color: #7c7c7c;
+
+          &_header {
+              &-icon {
+                  & .MuiSvgIcon-root {
+                  color: #51a3ff; 
+                  }
+              }
+
+              &-category {
+                  color: #51a3ff;
+              }
+
+              &-time {
+                  color: $dark-theme-subtitle-color;
+              }
+          }
+
+          &_content {
+            & .MuiListItemText-primary {
+                color: $dark-theme-title-color;
+            }
+            
+            & .MuiListItemText-secondary {
+                color: $dark-theme-subtitle-color;
+            } 
+          }
+        }
+      }
+    }
+  }  
+}

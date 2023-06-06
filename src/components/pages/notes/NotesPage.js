@@ -61,7 +61,7 @@ function a11yProps(index) {
 
 
 
-function NotesPageContent() {
+const NotesPageContent = () => {
 
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -358,11 +358,37 @@ const NotesPage = () => {
 
   return (
     <div className="page-container">
-      <CloudPage
+      {/* <CloudPage
         title={t("NOTES_PAGE.TITLE")}
         icon={icon}
         content={NotesPageContent()}
-      />
+      /> */}
+
+      <div className="cloud-page">
+        <div className="cloud-page__header">
+          <Grid container spacing={2}>  
+            <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
+              <div className='cloud-page__header_share_icon'>
+                <img src={icon} />
+              </div>
+
+              <div className="cloud-page__header_share_title">
+              {t("NOTES_PAGE.TITLE")}
+              </div>
+            </Grid>
+            <Grid item lg={9} md={9} xs={12}>
+              <div className='cloud-page__header_details'>
+                Email details bar
+              </div>
+            </Grid>
+          </Grid>
+
+
+        </div>
+        <div className="cloud-page__content">
+          <NotesPageContent />
+        </div>
+      </div>
     </div>
   );
 };
