@@ -26,6 +26,381 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupS
 
 
 
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
+
+//   return (
+//     <div
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`vertical-tabpanel-${index}`}
+//       aria-labelledby={`vertical-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && (
+//         <Box sx={{ p: 3 }}>
+//           <Typography component={"div"}>{children}</Typography>
+//         </Box>
+//       )}
+//     </div>
+//   );
+// }
+
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.number.isRequired,
+//   value: PropTypes.number.isRequired,
+// };
+
+// function a11yProps(index) {
+//   return {
+//     id: `vertical-tab-${index}`,
+//     "aria-controls": `vertical-tabpanel-${index}`,
+//   };
+// }
+
+
+
+// const NotesPageContent = () => {
+
+//   const dispatch = useDispatch();
+//   const { t, i18n } = useTranslation();
+//   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
+//   const options = ["Edit", "Add description", "Delete"];
+//   const ITEM_HEIGHT = 48;
+
+//   // start showing chat tab
+//   const [showNote, setShowNote] = useState(false);
+//   const handleShowNote = (event, newValue) => {
+//     if (event.target === event.currentTarget) {
+//       setShowNote(newValue);
+//       setNewNoteToggler(false);
+//     }
+//   };
+//   // end showing chat tab
+
+//   // start create new note
+//   const [newNoteToggler, setNewNoteToggler] = useState(true);
+//   const [newNote, setNewNote] = useState([]);
+//   const handleCreateNote = () => {
+//     setNewNoteToggler(true);
+//     setShowNote(false);
+//     setNewNote([]);
+//   };
+//   // end create new note
+
+//   const [notes, setNotes] = useState([]);
+//   const [currentMessage, setCurrentMessage] = useState("");
+//   const [currentTitle, setCurrentTitle] = useState("");
+
+//   // start getting notes from localstorage
+//   useEffect(() => {
+//     const storedNotes = JSON.parse(localStorage.getItem("notes"));
+//     if (storedNotes) setNotes(storedNotes);
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem("notes", JSON.stringify(notes));
+//   }, [notes]);
+//   // end getting notes from localstorage
+
+//   const handleAddNote = (
+//     dayNow,
+//     monthNow,
+//     yearNow,
+//     timeNow,
+//     currenTitle,
+//     currentMessage
+//   ) => {
+//     if (currentMessage !== "" && currentTitle !== "") {
+//       const newNote = {
+//         id: new Date().getTime(),
+//         day: dayNow,
+//         month: monthNow,
+//         year: yearNow,
+//         time: timeNow,
+//         title: currenTitle,
+//         message: currentMessage,
+//       };
+//       setNotes([...notes, newNote]);
+//       setCurrentTitle("");
+//       setCurrentMessage("");
+//       setNewNoteToggler(false);
+//     }
+//   };
+
+//   const handleDeleteNote = (index) => {
+//     const updatedNotes = [...notes];
+//     updatedNotes.splice(index, 1);
+//     setNotes(updatedNotes);
+//     setNewNoteToggler(false);
+//     setShowNote(false);
+//   };
+
+//   const [newTitleValue, setNewTitleValue] = useState("");
+//   const [newMessageValue, setNewMessageValue] = useState("");
+
+//   const handleUpdateNote = (index, newTitleValue, newMessageValue) => {
+//     const updatedNotes = [...notes];
+//     updatedNotes[index] = {
+//       ...updatedNotes[index],
+//       title: newTitleValue,
+//       message: newMessageValue,
+//     };
+//     setNotes(updatedNotes);
+//     setNewTitleValue("");
+//     setNewMessageValue("");
+//     setShowNote(false);
+//   };
+
+//   const [anchorEl, setAnchorEl] = useState(null);
+//   const open = Boolean(anchorEl);
+//   const handleClick = (event) => {
+//     setAnchorEl(event.currentTarget);
+//   };
+//   const handleClose = () => {
+//     setAnchorEl(null);
+//   };
+
+//   const dayNow = dayjs().date();
+//   const monthNow = dayjs().format("MMM");
+//   const yearNow = dayjs().format("YYYY");
+//   const timeNow = dayjs().format("HH:mm");
+
+
+//   return (
+//     <div className="notes-page">
+//       <Grid container spacing={3}>
+//         <Grid
+//           item
+//           lg={3}
+//           md={3}
+//           xs={12}
+//           sx={{
+//             display: {
+//               lg: secondPopupTab ? "none" : "block",
+//               md: secondPopupTab ? "none" : "block",
+//             },
+//           }}
+//         >
+//           <div className="notes-page_sidebar">
+//             <div className="notes-page_sidebar_create-event">
+//               <Button
+//                 // variant="outlined"
+//                 startIcon={<AddIcon />}
+//                 className="notes-page_sidebar_create-event_btn"
+//                 onClick={handleCreateNote}
+//               >
+//                 {t("NOTES_PAGE.CREATE_NOTE_BUTON")}
+//               </Button>
+//             </div>
+
+//             <div className="notes-page_sidebar-section">
+//               <Tabs
+//                 orientation="vertical"
+//                 variant="scrollable"
+//                 value={showNote}
+//                 onChange={handleShowNote}
+//                 aria-label="Vertical tabs example"
+//                 className="notes-page_sidebar-section_notes-list"
+//               >
+//                 {notes.map((item, index) => (
+//                   <Tab
+//                     className="notes-page_sidebar-section_notes-item"
+//                     key={item.id}
+//                     {...a11yProps(index)}
+//                     component={"div"}
+//                     label={
+//                       <>
+//                         <div className="notes-page_sidebar-section_notes-item_content">
+//                           <p className="notes-page_sidebar-section_notes-item_content_name">
+//                             {item.title}
+//                           </p>
+//                           <p className="notes-page_sidebar-section_notes-item_content_message">
+//                             {item.message}
+//                           </p>
+//                         </div>
+
+//                         <div className="notes-page_sidebar-section_notes-item_actions">
+//                           <div className="notes-page_sidebar-section_notes-item_actions-delete">
+//                             <IconButton
+//                               aria-label="delete"
+//                               id="long-button"
+//                               aria-controls={open ? "long-menu" : undefined}
+//                               aria-expanded={open ? "true" : undefined}
+//                               aria-haspopup="true"
+//                               onClick={() => handleDeleteNote(index)}
+//                             >
+//                               <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+//                             </IconButton>
+//                           </div>
+//                         </div>
+//                       </>
+//                     }
+//                   />
+//                 ))}
+//               </Tabs>
+//             </div>
+//           </div>
+//         </Grid>
+
+
+//         <Grid
+//           item
+//           lg={secondPopupTab ? 12 : 9}
+//           md={secondPopupTab ? 12 : 9}
+//           xs={12}
+//         >
+//           <div className="notes-page_main">
+//             <div className="notes-page_main_notes">
+
+//               {showNote !== false
+//                 ? 
+//                 <div className='notes-page_main_notes-messages'>
+//                   {notes.map((item, index) => {
+//                     return (
+//                       <TabPanel key={item.id} value={showNote} index={index} className='notes-page_main_notes-messages-tabpanel'>
+//                           <div className='notes-page_main_notes-messages__body'>
+
+//                             <div className='notes-page_main_notes-messages__body-date'>
+//                               <p>{item.day} {item.month} {item.year} at {item.time}</p>
+//                             </div>
+
+//                             <div className='notes-page_main_notes-messages__body-content'>
+//                                 <TextField
+//                                   className='notes-page_main_notes-messages__body-content-title'
+//                                   placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
+//                                   multiline
+//                                   value={newTitleValue || item.title}
+//                                   onChange={(e) => setNewTitleValue(e.target.value)}
+//                                 />
+          
+//                                 <TextField
+//                                   className='notes-page_main_notes-messages__body-content-message'
+//                                   placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+//                                   multiline
+//                                   value={newMessageValue || item.message}
+//                                   onChange={(e) => setNewMessageValue(e.target.value)}
+//                                 />
+//                             </div>
+
+//                             <div className='notes-page_main_notes-messages__body-submit'>
+//                               <button
+//                                 className='btn'
+//                                 disabled= {!newTitleValue || !newMessageValue}
+//                                 onClick={() => handleUpdateNote(index, newTitleValue, newMessageValue)}>
+//                                   Update note
+//                               </button>
+//                             </div>
+//                           </div>
+                        
+//                       </TabPanel>
+//                     )
+//                   }
+//                   )}
+//                 </div>
+//                 : ''
+//               }
+
+//               {newNoteToggler 
+//                 ?
+//                   <div className='notes-page_main_notes-messages'>
+//                         <div className='notes-page_main_notes-messages__body'>
+//                           <div className='notes-page_main_notes-messages__body-date'>
+//                             <p>{dayNow} {monthNow} {yearNow} at {timeNow}</p>
+//                           </div>
+            
+//                           <div className='notes-page_main_notes-messages__body-content'> 
+//                               <TextField
+//                                 className='notes-page_main_notes-messages__body-content-title'
+//                                 placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
+//                                 multiline
+//                                 value={currentTitle}
+//                                 onChange={(e) => setCurrentTitle(e.target.value)}
+//                               />
+//                               <TextField
+//                                 className='notes-page_main_notes-messages__body-content-message'
+//                                 placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
+//                                 multiline
+//                                 value={currentMessage}
+//                                 onChange={(e) => setCurrentMessage(e.target.value)}
+//                               />
+//                           </div>
+
+//                           <div className='notes-page_main_notes-messages__body-submit' >
+//                             <button
+//                               className='btn'
+//                               disabled={!currentTitle || ! currentMessage}
+//                               onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
+//                               Add
+//                             </button>
+//                           </div>
+
+
+
+//                         </div>
+//                   </div>
+//                 :
+//                 ''
+//               }
+
+//             </div>
+//           </div>
+//         </Grid>
+//       </Grid>
+//     </div>
+//   );
+// }
+
+// const NotesPage = () => {
+//   const { t, i18n } = useTranslation();
+
+//   return (
+//     <div className="page-container">
+//       {/* <CloudPage
+//         title={t("NOTES_PAGE.TITLE")}
+//         icon={icon}
+//         content={NotesPageContent()}
+//       /> */}
+
+//       <div className="cloud-page">
+//         <div className="cloud-page__header">
+//           <Grid container spacing={2}>  
+//             <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
+//               <div className='cloud-page__header_share_icon'>
+//                 <img src={icon} />
+//               </div>
+
+//               <div className="cloud-page__header_share_title">
+//               {t("NOTES_PAGE.TITLE")}
+//               </div>
+//             </Grid>
+//             <Grid item lg={9} md={9} xs={12}>
+//               <div className='cloud-page__header_details'>
+//                 Email details bar
+//               </div>
+//             </Grid>
+//           </Grid>
+
+
+//         </div>
+//         <div className="cloud-page__content">
+//           <NotesPageContent />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default NotesPage;
+
+
+
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -58,7 +433,6 @@ function a11yProps(index) {
     "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
-
 
 
 const NotesPageContent = () => {
@@ -139,18 +513,22 @@ const NotesPageContent = () => {
   };
 
   const [newTitleValue, setNewTitleValue] = useState("");
-  const [newMessageValue, setNewMessageValue] = useState("");
+  const [newMessageValue, setNewMessageValue] = useState([]);
 
-  const handleUpdateNote = (index, newTitleValue, newMessageValue) => {
+  const handleUpdateNote = (index, title, message, newTitleValue, newMessageValue) => {
+    console.log('title', title)
+    console.log('message', message)
+    console.log('new message', newMessageValue)
+    // console.log('value', value)
     const updatedNotes = [...notes];
     updatedNotes[index] = {
       ...updatedNotes[index],
-      title: newTitleValue,
+      title: newTitleValue ? newTitleValue : title,
       message: newMessageValue,
     };
     setNotes(updatedNotes);
     setNewTitleValue("");
-    setNewMessageValue("");
+    // setNewMessageValue("");
     setShowNote(false);
   };
 
@@ -167,6 +545,27 @@ const NotesPageContent = () => {
   const monthNow = dayjs().format("MMM");
   const yearNow = dayjs().format("YYYY");
   const timeNow = dayjs().format("HH:mm");
+
+  
+  const modules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline','strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      [{ 'size': ['small', 'normal', 'large', 'huge'] }],
+      ['link', 'image'],
+      // ['clean']
+    ],
+  }
+
+  const formats = [
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'size',
+    'list', 'bullet', 'indent',
+    'link', 'image'
+  ]
+
 
 
   return (
@@ -205,41 +604,52 @@ const NotesPageContent = () => {
                 aria-label="Vertical tabs example"
                 className="notes-page_sidebar-section_notes-list"
               >
-                {notes.map((item, index) => (
-                  <Tab
-                    className="notes-page_sidebar-section_notes-item"
-                    key={item.id}
-                    {...a11yProps(index)}
-                    component={"div"}
-                    label={
-                      <>
-                        <div className="notes-page_sidebar-section_notes-item_content">
-                          <p className="notes-page_sidebar-section_notes-item_content_name">
-                            {item.title}
-                          </p>
-                          <p className="notes-page_sidebar-section_notes-item_content_message">
-                            {item.message}
-                          </p>
-                        </div>
+                {notes.map((item, index) => {
 
-                        <div className="notes-page_sidebar-section_notes-item_actions">
-                          <div className="notes-page_sidebar-section_notes-item_actions-delete">
-                            <IconButton
-                              aria-label="delete"
-                              id="long-button"
-                              aria-controls={open ? "long-menu" : undefined}
-                              aria-expanded={open ? "true" : undefined}
-                              aria-haspopup="true"
-                              onClick={() => handleDeleteNote(index)}
-                            >
-                              <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
-                            </IconButton>
-                          </div>
+                  // convert ReactQuill message to html
+                  var code = `<div>${item.message}</div>`;
+                  var tempElement = document.createElement('div');
+                  tempElement.innerHTML = code;
+                  var decodedHTML = tempElement.textContent;
+                  const itemMessage = decodedHTML;
+
+                  
+                  return (
+                    <Tab
+                      className="notes-page_sidebar-section_notes-item"
+                  key={item.id}
+                  {...a11yProps(index)}
+                  component={"div"}
+                  label={
+                    <>
+                      <div className="notes-page_sidebar-section_notes-item_content">
+                        <p className="notes-page_sidebar-section_notes-item_content_name">
+                          {item.title}
+                        </p>
+                        <p className="notes-page_sidebar-section_notes-item_content_message">
+                          {itemMessage}
+                        </p>
+                      </div>
+
+                      <div className="notes-page_sidebar-section_notes-item_actions">
+                        <div className="notes-page_sidebar-section_notes-item_actions-delete">
+                          <IconButton
+                            aria-label="delete"
+                            id="long-button"
+                            aria-controls={open ? "long-menu" : undefined}
+                            aria-expanded={open ? "true" : undefined}
+                            aria-haspopup="true"
+                            onClick={() => handleDeleteNote(index)}
+                          >
+                            <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+                          </IconButton>
                         </div>
-                      </>
+                      </div>
+                    </>
                     }
-                  />
-                ))}
+                    />
+                  )
+                })}
               </Tabs>
             </div>
           </div>
@@ -259,6 +669,7 @@ const NotesPageContent = () => {
                 ? 
                 <div className='notes-page_main_notes-messages'>
                   {notes.map((item, index) => {
+
                     return (
                       <TabPanel key={item.id} value={showNote} index={index} className='notes-page_main_notes-messages-tabpanel'>
                           <div className='notes-page_main_notes-messages__body'>
@@ -276,20 +687,31 @@ const NotesPageContent = () => {
                                   onChange={(e) => setNewTitleValue(e.target.value)}
                                 />
           
-                                <TextField
+                                {/* <TextField
                                   className='notes-page_main_notes-messages__body-content-message'
                                   placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
                                   multiline
                                   value={newMessageValue || item.message}
                                   onChange={(e) => setNewMessageValue(e.target.value)}
+                                /> */}
+                                <ReactQuill
+                                  theme="snow"
+                                  value={newMessageValue[index] || item.message}
+                                  modules={modules}
+                                  formats={formats}
+                                  onChange={(value) => {
+                                    const updatedValues = [...newMessageValue];
+                                    updatedValues[index] = value;
+                                    setNewMessageValue(updatedValues);
+                                  }}  
                                 />
                             </div>
 
                             <div className='notes-page_main_notes-messages__body-submit'>
                               <button
                                 className='btn'
-                                disabled= {!newTitleValue || !newMessageValue}
-                                onClick={() => handleUpdateNote(index, newTitleValue, newMessageValue)}>
+                                // disabled= {!newTitleValue || !newMessageValue}
+                                onClick={() => handleUpdateNote(index, item.title, item.message, newTitleValue, newMessageValue[index])}>
                                   Update note
                               </button>
                             </div>
@@ -319,13 +741,17 @@ const NotesPageContent = () => {
                                 value={currentTitle}
                                 onChange={(e) => setCurrentTitle(e.target.value)}
                               />
-                              <TextField
+
+                              
+                              {/* <TextField
                                 className='notes-page_main_notes-messages__body-content-message'
                                 placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
                                 multiline
                                 value={currentMessage}
                                 onChange={(e) => setCurrentMessage(e.target.value)}
-                              />
+                              /> */}
+
+                              <ReactQuill theme="snow" value={currentMessage} onChange={setCurrentMessage} />
                           </div>
 
                           <div className='notes-page_main_notes-messages__body-submit' >
