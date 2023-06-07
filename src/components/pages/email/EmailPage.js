@@ -99,7 +99,7 @@ function EmailPageContent() {
             </div>
           </Grid>
           <Grid item lg={9} md={9} xs={12}>
-            <div className='cloud-page__header_details'>
+            <div className='cloud-page__header_email-details'>
               <EmailDetailsBar setSearchText={setSearchText} />
             </div>
           </Grid>

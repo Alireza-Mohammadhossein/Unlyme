@@ -12,10 +12,10 @@ const EmailDetailsBar = ({ setSearchText }) => {
     return (
         <Grid container spacing={2}>
             <Grid item lg={4} md={12} xs={12}>
-                <div className='cloud-page__header_details_search'>
+                <div className='cloud-page__header_email-details_search'>
                     <FormControl>
                         <Input
-                        className='cloud-page__header_details_search-input'
+                        className='cloud-page__header_email-details_search-input'
                         onChange={(e) => setSearchText(e.target.value)}
                         placeholder='Search messages...'
                         startAdornment={
@@ -29,14 +29,14 @@ const EmailDetailsBar = ({ setSearchText }) => {
             </Grid>
 
             <Grid item lg={8} md={12} xs={12}>
-                <div className='cloud-page__header_details_actions'>
-                    <Button variant="contained" startIcon="R" className='cloud-page__header_details_actions-btn'>
+                <div className='cloud-page__header_email-details_actions'>
+                    <Button variant="contained" startIcon="R" className='cloud-page__header_email-details_actions-btn'>
                         Summary Letter
                     </Button>
-                    <Button variant="contained" startIcon="W" className='cloud-page__header_details_actions-btn'>
+                    <Button variant="contained" startIcon="W" className='cloud-page__header_email-details_actions-btn'>
                         Write Reply
                     </Button>
-                    <Button variant="contained" startIcon="S" className='cloud-page__header_details_actions-btn'>
+                    <Button variant="contained" startIcon="S" className='cloud-page__header_email-details_actions-btn'>
                         Smart Search
                     </Button>
                 </div>
