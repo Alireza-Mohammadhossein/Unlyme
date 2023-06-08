@@ -11,7 +11,7 @@ import {
 } from "../../../types";
 import dashboardIcon from '../../../assets/images/my-services/dashboard.png';
 import domainsIcon from '../../../assets/images/my-services/domains.png';
-import webIcon from '../../../assets/images/my-services/drive.png';
+import driveIcon from '../../../assets/images/my-services/drive.png';
 import copySitesIcon from '../../../assets/images/my-services/copy-sites.png';
 import bankIcon from '../../../assets/images/my-services/bank.png';
 import settingIcon from '../../../assets/images/my-services/setting.png';
@@ -36,18 +36,39 @@ const Menu = ({screenSize}) => {
       img: `${dashboardIcon}`,
     },
     {
+      id: 8,
+      icon: "calendar_month",
+      title: "CALENDAR",
+      link: "/services/calendar",
+      img: `${calendarIcon}`,
+    },
+    {
+      id: 9,
+      icon: "calendar_month",
+      title: "NOTES",
+      link: "/services/notes",
+      img: `${notesIcon}`,
+    },
+    {
+      id: 10,
+      icon: "calendar_month",
+      title: "EMAILS",
+      link: "/services/email",
+      img: `${emailIcon}`,
+    },    
+    {
+      id: 3,
+      icon: "web",
+      title: "WORK_DRIVE",
+      link: "/services/work-drive",
+      img: `${driveIcon}`,
+    },
+    {
       id: 2,
       icon: "domain",
       title: "DOMAINS",
       link: "/services/domains",
       img: `${domainsIcon}`,
-    },
-    {
-      id: 3,
-      icon: "web",
-      title: "SITE_BUILDER",
-      link: "/services/site-builder",
-      img: `${webIcon}`,
     },
     {
       id: 4,
@@ -77,27 +98,7 @@ const Menu = ({screenSize}) => {
       link: "/services/online-consultant",
       img: `${onlineConsultantIcon}`,
     },
-    {
-      id: 8,
-      icon: "calendar_month",
-      title: "CALENDAR",
-      link: "/services/calendar",
-      img: `${calendarIcon}`,
-    },
-    {
-      id: 9,
-      icon: "calendar_month",
-      title: "NOTES",
-      link: "/services/notes",
-      img: `${notesIcon}`,
-    },
-    {
-      id: 10,
-      icon: "calendar_month",
-      title: "NOTES",
-      link: "/services/email",
-      img: `${emailIcon}`,
-    },
+
   ];
 
   return (

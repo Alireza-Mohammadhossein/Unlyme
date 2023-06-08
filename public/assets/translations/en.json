@@ -1,12 +1,14 @@
 {
   "MENU.MY_SERVICES": "My services",
   "MENU.DOMAINS": "Domains",
+  "MENU.WORK_DRIVE": "Work drive",
   "MENU.SITE_BUILDER": "Site builder",
   "MENU.COPY_SITES": "Copy sites",
   "MENU.BANK": "Bank",
   "MENU.SETTINGS": "Settings",
   "MENU.CALENDAR": "Calendar",
   "MENU.NOTES": "Notes",
+  "MENU.EMAILS": "Emails",
   "MENU.ONLINE_CONSULTANT": "Online consultant",
   "HEADER.HOW_CAN_UNLYME_HELP_YOU": "How can Unlyme help you?",
   "HEADER.SEARCH_PLACEHOLDER": "How can Unlyme help you?",
@@ -156,9 +158,15 @@
 
   "NOTES_PAGE.TITLE": "Notes",
   "NOTES_PAGE.CREATE_NOTE_BUTON": "New Note",
+  "NOTES_PAGE.SEARCH_PLACEHOLDER": "Search notes...",
 
   
   "EMAIL_PAGE.TITLE": "Mail",
-  "EMAIL_PAGE.CREATE_MAIL_BUTON": "New Message"
+  "EMAIL_PAGE.CREATE_MAIL_BUTON": "New Message",
+  "EMAIL_PAGE.SEARCH_PLACEHOLDER": "Search Messages...",
+
+  "WORK_DRIVE_PAGE.TITLE": "Work Drive",
+  "WORK_DRIVE_PAGE.SEARCH_PLACEHOLDER": "Search files and folders"
+
 }
 

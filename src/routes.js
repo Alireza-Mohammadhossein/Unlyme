@@ -12,6 +12,7 @@ import Settings from './components/settings/Settings';
 import Signin from './components/signin/SignIn';
 import SiteBuilder from './components/site-builder/SiteBuilder';
 import EmailPage from './components/pages/email/EmailPage';
+import WorkDrivePage from './components/pages/work-drive/WorkDrivePage';
 
 
 // This component is responsible for page routing
@@ -30,6 +31,10 @@ const Switcher = ({ screenSize }) => {
         <Route 
           path="/services/site-builder"
           element={<SiteBuilder />}
+        />
+        <Route 
+          path="/services/work-drive"
+          element={<WorkDrivePage />}
         />
         <Route 
           path="/services/copy-sites"

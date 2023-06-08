@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
@@ -9,6 +10,9 @@ import Grid from '@mui/material/Grid';
 
 
 const EmailDetailsBar = ({ setSearchText }) => {
+    const { t, i18n } = useTranslation();
+
+
     return (
         <Grid container spacing={2}>
             <Grid item lg={4} md={12} xs={12}>
@@ -17,7 +21,7 @@ const EmailDetailsBar = ({ setSearchText }) => {
                         <Input
                         className='cloud-page__header_email-details_search-input'
                         onChange={(e) => setSearchText(e.target.value)}
-                        placeholder='Search messages...'
+                        placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
                         startAdornment={
                             <InputAdornment position="start">
                                 <SearchIcon sx={{color: '#3C3C43B2'}} />

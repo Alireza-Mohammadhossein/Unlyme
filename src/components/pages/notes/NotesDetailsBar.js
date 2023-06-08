@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Grid from "@mui/material/Grid";
@@ -21,6 +22,8 @@ import shareFormat from '../../../assets/images/notepage/share.png';
 
 
 const NotesDetailsBar = ({ setSearchNote }) => {
+    const { t, i18n } = useTranslation();
+
 
     const [viewMode, setViewMode] = useState('list');
     const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
@@ -96,7 +99,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
                         <Input
                         className='cloud-page__header_notes-details_search-input'
                         onChange={(e) => setSearchNote(e.target.value)}
-                        placeholder='Search notes...'
+                        placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
                         startAdornment={
                             <InputAdornment position="start">
                                 <SearchIcon sx={{color: '#3C3C43B2'}} />
