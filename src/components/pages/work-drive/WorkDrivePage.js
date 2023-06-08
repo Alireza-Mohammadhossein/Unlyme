@@ -5,7 +5,8 @@ import icon from "../../../assets/images/my-services/drive.png";
 import "./work-drive-page.scss";
 import WorkDriveDetailsBar from './WorkDriveDetailsBar';
 import WorkDriveContent from './WorkDriveContent'
-// import { CustomToolbarQuill } from "./CustomToolbarQuill";
+import { setChonkyDefaults } from 'chonky';
+import { ChonkyIconFA } from 'chonky-icon-fontawesome';
 
 
 
@@ -14,7 +15,7 @@ import WorkDriveContent from './WorkDriveContent'
 
 const WorkDrivePage = () => {
   const { t, i18n } = useTranslation();
-
+  setChonkyDefaults({ iconComponent: ChonkyIconFA });
 
 
   return (

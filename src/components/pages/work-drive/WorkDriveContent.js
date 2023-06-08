@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 import "./work-drive-page.scss";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import Tabs from "@mui/material/Tabs";
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
@@ -12,32 +11,112 @@ import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUpload
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupSlice';
+import { FullFileBrowser } from 'chonky';
+import {
+  ChonkyActions,
+  ChonkyFileActionData,
+  FileArray,
+  FileBrowser,
+  FileContextMenu,
+  FileData,
+  FileHelper,
+  FileList,
+  FileNavbar,
+  FileToolbar,
+} from 'chonky';
+import { showActionNotification, useStoryLinks } from './utils';
+import DemoFsMap from '../../../mocks/work-drive.json';
 
 
+// const rootFolderId = DemoFsMap.rootFolderId;
+// const fileMap = DemoFsMap.fileMap;
 
+// export const useFiles = (currentFolderId) => {
+//     return useMemo(() => {
+//         const currentFolder = fileMap[currentFolderId];
+//         const files = currentFolder.childrenIds
+//             ? currentFolder.childrenIds.map((fileId) => fileMap[fileId] ?? null)
+//             : [];
+//         return files;
+//     }, [currentFolderId]);
+// };
+
+// export const useFolderChain = (currentFolderId) => {
+//     return useMemo(() => {
+//         const currentFolder = fileMap[currentFolderId];
+
+//         const folderChain = [currentFolder];
+
+//         let parentId = currentFolder.parentId;
+//         while (parentId) {
+//             const parentFile = fileMap[parentId];
+//             if (parentFile) {
+//                 folderChain.unshift(parentFile);
+//                 parentId = parentFile.parentId;
+//             } else {
+//                 parentId = null;
+//             }
+//         }
+
+//         return folderChain;
+//     }, [currentFolderId]);
+// };
+
+// export const useFileActionHandler = (setCurrentFolderId) => {
+//     return useCallback((data) => {
+//         if (data.id === ChonkyActions.OpenFiles.id) {
+//             const { targetFile, files } = data.payload;
+//             const fileToOpen = targetFile ?? files[0];
+//             if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
+//                 setCurrentFolderId(fileToOpen.id);
+//                 return;
+//             }
+//         }
+
+//         showActionNotification(data);
+//     }, [setCurrentFolderId]);
+// };
+
+// export const ReadOnlyVFSBrowser = (props) => {
+//     const [currentFolderId, setCurrentFolderId] = useState(rootFolderId);
+//     const files = useFiles(currentFolderId);
+//     const folderChain = useFolderChain(currentFolderId);
+//     const handleFileAction = useFileActionHandler(setCurrentFolderId);
+//     return (
+//         <div style={{ height: 400 }}>
+//             <FileBrowser
+//                 instanceId={props.instanceId}
+//                 files={files}
+//                 folderChain={folderChain}
+//                 onFileAction={handleFileAction}
+//                 thumbnailGenerator={(file) =>
+//                     file.thumbnailUrl ? `https://chonky.io${file.thumbnailUrl}` : null
+//                 }
+//             >
+//                 <FileNavbar />
+//                 <FileToolbar />
+//                 <FileList />
+//                 <FileContextMenu />
+//             </FileBrowser>
+//         </div>
+//     );
+// };
+
+// const storyName = 'Simple read-only VFS';
 
   
   const WorkDriveContent = () => {
@@ -65,11 +144,93 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupS
       const handleOpenSubMenu = () => {
         setOpenSubMenu(!openSubMenu);
       };
+
+
+      // chonky configs
+      const files = [
+        {
+          id: 'nTe',
+          name: 'Normal file.yml',
+          size: 890,
+          modDate: new Date('2012-01-01'),
+        },
+        {
+          id: 'zxc',
+          name: 'Hidden file.mp4',
+          isHidden: true,
+          size: 890,
+        },
+        {
+          id: 'bnm',
+          name: 'Normal folder',
+          isDir: true,
+          childrenCount: 12,
+        },
+        {
+          id: 'vfr',
+          name: 'Symlink folder',
+          isDir: true,
+          isSymlink: true,
+          childrenCount: 0,
+        },
+        {
+          id: '7zp',
+          name: 'Encrypted file.7z',
+          isEncrypted: true,
+        },
+        {
+          id: 'qwe',
+          name: 'Not selectable.tar.gz',
+          ext: '.tar.gz', // Custom extension
+          selectable: false, // Disable selection
+          size: 54300000000,
+          modDate: new Date(),
+        },
+        {
+          id: 'rty',
+          name: 'Not openable.pem',
+          openable: false, // Prevent opening
+          size: 100000000,
+        },
+        {
+          id: 'btj',
+          name: 'Not draggable.csv',
+          draggable: false, // Prevent this files from being dragged
+        },
+        {
+          id: 'upq',
+          name: 'Not droppable',
+          isDir: true,
+          droppable: false, // Prevent files from being dropped into this folder
+        },
+        {
+          id: 'mRw',
+          name: 'Unknown file name',
+        },
+        {
+          id: 'mEt',
+          name: 'Custom icon & color',
+          color: '#09f',
+        },
+        {
+          id: 'mRwa',
+          name: 'icon.png',
+          size: 1000000,
+        }
+      ]
+      const folderChain = [
+        { id: 'zxc', name: 'My files' },
+        { id: 'fgh', name: 'Documents' },
+      ];
   
+
+
+
   
     return (
       <div className="work-drive-page">
         <Grid container spacing={3}>
+
           <Grid
             item
             lg={3}
@@ -215,7 +376,7 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupS
                         </div>
                       } 
                     />
-                    
+
                     <TreeItem
                       nodeId="6"
                       label={
@@ -305,7 +466,6 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupS
             </div>
           </Grid>
   
-  
           <Grid
             item
             lg={secondPopupTab ? 12 : 9}
@@ -314,7 +474,14 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupS
           >
             <div className="work-drive-page_main">
               <div className="work-drive-page_main_notes">
-  
+                {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
+                {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
+                <FileBrowser files={files} folderChain={folderChain}>
+                    <FileNavbar />
+                    <FileToolbar />
+                    <FileList />
+                    <FileContextMenu />
+                </FileBrowser>
               </div>
             </div>
           </Grid>
