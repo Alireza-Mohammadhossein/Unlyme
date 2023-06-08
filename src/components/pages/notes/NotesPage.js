@@ -50,7 +50,7 @@ const NotesPage = () => {
                 {t("NOTES_PAGE.TITLE")}
               </div>
             </Grid>
-            <Grid item lg={9} md={9} xs={12}>
+            <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
               <div className='cloud-page__header_notes-details'>
                 <NotesDetailsBar setSearchNote={setSearchNote} />
               </div>
