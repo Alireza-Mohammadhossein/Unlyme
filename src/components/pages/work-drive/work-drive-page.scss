@@ -40,75 +40,38 @@
     }
 
     &-section {
-        &_notes-list {
-            & .MuiTabs-flexContainer {
-                flex-direction: column-reverse;
+        &_drive-tree {
+            max-height: 300px;
+            overflow: auto;
+            
+            & .MuiTreeItem-content {
+                box-sizing: border-box;
+                border-radius: 8px;
+            } 
+            &_item {
+                display: flex;
+                padding: 8px 0;
+                align-items: center;
+
+                & .MuiListItemIcon-root {
+                    min-width: 30px;
+                }
             }
         }
 
-        &_notes-item{
-        
-            &.MuiButtonBase-root {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 15px;
-                text-transform: unset;
-                flex-direction: row;
-                padding: 15px 20px;
+        &_drive-actions {
+            
+            & .MuiButtonBase-root {
+                box-sizing: border-box;
                 border-radius: 8px;
-                // border-bottom: 1px solid #ECECEC;
+            } 
+            &_item {
+                display: flex;
+                padding: 8px 0;
+                align-items: center;
 
-                &:hover {
-                    background-color: #4382C41A;
-                }
-            }
-
-            &_content {
-                overflow: hidden;
-                text-align: left;
-
-                &_name {
-                    font-size: 15px;
-                    color: #000000;
-                    font-weight: 500;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    box-sizing: border-box;
-                    margin-bottom: 6px;
-                }
-
-                &_message {
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: #6e6f6f;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    box-sizing: border-box;
-                }
-            }
-
-            &_actions {
-                transition: all 0.3s ease;
-                display: none;
-            }
-
-            &:hover {
-                .notes-page_sidebar-section_notes-item_actions{
-                    display: flex;
-                }
-
-                .notes-page_sidebar-section_notes-item_content {
-                    &_name {
-                        color: $blue;
-                    }
-    
-                    &_message {
-                        color: $blue;
-                    }
+                & .MuiListItemIcon-root {
+                    min-width: 30px;
                 }
             }
         }
