@@ -41,7 +41,8 @@ body {
   color: #363c65;
   background-color: $silver;
   height: 100%;
-  overflow-x:hidden;
+  overflow-x: hidden;
+  overflow-y: auto !important;
   // min-width: $min-width;
 }
 

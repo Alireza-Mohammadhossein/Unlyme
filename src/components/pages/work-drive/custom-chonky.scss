@@ -1,0 +1,161 @@
+.siteWrapperLG .cloud-page.work-drive-cloud-page {
+    margin: 0;
+}
+
+.chonky-chonkyRoot {
+    border: unset !important;
+    background-color: unset !important;
+    padding: 0 !important;
+
+
+    & .cloud-page__header_work-drive-page-details_search {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    & .MuiGrid-container {
+        align-items: start;
+    } 
+
+
+    & .chonky-toolbarWrapper {
+
+        & .chonky-toolbarContainer {
+            align-items: center;
+            justify-content: space-between;
+
+            & .MuiButton-root {
+                color: #555555 !important;
+            }
+
+            & .MuiButton-root.chonky-activeButton {
+                color: #4382c4 !important;
+            }
+
+            & .chonky-toolbarLeft {
+                max-width: 50%;
+
+                & .chonky-infoContainer {
+                    display: none;
+                    & .chonky-infoText {
+                        width: max-content;
+                    }
+                }
+                
+                & .chonky-searchFieldContainer{
+                    height: auto !important;
+
+                    & .MuiInputBase-root {
+                        border: unset;
+                        border-radius: 8px;
+                        padding: 5px 10px;
+                        background-color: rgba(255, 255, 255, 0.7);
+                        color: #3C3C43B2;
+                        height: 40px;
+
+                        &::before, &::after {
+                            display: none;
+                        }
+                    }
+
+                    & .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-notchedOutline {
+                        border: unset !important;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    & .chonky-navbarWrapper {
+        & .MuiButton-root {
+            color: #555555 !important;
+        }
+
+    }
+    
+
+    .chonky-fileListWrapper {
+        padding: 20px;
+        box-sizing: border-box;
+
+        & .chonky-gridContainer {
+        
+                & > div {
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+        
+                & [class^="fillParent-"] {
+                    // margin-bottom: 20px;
+
+                    & [class^="gridFileEntry-"] {
+                        background: #FFFFFF;
+                        border: 1px solid #F2F2F2;
+                        box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.05);
+                        border-radius: 8px;
+                        padding: 15px;
+                        box-sizing: border-box;
+                        justify-content: space-around;
+            
+                        & [class^="previewFile-"] {
+                            width: 50%;
+                            height: 50%;
+                            flex-grow: unset;
+            
+                            & [class^="folderBackSideMid-"] {
+                                box-shadow: unset;
+                                background-color: unset;
+                            }
+            
+                            & [class^="folderBackSideTop-"] {
+                                background-color: #4382C4;
+                                box-shadow: unset;
+                                top: -8px;
+                                left: 0px;
+                                right: 60%;
+                                height: 8px;
+                                position: absolute;
+                                border-top-left-radius: 5px;
+                                border-top-right-radius: 10px;
+                                width: 50%;
+                            }
+            
+                            & [class^="folderFrontSide-"] {
+                                box-shadow: unset;
+                                background-color: #4382C4;
+                                inset: 0px 0px 0px;
+                                overflow: hidden;
+                                position: absolute;
+                                border-radius: 0px 5px 5px 5px;
+                            }
+        
+                        }
+                        
+                        // & .previewFile-0-2-32 {
+                        //     box-shadow: unset;
+                        // }
+                    }
+    
+                    & [class^="gridFileEntryNameContainer-"] {
+                        text-align: left;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        & span {
+                            padding: 0 !important;
+                        }
+                    }
+                }
+    
+        }
+
+        & .fileIcon-0-2-31 {
+            opacity: 1 !important;
+        }
+
+    }
+
+}

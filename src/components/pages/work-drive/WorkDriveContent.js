@@ -70,128 +70,6 @@ import {
       // };
 
 
-    // chonky configs
-    const files = [
-      {
-        id: 'nTe',
-        name: 'Normal file.yml',
-        size: 890,
-        modDate: new Date('2012-01-01'),
-        color: '#4382C4',
-        // icon: ChonkyIconName.folder,
-      },
-      {
-        id: 'zxc',
-        name: 'Hidden file.mp4',
-        isHidden: true,
-        size: 890,
-        color: '#4382C4',
-      },
-      {
-        id: 'bnm',
-        name: 'Normal folder',
-        isDir: true,
-        color: '#4382C4',
-        icon: ChonkyIconName.folder,
-        // childrenCount: 12,
-      },
-      {
-        id: 'vfr',
-        name: 'Symlink folder',
-        isDir: true,
-        color: '#4382C4',
-        // isSymlink: true,
-        // childrenCount: 0,
-      },
-      {
-        id: '7zp',
-        name: 'Encrypted file.7z',
-        isEncrypted: true,
-        color: '#4382C4',
-      },
-      {
-        id: 'qwe',
-        name: 'Not selectable.tar.gz',
-        ext: '.tar.gz', // Custom extension
-        selectable: false, // Disable selection
-        size: 54300000000,
-        modDate: new Date(),
-        color: '#4382C4',
-      },
-      {
-        id: 'rty',
-        name: 'Not openable.pem',
-        openable: false, // Prevent opening
-        size: 100000000,
-        color: '#4382C4',
-      },
-      {
-        id: 'btj',
-        name: 'Not draggable.csv',
-        draggable: false, // Prevent this files from being dragged
-        color: '#4382C4',
-      },
-      {
-        id: 'upq',
-        name: 'Not droppable',
-        isDir: true,
-        droppable: false, // Prevent files from being dropped into this folder
-        color: '#4382C4',
-      },
-      {
-        id: 'mRw',
-        name: 'file name',
-        isDir: true,
-        color: '#4382C4',
-      },
-      {
-        id: 'mEt',
-        name: 'Custom icon',
-        isDir: true,
-        color: '#4382C4',
-      },
-      {
-        id: 'mRwa',
-        name: 'icon.png',
-        size: 1000000,
-        color: '#4382C4',
-      }
-    ]
-
-    const folderChain = [
-      { id: 'zxc', name: 'My files' },
-      { id: 'fgh', name: 'Documents' },
-    ];
-
-
-    const ExtraActions = {
-      CreateFolder: defineFileAction({
-        id: 'create_folder',
-        button: {
-            name: 'Create folder',
-            toolbar: true,
-            contextMenu: true,
-            group: 'Actions',
-            tooltip: 'Create folder',
-            icon: ChonkyIconName.folderCreate,
-        },  
-      })
-    }
-    
-    const myFileActions = [
-      // myCustomAction,
-      // ChonkyActions.ClearSelection,
-      ChonkyActions.UploadFiles,
-      ChonkyActions.DownloadFiles,
-      ChonkyActions.DeleteFiles,
-      ExtraActions.CreateFolder,
-    ];
-
-    const actionsToDisable = [
-      // ChonkyActions.EnableListView.id,
-      // ChonkyActions.SelectAllFiles.id,
-      ChonkyActions.ToggleHiddenFiles.id
-    ];
 
     
 
@@ -447,20 +325,11 @@ import {
               <div className="work-drive-page_main_notes">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
-                <FileBrowser files={files} folderChain={folderChain}
-                  // doubleClickDelay={300}
-                  // disableSelection={true}
-                  // disableDefaultFileActions={true}
-                  // onFileAction={() => alert('hi')}
-                  disableDefaultFileActions={actionsToDisable}
-                  defaultFileViewActionId={'date'}
-                  fileActions={myFileActions}
-                >
-                    <FileNavbar />
-                    <FileToolbar />
+
+
                     <FileList />
                     <FileContextMenu />
-                </FileBrowser>
+                
               </div>
             </div>
           </Grid>

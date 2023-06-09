@@ -5,6 +5,10 @@ import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import {
+    FileNavbar, 
+    FileToolbar,
+  } from 'chonky';
 
 
 
@@ -14,14 +18,14 @@ const WorkDriveDetailsBar = ({ setSearchNote }) => {
     
     return (
         <Grid container spacing={2}>
-            <Grid item lg={6} md={6} xs={12} sx={{
+            <Grid item lg={12} md={12} xs={12} sx={{
               paddingLeft: {
                 lg: '15px !important',
                 md: '15px !important',
               },
             }}>
                 <div className='cloud-page__header_work-drive-page-details_search'>
-                    <FormControl>
+                    {/* <FormControl>
                         <Input
                         className='cloud-page__header_work-drive-page-details_search-input'
                         onChange={(e) => setSearchNote(e.target.value)}
@@ -32,7 +36,10 @@ const WorkDriveDetailsBar = ({ setSearchNote }) => {
                             </InputAdornment>
                         }
                         />
-                    </FormControl>
+                    </FormControl> */}
+
+                    <FileNavbar />
+                    <FileToolbar />
                 </div>
             </Grid>
         </Grid>
