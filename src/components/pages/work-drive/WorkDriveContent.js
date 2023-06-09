@@ -25,98 +25,22 @@ import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useSelector, useDispatch } from "react-redux";
-import { FullFileBrowser } from 'chonky';
 import {
   ChonkyActions,
   ChonkyFileActionData,
+  defineFileAction,
   FileArray,
   FileBrowser,
   FileContextMenu,
+  ChonkyIconName,
   FileData,
   FileHelper,
   FileList,
   FileNavbar,
   FileToolbar,
 } from 'chonky';
-import { showActionNotification, useStoryLinks } from './utils';
-import DemoFsMap from '../../../mocks/work-drive.json';
 
 
-// const rootFolderId = DemoFsMap.rootFolderId;
-// const fileMap = DemoFsMap.fileMap;
-
-// export const useFiles = (currentFolderId) => {
-//     return useMemo(() => {
-//         const currentFolder = fileMap[currentFolderId];
-//         const files = currentFolder.childrenIds
-//             ? currentFolder.childrenIds.map((fileId) => fileMap[fileId] ?? null)
-//             : [];
-//         return files;
-//     }, [currentFolderId]);
-// };
-
-// export const useFolderChain = (currentFolderId) => {
-//     return useMemo(() => {
-//         const currentFolder = fileMap[currentFolderId];
-
-//         const folderChain = [currentFolder];
-
-//         let parentId = currentFolder.parentId;
-//         while (parentId) {
-//             const parentFile = fileMap[parentId];
-//             if (parentFile) {
-//                 folderChain.unshift(parentFile);
-//                 parentId = parentFile.parentId;
-//             } else {
-//                 parentId = null;
-//             }
-//         }
-
-//         return folderChain;
-//     }, [currentFolderId]);
-// };
-
-// export const useFileActionHandler = (setCurrentFolderId) => {
-//     return useCallback((data) => {
-//         if (data.id === ChonkyActions.OpenFiles.id) {
-//             const { targetFile, files } = data.payload;
-//             const fileToOpen = targetFile ?? files[0];
-//             if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
-//                 setCurrentFolderId(fileToOpen.id);
-//                 return;
-//             }
-//         }
-
-//         showActionNotification(data);
-//     }, [setCurrentFolderId]);
-// };
-
-// export const ReadOnlyVFSBrowser = (props) => {
-//     const [currentFolderId, setCurrentFolderId] = useState(rootFolderId);
-//     const files = useFiles(currentFolderId);
-//     const folderChain = useFolderChain(currentFolderId);
-//     const handleFileAction = useFileActionHandler(setCurrentFolderId);
-//     return (
-//         <div style={{ height: 400 }}>
-//             <FileBrowser
-//                 instanceId={props.instanceId}
-//                 files={files}
-//                 folderChain={folderChain}
-//                 onFileAction={handleFileAction}
-//                 thumbnailGenerator={(file) =>
-//                     file.thumbnailUrl ? `https://chonky.io${file.thumbnailUrl}` : null
-//                 }
-//             >
-//                 <FileNavbar />
-//                 <FileToolbar />
-//                 <FileList />
-//                 <FileContextMenu />
-//             </FileBrowser>
-//         </div>
-//     );
-// };
-
-// const storyName = 'Simple read-only VFS';
 
   
   const WorkDriveContent = () => {
@@ -139,92 +63,139 @@ import DemoFsMap from '../../../mocks/work-drive.json';
 
 
     // sidebar section
-      const [openSubMenu, setOpenSubMenu] = useState(false);
+      // const [openSubMenu, setOpenSubMenu] = useState(false);
 
-      const handleOpenSubMenu = () => {
-        setOpenSubMenu(!openSubMenu);
-      };
-
-
-      // chonky configs
-      const files = [
-        {
-          id: 'nTe',
-          name: 'Normal file.yml',
-          size: 890,
-          modDate: new Date('2012-01-01'),
-        },
-        {
-          id: 'zxc',
-          name: 'Hidden file.mp4',
-          isHidden: true,
-          size: 890,
-        },
-        {
-          id: 'bnm',
-          name: 'Normal folder',
-          isDir: true,
-          childrenCount: 12,
-        },
-        {
-          id: 'vfr',
-          name: 'Symlink folder',
-          isDir: true,
-          isSymlink: true,
-          childrenCount: 0,
-        },
-        {
-          id: '7zp',
-          name: 'Encrypted file.7z',
-          isEncrypted: true,
-        },
-        {
-          id: 'qwe',
-          name: 'Not selectable.tar.gz',
-          ext: '.tar.gz', // Custom extension
-          selectable: false, // Disable selection
-          size: 54300000000,
-          modDate: new Date(),
-        },
-        {
-          id: 'rty',
-          name: 'Not openable.pem',
-          openable: false, // Prevent opening
-          size: 100000000,
-        },
-        {
-          id: 'btj',
-          name: 'Not draggable.csv',
-          draggable: false, // Prevent this files from being dragged
-        },
-        {
-          id: 'upq',
-          name: 'Not droppable',
-          isDir: true,
-          droppable: false, // Prevent files from being dropped into this folder
-        },
-        {
-          id: 'mRw',
-          name: 'Unknown file name',
-        },
-        {
-          id: 'mEt',
-          name: 'Custom icon & color',
-          color: '#09f',
-        },
-        {
-          id: 'mRwa',
-          name: 'icon.png',
-          size: 1000000,
-        }
-      ]
-      const folderChain = [
-        { id: 'zxc', name: 'My files' },
-        { id: 'fgh', name: 'Documents' },
-      ];
-  
+      // const handleOpenSubMenu = () => {
+      //   setOpenSubMenu(!openSubMenu);
+      // };
 
 
+    // chonky configs
+    const files = [
+      {
+        id: 'nTe',
+        name: 'Normal file.yml',
+        size: 890,
+        modDate: new Date('2012-01-01'),
+        color: '#4382C4',
+        // icon: ChonkyIconName.folder,
+      },
+      {
+        id: 'zxc',
+        name: 'Hidden file.mp4',
+        isHidden: true,
+        size: 890,
+        color: '#4382C4',
+      },
+      {
+        id: 'bnm',
+        name: 'Normal folder',
+        isDir: true,
+        color: '#4382C4',
+        icon: ChonkyIconName.folder,
+        // childrenCount: 12,
+      },
+      {
+        id: 'vfr',
+        name: 'Symlink folder',
+        isDir: true,
+        color: '#4382C4',
+        // isSymlink: true,
+        // childrenCount: 0,
+      },
+      {
+        id: '7zp',
+        name: 'Encrypted file.7z',
+        isEncrypted: true,
+        color: '#4382C4',
+      },
+      {
+        id: 'qwe',
+        name: 'Not selectable.tar.gz',
+        ext: '.tar.gz', // Custom extension
+        selectable: false, // Disable selection
+        size: 54300000000,
+        modDate: new Date(),
+        color: '#4382C4',
+      },
+      {
+        id: 'rty',
+        name: 'Not openable.pem',
+        openable: false, // Prevent opening
+        size: 100000000,
+        color: '#4382C4',
+      },
+      {
+        id: 'btj',
+        name: 'Not draggable.csv',
+        draggable: false, // Prevent this files from being dragged
+        color: '#4382C4',
+      },
+      {
+        id: 'upq',
+        name: 'Not droppable',
+        isDir: true,
+        droppable: false, // Prevent files from being dropped into this folder
+        color: '#4382C4',
+      },
+      {
+        id: 'mRw',
+        name: 'file name',
+        isDir: true,
+        color: '#4382C4',
+      },
+      {
+        id: 'mEt',
+        name: 'Custom icon',
+        isDir: true,
+        color: '#4382C4',
+      },
+      {
+        id: 'mRwa',
+        name: 'icon.png',
+        size: 1000000,
+        color: '#4382C4',
+      }
+    ]
+
+    const folderChain = [
+      { id: 'zxc', name: 'My files' },
+      { id: 'fgh', name: 'Documents' },
+    ];
+
+
+    const ExtraActions = {
+      CreateFolder: defineFileAction({
+        id: 'create_folder',
+        button: {
+            name: 'Create folder',
+            toolbar: true,
+            contextMenu: true,
+            group: 'Actions',
+            tooltip: 'Create folder',
+            icon: ChonkyIconName.folderCreate,
+        },  
+      })
+    }
+    
+    const myFileActions = [
+      // myCustomAction,
+      // ChonkyActions.ClearSelection,
+      ChonkyActions.UploadFiles,
+      ChonkyActions.DownloadFiles,
+      ChonkyActions.DeleteFiles,
+      ExtraActions.CreateFolder,
+    ];
+
+    const actionsToDisable = [
+      // ChonkyActions.EnableListView.id,
+      // ChonkyActions.SelectAllFiles.id,
+      ChonkyActions.ToggleHiddenFiles.id
+    ];
+
+    
+
+    
 
   
     return (
@@ -476,7 +447,15 @@ import DemoFsMap from '../../../mocks/work-drive.json';
               <div className="work-drive-page_main_notes">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
-                <FileBrowser files={files} folderChain={folderChain}>
+                <FileBrowser files={files} folderChain={folderChain}
+                  // doubleClickDelay={300}
+                  // disableSelection={true}
+                  // disableDefaultFileActions={true}
+                  // onFileAction={() => alert('hi')}
+                  disableDefaultFileActions={actionsToDisable}
+                  defaultFileViewActionId={'date'}
+                  fileActions={myFileActions}
+                >
                     <FileNavbar />
                     <FileToolbar />
                     <FileList />

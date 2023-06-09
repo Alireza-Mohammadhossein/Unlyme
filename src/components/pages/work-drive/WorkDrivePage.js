@@ -15,7 +15,12 @@ import { ChonkyIconFA } from 'chonky-icon-fontawesome';
 
 const WorkDrivePage = () => {
   const { t, i18n } = useTranslation();
-  setChonkyDefaults({ iconComponent: ChonkyIconFA });
+
+  setChonkyDefaults({
+    iconComponent: ChonkyIconFA,
+    // disableSelection: true,
+    disableDragAndDropProvider: true,
+});
 
 
   return (
