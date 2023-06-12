@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 import "./work-drive-page.scss";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
@@ -22,8 +24,6 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import { useSelector, useDispatch } from "react-redux";
 import {
   ChonkyActions,
@@ -115,13 +115,14 @@ import {
                       open={openAddNewPopup}
                       onClose={handleCloseAddNew}
                       disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          // maxHeight: ITEM_HEIGHT * 4.5,
-                          // height: 'auto'
-                          width: "30ch",
-                        },
-                      }}
+                      // PaperProps={{
+                      //   style: {
+                      //     // maxHeight: ITEM_HEIGHT * 4.5,
+                      //     // height: 'auto'
+                      //     width: "30ch",
+                      //   },
+                      // }}
+                      className="work-drive-page_sidebar_create-event_list"
                     >
 
                       <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
@@ -322,14 +323,13 @@ import {
             xs={12}
           >
             <div className="work-drive-page_main">
-              <div className="work-drive-page_main_notes">
+              <div className="work-drive-page_main_list">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
 
-
                     <FileList />
                     <FileContextMenu />
-                
+
               </div>
             </div>
           </Grid>

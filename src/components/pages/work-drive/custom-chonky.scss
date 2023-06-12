@@ -1,5 +1,5 @@
 .siteWrapperLG .cloud-page.work-drive-cloud-page {
-    margin: 0;
+    margin: 0 auto;
 }
 
 .chonky-chonkyRoot {
@@ -150,6 +150,9 @@
                     }
                 }
     
+        }
+
+        & [class^="listContainer-"] {
         }
 
         & .fileIcon-0-2-31 {
