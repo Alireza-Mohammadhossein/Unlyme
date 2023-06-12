@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import icon from "../../../assets/images/my-services/calendar.png";
 import { formatDate } from '@fullcalendar/core';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -13,7 +14,6 @@ import Calendar from 'react-calendar';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import icon from "../../../assets/images/my-services/calendar.png";
 import './calendar-site.scss';
 import { Calendar_page_current_events } from '../../../mocks/mocks';
 import { useSelector } from 'react-redux';

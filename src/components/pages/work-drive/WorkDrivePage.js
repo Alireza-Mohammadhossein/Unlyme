@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
-import icon from "../../../assets/images/my-services/drive.png";
+import icon from "../../../assets/images/my-services/drive.png"
 import "./work-drive-page.scss";
 import WorkDriveDetailsBar from './WorkDriveDetailsBar';
 import WorkDriveContent from './WorkDriveContent'

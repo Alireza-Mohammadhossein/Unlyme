@@ -12,6 +12,7 @@ import {
 import dashboardIcon from '../../../assets/images/my-services/dashboard.png';
 import domainsIcon from '../../../assets/images/my-services/domains.png';
 import driveIcon from '../../../assets/images/my-services/drive.png';
+import tasksIcon from '../../../assets/images/my-services/tasks.png';
 import copySitesIcon from '../../../assets/images/my-services/copy-sites.png';
 import bankIcon from '../../../assets/images/my-services/bank.png';
 import settingIcon from '../../../assets/images/my-services/setting.png';
@@ -62,6 +63,13 @@ const Menu = ({screenSize}) => {
       title: "WORK_DRIVE",
       link: "/services/work-drive",
       img: `${driveIcon}`,
+    },  
+    {
+      id: 8,
+      icon: "Tasks",
+      title: "TASKS",
+      link: "/services/tasks",
+      img: `${tasksIcon}`,
     },
     {
       id: 2,

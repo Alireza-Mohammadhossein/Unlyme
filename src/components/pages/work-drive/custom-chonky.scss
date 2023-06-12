@@ -159,6 +159,10 @@
             opacity: 1 !important;
         }
 
+        & [class^="selectionIndicator-"] {
+            background: #3089dc61;
+        }
+
     }
 
 }

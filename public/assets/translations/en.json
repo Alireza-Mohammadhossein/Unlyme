@@ -5,6 +5,7 @@
   "MENU.SITE_BUILDER": "Site builder",
   "MENU.COPY_SITES": "Copy sites",
   "MENU.BANK": "Bank",
+  "MENU.TASKS": "Tasks",
   "MENU.SETTINGS": "Settings",
   "MENU.CALENDAR": "Calendar",
   "MENU.NOTES": "Notes",
@@ -167,7 +168,10 @@
 
   "WORK_DRIVE_PAGE.TITLE": "Work Drive",
   "WORK_DRIVE_ADD.NEW": "Add New",
-  "WORK_DRIVE_PAGE.SEARCH_PLACEHOLDER": "Search files and folders"
+  "WORK_DRIVE_PAGE.SEARCH_PLACEHOLDER": "Search files and folders",
+
+  "TASKS_PAGE.TITLE": "Tasks"
+
 
 }
 
