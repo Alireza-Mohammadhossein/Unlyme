@@ -1,45 +1,31 @@
 import React, { useState } from "react";
-import Collapse from '@mui/material/Collapse';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import Button from '@mui/material/Button';
-import InputCard from "../InputCard";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import AddModal from "../Modals/AddModal";
 
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+
 
 export default function InputContainer({ listId, type }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const handleOpenAddModal = () => setOpenAddModal(true);
+  const handleCloseAddModal = () => setOpenAddModal(false);
 
 
   return (
     <div className="input-container">
-      <Collapse in={open}>
+      {/* <Collapse in={open}>
         <InputCard setOpen={setOpen} listId={listId} type={type} />
-      </Collapse>
-      <Collapse in={!open}>
+      </Collapse> */}
+      {/* <Collapse in={!open}> */}
         <div className="input-content">
             {type === "card"
               ? 
                 <Button
-                  className="add-backlog"
+                  className="add-backlog-btn"
                   startIcon={<AddCircleOutlineOutlinedIcon />}
                   // onClick={() => setOpen(!open)}
-                  onClick={handleOpen}
+                  onClick={handleOpenAddModal}
                 >
                   Add Backlog
                 </Button>
@@ -47,23 +33,16 @@ export default function InputContainer({ listId, type }) {
                 "+ Add List"
             }
         </div>
-        <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
-
-      </Collapse>
+        
+        <AddModal
+          listId={listId}
+          type={type}
+          handleCloseAddModal={handleCloseAddModal} 
+          handleOpenAddModal={handleOpenAddModal} 
+          openAddModal={openAddModal} 
+          setOpenAddModal={setOpenAddModal}
+        />
+      {/* </Collapse> */}
     </div>
   );
 }

@@ -55,7 +55,7 @@
                 padding: 10px;
                 box-sizing: border-box;
                 
-                .add-backlog.MuiButtonBase-root {
+                .add-backlog-btn.MuiButtonBase-root {
                   background-color: #3089dc;
                   width: 100%;
                   padding: 10px;
@@ -127,6 +127,7 @@
                   }
                 }
               }
+
             }
           
             .title-list {
@@ -207,7 +208,7 @@
                 
                   position: relative;
                 
-                  .card-title-container {
+                  .card-content-container {
                     width: 100%;
                     height: 100%;
                 
@@ -218,37 +219,67 @@
                     font-size: 15px;
                 
                     transition: background-color 0.1s;
+                    position: relative;
                 
-                    p {
+                    div {
                       padding: 0.7rem 0.5rem 0.5rem;
                 
                       max-width: 90%;
                       overflow: hidden;
                       word-wrap: break-word;
                     }
-                
-                    button {
-                      padding: 0.5rem 0.5rem 0 0;
-                
-                      background: none;
-                      border: none;
-                      cursor: pointer;
-                
-                      svg {
-                        opacity: 0;
-                        transition: color 0.2s, opacity 0.2s;
-                
+
+                    .card-content_title {
+
+                    }
+
+                    .card-content_description {
+
+                    }
+
+                    .card-content_tags {
+                        display: flex;
+                        gap: 6px;
+
+                      .card-content_tag {
+                        font-size: 12px;
+                        background-color: #EBEDF1;
+                        padding: 5px 10px;
+                        display: inline-block;
+                        color: #727272;
+                        border-radius: 30px;
+
+                      }
+                    }
+
+                    .card-content_actions {
+                      display: flex;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                      opacity: 0;
+                      visibility: hidden;
+                      padding: 5px;
+
+                      button.MuiButtonBase-root {
+                        padding: 5px;
+                        background-color: #fff;
+
                         &:hover {
-                          color: #e22bba;
+                          background-color: #d7d6d6;
+                        }
+
+                        .MuiSvgIcon-root {
+                          font-size: 20px;
                         }
                       }
                     }
-                
+
+                    
                     &:hover {
-                      background-color: #cecece1f;
-                
-                      svg {
+                      .card-content_actions {
                         opacity: 1;
+                        visibility: visible;
                       }
                     }
                   }
@@ -277,6 +308,43 @@
             }
           }
         }
+    }
+  }
+}
+
+.add-backlog-modal {
+  
+  &_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+  }
+
+  & .MuiFormGroup-root {
+    gap: 15px;
+  }
+
+  &_item {
+    width: 100%;
+
+    .MuiFormControl-root {
+      width: 100%;
+    }
+
+    & .submit-backlog-btn.MuiButtonBase-root {
+      background-color: #3089dc;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+      border-radius: 8px;
+      text-transform: none;
     }
   }
 }
