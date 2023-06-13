@@ -4,7 +4,8 @@ import Grid from "@mui/material/Grid";
 import icon from "../../../assets/images/my-services/drive.png"
 import "./tasks-page.scss";
 import TasksDetailsBar from './TasksDetailsBar';
-import TasksContent from './TasksContent'
+import TasksContent from './TasksContent';
+
 
 
 
