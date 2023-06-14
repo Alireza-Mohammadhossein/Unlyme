@@ -34,7 +34,7 @@ const TasksContent = () => {
 
   const [data, setData] = useState(initialState);
 
-  const addMoreCard = (title, description, tags, listId) => {
+  const addMoreCard = (title, description, tags, listId, imageFile) => {
     if (!title) {
       return;
     }
@@ -48,6 +48,7 @@ const TasksContent = () => {
       title,
       description,
       tags,
+      imageFile,
     };
 
     const list = data.lists[listId];
@@ -63,7 +64,7 @@ const TasksContent = () => {
     setData(newState);
     window.localStorage.setItem("tasks", JSON.stringify(newState));
     
-    console.log('data', data)
+    console.log('data', newState)
   };
 
   const removeCard = (index, listId) => {
@@ -82,11 +83,12 @@ const TasksContent = () => {
     window.localStorage.setItem("tasks", JSON.stringify(newState));
   };
 
-  const updateCard = (title, description, tags, index, listId) => {
+  const updateCard = (title, description, tags, index, listId, imageFile) => {
     const list = data.lists[listId];
     list.cards[index].title = title;
     list.cards[index].description = description;
     list.cards[index].tags = tags;
+    list.cards[index].imageFile = imageFile;
 
     const newState = {
       ...data,

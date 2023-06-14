@@ -38,7 +38,7 @@
 
           & .list-cards {
             // width: 300px;
-            background-color: #ebecf0;
+            // background-color: #ebecf0;
             margin-right: 0.5rem;
             border-radius: 5px;
 
@@ -46,13 +46,14 @@
               width: 100%;
               // max-width: 300px;
               // margin-right: 0.5rem;
+              margin-top: 10px;
             
               .input-content {
                 width: 100%;
                 // max-width: 300px;
                 border-radius: 5px;
                 // background-color: #ebecf0;
-                padding: 10px;
+                // padding: 10px;
                 box-sizing: border-box;
                 
                 .add-backlog-btn.MuiButtonBase-root {
@@ -132,10 +133,13 @@
           
             .title-list {
               padding: 10px;
+              background-color: #ffffff;
+              border-radius: 8px;
 
               & .editable-title-container {
                 position: relative;
                 display: flex;
+                align-items: center;
               
                 .editable-title {
                   height: 1.7rem;
@@ -143,6 +147,8 @@
                   flex-grow: 1;
                   font-size: 1.2rem;
                   font-weight: bold;
+
+                  margin-bottom: 0;
                 }
               
                 .list-button {
@@ -187,7 +193,7 @@
             .container-cards {
               overflow-x: auto;
               // max-height: 55vh;
-              padding: 0 1rem;
+              // padding: 0 1rem;
 
               & .card-container {
                 overflow-y: hidden;
@@ -203,7 +209,7 @@
                   margin: 0.5rem 0 0;
                 
                   background: #fff;
-                  border-radius: 3px;
+                  border-radius: 8px;
                   border-bottom: 1px solid #ccc;
                 
                   position: relative;
@@ -224,9 +230,19 @@
                     div {
                       padding: 0.7rem 0.5rem 0.5rem;
                 
-                      max-width: 90%;
+                      // max-width: 90%;
                       overflow: hidden;
                       word-wrap: break-word;
+                    }
+
+                    .card-content_img {
+                      width: 100%;
+                      padding: 0;
+                      border-radius: 8px 8px 0 0;
+
+                      img {
+                        width: 100%;
+                      }
                     }
 
                     .card-content_title {
@@ -240,6 +256,9 @@
                     .card-content_tags {
                         display: flex;
                         gap: 6px;
+                        width: 100%;
+                        overflow: auto;
+                        box-sizing: border-box;
 
                       .card-content_tag {
                         font-size: 12px;
@@ -312,7 +331,7 @@
   }
 }
 
-.add-backlog-modal {
+.backlog-modal {
   
   &_container {
     position: absolute;
@@ -337,6 +356,10 @@
       width: 100%;
     }
 
+    .MuiInputBase-root {
+      width: 100%;
+    }
+
     & .submit-backlog-btn.MuiButtonBase-root {
       background-color: #3089dc;
       width: 100%;
@@ -345,6 +368,53 @@
       color: #fff;
       border-radius: 8px;
       text-transform: none;
+    }
+  }
+
+  .view-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+
+    .backlog-modal_item {
+      padding: 7px 0;
+    }
+    
+    .backlog-modal_item:first-child {
+      border-bottom: 1px solid #999;
+    }
+
+    .backlog-modal_item:last-child {
+      text-align: center;
+    }
+
+    &_title {
+      font-size: 22px;
+      color: #000;
+    }
+
+    &_description {
+      font-size: 18px;
+    }
+
+    &_tags {
+      display: flex;
+      gap: 6px;
+
+      span {
+        font-size: 12px;
+        background-color: #EBEDF1;
+        padding: 5px 10px;
+        display: inline-block;
+        color: #727272;
+        border-radius: 30px;
+      }
+    }
+
+    &_image {
+      width: 100%;
     }
   }
 }

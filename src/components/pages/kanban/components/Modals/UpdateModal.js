@@ -26,6 +26,7 @@ export default function UpdateModal({
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
     const [tags, setTags] = useState(initialTags);
+    const [imageFile, setImageFile] = useState(null);
     const { updateCard } = useContext(storeApi);
 
 
@@ -45,6 +46,34 @@ export default function UpdateModal({
             setTags(tags.filter((t) => t !== tag));
         }
     };
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        setImageFile(file);
+      };
+
+
+      const handleUpdateBacklog = () => {
+        if (imageFile) {
+          convertImageToDataURL(imageFile, (dataURL) => {
+            updateCard(title, description, tags, index, listId, dataURL);
+          });
+        } else {
+          updateCard(title, description, tags, index, listId);
+        }
+        handleCloseUpdateModal();
+      };
+
+
+      const convertImageToDataURL = (file, callback) => {
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            callback(reader.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      };
   
 
     
@@ -55,11 +84,11 @@ export default function UpdateModal({
         onClose={handleCloseUpdateModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='add-backlog-modal'
+        className='backlog-modal'
     >
-        <div className='add-backlog-modal_container'>
+        <div className='backlog-modal_container'>
         <FormGroup>
-            <div className="add-backlog-modal_item">
+            <div className="backlog-modal_item">
             <TextField
                 label='Title'
                 value={title}
@@ -67,7 +96,7 @@ export default function UpdateModal({
             />
             </div>
 
-            <div className="add-backlog-modal_item">
+            <div className="backlog-modal_item">
             <TextField
                 label='Description'
                 value={description}
@@ -77,7 +106,7 @@ export default function UpdateModal({
             />
             </div>
 
-            <div className="add-backlog-modal_item">
+            <div className="backlog-modal_item">
                 <FormControlLabel
                     control={
                     <Checkbox
@@ -131,17 +160,21 @@ export default function UpdateModal({
 
             </div>
 
-            <div className="add-backlog-modal_item">
-            <Button
-                className="submit-backlog-btn"
-                onClick={() => {
-                    // handleUpdateBacklog()
-                    updateCard(title, description, tags, index, listId);
-                    handleCloseUpdateModal()
-                }}
-            >
-                Update Backlog
-            </Button>
+            <div className="backlog-modal_item">
+                <input type="file" onChange={handleImageUpload} />
+            </div>
+
+            <div className="backlog-modal_item">
+                <Button
+                    className="submit-backlog-btn"
+                    onClick={() => {
+                        handleUpdateBacklog()
+                        // updateCard(title, description, tags, index, listId);
+                        handleCloseUpdateModal()
+                    }}
+                >
+                    Update Backlog
+                </Button>
             </div>
         </FormGroup>
         </div>

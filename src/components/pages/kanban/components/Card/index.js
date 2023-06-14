@@ -5,16 +5,22 @@ import { Draggable } from "react-beautiful-dnd";
 import storeApi from "../../utils/storeApi";
 import IconButton from "@mui/material/IconButton";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import ViewModal from "../Modals/ViewModal";
 import UpdateModal from "../Modals/UpdateModal";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 
 
 export default function Card({ card, index, listId }) {
+  const [openViewModal, setOpenViewModal] = useState(false);
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [newTitle, setNewTitle] = useState(card.title);
   const [newDescription, setNewDescription] = useState(card.description);
   const { removeCard, updateCardTitle, updateCardDescription } =
     useContext(storeApi);
+
+  const handleOpenViewModal = () => setOpenViewModal(true);
+  const handleCloseViewModal = () => setOpenViewModal(false);
 
   const handleOpenUpdateModal = () => setOpenUpdateModal(true);
   const handleCloseUpdateModal = () => setOpenUpdateModal(false);
@@ -81,6 +87,13 @@ export default function Card({ card, index, listId }) {
               // onClick={() => setOpenModal(!openModal)}
               className="card-content-container"
             >
+              {card.imageFile ? (
+                <div className="card-content_img">
+                  <img src={card.imageFile} alt={card.title} />
+                </div>
+              ) : (
+                ""
+              )}
               <div className="card-content_title">{card.title}</div>
               {/* <div className="card-content_description">{card.description}</div> */}
 
@@ -96,6 +109,10 @@ export default function Card({ card, index, listId }) {
               )}
 
               <div className="card-content_actions">
+                <IconButton aria-label="edit" onClick={handleOpenViewModal}>
+                  <VisibilityIcon />
+                </IconButton>
+                
                 <IconButton aria-label="edit" onClick={handleOpenUpdateModal}>
                   <ModeEditIcon />
                 </IconButton>
@@ -118,6 +135,19 @@ export default function Card({ card, index, listId }) {
                 handleOpenUpdateModal={handleOpenUpdateModal}
                 openUpdateModal={openUpdateModal}
                 setOpenUpdateModal={setOpenUpdateModal}
+                index={index}
+                listId={listId}
+              />
+
+              <ViewModal
+                title={card.title}
+                description={card.description}
+                tags={card.tags}
+                imageFile={card.imageFile}
+                handleCloseViewModal={handleCloseViewModal}
+                handleOpenViewModal={handleOpenViewModal}
+                openViewModal={openViewModal}
+                setOpenViewModal={setOpenViewModal}
                 index={index}
                 listId={listId}
               />
