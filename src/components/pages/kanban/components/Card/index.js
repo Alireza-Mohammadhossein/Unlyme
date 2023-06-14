@@ -15,9 +15,7 @@ export default function Card({ card, index, listId }) {
   const [openViewModal, setOpenViewModal] = useState(false);
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [newTitle, setNewTitle] = useState(card.title);
-  const [newDescription, setNewDescription] = useState(card.description);
-  const { removeCard, updateCardTitle, updateCardDescription } =
-    useContext(storeApi);
+  const { removeCard, updateCardTitle } = useContext(storeApi);
 
   const handleOpenViewModal = () => setOpenViewModal(true);
   const handleCloseViewModal = () => setOpenViewModal(false);
@@ -25,10 +23,10 @@ export default function Card({ card, index, listId }) {
   const handleOpenUpdateModal = () => setOpenUpdateModal(true);
   const handleCloseUpdateModal = () => setOpenUpdateModal(false);
 
-  const handleTitleOnBlur = () => {
-    updateCardTitle(newTitle, index, listId);
-    setOpenUpdateModal(!openUpdateModal);
-  };
+  // const handleTitleOnBlur = () => {
+  //   updateCardTitle(newTitle, index, listId);
+  //   setOpenUpdateModal(!openUpdateModal);
+  // };
 
   // const handleDescriptionOnBlur = () => {
   //   updateCardDescription(newDescription, index, listId);
@@ -151,15 +149,6 @@ export default function Card({ card, index, listId }) {
                 index={index}
                 listId={listId}
               />
-
-              {/*
-                <button
-                  onClick={() => {
-                    removeCard(index, listId);
-                  }}
-                >
-                  <DeleteOutlineIcon />
-                </button> */}
             </div>
           </div>
         </div>

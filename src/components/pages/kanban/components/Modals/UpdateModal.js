@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import Input from '@mui/material/Input';
 import storeApi from "../../utils/storeApi";
 
 
@@ -15,9 +16,7 @@ export default function UpdateModal({
         description: initialDescription,
         tags: initialTags,
         handleCloseUpdateModal,
-        handleOpenUpdateModal,
         openUpdateModal,
-        setOpenUpdateModal,
         index,
         listId
     }) {
@@ -161,7 +160,8 @@ export default function UpdateModal({
             </div>
 
             <div className="backlog-modal_item">
-                <input type="file" onChange={handleImageUpload} />
+                {/* <input type="file" onChange={handleImageUpload} /> */}
+                <Input type="file" onChange={handleImageUpload} />
             </div>
 
             <div className="backlog-modal_item">

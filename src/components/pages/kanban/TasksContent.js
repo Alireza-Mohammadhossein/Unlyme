@@ -29,7 +29,7 @@ const TasksContent = () => {
 
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
-  // const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
   const [data, setData] = useState(initialState);

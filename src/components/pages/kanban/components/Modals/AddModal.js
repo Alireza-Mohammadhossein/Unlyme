@@ -1,7 +1,5 @@
 import React, { useContext, useState } from "react";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import storeApi from "../../utils/storeApi";
-import InputCard from "../InputCard";
 import Modal from '@mui/material/Modal';
 import FormGroup from '@mui/material/FormGroup';
 import TextField from '@mui/material/TextField';
@@ -18,7 +16,6 @@ export default function AddModal({
         listId,
         type,
         handleCloseAddModal,
-        handleOpenAddModal,
         openAddModal,
         setOpenAddModal,
     }) {
