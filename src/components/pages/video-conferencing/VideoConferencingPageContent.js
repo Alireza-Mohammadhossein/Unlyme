@@ -81,10 +81,8 @@ function TabPanel(props) {
               },
             }}
           >
-            <div className="video-conferencing-page_sidebar">  
-              <div className="video-conferencing-page_sidebar-section">
+            <div className="video-conferencing-page_sidebar">
                 <VideoConferencingLeftSide />
-              </div>
             </div>
           </Grid>
   
@@ -95,10 +93,8 @@ function TabPanel(props) {
             md={secondPopupTab ? 12 : 6}
             xs={12}
           >
-            <div className="video-conferencing-page_main">
-              <div className="video-conferencing-page_main_video-conferencing">
+            <div className="video-conferencing-page_sidebar">
                 <VideoConferencingRightSide />
-              </div>
             </div>
           </Grid>
         </Grid>

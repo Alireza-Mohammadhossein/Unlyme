@@ -1,0 +1,67 @@
+.video-conferencing_leftside {
+    width: 100%;
+    height: 100%;
+
+    &_actions {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        transition: all 0.5s ease;
+
+        &.close {
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            height: 0;
+            transition: all 0.5s ease;
+        }
+
+        &-btn {
+            cursor: pointer;
+
+            p {
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    }
+
+
+    .meetnow-container {
+        width: 100%;
+        height: 0;
+
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s ease;
+
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            height: 100%;
+        }
+    }
+
+
+    .schedule-container {
+        width: 100%;
+        height: 0;
+
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s ease;
+
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            height: 100%;
+        }
+    }
+}
