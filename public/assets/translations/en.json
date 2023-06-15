@@ -9,6 +9,7 @@
   "MENU.SETTINGS": "Settings",
   "MENU.CALENDAR": "Calendar",
   "MENU.NOTES": "Notes",
+  "MENU.VIDEO_CONFERENCING": "Video Conferencing",
   "MENU.EMAILS": "Emails",
   "MENU.ONLINE_CONSULTANT": "Online consultant",
   "HEADER.HOW_CAN_UNLYME_HELP_YOU": "How can Unlyme help you?",
@@ -170,7 +171,9 @@
   "WORK_DRIVE_ADD.NEW": "Add New",
   "WORK_DRIVE_PAGE.SEARCH_PLACEHOLDER": "Search files and folders",
 
-  "TASKS_PAGE.TITLE": "Tasks"
+  "TASKS_PAGE.TITLE": "Tasks",
+
+  "VIDEO_CONFERENCING_PAGE.TITLE": "Video Conferencing"
 
 
 }

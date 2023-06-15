@@ -13,7 +13,8 @@ import Signin from './components/signin/SignIn';
 import SiteBuilder from './components/site-builder/SiteBuilder';
 import EmailPage from './components/pages/email/EmailPage';
 import WorkDrivePage from './components/pages/work-drive/WorkDrivePage';
-import TasksPage from './components/pages/kanban/TasksPage';
+import TasksPage from './components/pages/tasks/TasksPage';
+import VideoConferencingPage from './components/pages/video-conferencing/VideoConferencingPage';
 
 
 // This component is responsible for page routing
@@ -40,6 +41,10 @@ const Switcher = ({ screenSize }) => {
         <Route 
           path="/services/tasks"
           element={<TasksPage />}
+        />
+        <Route 
+          path="/services/video-conferencing"
+          element={<VideoConferencingPage />}
         />
         <Route 
           path="/services/copy-sites"

@@ -20,6 +20,7 @@ import onlineConsultantIcon from '../../../assets/images/my-services/logo-builde
 import calendarIcon from '../../../assets/images/my-services/calendar.png';
 import notesIcon from '../../../assets/images/my-services/notes.png';
 import emailIcon from '../../../assets/images/my-services/email.png';
+import videoConferencingIcon from '../../../assets/images/my-services/video-conference.png';
 
 
 
@@ -70,6 +71,13 @@ const Menu = ({screenSize}) => {
       title: "TASKS",
       link: "/services/tasks",
       img: `${tasksIcon}`,
+    },
+    {
+      id: 12,
+      icon: "Video Conferencing",
+      title: "VIDEO_CONFERENCING",
+      link: "/services/video-conferencing",
+      img: `${videoConferencingIcon}`,
     },
     {
       id: 2,
