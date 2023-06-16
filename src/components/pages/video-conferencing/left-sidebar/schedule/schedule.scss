@@ -1,4 +1,4 @@
-.meetnow {
+.schedule {
     padding: 10px;
 
     &-actions {
@@ -43,21 +43,64 @@
                     color: #000;
                 }
 
-                &-input {
-                    input {
-                        border-radius: 8px;
-                        background-color: #F8FAFC;
-                        padding: 10px;
+                &-date {
+                    &-title {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        margin-bottom: 5px;
+                        color: #000;
                     }
 
-                    .MuiOutlinedInput-notchedOutline {
-                        border-radius: 8px;
-                    }
+                    &-form {
+                        margin-top: 5px;
 
-                    .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
-                        border-color: #1976d2;
+                        &-field {
+                            .MuiInputBase-input {
+                                padding: 10px;
+                                background-color: #fff;
+                                border-radius: 8px;
+                            }
+
+                            .MuiOutlinedInput-notchedOutline {
+                                border-radius: 8px;
+                            }
+        
+                            .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                                border-color: #1976d2;
+                            }
+
+                            button.MuiButtonBase-root {
+                                border: unset;
+                                color: #4382C4;
+                                padding-left: 0;
+                                margin-top: 5px;
+                            }
+
+                            &:nth-child(1), &:nth-child(2) {
+                                padding-right: 5px;
+                            }
+                        }
                     }
                 }
+
+                &-timezone {
+                    &-title {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        margin-bottom: 5px;
+                        color: #000;
+                    }
+
+                    &-select {
+                        background-color: red;
+                        & [class^="-control"] {
+                            border-radius: 8px;
+                        }
+                    }
+                }
+
 
                 &-switch {
                     display: flex;

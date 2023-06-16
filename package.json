@@ -64,6 +64,7 @@
     "react-slider-swiper": "^2.0.6",
     "react-text-mask": "^5.5.0",
     "react-textarea-autosize": "^8.4.1",
+    "react-timezone-select": "^2.1.2",
     "react-toastify": "^9.1.2",
     "react-toastify-redux": "^1.0.0-rc.2",
     "reactjs-tailwind": "^0.1.9",

@@ -9,15 +9,17 @@ import meetIcon from '../../../../../assets/images/vide-conferencing/meet.png';
 import attendeeIcon from '../../../../../assets/images/vide-conferencing/attendee.png';
 import nameIcon from '../../../../../assets/images/vide-conferencing/name.png';
 import micOffIcon from '../../../../../assets/images/vide-conferencing/mic-off.png';
+import micOnIcon from '../../../../../assets/images/vide-conferencing/mic-on.png';
 import videoOffIcon from '../../../../../assets/images/vide-conferencing/video-off.png';
-import recordOnIcon from '../../../../../assets/images/vide-conferencing/record-on.png';
-import passwordOnIcon from '../../../../../assets/images/vide-conferencing/password-on.png';
+import videoOnIcon from '../../../../../assets/images/vide-conferencing/video-on.png';
+import recordIcon from '../../../../../assets/images/vide-conferencing/record.png';
+import passwordIcon from '../../../../../assets/images/vide-conferencing/password.png';
 import './meet-now.scss';
 
 
 
   
-  
+
 const MeetNow = ({handleShowMain}) => {
 
   const dispatch = useDispatch();
@@ -79,7 +81,7 @@ const MeetNow = ({handleShowMain}) => {
 
                 <div className="meetnow-content_form-item-switch">
                     <div className="meetnow-content_form-item-switch-label" onClick={handleMic}>
-                        <img src={micOffIcon} alt="microphone" />
+                        <img src={mic ? micOnIcon : micOffIcon} alt="microphone" />
                         <span>Auto enable microphone</span>
                     </div>
                     <div className="meetnow-content_form-item-switch-btn">
@@ -93,7 +95,7 @@ const MeetNow = ({handleShowMain}) => {
 
                 <div className="meetnow-content_form-item-switch">
                     <div className="meetnow-content_form-item-switch-label" onClick={handleVideo}>
-                        <img src={videoOffIcon} alt="video" />
+                        <img src={video ? videoOnIcon : videoOffIcon} alt="video" />
                         <span>Auto enable camera</span>
                     </div>
                     <div className="meetnow-content_form-item-switch-btn">
@@ -107,7 +109,7 @@ const MeetNow = ({handleShowMain}) => {
 
                 <div className="meetnow-content_form-item-switch">
                     <div className="meetnow-content_form-item-switch-label" onClick={handleRecord}>
-                        <img src={recordOnIcon} alt="record" />
+                        <img src={recordIcon} alt="record" />
                         <span>Auto enable recording</span>
                     </div>
                     <div className="meetnow-content_form-item-switch-btn">
@@ -121,7 +123,7 @@ const MeetNow = ({handleShowMain}) => {
 
                 <div className="meetnow-content_form-item-switch">
                     <div className="meetnow-content_form-item-switch-label" onClick={handlePassword}>
-                        <img src={passwordOnIcon} alt="password" />
+                        <img src={passwordIcon} alt="password" />
                         <span>Password protection</span>
                     </div>
                     <div className="meetnow-content_form-item-switch-btn">
@@ -131,6 +133,12 @@ const MeetNow = ({handleShowMain}) => {
                             inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
+                </div>
+
+                <div className="meetnow-content_form-item-submit">
+                    <button className="meetnow-content_form-item-submit-btn">
+                        Start
+                    </button>
                 </div>
             </form>
         </div>
