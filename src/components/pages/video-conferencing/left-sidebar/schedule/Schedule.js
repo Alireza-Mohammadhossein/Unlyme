@@ -9,6 +9,8 @@ import Grid from "@mui/material/Grid";
 import dayjs from "dayjs";
 import AddIcon from '@mui/icons-material/Add';
 import TimezoneSelect from 'react-timezone-select';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
@@ -16,6 +18,7 @@ import { TimeField } from "@mui/x-date-pickers/TimeField";
 import scheduleIcon from '../../../../../assets/images/vide-conferencing/schedule.png';
 import dateIcon from '../../../../../assets/images/vide-conferencing/date.png';
 import nameIcon from '../../../../../assets/images/vide-conferencing/name.png';
+import attendeeIcon from '../../../../../assets/images/vide-conferencing/attendee.png';
 import timezoneIcon from '../../../../../assets/images/vide-conferencing/timezone.png';
 import passwordIcon from '../../../../../assets/images/vide-conferencing/password.png';
 import './schedule.scss';
@@ -137,6 +140,21 @@ const [password, setPassword] = useState('')
                 </div>
 
                 <div className="schedule-content_form-item">
+                    <p className="schedule-content_form-item-title">
+                        <img src={attendeeIcon} alt="conference name" />
+                        <span>Attendee</span>
+                    </p>
+                    <TextField placeholder="Enter attendee name" className="schedule-content_form-item-input" />
+                </div>
+
+                <div className="schedule-content_form-item">
+                  <div className="schedule-content_form-item-checkbox">
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Recurring meeting" />
+                  </div>
+
+                </div>
+
+                <div className="schedule-content_form-item">
                   <div className="schedule-content_form-item-switch">
                     <div className="schedule-content_form-item-switch-label" onClick={handlePassword}>
                         <img src={passwordIcon} alt="password" />
@@ -156,7 +174,7 @@ const [password, setPassword] = useState('')
                 <div className="schedule-content_form-item">
                   <div className="schedule-content_form-item-submit">
                     <button className="schedule-content_form-item-submit-btn">
-                        Start
+                        Schedule
                     </button>
                   </div>
                 </div>

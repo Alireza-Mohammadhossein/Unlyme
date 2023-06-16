@@ -1,4 +1,27 @@
 .video-conferencing_rightside {
     width: 100%;
     height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &-tabs { 
+        .MuiButtonBase-root {
+            color: #000;
+            background-color: #DBDFEB;
+            border-radius: 8px;
+            padding: 10px 30px;
+        }
+        .MuiButtonBase-root.Mui-selected {
+            color: #000;
+            background-color: #F8FAFC;
+        }
+
+        .MuiTabs-indicator {
+            display: none;
+        }
+    }
+
+    &-tabpanels {
+
+    }
 }

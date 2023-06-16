@@ -2557,3 +2557,192 @@ export const emails = [
     subject: 'this is a test subject'
   },
 ]
+
+
+export const upcomingMeetings = [
+  {
+    id: 1,
+    day_id: '18/05/24',
+    meetings: [
+      {
+        id: 1,
+        name: 'Lorem Ipsum',
+        date: '18/05/24',
+        time_from: '15:00',
+        time_to: '16:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      // {
+      //   id: 2,
+      //   name: 'Lorem Ipsum',
+      //   date: '18/05/24',
+      //   time_from: '16:00',
+      //   time_to: '17:00',
+      //   description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      // },
+      // {
+      //   id: 3,
+      //   name: 'Lorem Ipsum',
+      //   date: '18/05/24',
+      //   time_from: '17:00',
+      //   time_to: '18:00',
+      //   description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      // },
+    ],
+  },
+  // {
+  //   id: 2,
+  //   day_id: '14/05/24',
+  //   meetings: [
+  //     {
+  //       id: 1,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '15:00',
+  //       time_to: '16:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //     {
+  //       id: 2,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '16:00',
+  //       time_to: '17:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //     {
+  //       id: 3,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '17:00',
+  //       time_to: '18:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 3,
+  //   day_id: '10/04/24',
+  //   meetings: [
+  //     {
+  //       id: 1,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '15:00',
+  //       time_to: '16:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //     {
+  //       id: 2,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '16:00',
+  //       time_to: '17:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //     {
+  //       id: 3,
+  //       name: 'Lorem Ipsum',
+  //       date: '18/05/24',
+  //       time_from: '17:00',
+  //       time_to: '18:00',
+  //       description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+  //     },
+  //   ],
+  // },
+];
+
+
+export const recentMeetings = [
+  {
+    id: 1,
+    day_id: '18/05/23',
+    meetings: [
+      {
+        id: 1,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '15:00',
+        time_to: '16:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 2,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '16:00',
+        time_to: '17:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 3,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '17:00',
+        time_to: '18:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+    ],
+  },
+  {
+    id: 2,
+    day_id: '14/05/23',
+    meetings: [
+      {
+        id: 1,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '15:00',
+        time_to: '16:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 2,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '16:00',
+        time_to: '17:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 3,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '17:00',
+        time_to: '18:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+    ],
+  },
+  {
+    id: 3,
+    day_id: '10/04/23',
+    meetings: [
+      {
+        id: 1,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '15:00',
+        time_to: '16:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 2,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '16:00',
+        time_to: '17:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+      {
+        id: 3,
+        name: 'Lorem Ipsum',
+        date: '18/05/23',
+        time_from: '17:00',
+        time_to: '18:00',
+        description: 'Pellentesque lobortis, velit eget, est arcu tristique leo,',
+      },
+    ],
+  },
+];
+

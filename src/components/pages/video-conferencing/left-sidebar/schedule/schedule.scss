@@ -24,10 +24,10 @@
         }
 
         &_form {
-            padding: 30px 3vw;
+            padding: 20px 3vw;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
 
             .MuiFormControl-root  {
                 width: 100%;
@@ -41,6 +41,22 @@
                     gap: 5px;
                     margin-bottom: 5px;
                     color: #000;
+                }
+
+                &-input {
+                    input {
+                        border-radius: 8px;
+                        background-color: #F8FAFC;
+                        padding: 10px;
+                    }
+
+                    .MuiOutlinedInput-notchedOutline {
+                        border-radius: 8px;
+                    }
+
+                    .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                        border-color: #1976d2;
+                    }
                 }
 
                 &-date {
@@ -58,7 +74,7 @@
                         &-field {
                             .MuiInputBase-input {
                                 padding: 10px;
-                                background-color: #fff;
+                                background-color: #F8FAFC;
                                 border-radius: 8px;
                             }
 
@@ -94,13 +110,15 @@
                     }
 
                     &-select {
-                        background-color: red;
-                        & [class^="-control"] {
+                        & > div > div {
                             border-radius: 8px;
+                            background-color: #F8FAFC;
                         }
                     }
+                    [class^="-control"] {
+                        border-radius: 8px;
+                    }
                 }
-
 
                 &-switch {
                     display: flex;
@@ -117,10 +135,31 @@
                             width: 20px;
                         }
                     }
+                }
 
-                    &-btn {
+                &-checkbox {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
 
+                    &-label {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+
+                        img {
+                            width: 20px;
+                        }
                     }
+
+                    .MuiFormControlLabel-root {
+                        margin: 0;
+                    }
+
+                    .MuiButtonBase-root {
+                        padding: 0;
+                    } 
                 }
 
                 &-submit {
