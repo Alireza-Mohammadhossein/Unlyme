@@ -17,11 +17,51 @@
     height: 100%;
   }
 
+  &_details {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+    &-info {
+        display: flex;
+        gap: 10px;
+
+        button.MuiButtonBase-root {
+            height: 40px;
+            background: rgba(118, 118, 128, 0.12);
+            border-radius: 8px;
+            box-shadow: unset;
+            color: #727272;
+            padding: 0 15px;
+            text-transform: none;
+            font-size: 14px;
+        }        
+    }
+
+    &-actions {
+        width: max-content;
+        display: flex;
+        background: rgba(248, 250, 252, 0.5);
+        border-radius: 8px;
+        gap: 8px;
+        padding: 0 3px;
+        height: 40px;
+    
+
+        &-btn {
+            img {
+                width: 25px;
+            }
+        }
+    }
+  }
+
   &_sidebar {
     padding: 10px 5px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 
     &_open-apps {
       &_btn.MuiButtonBase-root {
@@ -52,79 +92,60 @@
         background-color: transparent;
         border: unset;
       }
-
     }
 
     &-section {
-        &_notes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &_tabs {
             & .MuiTabs-flexContainer {
-                flex-direction: column-reverse;
-            }
-        }
-
-        &_notes-item{
-        
-            &.MuiButtonBase-root {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 15px;
-                text-transform: unset;
-                flex-direction: row;
-                padding: 15px 20px;
-                border-radius: 8px;
-                // border-bottom: 1px solid #ECECEC;
-
-                &:hover {
-                    background-color: #4382C41A;
-                }
+                background-color: #EDE9F8;
+                border-radius: 30px;
             }
 
-            &_content {
-                overflow: hidden;
-                text-align: left;
-
-                &_name {
-                    font-size: 15px;
-                    color: #000000;
-                    font-weight: 500;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    box-sizing: border-box;
-                    margin-bottom: 6px;
-                }
-
-                &_message {
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: #6e6f6f;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    box-sizing: border-box;
-                }
-            }
-
-            &_actions {
-                transition: all 0.3s ease;
+            & .MuiTabs-indicator {
                 display: none;
             }
 
-            &:hover {
-                .notes-page_sidebar-section_notes-item_actions{
-                    display: flex;
-                }
+            &-btn.MuiButtonBase-root {
+                border-radius: 30px;
+                padding: 0;
+                min-width: unset;
+                padding: 10px 20px;
+                min-height: unset;
+                height: unset;
+                max-width: unset;
+                height: fit-content;
+                text-transform: none;
+                font-size: 13px;
+                flex: 1 1 0px;
 
-                .notes-page_sidebar-section_notes-item_content {
-                    &_name {
-                        color: $blue;
-                    }
+                &.Mui-selected {
+                    background: rgba(118, 118, 128, 0.12);
+                    color: unset;
+                }
+            }
+        }
+
+        &_search {
+            .MuiFormControl-root {
+                width: 100%;
+            }
     
-                    &_message {
-                        color: $blue;
-                    }
+            &-input {
+                border: unset;
+                border-radius: 8px;
+                padding: 5px 10px;
+                // width: 300px;
+                // max-width: 350px;
+                background-color: rgba(248, 250, 252, 0.5);
+                color: #3C3C43B2;
+                height: 40px;
+    
+                &::before, &::after {
+                    display: none;
                 }
             }
         }

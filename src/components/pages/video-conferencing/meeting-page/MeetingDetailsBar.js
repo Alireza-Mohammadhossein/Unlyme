@@ -5,52 +5,71 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Grid from "@mui/material/Grid";
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
-import listView from '../../../../assets/images/notepage/list.png'; 
-import gridView from '../../../../assets/images/notepage/grid.png';
-import boldFormat from '../../../../assets/images/notepage/font.png';
-import bulletFormat from '../../../../assets/images/notepage/bullet.png';
-import tableFormat from '../../../../assets/images/notepage/table.png';
-import imageFormat from '../../../../assets/images/notepage/image.png';
-import lockFormat from '../../../../assets/images/notepage/lock.png';
-import shareFormat from '../../../../assets/images/notepage/share.png';
-
+import viewIcon from '../../../../assets/images/vide-conferencing/view.png';
+import handIcon from '../../../../assets/images/vide-conferencing/hand.png';
+import shareIcon from '../../../../assets/images/vide-conferencing/share.png';
+import moreIcon from '../../../../assets/images/vide-conferencing/more.png';
+import phoneIcon from '../../../../assets/images/vide-conferencing/phone.png';
+import micOffIcon from '../../../../assets/images/vide-conferencing/mic-off.png';
+import micOnIcon from '../../../../assets/images/vide-conferencing/mic-on.png';
+import videoOffIcon from '../../../../assets/images/vide-conferencing/video-off.png';
+import videoOnIcon from '../../../../assets/images/vide-conferencing/video-on.png';
 
 
 const MeetingDetailsBar = () => {
-    const { t, i18n } = useTranslation();
 
     
     return (
-        <Grid container spacing={2}>
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_video-conferencing-details_view-mode'>
-
+        <div className='meeting-page_details'>
+            <div className='meeting-page_details-info'>
+                <Button variant="contained">Meeting Room</Button>
+                <IconButton value="bold" aria-label="bold">
+                        <img src={viewIcon} />
+                        {/* <viewIcon /> */}
+                </IconButton>
+            </div>
+        
+            <div className='meeting-page_details-actions'>
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={handIcon} />
+                    </IconButton>
                 </div>
-            </Grid>
 
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_video-conferencing-details_format'>
-
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={micOffIcon} />
+                    </IconButton>
                 </div>
-            </Grid>
-            
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_video-conferencing-details_actions'>
 
+
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={videoOffIcon} />
+                    </IconButton>
                 </div>
-            </Grid>
 
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_video-conferencing-details_search'>
 
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={shareIcon} />
+                    </IconButton>
                 </div>
-            </Grid>
-        </Grid>
+
+
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={moreIcon} />
+                    </IconButton>
+                </div>
+
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                            <img src={phoneIcon} />
+                    </IconButton>
+                </div>
+            </div>
+        </div>
     )
 } 
 

@@ -5,11 +5,43 @@ import Button from '@mui/material/Button';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AddIcon from "@mui/icons-material/Add";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+import MeetingPageSidebar from "./MeetingPageSidebar";
 
 
 
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <div sx={{ p: 3 }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 
 
@@ -35,6 +67,13 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/pop
       setAnchorEl(null);
     };
   
+
+    
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
   
   
     return (
@@ -53,42 +92,7 @@ import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/pop
             }}
           >
             <div className="meeting-page_sidebar">
-              <div className="meeting-page_sidebar_open-apps">
-                <Button
-                  variant="outlined"
-                  aria-controls={open ? "long-menu" : undefined}
-                  aria-expanded={open ? "true" : undefined}
-                  aria-haspopup="true"
-                  onClick={handleClick}
-                  startIcon={<AddIcon />}
-                  className="meeting-page_sidebar_open-apps_btn"
-                >
-                  Open Apps
-                </Button>
-                
-                <Menu
-                  id="long-menu"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
-                  disableScrollLock = {true}
-                >
-                  {options.map((option) => (
-                    <MenuItem
-                      key={option}
-                      onClick={handleClose}
-                    >
-                      <Button
-                        startIcon={<AddIcon />}
-                        className="meeting-page_sidebar_open-apps_item-btn"
-                      >
-                        {option}
-                      </Button>
-                      
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </div>
+              <MeetingPageSidebar />
             </div>
           </Grid>
   

@@ -1,0 +1,151 @@
+import React, { useState } from "react";
+import Button from '@mui/material/Button';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import AddIcon from "@mui/icons-material/Add";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import SearchIcon from '@mui/icons-material/Search';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+
+
+
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <div sx={{ p: 3 }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+
+
+  
+  
+  
+  const MeetingPageSidebar = () => {
+  
+
+
+    const ITEM_HEIGHT = 48;
+    const options = ["Add Calendar", "Add Tasks", "Add Notes"];
+  
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
+
+    
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+  
+  
+    return (
+        <>
+            <div className="meeting-page_sidebar_open-apps">
+                <Button
+                    variant="outlined"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_btn"
+                >
+                    Open Apps
+                </Button>
+                
+                <Menu
+                    id="long-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    disableScrollLock = {true}
+                >
+                    {options.map((option) => (
+                    <MenuItem
+                        key={option}
+                        onClick={handleClose}
+                    >
+                        <Button
+                        startIcon={<AddIcon />}
+                        className="meeting-page_sidebar_open-apps_item-btn"
+                        >
+                        {option}
+                        </Button>
+                        
+                    </MenuItem>
+                    ))}
+                </Menu>
+            </div>
+
+            <div className="meeting-page_sidebar-section">
+                <Tabs value={value} onChange={handleChange} centered className="meeting-page_sidebar-section_tabs">
+                    <Tab label="Chat" className="meeting-page_sidebar-section_tabs-btn" />
+                    <Tab label="People" className="meeting-page_sidebar-section_tabs-btn" />
+                    <Tab label="Messages" className="meeting-page_sidebar-section_tabs-btn" />
+                </Tabs>
+
+                <div className="meeting-page_sidebar-section_search">
+                    <FormControl>
+                        <Input
+                        className='meeting-page_sidebar-section_search-input'
+                        placeholder='Search...'
+                        startAdornment={
+                            <InputAdornment position="start">
+                                <SearchIcon sx={{color: '#3C3C43B2'}} />
+                            </InputAdornment>
+                        }
+                        />
+                    </FormControl>
+                </div>
+
+                <TabPanel value={value} index={0}>
+                    Item One
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    Item Two
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    Item Three
+                </TabPanel>
+            </div>
+        </>
+    );
+  }
+
+  export default MeetingPageSidebar;
