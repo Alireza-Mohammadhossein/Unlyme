@@ -5,7 +5,7 @@ import icon from "../../../assets/images/my-services/video-conference.png";
 import "./video-conferencing-page.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupSlice';
-import VideoConferencingDetailsBar from './VideoConferencingDetailsBar';
+// import VideoConferencingDetailsBar from './VideoConferencingDetailsBar';
 import VideoConferencingPageContent from './VideoConferencingPageContent';
 // import { CustomToolbarQuill } from "./CustomToolbarQuill";
 
@@ -39,7 +39,7 @@ const VideoConferencingPage = () => {
             </Grid>
             <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
               <div className='cloud-page__header_video-conferencing-details'>
-                <VideoConferencingDetailsBar />
+                {/* <VideoConferencingDetailsBar /> */}
               </div>
             </Grid>
           </Grid>

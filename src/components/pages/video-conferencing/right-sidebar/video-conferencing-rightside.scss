@@ -22,6 +22,81 @@
     }
 
     &-tabpanels {
+        .meetings-tabpanels {
+            & > div {
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+                padding: 20px 10px;
+            }
+        }
 
+        .meeting {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            &_time {
+                color: #653EB9;
+                font-size: 16px;
+                text-align: left;
+                font-weight: 500;
+            }
+
+            &_card {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+
+                border: 1px solid #ECECEC;
+                background-color: rgba(248, 250, 252, 0.7);
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                padding: 15px;
+
+                &-icon {
+                    width: 50px;
+
+                    .MuiAvatar-root {
+                        padding: 5px;
+                        font-size: 16px;
+                        background-color: #DCD6E8;
+                        color: #653EB9;
+                    }
+                }
+                
+                &-details {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    overflow: hidden;
+                    width: 100%;
+
+                    &-name {
+                        font-size: 15px;
+                        color: #000;
+                    }
+
+                    &-date {
+                        font-size: 15px;
+                        color: #653EB9;
+                    }
+
+                    &-description {
+                        font-size: 14px;
+                        color: #000;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+
+            &_actions {
+                width: 50px;
+                text-align: right;
+            }
+        }
     }
 }
