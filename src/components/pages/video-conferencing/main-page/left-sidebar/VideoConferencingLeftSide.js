@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 import './video-conferencing-leftside.scss';
 import { useSelector, useDispatch } from "react-redux";
-import meetIcon from '../../../../assets/images/vide-conferencing/meet.png';
-import scheduleIcon from '../../../../assets/images/vide-conferencing/schedule.png';
+import meetIcon from '../../../../../assets/images/vide-conferencing/meet.png';
+import scheduleIcon from '../../../../../assets/images/vide-conferencing/schedule.png';
 import MeetNow from "./meet-now/MeetNow";
 import Schedule from './schedule/Schedule';
 

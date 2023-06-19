@@ -9,8 +9,8 @@ import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import './video-conferencing-rightside.scss';
 import { useSelector, useDispatch } from "react-redux";
-import { upcomingMeetings } from "../../../../mocks/mocks";
-import { recentMeetings } from "../../../../mocks/mocks";
+import { upcomingMeetings } from "../../../../../mocks/mocks";
+import { recentMeetings } from "../../../../../mocks/mocks";
 
 
 

@@ -5,15 +5,15 @@ import Button from '@mui/material/Button';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
-import meetIcon from '../../../../../assets/images/vide-conferencing/meet.png';
-import attendeeIcon from '../../../../../assets/images/vide-conferencing/attendee.png';
-import nameIcon from '../../../../../assets/images/vide-conferencing/name.png';
-import micOffIcon from '../../../../../assets/images/vide-conferencing/mic-off.png';
-import micOnIcon from '../../../../../assets/images/vide-conferencing/mic-on.png';
-import videoOffIcon from '../../../../../assets/images/vide-conferencing/video-off.png';
-import videoOnIcon from '../../../../../assets/images/vide-conferencing/video-on.png';
-import recordIcon from '../../../../../assets/images/vide-conferencing/record.png';
-import passwordIcon from '../../../../../assets/images/vide-conferencing/password.png';
+import meetIcon from '../../../../../../assets/images/vide-conferencing/meet.png';
+import attendeeIcon from '../../../../../../assets/images/vide-conferencing/attendee.png';
+import nameIcon from '../../../../../../assets/images/vide-conferencing/name.png';
+import micOffIcon from '../../../../../../assets/images/vide-conferencing/mic-off.png';
+import micOnIcon from '../../../../../../assets/images/vide-conferencing/mic-on.png';
+import videoOffIcon from '../../../../../../assets/images/vide-conferencing/video-off.png';
+import videoOnIcon from '../../../../../../assets/images/vide-conferencing/video-on.png';
+import recordIcon from '../../../../../../assets/images/vide-conferencing/record.png';
+import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.png';
 import './meet-now.scss';
 
 

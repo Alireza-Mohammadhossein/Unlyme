@@ -1,0 +1,299 @@
+@import "../../../../styles/sass/variables.scss";
+
+.meeting-page {
+  width: 100%;
+  padding-bottom: 10px;
+  height: 75vh;
+
+  & .MuiGrid-container {
+    margin: 0;
+  }
+
+  & .MuiGrid-item {
+    padding-top: 0 !important;
+  }
+
+  & .MuiGrid-root {
+    height: 100%;
+  }
+
+  &_sidebar {
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &_open-apps {
+      &_btn.MuiButtonBase-root {
+        background-color: transparent;
+        font-size: 15px;
+        padding: 10px 30px 10px 5px;
+        text-align: center;
+        color: #3089dc;
+        border-radius: 8px;
+        text-transform: none;
+        border: unset;
+      }
+
+      &_btn.MuiButtonBase-root:hover {
+        background-color: transparent;
+        border: unset;
+      }
+
+      &_item-btn.MuiButtonBase-root {
+        font-size: 15px;
+        text-align: center;
+        text-transform: none;
+        color: #000000;
+        padding: 5px;
+      }
+
+      &_item-btn.MuiButtonBase-root:hover {
+        background-color: transparent;
+        border: unset;
+      }
+
+    }
+
+    &-section {
+        &_notes-list {
+            & .MuiTabs-flexContainer {
+                flex-direction: column-reverse;
+            }
+        }
+
+        &_notes-item{
+        
+            &.MuiButtonBase-root {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+                text-transform: unset;
+                flex-direction: row;
+                padding: 15px 20px;
+                border-radius: 8px;
+                // border-bottom: 1px solid #ECECEC;
+
+                &:hover {
+                    background-color: #4382C41A;
+                }
+            }
+
+            &_content {
+                overflow: hidden;
+                text-align: left;
+
+                &_name {
+                    font-size: 15px;
+                    color: #000000;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    box-sizing: border-box;
+                    margin-bottom: 6px;
+                }
+
+                &_message {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #6e6f6f;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    box-sizing: border-box;
+                }
+            }
+
+            &_actions {
+                transition: all 0.3s ease;
+                display: none;
+            }
+
+            &:hover {
+                .notes-page_sidebar-section_notes-item_actions{
+                    display: flex;
+                }
+
+                .notes-page_sidebar-section_notes-item_content {
+                    &_name {
+                        color: $blue;
+                    }
+    
+                    &_message {
+                        color: $blue;
+                    }
+                }
+            }
+        }
+    }
+  }
+
+  &_main {
+    height: 100%;
+    padding: 0 10px 0 15px;
+
+    &_notes {
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        border-radius: 8px;
+
+        &-messages {
+            height: 100%;
+            padding: 24px !important;
+
+            & .MuiBox-root {
+                padding: 0 !important;
+            }
+
+            &__body {
+                display: flex;
+                flex-direction: column;
+
+                &-date {
+                    text-align: center;
+                    margin-bottom: 15px;
+
+                    p {
+                        font-size: 14px;
+                        color: #6E6F6F;
+                    }
+                }
+
+                &-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-title {
+                    width: 100%;
+                    height: auto;
+                    color: #363C65;
+                    border-radius: 8px;
+                    outline: none;
+                    width: 100%;
+                    box-sizing: border-box;
+                    // background-color: #F8FAFC;
+                    transition: 0.2s;
+                    // border: 1px solid #ECECEC;
+                    padding: 10px 8px;
+                    font-size: 15px;
+
+                        & .MuiInputBase-root {
+                            border-radius: 8px;
+                            background-color: #F8FAFC;
+                        }
+                        
+                        & .MuiInput-underline:after {
+                            border-bottom-color: green;
+                        }
+                        
+                        & .MuiOutlinedInput-root {
+                            & fieldset {
+                            border-color: #ECECEC;
+                            }
+
+                            &:hover fieldset {
+                            border-color: $blue;
+                            }
+
+                            &.Mui-focused fieldset {
+                            border-color: $blue;
+                            }
+
+                            & textarea {
+                            height: 100%;
+                            }
+                        }
+                    }
+
+                    &-message {
+                    width: 100%;
+                    // padding-left: 30px !important;
+
+                        & fieldset {
+                            border: unset;
+                            padding: 0;
+                        }
+
+                        & .MuiInputBase-root {
+                            padding: 20px 0 !important;
+                            align-items: start !important;
+                            height: 100%;
+                        }
+
+                        & textarea {
+                            height: 100%;
+                        }
+                    }
+                }
+
+                &-submit {
+                    text-align: right;
+                    padding: 0 30px;
+                }
+
+            }
+        }
+    }
+  }
+}
+
+.cloud-page__header_meeting-page-details {
+    // height: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
+
+    &_view-mode {
+        &_toggler {
+            & .MuiButtonBase-root {
+                border: unset;
+            }
+        }
+    }
+
+    &_format {
+
+    }
+
+    &_actions {
+
+    }
+
+    &_search {
+        // display: block;
+        // flex-grow: 1;
+        // flex-shrink: 0;
+        // width: 100%;
+
+        .MuiFormControl-root {
+            width: 100%;
+        }
+
+        &-input {
+            border: unset;
+            border-radius: 8px;
+            padding: 5px 10px;
+            // width: 300px;
+            // max-width: 350px;
+            background-color: rgba(118, 118, 128, 0.12);
+            color: #3C3C43B2;
+            height: 40px;
+
+            &:placeholder{
+                color: red;
+            }
+
+            &::before, &::after {
+                display: none;
+            }
+        }
+    }
+
+}

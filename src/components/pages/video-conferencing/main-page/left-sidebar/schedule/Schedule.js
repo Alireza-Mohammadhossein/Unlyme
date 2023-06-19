@@ -15,12 +15,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { TimeField } from "@mui/x-date-pickers/TimeField";
-import scheduleIcon from '../../../../../assets/images/vide-conferencing/schedule.png';
-import dateIcon from '../../../../../assets/images/vide-conferencing/date.png';
-import nameIcon from '../../../../../assets/images/vide-conferencing/name.png';
-import attendeeIcon from '../../../../../assets/images/vide-conferencing/attendee.png';
-import timezoneIcon from '../../../../../assets/images/vide-conferencing/timezone.png';
-import passwordIcon from '../../../../../assets/images/vide-conferencing/password.png';
+import scheduleIcon from '../../../../../../assets/images/vide-conferencing/schedule.png';
+import dateIcon from '../../../../../../assets/images/vide-conferencing/date.png';
+import nameIcon from '../../../../../../assets/images/vide-conferencing/name.png';
+import attendeeIcon from '../../../../../../assets/images/vide-conferencing/attendee.png';
+import timezoneIcon from '../../../../../../assets/images/vide-conferencing/timezone.png';
+import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.png';
 import './schedule.scss';
 
 
