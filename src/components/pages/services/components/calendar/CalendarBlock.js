@@ -17,7 +17,7 @@ const CalendarBlock = () => {
       subtitle={t("SERVICES.CALENDAR.SUBTITLE")}
       // rightButtonAction={() => navigate('/services/calendar')}
       infoContent="asd"
-      directComponent={<CalendarPage />}
+      directComponent={CalendarPage}
       content={
         <Calendar
           locale={getLangISOFormat(i18n.language)}

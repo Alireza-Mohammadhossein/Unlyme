@@ -47,7 +47,7 @@ const LogoBuilder = () => {
       subtitle={t("SERVICES.SITES_COPYING.SUBTITLE")}
       rightButtonAction={() => navigate("/services/copy-sites")}
       content={content}
-      directComponent={<CopySites />}
+      // directComponent={<CopySites />}
       infoContent="s"
       icon={icon}
     />

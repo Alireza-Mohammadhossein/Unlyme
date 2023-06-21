@@ -123,7 +123,7 @@ const BankBlock = () => {
       // rightButtonAction={() => history.push('/services/bank')}
       // rightButtonAction={() => navigate('/services/bank')}
       iframeUrl="../../../bank/Bank.js"
-      directComponent={<Bank />}
+      // directComponent={<Bank />}
       content={content}
       infoContent="s"
       icon={icon}

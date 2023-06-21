@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { useDispatch } from "react-redux";
+import { handleOpenAppsModal } from "../../../../../redux/app/appsModalSlice";
 
 
 const CloudBlock = ({ 
@@ -35,6 +37,8 @@ const CloudBlock = ({
     boxShadow: 24,
   };
   
+
+  const dispatch = useDispatch();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const [open, setOpen] = useState(false);
@@ -68,7 +72,10 @@ const CloudBlock = ({
         </div>
 
         {directComponent != null && (
-          <div className="btn btn--blue-text cloud-block__header_btn" onClick={handleOpen}>
+          <div className="btn btn--blue-text cloud-block__header_btn" 
+            // onClick={handleOpen}
+            onClick={() => dispatch(handleOpenAppsModal(directComponent))}
+          >
             <i className="material-icons">add</i>
           </div>
         )}

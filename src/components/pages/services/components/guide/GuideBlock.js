@@ -7,7 +7,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 
 
-const label = { InputProps: { 'aria-label': 'Checkbox demo' } };
+// const label = { InputProps: { 'aria-label': 'Checkbox demo' } };
 
 const GuideBlock = () => {
   const { t, i18n } = useTranslation();

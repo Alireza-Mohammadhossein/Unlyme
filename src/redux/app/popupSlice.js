@@ -8,6 +8,7 @@ const initialState = {
     settingPopupToggler: false,
     assistantPopupToggler: false,
     newAssistantPopupToggler: false,
+    firstPopupTab: false,
     secondPopupTab : false,
     assistantText: '',
     assistantMessage: '',
@@ -18,7 +19,17 @@ export const popupSlice = createSlice({
   initialState,
   reducers: {
     toggleChatPopup: (state) => {
+        if(state.chatPopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.chatPopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.chatPopupToggler = !state.chatPopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.emailPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
@@ -28,7 +39,17 @@ export const popupSlice = createSlice({
     },
 
     toggleEmailpopup: (state) => {
+        if(state.emailPopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.emailPopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.emailPopupToggler = !state.emailPopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.chatPopupToggler = false;
         state.notePopupToggler = false;
         state.notificationPopupToggler = false;
@@ -38,7 +59,17 @@ export const popupSlice = createSlice({
     },
 
     toggleNotePopup: (state) => {
+        if(state.notePopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.notePopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.notePopupToggler = !state.notePopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.chatPopupToggler = false;
         state.emailPopupToggler = false;
         state.notificationPopupToggler = false;
@@ -48,7 +79,17 @@ export const popupSlice = createSlice({
     },
 
     toggleNotificationPopup: (state) => {
+        if(state.notificationPopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.notificationPopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.notificationPopupToggler = !state.notificationPopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.chatPopupToggler = false;
         state.emailPopupToggler = false;
         state.notePopupToggler = false;
@@ -58,7 +99,17 @@ export const popupSlice = createSlice({
     },
 
     toggleSettingPopup: (state) => {
+        if(state.settingPopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.settingPopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.settingPopupToggler = !state.settingPopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.chatPopupToggler = false;
         state.emailPopupToggler = false;
         state.notePopupToggler = false;
@@ -68,7 +119,17 @@ export const popupSlice = createSlice({
     },
 
     toggleAssistantPopup: (state) => {
+        if(state.assistantPopupToggler === true) {
+            state.firstPopupTab = false;
+            state.secondPopupTab = false;
+        }
+        
+        if(state.assistantPopupToggler === false) {
+            state.firstPopupTab = true;
+            state.secondPopupTab = false;
+        }
         state.assistantPopupToggler = !state.assistantPopupToggler;
+        // state.firstPopupTab = !state.firstPopupTab;
         state.chatPopupToggler = false;
         state.emailPopupToggler = false;
         state.notePopupToggler = false;
@@ -99,13 +160,10 @@ export const popupSlice = createSlice({
 
     setAssistantText: (state, text) => {
         state.assistantText = text;
-        console.log('assistant text', state.assistantText);
     },
 
     setAssistantMessage: (state, message) => {
         state.assistantMessage = message.payload;
-        console.log('assistant message', state.assistantMessage);
-
     }
 
 
@@ -122,6 +180,7 @@ export const {
     toggleSettingPopup, 
     toggleAssistantPopup, 
     toggleNewAssistantPopup,
+    toggleFirstPopupTab,
     toggleSecondPopupTab,
     setAssistantText,
     setAssistantMessage

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
+import workDriveIcon from "../../../assets/images/workDrive.png"
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
-import icon from "../../../assets/images/my-services/drive.png"
 import "./work-drive-page.scss";
 import WorkDriveDetailsBar from './WorkDriveDetailsBar';
 import WorkDriveContent from './WorkDriveContent'
@@ -240,7 +240,7 @@ const WorkDrivePage = () => {
             <Grid container spacing={2}>  
               <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
                 <div className='cloud-page__header_share_icon'>
-                  <img src={icon} />
+                  <img src={workDriveIcon} />
                 </div>
 
                 <div className="cloud-page__header_share_title">

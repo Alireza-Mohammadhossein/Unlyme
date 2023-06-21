@@ -159,6 +159,9 @@ h1, .div-h1 {
 }
 .apps-modal .apps-modal-container {
   width: 90vw;
+  max-width: 1600px;
+  outline: none;
+  box-sizing: border-box;
   max-height: 90vh;
   margin: 0 auto;
   position: absolute;
@@ -166,6 +169,27 @@ h1, .div-h1 {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (min-width: 1600px) {
+  .apps-modal .apps-modal-container.firstPopupShow {
+    padding-right: 350px;
+  }
+  .apps-modal .apps-modal-container.secondPopupShow {
+    padding-right: 725px;
+  }
+}
+
+
+@media (max-width: 1600px) {
+  .apps-modal .apps-modal-container.firstPopupShow {
+    padding-right: 315px;
+  }
+  
+  .apps-modal .apps-modal-container.secondPopupShow {
+    padding-right: 640px;
+  }
+}
+
 .apps-modal .MuiBackdrop-root {
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);

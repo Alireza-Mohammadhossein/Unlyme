@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import tasksIcon from "../../../assets/images/tasksIcon.png";
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
-import icon from "../../../assets/images/my-services/tasks.png"
 import "./tasks-page.scss";
 import TasksDetailsBar from './TasksDetailsBar';
 import TasksContent from './TasksContent';
@@ -21,7 +21,7 @@ const TasksPage = () => {
             <Grid container spacing={2}>  
               <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
                 <div className='cloud-page__header_share_icon'>
-                  <img src={icon} />
+                  <img src={tasksIcon} />
                 </div>
 
                 <div className="cloud-page__header_share_title">

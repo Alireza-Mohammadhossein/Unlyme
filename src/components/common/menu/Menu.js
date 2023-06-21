@@ -143,6 +143,9 @@ const Menu = ({screenSize}) => {
 
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
   const SelectedComponent = useSelector((state) => state.appsModal.SelectedComponent);
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
 
   
   const openAppsModalHandler = (component) => {
@@ -173,13 +176,20 @@ const Menu = ({screenSize}) => {
     >
       <ul className="menu__list">
         <li className="menu__item">
-          <Tooltip title={t(`MENU.MY_SERVICES`)} arrow placement="right">
+          <Link to='/' className="menu__item-link">
+            <Tooltip title='dashboard' arrow placement="right">
+              <div className="menu__item-icon">
+                <img src={dashboardIcon} className="menu__item-img" />
+              </div>
+            </Tooltip>
+          </Link>
+          {/* <Tooltip title={t(`MENU.MY_SERVICES`)} arrow placement="right">
             <Button>
                 <div className="menu__item-icon">
                   <img src={dashboardIcon} className="menu__item-img" />
                 </div>
             </Button>
-          </Tooltip>
+          </Tooltip> */}
         </li>
 
         {data.map((item) => (
@@ -210,12 +220,10 @@ const Menu = ({screenSize}) => {
         className="apps-modal"
         disableEnforceFocus 
         >
-        <div className="apps-modal-container">
+        <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
           {SelectedComponent && <SelectedComponent />}
         </div>
       </Modal>
-
-
     </div>
   );
 };

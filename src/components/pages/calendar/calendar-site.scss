@@ -2,6 +2,9 @@
 
 .calendar-page {
     width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    height: 75vh;
 
     & .MuiGrid-container {
         margin: 0;
@@ -126,6 +129,7 @@
             & .fc-view-harness {
                 background-color: white;
                 border-radius: 8px;
+                max-height: 630px;
 
                 & .fc-scrollgrid {
                     border: unset;
@@ -162,7 +166,7 @@
 
                             
                             & .fc-daygrid-day-number {
-                                padding: 6px 8px;
+                                padding: 6px 6px;
                             }
 
                             & .fc-daygrid-day-events {

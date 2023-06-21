@@ -69,7 +69,7 @@ const DiscBlock = () => {
       subtitle={t("SERVICES.DISC.SUBTITLE")}
       rightButtonAction={() => navigate("/services/copy-sites")}
       content={content}
-      directComponent={<CopySites />}
+      // directComponent={<CopySites />}
       infoContent="s"
       icon={icon}
     />

@@ -1,8 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import CloudBlock from "../cloud-block/CloudBlock";
+import WorkDrivePage from "../../../work-drive/WorkDrivePage";
 import icon from "../../../../../assets/images/my-services/drive.png";
 import upload from "../../../../../assets/images/my-services/upload.png";
+
+
 
 const WorkDrive = () => {
   const { t, i18n } = useTranslation();
@@ -26,6 +29,7 @@ const WorkDrive = () => {
       title={t("SERVICES.WORKDRIVE.TITLE")}
       subtitle={t("SERVICES.WORKDRIVE.SUBTITLE")}
       content={content}
+      directComponent={WorkDrivePage}
       infoContent="s"
       iconName="services/workDrive"
       icon={icon}

@@ -164,7 +164,7 @@ const [password, setPassword] = useState('')
                         <Switch
                             checked={password}
                             onChange={handlePassword}
-                            inputProps={{ 'aria-label': 'controlled' }}
+                            // inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
                   </div>

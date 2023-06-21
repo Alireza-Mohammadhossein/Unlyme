@@ -82,7 +82,7 @@ const DomainsBlock = () => {
       subtitle={t("SERVICES.DOMAINS.SUBTITLE")}
       rightButtonAction={() => navigate("/services/domains")}
       infoContent="sd"
-      directComponent={<Domain />}
+      // directComponent={<Domain />}
       content={content}
       icon={icon}
     />

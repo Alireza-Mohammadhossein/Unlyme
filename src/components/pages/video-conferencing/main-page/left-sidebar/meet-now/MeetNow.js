@@ -88,7 +88,7 @@ const MeetNow = ({handleShowMain}) => {
                         <Switch
                             checked={mic}
                             onChange={handleMic}
-                            inputProps={{ 'aria-label': 'controlled' }}
+                            // inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
                 </div>
@@ -102,7 +102,7 @@ const MeetNow = ({handleShowMain}) => {
                         <Switch
                             checked={video}
                             onChange={handleVideo}
-                            inputProps={{ 'aria-label': 'controlled' }}
+                            // inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
                 </div>
@@ -116,7 +116,7 @@ const MeetNow = ({handleShowMain}) => {
                         <Switch
                             checked={record}
                             onChange={handleRecord}
-                            inputProps={{ 'aria-label': 'controlled' }}
+                            // inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
                 </div>
@@ -130,7 +130,7 @@ const MeetNow = ({handleShowMain}) => {
                         <Switch
                             checked={password}
                             onChange={handlePassword}
-                            inputProps={{ 'aria-label': 'controlled' }}
+                            // inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </div>
                 </div>

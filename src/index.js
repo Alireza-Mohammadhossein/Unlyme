@@ -182,8 +182,8 @@ i18n
       // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
       
       
-      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
-      // loadPath: './assets/translations/{{lng}}.json',
+      // loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+      loadPath: './assets/translations/{{lng}}.json',
     },
   });
 

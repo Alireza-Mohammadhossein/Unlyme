@@ -50,7 +50,7 @@ const LogoBuilder = () => {
       subtitle={t("SERVICES.WEBSITE_BUILDER.SUBTITLE")}
       rightButtonAction={() => navigate("/services/copy-sites")}
       content={content}
-      directComponent={<CopySites />}
+      // directComponent={<CopySites />}
       infoContent="s"
       icon={icon}
     />

@@ -2,14 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import appReducer from './app/appSlice';
 import signinReducer from './signin/signinSlice';
 import themeReducer from './app/themeSlice';
-import popupSlice from './app/popupSlice';
+import popupReducer from './app/popupSlice';
 import appsModalReducer from './app/appsModalSlice';
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
     theme: themeReducer,
-    popup: popupSlice,
+    popup: popupReducer,
     signin: signinReducer,
     appsModal: appsModalReducer,
   },

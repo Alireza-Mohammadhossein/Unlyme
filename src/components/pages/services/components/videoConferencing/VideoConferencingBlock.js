@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
 import dayjs from "dayjs";
+import VideoConferencingPage from "../../../video-conferencing/main-page/VideoConferencingPage";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
@@ -143,6 +144,7 @@ const VideoConferencingBlock = () => {
       title={t("SERVICES.VIDEO_CONFERENCING.TITLE")}
       subtitle={t("SERVICES.VIDEO_CONFERENCING.SUBTITLE")}
       content={content}
+      directComponent={VideoConferencingPage}
       infoContent="s"
       iconName="services/tasks"
       icon={icon}

@@ -20,7 +20,7 @@ const CloudPage = ({
   const dispatch = useDispatch();
 
   return (
-    <div className="cloud-page" id='cloud-page'>
+    <div className="cloud-page" id='cloud-page' >
       <div className="cloud-page__header">
         <Grid container spacing={2}>
           <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>

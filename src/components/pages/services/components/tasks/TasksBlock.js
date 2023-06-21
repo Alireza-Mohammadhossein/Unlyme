@@ -15,6 +15,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import icon from "../../../../../assets/images/my-services/tasks.png";
+import TasksPage from "../../../tasks/TasksPage";
 import {
   backlogLists,
   inprogressLists,
@@ -296,6 +297,7 @@ const TasksBlock = () => {
       title={t("SERVICES.TASKS.TITLE")}
       subtitle={t("SERVICES.TASKS.SUBTITLE")}
       content={content}
+      directComponent={TasksPage}
       infoContent="s"
       iconName="services/tasks"
       icon={icon}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import icon from "../../../assets/images/my-services/calendar.png";
+import calendarIcon from "../../../assets/images/calendarIcon.png";
 import { formatDate } from '@fullcalendar/core';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -23,6 +23,7 @@ import { useSelector} from 'react-redux';
 function CalendarPageContent() {
   const { t, i18n } = useTranslation();
 
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
@@ -219,7 +220,7 @@ const CalendarPage = () => {
     <div className="page-container">
       <CloudPage
         title={t("SERVICES.CALENDAR.TITLE")}
-        icon={icon}
+        icon={calendarIcon}
         content={CalendarPageContent()}
       />
     </div>
