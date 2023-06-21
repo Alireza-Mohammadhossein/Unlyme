@@ -3,6 +3,7 @@ import appReducer from './app/appSlice';
 import signinReducer from './signin/signinSlice';
 import themeReducer from './app/themeSlice';
 import popupSlice from './app/popupSlice';
+import appsModalReducer from './app/appsModalSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     theme: themeReducer,
     popup: popupSlice,
     signin: signinReducer,
+    appsModal: appsModalReducer,
   },
 })

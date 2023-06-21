@@ -18,11 +18,16 @@ import tableFormat from '../../../assets/images/notepage/table.png';
 import imageFormat from '../../../assets/images/notepage/image.png';
 import lockFormat from '../../../assets/images/notepage/lock.png';
 import shareFormat from '../../../assets/images/notepage/share.png';
+import { useDispatch} from 'react-redux';
+import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
 const NotesDetailsBar = ({ setSearchNote }) => {
     const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
+
 
 
     const [viewMode, setViewMode] = useState('list');
@@ -42,7 +47,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
     
     return (
         <Grid container spacing={2}>
-            <Grid item lg={3} md={6} xs={12}>
+            <Grid item lg={2} md={6} xs={12}>
                 <div className='cloud-page__header_notes-details_view-mode'>
                     <ToggleButtonGroup
                         value={viewMode}
@@ -93,7 +98,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
                 </div>
             </Grid>
 
-            <Grid item lg={3} md={6} xs={12}>
+            <Grid item lg={4} md={6} xs={12}>
                 <div className='cloud-page__header_notes-details_search'>
                     <FormControl>
                         <Input
@@ -107,6 +112,10 @@ const NotesDetailsBar = ({ setSearchNote }) => {
                         }
                         />
                     </FormControl>
+
+                    <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+                        <CloseIcon />
+                    </IconButton>
                 </div>
             </Grid>
         </Grid>

@@ -6,11 +6,16 @@ import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch} from 'react-redux';
+import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 
 
 
 const EmailDetailsBar = ({ setSearchText }) => {
     const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
 
 
     return (
@@ -32,7 +37,7 @@ const EmailDetailsBar = ({ setSearchText }) => {
                 </div>
             </Grid>
 
-            <Grid item lg={8} md={12} xs={12}>
+            <Grid item lg={8} md={12} xs={12} sx={{ display: 'flex', gap: '5px' }}>
                 <div className='cloud-page__header_email-details_actions'>
                     <Button variant="contained" startIcon="R" className='cloud-page__header_email-details_actions-btn'>
                         Summary Letter
@@ -44,6 +49,10 @@ const EmailDetailsBar = ({ setSearchText }) => {
                         Smart Search
                     </Button>
                 </div>
+
+                <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+                    <CloseIcon />
+                </IconButton>
             </Grid>
         </Grid>
     );

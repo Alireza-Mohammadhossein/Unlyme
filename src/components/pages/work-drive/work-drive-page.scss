@@ -40,13 +40,9 @@
 
       &_list {
         .MuiButtonBase-root {
-            // background-color: $blue;
             width: 100%;
             padding: 10px;
-            // text-align: left;
-            // color: #fff;
             border-radius: 8px;
-            // text-transform: none;
           }
       }
     }
@@ -108,20 +104,13 @@
 }
 
 .cloud-page__header_work-drive-page-details {
-    // height: 40px;
     display: flex;
     gap: 10px;
     align-items: center;
     width: 100%;
-    // padding-left: 15px;
     box-sizing: border-box;
 
     &_search {
-        // display: block;
-        // flex-grow: 1;
-        // flex-shrink: 0;
-        // width: 100%;
-
         .MuiFormControl-root {
             width: 100%;
         }

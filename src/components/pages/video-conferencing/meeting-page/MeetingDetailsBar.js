@@ -25,7 +25,6 @@ const MeetingDetailsBar = () => {
                 <Button variant="contained">Meeting Room</Button>
                 <IconButton value="bold" aria-label="bold">
                         <img src={viewIcon} />
-                        {/* <viewIcon /> */}
                 </IconButton>
             </div>
         

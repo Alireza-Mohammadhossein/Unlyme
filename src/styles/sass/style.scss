@@ -153,9 +153,27 @@ h1, .div-h1 {
   // padding: 45px 70px 20px 70px;
   padding: 60px 70px 20px 70px;
 }
+.apps-modal.MuiModal-root  {
+  z-index: 2;
+  top: 45px;
+}
+.apps-modal .apps-modal-container {
+  width: 90vw;
+  max-height: 90vh;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.apps-modal .MuiBackdrop-root {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  top: 45px;
+}
 .page-container {
   // padding: 70px 100px 20px 100px;
-  padding: 90px 100px 20px 100px;
+  // padding: 90px 100px 20px 100px;
   margin: auto;
   max-width: 1600px;
   width: 100%;

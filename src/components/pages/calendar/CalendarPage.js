@@ -16,12 +16,12 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import './calendar-site.scss';
 import { Calendar_page_current_events } from '../../../mocks/mocks';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
+
 
 
 function CalendarPageContent() {
   const { t, i18n } = useTranslation();
-
 
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
@@ -213,6 +213,7 @@ function CalendarPageContent() {
 
 const CalendarPage = () => {
   const { t, i18n } = useTranslation();
+
 
   return (
     <div className="page-container">

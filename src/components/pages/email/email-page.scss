@@ -192,10 +192,11 @@
     }
 
     &_actions {
+        width: 100%;
         display: flex;
         background-image: linear-gradient(to right,#BBCFFC, #F3A8F5);
-        // width: 100%;
-        height: 40px;
+        box-sizing: border-box;
+        height: 40px;   
         gap: 10px;
         align-items: center;
         padding: 0 10px;

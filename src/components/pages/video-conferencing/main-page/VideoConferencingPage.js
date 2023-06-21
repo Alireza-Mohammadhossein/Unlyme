@@ -38,7 +38,7 @@ const VideoConferencingPage = () => {
               </div>
             </Grid>
             <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
-              <div className='cloud-page__header_video-conferencing-details'>
+              <div className='cloud-page__header_video-conferencing_details'>
                 <VideoConferencingDetailsBar />
               </div>
             </Grid>

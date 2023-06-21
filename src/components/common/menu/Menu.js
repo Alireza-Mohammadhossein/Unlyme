@@ -2,13 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Tooltip from "@mui/material/Tooltip";
-import { GetScreenSize } from "../getScreenSize/GetScreenSize";
-import {
-  ASSETS_URL,
-  LOCAL_STORAGE_LOCALE,
-  SITE_NAME,
-  SUPPORTED_LANGUAGES,
-} from "../../../types";
 import dashboardIcon from '../../../assets/images/my-services/dashboard.png';
 import domainsIcon from '../../../assets/images/my-services/domains.png';
 import driveIcon from '../../../assets/images/my-services/drive.png';
@@ -22,27 +15,46 @@ import notesIcon from '../../../assets/images/my-services/notes.png';
 import emailIcon from '../../../assets/images/my-services/email.png';
 import videoConferencingIcon from '../../../assets/images/my-services/video-conference.png';
 
+import Calendar from '../../pages/calendar/CalendarPage';
+import Notes from '../../pages/notes/NotesPage';
+import Emails from '../../pages/email/EmailPage';
+import WorkDrive from '../../pages/work-drive/WorkDrivePage';
+import Tasks from '../../pages/tasks/TasksPage';
+import VideoConferencing from '../../pages/video-conferencing/main-page/VideoConferencingPage';
+
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+
+import { useSelector, useDispatch } from "react-redux";
+import { handleCloseAppsModal, handleOpenAppsModal } from '../../../redux/app/appsModalSlice';
+
+
 
 
 
 const Menu = ({screenSize}) => {
   // const screenSize = GetScreenSize();
   const { t, i18n } = useTranslation();
+  
 
   const data = [
-    {
-      id: 1,
-      icon: "dashboard",
-      title: "MY_SERVICES",
-      link: "/",
-      img: `${dashboardIcon}`,
-    },
+    // {
+    //   id: 1,
+    //   icon: "dashboard",
+    //   title: "MY_SERVICES",
+    //   link: "/",
+    //   img: `${dashboardIcon}`,
+    // },
     {
       id: 8,
       icon: "calendar_month",
       title: "CALENDAR",
       link: "/services/calendar",
       img: `${calendarIcon}`,
+      component: Calendar,
     },
     {
       id: 9,
@@ -50,6 +62,7 @@ const Menu = ({screenSize}) => {
       title: "NOTES",
       link: "/services/notes",
       img: `${notesIcon}`,
+      component: Notes,
     },
     {
       id: 10,
@@ -57,6 +70,7 @@ const Menu = ({screenSize}) => {
       title: "EMAILS",
       link: "/services/email",
       img: `${emailIcon}`,
+      component: Emails,
     },    
     {
       id: 3,
@@ -64,6 +78,7 @@ const Menu = ({screenSize}) => {
       title: "WORK_DRIVE",
       link: "/services/work-drive",
       img: `${driveIcon}`,
+      component: WorkDrive,
     },  
     {
       id: 11,
@@ -71,6 +86,7 @@ const Menu = ({screenSize}) => {
       title: "TASKS",
       link: "/services/tasks",
       img: `${tasksIcon}`,
+      component: Tasks,
     },
     {
       id: 12,
@@ -78,6 +94,7 @@ const Menu = ({screenSize}) => {
       title: "VIDEO_CONFERENCING",
       link: "/services/video-conferencing",
       img: `${videoConferencingIcon}`,
+      component: VideoConferencing,
     },
     {
       id: 2,
@@ -85,37 +102,58 @@ const Menu = ({screenSize}) => {
       title: "DOMAINS",
       link: "/services/domains",
       img: `${domainsIcon}`,
+      component: Tasks,
     },
-    {
-      id: 4,
-      icon: "content_copy",
-      title: "COPY_SITES",
-      link: "/services/copy-sites",
-      img: `${copySitesIcon}`,
-    },
-    {
-      id: 5,
-      icon: "monetization_on",
-      title: "BANK",
-      link: "/services/bank",
-      img: `${bankIcon}`,
-    },
-    {
-      id: 6,
-      icon: "settings",
-      title: "SETTINGS",
-      link: "/settings",
-      img: `${settingIcon}`,
-    },
-    {
-      id: 7,
-      icon: "mail_outline",
-      title: "ONLINE_CONSULTANT",
-      link: "/services/online-consultant",
-      img: `${onlineConsultantIcon}`,
-    },
+    // {
+    //   id: 4,
+    //   icon: "content_copy",
+    //   title: "COPY_SITES",
+    //   link: "/services/copy-sites",
+    //   img: `${copySitesIcon}`,
+    //   component: Tasks,
+    // },
+    // {
+    //   id: 5,
+    //   icon: "monetization_on",
+    //   title: "BANK",
+    //   link: "/services/bank",
+    //   img: `${bankIcon}`,
+    //   component: Tasks,
+    // },
+    // {
+    //   id: 6,
+    //   icon: "settings",
+    //   title: "SETTINGS",
+    //   link: "/settings",
+    //   img: `${settingIcon}`,
+    //   component: Tasks,
+    // },
+    // {
+    //   id: 7,
+    //   icon: "mail_outline",
+    //   title: "ONLINE_CONSULTANT",
+    //   link: "/services/online-consultant",
+    //   img: `${onlineConsultantIcon}`,
+    //   component: Tasks,
+    // },
 
   ];
+
+  const dispatch = useDispatch();
+
+  const appsModal = useSelector((state) => state.appsModal.openAppsModal);
+  const SelectedComponent = useSelector((state) => state.appsModal.SelectedComponent);
+
+  
+  const openAppsModalHandler = (component) => {
+    dispatch(handleOpenAppsModal(component))
+  };
+  
+  const closeAppsModalHanlder = () => {
+    dispatch(handleCloseAppsModal())
+  };
+
+
 
   return (
     <div
@@ -134,18 +172,50 @@ const Menu = ({screenSize}) => {
     `}
     >
       <ul className="menu__list">
+        <li className="menu__item">
+          <Tooltip title={t(`MENU.MY_SERVICES`)} arrow placement="right">
+            <Button>
+                <div className="menu__item-icon">
+                  <img src={dashboardIcon} className="menu__item-img" />
+                </div>
+            </Button>
+          </Tooltip>
+        </li>
+
         {data.map((item) => (
           <li key={item.id} className="menu__item">
-            <Link to={item.link} className="menu__item-link">
+            <Tooltip title={t(`MENU.${item.title}`)} arrow placement="right">
+              <Button onClick={() => openAppsModalHandler(item.component)}>
+                  <div className="menu__item-icon">
+                    <img src={item.img} className="menu__item-img" />
+                  </div>
+              </Button>
+            </Tooltip>
+            {/* <Link to={item.link} className="menu__item-link">
               <Tooltip title={t(`MENU.${item.title}`)} arrow placement="right">
                 <div className="menu__item-icon">
                   <img src={item.img} className="menu__item-img" />
                 </div>
               </Tooltip>
-            </Link>
+            </Link> */}
           </li>
         ))}
       </ul>
+
+      <Modal
+        open={appsModal}
+        onClose={closeAppsModalHanlder}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className="apps-modal"
+        disableEnforceFocus 
+        >
+        <div className="apps-modal-container">
+          {SelectedComponent && <SelectedComponent />}
+        </div>
+      </Modal>
+
+
     </div>
   );
 };

@@ -29,8 +29,8 @@ const TasksPage = () => {
                 </div>
               </Grid>
               <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
-                <div className='cloud-page__header_tasks-page-details'>
-                  
+                <div className='cloud-page__header_tasks-page_details'>
+                  <TasksDetailsBar />
                 </div>
               </Grid>
             </Grid>

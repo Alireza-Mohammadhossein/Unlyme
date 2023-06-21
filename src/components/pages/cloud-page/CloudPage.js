@@ -1,34 +1,28 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ASSETS_URL } from '../../../types';
 import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch} from 'react-redux';
+import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
+
+
 
 
 const CloudPage = ({
   title,
-  details,
   content,
   icon,
 }) => {
 
 
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   return (
     <div className="cloud-page" id='cloud-page'>
       <div className="cloud-page__header">
-            {/* <div className='cloud-page__header_icon'>
-              <img src={icon} />
-            </div>
-
-            <div className="cloud-page__header_title">
-              {title}
-            </div>
-            <div className='cloud-page__header_details'>
-              {details}
-            </div> */}
-
-        <Grid container spacing={2}>  
+        <Grid container spacing={2}>
           <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
             <div className='cloud-page__header_share_icon'>
               <img src={icon} />
@@ -40,7 +34,9 @@ const CloudPage = ({
           </Grid>
           <Grid item lg={9} md={9} xs={12}>
             <div className='cloud-page__header_details'>
-              {details}
+              <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+                <CloseIcon />
+              </IconButton>
             </div>
           </Grid>
         </Grid>

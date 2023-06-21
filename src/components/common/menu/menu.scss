@@ -49,6 +49,14 @@
     }
     &__item {
       list-style: none;
+
+      .MuiButtonBase-root {
+        min-width: unset;
+        padding: 0;
+        min-height: unset;
+        height: auto;
+        line-height: unset;
+      }
     }
   }
 

@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
-import {
-    FileNavbar, 
-    FileToolbar,
-  } from 'chonky';
+import { FileNavbar, FileToolbar } from 'chonky';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch} from 'react-redux';
+import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 
 
 
-const WorkDriveDetailsBar = ({ setSearchNote }) => {
-    const { t, i18n } = useTranslation();
+const WorkDriveDetailsBar = () => {
+    const dispatch = useDispatch();
 
     
     return (
@@ -38,8 +35,20 @@ const WorkDriveDetailsBar = ({ setSearchNote }) => {
                         />
                     </FormControl> */}
 
-                    <FileNavbar />
-                    <FileToolbar />
+                    <div>
+                        <FileNavbar />
+                    </div>
+
+                    <div>
+                        <FileToolbar />
+                    </div>
+
+                    <div style={{textAlign: 'right'}}>
+                        <IconButton aria-label="delete" style={{padding: '8px', borderRadius: '50%'}} onClick={() => dispatch(handleCloseAppsModal())}>
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+
                 </div>
             </Grid>
         </Grid>
