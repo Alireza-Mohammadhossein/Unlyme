@@ -219,7 +219,7 @@ const Menu = ({screenSize}) => {
         aria-describedby="modal-modal-description"
         className="apps-modal"
         disableEnforceFocus 
-        >
+      >
         <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
           {SelectedComponent && <SelectedComponent />}
         </div>

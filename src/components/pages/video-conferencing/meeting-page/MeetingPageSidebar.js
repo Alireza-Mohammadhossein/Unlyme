@@ -9,8 +9,12 @@ import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+import CalendarShortcut from "./shortcuts-modal/CalendarShortcut";
+import TasksShortcut from "./shortcuts-modal/TasksShortcut";
+import NotesShortcut from "./shortcuts-modal/NotesShortcut";
 
 
 
@@ -36,17 +40,6 @@ function TabPanel(props) {
   );
 }
 
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-
-
-  
   
   
   const MeetingPageSidebar = () => {
@@ -54,7 +47,24 @@ function a11yProps(index) {
 
 
     const ITEM_HEIGHT = 48;
-    const options = ["Add Calendar", "Add Tasks", "Add Notes"];
+    const options = [
+      {
+        id: 11,
+        title: "Add Calendar",
+        component: CalendarShortcut,
+      },
+      {
+        id: 22,
+        title: "Add Tasks",
+        component: TasksShortcut,
+      },
+      {
+        id: 33,
+        title: "Add Notes",
+        component: NotesShortcut,
+      },
+    ];
+    
   
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -72,78 +82,110 @@ function a11yProps(index) {
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
+
+    const [SelectedShortcut, setSelectedShortcut] = useState(TasksShortcut);
+
+
+    const [openShortcut, setOpenShortcut] = useState(true);
+
+    const handleOpenShortcut = (component) => {
+      setSelectedShortcut(component);
+      setOpenShortcut(true);
+      console.log('selected', SelectedShortcut);
+      console.log('component', component);
+    };
+    const handleCloseShortcut = () => {
+      setSelectedShortcut(null);
+      setOpenShortcut(false);
+    };
   
   
     return (
         <>
-            <div className="meeting-page_sidebar_open-apps">
-                <Button
-                    variant="outlined"
-                    aria-controls={open ? "long-menu" : undefined}
-                    aria-expanded={open ? "true" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleClick}
+          <div className="meeting-page_sidebar_open-apps">
+            <Button
+                variant="outlined"
+                aria-controls={open ? "long-menu" : undefined}
+                aria-expanded={open ? "true" : undefined}
+                aria-haspopup="true"
+                onClick={handleClick}
+                startIcon={<AddIcon />}
+                className="meeting-page_sidebar_open-apps_btn"
+            >
+                Open Apps
+            </Button>
+            
+            <Menu
+                id="long-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                disableScrollLock = {true}
+            >
+              {options.map((option) => (
+                <MenuItem
+                    key={option.id}
+                    onClick={handleClose}
+                >
+                  <Button
                     startIcon={<AddIcon />}
-                    className="meeting-page_sidebar_open-apps_btn"
-                >
-                    Open Apps
-                </Button>
-                
-                <Menu
-                    id="long-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    disableScrollLock = {true}
-                >
-                    {options.map((option) => (
-                    <MenuItem
-                        key={option}
-                        onClick={handleClose}
-                    >
-                        <Button
-                        startIcon={<AddIcon />}
-                        className="meeting-page_sidebar_open-apps_item-btn"
-                        >
-                        {option}
-                        </Button>
-                        
-                    </MenuItem>
-                    ))}
-                </Menu>
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => handleOpenShortcut(option.component)}
+                  >
+                    {option.title}
+                  </Button>
+                    
+                </MenuItem>
+              ))}
+            </Menu>
+
+            
+          </div>
+
+          <div className="meeting-page_sidebar-section">
+              <Tabs value={value} onChange={handleChange} centered className="meeting-page_sidebar-section_tabs">
+                  <Tab label="Chat" className="meeting-page_sidebar-section_tabs-btn" />
+                  <Tab label="People" className="meeting-page_sidebar-section_tabs-btn" />
+                  <Tab label="Messages" className="meeting-page_sidebar-section_tabs-btn" />
+              </Tabs>
+
+              <div className="meeting-page_sidebar-section_search">
+                  <FormControl>
+                      <Input
+                      className='meeting-page_sidebar-section_search-input'
+                      placeholder='Search...'
+                      startAdornment={
+                          <InputAdornment position="start">
+                              <SearchIcon sx={{color: '#3C3C43B2'}} />
+                          </InputAdornment>
+                      }
+                      />
+                  </FormControl>
+              </div>
+
+              <TabPanel value={value} index={0}>
+                  Item One
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                  Item Two
+              </TabPanel>
+              <TabPanel value={value} index={2}>
+                  Item Three
+              </TabPanel>
+          </div>
+
+          <Modal
+            open={openShortcut}
+            onClose={handleCloseShortcut}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            className="shortcut-modal"
+            disableEnforceFocus 
+          >
+            <div className='shortcut-modal-container' >
+              {SelectedShortcut}
             </div>
-
-            <div className="meeting-page_sidebar-section">
-                <Tabs value={value} onChange={handleChange} centered className="meeting-page_sidebar-section_tabs">
-                    <Tab label="Chat" className="meeting-page_sidebar-section_tabs-btn" />
-                    <Tab label="People" className="meeting-page_sidebar-section_tabs-btn" />
-                    <Tab label="Messages" className="meeting-page_sidebar-section_tabs-btn" />
-                </Tabs>
-
-                <div className="meeting-page_sidebar-section_search">
-                    <FormControl>
-                        <Input
-                        className='meeting-page_sidebar-section_search-input'
-                        placeholder='Search...'
-                        startAdornment={
-                            <InputAdornment position="start">
-                                <SearchIcon sx={{color: '#3C3C43B2'}} />
-                            </InputAdornment>
-                        }
-                        />
-                    </FormControl>
-                </div>
-
-                <TabPanel value={value} index={0}>
-                    Item One
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    Item Two
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    Item Three
-                </TabPanel>
-            </div>
+          </Modal>
         </>
     );
   }

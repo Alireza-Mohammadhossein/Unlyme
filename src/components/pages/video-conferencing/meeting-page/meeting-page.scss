@@ -152,114 +152,6 @@
     }
   }
 
-  &_main {
-    height: 100%;
-    padding: 0 10px 0 15px;
-
-    &_notes {
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
-        border-radius: 8px;
-
-        &-messages {
-            height: 100%;
-            padding: 24px !important;
-
-            & .MuiBox-root {
-                padding: 0 !important;
-            }
-
-            &__body {
-                display: flex;
-                flex-direction: column;
-
-                &-date {
-                    text-align: center;
-                    margin-bottom: 15px;
-
-                    p {
-                        font-size: 14px;
-                        color: #6E6F6F;
-                    }
-                }
-
-                &-content {
-                    display: flex;
-                    flex-direction: column;
-
-                    &-title {
-                    width: 100%;
-                    height: auto;
-                    color: #363C65;
-                    border-radius: 8px;
-                    outline: none;
-                    width: 100%;
-                    box-sizing: border-box;
-                    // background-color: #F8FAFC;
-                    transition: 0.2s;
-                    // border: 1px solid #ECECEC;
-                    padding: 10px 8px;
-                    font-size: 15px;
-
-                        & .MuiInputBase-root {
-                            border-radius: 8px;
-                            background-color: #F8FAFC;
-                        }
-                        
-                        & .MuiInput-underline:after {
-                            border-bottom-color: green;
-                        }
-                        
-                        & .MuiOutlinedInput-root {
-                            & fieldset {
-                            border-color: #ECECEC;
-                            }
-
-                            &:hover fieldset {
-                            border-color: $blue;
-                            }
-
-                            &.Mui-focused fieldset {
-                            border-color: $blue;
-                            }
-
-                            & textarea {
-                            height: 100%;
-                            }
-                        }
-                    }
-
-                    &-message {
-                    width: 100%;
-                    // padding-left: 30px !important;
-
-                        & fieldset {
-                            border: unset;
-                            padding: 0;
-                        }
-
-                        & .MuiInputBase-root {
-                            padding: 20px 0 !important;
-                            align-items: start !important;
-                            height: 100%;
-                        }
-
-                        & textarea {
-                            height: 100%;
-                        }
-                    }
-                }
-
-                &-submit {
-                    text-align: right;
-                    padding: 0 30px;
-                }
-
-            }
-        }
-    }
-  }
 }
 
 .cloud-page__header_meeting-page-details {
@@ -317,4 +209,200 @@
         }
     }
 
+}
+
+.shortcut-modal {
+    &.MuiModal-root {
+        z-index: 2;
+        top: 45px;
+      }
+    &-container {
+        width: 80vw;
+        max-width: 800px;
+        outline: none;
+        box-sizing: border-box;
+        height: 500px;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &_wrapper {
+
+    }
+
+    &_header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-radius: 18px 18px 0 0;
+        background-color: #DFE9F8;
+        height: 80px;
+        box-sizing: border-box;
+        padding: 0 20px;
+
+        &-info {
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            &-icon {
+                width: 50px;
+                height: 50px;
+    
+                & img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+    
+            &_text {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+    
+                &-title {
+                    font-size: 15px;
+                    color: #000000;
+                }
+    
+                &-subtitle {
+                    font-size: 12px;
+                    color: #414141;
+                }
+            }
+        }
+
+        &-close {
+
+        }
+    }
+
+    &_content {
+        width: 100%;
+        height: 320px;
+        background-color: #fff;
+        border-radius: 0 0 18px 18px;
+        box-sizing: border-box;
+        padding: 20px;
+        
+
+        &-calendar {
+            .react-calendar {
+
+                &__navigation {
+                    height: 35px;
+                }
+    
+                &_tile {
+                    width: 37px;
+                    height: 37px;
+                }
+            }
+        }
+
+        &_task {
+            width: 100%;
+
+            .MuiGrid-root {
+                width: 100%;
+            }
+
+            .MuiStack-root {
+                width: 100%;
+                padding: 0;
+            }
+
+            .MuiFormControl-root {
+                min-width: unset;
+                width: 100%;
+                background-color: #F8FAFC;
+            }
+
+            &-date{
+                .MuiInputBase-input {
+                    padding: 0 10px;
+                    height: 41px;
+                }
+                    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                    padding: 10px;
+                    border-color: #ececec;
+                }
+
+                .MuiButtonBase-root {
+                    background-color: #F8FAFC;
+                }
+
+                .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+                
+            }
+        }
+
+        &_form {
+            padding: 30px 3vw;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .MuiFormControl-root  {
+                width: 100%;
+            }
+
+            &-item {
+
+                &-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 5px;
+                    color: #000;
+                }
+
+                &-input {
+                    input {
+                        border-radius: 8px;
+                        background-color: #F8FAFC;
+                        padding: 10px;
+                    }
+
+                    .MuiOutlinedInput-notchedOutline {
+                        border-radius: 8px;
+                        border-color: #ececec;
+                    }
+
+                    .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                        border-color: #1976d2;
+                    }
+                }
+
+                &-submit {
+                    text-align: right;
+
+                    &-btn.MuiButtonBase-root {
+                        padding: 10px 25px;
+                        background-color: #51A3FF;
+                        color: #ffffff;
+                        border-radius: 30px;
+                        font-size: 14px;
+                        text-transform: none;
+                        line-height: unset;
+                        
+                        &:hover {
+                            background-color: #51A3FF;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }
