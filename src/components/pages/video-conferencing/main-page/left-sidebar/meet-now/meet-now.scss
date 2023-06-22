@@ -83,12 +83,18 @@
                 &-submit {
                     text-align: right;
 
-                    &-btn {
+                    &-btn.MuiButtonBase-root {
                         padding: 10px 25px;
                         background-color: #51A3FF;
                         color: #ffffff;
                         border-radius: 30px;
                         font-size: 14px;
+                        text-transform: none;
+                        line-height: unset;
+                        
+                        &:hover {
+                            background-color: #51A3FF;
+                        }
                     }
                 }
             }

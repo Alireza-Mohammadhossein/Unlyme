@@ -40,7 +40,7 @@ const VideoConferencingLeftSide = () => {
     setShowMain(false)
   }
 
-
+  
 
   return (
     <div className="video-conferencing_leftside">

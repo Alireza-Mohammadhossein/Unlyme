@@ -5,6 +5,9 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Grid from "@mui/material/Grid";
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import { useDispatch } from "react-redux";
+import { handleCloseMeetingPageModal } from '../../../../redux/app/appsModalSlice';
+import CloseIcon from '@mui/icons-material/Close';
 import viewIcon from '../../../../assets/images/vide-conferencing/view.png';
 import handIcon from '../../../../assets/images/vide-conferencing/hand.png';
 import shareIcon from '../../../../assets/images/vide-conferencing/share.png';
@@ -17,55 +20,63 @@ import videoOnIcon from '../../../../assets/images/vide-conferencing/video-on.pn
 
 
 const MeetingDetailsBar = () => {
-
+    const dispatch = useDispatch();
     
     return (
         <div className='meeting-page_details'>
             <div className='meeting-page_details-info'>
                 <Button variant="contained">Meeting Room</Button>
                 <IconButton value="bold" aria-label="bold">
-                        <img src={viewIcon} />
+                    <img src={viewIcon} />
                 </IconButton>
             </div>
         
             <div className='meeting-page_details-actions'>
                 <div className='meeting-page_details-actions-btn'>
                     <IconButton value="bold" aria-label="bold">
-                            <img src={handIcon} />
+                        <img src={handIcon} />
                     </IconButton>
                 </div>
 
                 <div className='meeting-page_details-actions-btn'>
                     <IconButton value="bold" aria-label="bold">
-                            <img src={micOffIcon} />
-                    </IconButton>
-                </div>
-
-
-                <div className='meeting-page_details-actions-btn'>
-                    <IconButton value="bold" aria-label="bold">
-                            <img src={videoOffIcon} />
+                        <img src={micOffIcon} />
                     </IconButton>
                 </div>
 
 
                 <div className='meeting-page_details-actions-btn'>
                     <IconButton value="bold" aria-label="bold">
-                            <img src={shareIcon} />
+                        <img src={videoOffIcon} />
                     </IconButton>
                 </div>
 
 
                 <div className='meeting-page_details-actions-btn'>
                     <IconButton value="bold" aria-label="bold">
-                            <img src={moreIcon} />
+                        <img src={shareIcon} />
+                    </IconButton>
+                </div>
+
+
+                <div className='meeting-page_details-actions-btn'>
+                    <IconButton value="bold" aria-label="bold">
+                        <img src={moreIcon} />
                     </IconButton>
                 </div>
 
                 <div className='meeting-page_details-actions-btn'>
                     <IconButton value="bold" aria-label="bold">
-                            <img src={phoneIcon} />
+                        <img src={phoneIcon} />
                     </IconButton>
+                </div>
+            </div>
+
+            <div className='meeting-page_details-close'>
+                <div className='meeting-page_details-close-btn'>
+                <IconButton aria-label="delete" onClick={() => dispatch(handleCloseMeetingPageModal())}>
+                    <CloseIcon />
+                </IconButton>
                 </div>
             </div>
         </div>

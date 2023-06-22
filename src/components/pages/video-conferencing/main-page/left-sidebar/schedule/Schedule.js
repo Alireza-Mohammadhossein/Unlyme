@@ -173,9 +173,9 @@ const [password, setPassword] = useState('')
 
                 <div className="schedule-content_form-item">
                   <div className="schedule-content_form-item-submit">
-                    <button className="schedule-content_form-item-submit-btn">
+                    <Button className="schedule-content_form-item-submit-btn">
                         Schedule
-                    </button>
+                    </Button>
                   </div>
                 </div>
             </form>

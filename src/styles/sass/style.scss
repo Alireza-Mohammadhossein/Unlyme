@@ -195,6 +195,52 @@ h1, .div-h1 {
   backdrop-filter: blur(3px);
   top: 45px;
 }
+
+
+.meeting-page-modal.MuiModal-root  {
+  z-index: 2;
+  top: 45px;
+}
+.meeting-page-modal .meeting-page-modal-container {
+  width: 90vw;
+  max-width: 1600px;
+  outline: none;
+  box-sizing: border-box;
+  max-height: 90vh;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1600px) {
+  .meeting-page-modal .meeting-page-modal-container.firstPopupShow {
+    padding-right: 350px;
+  }
+  .meeting-page-modal .meeting-page-modal-container.secondPopupShow {
+    padding-right: 725px;
+  }
+}
+
+
+@media (max-width: 1600px) {
+  .meeting-page-modal .meeting-page-modal-container.firstPopupShow {
+    padding-right: 315px;
+  }
+  
+  .meeting-page-modal .meeting-page-modal-container.secondPopupShow {
+    padding-right: 640px;
+  }
+}
+
+.meeting-page-modal .MuiBackdrop-root {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  top: 45px;
+}
+
+
 .page-container {
   // padding: 70px 100px 20px 100px;
   // padding: 90px 100px 20px 100px;

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   openAppsModal: false,
+  openMeetingPageModal: false,
   SelectedComponent: null,
 };
 
@@ -17,11 +18,17 @@ export const appsModalSlice = createSlice({
         state.openAppsModal = false;
         state.SelectedComponent = null;
     },
+    handleOpenMeetingPageModal: (state) => {
+      state.openMeetingPageModal = true;
+    },
+    handleCloseMeetingPageModal: (state) => {
+      state.openMeetingPageModal = false;
+    },
   },
 });
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;
