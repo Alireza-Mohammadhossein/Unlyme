@@ -4,6 +4,8 @@ const initialState = {
   openAppsModal: false,
   openMeetingPageModal: false,
   SelectedComponent: null,
+  openAppsShortcut: false,
+  SelectedShortcut: null,
 };
 
 export const appsModalSlice = createSlice({
@@ -24,11 +26,19 @@ export const appsModalSlice = createSlice({
     handleCloseMeetingPageModal: (state) => {
       state.openMeetingPageModal = false;
     },
+    handleOpenShortcut: (state, component) => {
+      state.openAppsShortcut = true;
+      state.SelectedShortcut = component.payload;
+    },
+    handleCloseShortcut: (state) => {
+      state.openAppsShortcut = false;
+      state.SelectedShortcut = null;
+    }
   },
 });
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;

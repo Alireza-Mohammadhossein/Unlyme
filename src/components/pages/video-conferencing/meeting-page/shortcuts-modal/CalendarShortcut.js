@@ -4,13 +4,13 @@ import Calendar from 'react-calendar';
 import calendarIcon from '../../../../../assets/images/calendarIcon.png';
 import TextField from '@mui/material/TextField';
 import dayjs from 'dayjs';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { TimeField } from "@mui/x-date-pickers/TimeField";
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+import { useDispatch } from "react-redux";
+import { handleCloseShortcut } from "../../../../../redux/app/appsModalSlice";
 
 
 
@@ -18,12 +18,13 @@ import IconButton from '@mui/material/IconButton';
 
 
 const CalendarShortcut = () => {
+  const dispatch = useDispatch();
+
 
   const [date, setDate] = useState(new Date());
 
   const onChangeDate = (newDate) => {
     setDate(newDate);
-    console.log(newDate)
   }
 
   const [timeValue, setTimeValue] = useState(dayjs());
@@ -49,7 +50,7 @@ const CalendarShortcut = () => {
         </div>
 
         <div className='shortcut-modal_header-close'>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" onClick={() => dispatch(handleCloseShortcut())}>
             <CloseIcon />
           </IconButton>
         </div>

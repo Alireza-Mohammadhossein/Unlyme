@@ -9,12 +9,15 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useDispatch } from "react-redux";
+import { handleCloseShortcut } from "../../../../../redux/app/appsModalSlice";
 
 
 
 
 
 const TasksShortcut = () => {
+  const dispatch = useDispatch();
 
 
   return (
@@ -32,7 +35,7 @@ const TasksShortcut = () => {
         </div>
 
         <div className='shortcut-modal_header-close'>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" onClick={() => dispatch(handleCloseShortcut())}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -85,7 +88,7 @@ const TasksShortcut = () => {
               <p className="shortcut-modal_content_form-item-title">
                   Description
               </p>
-              <TextField placeholder="Add description" className="shortcut-modal_content_form-item-input" multiline row={3} />
+              <TextField placeholder="Add description" className="shortcut-modal_content_form-item-input" multiline rows={4} />
             </div>
           </Grid>
         </Grid>
