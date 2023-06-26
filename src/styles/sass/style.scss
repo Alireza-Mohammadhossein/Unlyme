@@ -156,18 +156,29 @@ h1, .div-h1 {
 .apps-modal.MuiModal-root  {
   z-index: 2;
   top: 45px;
+  bottom: 45px;
+  
+  align-items: start;
+  display: flex;
+  justify-content: center;
+  padding-top: 45px;
+
+  left: 100px;
+  right: 100px;
 }
 .apps-modal .apps-modal-container {
-  width: 90vw;
+  // width: 90vw;
+  width: 100%;
+  height: 100%;
   max-width: 1600px;
   outline: none;
   box-sizing: border-box;
   max-height: 90vh;
   margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
 }
 
 @media (min-width: 1600px) {
@@ -191,9 +202,11 @@ h1, .div-h1 {
 }
 
 .apps-modal .MuiBackdrop-root {
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  // -webkit-backdrop-filter: blur(3px);
+  // backdrop-filter: blur(3px);
+  background: unset;
   top: 45px;
+  left: 100px;
 }
 
 
@@ -203,6 +216,7 @@ h1, .div-h1 {
 }
 .meeting-page-modal .meeting-page-modal-container {
   width: 90vw;
+  height: 100%;
   max-width: 1600px;
   outline: none;
   box-sizing: border-box;
@@ -247,6 +261,7 @@ h1, .div-h1 {
   margin: auto;
   max-width: 1600px;
   width: 100%;
+  height: 100%;
 }
 .popup-show .page-container {
  padding: 70px 40px 20px 100px; 

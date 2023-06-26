@@ -8,14 +8,15 @@
     display: flex;
     z-index: 3;
     flex-direction: row;
-    height: 85vh;
+    height: 100%;
+    max-height: 90vh;
     background-color: #ffffff;
     border-radius: 18px;
     position: fixed;
     transition: all 0.3s ease;
     right: 20px;
     // top: 69px;
-    top: 88px;
+    top: 90px;
     box-sizing: border-box;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 
