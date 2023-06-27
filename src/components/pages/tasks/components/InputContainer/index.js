@@ -32,7 +32,7 @@ export default function InputContainer({ listId, type }) {
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddModal}
                 >
-                  Add Backlog
+                  Add New Task
                 </Button>
               : 
                 <Button

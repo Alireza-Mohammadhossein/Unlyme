@@ -10,8 +10,8 @@ import Input from '@mui/material/Input';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import { SketchPicker } from 'react-color';
 import store from "../../utils/store";
-import StoreApi from "../../utils/storeApi";
 
 
 
@@ -48,10 +48,6 @@ export default function AddModal({
 
     const tagsHandler = (tag) => {
         setTags([...tags, tag])
-    }
-
-    const membersHandler = (member) => {
-      setMembers([...members, member])
     }
     
 
@@ -125,6 +121,9 @@ export default function AddModal({
                   <Autocomplete
                     multiple
                     id="checkboxes-tags-demo"
+                    onChange={(event, value) => {
+                      setMembers(value)
+                    }}
                     options={data.members}
                     disableCloseOnSelect
                     getOptionLabel={(option) => option}
@@ -139,7 +138,7 @@ export default function AddModal({
                         {option}
                       </li>
                     )}
-                    style={{ width: 500 }}
+                    
                     renderInput={(params) => (
                       <TextField {...params} label="Assign members" />
                     )}

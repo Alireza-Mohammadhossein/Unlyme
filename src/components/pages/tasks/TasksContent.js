@@ -37,9 +37,8 @@ const TasksContent = () => {
 
   const [data, setData] = useState(initialState);
 
-  const addMoreCard = (title, description, tags, listId, imageFile) => {
+  const addMoreCard = (title, description, tags, members, listId, imageFile) => {
     if (!title) {
-      // alert('Please write title');
       toast.error('Please write a title!', {
         position: "top-center",
         autoClose: 5000,
@@ -74,6 +73,7 @@ const TasksContent = () => {
       title,
       description,
       tags,
+      members,
       imageFile,
     };
 
@@ -110,11 +110,13 @@ const TasksContent = () => {
     window.localStorage.setItem("tasks", JSON.stringify(newState));
   };
 
-  const updateCard = (title, description, tags, index, listId, imageFile) => {
+  const updateCard = (title, description, tags, members, index, listId, imageFile) => {
+    console.log('title 2', title);
     const list = data.lists[listId];
     list.cards[index].title = title;
     list.cards[index].description = description;
     list.cards[index].tags = tags;
+    list.cards[index].members = members;
     list.cards[index].imageFile = imageFile;
 
     const newState = {

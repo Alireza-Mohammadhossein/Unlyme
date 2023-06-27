@@ -8,6 +8,7 @@ export default function ViewModal({
         title,
         description,
         tags,
+        members,
         imageFile,
         handleCloseViewModal,
         openViewModal,
@@ -41,6 +42,19 @@ export default function ViewModal({
                         <div className="view-modal_tags">
                             {tags.map((tag) => (
                                 <span key={tag} className="view-modal_tag">{tag}</span>
+                            ))}
+                        </div>
+                    </div>
+                :
+                    ''
+            }
+
+            {members
+                ?
+                    <div className="backlog-modal_item">
+                        <div className="view-modal_tags">
+                            {members.map((member) => (
+                                <span key={member} className="view-modal_tag">{member}</span>
                             ))}
                         </div>
                     </div>

@@ -7,6 +7,10 @@ import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Input from '@mui/material/Input';
 import storeApi from "../../utils/storeApi";
+import store from "../../utils/store";
+import Autocomplete from '@mui/material/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 
 
@@ -15,20 +19,28 @@ export default function UpdateModal({
         title: initialTitle,
         description: initialDescription,
         tags: initialTags,
+        members: initialMembers,
         handleCloseUpdateModal,
         openUpdateModal,
         index,
         listId
     }) {
 
+    const [data, setData] = useState(store);
 
     const [title, setTitle] = useState(initialTitle);
     const [description, setDescription] = useState(initialDescription);
     const [tags, setTags] = useState(initialTags);
+    const [members, setMembers] = useState(initialMembers);
     const [imageFile, setImageFile] = useState(null);
     const { updateCard } = useContext(storeApi);
 
 
+
+    const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+    const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+    
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -46,6 +58,8 @@ export default function UpdateModal({
         }
     };
 
+
+
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
         setImageFile(file);
@@ -55,10 +69,10 @@ export default function UpdateModal({
       const handleUpdateBacklog = () => {
         if (imageFile) {
           convertImageToDataURL(imageFile, (dataURL) => {
-            updateCard(title, description, tags, index, listId, dataURL);
+            updateCard(title, description, tags, members, index, listId, dataURL);
           });
         } else {
-          updateCard(title, description, tags, index, listId);
+          updateCard(title, description, tags, members, index, listId);
         }
         handleCloseUpdateModal();
       };
@@ -96,13 +110,13 @@ export default function UpdateModal({
             </div>
 
             <div className="backlog-modal_item">
-            <TextField
-                label='Description'
-                value={description}
-                onChange={handleDescriptionChange}
-                multiline
-                rows={4}
-            />
+                <TextField
+                    label='Description'
+                    value={description}
+                    onChange={handleDescriptionChange}
+                    multiline
+                    rows={4}
+                />
             </div>
 
             <div className="backlog-modal_item">
@@ -158,6 +172,36 @@ export default function UpdateModal({
                 
 
             </div>
+
+
+            <div className="backlog-modal_item">
+                <Autocomplete
+                    multiple
+                    id="checkboxes-tags-demo"
+                    value={members}
+                    onChange={(event, newValue) => {
+                      setMembers(newValue);
+                    }}
+                    options={data.members}
+                    disableCloseOnSelect
+                    getOptionLabel={(option) => option}
+                    renderOption={(props, option, { selected }) => (
+                      <li {...props}>
+                        <Checkbox
+                          icon={icon}
+                          checkedIcon={checkedIcon}
+                          style={{ marginRight: 8 }}
+                          checked={selected}
+                        />
+                        {option}
+                      </li>
+                    )}
+                    renderInput={(params) => (
+                      <TextField {...params} label="Assign members" />
+                    )}
+                  />
+            </div>
+
 
             <div className="backlog-modal_item">
                 {/* <input type="file" onChange={handleImageUpload} /> */}

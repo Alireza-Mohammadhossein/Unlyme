@@ -252,6 +252,16 @@
                       }
                     }
 
+                    .card-content_members {
+                      display: flex;
+                      justify-content: end;
+                      gap: 5px;
+
+                    .card-content_member {
+                      padding: 0;
+                    }
+                  }
+
                     .card-content_actions {
                       display: flex;
                       position: absolute;
@@ -429,6 +439,10 @@
     }
 
     .MuiInputBase-root {
+      width: 100%;
+    }
+
+    .MuiAutocomplete-root {
       width: 100%;
     }
 

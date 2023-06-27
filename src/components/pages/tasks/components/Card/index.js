@@ -8,6 +8,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import ViewModal from "../Modals/ViewModal";
 import UpdateModal from "../Modals/UpdateModal";
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import Avatar from '@mui/material/Avatar';
 
 
 
@@ -106,6 +107,18 @@ export default function Card({ card, index, listId }) {
                 ""
               )}
 
+              {card.members ? (
+                <div className="card-content_members">
+                  {/* {card.tags} */}
+                  {card.members.map((member) => (
+                    // <span key={member} className="card-content_tag">{member}</span>
+                    <Avatar className="card-content_member">{member[0]}</Avatar>
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
+
               <div className="card-content_actions">
                 <IconButton aria-label="edit" onClick={handleOpenViewModal}>
                   <VisibilityIcon />
@@ -129,6 +142,7 @@ export default function Card({ card, index, listId }) {
                 title={card.title}
                 description={card.description}
                 tags={card.tags}
+                members={card.members}
                 imageFile={card.imageFile}
                 handleCloseUpdateModal={handleCloseUpdateModal}
                 handleOpenUpdateModal={handleOpenUpdateModal}
@@ -142,6 +156,7 @@ export default function Card({ card, index, listId }) {
                 title={card.title}
                 description={card.description}
                 tags={card.tags}
+                members={card.members}
                 imageFile={card.imageFile}
                 handleCloseViewModal={handleCloseViewModal}
                 handleOpenViewModal={handleOpenViewModal}
