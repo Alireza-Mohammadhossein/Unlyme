@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleOpenAppsModal } from "../../../../../redux/app/appsModalSlice";
 
 
@@ -22,6 +22,10 @@ const CloudBlock = ({
   directComponent,
   icon
 }) => {
+
+
+  const appsModal = useSelector((state) => state.appsModal.openAppsModal);
+
 
   
   const style = {
@@ -54,7 +58,7 @@ const CloudBlock = ({
     <div className="cloud-block">
 
       {/* header */}
-      <div className="cloud-block__header">
+      <div className={`cloud-block__header ${appsModal ? 'back-transparent' : ''}`}>
           <div
             className="cloud-block__header_icon-container"
             onClick={iconAction || undefined}
@@ -89,7 +93,7 @@ const CloudBlock = ({
 
 
       {/* content */}
-      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}`}>{content}</div>
+      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}  ${appsModal ? 'back-transparent' : ''}`}>{content}</div>
       
 
       {/* modal */}

@@ -4,7 +4,7 @@
   width: 100%;
   padding-bottom: 10px;
   // height: 65vh;
-  height: 100%;
+  height: calc(100% - 90px);
 
   & .MuiGrid-container {
     margin: 0;
@@ -98,6 +98,10 @@
         border-radius: 8px;
     }
   }
+}
+
+.secondPopupShow .work-drive-page {
+  height: calc(100% - 150px);
 }
 
 .work-drive-cloud-page{

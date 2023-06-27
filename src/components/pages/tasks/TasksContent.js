@@ -6,7 +6,8 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import InputContainer from "./components/InputContainer";
 import List from "./components/List";
 import { v4 as uuid } from "uuid";
-
+	
+import { toast } from "react-toastify";
 import store from "./utils/store";
 import StoreApi from "./utils/storeApi";
 
@@ -36,9 +37,32 @@ const TasksContent = () => {
 
   const addMoreCard = (title, description, tags, listId, imageFile) => {
     if (!title) {
+      // alert('Please write title');
+      toast.error('Please write a title!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     if (!description) {
+      toast.error('Please write description', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
@@ -66,6 +90,7 @@ const TasksContent = () => {
     
     console.log('data', newState)
   };
+  
 
   const removeCard = (index, listId) => {
     const list = data.lists[listId];
@@ -271,7 +296,7 @@ const TasksContent = () => {
                           return <List list={list} key={listId} index={index} />;
                         })}
                         <div>
-                          {/* <InputContainer type="list" /> */}
+                          <InputContainer type="list" />
                         </div>
                         {provided.placeholder}
                       </div>

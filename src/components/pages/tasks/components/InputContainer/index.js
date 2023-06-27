@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import Button from '@mui/material/Button';
 import AddModal from "../Modals/AddModal";
+import AddList from "../Modals/AddList";
 
 
 
 
 export default function InputContainer({ listId, type }) {
   const [openAddModal, setOpenAddModal] = useState(false);
+  const [openAddListModal, setOpenAddListModal] = useState(false);
   const handleOpenAddModal = () => setOpenAddModal(true);
   const handleCloseAddModal = () => setOpenAddModal(false);
+  
+  const handleOpenAddListModal = () => setOpenAddListModal(true);
+  const handleCloseAddListModal = () => setOpenAddListModal(false);
 
 
   return (
@@ -30,17 +35,35 @@ export default function InputContainer({ listId, type }) {
                   Add Backlog
                 </Button>
               : 
-                "+ Add List"
+                <Button
+                  className="add-backlog-btn"
+                  startIcon={<AddCircleOutlineOutlinedIcon />}
+                  // onClick={() => setOpen(!open)}
+                  onClick={handleOpenAddListModal}
+                >
+                  Add List
+                </Button>
             }
         </div>
         
         <AddModal
           listId={listId}
-          type={type}
+          // type={type}
+          type='card'
           handleCloseAddModal={handleCloseAddModal} 
           handleOpenAddModal={handleOpenAddModal} 
           openAddModal={openAddModal} 
           setOpenAddModal={setOpenAddModal}
+        />
+
+        <AddList
+          listId={listId}
+          // type={type}
+          type='list'
+          handleCloseAddListModal={handleCloseAddListModal} 
+          handleOpenAddListModal={handleOpenAddListModal} 
+          openAddListModal={openAddListModal} 
+          setOpenAddListModal={setOpenAddListModal}
         />
       {/* </Collapse> */}
     </div>

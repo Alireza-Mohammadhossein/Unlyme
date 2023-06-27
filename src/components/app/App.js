@@ -7,10 +7,11 @@ import { GetScreenSize } from "../common/getScreenSize/GetScreenSize";
 import { fetchUserInfo } from "../../redux/app/appSlice";
 import { useSelector, useDispatch } from "react-redux";
 // import { useSelector, useDispatch } from 'react-redux';
-import "react-toastify/dist/ReactToastify.css";
 import "../../styles/sass/app.scss";
 import HeaderPopups from "../common/header-popups/HeaderPopups";
 import { useLocation } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -111,6 +112,8 @@ function App() {
           {/* <div className="modal-backdrop fade show" style={{ display: "none" }} /> */}
         </div>
       )}
+
+      <ToastContainer />
     </div>
   );
 }

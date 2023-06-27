@@ -45,9 +45,13 @@ export default function AddModal({
 
     const handleBtnConfirm = () => {
       if (type === "card") {
-          convertImageToDataURL(imageFile, (dataURL) => {
-          addMoreCard(title, description, tags, listId, dataURL);
-      });
+        if(imageFile) {
+            convertImageToDataURL(imageFile, (dataURL) => {
+              addMoreCard(title, description, tags, listId, dataURL);
+            });
+          } else {
+            addMoreCard(title, description, tags, listId);
+          }
       } else {
         // addMoreList(title, description);
       }
