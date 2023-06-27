@@ -6,7 +6,13 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import InputContainer from "./components/InputContainer";
 import List from "./components/List";
 import { v4 as uuid } from "uuid";
-	
+
+
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+
+
 import { toast } from "react-toastify";
 import store from "./utils/store";
 import StoreApi from "./utils/storeApi";
@@ -31,6 +37,8 @@ const TasksContent = () => {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
+  const [collapse, setCollapse] = useState(true);
 
 
   const [data, setData] = useState(initialState);
@@ -257,6 +265,10 @@ const TasksContent = () => {
   };
 
 
+  const collapseColumns = () => {
+    setCollapse(!collapse);
+  }
+
 
   return (
     <div className="tasks-page">
@@ -279,9 +291,15 @@ const TasksContent = () => {
                   removeCard,
                   updateCard,
                   updateCardDescription,
-                  deleteList
+                  deleteList,
+                  collapseColumns
                 }}
               >
+                <div className="tasks-page_main_list-actions">
+                  <InputContainer type="list" />
+                  <InputContainer  listId='list-1' type="card" />
+                </div>
+                
                 <DragDropContext onDragEnd={onDragEnd}>
                   <Droppable droppableId="app" type="list" direction="horizontal">
                     {(provided) => (
@@ -293,11 +311,15 @@ const TasksContent = () => {
                         {data.listIds.map((listId, index) => {
                           const list = data.lists[listId];
 
-                          return <List list={list} key={listId} index={index} />;
+                          return (
+                              <List list={list} key={listId} index={index} collapse={collapse} />
+                          )
                         })}
-                        <div>
+
+                        {/* <div>
                           <InputContainer type="list" />
-                        </div>
+                        </div> */}
+                        
                         {provided.placeholder}
                       </div>
                     )}

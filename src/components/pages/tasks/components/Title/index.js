@@ -4,12 +4,15 @@ import storeApi from "../../utils/storeApi";
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 
 
-export default function Title({ title, listId }) {
+export default function Title({ title, listId, collapseColumns, collapse }) {
   const [open, setOpen] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
@@ -77,6 +80,18 @@ export default function Title({ title, listId }) {
             onClick={() => deleteList(listId)}
           >
             <DeleteOutlineOutlinedIcon />
+          </IconButton>
+
+          <IconButton
+            aria-label="more"
+            className="editable-title-actions"
+            // aria-controls={openActions ? "long-menu" : undefined}
+            // aria-expanded={openActions ? "true" : undefined}
+            // aria-haspopup="true"
+            onClick={collapseColumns}
+          >
+            {collapse ? <ExpandLess /> : <ExpandMore />}
+            {/* <ArrowDropDownOutlinedIcon /> */}
           </IconButton>
           {/* <button
             className="list-button"
