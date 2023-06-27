@@ -8,11 +8,6 @@ import List from "./components/List";
 import { v4 as uuid } from "uuid";
 
 
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-
-
 import { toast } from "react-toastify";
 import store from "./utils/store";
 import StoreApi from "./utils/storeApi";
@@ -38,7 +33,6 @@ const TasksContent = () => {
   const { t, i18n } = useTranslation();
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
-  const [collapse, setCollapse] = useState(true);
 
 
   const [data, setData] = useState(initialState);
@@ -265,10 +259,6 @@ const TasksContent = () => {
   };
 
 
-  const collapseColumns = () => {
-    setCollapse(!collapse);
-  }
-
 
   return (
     <div className="tasks-page">
@@ -292,7 +282,6 @@ const TasksContent = () => {
                   updateCard,
                   updateCardDescription,
                   deleteList,
-                  collapseColumns
                 }}
               >
                 <div className="tasks-page_main_list-actions">
@@ -312,7 +301,7 @@ const TasksContent = () => {
                           const list = data.lists[listId];
 
                           return (
-                              <List list={list} key={listId} index={index} collapse={collapse} />
+                              <List list={list} key={listId} index={index} />
                           )
                         })}
 

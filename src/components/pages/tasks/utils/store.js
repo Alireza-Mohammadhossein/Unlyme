@@ -22,6 +22,7 @@ const data = {
       },
     },
     listIds: ["list-1", "list-2", "list-3", "list-4"],
+    members: ["David" , "Carlos" , "Mateo" , "Rick" , "Martin" , "Cristiano"]
   };
   
   export default data;

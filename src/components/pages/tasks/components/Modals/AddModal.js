@@ -7,7 +7,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Input from '@mui/material/Input';
-
+import Autocomplete from '@mui/material/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import store from "../../utils/store";
+import StoreApi from "../../utils/storeApi";
 
 
 
@@ -20,11 +24,19 @@ export default function AddModal({
         setOpenAddModal,
     }) {
 
+    const [data, setData] = useState(store);
+
+
     const { addMoreCard, addMoreList } = useContext(storeApi);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [tags, setTags] = useState([]);
+    const [members, setMembers] = useState([]);
     const [imageFile, setImageFile] = useState(null);
+
+
+    const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+    const checkedIcon = <CheckBoxIcon fontSize="small" />;
   
     const titleHandler = (e) => {
       setTitle(e.target.value);
@@ -38,6 +50,11 @@ export default function AddModal({
         setTags([...tags, tag])
     }
 
+    const membersHandler = (member) => {
+      setMembers([...members, member])
+    }
+    
+
     const handleImageUpload = (e) => {
       const file = e.target.files[0];
       setImageFile(file);
@@ -47,10 +64,10 @@ export default function AddModal({
       if (type === "card") {
         if(imageFile) {
             convertImageToDataURL(imageFile, (dataURL) => {
-              addMoreCard(title, description, tags, listId, dataURL);
+              addMoreCard(title, description, tags, members, listId, dataURL);
             });
           } else {
-            addMoreCard(title, description, tags, listId);
+            addMoreCard(title, description, tags, members, listId);
           }
       } else {
         // addMoreList(title, description);
@@ -59,6 +76,7 @@ export default function AddModal({
       setDescription("");
       setOpenAddModal(false);
       setTags([]);
+      setMembers([]);
       setImageFile(null);
     };
 
@@ -104,9 +122,38 @@ export default function AddModal({
                 </div>
 
                 <div className="backlog-modal_item">
+                  <Autocomplete
+                    multiple
+                    id="checkboxes-tags-demo"
+                    options={data.members}
+                    disableCloseOnSelect
+                    getOptionLabel={(option) => option}
+                    renderOption={(props, option, { selected }) => (
+                      <li {...props}>
+                        <Checkbox
+                          icon={icon}
+                          checkedIcon={checkedIcon}
+                          style={{ marginRight: 8 }}
+                          checked={selected}
+                        />
+                        {option}
+                      </li>
+                    )}
+                    style={{ width: 500 }}
+                    renderInput={(params) => (
+                      <TextField {...params} label="Assign members" />
+                    )}
+                  />
+                </div>
+
+                
+
+                <div className="backlog-modal_item">
                   {/* <input type="file" onChange={handleImageUpload} /> */}
                   <Input type="file" onChange={handleImageUpload} />
                 </div>
+
+
 
                 <div className="backlog-modal_item">
                     <Button
