@@ -14,7 +14,7 @@ export const appsModalSlice = createSlice({
   reducers: {
     handleOpenAppsModal: (state, component) => {
         state.openAppsModal = true;
-        state.SelectedComponent = component.payload;
+        // state.SelectedComponent = component.payload;
     },
     handleCloseAppsModal: (state) => {
         state.openAppsModal = false;

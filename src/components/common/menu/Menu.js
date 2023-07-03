@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Tooltip from "@mui/material/Tooltip";
@@ -54,6 +54,7 @@ const Menu = ({screenSize}) => {
       title: "CALENDAR",
       link: "/services/calendar",
       img: `${calendarIcon}`,
+      componentName: 'Calendar',
       component: Calendar,
     },
     {
@@ -62,6 +63,7 @@ const Menu = ({screenSize}) => {
       title: "NOTES",
       link: "/services/notes",
       img: `${notesIcon}`,
+      componentName: 'Notes',
       component: Notes,
     },
     {
@@ -70,6 +72,7 @@ const Menu = ({screenSize}) => {
       title: "EMAILS",
       link: "/services/email",
       img: `${emailIcon}`,
+      componentName: 'Emails',
       component: Emails,
     },    
     {
@@ -78,6 +81,7 @@ const Menu = ({screenSize}) => {
       title: "WORK_DRIVE",
       link: "/services/work-drive",
       img: `${driveIcon}`,
+      componentName: 'WorkDrive',
       component: WorkDrive,
     },  
     {
@@ -86,6 +90,7 @@ const Menu = ({screenSize}) => {
       title: "TASKS",
       link: "/services/tasks",
       img: `${tasksIcon}`,
+      componentName: 'Tasks',
       component: Tasks,
     },
     {
@@ -94,6 +99,7 @@ const Menu = ({screenSize}) => {
       title: "VIDEO_CONFERENCING",
       link: "/services/video-conferencing",
       img: `${videoConferencingIcon}`,
+      componentName: 'VideoConferencing',
       component: VideoConferencing,
     },
     {
@@ -102,6 +108,7 @@ const Menu = ({screenSize}) => {
       title: "DOMAINS",
       link: "/services/domains",
       img: `${domainsIcon}`,
+      componentName: 'Tasks',
       component: Tasks,
     },
     // {
@@ -142,17 +149,19 @@ const Menu = ({screenSize}) => {
   const dispatch = useDispatch();
 
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
-  const SelectedComponent = useSelector((state) => state.appsModal.SelectedComponent);
+  // const [appsModal, setAppsModal] = useState(false);
+  // const SelectedComponent = useSelector((state) => state.appsModal.SelectedComponent);
+  const [selectedComponent, setSelectedComponent] = useState('');
   const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
-
   
-  const openAppsModalHandler = (component) => {
-    dispatch(handleOpenAppsModal(component))
+  const openAppsModalHandler = (componentName) => {
+    dispatch(handleOpenAppsModal());
+    setSelectedComponent(componentName);
   };
   
-  const closeAppsModalHanlder = () => {
+  const closeAppsModalHandler = () => {
     dispatch(handleCloseAppsModal())
   };
 
@@ -195,7 +204,8 @@ const Menu = ({screenSize}) => {
         {data.map((item) => (
           <li key={item.id} className="menu__item">
             <Tooltip title={t(`MENU.${item.title}`)} arrow placement="right">
-              <Button onClick={() => openAppsModalHandler(item.component)}>
+              {/* <Button onClick={() => openAppsModalHandler(item.component)}> */}
+              <Button onClick={() => openAppsModalHandler(item.componentName)}>
                   <div className="menu__item-icon">
                     <img src={item.img} className="menu__item-img" />
                   </div>
@@ -214,14 +224,27 @@ const Menu = ({screenSize}) => {
 
       <Modal
         open={appsModal}
-        onClose={closeAppsModalHanlder}
+        onClose={closeAppsModalHandler}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className="apps-modal"
         disableEnforceFocus 
       >
         <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
-          {SelectedComponent && <SelectedComponent />}
+          {/* {SelectedComponent && <SelectedComponent />} */}
+          {/* <Tasks /> */}
+          {/* <SelectedComponent /> */}
+          {/* {showSelectedComponent} */}
+
+          {
+      selectedComponent === 'Calendar' ? <Calendar /> :
+      selectedComponent === 'Notes' ? <Notes /> :
+      selectedComponent === 'Emails' ? <Emails /> :
+      selectedComponent === 'WorkDrive' ? <WorkDrive /> :
+      selectedComponent === 'Tasks' ? <Tasks /> :
+      selectedComponent === 'VideoConferencing' ? <VideoConferencing /> :
+      ''
+    }
         </div>
       </Modal>
     </div>
