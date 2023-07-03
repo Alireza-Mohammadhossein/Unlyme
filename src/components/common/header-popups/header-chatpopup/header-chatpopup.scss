@@ -289,8 +289,9 @@
 
       &-content {
         padding: 20px 15px;
-        height: 480px;
-        overflow-y: scroll;
+        // height: 480px;
+        height: 100%;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         gap: 15px;

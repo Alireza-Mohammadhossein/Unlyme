@@ -12,7 +12,9 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      background: rgba(255, 255, 255, 0.4);
+      // background: rgba(255, 255, 255, 0.4);
+      background: #DFE9F880;
+      box-shadow: inset 1px 0px 0px 0.5px #ffffff4d, 0px 4px 20px 0px #00000026;
       backdrop-filter: blur(2px);
       border-radius: 16px;
       padding: 10px;

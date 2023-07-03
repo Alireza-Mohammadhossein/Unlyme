@@ -55,7 +55,7 @@ const Menu = ({screenSize}) => {
       link: "/services/calendar",
       img: `${calendarIcon}`,
       componentName: 'Calendar',
-      component: Calendar,
+      // component: Calendar,
     },
     {
       id: 9,
@@ -64,7 +64,7 @@ const Menu = ({screenSize}) => {
       link: "/services/notes",
       img: `${notesIcon}`,
       componentName: 'Notes',
-      component: Notes,
+      // component: Notes,
     },
     {
       id: 10,
@@ -73,7 +73,7 @@ const Menu = ({screenSize}) => {
       link: "/services/email",
       img: `${emailIcon}`,
       componentName: 'Emails',
-      component: Emails,
+      // component: Emails,
     },    
     {
       id: 3,
@@ -82,7 +82,7 @@ const Menu = ({screenSize}) => {
       link: "/services/work-drive",
       img: `${driveIcon}`,
       componentName: 'WorkDrive',
-      component: WorkDrive,
+      // component: WorkDrive,
     },  
     {
       id: 11,
@@ -91,7 +91,7 @@ const Menu = ({screenSize}) => {
       link: "/services/tasks",
       img: `${tasksIcon}`,
       componentName: 'Tasks',
-      component: Tasks,
+      // component: Tasks,
     },
     {
       id: 12,
@@ -100,7 +100,7 @@ const Menu = ({screenSize}) => {
       link: "/services/video-conferencing",
       img: `${videoConferencingIcon}`,
       componentName: 'VideoConferencing',
-      component: VideoConferencing,
+      // component: VideoConferencing,
     },
     {
       id: 2,
@@ -109,7 +109,7 @@ const Menu = ({screenSize}) => {
       link: "/services/domains",
       img: `${domainsIcon}`,
       componentName: 'Tasks',
-      component: Tasks,
+      // component: Tasks,
     },
     // {
     //   id: 4,
@@ -237,14 +237,15 @@ const Menu = ({screenSize}) => {
           {/* {showSelectedComponent} */}
 
           {
-      selectedComponent === 'Calendar' ? <Calendar /> :
-      selectedComponent === 'Notes' ? <Notes /> :
-      selectedComponent === 'Emails' ? <Emails /> :
-      selectedComponent === 'WorkDrive' ? <WorkDrive /> :
-      selectedComponent === 'Tasks' ? <Tasks /> :
-      selectedComponent === 'VideoConferencing' ? <VideoConferencing /> :
-      ''
-    }
+            selectedComponent === 'Calendar' ? <Calendar /> :
+            selectedComponent === 'Notes' ? <Notes /> :
+            selectedComponent === 'Emails' ? <Emails /> :
+            selectedComponent === 'WorkDrive' ? <WorkDrive /> :
+            selectedComponent === 'Tasks' ? <Tasks /> :
+            selectedComponent === 'VideoConferencing' ? <VideoConferencing /> :
+            
+            ''
+          }
         </div>
       </Modal>
     </div>

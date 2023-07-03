@@ -28,11 +28,11 @@ export const appsModalSlice = createSlice({
     },
     handleOpenShortcut: (state, component) => {
       state.openAppsShortcut = true;
-      state.SelectedShortcut = component.payload;
+      // state.SelectedShortcut = component.payload;
     },
     handleCloseShortcut: (state) => {
       state.openAppsShortcut = false;
-      state.SelectedShortcut = null;
+      // state.SelectedShortcut = null;
     }
   },
 });

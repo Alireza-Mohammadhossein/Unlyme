@@ -46,14 +46,18 @@ function TabPanel(props) {
 
     const dispatch = useDispatch();
     const openAppsShortcut = useSelector((state) => state.appsModal.openAppsShortcut);
-    const SelectedShortcut = useSelector((state) => state.appsModal.SelectedShortcut);
+    // const SelectedShortcut = useSelector((state) => state.appsModal.SelectedShortcut);
+    const [selectedShortcut, setSelectedShortcut] = useState('');
     
-    const openShortcutModalHandler = (component) => {
-      dispatch(handleOpenShortcut(component))
+    const openShortcutModalHandler = (componentName) => {
+      console.log('componentName', componentName)
+      dispatch(handleOpenShortcut())
+      setSelectedShortcut(componentName)
     };
     
     const closeShortcutModalHanlder = () => {
       dispatch(handleCloseShortcut())
+      setSelectedShortcut('')
     };
 
 
@@ -62,17 +66,20 @@ function TabPanel(props) {
       {
         id: 11,
         title: "Add Calendar",
-        component: CalendarShortcut,
+        componentName: 'CalendarShortcut', 
+        // component: CalendarShortcut,
       },
       {
         id: 22,
         title: "Add Tasks",
-        component: TasksShortcut,
+        componentName: 'TasksShortcut', 
+        // component: TasksShortcut,
       },
       {
         id: 33,
         title: "Add Notes",
-        component: NotesShortcut,
+        componentName: 'NotesShortcut', 
+        // component: NotesShortcut,
       },
     ];
     
@@ -141,7 +148,7 @@ function TabPanel(props) {
                   <Button
                     startIcon={<AddIcon />}
                     className="meeting-page_sidebar_open-apps_item-btn"
-                    onClick={() => openShortcutModalHandler(option.component)}
+                    onClick={() => openShortcutModalHandler(option.componentName)}
                   >
                     {option.title}
                   </Button>
@@ -170,7 +177,7 @@ function TabPanel(props) {
                               <SearchIcon sx={{color: '#3C3C43B2'}} />
                           </InputAdornment>
                       }
-                      />
+                     />
                   </FormControl>
               </div>
 
@@ -195,7 +202,13 @@ function TabPanel(props) {
           >
             <div className='shortcut-modal-container' >
               {/* {SelectedShortcut} */}
-              {SelectedShortcut && <SelectedShortcut />}
+              {/* {selectedShortcut && <selectedShortcut />} */}
+              {
+                selectedShortcut === 'CalendarShortcut' ? <CalendarShortcut /> :
+                selectedShortcut === 'TasksShortcut' ? <TasksShortcut /> :
+                selectedShortcut === 'NotesShortcut' ? <NotesShortcut /> :
+                ''
+              }
             </div>
           </Modal>
         </>
