@@ -50,7 +50,6 @@ function TabPanel(props) {
     const [selectedShortcut, setSelectedShortcut] = useState('');
     
     const openShortcutModalHandler = (componentName) => {
-      console.log('componentName', componentName)
       dispatch(handleOpenShortcut())
       setSelectedShortcut(componentName)
     };
