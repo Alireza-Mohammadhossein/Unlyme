@@ -18,7 +18,7 @@ export const appsModalSlice = createSlice({
     },
     handleCloseAppsModal: (state) => {
         state.openAppsModal = false;
-        state.SelectedComponent = null;
+        // state.SelectedComponent = null;
     },
     handleOpenMeetingPageModal: (state) => {
       state.openMeetingPageModal = true;

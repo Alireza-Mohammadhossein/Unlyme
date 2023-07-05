@@ -10,6 +10,7 @@ import Tab from '@mui/material/Tab';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 import MeetingPageSidebar from "./MeetingPageSidebar";
+import MeetingPageMain from "./MeetingPageMain";
 
 
 
@@ -104,7 +105,7 @@ function a11yProps(index) {
             xs={12}
           >
             <div className="meeting-page_main">
-                main
+                <MeetingPageMain />
             </div>
           </Grid>
         </Grid>
