@@ -1,117 +1,51 @@
-// import React, { useState } from 'react';
-// import Webcam from 'react-webcam';
+import React, { useState, useCallback, useEffect } from 'react';
+import Webcam from 'react-webcam';
 
 
 
-// const MeetingPageMain = () => {
-//   return (
-//     <div>
-//       <h1>Video and Voice App</h1>
-//       <h2>Video</h2>
-//       <Webcam
-//         audio={true}
-//         width={1280}
-//         height={700}
-//         mirrored={true}
-//       />
-//     </div>
-//   );
-// }
-
-// export default MeetingPageMain;
+const MeetingPageMain = () => {
+  // const videoConstraints = {
+  //   aspectRatio: 1.8,
+  //   facingMode: "user"
+  // };
 
 
-import React, { useEffect, useRef, useState } from 'react';
-import io from 'socket.io-client';
-import Peer from 'simple-peer';
+  const [deviceId, setDeviceId] = useState({});
+  const [devices, setDevices] = useState([]);
 
-const socket = io('http://localhost:5000'); // Replace with your server address
+  const handleDevices = useCallback(
+    mediaDevices =>
+      setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
+    [setDevices]
+  );
 
-function MeetingPageMain() {
-  const [stream, setStream] = useState(null);
-  const [peers, setPeers] = useState([]);
-
-  const userVideoRef = useRef();
-  const peersRef = useRef([]);
-
-  useEffect(() => {
-    // Get access to user media (camera and microphone)
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-      .then((stream) => {
-        setStream(stream);
-        userVideoRef.current.srcObject = stream;
-
-        // Socket events
-        socket.emit('join', socket.id);
-        socket.on('user-joined', (userId) => {
-          // Create a new peer connection
-          const peer = createPeer(userId, socket.id, stream);
-          peersRef.current.push({
-            userId,
-            peer,
-          });
-          setPeers([...peersRef.current]);
-        });
-        socket.on('user-left', (userId) => {
-          // Close the peer connection
-          const peerIndex = peersRef.current.findIndex((peer) => peer.userId === userId);
-          if (peerIndex !== -1) {
-            peersRef.current[peerIndex].peer.destroy();
-            peersRef.current.splice(peerIndex, 1);
-            setPeers([...peersRef.current]);
-          }
-        });
-        socket.on('signal', ({ senderId, signal }) => {
-          // Handle incoming signals (ICE candidates and SDP)
-          const peerIndex = peersRef.current.findIndex((peer) => peer.userId === senderId);
-          if (peerIndex !== -1) {
-            peersRef.current[peerIndex].peer.signal(signal);
-          }
-        });
-      })
-      .catch((error) => console.error(error));
-
-    // Clean up
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
-  const createPeer = (partnerId, callerId, stream) => {
-    const peer = new Peer({
-      initiator: true,
-      trickle: false,
-      stream,
-    });
-
-    peer.on('signal', (signal) => {
-      // Send the signal to the server
-      socket.emit('signal', { senderId: callerId, receiverId: partnerId, signal });
-    });
-
-    return peer;
-  };
+  useEffect(
+    () => {
+      navigator.mediaDevices.enumerateDevices().then(handleDevices);
+    },
+    [handleDevices]
+  );
 
   return (
-    <div className="App">
-      <h1>Video Call App</h1>
-      <div className="video-grid">
-        <div>
-          <h2>Your Video</h2>
-          <video ref={userVideoRef} autoPlay playsInline muted />
-        </div>
-        {peers.map((peer) => (
-          <div key={peer.userId}>
-            <h2>Participant Video</h2>
-            <video autoPlay playsInline ref={(ref) => (peer.peer.videoRef = ref)} />
+    <div className="meeting-page_main-wrapper">
+      <div className='video_host'>
+        {/* <Webcam
+          audio={true}
+          mirrored={true}
+          // videoConstraints={videoConstraints}
+        /> */}
+
+        {devices.map((device, key) => (
+          <div>
+            <Webcam audio={true} videoConstraints={{ deviceId: device.deviceId }} />
+            {device.label || `Device ${key + 1}`}
           </div>
+
         ))}
+
       </div>
     </div>
   );
 }
 
 export default MeetingPageMain;
-
-
-
