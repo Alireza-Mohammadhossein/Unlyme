@@ -29,11 +29,13 @@
     justify-content: space-between;
   
     &__header {
-      padding: 20px 30px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #ececec;
-      align-items: center;
+      align-items: center;      
+      height: 80px;
+      box-sizing: border-box;
   
       &-title {
         font-size: 22px;
@@ -46,7 +48,7 @@
     }
   
     &__body {
-      padding: 20px 30px;
+      padding: 20px 20px;
       height: calc(100% - 160px);
       box-sizing: border-box;
       display: flex;
@@ -208,7 +210,7 @@
       border-top: 1px solid #ececec;
 
       &_container {
-        padding: 0 30px;
+        padding: 0 20px;
 
         & .MuiTabs-flexContainer {
           justify-content: space-between !important;
@@ -240,6 +242,8 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #ececec;
+      height: 80px;
+      box-sizing: border-box;
   
       &-info {
         display: flex;

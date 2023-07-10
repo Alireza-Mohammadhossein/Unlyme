@@ -185,64 +185,70 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
       <div className='note-popup-list'>
         <div className='note-popup-list__header'>
               <p className='note-popup-list__header-title'>{t('NOTE_POPUP.TITLE')}</p>
-              <div className='note-popup-list__header-actions'>
-                  <div className='note-popup-list__header-actions_more'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon sx={{ color: '#000000' }} />
-                    </IconButton>
+              {
+                showNote === false ?
+                  <div className='note-popup-list__header-actions'>
+                    <div className='note-popup-list__header-actions_more'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                      </IconButton>
 
-                    <Menu
-                      id="long-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "long-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          selected={option === "Pyxis"}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                  
-                  <div className='note-popup-list__header-actions_close'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={() => 
-                        // setNotePopupToggler(false)
-                        dispatch(toggleNotePopup())
-                      }
-                    >
-                      <CloseIcon  sx={{ color: '#000000' }}/>
-                    </IconButton>
+                      <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                          "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        disableScrollLock = {true}
+                        PaperProps={{
+                          style: {
+                            maxHeight: ITEM_HEIGHT * 4.5,
+                            width: "20ch",
+                          },
+                        }}
+                      >
+                        {options.map((option) => (
+                          <MenuItem
+                            key={option}
+                            selected={option === "Pyxis"}
+                            onClick={handleClose}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
+                    
+                    <div className='note-popup-list__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => 
+                          // setNotePopupToggler(false)
+                          dispatch(toggleNotePopup())
+                        }
+                      >
+                        <CloseIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
 
+                    </div>
                   </div>
-              </div>
+                :
+                  ''
+
+              }
         </div>
 
         <div className='note-popup-list__body'>
@@ -381,7 +387,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                             dispatch(toggleSecondPopupTab(false))
                           }}
                         >
-                          <ArrowBackIcon  sx={{ color: '#000000' }}/>
+                          <CloseIcon  sx={{ color: '#000000' }}/>
                         </IconButton>
       
                       </div>

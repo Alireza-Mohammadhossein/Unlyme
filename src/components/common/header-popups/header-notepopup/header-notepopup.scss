@@ -28,11 +28,13 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px 30px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
         align-items: center;
+        height: 80px;
+        box-sizing: border-box;
     
         &-title {
           font-size: 22px;
@@ -45,7 +47,7 @@
       }
     
       &__body {
-        padding: 20px 30px;
+        padding: 20px;
         height: calc(100% - 110px);
         box-sizing: border-box;
         display: flex;
@@ -177,10 +179,12 @@
       }
   
       &__header {
-        padding: 20px 30px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
+        height: 80px;
+        box-sizing: border-box;
     
         &-info {
           display: flex;
@@ -221,7 +225,7 @@
         }
   
         &-content {
-          padding: 20px 30px;
+          padding: 20px;
           height: calc(100% - 50px);
           overflow-y: auto;
   

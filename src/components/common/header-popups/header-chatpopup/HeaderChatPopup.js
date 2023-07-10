@@ -125,7 +125,9 @@ const HeaderChatPopup = ({ props }) => {
   const [isPickerVisible, setIsPickerVisible] = useState(false);
 
 
+  // start selected messages
   const [selectedMessages, setSelectedMessages] = useState([]);
+
   const handleselectedMessages = (item) => {
     setSelectedMessages(prevSelectedItems => {
       const itemIndex = prevSelectedItems.findIndex(selectedItem => selectedItem.id === item.id);
@@ -139,6 +141,7 @@ const HeaderChatPopup = ({ props }) => {
       }
     });
   };
+  // end selected messages
 
 
   return (
@@ -146,78 +149,83 @@ const HeaderChatPopup = ({ props }) => {
       <div className='chat-popup-list'>
         <div className='chat-popup-list__header'>
               <p className='chat-popup-list__header-title'>{t('CHAT_POPUP.LIST.HEADER.TITLE')}</p>
-              <div className='chat-popup-list__header-actions'>
-                  <div className='chat-popup-list__header-actions_more'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon sx={{ color: '#000000' }} />
-                    </IconButton>
+              {
+                showChat === false ?
+                  <div className='chat-popup-list__header-actions'>
+                    <div className='chat-popup-list__header-actions_more'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                      </IconButton>
 
-                    <Menu
-                      id="long-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "long-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          selected={option === "Pyxis"}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
+                      <Menu
+                        id="long-menu"
+                        MenuListProps={{
+                          "aria-labelledby": "long-button",
+                        }}
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        disableScrollLock = {true}
+                        PaperProps={{
+                          style: {
+                            maxHeight: ITEM_HEIGHT * 4.5,
+                            width: "20ch",
+                          },
+                        }}
+                      >
+                        {options.map((option) => (
+                          <MenuItem
+                            key={option}
+                            selected={option === "Pyxis"}
+                            onClick={handleClose}
+                          >
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </div>
 
-                  <div className='chat-popup-list__header-actions_edit'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <EditIcon sx={{ color: '#51A3FF' }} />
-                    </IconButton>
-                  </div>
-                  
-                  <div className='chat-popup-list__header-actions_close'>
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={() => {
-                        dispatch(toggleChatPopup());
-                        // setChatPopupToggler(false)
-                        // document.getElementById('cloud-page').classList.remove('first-shrink');
-                      }}
-                    >
-                      <CloseIcon  sx={{ color: '#000000' }}/>
-                    </IconButton>
+                    <div className='chat-popup-list__header-actions_edit'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                      >
+                        <EditIcon sx={{ color: '#51A3FF' }} />
+                      </IconButton>
+                    </div>
+                    
+                    <div className='chat-popup-list__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => {
+                          dispatch(toggleChatPopup());
+                          // setChatPopupToggler(false)
+                          // document.getElementById('cloud-page').classList.remove('first-shrink');
+                        }}
+                      >
+                        <CloseIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
 
+                    </div>
                   </div>
-              </div>
+                : 
+                  ''
+              }
         </div>
 
         <div className='chat-popup-list__body'>
@@ -387,7 +395,7 @@ const HeaderChatPopup = ({ props }) => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <ArrowBackIcon  sx={{ color: '#000000' }}/>
+                        <CloseIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>

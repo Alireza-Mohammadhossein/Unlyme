@@ -10,6 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
+import search from "../../../assets/images/header/new-icons/search.png";
 
 
 
@@ -23,17 +24,16 @@ const EmailDetailsBar = ({ setSearchText }) => {
             <Grid item lg={4} md={12} xs={12}>
                 <div className='cloud-page__header_email-details_search'>
                     <FormControl>
-                        <Input
-                        className='cloud-page__header_email-details_search-input'
-                        onChange={(e) => setSearchText(e.target.value)}
-                        placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
-                        startAdornment={
-                            <InputAdornment position="start">
-                                <SearchIcon sx={{color: '#3C3C43B2'}} />
-                            </InputAdornment>
-                        }
-                        />
+                        <div className="cloud-page__header_email-details_search_container">
+                            <label><img src={search} /></label>
+                            <input
+                              className="cloud-page__header_email-details_search-input"
+                              onChange={(e) => setSearchText(e.target.value)}
+                              placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
+                            />
+                        </div>
                     </FormControl>
+
                 </div>
             </Grid>
 

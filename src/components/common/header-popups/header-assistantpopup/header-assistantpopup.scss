@@ -27,11 +27,13 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px 30px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
         align-items: center;
+        height: 80px;
+        box-sizing: border-box;
     
         &-title {
           font-size: 22px;
@@ -44,7 +46,7 @@
       }
     
       &__body {
-        padding: 20px 30px;
+        padding: 20px;
         height: calc(100% - 160px);
         box-sizing: border-box;
         display: flex;
@@ -201,6 +203,8 @@
 
       }
     }
+
+
     &-messages {
         width: 380px;
         height: 100%;

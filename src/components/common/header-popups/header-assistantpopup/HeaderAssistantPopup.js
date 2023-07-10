@@ -65,14 +65,14 @@ const HeaderAssistantPopup = ({
   // setNewAssistantToggler,
   assistantText,
   props,
-  message,
-  setMessage,
+  // message,
+  // setMessage,
 }) => {
 
   const dispatch = useDispatch();
   const assistantPopup = useSelector((state) => state.popup.assistantPopupToggler);
   const newAssistantPopup = useSelector((state) => state.popup.newAssistantPopupToggler);
-  const assistantMessage = useSelector((state) => state.popup.assistantMessage);
+  const [assistantMessage, setAssistantMessage] = useState(useSelector((state) => state.popup.assistantMessage));
 
 
   const { t } = useTranslation();
@@ -114,21 +114,7 @@ const HeaderAssistantPopup = ({
     console.log("deleted");
   };
 
-  // const [newTitleValue, setNewTitleValue] = useState('');
-  // const [newMessageValue, setNewMessageValue] = useState('');
 
-  // const handleUpdateNote = (index, newTitleValue, newMessageValue) => {
-  //   const updatedNotes = [...notes];
-  //   updatedNotes[index] = {
-  //     ...updatedNotes[index],
-  //     title: newTitleValue,
-  //     message: newMessageValue
-  //   };
-  //   setNotes(updatedNotes);
-  //   setNewTitleValue('');
-  //   setNewMessageValue('');
-  //   setShowNote(false);
-  // };
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -139,10 +125,14 @@ const HeaderAssistantPopup = ({
     setAnchorEl(null);
   };
 
-  // const [message, setMessage] = useState(assistantText);
+  const [message, setMessage] = useState('');
 
   const handleTextChange = (event) => {
     setMessage(event.target.value);
+  };
+
+  const handleAssistantChange = (event) => {
+    setAssistantMessage(event.target.value);
   };
 
   return (
@@ -152,63 +142,69 @@ const HeaderAssistantPopup = ({
           <p className="assistant-popup-list__header-title">
             {t("ASSISTANT_POPUP.TITLE")}
           </p>
-          <div className="assistant-popup-list__header-actions">
-            <div className="assistant-popup-list__header-actions_more">
-              <IconButton
-                aria-label="more"
-                id="long-button"
-                aria-controls={open ? "long-menu" : undefined}
-                aria-expanded={open ? "true" : undefined}
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                <MoreHorizIcon sx={{ color: "#000000" }} />
-              </IconButton>
-
-              <Menu
-                id="long-menu"
-                MenuListProps={{
-                  "aria-labelledby": "long-button",
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                disableScrollLock={true}
-                PaperProps={{
-                  style: {
-                    maxHeight: ITEM_HEIGHT * 4.5,
-                    width: "20ch",
-                  },
-                }}
-              >
-                {options.map((option) => (
-                  <MenuItem
-                    key={option}
-                    selected={option === "Pyxis"}
-                    onClick={handleClose}
+          {
+            showAssistant === false && newAssistantPopup === false ?
+              <div className="assistant-popup-list__header-actions">
+                <div className="assistant-popup-list__header-actions_more">
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
                   >
-                    {option}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </div>
+                    <MoreHorizIcon sx={{ color: "#000000" }} />
+                  </IconButton>
 
-            <div className="assistant-popup-list__header-actions_close">
-              <IconButton
-                aria-label="more"
-                id="long-button"
-                aria-controls={open ? "long-menu" : undefined}
-                aria-expanded={open ? "true" : undefined}
-                aria-haspopup="true"
-                onClick={() => 
-                  dispatch(toggleAssistantPopup())
-                  // setAssistantPopupToggler(false)
-                }
-              >
-                <CloseIcon sx={{ color: "#000000" }} />
-              </IconButton>
-            </div>
-          </div>
+                  <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                      "aria-labelledby": "long-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    disableScrollLock={true}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: "20ch",
+                      },
+                    }}
+                  >
+                    {options.map((option) => (
+                      <MenuItem
+                        key={option}
+                        selected={option === "Pyxis"}
+                        onClick={handleClose}
+                      >
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
+
+                <div className="assistant-popup-list__header-actions_close">
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={() => 
+                      dispatch(toggleAssistantPopup())
+                      // setAssistantPopupToggler(false)
+                    }
+                  >
+                    <CloseIcon sx={{ color: "#000000" }} />
+                  </IconButton>
+                </div>
+              </div>
+             :
+               ''
+          }
+
         </div>
 
         <div className="assistant-popup-list__body">
@@ -371,7 +367,7 @@ const HeaderAssistantPopup = ({
                         dispatch(toggleSecondPopupTab(false))
                       }}
                     >
-                      <ArrowBackIcon sx={{ color: "#000000" }} />
+                      <CloseIcon sx={{ color: "#000000" }} />
                     </IconButton>
                   </div>
                 </div>
@@ -532,7 +528,7 @@ const HeaderAssistantPopup = ({
                     }
                   }
                 >
-                  <ArrowBackIcon sx={{ color: "#000000" }} />
+                  <CloseIcon sx={{ color: "#000000" }} />
                 </IconButton>
               </div>
             </div>
@@ -549,7 +545,7 @@ const HeaderAssistantPopup = ({
                       <TextField
                         id=""
                         value={assistantMessage}
-                        onChange={handleTextChange}
+                        onChange={handleAssistantChange}
                         placeholder="Type a message..."
                         variant="outlined"
                         size="small"
@@ -565,9 +561,9 @@ const HeaderAssistantPopup = ({
                       aria-label="send message"
                       component="label"
                       onClick={(e) => {
-                        setMessage("");
+                        setAssistantMessage("");
                       }}
-                      disabled={message ? false : true}
+                      disabled={assistantMessage ? false : true}
                     >
                       <SendIcon />
                     </IconButton>

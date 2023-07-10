@@ -259,23 +259,42 @@
         .MuiFormControl-root {
             width: 100%;
         }
+        
+        &_container {
+            position: relative;
+            color: #666666;
+            margin-left: 0;
+            width: 100%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            // background: rgba(240, 242, 245, 0.8);
+            background-color: #ffffff80;
+            border-radius: 8px;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+            width: auto;
+            padding: 0 13px;
+    
+            label img {
+              width: 18px;
+            }
+        }
 
         &-input {
-            border: unset;
-            border-radius: 8px;
-            padding: 5px 10px;
-            // width: 300px;
-            // max-width: 350px;
-            background-color: rgba(118, 118, 128, 0.12);
-            color: #3C3C43B2;
+            width: 100%;
             height: 40px;
-
-            &:placeholder{
-                color: red;
-            }
-
-            &::before, &::after {
-                display: none;
+            background-color: transparent;
+            padding: 0 8px;
+            line-height: 33px;
+            border: unset;
+            transition: all 0.3s ease;
+            color: #3C3C43b3;
+            transform: translateX(0);
+    
+            &::placeholder {
+              color: #3C3C43b3;
+              
             }
         }
     }

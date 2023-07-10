@@ -28,11 +28,13 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px 30px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
         align-items: center;
+        height: 80px;
+        box-sizing: border-box;
     
         &-title {
           font-size: 22px;
@@ -46,15 +48,15 @@
     
       &__body {
         overflow: hidden;
-        height: calc(100% - 80px);
+        height: calc(100% - 90px);
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &-messages {
-          height: 90%;
-          padding: 20px 30px !important;
+          height: 95%;
+          padding: 20px !important;
           gap: 15px;
           display: flex;
           flex-direction: column;

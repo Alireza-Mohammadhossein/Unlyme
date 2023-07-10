@@ -21,6 +21,8 @@ import shareFormat from '../../../assets/images/notepage/share.png';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CloseIcon from '@mui/icons-material/Close';
+import search from "../../../assets/images/header/new-icons/search.png";
+
 
 
 
@@ -101,16 +103,14 @@ const NotesDetailsBar = ({ setSearchNote }) => {
             <Grid item lg={4} md={6} xs={12}>
                 <div className='cloud-page__header_notes-details_search'>
                     <FormControl>
-                        <Input
-                        className='cloud-page__header_notes-details_search-input'
-                        onChange={(e) => setSearchNote(e.target.value)}
-                        placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
-                        startAdornment={
-                            <InputAdornment position="start">
-                                <SearchIcon sx={{color: '#3C3C43B2'}} />
-                            </InputAdornment>
-                        }
-                        />
+                        <div className="cloud-page__header_notes-details_search_container">
+                            <label><img src={search} /></label>
+                            <input
+                              className="cloud-page__header_notes-details_search-input"
+                              onChange={(e) => setSearchNote(e.target.value)}
+                              placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
+                            />
+                        </div>
                     </FormControl>
 
                     <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>

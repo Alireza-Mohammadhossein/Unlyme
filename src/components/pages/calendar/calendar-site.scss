@@ -22,15 +22,20 @@
         gap: 20px;
 
         &_create-event {
-            & button {
-                background-color: $blue;
-                width: 100%;
-                padding: 10px;
-                text-align: center;
-                color: #FFF;
-                border-radius: 8px;
+            &_btn.MuiButtonBase-root {
+              background-color: $blue;
+              width: 100%;
+              padding: 10px;
+              text-align: center;
+              color: #fff;
+              border-radius: 8px;
+              text-transform: none;
             }
-        }
+      
+            &_btn.MuiButtonBase-root:hover {
+              background-color: $blue;
+            }
+         }
 
         &-section {
             &_filter {

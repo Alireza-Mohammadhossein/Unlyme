@@ -95,23 +95,30 @@ const HeaderEmailPopup = () => {
       <div className='email-popup-list'>
         <div className='email-popup-list__header'>
               <p className='email-popup-list__header-title'>{t('EMAIL_POPUP.TITLE')}</p>
-              <div className='email-popup-list__header-actions'>
-                <div className='email-popup-list__header-actions_close'>
-                  <IconButton
-                    aria-label="more"
-                    id="long-button"
-                    aria-controls={open ? "long-menu" : undefined}
-                    aria-expanded={open ? "true" : undefined}
-                    aria-haspopup="true"
-                    onClick={() => 
-                      dispatch(toggleEmailpopup())
-                    }
-                  >
-                    <CloseIcon  sx={{ color: '#000000' }}/>
-                  </IconButton>
 
-                </div>
-              </div>
+              {
+                showMail === false ? 
+                  <div className='email-popup-list__header-actions'>
+                    <div className='email-popup-list__header-actions_close'>
+                      <IconButton
+                        aria-label="more"
+                        id="long-button"
+                        aria-controls={open ? "long-menu" : undefined}
+                        aria-expanded={open ? "true" : undefined}
+                        aria-haspopup="true"
+                        onClick={() => 
+                          dispatch(toggleEmailpopup())
+                        }
+                      >
+                        <CloseIcon  sx={{ color: '#000000' }}/>
+                      </IconButton>
+
+                    </div>
+                  </div>
+                :
+                  ''
+              }
+
         </div>
 
         <div className='email-popup-list__body'>
@@ -232,7 +239,7 @@ const HeaderEmailPopup = () => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <ArrowBackIcon  sx={{ color: '#000000' }}/>
+                        <CloseIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>
@@ -279,7 +286,8 @@ const HeaderEmailPopup = () => {
         ))}
   
         </div>
-        : ''
+        : 
+          ''
       }
     </div>
   )

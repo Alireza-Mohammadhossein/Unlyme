@@ -49,12 +49,22 @@
                         border: unset;
                         border-radius: 8px;
                         padding: 5px 10px;
-                        background-color: rgba(255, 255, 255, 0.7);
-                        color: #3C3C43B2;
-                        height: 40px;
+                        // background-color: rgba(255, 255, 255, 0.7);
+                        background-color: #ffffff80;
+                        height: 40px;            
+                        color: #3C3C43b3;
+                
 
                         &::before, &::after {
                             display: none;
+                        }
+
+                        & .MuiInputBase-input {
+                          color: #3C3C43b3;
+                          
+                          &::placeholder {
+                            color: #3C3C43b3 !important;
+                          }
                         }
                     }
 

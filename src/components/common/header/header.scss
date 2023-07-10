@@ -50,7 +50,8 @@
         margin-right: 10px;
         display: flex;
         align-items: center;
-        background: rgba(240, 242, 245, 0.8);
+        // background: rgba(240, 242, 245, 0.8);
+        background-color: #ffffff80;
         border-radius: 8px;
         transform: translateX(0);
         transition: all 0.3s ease;
@@ -72,13 +73,13 @@
         line-height: 33px;
         border: unset;
         transition: all 0.3s ease;
-        color: #000000;
+        color: #3C3C43b3;
         transform: translateX(0);
         // background: rgba(240, 242, 245, 0.8);
         // border-radius: 8px;
 
         &::placeholder {
-          color: #686868;
+          color: #3C3C43b3;
           
         }
 
@@ -114,7 +115,7 @@
       display: flex;
       column-gap: 12px;
       z-index: 2;
-      background: rgba(248, 250, 252, 0.5);
+      background: #ffffff80;
       border-radius: 8px;
       padding: 0 10px;
     

@@ -5,6 +5,8 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 import CloudPage from '../../pages/cloud-page/CloudPage';
@@ -120,7 +122,16 @@ function CalendarPageContent() {
         >
           <div className='calendar-page_sidebar'>
             <div className='calendar-page_sidebar_create-event'>
-              <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button>
+              <Button
+                startIcon={<AddIcon />}
+                className="calendar-page_sidebar_create-event_btn"
+                aria-label="more"
+                id="long-button"
+                aria-haspopup="true"
+              >
+                {t("CALENDAR_PAGE.CREATE__EVENT_BUTTON")}
+              </Button>
+              {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
             </div>
 
 

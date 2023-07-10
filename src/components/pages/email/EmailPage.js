@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -120,7 +122,17 @@ function EmailPageContent() {
             >
               <div className='email-page_sidebar'>
                 <div className='email-page_sidebar_create-event'>
-                  <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button>
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="email-page_sidebar_create-event_btn"
+                    aria-label="more"
+                    id="long-button"
+                    aria-haspopup="true"
+                    // onClick={handleCreateNote}
+                  >
+                    {t("EMAIL_PAGE.CREATE_MAIL_BUTON")}
+                  </Button>
+                  {/* <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button> */}
                 </div>
 
                 <div className='email-page_sidebar-section'>
