@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import TextField from "@mui/material/TextField";
 import InputAdornment from '@mui/material/InputAdornment';
@@ -30,6 +30,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { isNull } from 'lodash';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+import Avatar from '@mui/material/Avatar';
+import CheckIcon from '@mui/icons-material/Check';
+
 
 
 
@@ -88,10 +91,7 @@ const HeaderChatPopup = ({ props }) => {
   const [showChat, setShowChat] = useState(false);
   const handleShowChat = (event, newValue) => {
     setShowChat(newValue);
-    dispatch(toggleSecondPopupTab())
-    
-      // document.getElementById('cloud-page').classList.add('second-shrink');
-    
+    dispatch(toggleSecondPopupTab())    
   };
 // end showing chat tab
 
@@ -124,6 +124,21 @@ const HeaderChatPopup = ({ props }) => {
 
   const [isPickerVisible, setIsPickerVisible] = useState(false);
 
+
+  const [selectedMessages, setSelectedMessages] = useState([]);
+  const handleselectedMessages = (item) => {
+    setSelectedMessages(prevSelectedItems => {
+      const itemIndex = prevSelectedItems.findIndex(selectedItem => selectedItem.id === item.id);
+      if (itemIndex !== -1) {
+        const updatedSelectedMessages = [...prevSelectedItems];
+        updatedSelectedMessages.splice(itemIndex, 1);
+
+        return updatedSelectedMessages;
+      } else {
+        return [...prevSelectedItems, item];
+      }
+    });
+  };
 
 
   return (
@@ -244,8 +259,17 @@ const HeaderChatPopup = ({ props }) => {
                             component={'div'}
                             label={
                               <>
-                                <div className='chat-popup-list__body-messages_item_avatar'>
-                                  <img src={item.avatar} alt={item.name}/>
+                                <div className='chat-popup-list__body-messages_item_avatar' 
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleselectedMessages(item)
+                                  }}>
+                                  {
+                                    selectedMessages.some(selectedItem => selectedItem.id === item.id) ? 
+                                      <Avatar><CheckIcon /></Avatar>
+                                    :
+                                      <img src={item.avatar} alt={item.name}/>
+                                  }
                                 </div>
                           
                                 <div className='chat-popup-list__body-messages_item_content'>
