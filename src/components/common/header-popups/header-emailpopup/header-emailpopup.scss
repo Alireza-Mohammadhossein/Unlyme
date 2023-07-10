@@ -52,17 +52,31 @@
         flex-direction: column;
         justify-content: space-between;
 
+        &-create {
+          padding: 20px 30px 0 !important;
+
+          &_btn {
+              width: 100%;
+              justify-content: left !important;
+              padding: 20px 15px !important;
+              color: $blue !important;
+              border-radius: 14px !important;
+              text-transform: unset !important;
+          }
+        }
+
         &-messages {
-          height: 94%;
-          padding: 20px 30px !important;
+          height: 99%;
+          padding: 0 30px !important;
           gap: 15px;
           display: flex;
           flex-direction: column;
-          overflow-y: scroll;
+          box-sizing: border-box;
           
   
           &_container {
-            height: 100%;
+            // height: 95%;
+            height: calc(100% - 85px);
   
             & .MuiBox-root {
               padding: 0;
@@ -73,84 +87,211 @@
             }
           }
   
-          &_item {
+          &_list {
+            height: 100%;
+            display: flex;
             flex-direction: column;
-            padding: 0 !important;
-            gap: 5px;
-            border-bottom: 1px solid #ececec;
+            // gap: 20px;
     
-            & .MuiTabs-flexContainer  {
-              flex-direction: column-reverse;
+            & .MuiTabs-flexContainerVertical {
+              // gap: 20px;
             }
+          }
+    
+          &_item {
+            width: 100%;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            gap: 15px;
+            text-transform: unset !important;
+            flex-direction: row !important;    
+            padding: 20px 10px 20px 0 !important;
+            border-bottom: 1px solid #ECECEC !important;
 
-            &_header {
-                display: flex;
-                width: 100%;
-                gap: 8px;
-                align-items: center;
-
-                &-category {
-                    color: $gray-text;
-                    font-weight: 600;
-                    font-size: 14px;
-                }
-
-                &-time {
-                    color: #515154;
-                    font-size: 13px;
-                }
+            &.Mui-selected {
+              color: #00000099 !important;
             }
-
+        
             &_content {
-              display: flex;
-              align-items: baseline;
-              gap: 5px;
-              width: 100%;
-
-                & .MuiListItemText-root {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 5px;
-                }
-                & .MuiListItemText-primary {
-                    color: #000000;
-                    font-size: 14px;
-                    width: 100%;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                } 
-                
-                & .MuiListItemText-secondary {
-                    color: $gray-text;
-                    font-size: 13px;
-                    width: 100%;
-                    overflow: hidden;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                } 
-                
-                &-icon {
-
-                  & .MuiSvgIcon-root { 
-                  font-size: 12px;
-                  color: #3E6DC5; 
-                  }
-                }
-
+              overflow: hidden;
+              text-align: left;
+    
+              &_name {
+                font-size: 15px;
+                color: #000000;
+                font-weight: 500;
+    
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                box-sizing: border-box;
+                margin-bottom: 6px;
+              }
+    
+              &-message {
+                font-size: 14px;
+                font-weight: 400;
+                color: #6e6f6f;
+    
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                box-sizing: border-box;
+              }
             }
+    
+            &_status {
+              display: flex;
+              gap: 5px;
 
-            &:last-child {
-                border-bottom: unset;
+              img {
+                width: 15px;
+              }
+
+              p {
+                width: max-content;
+              }
             }
           }
         }
 
       }
     }  
+
+
+    &-messages {
+      width: 380px;
+      height: 100%;
+      background-color: #fff;
+      border-left: 1px solid #ECECEC;
+      border-radius: 0 18px 18px 0;
+  
+      &-tabpanel {
+        height: 100%;
+        & .MuiBox-root {
+          padding: 0 !important;
+          height: 100%;
+        } 
+        & .MuiTypography-root  {
+          height: 100%;
+        }
+      }
+  
+      &__header {
+        padding: 20px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ececec;
+    
+        &-info {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-direction: row;
+          gap: 10px;
+  
+          &_img {
+            width: 40px;
+            height: 40px;
+          }
+  
+          &_name {
+            font-size: 22px;
+            color: #000000;
+          }
+        }
+    
+        &-actions {
+          display: flex;
+        }
+      }
+  
+      &__body {
+        height: calc(100% - 100px);
+        position: relative;    
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &-single-mail {
+          height: 100%;
+          box-sizing: border-box;
+          overflow-y: auto;
+      
+          &__header {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              padding: 30px 15px 20px;
+      
+              &-content {
+                  display: flex;
+                  flex-direction: row;
+      
+                  &-icon {
+                      width: 50px;
+                      height: 50px;
+
+                      &-name.MuiAvatar-root {
+                        text-transform: capitalize;
+                        background-color: #E0EFFF;
+                        color: #4382C4;
+                        font-size: 20px;
+                      } 
+                  }
+          
+                  &-info {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 10px;
+          
+                      &_title {
+                          font-size: 15px;
+                          color: #333333;
+                          font-weight: bold;
+                      }
+          
+                      &_from {
+                          font-size: 14px;
+                          color: #333333;
+                      }
+          
+                      &_to {
+                          font-size: 14px;
+                          color: #333333;
+                      }
+                  }
+              }
+      
+              &-actions {
+                  &_close {
+                      cursor: pointer;
+                  }
+              }
+          }
+      
+          &__content {
+            padding: 20px;
+
+              &-subject {
+                  font-size: 15px;
+                  color: #333333;
+              }
+      
+              &-message {
+                  margin-top: 15px;
+                  font-size: 15px;
+                  color: #333333;
+      
+                  P {
+                      line-height: 2;
+                  }
+              }
+          }
+        }
+      }
+    }
 }
 
 
@@ -170,7 +311,7 @@
   
     &__body {
       &-messages {
-        padding: 20px !important;
+        padding: 0 20px !important;
 
         &_item {
           &_header {
@@ -203,6 +344,59 @@
 
     }
   }  
+
+  &-messages {
+    width: 330px;
+
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 12px;
+        }
+      }
+
+      &-content {
+        &_friend {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
 }
 
 .siteWrapperMD .email-popup {
@@ -249,6 +443,59 @@
 
     }
   }  
+
+  &-messages {
+    width: 330px;
+
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 12px;
+        }
+      }
+
+      &-content {
+        &_friend {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
 }
 
 .siteWrapperSM .email-popup {
@@ -294,7 +541,60 @@
       }
 
     }
-  }  
+  }
+
+  &-messages {
+    width: 350px;
+
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 12px;
+        }
+      }
+
+      &-content {
+        &_friend {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
 }
 
 .siteWrapperXS .email-popup {
@@ -339,7 +639,60 @@
       }
 
     }
-  }  
+  }
+
+  &-messages {
+    width: 350px;
+
+    &__header {
+      &-info {
+        &_name {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &__body {
+      &-date {
+        & p {
+          font-size: 12px;
+        }
+      }
+
+      &-content {
+        &_friend {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+
+
+        &_own {
+          &-message {
+            &_text {
+              & p {
+                font-size: 14px;
+              }
+
+              & span {
+                font-size: 11px;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
 }
 
 .dark .email-popup {

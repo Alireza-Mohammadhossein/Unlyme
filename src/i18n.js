@@ -5,6 +5,7 @@ import { initReactI18next } from "react-i18next";
 import { store } from "./redux/store";
 import moment from "moment";
 import {
+  ASSETS_URL,
   I18NEXT_LANGUAGE_LOADED,
   SUPPORTED_LANGUAGES,
   FALLBACK_LANGUAGE,
@@ -40,8 +41,8 @@ i18n
       // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
       
       
-      // loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
-      loadPath: './assets/translations/{{lng}}.json',
+      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+      // loadPath: './assets/translations/{{lng}}.json',
     },
   });
 

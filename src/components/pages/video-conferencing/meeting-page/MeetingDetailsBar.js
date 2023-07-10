@@ -66,7 +66,7 @@ const MeetingDetailsBar = () => {
                 </div>
 
                 <div className='meeting-page_details-actions-btn'>
-                    <IconButton value="bold" aria-label="bold">
+                    <IconButton value="bold" aria-label="bold" onClick={() => dispatch(handleCloseMeetingPageModal())}>
                         <img src={phoneIcon} />
                     </IconButton>
                 </div>

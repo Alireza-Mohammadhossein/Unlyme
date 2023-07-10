@@ -55,13 +55,6 @@ function TabPanel(props) {
 }
 
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
@@ -275,14 +268,6 @@ const HeaderChatPopup = ({ props }) => {
                           />
                         ))}
                     </Tabs>
-
-
-                    {/* {chatMessages.map((item, index) => (
-                      <TabPanel value={value} index={index}>
-                        {item.name}
-                      </TabPanel>
-                    ))} */}
-
                   </div>
               </div>
             </TabPanel>
