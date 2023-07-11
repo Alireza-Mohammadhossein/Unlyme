@@ -23,7 +23,7 @@ const CloudPage = ({
     <div className="cloud-page" id='cloud-page' >
       <div className="cloud-page__header">
         <Grid container spacing={2}>
-          <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
+          <Grid item xl={2} lg={3} md={3} xs={12} className='cloud-page__header_share'>
             <div className='cloud-page__header_share_icon'>
               <img src={icon} />
             </div>
@@ -32,7 +32,7 @@ const CloudPage = ({
               {title}
             </div>
           </Grid>
-          <Grid item lg={9} md={9} xs={12}>
+          <Grid item xl={10} lg={9} md={9} xs={12}>
             <div className='cloud-page__header_details'>
               <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
                 <CloseIcon />

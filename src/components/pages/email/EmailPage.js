@@ -44,13 +44,6 @@ function TabPanel(props) {
 }
 
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-
 function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
@@ -95,7 +88,7 @@ function EmailPageContent() {
     <div className="cloud-page">
       <div className="cloud-page__header">
         <Grid container spacing={2}>
-          <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
+          <Grid item xl={2} lg={3} md={3} xs={12} className='cloud-page__header_share'>
             <div className='cloud-page__header_share_icon'>
               <img src={icon} />
             </div>
@@ -104,7 +97,7 @@ function EmailPageContent() {
               {t("EMAIL_PAGE.TITLE")}
             </div>
           </Grid>
-          <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
+          <Grid item xl={10} lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
             <div className='cloud-page__header_email-details'>
               <EmailDetailsBar setSearchText={setSearchText} />
             </div>
@@ -117,6 +110,7 @@ function EmailPageContent() {
           <Grid container spacing={3}>
             <Grid 
               item 
+              xl={activeSingleMail ? 0 : 2} 
               lg={activeSingleMail ? 0 : 3} 
               md={activeSingleMail ? 0 : 3} 
               xs={12}
@@ -193,6 +187,7 @@ function EmailPageContent() {
 
             <Grid
               item
+              xl={secondPopupTab || activeSingleMail ? 12 : 10}
               lg={secondPopupTab || activeSingleMail ? 12 : 9}
               md={secondPopupTab || activeSingleMail ? 12 : 9}
               xs={12}

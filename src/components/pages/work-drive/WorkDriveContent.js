@@ -82,6 +82,7 @@ import {
 
           <Grid
             item
+            xl={2}
             lg={3}
             md={3}
             xs={12}
@@ -318,6 +319,7 @@ import {
   
           <Grid
             item
+            xl={secondPopupTab ? 12 : 10}
             lg={secondPopupTab ? 12 : 9}
             md={secondPopupTab ? 12 : 9}
             xs={12}

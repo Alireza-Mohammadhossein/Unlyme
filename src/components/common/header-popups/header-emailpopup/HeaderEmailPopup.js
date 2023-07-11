@@ -21,6 +21,8 @@ import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Avatar from '@mui/material/Avatar';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+
 
 
 
@@ -154,11 +156,22 @@ const HeaderEmailPopup = () => {
                             </div>
                       
                             <div className='email-popup-list__body-messages_item_status'>
-                              {email.attached ?
+                              {/* {email.attached ?
                                 <img src={attached} alt={email.title} />
                                   :
                                 ''
-                              }
+                              } */}
+                              {email.attached ? 
+                                <AttachFileIcon
+                                  sx={{
+                                    transform: 'rotate(45deg)',
+                                    color: '#00000080',
+                                    fontSize: '20px'
+                                    }} 
+                                /> 
+                                 : 
+                                  ''
+                               }
 
                               <p>{email.date}</p>
                             </div>

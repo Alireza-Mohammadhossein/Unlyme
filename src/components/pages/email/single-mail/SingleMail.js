@@ -2,6 +2,7 @@ import react, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CloseIcon from '@mui/icons-material/Close';
 import IconButton from "@mui/material/IconButton";
 import './single-mail.scss';
 
@@ -34,7 +35,7 @@ const SingleMail = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMes
                                 setActiveSingleMail(false)
                             }}
                         >
-                            <ArrowBackIcon  sx={{ color: '#333333' }}/>
+                            <CloseIcon  sx={{ color: '#333333' }}/>
                         </IconButton>
                     </div>
                 </div>

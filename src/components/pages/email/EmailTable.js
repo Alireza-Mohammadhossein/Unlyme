@@ -17,6 +17,11 @@ import attached from '../../../assets/images/my-services/email/attached.png';
 import SingleMail from './single-mail/SingleMail';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { useEffect } from 'react';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 
 
@@ -110,6 +115,20 @@ function EnhancedTableHead(props) {
     onRequestSort(event, property);
   };
 
+
+
+  const options = ["Edit", "Add description", "Delete"];
+  const ITEM_HEIGHT = 48;
+  
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <TableHead className='email-header'>
       <TableRow>
@@ -126,9 +145,55 @@ function EnhancedTableHead(props) {
         </TableCell>
 
         
-        <TableCell colSpan={5} padding="checkbox" className='email-header_selected'>
+        <TableCell colSpan={4} padding="checkbox" className='email-header_selected'>
           {numSelected > 0 ?
             numSelected
+          : 
+            ''
+          }
+        </TableCell>
+
+        <TableCell padding="checkbox" className='email-header_selected'>
+          {numSelected > 0 ?
+              <div>
+              <IconButton
+                aria-label="more"
+                id="long-button"
+                aria-controls={open ? "long-menu" : undefined}
+                aria-expanded={open ? "true" : undefined}
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <MoreHorizIcon sx={{ color: '#00000080' }} />
+              </IconButton>
+
+              <Menu
+                id="long-menu"
+                MenuListProps={{
+                  "aria-labelledby": "long-button",
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                disableScrollLock = {true}
+                PaperProps={{
+                  style: {
+                    maxHeight: ITEM_HEIGHT * 4.5,
+                    width: "20ch",
+                  },
+                }}
+              >
+                {options.map((option) => (
+                  <MenuItem
+                    key={option}
+                    selected={option === "Pyxis"}
+                    onClick={handleClose}
+                  >
+                    {option}
+                  </MenuItem>
+                ))}
+              </Menu>
+            </div>
           : 
             ''
           }
@@ -424,7 +489,20 @@ const showSingleMailHanlder = (row) => {
                           align="center"
                           sx={{ cursor: 'pointer',width: '5%', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
-                          {row.attached ? <img src={attached} /> : ''}
+                          {/* {row.attached ? <img src={attached} /> : ''} */}
+
+                          {row.attached ? 
+                            <AttachFileIcon
+                              sx={{
+                                transform: 'rotate(45deg)',
+                                color: '#00000080',
+                                fontSize: '20px',
+                                marginTop: '4px'
+                                  }} 
+                            /> 
+                             : 
+                              ''
+                           }
                         </TableCell>
                         
                         <TableCell

@@ -33,7 +33,7 @@
             }
 
             & .chonky-toolbarLeft {
-                max-width: 50%;
+                max-width: 35%;
 
                 & .chonky-infoContainer {
                     display: none;
@@ -56,8 +56,8 @@
 
                         & .MuiInputAdornment-root {
                             background-color: red;
-                            width: 19px;
-                            height: 19px;
+                            width: 18px;
+                            height: 18px;
                             background: url('../../../assets/images/header/new-icons/search.png') center center no-repeat;
                             background-size: cover;
 
@@ -72,12 +72,14 @@
                         }
 
                         & .MuiInputBase-input {
-                          color: #3C3C43b3;
+                        //   color: #3C3C43b3;
+                        color: rgb(60 60 67);
                           opacity: 1;
                         }
 
                         .MuiInputBase-input::placeholder {
-                            color: #3C3C43b3 !important;
+                            // color: #3C3C43b3 !important;
+                            color: rgb(60 60 67);
                             opacity: 1;
                         }
                     }

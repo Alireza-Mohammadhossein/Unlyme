@@ -19,7 +19,7 @@
   }
 
   &_sidebar {
-    padding: 10px 5px;
+    padding: 0 5px 10px 5px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -118,6 +118,32 @@
     &_search {
         .MuiFormControl-root {
             width: 100%;
+        }
+
+        .MuiBox-root {
+          padding-bottom: 0;
+        }
+
+        &-toolbar {
+          display: flex;
+          align-items: center;
+          
+          &-close.MuiButtonBase-root {
+            height: auto;
+            width: auto;
+            padding: 8px;
+            border-radius: 50%;
+          }
+
+          .chonky-toolbarWrapper {
+            width: 100%;
+
+            .chonky-toolbarContainer {
+              .chonky-toolbarRight {
+                padding-bottom: 0;
+              }
+            }
+          }
         }
 
         &-input {

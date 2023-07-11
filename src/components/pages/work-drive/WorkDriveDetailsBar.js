@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
+import CustomToolbar from './CustomToolbar';
 
 
 
@@ -40,15 +41,8 @@ const WorkDriveDetailsBar = () => {
                     </div>
 
                     <div>
-                        <FileToolbar />
+                        <CustomToolbar />
                     </div>
-
-                    <div style={{textAlign: 'right'}}>
-                        <IconButton aria-label="delete" style={{padding: '8px', borderRadius: '50%'}} onClick={() => dispatch(handleCloseAppsModal())}>
-                            <CloseIcon />
-                        </IconButton>
-                    </div>
-
                 </div>
             </Grid>
         </Grid>
