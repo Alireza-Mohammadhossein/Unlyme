@@ -8,7 +8,7 @@ import {
   SUPPORTED_LANGUAGES,
 } from "../../../types";
 // import logo from "../../../assets/images/header/white-logo.svg";
-import logo from "../../../assets/images/logo.png";
+import logo from "../../../assets/images/logo-new.png";
 import Tooltip from "@mui/material/Tooltip";
 // import searchIcon from "../../../assets/images/header/search.gif";
 import { useSelector, useDispatch } from "react-redux";

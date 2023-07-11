@@ -110,7 +110,7 @@ function CalendarPageContent() {
   
   return (
     <div className='calendar-page'>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} height='100%'>
         <Grid 
           item 
           lg={3} 
@@ -180,7 +180,14 @@ function CalendarPageContent() {
                 headerToolbar={{
                   left: 'prev title next today',
                   center: '',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay',
+                  right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                }}
+                buttonText={{
+                  today:    'Today',
+                  month:    'Month',
+                  week:     'Week',
+                  day:      'Day',
+                  list:     'Agenda'
                 }}
                 initialView='dayGridMonth'
                 editable={true}
@@ -189,7 +196,7 @@ function CalendarPageContent() {
                 dayMaxEvents={true}
                 fixedWeekCount={false}
                 weekends={true}
-                contentHeight = {700}
+                // contentHeight = {700}
                 navLinks={true}
                 selectOverlap={true}
                 nowIndicator={true}

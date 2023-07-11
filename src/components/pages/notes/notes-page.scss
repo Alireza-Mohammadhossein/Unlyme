@@ -59,6 +59,7 @@
                 flex-direction: row;
                 padding: 15px 20px;
                 border-radius: 8px;
+                max-width: unset;
                 // border-bottom: 1px solid #ECECEC;
 
                 &:hover {
@@ -236,7 +237,15 @@
     padding-left: 15px;
     box-sizing: border-box;
 
-    &_view-mode {
+    &_actions {
+        text-align: center;
+
+        & .MuiButtonBase-root {
+            svg {
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
         &_toggler {
             & .MuiButtonBase-root {
                 border: unset;
@@ -244,12 +253,8 @@
         }
     }
 
-    &_format {
-
-    }
-
-    &_actions {
-
+    &_close {
+        text-align: right;
     }
 
     &_search {

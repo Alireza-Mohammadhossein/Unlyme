@@ -15,6 +15,10 @@ import { useSelector } from 'react-redux';
 import EmailTable from './EmailTable';
 import { emails } from '../../../mocks/mocks';
 import EmailDetailsBar from './EmailDetailsBar';
+import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 
 
 
@@ -154,7 +158,17 @@ function EmailPageContent() {
                           label={
                             <>
                               <div className='email-page_sidebar-section_category-item_content'>
-                                  <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar-section_category-item_content-icon' />
+                                {/* <Button variant="outlined" startIcon={<InboxOutlinedIcon />}>
+                                  {item.title}
+                                </Button> */}
+                                {
+                                  item.title === 'Inbox' ? <InboxOutlinedIcon/> :
+                                  item.title === 'Drafts' ? <FeedOutlinedIcon /> :
+                                  item.title === 'Sent' ? <SendOutlinedIcon /> :
+                                  <StarBorderOutlinedIcon />
+                                }
+                                 {/* <InboxOutlinedIcon/> */}
+                                  {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar-section_category-item_content-icon' /> */}
                                   <p className='email-page_sidebar-section_category-item_content-title'>{item.title}</p>
                               </div>
 

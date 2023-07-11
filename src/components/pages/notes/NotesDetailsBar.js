@@ -22,6 +22,15 @@ import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import search from "../../../assets/images/header/new-icons/search.png";
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import FormatBoldOutlinedIcon from '@mui/icons-material/FormatBoldOutlined';
+import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
+import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
 
 
 
@@ -49,57 +58,6 @@ const NotesDetailsBar = ({ setSearchNote }) => {
     
     return (
         <Grid container spacing={2}>
-            <Grid item lg={2} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_view-mode'>
-                    <ToggleButtonGroup
-                        value={viewMode}
-                        exclusive
-                        onChange={handleViewMode}
-                        aria-label="text alignment"
-                        className='cloud-page__header_notes-details_view-mode_toggler'
-                    >
-                        <ToggleButton value="list" aria-label="list view">
-                            <img src={listView} />
-                        </ToggleButton>
-                        <ToggleButton value="grid" aria-label="grid view">
-                            <img src={gridView} />
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                </div>
-            </Grid>
-
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_format'>
-                    <ButtonGroup variant="outlined" aria-label="text formatting">
-                        <IconButton value="bold" aria-label="bold">
-                            <img src={boldFormat} />
-                        </IconButton>
-                        <IconButton value="bullet" aria-label="bullet">
-                            <img src={bulletFormat} />
-                        </IconButton>
-                        <IconButton value="table" aria-label="table">
-                            <img src={tableFormat} />
-                        </IconButton>
-                    </ButtonGroup>
-                </div>
-            </Grid>
-            
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions'>
-                    <ButtonGroup variant="outlined" aria-label="actions">
-                        <IconButton value="bold" aria-label="bold">
-                            <img src={imageFormat} />
-                        </IconButton>
-                        <IconButton value="bullet" aria-label="bullet">
-                            <img src={lockFormat} />
-                        </IconButton>
-                        <IconButton value="table" aria-label="table">
-                            <img src={shareFormat} />
-                        </IconButton>
-                    </ButtonGroup>
-                </div>
-            </Grid>
-
             <Grid item lg={4} md={6} xs={12}>
                 <div className='cloud-page__header_notes-details_search'>
                     <FormControl>
@@ -112,10 +70,76 @@ const NotesDetailsBar = ({ setSearchNote }) => {
                             />
                         </div>
                     </FormControl>
+                </div>
+            </Grid>
 
-                    <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
-                        <CloseIcon />
-                    </IconButton>
+            <Grid item lg={2} md={6} xs={12}>
+                <div className='cloud-page__header_notes-details_actions'>
+                    <ToggleButtonGroup
+                        value={viewMode}
+                        exclusive
+                        onChange={handleViewMode}
+                        aria-label="text alignment"
+                        className='cloud-page__header_notes-details_actions_toggler'
+                    >
+                        <ToggleButton value="list" aria-label="list view">
+                            {/* <img src={listView} /> */}
+                            <FormatListBulletedOutlinedIcon />
+                        </ToggleButton>
+                        <ToggleButton value="grid" aria-label="grid view">
+                            {/* <img src={gridView} /> */}
+                            <GridViewOutlinedIcon />
+                        </ToggleButton>
+                    </ToggleButtonGroup>
+                </div>
+            </Grid>
+
+            <Grid item lg={2} md={6} xs={12}>
+                <div className='cloud-page__header_notes-details_actions'>
+                    <ButtonGroup variant="outlined" aria-label="text formatting">
+                        <IconButton value="bold" aria-label="bold">
+                            {/* <img src={boldFormat} /> */}
+                            <TextFieldsOutlinedIcon />
+                        </IconButton>
+                        <IconButton value="bullet" aria-label="bullet">
+                            {/* <img src={bulletFormat} /> */}
+                            <ChecklistOutlinedIcon />
+                        </IconButton>
+                        <IconButton value="table" aria-label="table">
+                            {/* <img src={tableFormat} /> */}
+                            <TableChartOutlinedIcon />
+                        </IconButton>
+                    </ButtonGroup>
+                </div>
+            </Grid>
+            
+            <Grid item lg={3} md={6} xs={12}>
+                <div className='cloud-page__header_notes-details_actions'>
+                    <ButtonGroup variant="outlined" aria-label="actions">
+                        <IconButton value="bold" aria-label="bold">
+                            {/* <img src={imageFormat} /> */}
+                            <InsertPhotoOutlinedIcon />
+                        </IconButton>
+                        <IconButton value="bullet" aria-label="bullet">
+                            {/* <img src={lockFormat} /> */}
+                            <LockOutlinedIcon />
+                        </IconButton>
+                        <IconButton value="table" aria-label="table">
+                            {/* <img src={shareFormat} /> */}
+                            <IosShareOutlinedIcon />
+                        </IconButton>
+                    </ButtonGroup>
+                </div>
+            </Grid>
+
+            
+            <Grid item lg={1} md={6} xs={12}>
+                <div className='cloud-page__header_notes-details_close'>
+                    <ButtonGroup variant="outlined" aria-label="actions">
+                        <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+                            <CloseIcon />
+                        </IconButton>
+                    </ButtonGroup>
                 </div>
             </Grid>
         </Grid>
