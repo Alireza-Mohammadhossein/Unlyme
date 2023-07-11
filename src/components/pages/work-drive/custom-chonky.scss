@@ -53,6 +53,18 @@
                         background-color: #ffffff80;
                         height: 40px;            
                         color: #3C3C43b3;
+
+                        & .MuiInputAdornment-root {
+                            background-color: red;
+                            width: 19px;
+                            height: 19px;
+                            background: url('../../../assets/images/header/new-icons/search.png') center center no-repeat;
+                            background-size: cover;
+
+                            svg {
+                                display: none;
+                            }
+                        }
                 
 
                         &::before, &::after {
@@ -61,10 +73,12 @@
 
                         & .MuiInputBase-input {
                           color: #3C3C43b3;
-                          
-                          &::placeholder {
+                          opacity: 1;
+                        }
+
+                        .MuiInputBase-input::placeholder {
                             color: #3C3C43b3 !important;
-                          }
+                            opacity: 1;
                         }
                     }
 
