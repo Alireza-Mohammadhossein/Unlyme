@@ -16,6 +16,7 @@ import Box from '@mui/material/Box';
 // import { notes } from '../../../mocks/mocks';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditIcon from '@mui/icons-material/Edit';
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
@@ -186,7 +187,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
         <div className='note-popup-list__header'>
               <p className='note-popup-list__header-title'>{t('NOTE_POPUP.TITLE')}</p>
               {
-                showNote === false ?
+                showNote === false && newNoteToggler === false ?
                   <div className='note-popup-list__header-actions'>
                     <div className='note-popup-list__header-actions_more'>
                       <IconButton
@@ -227,6 +228,21 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         ))}
                       </Menu>
                     </div>
+
+                    {
+                      notes.length > 4 ? 
+                          <div className='chat-popup-list__header-actions_edit'>
+                            <IconButton
+                              aria-label="more"
+                              aria-haspopup="true"
+                              onClick={handleCreateNote}
+                            >
+                              <EditIcon sx={{ color: '#51A3FF' }} />
+                            </IconButton>
+                          </div>
+                        :
+                          ''
+                    }
                     
                     <div className='note-popup-list__header-actions_close'>
                       <IconButton
@@ -252,12 +268,16 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
         </div>
 
         <div className='note-popup-list__body'>
-            <div className='note-popup-list__body-create'>
-                <Button variant="outlined" startIcon={<AddIcon />} className='note-popup-list__body-create_btn' onClick={handleCreateNote}>
-                    {t("NOTE_POPUP.CREATE_NOTE")}
-                </Button>
-            </div>
-            
+          {
+            notes.length > 4 ?
+                ''
+              :
+                <div className='note-popup-list__body-create'>
+                  <Button variant="outlined" startIcon={<AddIcon />} className='note-popup-list__body-create_btn' onClick={handleCreateNote}>
+                      {t("NOTE_POPUP.CREATE_NOTE")}
+                  </Button>
+                </div>
+          }            
             <div className='note-popup-list__body-messages_container' >
               <div className='note-popup-list__body-messages'>
                   <div className='note-popup-list__body-messages_list'>
@@ -500,7 +520,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <ArrowBackIcon  sx={{ color: '#000000' }}/>
+                        <CloseIcon  sx={{ color: '#000000' }}/>
                       </IconButton>
     
                     </div>

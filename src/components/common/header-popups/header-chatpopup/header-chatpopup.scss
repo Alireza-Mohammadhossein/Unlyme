@@ -73,7 +73,16 @@
           border: 1px solid #ececec;
           padding: 10px 8px;
           font-size: 15px;
-          background-color: #f8fafc;
+
+          .MuiInputBase-input {
+            color: #3C3C43;
+            
+            &::placeholder {
+              color: #3C3C43;
+              opacity: 0.8;
+            }
+          }
+          
   
           & label {
             color: #acacac;
@@ -232,7 +241,19 @@
         padding: 0 20px;
 
         & .MuiTabs-flexContainer {
-          justify-content: space-between !important;
+          justify-content: space-evenly !important;
+        }
+
+        & .MuiButtonBase-root {
+          text-transform: unset;
+          letter-spacing: 1px;
+          // min-height: unset;
+          min-width: 80px;
+          padding: 10px;
+        }
+
+        & .MuiTabs-indicator  {
+          bottom: 5px;
         }
       }
     }
@@ -296,8 +317,8 @@
 
       &-terms {
         padding: 15px;
-        font-size: 13px;
-        color: #525252;
+        font-size: 14px;
+        color: #525252ad;
       }
 
       &-date {
@@ -471,9 +492,11 @@
             & fieldset {
               border: unset;
             }
-            & .MuiInputBase-input {
-              height: 22px !important;
-              line-height: 22px;
+            & textarea.MuiInputBase-input {
+              // height: 22px !important;
+              // max-height: 200px;
+              line-height: 25px;
+              padding: 0 !important;
             } 
           }
 
@@ -488,6 +511,7 @@
 
         &_send-btn {
           & .MuiIconButton-root {
+            transition: all 0.3s ease;
             background-color: $blue;
             color: white;
           }

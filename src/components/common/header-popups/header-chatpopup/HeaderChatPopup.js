@@ -33,6 +33,7 @@ import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/pop
 import Avatar from '@mui/material/Avatar';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import search from "../../../../assets/images/header/new-icons/search.png";
 
 
 
@@ -197,11 +198,8 @@ const HeaderChatPopup = ({ props }) => {
                     <div className='chat-popup-list__header-actions_edit'>
                       <IconButton
                         aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
                         aria-haspopup="true"
-                        onClick={handleClick}
+                        // onClick={handleClick}
                       >
                         <EditIcon sx={{ color: '#51A3FF' }} />
                       </IconButton>
@@ -241,7 +239,9 @@ const HeaderChatPopup = ({ props }) => {
                         InputProps={{
                             startAdornment: (
                               <InputAdornment position="start">
-                                <SearchIcon sx={{ color: '#ACACAC' }}/>
+                                {/* <SearchIcon sx={{ color: '#ACACAC' }}/> */}
+                                <img src={search} style={{width: '20px'}}/>
+
                               </InputAdornment>
                             ),
                           }}
@@ -490,7 +490,7 @@ const HeaderChatPopup = ({ props }) => {
                               variant="outlined"
                               size="small"
                               multiline
-                              maxRows={1}
+                              maxRows={6}
                             />
                           </div>
 
@@ -531,7 +531,11 @@ const HeaderChatPopup = ({ props }) => {
                             component="label"
                             onClick={(e) => {
                               setMessage('')
-                            }}>
+                            }}
+                            disabled={message ? false : true}
+                            
+                            >
+                              
                             <SendIcon />
                           </IconButton>
                         </div>
