@@ -9,6 +9,7 @@
   "MENU.SETTINGS": "Settings",
   "MENU.CALENDAR": "Calendar",
   "MENU.NOTES": "Notes",
+  "MENU.INVOICE_MANAGER": "Invoice Manager",
   "MENU.VIDEO_CONFERENCING": "Video Conferencing",
   "MENU.EMAILS": "Emails",
   "MENU.ONLINE_CONSULTANT": "Online consultant",
@@ -171,6 +172,10 @@
   "WORK_DRIVE_PAGE.TITLE": "Work Drive",
   "WORK_DRIVE_ADD.NEW": "Add New",
   "WORK_DRIVE_PAGE.SEARCH_PLACEHOLDER": "Search files and folders",
+
+  "INVICE_MANAGER_PAGE.TITLE": "Invoice Manager",
+  "INVICE_MANAGER_PAGE.ADD_NEW": "Add new",
+
 
   "TASKS_PAGE.TITLE": "Tasks",
 

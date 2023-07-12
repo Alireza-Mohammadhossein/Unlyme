@@ -2746,3 +2746,30 @@ export const recentMeetings = [
   },
 ];
 
+
+export const invoicesCategory = [
+  {
+    id: 1,
+    title: 'Invoices',
+    // grayIcon: inboxIconGray,
+    // blueIcon: inboxIconBlue,
+  },
+  {
+    id: 2,
+    title: 'Money',
+    // grayIcon: draftsIconGray,
+    // blueIcon: draftsIconBlue,
+  },
+  {
+    id: 3,
+    title: 'Clients',
+    // grayIcon: sentIconGray,
+    // blueIcon: sentIconBlue,
+  },
+  {
+    id: 4,
+    title: 'Products',
+    // grayIcon: starredIconGray,
+    // blueIcon: starredIconBlue,
+  },
+]

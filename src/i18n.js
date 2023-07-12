@@ -14,6 +14,7 @@ import {
 
 
 
+
 const fallbackLocale = localStorage.getItem(LOCAL_STORAGE_LOCALE) || FALLBACK_LANGUAGE;
 console.log('fallback language', FALLBACK_LANGUAGE);
 console.log('fallbacklocale', fallbackLocale);
@@ -41,8 +42,8 @@ i18n
       // loadPath: 'Unlyme/assets/translations/{{lng}}.json',
       
       
-      loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
-      // loadPath: './assets/translations/{{lng}}.json',
+      // loadPath: `${ASSETS_URL}/assets/translations/{{lng}}.json`,
+      loadPath: './assets/translations/{{lng}}.json',
     },
   });
 

@@ -6,6 +6,7 @@ import dashboardIcon from '../../../assets/images/my-services/dashboard.png';
 import domainsIcon from '../../../assets/images/my-services/domains.png';
 import driveIcon from '../../../assets/images/my-services/drive.png';
 import tasksIcon from '../../../assets/images/my-services/tasks.png';
+import invoiceIcon from '../../../assets/images/my-services/invoice-manager.png';
 import copySitesIcon from '../../../assets/images/my-services/copy-sites.png';
 import bankIcon from '../../../assets/images/my-services/bank.png';
 import settingIcon from '../../../assets/images/my-services/setting.png';
@@ -21,6 +22,7 @@ import Emails from '../../pages/email/EmailPage';
 import WorkDrive from '../../pages/work-drive/WorkDrivePage';
 import Tasks from '../../pages/tasks/TasksPage';
 import VideoConferencing from '../../pages/video-conferencing/main-page/VideoConferencingPage';
+import InvoiceManager from "../../pages/invoice-manager/InvoiceManagerPage";
 
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -105,10 +107,10 @@ const Menu = ({screenSize}) => {
     {
       id: 2,
       icon: "domain",
-      title: "DOMAINS",
-      link: "/services/domains",
-      img: `${domainsIcon}`,
-      componentName: 'Tasks',
+      title: "INVOICE_MANAGER",
+      link: "/services/invoice-manager",
+      img: `${invoiceIcon}`,
+      componentName: 'InvoiceManager',
       // component: Tasks,
     },
     // {
@@ -243,6 +245,7 @@ const Menu = ({screenSize}) => {
             selectedComponent === 'WorkDrive' ? <WorkDrive /> :
             selectedComponent === 'Tasks' ? <Tasks /> :
             selectedComponent === 'VideoConferencing' ? <VideoConferencing /> :
+            selectedComponent === 'InvoiceManager' ? <InvoiceManager /> :
             
             ''
           }
