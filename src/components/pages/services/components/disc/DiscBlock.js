@@ -34,7 +34,7 @@ const DiscBlock = () => {
   const content = (
     <div className="my-services__disc">
       <div className="my-services__disc_container">
-        <div className="my-services__disc_form-wrapper">
+        <div className="my-services__disc-wrapper">
           <p className="my-services__disc_title">
             {t("SERVICES.DISC.DISC_SPACE")}
           </p>

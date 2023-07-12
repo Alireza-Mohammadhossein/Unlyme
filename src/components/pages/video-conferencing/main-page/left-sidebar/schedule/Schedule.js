@@ -22,6 +22,13 @@ import attendeeIcon from '../../../../../../assets/images/vide-conferencing/atte
 import timezoneIcon from '../../../../../../assets/images/vide-conferencing/timezone.png';
 import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.png';
 import './schedule.scss';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 
@@ -42,10 +49,15 @@ const Schedule = ({handleShowMain}) => {
   )
   
 
-const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
   const handlePassword = () => {
     setPassword(!password);
   };
+
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
 
   return (
     <div className="schedule">
@@ -149,7 +161,7 @@ const [password, setPassword] = useState('')
 
                 <div className="schedule-content_form-item">
                   <div className="schedule-content_form-item-checkbox">
-                    <FormControlLabel control={<Checkbox defaultChecked />} label="Recurring meeting" />
+                    <FormControlLabel control={<Checkbox />} label="Recurring meeting" />
                   </div>
 
                 </div>
@@ -170,6 +182,36 @@ const [password, setPassword] = useState('')
                   </div>
 
                 </div>
+
+                {password ?
+                    <div className="schedule-content_form-item">
+                        <p className="schedule-content_form-item-title-info">
+                            {/* <img src={attendeeIcon} alt="conference name" /> */}
+                            <span>A password will be needed to start the conference.</span>
+                        </p>
+                        {/* <TextField placeholder="Enter your password..." className="schedule-content_form-item-input" type="password" /> */}
+                        <FormControl className="schedule-content_form-item-input">
+                          <OutlinedInput
+                            placeholder="Enter your password"
+                            id="outlined-adornment-password"
+                            type={showPassword ? 'text' : 'password'}
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={handleClickShowPassword}
+                                  edge="end"
+                                >
+                                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                              </InputAdornment>
+                            }
+                          />
+                        </FormControl>
+                    </div>
+                  :
+                    ''
+                }
 
                 <div className="schedule-content_form-item">
                   <div className="schedule-content_form-item-submit">

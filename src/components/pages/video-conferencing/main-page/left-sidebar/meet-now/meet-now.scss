@@ -31,16 +31,23 @@
 
             .MuiFormControl-root  {
                 width: 100%;
+                background-color: #F8FAFC;
+                border-radius: 8px;
             }
 
             &-item {
-
                 &-title {
                     display: flex;
                     align-items: center;
                     gap: 5px;
                     margin-bottom: 5px;
                     color: #000;
+
+                    &-info {
+                        color: #888888;
+                        display: block;
+                        margin-bottom: 5px;
+                    }
                 }
 
                 &-input {

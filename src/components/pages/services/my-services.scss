@@ -22,6 +22,7 @@
       max-width: 480px;
     }
   }
+
   &__guide {
     width: 100%;
     height: 380px;
@@ -470,6 +471,10 @@
 
     &_form-wrapper {
       margin-top: 50px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &_form {
@@ -539,6 +544,10 @@
 
     &_form-wrapper {
       margin-top: 50px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &_form {
@@ -608,6 +617,10 @@
 
     &_form-wrapper {
       margin-top: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &_form {
@@ -674,6 +687,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    &-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &_title {

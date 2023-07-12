@@ -136,7 +136,8 @@
           gap: 15px;
           text-transform: unset !important;
           flex-direction: row !important;
-          padding: 0 10px 0 0 !important;
+          padding: 5px 5px 5px 0 !important;
+          border-radius: 8px !important;
   
           &_avatar {
             width: 50px;
@@ -194,6 +195,24 @@
               width: 17px !important;
               height: 17px !important;
             }
+          }
+
+          &_actions {
+            transition: all 0.3s ease;
+            display: none;
+          }
+
+          &:hover {
+            background-color: #4382c41a;
+            border-radius: 8px !important;
+
+              .chat-popup-list__body-messages_item_actions{
+                  display: flex;
+              }
+
+              .chat-popup-list__body-messages_item_status {
+                display: none;
+              }
           }
         }
       }
@@ -501,7 +520,8 @@
   
     &__body {
       padding: 20px;
-
+      gap: 0;
+      
       &-messages {
         &_container {
           height: 97%;
@@ -599,9 +619,13 @@
     }
   
     &__body {
+      gap: 0;
+
       &-messages {
         &_container {
           height: 97%;
+          padding-top: 10px;
+          box-sizing: border-box;
         }
         &_item {
           &_avatar {

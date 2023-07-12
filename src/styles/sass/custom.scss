@@ -65,3 +65,10 @@
 .MuiGrid-item.pl-10 {    
   padding-left: 10px !important;
 }
+
+
+.MuiTooltip-popper {
+  .MuiTooltip-tooltip {
+    font-size: 13px !important;
+  }
+}

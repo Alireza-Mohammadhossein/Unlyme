@@ -220,11 +220,6 @@ const WorkDrivePage = () => {
 
   return (
     <div className="page-container">
-      {/* <CloudPage
-        title={t("NOTES_PAGE.TITLE")}
-        icon={icon}
-        content={NotesPageContent()}
-      /> */}
       <FileBrowser files={files} folderChain={folderChain}
         // doubleClickDelay={300}
         // disableSelection={true}

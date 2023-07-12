@@ -3,6 +3,8 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import Button from '@mui/material/Button';
 import AddModal from "../Modals/AddModal";
 import AddList from "../Modals/AddList";
+import AddIcon from "@mui/icons-material/Add";
+
 
 
 
@@ -28,7 +30,7 @@ export default function InputContainer({ listId, type }) {
               ? 
                 <Button
                   className="add-backlog-btn"
-                  startIcon={<AddCircleOutlineOutlinedIcon />}
+                  startIcon={<AddIcon />}
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddModal}
                 >
@@ -37,7 +39,7 @@ export default function InputContainer({ listId, type }) {
               : 
                 <Button
                   className="add-backlog-btn"
-                  startIcon={<AddCircleOutlineOutlinedIcon />}
+                  startIcon={<AddIcon />}
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddListModal}
                 >

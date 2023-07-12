@@ -54,6 +54,7 @@ const Header = () => {
   const [assistantInputText, setAssistantInputText] = useState("");
   const [message, setMessage] = useState("");
 
+  
   return (
     <>
       <div className="header">
@@ -102,7 +103,12 @@ const Header = () => {
                     dispatch(toggleAssistantPopup())
                   }}
                 >
-                  <Tooltip title="Unlyme Assistant" arrow placement="bottom">
+                  <Tooltip
+                    title="Unlyme Assistant"
+                    arrow
+                    visible
+                    placement="bottom"
+                    className="tooltip">
                     <img src={searchIcon} alt="assistant" />
                   </Tooltip>
                 </div>

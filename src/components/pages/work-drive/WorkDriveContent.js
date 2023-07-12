@@ -328,10 +328,8 @@ import {
               <div className="work-drive-page_main_list">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
-
-                    <FileList />
-                    <FileContextMenu />
-
+                  <FileList />
+                  <FileContextMenu />
               </div>
             </div>
           </Grid>

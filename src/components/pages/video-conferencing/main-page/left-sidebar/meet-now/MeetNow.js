@@ -19,6 +19,13 @@ import videoOnIcon from '../../../../../../assets/images/vide-conferencing/video
 import recordIcon from '../../../../../../assets/images/vide-conferencing/record.png';
 import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.png';
 import './meet-now.scss';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import IconButton from '@mui/material/IconButton';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 
 
@@ -35,7 +42,7 @@ const MeetNow = ({handleShowMain}) => {
   const [mic, setMic] = useState(false);
   const [video, setVideo] = useState(false);
   const [record, setRecord] = useState(true);
-  const [password, setPassword] = useState(true);
+  const [password, setPassword] = useState(false);
 
   const handleMic = () => {
     setMic(!mic);
@@ -52,6 +59,9 @@ const MeetNow = ({handleShowMain}) => {
   const handlePassword = () => {
     setPassword(!password);
   };
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   return (
     <>
@@ -141,6 +151,36 @@ const MeetNow = ({handleShowMain}) => {
                             />
                         </div>
                     </div>
+
+                    {password ?
+                            <div className="meetnow-content_form-item">
+                                <p className="meetnow-content_form-item-title-info">
+                                    {/* <img src={attendeeIcon} alt="conference name" /> */}
+                                    <span>A password will be needed to start the conference.</span>
+                                </p>
+                                {/* <TextField placeholder="Enter your password..." className="meetnow-content_form-item-input" type="password" /> */}
+                                <FormControl className="meetnow-content_form-item-input">
+                                  <OutlinedInput
+                                    placeholder="Enter your password"
+                                    id="outlined-adornment-password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    endAdornment={
+                                      <InputAdornment position="end">
+                                        <IconButton
+                                          aria-label="toggle password visibility"
+                                          onClick={handleClickShowPassword}
+                                          edge="end"
+                                        >
+                                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                      </InputAdornment>
+                                    }
+                                  />
+                                </FormControl>
+                            </div>
+                        :
+                            ''
+                    }
 
                     <div className="meetnow-content_form-item-submit">
                         <Button className="meetnow-content_form-item-submit-btn" onClick={() => dispatch(handleOpenMeetingPageModal())}>

@@ -183,6 +183,17 @@
             & [class^="listFileEntry-"] {
                 cursor: pointer;
             }
+
+            & > div {
+                height: 100% !important;
+                overflow: auto;
+
+                & div:not([class]) {
+                    height: 50px !important;
+                    position: relative !important;
+                    top: 0 !important;
+                }
+            }
         }
 
         & .fileIcon-0-2-31 {

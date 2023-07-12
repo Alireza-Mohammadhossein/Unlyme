@@ -32,6 +32,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 import Avatar from '@mui/material/Avatar';
 import CheckIcon from '@mui/icons-material/Check';
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+
 
 
 
@@ -281,20 +283,35 @@ const HeaderChatPopup = ({ props }) => {
                                 </div>
                           
                                 <div className='chat-popup-list__body-messages_item_content'>
-                                <p className='chat-popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
-                                <p
-                                  className='chat-popup-list__body-messages_item_content_last-message'
-                                  style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '600'} : {}}  
-                                >{item.lastMessage}</p>
+                                  <p className='chat-popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
+                                  <p
+                                    className='chat-popup-list__body-messages_item_content_last-message'
+                                    style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '500'} : {}}  
+                                  >{item.lastMessage}</p>
                                 </div>
                           
                                 <div className='chat-popup-list__body-messages_item_status'>
-                                {item.new_messages > 0 ?
-                                  <CircleIcon className='chat-popup-list__body-messages_item_status-unread' />
-                                  :
-                                  <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
-                                }
+                                  {item.new_messages > 0 ?
+                                    <CircleIcon className='chat-popup-list__body-messages_item_status-unread' />
+                                    :
+                                    <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
+                                  }
                                 </div>
+
+                                <div className="chat-popup-list__body-messages_item_actions">
+                                <div className="chat-popup-list__body-messages_item_actions-delete">
+                                  <IconButton
+                                    aria-label="delete"
+                                    id="long-button"
+                                    aria-controls={open ? "long-menu" : undefined}
+                                    aria-expanded={open ? "true" : undefined}
+                                    aria-haspopup="true"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+                                  </IconButton>
+                                </div>
+                              </div>
                               </>
                             } 
                           />
