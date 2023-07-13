@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import './single-invoice.scss';
 
 
-const SingleMail = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMessage, setActiveSingleMail}) => {
+const SingleInvoice = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMessage, setActiveSingleInvoice}) => {
     return (
         <div className='single-mail'>
             <div className='single-mail__header'>
@@ -32,7 +32,7 @@ const SingleMail = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMes
                         
                         <IconButton
                             onClick={() => {
-                                setActiveSingleMail(false)
+                                setActiveSingleInvoice(false)
                             }}
                         >
                             <CloseIcon  sx={{ color: '#333333' }}/>
@@ -58,4 +58,4 @@ const SingleMail = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMes
     );
   }
   
-  export default SingleMail;
+  export default SingleInvoice;

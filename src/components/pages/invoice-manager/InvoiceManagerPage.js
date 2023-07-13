@@ -12,8 +12,8 @@ import { invoicesCategory } from '../../../mocks/mocks';
 import icon from "../../../assets/images/my-services/invoice-manager.png";
 import './invoice-manager-page.scss';
 import { useSelector } from 'react-redux';
-import InvoiceManagerTable from './InvoiceManagerTable';
-import { emails } from '../../../mocks/mocks';
+import InvoiceManagerTable from './table/InvoiceManagerTable';
+import { invoices } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
@@ -51,18 +51,18 @@ function a11yProps(index) {
 }
 
 
-function InvoiceManagerContent() {
+const InvoiceManagerContent = () => {
   const { t, i18n } = useTranslation();
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
 
 
-  // start showing mail category tab
-  const [showMail, setShowMail] = useState(0);
-  const handleShowMail = (event, newValue) => {
+  // start showing invoice category tab
+  const [showInvoice, setShowInvoice] = useState(0);
+  const handleShowInvoice = (event, newValue) => {
     if (event.target === event.currentTarget) {
-      setShowMail(newValue);
+      setShowInvoice(newValue);
       // setNewMailToggler(false);
 
     }
@@ -74,9 +74,9 @@ function InvoiceManagerContent() {
   const [showCategory, setShowCategory] = useState(true);
   // end handle category show
   
-  // start handle single mail show
-  const [activeSingleMail, setActiveSingleMail] = useState(false);
-  // end handle single mail show
+  // start handle single invoice show
+  const [activeSingleInvoice, setActiveSingleInvoice] = useState(false);
+  // end handle single invoice show
   
   const [searchText, setSearchText] = useState('');
 
@@ -84,7 +84,7 @@ function InvoiceManagerContent() {
   
   return (
 
-    <div className="cloud-page">
+  <div className="cloud-page">
       <div className="cloud-page__header">
         <Grid container spacing={2}>
           <Grid item xl={2} lg={3} md={3} xs={12} className='cloud-page__header_share'>
@@ -109,12 +109,12 @@ function InvoiceManagerContent() {
           <Grid container spacing={3}>
             <Grid 
               item 
-              xl={activeSingleMail ? 0 : 2} 
-              lg={activeSingleMail ? 0 : 3} 
-              md={activeSingleMail ? 0 : 3} 
+              xl={activeSingleInvoice ? 0 : 2} 
+              lg={activeSingleInvoice ? 0 : 3} 
+              md={activeSingleInvoice ? 0 : 3} 
               xs={12}
               sx={{
-                display: {lg: secondPopupTab || activeSingleMail ? 'none' : 'block', md: secondPopupTab || activeSingleMail ? 'none' : 'block'},
+                display: {lg: secondPopupTab || activeSingleInvoice ? 'none' : 'block', md: secondPopupTab || activeSingleInvoice ? 'none' : 'block'},
               }}
             >
               <div className='invoice-page_sidebar'>
@@ -127,9 +127,8 @@ function InvoiceManagerContent() {
                     aria-haspopup="true"
                     // onClick={handleCreateNote}
                   >
-                    {t("EMAIL_PAGE.CREATE_MAIL_BUTON")}
+                    {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                   </Button>
-                  {/* <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button> */}
                 </div>
 
                 <div className='invoice-page_sidebar-section'>
@@ -137,8 +136,8 @@ function InvoiceManagerContent() {
                     <Tabs
                       orientation="vertical"
                       // variant="scrollable"
-                      value={showMail}
-                      onChange={handleShowMail}
+                      value={showInvoice}
+                      onChange={handleShowInvoice}
                       aria-label="Vertical tabs example"
                       className='invoice-page_sidebar-section_category-list'
                     >
@@ -164,14 +163,6 @@ function InvoiceManagerContent() {
                                   {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='invoice-page_sidebar-section_category-item_content-icon' /> */}
                                   <p className='invoice-page_sidebar-section_category-item_content-title'>{item.title}</p>
                               </div>
-
-                              {item.unreadNum > 0 ?
-                                <div className='invoice-page_sidebar-section_category-item_unreadnum'>
-                                  <p>{item.unreadNum}</p>
-                                </div>
-                                :
-                                ''
-                              }
                               
                             </>
                           } 
@@ -186,26 +177,32 @@ function InvoiceManagerContent() {
 
             <Grid
               item
-              xl={secondPopupTab || activeSingleMail ? 12 : 10}
-              lg={secondPopupTab || activeSingleMail ? 12 : 9}
-              md={secondPopupTab || activeSingleMail ? 12 : 9}
+              xl={secondPopupTab || activeSingleInvoice ? 12 : 10}
+              lg={secondPopupTab || activeSingleInvoice ? 12 : 9}
+              md={secondPopupTab || activeSingleInvoice ? 12 : 9}
               xs={12}
             >
               <div className='invoice-page_main'>
-                <div className='invoice-page_main_email'>
-                  <TabPanel value={showMail} index={0} className='invoice-page_main_email-tab'>
-                    <InvoiceManagerTable activeSingleMail={activeSingleMail} setActiveSingleMail={setActiveSingleMail} emails={emails} searchText={searchText} setSearchText={setSearchText}/>
+                <div className='invoice-page_main_invoice'>
+                  <TabPanel value={showInvoice} index={0} className='invoice-page_main_invoice-tab'>
+                    <InvoiceManagerTable
+                      activeSingleInvoice={activeSingleInvoice}
+                      setActiveSingleInvoice={setActiveSingleInvoice}
+                      invoices={invoices}
+                      searchText={searchText}
+                      setSearchText={setSearchText}
+                    />
                   </TabPanel>
                   
-                  <TabPanel value={showMail} index={1}>
+                  <TabPanel value={showInvoice} index={1}>
                     drafts
                   </TabPanel>
                   
-                  <TabPanel value={showMail} index={2}>
+                  <TabPanel value={showInvoice} index={2}>
                     sent
                   </TabPanel>
                   
-                  <TabPanel value={showMail} index={3}>
+                  <TabPanel value={showInvoice} index={3}>
                     starred
                   </TabPanel>
                 </div>
@@ -215,7 +212,6 @@ function InvoiceManagerContent() {
         </div>  
       </div>
   </div>
-
 
   );
 }

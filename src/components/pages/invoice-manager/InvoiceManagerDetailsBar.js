@@ -45,7 +45,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
                 </div>
             </Grid>
 
-            <Grid item lg={8} md={12} xs={12} sx={{ display: 'flex', justifyContent: 'end' }}>
+            <Grid item lg={8} md={12} xs={12} sx={{ display: 'flex', justifyContent: 'end', gap: '10px' }}>
                 <div className='cloud-page__header_invoice-details_add'>
                   <Button
                     startIcon={<AddIcon />}

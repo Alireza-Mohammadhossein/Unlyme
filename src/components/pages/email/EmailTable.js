@@ -1,28 +1,20 @@
 import React, { useState, useMemo }from 'react';
-import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import star from '../../../assets/images/my-services/email/star.png';
 import activeStar from '../../../assets/images/my-services/email/favorite.png';
-import attached from '../../../assets/images/my-services/email/attached.png';
 import SingleMail from './single-mail/SingleMail';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
 import { useEffect } from 'react';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-
+import EmailTableHead from './EmailTableHead';
 
 
 
@@ -42,10 +34,6 @@ function getComparator(order, orderBy) {
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
 function stableSort(array, comparator) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
@@ -57,186 +45,6 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
-
-const headCells = [
-  {
-    id: 1,
-    numeric: false,
-    disablePadding: true,
-    label: 'Logo',
-    sortable: false,
-    with: 70
-  },
-  {
-    id: 2,
-    numeric: true,
-    disablePadding: true,
-    label: 'Starred',
-    sortable: false,
-    with: 70
-  },
-  {
-    id: 3,
-    numeric: true,
-    disablePadding: true,
-    label: 'Title',
-    sortable: false,
-    with: 130
-  },
-  {
-    id: 4,
-    numeric: true,
-    disablePadding: true,
-    label: 'Message',
-    sortable: false,
-    with: 190
-  },
-  {
-    id: 5,
-    numeric: true,
-    disablePadding: true,
-    label: 'Attached',
-    sortable: false,
-    with: 70
-  },
-  {
-    id: 6,
-    numeric: true,
-    disablePadding: true,
-    label: 'Date',
-    with: 130
-  },
-];
-
-function EnhancedTableHead(props) {
-  const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler } =
-    props;
-  const createSortHandler = (property) => (event) => {
-    onRequestSort(event, property);
-  };
-
-
-
-  const options = ["Edit", "Add description", "Delete"];
-  const ITEM_HEIGHT = 48;
-  
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <TableHead className='email-header'>
-      <TableRow>
-        <TableCell padding="checkbox" className='email-header_selected'>
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            // inputProps={{
-            //   'aria-label': 'select all desserts',
-            // }}
-          />
-        </TableCell>
-
-        
-        <TableCell colSpan={4} padding="checkbox" className='email-header_selected'>
-          {numSelected > 0 ?
-            numSelected
-          : 
-            ''
-          }
-        </TableCell>
-
-        <TableCell padding="checkbox" className='email-header_selected'>
-          {numSelected > 0 ?
-              <div>
-              <IconButton
-                aria-label="more"
-                id="long-button"
-                aria-controls={open ? "long-menu" : undefined}
-                aria-expanded={open ? "true" : undefined}
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                <MoreHorizIcon sx={{ color: '#00000080' }} />
-              </IconButton>
-
-              <Menu
-                id="long-menu"
-                MenuListProps={{
-                  "aria-labelledby": "long-button",
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                disableScrollLock = {true}
-                PaperProps={{
-                  style: {
-                    maxHeight: ITEM_HEIGHT * 4.5,
-                    width: "20ch",
-                  },
-                }}
-              >
-                {options.map((option) => (
-                  <MenuItem
-                    key={option}
-                    selected={option === "Pyxis"}
-                    onClick={handleClose}
-                  >
-                    {option}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </div>
-          : 
-            ''
-          }
-        </TableCell>
-
-
-        
-        {headCells.map((headCell) => (
-            headCell.label === 'Date' ?
-              <TableCell
-                key={headCell.id}
-                // align={headCell.numeric ? 'right' : 'left'}
-                align="center"
-                padding={headCell.disablePadding ? 'none' : 'normal'}
-                sortDirection={orderBy === headCell.id ? order : false}
-                onClick={sortByDateHandler}
-                sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-              >
-                  Date
-                  <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} />
-              </TableCell>
-            :
-            ''
-
-
-            /* <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              {headCell.label === 'Date' ? 'Date' : ''}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </Box>
-              ) : null}
-            </TableSortLabel> */
-        ))}
-      </TableRow>
-    </TableHead>
-  );
-}
-
 
 
 export default function EmailTable({ activeSingleMail, setActiveSingleMail, emails, searchText, setSearchText }) {
@@ -404,7 +212,7 @@ const showSingleMailHanlder = (row) => {
               <Table
                 aria-labelledby="tableTitle"
               >
-                <EnhancedTableHead
+                <EmailTableHead
                   numSelected={selected.length}
                   order={order}
                   orderBy={orderBy}
@@ -436,11 +244,11 @@ const showSingleMailHanlder = (row) => {
 
                         <TableCell padding="checkbox"
                           sx={{ cursor: 'pointer', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                        onClick={(event) => {
-                          event.stopPropagation();
+                          onClick={(event) => {
+                            event.stopPropagation();
 
-                          handleClick(event, row.id)
-                        }}
+                            handleClick(event, row.id)
+                          }}
                         >
                           <Checkbox
                             color="primary"
