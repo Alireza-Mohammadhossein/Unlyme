@@ -262,6 +262,10 @@
 
     }
 
+    .invoice-table {
+        border-collapse: separate;
+    }
+
 
     .invoice-header {
         width: 100%;
@@ -270,9 +274,40 @@
         background-color: white;
         z-index: 1;
 
-        &_selected {
-            font-size: 15px;
-            text-align: left;
+
+
+        &-row {
+            &-cell {
+                color: #333333;
+                font-weight: 600;
+                padding: 7px;
+            }
+
+            &-selected {
+                font-size: 15px;
+                text-align: left;
+            }
+
+            &-option {
+                &-container {
+                    display: flex;
+                    gap: 10px;
+
+                    .MuiButtonBase-root {
+                        background-color: #F0F0F0;
+                        color: #888888;
+                        border-radius: 8px;
+                        padding: 5px 15px;
+                        text-transform: none;
+                    }
+                }
+            }
+        }
+
+        &-row:first-child {
+            .MuiTableCell-root {
+                padding-bottom: 5px;
+            }
         }
     }
 }

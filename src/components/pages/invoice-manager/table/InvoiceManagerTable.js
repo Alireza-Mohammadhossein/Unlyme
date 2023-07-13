@@ -201,6 +201,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
             >
               <Table
                 aria-labelledby="tableTitle"
+                className='invoice-table'
               >
                 <InvoiceManagerTableHead
                   numSelected={selected.length}

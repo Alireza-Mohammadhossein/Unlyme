@@ -8,6 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Button from '@mui/material/Button';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+
 
 
 
@@ -153,8 +157,8 @@ const InvoiceManagerTableHead = (props) => {
     return (
       <>
         <TableHead className='invoice-header'>
-          <TableRow>
-            <TableCell padding="checkbox" className='email-header_selected'>
+          <TableRow className='invoice-header-row'>
+            <TableCell padding="checkbox" className='invoice-header-row-selected'>
               <Checkbox
                 color="primary"
                 indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -164,9 +168,24 @@ const InvoiceManagerTableHead = (props) => {
             </TableCell>
     
             
-            <TableCell colSpan={5} padding="checkbox" className='email-header_selected'>
+            <TableCell padding="checkbox" className='invoice-header-row-option'>
               {numSelected > 0 ?
                 numSelected
+              : 
+                ''
+              }
+            </TableCell>
+
+            <TableCell colSpan={4} padding="checkbox" className='invoice-header-row-option'>
+              {numSelected > 0 ?
+                <div className='invoice-header-row-option-container'>
+                  <Button startIcon={<DeleteOutlineOutlinedIcon />}>
+                    Delete
+                  </Button>
+                  <Button startIcon={<LocalOfferOutlinedIcon />}>
+                    Change category
+                  </Button>
+                </div>
               : 
                 ''
               }
@@ -252,17 +271,17 @@ const InvoiceManagerTableHead = (props) => {
                 </TableSortLabel> */
             ))}
           </TableRow>
-        </TableHead>
 
-        <TableRow>
-          <TableCell>
-            
-          </TableCell>
+          <TableRow className='invoice-header-row'>
+            <TableCell>
+              
+            </TableCell>
           
           {headColumns.map((headCell) => (
             <TableCell
               key={headCell.id}
               align="center"
+              className='invoice-header-row-cell'
               // align={headCell.numeric ? 'right' : 'left'}
               // padding={headCell.disablePadding ? 'none' : 'normal'}
               // sortDirection={orderBy === headCell.id ? order : false}
@@ -270,7 +289,8 @@ const InvoiceManagerTableHead = (props) => {
               {headCell.label}
             </TableCell>
           ))}
-        </TableRow>
+          </TableRow>
+        </TableHead>
       </>
     );
 }
