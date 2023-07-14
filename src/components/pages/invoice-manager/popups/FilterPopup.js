@@ -50,22 +50,22 @@ const FilterPopup = ({ setFilterPopup }) => {
     setPaymentMax(event.target.value);
   };
 
-  const [createDateStart, setCreateDateStart] = useState('');
+  const [createDateStart, setCreateDateStart] = useState(null);
   const handleCreateDateStart = (newValue) => {
     setCreateDateStart(newValue);
   };
 
-  const [createDateEnd, setCreateDateEnd] = useState('');
+  const [createDateEnd, setCreateDateEnd] = useState(null);
   const handleCreateDateEnd = (newValue) => {
     setCreateDateEnd(newValue);
   };
 
-  const [dueDateStart, setDueDateStart] = useState('');
+  const [dueDateStart, setDueDateStart] = useState(null);
   const handleDueDateStart = (newValue) => {
     setDueDateStart(newValue);
   };
   
-  const [dueDateEnd, setDueDateEnd] = useState('');
+  const [dueDateEnd, setDueDateEnd] = useState(null);
   const handleDueDateEnd = (newValue) => {
     setDueDateEnd(newValue);
   };
@@ -80,6 +80,16 @@ const FilterPopup = ({ setFilterPopup }) => {
     setCreator(event.target.value);
   };
 
+  const [recurring, setRecurring] = useState('');
+  const handleRecurring = (event) => {
+    setRecurring(event.target.value);
+  };
+
+  const [category, setCategory] = useState('');
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
   const handleResetFilters = () => {
     setClient('');
     setProject('');
@@ -87,12 +97,32 @@ const FilterPopup = ({ setFilterPopup }) => {
     setInvoiceMax('');
     setPaymentMin('');
     setPaymentMax('');
-    setCreateDateStart('');
-    setCreateDateEnd('');
-    setDueDateStart('');
-    setDueDateEnd('');
+    setCreateDateStart(null);
+    setCreateDateEnd(null);
+    setDueDateStart(null);
+    setDueDateEnd(null);
     setStatus('');
     setCreator('');
+    setRecurring('');
+    setCategory('');
+  }
+
+  const handleSubmitFilters = () => {
+    setFilterPopup(false)
+    setClient('');
+    setProject('');
+    setInvoiceMin('');
+    setInvoiceMax('');
+    setPaymentMin('');
+    setPaymentMax('');
+    setCreateDateStart(null);
+    setCreateDateEnd(null);
+    setDueDateStart(null);
+    setDueDateEnd(null);
+    setStatus('');
+    setCreator('');
+    setRecurring('');
+    setCategory('');
   }
 
 
@@ -227,7 +257,7 @@ const FilterPopup = ({ setFilterPopup }) => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: 'Start' } }}
-                value={createDateStart}
+                value={createDateStart} 
                 onChange={handleCreateDateStart}
                 // defaultValue={dayjs()}
                 // disablePast
@@ -318,10 +348,54 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
+        <div className='invoice-manager-filterpopup-item'>
+          <p className="invoice-manager-filterpopup-item-title">
+              Recurring
+          </p>
+
+          <FormControl fullWidth>
+            <Select
+              className="invoice-manager-filterpopup-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={recurring}
+              onChange={handleRecurring}
+            >
+              <MenuItem value='option1'>Option 1</MenuItem>
+              <MenuItem value='option2'>Option 2</MenuItem>
+              <MenuItem value='option3'>Option 3</MenuItem>
+              <MenuItem value='option4'>Option 4</MenuItem>
+            </Select>
+          </FormControl>
+
+        </div>
+
+        <div className='invoice-manager-filterpopup-item'>
+          <p className="invoice-manager-filterpopup-item-title">
+              Category
+          </p>
+
+          <FormControl fullWidth>
+            <Select
+              className="invoice-manager-filterpopup-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={category}
+              onChange={handleCategory}
+            >
+              <MenuItem value='category1'>Category 1</MenuItem>
+              <MenuItem value='category2'>Category 2</MenuItem>
+              <MenuItem value='category3'>Category 3</MenuItem>
+              <MenuItem value='category4'>Category 4</MenuItem>
+            </Select>
+          </FormControl>
+
+        </div>
+
         <div className='invoice-manager-filterpopup-btn'>
           <Button className='invoice-manager-filterpopup-btn-reset' onClick={handleResetFilters}>Reset</Button>
 
-          <Button className='invoice-manager-filterpopup-btn-submit'>Apply Filter</Button>
+          <Button className='invoice-manager-filterpopup-btn-submit' onClick={handleSubmitFilters}>Apply Filter</Button>
         </div>
       </div>
     </div>

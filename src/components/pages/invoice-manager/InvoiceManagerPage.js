@@ -118,7 +118,7 @@ const InvoiceManagerContent = () => {
               }}
             >
               <div className='invoice-page_sidebar'>
-                <div className='invoice-page_sidebar_create-event'>
+                {/* <div className='invoice-page_sidebar_create-event'>
                   <Button
                     startIcon={<AddIcon />}
                     className="invoice-page_sidebar_create-event_btn"
@@ -129,7 +129,7 @@ const InvoiceManagerContent = () => {
                   >
                     {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                   </Button>
-                </div>
+                </div> */}
 
                 <div className='invoice-page_sidebar-section'>
                   <div className='invoice-page_sidebar-section_category'>

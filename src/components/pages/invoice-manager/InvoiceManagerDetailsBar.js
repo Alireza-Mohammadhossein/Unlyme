@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -23,8 +23,19 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
     const dispatch = useDispatch();
 
 
-
     const [filterPopup, setFilterPopup] = useState(false);
+
+    useEffect(() => {
+        if (filterPopup) {
+            console.log('true', filterPopup)
+          document.getElementById('root').style.overflow = 'hidden';
+          document.getElementById('root').style.height = '100vh';
+        } else {
+          console.log('false', filterPopup)
+          document.getElementById('root').style.overflow = 'auto';
+          document.getElementById('root').style.height = 'auto';
+        }
+      }, [filterPopup]);
 
 
     return (
@@ -48,9 +59,8 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
                     <IconButton aria-label="filter" onClick={() => setFilterPopup(true)}>
                         <FilterListIcon />
                     </IconButton>
-
                     
-                    <Drawer anchor='right' open={filterPopup} onClose={() => setFilterPopup(false)}>
+                    <Drawer anchor='right' open={filterPopup} onClose={() => setFilterPopup(false)} disableScrollLock = {false} >
                         <FilterPopup setFilterPopup={setFilterPopup} />
                     </Drawer>
                 </div>
