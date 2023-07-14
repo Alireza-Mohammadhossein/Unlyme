@@ -333,6 +333,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
               </Table>
             </TableContainer>
             <TablePagination
+              className='invoice-pagination'
               rowsPerPageOptions={[20, 50, 100]}
               component="div"
               count={invoices.length}

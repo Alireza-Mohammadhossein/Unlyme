@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -11,14 +11,20 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import search from "../../../assets/images/header/new-icons/search.png";
-import TuneIcon from '@mui/icons-material/Tune';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import AddIcon from '@mui/icons-material/Add';
+import Drawer from '@mui/material/Drawer';
+import FilterPopup from './popups/FilterPopup';
 
 
 
 const InvoiceManagerDetailsBar = ({ setSearchText }) => {
     const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
+
+
+
+    const [filterPopup, setFilterPopup] = useState(false);
 
 
     return (
@@ -39,9 +45,14 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
                 </div>
 
                 <div className='cloud-page__header_invoice-details_filter'>
-                    <IconButton aria-label="filter">
-                        <TuneIcon />
+                    <IconButton aria-label="filter" onClick={() => setFilterPopup(true)}>
+                        <FilterListIcon />
                     </IconButton>
+
+                    
+                    <Drawer anchor='right' open={filterPopup} onClose={() => setFilterPopup(false)}>
+                        <FilterPopup setFilterPopup={setFilterPopup} />
+                    </Drawer>
                 </div>
             </Grid>
 
