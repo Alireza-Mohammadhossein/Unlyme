@@ -405,7 +405,7 @@
 
 .invoice-manager-deletepopup {
     width: 80%;
-    max-width: 300px;
+    max-width: 500px;
     height: auto;
     background-color: white;
     border-radius: 8px;
@@ -414,18 +414,22 @@
 
     &-header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        text-align: center;
         padding: 0 0 10px 0;
+        gap: 10px;
         border-bottom: 1px solid #ECECEC;
 
 
         &-title {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 15px;
-            color: #51A3FF;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &-subtitle {
+            text-align: center;
+            color: #888888;
         }
         
         &-btn {
@@ -435,44 +439,42 @@
         }
     }
 
-
-    &-btn {
+    &-content {
         display: flex;
-        justify-content: end;
         gap: 10px;
+        justify-content: center;
+        padding-top: 30px;
 
-        &-submit.MuiButtonBase-root {
-            text-transform: none;
-            color: #fff;
-            background-color: #3089dc;
-            padding: 10px 24px;
-            border-radius: 30px;
+        &-btn {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
 
-            &:hover {
-                text-transform: none;
-                color: #fff;
-                background-color: #3089dc;
-                padding: 10px 24px;
-                border-radius: 30px;
+            &:first-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #ECECEC;
+                    color: #888888;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+                }
             }
-        }
 
-        
-        &-reset.MuiButtonBase-root {
-            text-transform: none;
-            color: #888888;    
-            background-color: #fff;
-            padding: 10px 24px;
-            border-radius: 30px;
-            border: 1px solid #cdcdcd;
+            &:last-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #A81C12;
+                    color: #A81C12;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
 
-            &:hover {
-                text-transform: none;
-                color: #888888;    
-                background-color: #fff;
-                padding: 10px 24px;
-                border-radius: 30px;
-                border: 1px solid #cdcdcd;
+                    &:hover {
+                        color: #fff;
+                        background-color: #A81C12;
+                    }
+                }
             }
         }
     }

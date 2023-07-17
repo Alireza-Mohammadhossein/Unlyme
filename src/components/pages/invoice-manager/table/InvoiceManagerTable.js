@@ -17,6 +17,24 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import Modal from '@mui/material/Modal';
+import DeleteInvoice from '../popups/DeleteInvoice';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import { toast } from "react-toastify";
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
+import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
+import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
+import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
+import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+
+
 
 
 
@@ -182,180 +200,420 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   // end show single mail handler
 
 
+  const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
+  
 
+  // start more options
+  const options = [
+    {
+      id: 1,
+      icon: <EditNoteIcon />,
+      text: 'Quick edit',
+      clickFunction: function() {
+          toast.error('You have clicked on Quick edit!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 2,
+      icon: <MailOutlinedIcon />,
+      text: 'Email to client',
+      clickFunction: function() {
+          toast.error('You have clicked on Email to client!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 3,
+      icon: <AddCardOutlinedIcon />,
+      text: 'Add new payment',
+      clickFunction: function() {
+          toast.error('You have clicked on Add new payment!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 4,
+      icon: <ContentCopyOutlinedIcon />,
+      text: 'Clone invoice',
+      clickFunction: function() {
+          toast.error('You have clicked on Clone invoice!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 5,
+      icon: <SellOutlinedIcon />,
+      text: 'Change category',
+      clickFunction: function() {
+          toast.error('You have clicked on Change category!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 6,
+      icon: <AttachmentOutlinedIcon />,
+      text: 'Attach to a project',
+      clickFunction: function() {
+          toast.error('You have clicked on Attach to a project!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 7,
+      icon: <LoopOutlinedIcon />,
+      text: 'Recurring settings',
+      clickFunction: function() {
+          toast.error('You have clicked on Recurring settings!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 8,
+      icon: <RemoveRedEyeOutlinedIcon />,
+      text: 'View payments',
+      clickFunction: function() {
+          toast.error('You have clicked on View payments!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 9,
+      icon: <FileDownloadOutlinedIcon />,
+      text: 'Download',
+      clickFunction: function() {
+          toast.error('You have clicked on Download!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+
+          handleCloseMoreOptions();
+      }
+    }
+  ]
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleMoreOptions = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseMoreOptions = () => {
+    setAnchorEl(null);
+  };
+  // end more options
 
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Grid container>
-        <Grid item 
-          xs = {activeSingleInvoice ? 6 : 12}
-        >
-          <Paper sx={{ width: '100%', mb: 2}}>
-            {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
-            <TableContainer
-              sx={{
-                width: '100%',
-                height: '100%'
-              }}
-            >
-              <Table
-                aria-labelledby="tableTitle"
-                className='invoice-table'
-              >
-                <InvoiceManagerTableHead
-                  numSelected={selected.length}
-                  order={order}
-                  orderBy={orderBy}
-                  onSelectAllClick={handleSelectAllClick}
-                  onRequestSort={handleRequestSort}
-                  rowCount={invoices.length}
-                  setSearchText={setSearchText}
-                  sortByDateHandler={sortByDateHandler}
-                />
-
-                <TableBody>
-                  {filteredInvoices.map((row, index) => {
-                    const isItemSelected = isSelected(row.id);
-                    const labelId = `enhanced-table-checkbox-${index}`;
-
-                    return (
-                      <>
-                        <TableRow
-                          hover
-                          // onClick={(event) => handleClick(event, row.id)}
-                          onClick={() => showSingleInvoiceHanlder(row)}
-                          // role="checkbox"
-                          aria-checked={isItemSelected}
-                          tabIndex={-1}
-                          key={row.id}
-                          selected={isItemSelected}
-                          sx={{ cursor: 'pointer'}}
-                          className='invoice-page_main_invoice-tab-row'
-                        >
-
-                          <TableCell padding="checkbox"
-                            sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                            onClick={(event) => {
-                              event.stopPropagation();
-
-                              handleClick(event, row.id)
-                            }}
-                          >
-                            <Checkbox
-                              color="primary"
-                              checked={isItemSelected}
-                              inputProps={{
-                                'aria-labelledby': labelId,
-                              }}
-                            />
-                          </TableCell>
-
-                          <TableCell
-                            // component="th"
-                            id={labelId}
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-item'
-                          >
-                            {row.date}
-                          </TableCell>
-
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-item company'
-                          >
-                            {row.company}
-                          </TableCell>
-
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-item'
-                          >
-                            {row.project}
-                          </TableCell>
-                          
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-item'
-                          >
-                            {row.amount}
-                          </TableCell>
-
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-item payment'
-                          >
-                            {row.payment}
-                          </TableCell>
-                          
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className={`invoice-page_main_invoice-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
-                          >
-                            <span>
-                              {row.status}
-                            </span>
-                          </TableCell>
-
-                          <TableCell
-                            scope="row"
-                            align="center"
-                            className='invoice-page_main_invoice-tab-row-actions'
-                          >
-                            <IconButton aria-label="delete">
-                              <DeleteOutlineOutlinedIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="edit">
-                              <DriveFileRenameOutlineOutlinedIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="open">
-                              <OpenInNewOutlinedIcon />
-                            </IconButton>
-
-                            <IconButton aria-label="more">
-                              <MoreHorizOutlinedIcon />
-                            </IconButton>
-                          </TableCell>
-                          
-                        </TableRow>
-                      </>
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </TableContainer>
-            <TablePagination
-              className='invoice-pagination'
-              rowsPerPageOptions={[20, 50, 100]}
-              component="div"
-              count={invoices.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Paper>
-        </Grid>
-
-        <Grid item 
-          sx={{display: activeSingleInvoice ? 'block' : 'none'}}
-            xs = {6}
+    <>
+      <Box sx={{ width: '100%' }}>
+        <Grid container>
+          <Grid item 
+            xs = {activeSingleInvoice ? 6 : 12}
           >
+            <Paper sx={{ width: '100%', mb: 2}}>
+              {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
+              <TableContainer
+                sx={{
+                  width: '100%',
+                  height: '100%'
+                }}
+              >
+                <Table
+                  aria-labelledby="tableTitle"
+                  className='invoice-table'
+                >
+                  <InvoiceManagerTableHead
+                    numSelected={selected.length}
+                    order={order}
+                    orderBy={orderBy}
+                    onSelectAllClick={handleSelectAllClick}
+                    onRequestSort={handleRequestSort}
+                    rowCount={invoices.length}
+                    setSearchText={setSearchText}
+                    sortByDateHandler={sortByDateHandler}
+                  />
 
-          <SingleInvoice userIcon={userIcon} mailFrom={mailFrom} mailTo={mailTo} mailSubject={mailSubject} mailTitle={mailTitle} mailMessage={mailMessage} setActiveSingleInvoice={setActiveSingleInvoice} />
-        
-        
+                  <TableBody>
+                    {filteredInvoices.map((row, index) => {
+                      const isItemSelected = isSelected(row.id);
+                      const labelId = `enhanced-table-checkbox-${index}`;
+
+                      return (
+                        <>
+                          <TableRow
+                            hover
+                            // onClick={(event) => handleClick(event, row.id)}
+                            onClick={() => showSingleInvoiceHanlder(row)}
+                            // role="checkbox"
+                            aria-checked={isItemSelected}
+                            tabIndex={-1}
+                            key={row.id}
+                            selected={isItemSelected}
+                            sx={{ cursor: 'pointer'}}
+                            className='invoice-page_main_invoice-tab-row'
+                          >
+
+                            <TableCell padding="checkbox"
+                              sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                              onClick={(event) => {
+                                event.stopPropagation();
+
+                                handleClick(event, row.id)
+                              }}
+                            >
+                              <Checkbox
+                                color="primary"
+                                checked={isItemSelected}
+                                inputProps={{
+                                  'aria-labelledby': labelId,
+                                }}
+                              />
+                            </TableCell>
+
+                            <TableCell
+                              // component="th"
+                              id={labelId}
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-item'
+                            >
+                              {row.date}
+                            </TableCell>
+
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-item company'
+                            >
+                              {row.company}
+                            </TableCell>
+
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-item'
+                            >
+                              {row.project}
+                            </TableCell>
+                            
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-item'
+                            >
+                              {row.amount}
+                            </TableCell>
+
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-item payment'
+                            >
+                              {row.payment}
+                            </TableCell>
+                            
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className={`invoice-page_main_invoice-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
+                            >
+                              <span>
+                                {row.status}
+                              </span>
+                            </TableCell>
+
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-page_main_invoice-tab-row-actions'
+                            >
+                              <IconButton aria-label="delete"
+                                 onClick={(e) => {
+                                  e.stopPropagation();
+                                  setDeleteInvoicePopup(true)
+                                }}
+                              >
+                                <DeleteOutlineOutlinedIcon />
+                              </IconButton>
+
+                              <IconButton aria-label="edit">
+                                <DriveFileRenameOutlineOutlinedIcon />
+                              </IconButton>
+
+                              <IconButton aria-label="open">
+                                <OpenInNewOutlinedIcon />
+                              </IconButton>
+
+                              <IconButton
+                                aria-label="more"
+                                id="long-button"
+                                aria-controls={open ? "long-menu" : undefined}
+                                aria-expanded={open ? "true" : undefined}
+                                aria-haspopup="true"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleMoreOptions(e);
+                                }}
+                               >
+                                <MoreHorizOutlinedIcon />
+                              </IconButton>
+
+
+                            </TableCell>
+                            
+                          </TableRow>
+                        </>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <TablePagination
+                className='invoice-pagination'
+                rowsPerPageOptions={[20, 50, 100]}
+                component="div"
+                count={invoices.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Paper>
+          </Grid>
+
+          <Grid item 
+            sx={{display: activeSingleInvoice ? 'block' : 'none'}}
+              xs = {6}
+            >
+
+            <SingleInvoice userIcon={userIcon} mailFrom={mailFrom} mailTo={mailTo} mailSubject={mailSubject} mailTitle={mailTitle} mailMessage={mailMessage} setActiveSingleInvoice={setActiveSingleInvoice} />
+          
+          
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+
+
+      <Modal
+        open={deleteInvoicePopup}
+        onClose={() => setDeleteInvoicePopup(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <DeleteInvoice setDeleteInvoicePopup={setDeleteInvoicePopup} />
+      </Modal>
+
+      <Menu
+        id="long-menu"
+        MenuListProps={{
+          "aria-labelledby": "long-button",
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleCloseMoreOptions}
+        disableScrollLock={true}
+      >
+        {options.map((option) => (
+          <MenuItem
+            key={option.id}
+            onClick={option.clickFunction}
+          >
+            <ListItemIcon>
+              {option.icon}
+            </ListItemIcon>
+            <ListItemText>{option.text}</ListItemText>
+          </MenuItem>
+
+        ))}
+      </Menu>
+    </>
   );
 }
 
