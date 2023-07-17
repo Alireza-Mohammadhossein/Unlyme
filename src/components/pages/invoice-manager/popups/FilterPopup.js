@@ -165,7 +165,7 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
+        <div className='invoice-manager-filterpopup-item'> 
           <p className="invoice-manager-filterpopup-item-title">
               Project
           </p>

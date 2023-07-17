@@ -400,6 +400,12 @@
         &-btn.MuiButtonBase-root:hover {
           background-color: $blue;
         }
+
+        &-modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
 

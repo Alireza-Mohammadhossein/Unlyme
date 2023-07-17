@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
@@ -15,6 +12,9 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import AddIcon from '@mui/icons-material/Add';
 import Drawer from '@mui/material/Drawer';
 import FilterPopup from './popups/FilterPopup';
+import Modal from '@mui/material/Modal';
+import AddNewPopup from './popups/AddNewPopup';
+
 
 
 
@@ -26,16 +26,23 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
     const [filterPopup, setFilterPopup] = useState(false);
 
     useEffect(() => {
-        if (filterPopup) {
-            console.log('true', filterPopup)
-          document.getElementById('root').style.overflow = 'hidden';
-          document.getElementById('root').style.height = '100vh';
-        } else {
-          console.log('false', filterPopup)
-          document.getElementById('root').style.overflow = 'auto';
-          document.getElementById('root').style.height = 'auto';
-        }
-      }, [filterPopup]);
+      if (filterPopup) {
+          console.log('true', filterPopup)
+        document.getElementById('root').style.overflow = 'hidden';
+        document.getElementById('root').style.height = '100vh';
+      } else {
+        console.log('false', filterPopup)
+        document.getElementById('root').style.overflow = 'auto';
+        document.getElementById('root').style.height = 'auto';
+      }
+    }, [filterPopup]);
+
+
+
+
+    const [addNewPopup, setAddNewPopup] = useState(false);
+    const handleOpenAddNewPopup = () => setAddNewPopup(true);
+    const handleCloseAddNewPopup = () => setAddNewPopup(false);
 
 
     return (
@@ -74,11 +81,21 @@ const InvoiceManagerDetailsBar = ({ setSearchText }) => {
                     aria-label="more"
                     id="long-button"
                     aria-haspopup="true"
-                    // onClick={handleCreateNote}
+                    onClick={handleOpenAddNewPopup}
                   >
                     {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                   </Button>
-                  {/* <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button> */}
+
+
+                  <Modal
+                    open={addNewPopup}
+                    onClose={handleCloseAddNewPopup}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    className='cloud-page__header_invoice-details_add-modal'
+                  >
+                    <AddNewPopup handleCloseAddNewPopup={handleCloseAddNewPopup} />
+                  </Modal>
                 </div>
 
                 <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
