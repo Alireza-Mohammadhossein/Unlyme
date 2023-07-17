@@ -21,7 +21,6 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 
 
-
 const AddNewPopup = ({ handleCloseAddNewPopup }) => {
 
 
@@ -33,6 +32,28 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
     const [project, setProject] = useState('');
     const handleProject = (event) => {
       setProject(event.target.value);
+    };
+
+    const [companyName, setCompanyName] = useState('');
+    const handleCompanyName = (event) => {
+      setCompanyName(event.target.value);
+    };
+
+    const [firstName, setFirstName] = useState('');
+    const handleFirstName = (event) => {
+      setFirstName(event.target.value);
+    };
+    
+    
+    const [lastName, setLastName] = useState('');
+    const handleLastName = (event) => {
+      setLastName(event.target.value);
+    };
+
+    
+    const [email, setEmail] = useState('');
+    const handleEmail = (event) => {
+      setEmail(event.target.value);
     };
 
     const [clientExistance, setClientExistance] = useState('existing');
@@ -60,6 +81,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
     const handleAdditionalInfo = () => {
         setAdditionalInfo(!additionalInfo);
     };
+    
 
 
     const handleCancelFilters = () => {
@@ -83,7 +105,32 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
       }
 
 
+      const tags = [
+        'Tag 1',
+        'Tag 2',
+        'Tag 3',
+        'Tag 4',
+        'Tag 5',
+        'Tag 6',
+        'Tag 7',
+      ];
 
+      const [tag, setTag] = useState([]);
+      const handleTag = (event) => {
+        const {
+          target: { value },
+        } = event;
+        setTag(
+          // On autofill we get a stringified value.
+          typeof value === 'string' ? value.split(',') : value,
+        );
+      };
+
+
+      const [notes, setNotes] = useState('');
+      const handleNotes = (event) => {
+          setNotes(event.target.value);
+      };
  
 
   return (
@@ -104,9 +151,9 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
       <div className='invoice-manager-addnewpopup-list'>
 
         {
-            clientExistance === 'existing' ?
-                <>
-                    <div className='invoice-manager-addnewpopup-item flex'>
+          clientExistance === 'existing' ?
+            <>
+                <div className='invoice-manager-addnewpopup-item flex'>
                     <p className='invoice-manager-addnewpopup-item-title'>
                       Client
                     </p>
@@ -116,33 +163,82 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
                         variant="outlined"
                         onChange={handleClient}
                     />
-                    </div>
+                </div>
 
-                    <div className='invoice-manager-addnewpopup-item flex pb-0'>
-                        <p className='invoice-manager-addnewpopup-item-title'>
-                          Project
-                        </p>
+                <div className='invoice-manager-addnewpopup-item flex pb-0'>
+                    <p className='invoice-manager-addnewpopup-item-title'>
+                      Project
+                    </p>
 
-                        <FormControl fullWidth>
-                            <Select
-                              className="invoice-manager-addnewpopup-item-select"
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
-                              value={project}
-                              onChange={handleProject}
-                            >
-                              <MenuItem value='project1'>Project 1</MenuItem>
-                              <MenuItem value='project2'>Project 2</MenuItem>
-                              <MenuItem value='project3'>Project 3</MenuItem>
-                              <MenuItem value='project4'>Project 4</MenuItem>
-                            </Select>
-                        </FormControl>
+                    <FormControl fullWidth>
+                        <Select
+                          className="invoice-manager-addnewpopup-item-select"
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={project}
+                          onChange={handleProject}
+                        >
+                          <MenuItem value='project1'>Project 1</MenuItem>
+                          <MenuItem value='project2'>Project 2</MenuItem>
+                          <MenuItem value='project3'>Project 3</MenuItem>
+                          <MenuItem value='project4'>Project 4</MenuItem>
+                        </Select>
+                    </FormControl>
 
 
-                    </div>
-                </>
-            :
-                ''
+                </div>
+            </>
+          :
+            <>
+              <div className='invoice-manager-addnewpopup-item flex'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Company name
+                  </p>
+
+                  <TextField
+                      className='invoice-manager-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleCompanyName}
+                  />
+              </div>
+
+              <div className='invoice-manager-addnewpopup-item flex'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Fist name
+                  </p>
+
+                  <TextField
+                      className='invoice-manager-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleFirstName}
+                  />
+              </div>
+              
+              <div className='invoice-manager-addnewpopup-item flex'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Last name
+                  </p>
+
+                  <TextField
+                      className='invoice-manager-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleLastName}
+                  />
+              </div>
+              
+              <div className='invoice-manager-addnewpopup-item flex'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Email address
+                  </p>
+
+                  <TextField
+                      className='invoice-manager-addnewpopup-item-input'
+                      variant="outlined"
+                      type='email'
+                      onChange={handleEmail}
+                  />
+              </div>
+            </>
         }
 
         <div className='invoice-manager-addnewpopup-item flex'>
@@ -226,6 +322,50 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
                 // inputProps={{ 'aria-label': 'controlled' }}
             />
         </div>
+
+        {
+          additionalInfo ? 
+              <>
+                <div className='invoice-manager-addnewpopup-item tags'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Tags
+                  </p>
+
+                  <Select
+                    labelId="demo-multiple-chip-label"
+                    id="demo-multiple-chip"
+                    multiple
+                    value={tag}
+                    onChange={handleTag}
+                  >
+                    {tags.map((tag) => (
+                      <MenuItem
+                        key={tag}
+                        value={tag}
+                      >
+                        {tag}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </div>
+
+                <div className='invoice-manager-addnewpopup-item notes'>
+                  <p className='invoice-manager-addnewpopup-item-title'>
+                    Notes
+                  </p>
+
+                  <TextField
+                      className='invoice-manager-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleNotes}
+                      multiline
+                      maxRows={5}
+                  />
+                </div>
+              </>
+            :
+              ''
+        }
 
         <div className='invoice-manager-addnewpopup-item flex'>
             <Alert variant="outlined" severity="warning" icon={<LoopIcon sx={{color: "#93742A"}} />}>
