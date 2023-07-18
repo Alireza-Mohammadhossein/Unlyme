@@ -38,6 +38,8 @@ import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
 import CloneInvoicePopup from '../popups/CloneInvoicePopup';
 import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
+import DetachInvoicePopup from '../popups/DetachInvoicePopup';
+import AttachProjectPopup from '../popups/AttachProjectPopup';
 
 
 
@@ -203,15 +205,62 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   }
   // end show single mail handler
 
-  // start delete invoice popup
-  const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
-  const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
-  const handleOpenDeleteInvoicePopup = (id) => {
-    setDeleteInvoiceId(id);
-    setDeleteInvoicePopup(true)
-  };
-  const handleCloseDeleteInvoicePopup = () => setDeleteInvoicePopup(false);
-  // end delete invoice popup
+
+  const MoreOptionsMenu = (row) => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleMoreOptions = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleCloseMoreOptions = () => {
+      setAnchorEl(null);
+    };
+    // end more options
+    
+    return (
+      <>
+        <IconButton
+          aria-label="more"
+          id="long-button"
+          aria-controls={open ? "long-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
+          aria-haspopup="true"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleMoreOptions(e);
+          }}
+        >
+          <MoreHorizOutlinedIcon />
+        </IconButton>
+
+        <Menu
+          className='invoice-page_main_invoice-tab-row-actions_option-list'
+          id="long-menu"
+          MenuListProps={{
+            "aria-labelledby": "long-button",
+          }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleCloseMoreOptions}
+          disableScrollLock={true}
+        >
+          {options.map((option) => (
+            <MenuItem
+              key={option.id}
+              onClick={() => option.clickFunction(row)}
+            >
+              <ListItemIcon>
+                {option.icon}
+              </ListItemIcon>
+              <ListItemText>{option.text}</ListItemText>
+            </MenuItem>
+
+          ))}
+        </Menu>
+      </>
+    )
+  }
+
 
 
   // start more options
@@ -220,78 +269,71 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       id: 1,
       icon: <EditNoteIcon />,
       text: 'Quick edit',
-      clickFunction: function() {
-          toast.error('You have clicked on Quick edit!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
+        handleOpenEditInvoicePopup();
       }
     },
     {
       id: 2,
       icon: <MailOutlinedIcon />,
       text: 'Email to client',
-      clickFunction: function() {
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
         handleOpenSendEmailPopup();
-        handleCloseMoreOptions();
+        // handleCloseMoreOptions();
       }
     },
     {
       id: 3,
       icon: <AddCardOutlinedIcon />,
       text: 'Add new payment',
-      clickFunction: function() {
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
         handleOpenAddPaymentPopup()
-        handleCloseMoreOptions();
+        // handleCloseMoreOptions();
       }
     },
     {
       id: 4,
       icon: <ContentCopyOutlinedIcon />,
       text: 'Clone invoice',
-      clickFunction: function() {
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
         handleOpenCloneInvoicePopup();
-        handleCloseMoreOptions();
+        // handleCloseMoreOptions();
       }
     },
     {
       id: 5,
       icon: <SellOutlinedIcon />,
       text: 'Change category',
-      clickFunction: function() {
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
         handleOpenChangeCategoryPopup();
-        handleCloseMoreOptions();
+        // handleCloseMoreOptions();
       }
     },
     {
       id: 6,
       icon: <AttachmentOutlinedIcon />,
-      text: 'Attach to a project',
-      clickFunction: function() {
-          toast.error('You have clicked on Attach to a project!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+      text: 'Detach invoice',
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
+        handleOpenDetachInvoicePopup();
       }
     },
     {
       id: 7,
+      icon: <AttachmentOutlinedIcon />,
+      text: 'Attach to a project',
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
+        handleOpenAttachProjectPopup();
+      }
+    },
+    {
+      id: 8,
       icon: <LoopOutlinedIcon />,
       text: 'Recurring settings',
       clickFunction: function() {
@@ -306,11 +348,11 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
             progress: undefined,
             theme: "light",
           });
-          handleCloseMoreOptions();
+          // handleCloseMoreOptions();
       }
     },
     {
-      id: 8,
+      id: 9,
       icon: <RemoveRedEyeOutlinedIcon />,
       text: 'View payments',
       clickFunction: function() {
@@ -325,11 +367,11 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
             progress: undefined,
             theme: "light",
           });
-          handleCloseMoreOptions();
+          // handleCloseMoreOptions();
       }
     },
     {
-      id: 9,
+      id: 10,
       icon: <FileDownloadOutlinedIcon />,
       text: 'Download',
       clickFunction: function() {
@@ -345,75 +387,114 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
             theme: "light",
           });
 
-          handleCloseMoreOptions();
+          // handleCloseMoreOptions();
       }
     }
   ]
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleMoreOptions = (event) => {
-    setAnchorEl(event.currentTarget);
+
+
+
+  // start delete invoice popup
+  const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
+  const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
+  const handleOpenDeleteInvoicePopup = (id) => {
+    setDeleteInvoiceId(id);
+    setDeleteInvoicePopup(true)
   };
-  const handleCloseMoreOptions = () => {
-    setAnchorEl(null);
+  const handleCloseDeleteInvoicePopup = () => {
+    setSelectedRowOption([]);
+    setDeleteInvoicePopup(false)
   };
-  // end more options
+  // end delete invoice popup
+
 
   // start send email popup
   const [sendEmailPopup, setSendEmailPopup] = useState(false);
   const [sendEmailId, setSendEmailId] = useState(false);
-  const handleOpenSendEmailPopup = (id) => {
-    setSendEmailId(id);
+  const handleOpenSendEmailPopup = () => {
     setSendEmailPopup(true)
   };
-  const handleCloseSendEmailPopup = () => setSendEmailPopup(false);
+  const handleCloseSendEmailPopup = () => {
+    setSelectedRowOption([]);
+    setSendEmailPopup(false)
+  };
   // end send email popup
 
 
   // start edit invoice popup
   const [editInvoicePopup, setEditInvoicePopup] = useState(false);
-  const [editCreator, setEditCreator] = useState('');
-  const [editCreatedDate, setEditCreatedDate] = useState('');
 
-  const handleOpenEditInvoicePopup = (creator, createdDate) => {
-    setEditCreator(creator);
-    setEditCreatedDate(createdDate)
+  const handleOpenEditInvoicePopup = () => {
     setEditInvoicePopup(true);
   };
-  const handleCloseEditInvoicePopup = () => setEditInvoicePopup(false);
+  const handleCloseEditInvoicePopup = () => {
+    setSelectedRowOption([]);
+    setEditInvoicePopup(false)
+  };
   // end edit invoice popup
 
 
   // start add payment popup
   const [addPaymentPopup, setAddPaymentPopup] = useState(false);
-
   const handleOpenAddPaymentPopup = () => {
     setAddPaymentPopup(true);
   };
-  const handleCloseAddPaymentPopup = () => setAddPaymentPopup(false);
+  const handleCloseAddPaymentPopup = () => {
+    setSelectedRowOption([]);
+    setAddPaymentPopup(false)
+  };
   // end add payment popup
 
 
   // start clone invoice popup
   const [cloneInvoicePopup, setCloneInvoicePopup] = useState(false);
-
   const handleOpenCloneInvoicePopup = () => {
     setCloneInvoicePopup(true);
   };
-  const handleCloseCloneInvoicePopup = () => setCloneInvoicePopup(false);
+  const handleCloseCloneInvoicePopup = () => {
+    setSelectedRowOption([]);
+    setCloneInvoicePopup(false)
+  };
   // end clone invoice popup
 
   // start change category popup
   const [changeCategoryPopup, setChangeCategoryPopup] = useState(false);
-
   const handleOpenChangeCategoryPopup = () => {
     setChangeCategoryPopup(true);
   };
-  const handleCloseChangeCategoryPopup = () => setChangeCategoryPopup(false);
+  const handleCloseChangeCategoryPopup = () => {
+    setSelectedRowOption([]);
+    setChangeCategoryPopup(false)
+  };
   // end change category popup
 
 
+  // start detach invoice popup
+  const [detachInvoicePopup, setDetachInvoicePopup] = useState(false);
+  const handleOpenDetachInvoicePopup = () => {
+    setDetachInvoicePopup(true)
+  };
+  const handleCloseDetachInvoicePopup = () => {
+    setSelectedRowOption([]);
+    setDetachInvoicePopup(false)
+  };
+  // end detach invoice popup
+
+  // start attach project popup
+  const [attachProjectPopup, setAttachProjectPopup] = useState(false);
+  const handleOpenAttachProjectPopup = () => {
+    setAttachProjectPopup(true);
+  };
+  const handleCloseAttachProjectPopup = () => {
+    setSelectedRowOption([]);
+    setAttachProjectPopup(false);
+  };
+  // end change category popup
+  
+
+
+  const [selectedRowOption, setSelectedRowOption] = useState([]);
 
   return (
     <>
@@ -455,7 +536,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                           <TableRow
                             hover
                             // onClick={(event) => handleClick(event, row.id)}
-                            onClick={() => showSingleInvoiceHanlder(row)}
+                            // onClick={() => showSingleInvoiceHanlder(row)}
                             // role="checkbox"
                             aria-checked={isItemSelected}
                             tabIndex={-1}
@@ -549,9 +630,10 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                               </IconButton>
 
                               <IconButton aria-label="edit" 
-                                onClick={(e) => {
+                                onClick={(e, row) => {
                                   e.stopPropagation();
-                                  handleOpenEditInvoicePopup(row.creator,row.date);
+                                  setSelectedRowOption(row)
+                                  handleOpenEditInvoicePopup();
                                 }}
                               >
                                 <DriveFileRenameOutlineOutlinedIcon />
@@ -560,27 +642,14 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                               <IconButton aria-label="open"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  handleOpenSendEmailPopup(row.id);
+                                  setSelectedRowOption(row)
+                                  handleOpenSendEmailPopup();
                                 }}
                               >
                                 <OpenInNewOutlinedIcon />
                               </IconButton>
 
-                              <IconButton
-                                aria-label="more"
-                                id="long-button"
-                                aria-controls={open ? "long-menu" : undefined}
-                                aria-expanded={open ? "true" : undefined}
-                                aria-haspopup="true"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleMoreOptions(e);
-                                }}
-                               >
-                                <MoreHorizOutlinedIcon />
-                              </IconButton>
-                               
-
+                              <MoreOptionsMenu data={row} />
                             </TableCell>
                             
                           </TableRow>
@@ -624,49 +693,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <DeleteInvoicePopup deleteInvoiceId={deleteInvoiceId} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
+        <DeleteInvoicePopup data={selectedRowOption} deleteInvoiceId={deleteInvoiceId} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
       </Modal>
-
-
-      {/* more options list */}
-      <Menu
-        className='invoice-page_main_invoice-tab-row-actions_option-list'
-        id="long-menu"
-        MenuListProps={{
-          "aria-labelledby": "long-button",
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleCloseMoreOptions}
-        disableScrollLock={true}
-      >
-        {options.map((option) => (
-          <MenuItem
-            key={option.id}
-            onClick={option.clickFunction}
-          >
-            <ListItemIcon>
-              {option.icon}
-            </ListItemIcon>
-            <ListItemText>{option.text}</ListItemText>
-          </MenuItem>
-
-        ))}
-      </Menu>
-
 
       {/* edit invoice modal */}
       <Modal
         open={editInvoicePopup}
-        onClose={(e) => {
-          e.stopPropagation()
-          handleCloseEditInvoicePopup()
-        }}
+        onClose={() => handleCloseEditInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <EditInvoicePopup creator={editCreator} createdDate={editCreatedDate} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
+        <EditInvoicePopup data={selectedRowOption} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
       </Modal>
 
 
@@ -678,7 +716,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <SendEmailPopup sendEmailId={sendEmailId} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
+        <SendEmailPopup data={selectedRowOption} sendEmailId={sendEmailId} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
       </Modal>
 
 
@@ -690,7 +728,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <AddPaymentPopup handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
+        <AddPaymentPopup data={selectedRowOption} handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
       </Modal>
 
 
@@ -702,7 +740,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <CloneInvoicePopup handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
+        <CloneInvoicePopup data={selectedRowOption} handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
       </Modal>
 
 
@@ -714,7 +752,31 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <ChangeCategoryPopup handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
+        <ChangeCategoryPopup data={selectedRowOption} handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
+      </Modal>
+
+      
+      {/* detach invoice modal */}
+      <Modal
+        open={detachInvoicePopup}
+        onClose={() => handleCloseDetachInvoicePopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <DetachInvoicePopup data={selectedRowOption} handleCloseDetachInvoicePopup={handleCloseDetachInvoicePopup} />
+      </Modal>
+
+
+      {/* attach project modal */}
+      <Modal
+        open={attachProjectPopup}
+        onClose={() => handleCloseAttachProjectPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <AttachProjectPopup data={selectedRowOption} handleCloseAttachProjectPopup={handleCloseAttachProjectPopup} />
       </Modal>
 
     </>

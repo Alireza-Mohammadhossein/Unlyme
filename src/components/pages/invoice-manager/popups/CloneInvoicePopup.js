@@ -17,11 +17,15 @@ import LoopIcon from '@mui/icons-material/Loop';
 import Alert from '@mui/material/Alert';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { toast } from "react-toastify";
 
 
 
 
-const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup }) => {
+
+
+
+const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
 
     const [client, setClient] = useState('');
@@ -102,6 +106,17 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup }) => {
         setDueDate(null);
         setCategory('');
         setAdditionalInfo(false);
+        toast.error(`You have clicked on clone invoice by id = ${data.data.id}!`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
 

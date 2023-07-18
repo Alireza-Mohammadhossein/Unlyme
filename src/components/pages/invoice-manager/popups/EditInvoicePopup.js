@@ -17,11 +17,16 @@ import LoopIcon from '@mui/icons-material/Loop';
 import Alert from '@mui/material/Alert';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { toast } from "react-toastify";
 
 
 
 
-const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate }) => {
+
+
+const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
+
+    const [savedData, setSavedData] = useState(data.data ? data.data : data)
 
 
     const [client, setClient] = useState('');
@@ -102,6 +107,17 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate })
         setDueDate(null);
         setCategory('');
         setAdditionalInfo(false);
+        toast.error(`You have clicked on Edit invoice by id = ${savedData.id}!`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
 
@@ -150,11 +166,11 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate })
 
       <div className='invoice-manager-editinvoicepopup-info'>
         <div className='invoice-manager-editinvoicepopup-info-creator'>
-          <span>Created by:</span> {creator}
+          <span>Created by:</span> {savedData.creator}
         </div>
 
         <div className='invoice-manager-editinvoicepopup-info-date'>
-          {createdDate}
+          {savedData.date}
         </div>
       </div>
 

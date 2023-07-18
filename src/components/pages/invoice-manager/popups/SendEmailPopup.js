@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 
 
-const SendEmailPopup = ({ handleCloseSendEmailPopup, sendEmailId }) => {
+const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
 
 
   return (
@@ -31,7 +31,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, sendEmailId }) => {
 
             <div className='invoice-manager-sendemailpopup-content-btn'>
                 <Button onClick={() => {
-                  toast.success(`You have clicked on Send email by id = ${sendEmailId}!`, {
+                  toast.success(`You have clicked on Send email by id = ${data.id}!`, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,

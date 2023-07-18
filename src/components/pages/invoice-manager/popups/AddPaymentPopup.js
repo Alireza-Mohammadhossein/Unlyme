@@ -19,11 +19,13 @@ import LoopIcon from '@mui/icons-material/Loop';
 import Alert from '@mui/material/Alert';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { toast } from "react-toastify";
 
 
 
 
-const AddPaymentPopup = ({ handleCloseAddPaymentPopup }) => {
+
+const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
 
 
     const [createDate, setCreateDate] = useState(null);
@@ -59,6 +61,17 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup }) => {
       handleCloseAddPaymentPopup();
       setCreateDate(null);
       setAdditionalInfo(false);
+      toast.error(`You have clicked on Add new payment by id = ${data.data.id}!`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
 
 
