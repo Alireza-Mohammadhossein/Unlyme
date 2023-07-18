@@ -35,6 +35,7 @@ import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import EditInvoicePopup from '../popups/EditInvoicePopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
+import AddPaymentPopup from '../popups/AddPaymentPopup';
 
 
 
@@ -237,18 +238,8 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       icon: <MailOutlinedIcon />,
       text: 'Email to client',
       clickFunction: function() {
-          toast.error('You have clicked on Email to client!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+        handleOpenSendEmailPopup();
+        handleCloseMoreOptions();
       }
     },
     {
@@ -256,18 +247,8 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       icon: <AddCardOutlinedIcon />,
       text: 'Add new payment',
       clickFunction: function() {
-          toast.error('You have clicked on Add new payment!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+        handleOpenAddPaymentPopup()
+        handleCloseMoreOptions();
       }
     },
     {
@@ -408,6 +389,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   // end send email popup
 
 
+  // start edit invoice popup
   const [editInvoicePopup, setEditInvoicePopup] = useState(false);
   const [editCreator, setEditCreator] = useState('');
   const [editCreatedDate, setEditCreatedDate] = useState('');
@@ -418,6 +400,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
     setEditInvoicePopup(true);
   };
   const handleCloseEditInvoicePopup = () => setEditInvoicePopup(false);
+  // end edit invoice popup
+
+
+  // start edit invoice popup
+  const [addPaymentPopup, setAddPaymentPopup] = useState(false);
+
+  const handleOpenAddPaymentPopup = () => {
+    setAddPaymentPopup(true);
+  };
+  const handleCloseAddPaymentPopup = () => setAddPaymentPopup(false);
+  // end edit invoice popup
+
 
 
   return (
@@ -684,6 +678,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         className='cloud-page__header_invoice-details_add-modal'
       >
         <SendEmailPopup sendEmailId={sendEmailId} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
+      </Modal>
+
+
+      {/* add new payment modal */}
+      <Modal
+        open={addPaymentPopup}
+        onClose={() => handleCloseAddPaymentPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <AddPaymentPopup handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
       </Modal>
 
     </>
