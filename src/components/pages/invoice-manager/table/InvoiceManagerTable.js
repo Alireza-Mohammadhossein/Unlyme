@@ -36,6 +36,7 @@ import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import EditInvoicePopup from '../popups/EditInvoicePopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
+import CloneInvoicePopup from '../popups/CloneInvoicePopup';
 
 
 
@@ -256,18 +257,8 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       icon: <ContentCopyOutlinedIcon />,
       text: 'Clone invoice',
       clickFunction: function() {
-          toast.error('You have clicked on Clone invoice!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+        handleOpenCloneInvoicePopup();
+        handleCloseMoreOptions();
       }
     },
     {
@@ -403,14 +394,24 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   // end edit invoice popup
 
 
-  // start edit invoice popup
+  // start add payment popup
   const [addPaymentPopup, setAddPaymentPopup] = useState(false);
 
   const handleOpenAddPaymentPopup = () => {
     setAddPaymentPopup(true);
   };
   const handleCloseAddPaymentPopup = () => setAddPaymentPopup(false);
-  // end edit invoice popup
+  // end add payment popup
+
+
+  // start add payment popup
+  const [cloneInvoicePopup, setCloneInvoicePopup] = useState(false);
+
+  const handleOpenCloneInvoicePopup = () => {
+    setCloneInvoicePopup(true);
+  };
+  const handleCloseCloneInvoicePopup = () => setCloneInvoicePopup(false);
+  // end add payment popup
 
 
 
@@ -690,6 +691,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         className='cloud-page__header_invoice-details_add-modal'
       >
         <AddPaymentPopup handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
+      </Modal>
+
+
+      {/* clone invoice modal */}
+      <Modal
+        open={cloneInvoicePopup}
+        onClose={() => handleCloseCloneInvoicePopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <CloneInvoicePopup handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
       </Modal>
 
     </>
