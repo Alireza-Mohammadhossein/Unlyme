@@ -2783,6 +2783,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 2,
@@ -2792,6 +2793,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 3,
@@ -2801,6 +2803,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'Mike brown',
   },
   {
     id: 4,
@@ -2810,6 +2813,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
 
   {
@@ -2820,6 +2824,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 6,
@@ -2829,6 +2834,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 7,
@@ -2838,6 +2844,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'Mike brown',
   },
   {
     id: 8,
@@ -2847,6 +2854,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
   
 
@@ -2858,6 +2866,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 10,
@@ -2867,6 +2876,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 11,
@@ -2876,6 +2886,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'Mike brown',
   },
   {
     id: 12,
@@ -2885,6 +2896,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
 
   
@@ -2896,6 +2908,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 14,
@@ -2905,6 +2918,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 15,
@@ -2914,6 +2928,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'Mike brown',
   },
   {
     id: 16,
@@ -2923,6 +2938,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
   
 
@@ -2934,6 +2950,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 18,
@@ -2943,6 +2960,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 19,
@@ -2952,6 +2970,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'David brown',
   },
   {
     id: 20,
@@ -2961,6 +2980,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
   
   {
@@ -2971,6 +2991,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'paid',
+    creator: 'Mike brown',
   },
   {
     id: 22,
@@ -2980,6 +3001,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'due',
+    creator: 'David brown',
   },
   {
     id: 23,
@@ -2989,6 +3011,7 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'overdue',
+    creator: 'Mike brown',
   },
   {
     id: 24,
@@ -2998,5 +3021,6 @@ export const invoices = [
     amount: '$1,600.00',
     payment: '$1,600.00',
     status: 'draft',
+    creator: 'David brown',
   },
 ]

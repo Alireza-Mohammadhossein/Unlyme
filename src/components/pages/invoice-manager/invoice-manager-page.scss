@@ -215,9 +215,6 @@
 
                     }
 
-
-
-
                     &-actions.MuiTableCell-root {
                         padding: 10px;
                         cursor: pointer;
@@ -257,6 +254,16 @@
                                 .MuiSvgIcon-root {
                                     color: #51A3FF;
                                 }
+                            }
+                        }
+                    }
+
+                    &-actions_option-list {
+                        .MuiPaper-root {
+                            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1) !important;
+
+                            .MuiButtonBase-root {
+                                padding: 8px 30px 8px 20px;
                             }
                         }
                     }

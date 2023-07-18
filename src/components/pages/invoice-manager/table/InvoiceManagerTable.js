@@ -18,7 +18,7 @@ import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRen
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import Modal from '@mui/material/Modal';
-import DeleteInvoice from '../popups/DeleteInvoice';
+import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
@@ -33,6 +33,8 @@ import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
 import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import EditInvoicePopup from '../popups/EditInvoicePopup';
+import SendEmailPopup from '../popups/SendEmailPopup';
 
 
 
@@ -182,7 +184,6 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
 
     setFilteredInvoices(sortedList);
   }
-
   // end sort by date
 
 
@@ -199,9 +200,16 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   }
   // end show single mail handler
 
-
+  // start delete invoice popup
   const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
-  
+  const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
+  const handleOpenDeleteInvoicePopup = (id) => {
+    setDeleteInvoiceId(id);
+    setDeleteInvoicePopup(true)
+  };
+  const handleCloseDeleteInvoicePopup = () => setDeleteInvoicePopup(false);
+  // end delete invoice popup
+
 
   // start more options
   const options = [
@@ -378,6 +386,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       }
     }
   ]
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleMoreOptions = (event) => {
@@ -387,6 +396,28 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
     setAnchorEl(null);
   };
   // end more options
+
+  // start send email popup
+  const [sendEmailPopup, setSendEmailPopup] = useState(false);
+  const [sendEmailId, setSendEmailId] = useState(false);
+  const handleOpenSendEmailPopup = (id) => {
+    setSendEmailId(id);
+    setSendEmailPopup(true)
+  };
+  const handleCloseSendEmailPopup = () => setSendEmailPopup(false);
+  // end send email popup
+
+
+  const [editInvoicePopup, setEditInvoicePopup] = useState(false);
+  const [editCreator, setEditCreator] = useState('');
+  const [editCreatedDate, setEditCreatedDate] = useState('');
+
+  const handleOpenEditInvoicePopup = (creator, createdDate) => {
+    setEditCreator(creator);
+    setEditCreatedDate(createdDate)
+    setEditInvoicePopup(true);
+  };
+  const handleCloseEditInvoicePopup = () => setEditInvoicePopup(false);
 
 
   return (
@@ -516,17 +547,27 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                               <IconButton aria-label="delete"
                                  onClick={(e) => {
                                   e.stopPropagation();
-                                  setDeleteInvoicePopup(true)
+                                  handleOpenDeleteInvoicePopup(row.id)
                                 }}
                               >
                                 <DeleteOutlineOutlinedIcon />
                               </IconButton>
 
-                              <IconButton aria-label="edit">
+                              <IconButton aria-label="edit" 
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleOpenEditInvoicePopup(row.creator,row.date);
+                                }}
+                              >
                                 <DriveFileRenameOutlineOutlinedIcon />
                               </IconButton>
 
-                              <IconButton aria-label="open">
+                              <IconButton aria-label="open"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleOpenSendEmailPopup(row.id);
+                                }}
+                              >
                                 <OpenInNewOutlinedIcon />
                               </IconButton>
 
@@ -543,7 +584,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                                >
                                 <MoreHorizOutlinedIcon />
                               </IconButton>
-
+                               
 
                             </TableCell>
                             
@@ -580,17 +621,21 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       </Box>
 
 
+      {/* delete ivoice modal */}
       <Modal
         open={deleteInvoicePopup}
-        onClose={() => setDeleteInvoicePopup(false)}
+        onClose={() => handleCloseDeleteInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <DeleteInvoice setDeleteInvoicePopup={setDeleteInvoicePopup} />
+        <DeleteInvoicePopup deleteInvoiceId={deleteInvoiceId} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
       </Modal>
 
+
+      {/* more options list */}
       <Menu
+        className='invoice-page_main_invoice-tab-row-actions_option-list'
         id="long-menu"
         MenuListProps={{
           "aria-labelledby": "long-button",
@@ -613,8 +658,36 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
 
         ))}
       </Menu>
+
+
+      {/* edit invoice modal */}
+      <Modal
+        open={editInvoicePopup}
+        onClose={(e) => {
+          e.stopPropagation()
+          handleCloseEditInvoicePopup()
+        }}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <EditInvoicePopup creator={editCreator} createdDate={editCreatedDate} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
+      </Modal>
+
+
+      {/* send email modal */}
+      <Modal
+        open={sendEmailPopup}
+        onClose={() => handleCloseSendEmailPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <SendEmailPopup sendEmailId={sendEmailId} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
+      </Modal>
+
     </>
   );
 }
 
-export default InvoiceManagerTable;
+export default InvoiceManagerTable; 
