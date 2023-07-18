@@ -37,6 +37,7 @@ import EditInvoicePopup from '../popups/EditInvoicePopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
 import CloneInvoicePopup from '../popups/CloneInvoicePopup';
+import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 
 
 
@@ -266,18 +267,8 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       icon: <SellOutlinedIcon />,
       text: 'Change category',
       clickFunction: function() {
-          toast.error('You have clicked on Change category!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          handleCloseMoreOptions();
+        handleOpenChangeCategoryPopup();
+        handleCloseMoreOptions();
       }
     },
     {
@@ -404,14 +395,23 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   // end add payment popup
 
 
-  // start add payment popup
+  // start clone invoice popup
   const [cloneInvoicePopup, setCloneInvoicePopup] = useState(false);
 
   const handleOpenCloneInvoicePopup = () => {
     setCloneInvoicePopup(true);
   };
   const handleCloseCloneInvoicePopup = () => setCloneInvoicePopup(false);
-  // end add payment popup
+  // end clone invoice popup
+
+  // start change category popup
+  const [changeCategoryPopup, setChangeCategoryPopup] = useState(false);
+
+  const handleOpenChangeCategoryPopup = () => {
+    setChangeCategoryPopup(true);
+  };
+  const handleCloseChangeCategoryPopup = () => setChangeCategoryPopup(false);
+  // end change category popup
 
 
 
@@ -703,6 +703,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         className='cloud-page__header_invoice-details_add-modal'
       >
         <CloneInvoicePopup handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
+      </Modal>
+
+
+      {/* change category modal */}
+      <Modal
+        open={changeCategoryPopup}
+        onClose={() => handleCloseChangeCategoryPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <ChangeCategoryPopup handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
       </Modal>
 
     </>

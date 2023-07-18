@@ -10,8 +10,6 @@ import { toast } from "react-toastify";
 const SendEmailPopup = ({ handleCloseSendEmailPopup, sendEmailId }) => {
 
 
-
-
   return (
     <div className='invoice-manager-sendemailpopup'>
       <div className='invoice-manager-sendemailpopup-header'>
@@ -51,9 +49,6 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, sendEmailId }) => {
             </div>
       </div>
     </div>
-
-
-
   );
 }
 

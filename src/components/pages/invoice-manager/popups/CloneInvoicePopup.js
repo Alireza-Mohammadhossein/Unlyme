@@ -84,7 +84,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup }) => {
     
 
 
-    const handleCancelFilters = () => {
+    const handleCancelClone = () => {
         handleCloseCloneInvoicePopup();
         setClient('');
         setProject('');
@@ -94,7 +94,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup }) => {
         setAdditionalInfo(false);
       }
     
-      const handleSubmitFilters = () => {
+      const handleSubmitClone = () => {
         handleCloseCloneInvoicePopup();
         setClient('');
         setProject('');
@@ -274,9 +274,9 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup }) => {
         </div>
 
         <div className='invoice-manager-cloneinvoicepopup-btn'>
-          <Button className='invoice-manager-cloneinvoicepopup-btn-reset' onClick={handleCancelFilters}>Cancel</Button>
+          <Button className='invoice-manager-cloneinvoicepopup-btn-reset' onClick={handleCancelClone}>Cancel</Button>
 
-          <Button className='invoice-manager-cloneinvoicepopup-btn-submit' onClick={handleSubmitFilters}>Submit</Button>
+          <Button className='invoice-manager-cloneinvoicepopup-btn-submit' onClick={handleSubmitClone}>Submit</Button>
         </div>
       </div>
 

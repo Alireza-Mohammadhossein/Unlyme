@@ -84,7 +84,7 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate })
     
 
 
-    const handleCancelFilters = () => {
+    const handleCancelEdit = () => {
         handleCloseEditInvoicePopup();
         setClient('');
         setProject('');
@@ -94,7 +94,7 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate })
         setAdditionalInfo(false);
       }
     
-      const handleSubmitFilters = () => {
+      const handleSubmitEdit = () => {
         handleCloseEditInvoicePopup();
         setClient('');
         setProject('');
@@ -279,9 +279,9 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, creator, createdDate })
         </div>
 
         <div className='invoice-manager-editinvoicepopup-btn'>
-          <Button className='invoice-manager-editinvoicepopup-btn-reset' onClick={handleCancelFilters}>Cancel</Button>
+          <Button className='invoice-manager-editinvoicepopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>
 
-          <Button className='invoice-manager-editinvoicepopup-btn-submit' onClick={handleSubmitFilters}>Submit</Button>
+          <Button className='invoice-manager-editinvoicepopup-btn-submit' onClick={handleSubmitEdit}>Submit</Button>
         </div>
       </div>
 
