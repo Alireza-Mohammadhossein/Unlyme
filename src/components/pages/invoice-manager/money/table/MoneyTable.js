@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
-import InvoiceManagerTableHead from './InvoicesTableHead';
+import InvoiceManagerTableHead from './MoneyTableHead';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
@@ -81,7 +81,7 @@ function stableSort(array, comparator) {
 
 
 
-const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
+const MoneyTable = ({ invoices, searchText, setSearchText }) => {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('date');
   const [selected, setSelected] = useState([]);
@@ -184,6 +184,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
 
 
 
+
   const MoreOptionsMenu = (row) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -212,7 +213,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
         </IconButton>
 
         <Menu
-          className='invoice-manager-page_main_invoices-tab-row-actions_option-list'
+          className='invoice-manager-page_main_money-tab-row-actions_option-list'
           id="long-menu"
           MenuListProps={{
             "aria-labelledby": "long-button",
@@ -502,7 +503,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
               >
                 <Table
                   aria-labelledby="tableTitle"
-                  className='invoices-table'
+                  className='money-table'
                 >
                   <InvoiceManagerTableHead
                     numSelected={selected.length}
@@ -532,7 +533,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                             key={row.id}
                             selected={isItemSelected}
                             sx={{ cursor: 'pointer'}}
-                            className='invoice-manager-page_main_invoices-tab-row'
+                            className='invoice-manager-page_main_money-tab-row'
                           >
 
                             <TableCell padding="checkbox"
@@ -557,7 +558,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                               id={labelId}
                               scope="row"
                               align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
+                              className='invoice-manager-page_main_money-tab-row-item'
                             >
                               {row.date}
                             </TableCell>
@@ -565,49 +566,53 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item company'
+                              className='invoice-manager-page_main_money-tab-row-item company'
                             >
-                              {row.company}
+                              {row.description}
                             </TableCell>
 
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
+                              className='invoice-manager-page_main_money-tab-row-item'
+                            >
+                              {
+                                row.status === 'plus' ?
+                                  <p className='invoice-manager-page_main_money-tab-row-item-plus'>+ {row.amount}</p>
+                                :
+                                  <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
+
+                              }
+                            </TableCell>
+                            
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-manager-page_main_money-tab-row-item client'
+                            >
+                              {row.client}
+                            </TableCell>
+
+                            <TableCell
+                              scope="row"
+                              align="center"
+                              className='invoice-manager-page_main_money-tab-row-item'
                             >
                               {row.project}
                             </TableCell>
-                            
+
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
+                              className='invoice-manager-page_main_money-tab-row-item invoice'
                             >
-                              {row.amount}
+                              {row.invoice}
                             </TableCell>
 
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item payment'
-                            >
-                              {row.payment}
-                            </TableCell>
-                            
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className={`invoice-manager-page_main_invoices-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
-                            >
-                              <span>
-                                {row.status}
-                              </span>
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-actions'
+                              className='invoice-manager-page_main_money-tab-row-actions'
                             >
                               <IconButton aria-label="delete"
                                  onClick={(e) => {
@@ -640,7 +645,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                                 <OpenInNewOutlinedIcon />
                               </IconButton>
 
-                              <MoreOptionsMenu data={row} />
+                              {/* <MoreOptionsMenu data={row} /> */}
                             </TableCell>
                             
                           </TableRow>
@@ -651,7 +656,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                 </Table>
               </TableContainer>
               <TablePagination
-                className='invoices-pagination'
+                className='money-pagination'
                 rowsPerPageOptions={[20, 50, 100]}
                 component="div"
                 count={invoices.length}
@@ -788,4 +793,4 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
   );
 }
 
-export default InvoicesTable; 
+export default MoneyTable; 

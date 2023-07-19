@@ -11,11 +11,13 @@ import './invoice-manager-page.scss';
 import { useSelector } from 'react-redux';
 import InvoicesTable from './invoices/table/InvoicesTable';
 import { invoices } from '../../../mocks/mocks';
+import { money } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import MoneyTable from './money/table/MoneyTable';
 
 
 
@@ -56,10 +58,10 @@ const InvoiceManagerContent = () => {
 
 
   // start showing invoice category tab
-  const [showInvoice, setShowInvoice] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
   const handleShowInvoice = (event, newValue) => {
     if (event.target === event.currentTarget) {
-      setShowInvoice(newValue);
+      setActiveTab(newValue);
       // setNewMailToggler(false);
 
     }
@@ -95,7 +97,7 @@ const InvoiceManagerContent = () => {
           </Grid>
           <Grid item xl={10} lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
             <div className='cloud-page__header_invoice-manager-details'>
-              <InvoiceManagerDetailsBar showInvoice={showInvoice} setSearchText={setSearchText} />
+              <InvoiceManagerDetailsBar activeTab={activeTab} setSearchText={setSearchText} />
             </div>
           </Grid>
         </Grid>
@@ -133,7 +135,7 @@ const InvoiceManagerContent = () => {
                     <Tabs
                       orientation="vertical"
                       // variant="scrollable"
-                      value={showInvoice}
+                      value={activeTab}
                       onChange={handleShowInvoice}
                       aria-label="Vertical tabs example"
                       className='invoice-manager-page_sidebar-section_category-list'
@@ -181,25 +183,27 @@ const InvoiceManagerContent = () => {
             >
               <div className='invoice-manager-page_main'>
                 <div className='invoice-manager-page_main_invoices'>
-                  <TabPanel value={showInvoice} index={0} className='invoice-manager-page_main_invoices-tab'>
+                  <TabPanel value={activeTab} index={0} className='invoice-manager-page_main_invoices-tab'>
                     <InvoicesTable
-                      activeSingleInvoice={activeSingleInvoice}
-                      setActiveSingleInvoice={setActiveSingleInvoice}
                       invoices={invoices}
                       searchText={searchText}
                       setSearchText={setSearchText}
                     />
                   </TabPanel>
                   
-                  <TabPanel value={showInvoice} index={1}>
-                    drafts
+                  <TabPanel value={activeTab} index={1} className='invoice-manager-page_main_money-tab'>
+                    <MoneyTable
+                      invoices={money}
+                      searchText={searchText}
+                      setSearchText={setSearchText}
+                    />
                   </TabPanel>
                   
-                  <TabPanel value={showInvoice} index={2}>
+                  <TabPanel value={activeTab} index={2}>
                     sent
                   </TabPanel>
                   
-                  <TabPanel value={showInvoice} index={3}>
+                  <TabPanel value={activeTab} index={3}>
                     starred
                   </TabPanel>
                 </div>

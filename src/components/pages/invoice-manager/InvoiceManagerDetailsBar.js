@@ -11,31 +11,31 @@ import search from "../../../assets/images/header/new-icons/search.png";
 import FilterListIcon from '@mui/icons-material/FilterList';
 import AddIcon from '@mui/icons-material/Add';
 import Drawer from '@mui/material/Drawer';
-import FilterPopup from './invoices/popups/FilterPopup';
+import FilterInvoicesPopup from './invoices/popups/FilterInvoicesPopup';
+import FilterMoneyPopup from './money/popups/FilterMoneyPopup';
 import Modal from '@mui/material/Modal';
 import AddNewPopup from './invoices/popups/AddNewPopup';
 
 
 
 
-const InvoiceManagerDetailsBar = ({ setSearchText, showInvoice }) => {
+const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
     const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
 
 
-    const [filterPopup, setFilterPopup] = useState(false);
+    const [filterInvoicesPopup, setFilterInvoicesPopup] = useState(false);
+    const [filterMoneyPopup, setFilterMoneyPopup] = useState(false);
 
     useEffect(() => {
-      if (filterPopup) {
-          console.log('true', filterPopup)
+      if (filterInvoicesPopup) {
         document.getElementById('root').style.overflow = 'hidden';
         document.getElementById('root').style.height = '100vh';
       } else {
-        console.log('false', filterPopup)
         document.getElementById('root').style.overflow = 'auto';
         document.getElementById('root').style.height = 'auto';
       }
-    }, [filterPopup]);
+    }, [filterInvoicesPopup]);
 
 
 
@@ -63,13 +63,30 @@ const InvoiceManagerDetailsBar = ({ setSearchText, showInvoice }) => {
                 </div>
 
                 <div className='cloud-page__header_invoice-manager-details_filter'>
-                    <IconButton aria-label="filter" onClick={() => setFilterPopup(true)}>
-                        <FilterListIcon />
-                    </IconButton>
-                    
-                    <Drawer anchor='right' open={filterPopup} onClose={() => setFilterPopup(false)} disableScrollLock = {false} >
-                        <FilterPopup setFilterPopup={setFilterPopup} />
-                    </Drawer>
+                  {
+                    activeTab === 0 ?
+                      <>
+                        <IconButton aria-label="filter" onClick={() => {setFilterInvoicesPopup(true)}}>
+                            <FilterListIcon />
+                        </IconButton>
+                        
+                        <Drawer anchor='right' open={filterInvoicesPopup} onClose={() => setFilterInvoicesPopup(false)} disableScrollLock = {false} >
+                            <FilterInvoicesPopup setFilterInvoicesPopup={setFilterInvoicesPopup} />
+                        </Drawer>
+                      </>
+                    : activeTab === 1 ?
+                      <>
+                        <IconButton aria-label="filter" onClick={() => {setFilterMoneyPopup(true)}}>
+                            <FilterListIcon />
+                        </IconButton>
+                        
+                        <Drawer anchor='right' open={filterMoneyPopup} onClose={() => setFilterMoneyPopup(false)} disableScrollLock = {false} >
+                            <FilterMoneyPopup setFilterMoneyPopup={setFilterMoneyPopup} />
+                        </Drawer>
+                      </>
+                    :
+                      ''
+                  }
                 </div>
             </Grid>
 
@@ -78,7 +95,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, showInvoice }) => {
 
                   {
                     // when invoice tab is active
-                    showInvoice === 0 ?
+                    activeTab === 0 ?
                       <>
                         <Button
                           startIcon={<AddIcon />}
@@ -104,7 +121,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, showInvoice }) => {
                       </>
                     : 
                     // when money tab is active
-                    showInvoice === 1 ?
+                    activeTab === 1 ?
                       <>
                         <Button
                           startIcon={<AddIcon />}
