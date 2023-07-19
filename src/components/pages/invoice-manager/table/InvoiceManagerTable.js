@@ -40,6 +40,7 @@ import CloneInvoicePopup from '../popups/CloneInvoicePopup';
 import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
+import RecurringSettingPopup from '../popups/RecurringSettingPopup';
 
 
 
@@ -262,7 +263,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   }
 
 
-
+ 
   // start more options
   const options = [
     {
@@ -336,19 +337,9 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
       id: 8,
       icon: <LoopOutlinedIcon />,
       text: 'Recurring settings',
-      clickFunction: function() {
-          toast.error('You have clicked on Recurring settings!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          // handleCloseMoreOptions();
+      clickFunction: function(row) {
+        setSelectedRowOption(row);
+        handleOpenRecurringSettingPopup();
       }
     },
     {
@@ -491,6 +482,17 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
     setAttachProjectPopup(false);
   };
   // end change category popup
+
+  // start attach project popup
+  const [recurringSettingPopup, setRecurringSettingPopup] = useState(false);
+  const handleOpenRecurringSettingPopup = () => {
+    setRecurringSettingPopup(true);
+  };
+  const handleCloseRecurringSettingPopup = () => {
+    setSelectedRowOption([]);
+    setRecurringSettingPopup(false);
+  };
+  // end change category popup
   
 
 
@@ -630,8 +632,9 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                               </IconButton>
 
                               <IconButton aria-label="edit" 
-                                onClick={(e, row) => {
-                                  e.stopPropagation();
+                                onClick={(e) => {
+                                  // e.stopPropagation();
+                                  // console.log('row', row)
                                   setSelectedRowOption(row)
                                   handleOpenEditInvoicePopup();
                                 }}
@@ -777,6 +780,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         className='cloud-page__header_invoice-details_add-modal'
       >
         <AttachProjectPopup data={selectedRowOption} handleCloseAttachProjectPopup={handleCloseAttachProjectPopup} />
+      </Modal>
+
+      
+      {/* recurring setting modal */}
+      <Modal
+        open={recurringSettingPopup}
+        onClose={() => handleCloseRecurringSettingPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <RecurringSettingPopup data={selectedRowOption} handleCloseRecurringSettingPopup={handleCloseRecurringSettingPopup} />
       </Modal>
 
     </>
