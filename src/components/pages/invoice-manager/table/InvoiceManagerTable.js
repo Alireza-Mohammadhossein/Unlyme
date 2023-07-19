@@ -41,6 +41,7 @@ import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
 import RecurringSettingPopup from '../popups/RecurringSettingPopup';
+import InvoiceRecordPopup from '../popups/InvoiceRecord';
 
 
 
@@ -388,9 +389,9 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
 
   // start delete invoice popup
   const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
-  const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
-  const handleOpenDeleteInvoicePopup = (id) => {
-    setDeleteInvoiceId(id);
+  // const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
+  const handleOpenDeleteInvoicePopup = () => {
+    // setDeleteInvoiceId(id);
     setDeleteInvoicePopup(true)
   };
   const handleCloseDeleteInvoicePopup = () => {
@@ -402,7 +403,6 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
 
   // start send email popup
   const [sendEmailPopup, setSendEmailPopup] = useState(false);
-  const [sendEmailId, setSendEmailId] = useState(false);
   const handleOpenSendEmailPopup = () => {
     setSendEmailPopup(true)
   };
@@ -491,6 +491,17 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   const handleCloseRecurringSettingPopup = () => {
     setSelectedRowOption([]);
     setRecurringSettingPopup(false);
+  };
+  // end change category popup
+
+  // start attach project popup
+  const [invoiceRecordPopup, setInvoiceRecordPopup] = useState(false);
+  const handleOpenInvoiceRecordPopup = () => {
+    setInvoiceRecordPopup(true);
+  };
+  const handleCloseInvoiceRecordPopup = () => {
+    setSelectedRowOption([]);
+    setInvoiceRecordPopup(false);
   };
   // end change category popup
   
@@ -624,8 +635,9 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             >
                               <IconButton aria-label="delete"
                                  onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleOpenDeleteInvoicePopup(row.id)
+                                  // e.stopPropagation();
+                                  setSelectedRowOption(row);
+                                  handleOpenDeleteInvoicePopup()
                                 }}
                               >
                                 <DeleteOutlineOutlinedIcon />
@@ -644,9 +656,9 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
 
                               <IconButton aria-label="open"
                                 onClick={(e) => {
-                                  e.stopPropagation();
+                                  // e.stopPropagation();
                                   setSelectedRowOption(row)
-                                  handleOpenSendEmailPopup();
+                                  handleOpenInvoiceRecordPopup();
                                 }}
                               >
                                 <OpenInNewOutlinedIcon />
@@ -696,7 +708,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <DeleteInvoicePopup data={selectedRowOption} deleteInvoiceId={deleteInvoiceId} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
+        <DeleteInvoicePopup data={selectedRowOption} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
       </Modal>
 
       {/* edit invoice modal */}
@@ -719,7 +731,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-details_add-modal'
       >
-        <SendEmailPopup data={selectedRowOption} sendEmailId={sendEmailId} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
+        <SendEmailPopup data={selectedRowOption} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
       </Modal>
 
 
@@ -792,6 +804,18 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         className='cloud-page__header_invoice-details_add-modal'
       >
         <RecurringSettingPopup data={selectedRowOption} handleCloseRecurringSettingPopup={handleCloseRecurringSettingPopup} />
+      </Modal>
+
+
+      {/* edit invoice modal */}
+      <Modal
+        open={invoiceRecordPopup}
+        onClose={() => handleCloseInvoiceRecordPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-details_add-modal'
+      >
+        <InvoiceRecordPopup data={selectedRowOption} handleCloseInvoiceRecordPopup={handleCloseInvoiceRecordPopup} />
       </Modal>
 
     </>

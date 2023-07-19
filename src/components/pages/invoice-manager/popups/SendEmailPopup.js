@@ -31,7 +31,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
 
             <div className='invoice-manager-sendemailpopup-content-btn'>
                 <Button onClick={() => {
-                  toast.success(`You have clicked on Send email by id = ${data.id}!`, {
+                  toast.success(`You have clicked on Send email by id = ${data.data.id}!`, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,

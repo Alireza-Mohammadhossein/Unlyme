@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 
 
-const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, deleteInvoiceId }) => {
+const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
 
 
 
@@ -33,7 +33,7 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, deleteInvoiceId }) 
 
             <div className='invoice-manager-deletepopup-content-btn'>
                 <Button onClick={() => {
-                  toast.error(`You have clicked on Delete invoice by id = ${deleteInvoiceId}!`, {
+                  toast.error(`You have clicked on Delete invoice by id = ${data.id}!`, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
