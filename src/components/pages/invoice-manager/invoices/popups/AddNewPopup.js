@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -17,16 +17,11 @@ import LoopIcon from '@mui/icons-material/Loop';
 import Alert from '@mui/material/Alert';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { toast } from "react-toastify";
 
 
 
 
-
-
-const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
-
-    const [savedData, setSavedData] = useState(data.data ? data.data : data)
+const AddNewPopup = ({ handleCloseAddNewPopup }) => {
 
 
     const [client, setClient] = useState('');
@@ -89,8 +84,8 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
     
 
 
-    const handleCancelEdit = () => {
-        handleCloseEditInvoicePopup();
+    const handleCancelFilters = () => {
+        handleCloseAddNewPopup();
         setClient('');
         setProject('');
         setCreateDate(null);
@@ -99,25 +94,14 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
         setAdditionalInfo(false);
       }
     
-      const handleSubmitEdit = () => {
-        handleCloseEditInvoicePopup();
+      const handleSubmitFilters = () => {
+        handleCloseAddNewPopup();
         setClient('');
         setProject('');
         setCreateDate(null);
         setDueDate(null);
         setCategory('');
         setAdditionalInfo(false);
-        toast.error(`You have clicked on Edit invoice by id = ${savedData.id}!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
       }
 
 
@@ -150,37 +134,132 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
  
 
   return (
-    <div className='invoice-manager-editinvoicepopup'>
-      <div className='invoice-manager-editinvoicepopup-header'>
-        <div className='invoice-manager-editinvoicepopup-header-title'>
-          <p>Edit invoice</p>
+    <div className='invoices-addnewpopup'>
+      <div className='invoices-addnewpopup-header'>
+        <div className='invoices-addnewpopup-header-title'>
+          <p>Create new invoice</p>
         </div>
 
-        <div className='invoice-manager-editinvoicepopup-header-btn'>
-          <IconButton onClick={handleCloseEditInvoicePopup}>
+        <div className='invoices-addnewpopup-header-btn'>
+          <IconButton onClick={handleCloseAddNewPopup}>
             <CloseIcon />
           </IconButton>
         </div>
 
       </div>
 
-      <div className='invoice-manager-editinvoicepopup-info'>
-        <div className='invoice-manager-editinvoicepopup-info-creator'>
-          <span>Created by:</span> {savedData.creator}
-        </div>
+      <div className='invoices-addnewpopup-list'>
 
-        <div className='invoice-manager-editinvoicepopup-info-date'>
-          {savedData.date}
-        </div>
-      </div>
+        {
+          clientExistance === 'existing' ?
+            <>
+                <div className='invoices-addnewpopup-item flex'>
+                    <p className='invoices-addnewpopup-item-title'>
+                      Client
+                    </p>
 
-      <div className='invoice-manager-editinvoicepopup-list'>        
-        <div className='invoice-manager-editinvoicepopup-item flex'>
-          <p className="invoice-manager-editinvoicepopup-item-title">
+                    <TextField
+                        className='invoices-addnewpopup-item-input'
+                        variant="outlined"
+                        onChange={handleClient}
+                    />
+                </div>
+
+                <div className='invoices-addnewpopup-item flex pb-0'>
+                    <p className='invoices-addnewpopup-item-title'>
+                      Project
+                    </p>
+
+                    <FormControl fullWidth>
+                        <Select
+                          className="invoices-addnewpopup-item-select"
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          value={project}
+                          onChange={handleProject}
+                        >
+                          <MenuItem value='project1'>Project 1</MenuItem>
+                          <MenuItem value='project2'>Project 2</MenuItem>
+                          <MenuItem value='project3'>Project 3</MenuItem>
+                          <MenuItem value='project4'>Project 4</MenuItem>
+                        </Select>
+                    </FormControl>
+
+
+                </div>
+            </>
+          :
+            <>
+              <div className='invoices-addnewpopup-item flex'>
+                  <p className='invoices-addnewpopup-item-title'>
+                    Company name
+                  </p>
+
+                  <TextField
+                      className='invoices-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleCompanyName}
+                  />
+              </div>
+
+              <div className='invoices-addnewpopup-item flex'>
+                  <p className='invoices-addnewpopup-item-title'>
+                    Fist name
+                  </p>
+
+                  <TextField
+                      className='invoices-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleFirstName}
+                  />
+              </div>
+              
+              <div className='invoices-addnewpopup-item flex'>
+                  <p className='invoices-addnewpopup-item-title'>
+                    Last name
+                  </p>
+
+                  <TextField
+                      className='invoices-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleLastName}
+                  />
+              </div>
+              
+              <div className='invoices-addnewpopup-item flex'>
+                  <p className='invoices-addnewpopup-item-title'>
+                    Email address
+                  </p>
+
+                  <TextField
+                      className='invoices-addnewpopup-item-input'
+                      variant="outlined"
+                      type='email'
+                      onChange={handleEmail}
+                  />
+              </div>
+            </>
+        }
+
+        <div className='invoices-addnewpopup-item flex'>
+            <div className='invoices-addnewpopup-item-project_selection'>
+                <ToggleButtonGroup
+                  value={clientExistance}
+                  exclusive
+                  onChange={handleClientExistance}
+                >
+                  <ToggleButton value="new">New client</ToggleButton>
+                  <ToggleButton value="existing">Existing client</ToggleButton>
+                </ToggleButtonGroup>
+            </div>
+        </div>
+        
+        <div className='invoices-addnewpopup-item flex'>
+          <p className="invoices-addnewpopup-item-title">
               Invoice date
           </p>
 
-          <div className='invoice-manager-editinvoicepopup-item-date'>
+          <div className='invoices-addnewpopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
@@ -193,12 +272,12 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
           </div>
         </div>
 
-        <div className='invoice-manager-editinvoicepopup-item flex'>
-          <p className="invoice-manager-editinvoicepopup-item-title">
+        <div className='invoices-addnewpopup-item flex'>
+          <p className="invoices-addnewpopup-item-title">
               Due date
           </p>
 
-          <div className='invoice-manager-editinvoicepopup-item-date'>
+          <div className='invoices-addnewpopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
@@ -211,14 +290,14 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
           </div>
         </div>
 
-        <div className='invoice-manager-editinvoicepopup-item flex'>
-            <p className='invoice-manager-editinvoicepopup-item-title'>
+        <div className='invoices-addnewpopup-item flex'>
+            <p className='invoices-addnewpopup-item-title'>
               Category
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-editinvoicepopup-item-select"
+                  className="invoices-addnewpopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
@@ -232,8 +311,8 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-editinvoicepopup-item switch'>
-            <p className='invoice-manager-editinvoicepopup-item-title' onClick={handleAdditionalInfo}>
+        <div className='invoices-addnewpopup-item switch'>
+            <p className='invoices-addnewpopup-item-title' onClick={handleAdditionalInfo}>
               Additional information
             </p>
 
@@ -247,8 +326,8 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
         {
           additionalInfo ? 
               <>
-                <div className='invoice-manager-editinvoicepopup-item tags'>
-                  <p className='invoice-manager-editinvoicepopup-item-title'>
+                <div className='invoices-addnewpopup-item tags'>
+                  <p className='invoices-addnewpopup-item-title'>
                     Tags
                   </p>
 
@@ -270,13 +349,13 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
                   </Select>
                 </div>
 
-                <div className='invoice-manager-editinvoicepopup-item notes'>
-                  <p className='invoice-manager-editinvoicepopup-item-title'>
+                <div className='invoices-addnewpopup-item notes'>
+                  <p className='invoices-addnewpopup-item-title'>
                     Notes
                   </p>
 
                   <TextField
-                      className='invoice-manager-editinvoicepopup-item-input'
+                      className='invoices-addnewpopup-item-input'
                       variant="outlined"
                       onChange={handleNotes}
                       multiline
@@ -288,16 +367,16 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
               ''
         }
 
-        <div className='invoice-manager-editinvoicepopup-item flex'>
+        <div className='invoices-addnewpopup-item flex'>
             <Alert variant="outlined" severity="warning" icon={<LoopIcon sx={{color: "#93742A"}} />}>
                 Recurring invoice options are available after an invoice has been created
             </Alert>
         </div>
 
-        <div className='invoice-manager-editinvoicepopup-btn'>
-          <Button className='invoice-manager-editinvoicepopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>
+        <div className='invoices-addnewpopup-btn'>
+          <Button className='invoices-addnewpopup-btn-reset' onClick={handleCancelFilters}>Cancel</Button>
 
-          <Button className='invoice-manager-editinvoicepopup-btn-submit' onClick={handleSubmitEdit}>Submit</Button>
+          <Button className='invoices-addnewpopup-btn-submit' onClick={handleSubmitFilters}>Submit</Button>
         </div>
       </div>
 
@@ -309,4 +388,4 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 }
 
 
-export default EditInvoicePopup;
+export default AddNewPopup;

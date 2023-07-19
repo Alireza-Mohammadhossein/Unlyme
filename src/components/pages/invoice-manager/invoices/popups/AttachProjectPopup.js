@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -42,13 +42,13 @@ const AttachProjectPopup = ({ handleCloseAttachProjectPopup, data }) => {
       } 
 
   return (
-    <div className='invoice-manager-cloneinvoicepopup'>
-      <div className='invoice-manager-cloneinvoicepopup-header'>
-        <div className='invoice-manager-cloneinvoicepopup-header-title'>
+    <div className='invoices-cloneinvoicepopup'>
+      <div className='invoices-cloneinvoicepopup-header'>
+        <div className='invoices-cloneinvoicepopup-header-title'>
           <p>Attach to a project {data.data.id}</p>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-header-btn'>
+        <div className='invoices-cloneinvoicepopup-header-btn'>
           <IconButton onClick={handleCloseAttachProjectPopup}>
             <CloseIcon />
           </IconButton>
@@ -56,15 +56,15 @@ const AttachProjectPopup = ({ handleCloseAttachProjectPopup, data }) => {
 
       </div>
 
-      <div className='invoice-manager-cloneinvoicepopup-list'>
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-            <p className='invoice-manager-cloneinvoicepopup-item-title'>
+      <div className='invoices-cloneinvoicepopup-list'>
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
               Project
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-cloneinvoicepopup-item-select"
+                  className="invoices-cloneinvoicepopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={project}
@@ -78,10 +78,10 @@ const AttachProjectPopup = ({ handleCloseAttachProjectPopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-btn'>
-          <Button className='invoice-manager-cloneinvoicepopup-btn-reset' onClick={handleCancelProject}>Cancel</Button>
+        <div className='invoices-cloneinvoicepopup-btn'>
+          <Button className='invoices-cloneinvoicepopup-btn-reset' onClick={handleCancelProject}>Cancel</Button>
 
-          <Button className='invoice-manager-cloneinvoicepopup-btn-submit' onClick={() => handleSubmitProject(data)}>Submit</Button>
+          <Button className='invoices-cloneinvoicepopup-btn-submit' onClick={() => handleSubmitProject(data)}>Submit</Button>
         </div>
       </div>
 

@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
-import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -12,7 +9,7 @@ import { invoicesCategory } from '../../../mocks/mocks';
 import icon from "../../../assets/images/my-services/invoice-manager.png";
 import './invoice-manager-page.scss';
 import { useSelector } from 'react-redux';
-import InvoiceManagerTable from './table/InvoiceManagerTable';
+import InvoicesTable from './invoices/table/InvoicesTable';
 import { invoices } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -97,15 +94,15 @@ const InvoiceManagerContent = () => {
             </div>
           </Grid>
           <Grid item xl={10} lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
-            <div className='cloud-page__header_invoice-details'>
-              <InvoiceManagerDetailsBar setSearchText={setSearchText} />
+            <div className='cloud-page__header_invoice-manager-details'>
+              <InvoiceManagerDetailsBar showInvoice={showInvoice} setSearchText={setSearchText} />
             </div>
           </Grid>
         </Grid>
       </div>
 
       <div className="cloud-page__content">
-        <div className='invoice-page'>
+        <div className='invoice-manager-page'>
           <Grid container spacing={3}>
             <Grid 
               item 
@@ -117,11 +114,11 @@ const InvoiceManagerContent = () => {
                 display: {lg: secondPopupTab || activeSingleInvoice ? 'none' : 'block', md: secondPopupTab || activeSingleInvoice ? 'none' : 'block'},
               }}
             >
-              <div className='invoice-page_sidebar'>
-                {/* <div className='invoice-page_sidebar_create-event'>
+              <div className='invoice-manager-page_sidebar'>
+                {/* <div className='invoice-manager-page_sidebar_create-event'>
                   <Button
                     startIcon={<AddIcon />}
-                    className="invoice-page_sidebar_create-event_btn"
+                    className="invoice-manager-page_sidebar_create-event_btn"
                     aria-label="more"
                     id="long-button"
                     aria-haspopup="true"
@@ -131,25 +128,25 @@ const InvoiceManagerContent = () => {
                   </Button>
                 </div> */}
 
-                <div className='invoice-page_sidebar-section'>
-                  <div className='invoice-page_sidebar-section_category'>
+                <div className='invoice-manager-page_sidebar-section'>
+                  <div className='invoice-manager-page_sidebar-section_category'>
                     <Tabs
                       orientation="vertical"
                       // variant="scrollable"
                       value={showInvoice}
                       onChange={handleShowInvoice}
                       aria-label="Vertical tabs example"
-                      className='invoice-page_sidebar-section_category-list'
+                      className='invoice-manager-page_sidebar-section_category-list'
                     >
                       {invoicesCategory.map((item, index) => (
                         <Tab
-                          className='invoice-page_sidebar-section_category-item'
+                          className='invoice-manager-page_sidebar-section_category-item'
                           key={item.id}
                           {...a11yProps(index)}
                           component={'div'}
                           label={
                             <>
-                              <div className='invoice-page_sidebar-section_category-item_content'>
+                              <div className='invoice-manager-page_sidebar-section_category-item_content'>
                                 {/* <Button variant="outlined" startIcon={<InboxOutlinedIcon />}>
                                   {item.title}
                                 </Button> */}
@@ -160,8 +157,8 @@ const InvoiceManagerContent = () => {
                                   <CheckBoxOutlineBlankIcon />
                                 }
                                  {/* <InboxOutlinedIcon/> */}
-                                  {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='invoice-page_sidebar-section_category-item_content-icon' /> */}
-                                  <p className='invoice-page_sidebar-section_category-item_content-title'>{item.title}</p>
+                                  {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='invoice-manager-page_sidebar-section_category-item_content-icon' /> */}
+                                  <p className='invoice-manager-page_sidebar-section_category-item_content-title'>{item.title}</p>
                               </div>
                               
                             </>
@@ -182,10 +179,10 @@ const InvoiceManagerContent = () => {
               md={secondPopupTab || activeSingleInvoice ? 12 : 9}
               xs={12}
             >
-              <div className='invoice-page_main'>
-                <div className='invoice-page_main_invoice'>
-                  <TabPanel value={showInvoice} index={0} className='invoice-page_main_invoice-tab'>
-                    <InvoiceManagerTable
+              <div className='invoice-manager-page_main'>
+                <div className='invoice-manager-page_main_invoices'>
+                  <TabPanel value={showInvoice} index={0} className='invoice-manager-page_main_invoices-tab'>
+                    <InvoicesTable
                       activeSingleInvoice={activeSingleInvoice}
                       setActiveSingleInvoice={setActiveSingleInvoice}
                       invoices={invoices}

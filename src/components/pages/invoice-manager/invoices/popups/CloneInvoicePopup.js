@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import InputAdornment from '@mui/material/InputAdornment';
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import Switch from '@mui/material/Switch';
-import LoopIcon from '@mui/icons-material/Loop';
-import Alert from '@mui/material/Alert';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { toast } from "react-toastify";
 
 
@@ -149,13 +141,13 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
  
 
   return (
-    <div className='invoice-manager-cloneinvoicepopup'>
-      <div className='invoice-manager-cloneinvoicepopup-header'>
-        <div className='invoice-manager-cloneinvoicepopup-header-title'>
+    <div className='invoices-cloneinvoicepopup'>
+      <div className='invoices-cloneinvoicepopup-header'>
+        <div className='invoices-cloneinvoicepopup-header-title'>
           <p>Clone invoice</p>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-header-btn'>
+        <div className='invoices-cloneinvoicepopup-header-btn'>
           <IconButton onClick={handleCloseCloneInvoicePopup}>
             <CloseIcon />
           </IconButton>
@@ -163,13 +155,13 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
       </div>
 
-      <div className='invoice-manager-cloneinvoicepopup-list'>        
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-          <p className="invoice-manager-cloneinvoicepopup-item-title">
+      <div className='invoices-cloneinvoicepopup-list'>        
+        <div className='invoices-cloneinvoicepopup-item flex'>
+          <p className="invoices-cloneinvoicepopup-item-title">
               Invoice date
           </p>
 
-          <div className='invoice-manager-cloneinvoicepopup-item-date'>
+          <div className='invoices-cloneinvoicepopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
@@ -182,12 +174,12 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-          <p className="invoice-manager-cloneinvoicepopup-item-title">
+        <div className='invoices-cloneinvoicepopup-item flex'>
+          <p className="invoices-cloneinvoicepopup-item-title">
               Due date
           </p>
 
-          <div className='invoice-manager-cloneinvoicepopup-item-date'>
+          <div className='invoices-cloneinvoicepopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
@@ -200,14 +192,14 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-            <p className='invoice-manager-cloneinvoicepopup-item-title'>
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
               Client
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-cloneinvoicepopup-item-select"
+                  className="invoices-cloneinvoicepopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={client}
@@ -221,14 +213,14 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-            <p className='invoice-manager-cloneinvoicepopup-item-title'>
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
               Project
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-cloneinvoicepopup-item-select"
+                  className="invoices-cloneinvoicepopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={project}
@@ -244,8 +236,8 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-item tags'>
-          <p className='invoice-manager-cloneinvoicepopup-item-title'>
+        <div className='invoices-cloneinvoicepopup-item tags'>
+          <p className='invoices-cloneinvoicepopup-item-title'>
             Tags
           </p>
 
@@ -267,14 +259,14 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
           </Select>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-            <p className='invoice-manager-cloneinvoicepopup-item-title'>
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
               Category
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-cloneinvoicepopup-item-select"
+                  className="invoices-cloneinvoicepopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
@@ -288,10 +280,10 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-btn'>
-          <Button className='invoice-manager-cloneinvoicepopup-btn-reset' onClick={handleCancelClone}>Cancel</Button>
+        <div className='invoices-cloneinvoicepopup-btn'>
+          <Button className='invoices-cloneinvoicepopup-btn-reset' onClick={handleCancelClone}>Cancel</Button>
 
-          <Button className='invoice-manager-cloneinvoicepopup-btn-submit' onClick={handleSubmitClone}>Submit</Button>
+          <Button className='invoices-cloneinvoicepopup-btn-submit' onClick={handleSubmitClone}>Submit</Button>
         </div>
       </div>
 

@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
-import InputAdornment from '@mui/material/InputAdornment';
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
 
 
@@ -47,13 +41,13 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
       } 
 
   return (
-    <div className='invoice-manager-cloneinvoicepopup'>
-      <div className='invoice-manager-cloneinvoicepopup-header'>
-        <div className='invoice-manager-cloneinvoicepopup-header-title'>
+    <div className='invoices-cloneinvoicepopup'>
+      <div className='invoices-cloneinvoicepopup-header'>
+        <div className='invoices-cloneinvoicepopup-header-title'>
           <p>Change category</p>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-header-btn'>
+        <div className='invoices-cloneinvoicepopup-header-btn'>
           <IconButton onClick={handleCloseChangeCategoryPopup}>
             <CloseIcon />
           </IconButton>
@@ -61,15 +55,15 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
 
       </div>
 
-      <div className='invoice-manager-cloneinvoicepopup-list'>
-        <div className='invoice-manager-cloneinvoicepopup-item flex'>
-            <p className='invoice-manager-cloneinvoicepopup-item-title'>
+      <div className='invoices-cloneinvoicepopup-list'>
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
               Category
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-cloneinvoicepopup-item-select"
+                  className="invoices-cloneinvoicepopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
@@ -83,10 +77,10 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-cloneinvoicepopup-btn'>
-          <Button className='invoice-manager-cloneinvoicepopup-btn-reset' onClick={handleCancelCategory}>Cancel</Button>
+        <div className='invoices-cloneinvoicepopup-btn'>
+          <Button className='invoices-cloneinvoicepopup-btn-reset' onClick={handleCancelCategory}>Cancel</Button>
 
-          <Button className='invoice-manager-cloneinvoicepopup-btn-submit' onClick={handleSubmitCategory}>Submit</Button>
+          <Button className='invoices-cloneinvoicepopup-btn-submit' onClick={handleSubmitCategory}>Submit</Button>
         </div>
       </div>
 

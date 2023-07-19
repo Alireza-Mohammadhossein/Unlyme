@@ -67,7 +67,7 @@ const headCells = [
 
 
   
-const InvoiceManagerTableHead = (props) => {
+const InvoicesTableHead = (props) => {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler } =
       props;
     const createSortHandler = (property) => (event) => {
@@ -156,9 +156,9 @@ const InvoiceManagerTableHead = (props) => {
 
     return (
       <>
-        <TableHead className='invoice-header'>
-          <TableRow className='invoice-header-row'>
-            <TableCell padding="checkbox" className='invoice-header-row-selected'>
+        <TableHead className='invoices-header'>
+          <TableRow className='invoices-header-row'>
+            <TableCell padding="checkbox" className='invoices-header-row-selected'>
               <Checkbox
                 color="primary"
                 indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -168,7 +168,7 @@ const InvoiceManagerTableHead = (props) => {
             </TableCell>
     
             
-            <TableCell padding="checkbox" className='invoice-header-row-option'>
+            <TableCell padding="checkbox" className='invoices-header-row-option'>
               {numSelected > 0 ?
                 numSelected
               : 
@@ -176,9 +176,9 @@ const InvoiceManagerTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={4} padding="checkbox" className='invoice-header-row-option'>
+            <TableCell colSpan={4} padding="checkbox" className='invoices-header-row-option'>
               {numSelected > 0 ?
-                <div className='invoice-header-row-option-container'>
+                <div className='invoices-header-row-option-container'>
                   <Button startIcon={<DeleteOutlineOutlinedIcon />}>
                     Delete
                   </Button>
@@ -272,7 +272,7 @@ const InvoiceManagerTableHead = (props) => {
             ))}
           </TableRow>
 
-          <TableRow className='invoice-header-row'>
+          <TableRow className='invoices-header-row'>
             <TableCell>
               
             </TableCell>
@@ -281,7 +281,7 @@ const InvoiceManagerTableHead = (props) => {
             <TableCell
               key={headCell.id}
               align="center"
-              className='invoice-header-row-cell'
+              className='invoices-header-row-cell'
               // align={headCell.numeric ? 'right' : 'left'}
               // padding={headCell.disablePadding ? 'none' : 'normal'}
               // sortDirection={orderBy === headCell.id ? order : false}
@@ -295,4 +295,4 @@ const InvoiceManagerTableHead = (props) => {
     );
 }
 
-export default InvoiceManagerTableHead;
+export default InvoicesTableHead;

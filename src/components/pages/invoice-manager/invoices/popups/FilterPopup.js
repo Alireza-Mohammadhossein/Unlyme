@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -127,14 +127,14 @@ const FilterPopup = ({ setFilterPopup }) => {
 
 
   return (
-    <div className='invoice-manager-filterpopup'>
-      <div className='invoice-manager-filterpopup-header'>
-        <div className='invoice-manager-filterpopup-header-title'>
+    <div className='invoices-filterpopup'>
+      <div className='invoices-filterpopup-header'>
+        <div className='invoices-filterpopup-header-title'>
           <FilterListIcon />
           <p>Filter invoices</p>
         </div>
 
-        <div className='invoice-manager-filterpopup-header-btn'>
+        <div className='invoices-filterpopup-header-btn'>
           <IconButton onClick={() => setFilterPopup(false)}>
             <CloseIcon />
           </IconButton>
@@ -142,15 +142,15 @@ const FilterPopup = ({ setFilterPopup }) => {
 
       </div>
 
-      <div className='invoice-manager-filterpopup-list'>
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+      <div className='invoices-filterpopup-list'>
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Client Name
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={client}
@@ -165,14 +165,14 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-item'> 
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'> 
+          <p className="invoices-filterpopup-item-title">
               Project
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={project}
@@ -186,17 +186,17 @@ const FilterPopup = ({ setFilterPopup }) => {
           </FormControl>
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Invoice Amount
           </p>
 
-          <div className='invoice-manager-filterpopup-item-double'>
+          <div className='invoices-filterpopup-item-double'>
             <TextField
               placeholder="Min"
               value={invoiceMin}
               onChange={handleInvoiceMin}
-              className="invoice-manager-filterpopup-item-input"
+              className="invoices-filterpopup-item-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -207,7 +207,7 @@ const FilterPopup = ({ setFilterPopup }) => {
               placeholder="Max"
               value={invoiceMax}
               onChange={handleInvoiceMax}
-              className="invoice-manager-filterpopup-item-input"
+              className="invoices-filterpopup-item-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -217,17 +217,17 @@ const FilterPopup = ({ setFilterPopup }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Payments Amount
           </p>
 
-          <div className='invoice-manager-filterpopup-item-double'>
+          <div className='invoices-filterpopup-item-double'>
             <TextField
               placeholder="Min"
               value={paymentMin}
               onChange={handlePaymentMin}
-              className="invoice-manager-filterpopup-item-input"
+              className="invoices-filterpopup-item-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -238,7 +238,7 @@ const FilterPopup = ({ setFilterPopup }) => {
               placeholder="Max"
               value={paymentMax}
               onChange={handlePaymentMax}
-              className="invoice-manager-filterpopup-item-input"
+              className="invoices-filterpopup-item-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -248,12 +248,12 @@ const FilterPopup = ({ setFilterPopup }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Date Created
           </p>
 
-          <div className='invoice-manager-filterpopup-item-double'>
+          <div className='invoices-filterpopup-item-double'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: 'Start' } }}
@@ -276,12 +276,12 @@ const FilterPopup = ({ setFilterPopup }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Due Date
           </p>
 
-          <div className='invoice-manager-filterpopup-item-double'>
+          <div className='invoices-filterpopup-item-double'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: 'Start' } }}
@@ -304,14 +304,14 @@ const FilterPopup = ({ setFilterPopup }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Status
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={status}
@@ -326,14 +326,14 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Added by
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={creator}
@@ -348,14 +348,14 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Recurring
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={recurring}
@@ -370,14 +370,14 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-item'>
-          <p className="invoice-manager-filterpopup-item-title">
+        <div className='invoices-filterpopup-item'>
+          <p className="invoices-filterpopup-item-title">
               Category
           </p>
 
           <FormControl fullWidth>
             <Select
-              className="invoice-manager-filterpopup-item-select"
+              className="invoices-filterpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={category}
@@ -392,10 +392,10 @@ const FilterPopup = ({ setFilterPopup }) => {
 
         </div>
 
-        <div className='invoice-manager-filterpopup-btn'>
-          <Button className='invoice-manager-filterpopup-btn-reset' onClick={handleResetFilters}>Reset</Button>
+        <div className='invoices-filterpopup-btn'>
+          <Button className='invoices-filterpopup-btn-reset' onClick={handleResetFilters}>Reset</Button>
 
-          <Button className='invoice-manager-filterpopup-btn-submit' onClick={handleSubmitFilters}>Apply Filter</Button>
+          <Button className='invoices-filterpopup-btn-submit' onClick={handleSubmitFilters}>Apply Filter</Button>
         </div>
       </div>
     </div>

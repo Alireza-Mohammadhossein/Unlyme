@@ -1,5 +1,5 @@
 import React from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import { toast } from "react-toastify";
 
@@ -13,25 +13,25 @@ const DetachInvoicePopup = ({ handleCloseDetachInvoicePopup, data }) => {
 
 
   return (
-    <div className='invoice-manager-detachpopup'>
-      <div className='invoice-manager-detachpopup-header'>
-        <div className='invoice-manager-detachpopup-header-title'>
+    <div className='invoices-detachpopup'>
+      <div className='invoices-detachpopup-header'>
+        <div className='invoices-detachpopup-header-title'>
           <p>Detach from project</p>
         </div>
         
-        <div className='invoice-manager-detachpopup-header-subtitle'>
+        <div className='invoices-detachpopup-header-subtitle'>
           <p>Are you sure you want to detach this invoice from the project?</p>
         </div>
       </div>
 
-      <div className='invoice-manager-detachpopup-content'>
-            <div className='invoice-manager-detachpopup-content-btn'>
+      <div className='invoices-detachpopup-content'>
+            <div className='invoices-detachpopup-content-btn'>
                 <Button onClick={() => handleCloseDetachInvoicePopup(false)}>
                     Cancel
                 </Button>
             </div>
 
-            <div className='invoice-manager-detachpopup-content-btn'>
+            <div className='invoices-detachpopup-content-btn'>
                 <Button onClick={() => {
                   toast.error(`You have clicked on Detach invoice! by id = ${data.data.id}!`, {
                     position: "top-center",

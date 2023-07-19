@@ -9,10 +9,9 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import SingleInvoice from '../single-invoice/SingleInvoice';
 import { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
-import InvoiceManagerTableHead from './InvoiceManagerTableHead';
+import InvoiceManagerTableHead from './InvoicesTableHead';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
@@ -82,7 +81,7 @@ function stableSort(array, comparator) {
 
 
 
-const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invoices, searchText, setSearchText }) => {
+const InvoicesTable = ({ activeSingleInvoice, setActiveSingleInvoice, invoices, searchText, setSearchText }) => {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('date');
   const [selected, setSelected] = useState([]);
@@ -236,7 +235,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         </IconButton>
 
         <Menu
-          className='invoice-page_main_invoice-tab-row-actions_option-list'
+          className='invoice-manager-page_main_invoices-tab-row-actions_option-list'
           id="long-menu"
           MenuListProps={{
             "aria-labelledby": "long-button",
@@ -526,7 +525,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
               >
                 <Table
                   aria-labelledby="tableTitle"
-                  className='invoice-table'
+                  className='invoices-table'
                 >
                   <InvoiceManagerTableHead
                     numSelected={selected.length}
@@ -556,7 +555,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             key={row.id}
                             selected={isItemSelected}
                             sx={{ cursor: 'pointer'}}
-                            className='invoice-page_main_invoice-tab-row'
+                            className='invoice-manager-page_main_invoices-tab-row'
                           >
 
                             <TableCell padding="checkbox"
@@ -581,7 +580,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                               id={labelId}
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-item'
+                              className='invoice-manager-page_main_invoices-tab-row-item'
                             >
                               {row.date}
                             </TableCell>
@@ -589,7 +588,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-item company'
+                              className='invoice-manager-page_main_invoices-tab-row-item company'
                             >
                               {row.company}
                             </TableCell>
@@ -597,7 +596,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-item'
+                              className='invoice-manager-page_main_invoices-tab-row-item'
                             >
                               {row.project}
                             </TableCell>
@@ -605,7 +604,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-item'
+                              className='invoice-manager-page_main_invoices-tab-row-item'
                             >
                               {row.amount}
                             </TableCell>
@@ -613,7 +612,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-item payment'
+                              className='invoice-manager-page_main_invoices-tab-row-item payment'
                             >
                               {row.payment}
                             </TableCell>
@@ -621,7 +620,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className={`invoice-page_main_invoice-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
+                              className={`invoice-manager-page_main_invoices-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
                             >
                               <span>
                                 {row.status}
@@ -631,7 +630,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                             <TableCell
                               scope="row"
                               align="center"
-                              className='invoice-page_main_invoice-tab-row-actions'
+                              className='invoice-manager-page_main_invoices-tab-row-actions'
                             >
                               <IconButton aria-label="delete"
                                  onClick={(e) => {
@@ -675,7 +674,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                 </Table>
               </TableContainer>
               <TablePagination
-                className='invoice-pagination'
+                className='invoices-pagination'
                 rowsPerPageOptions={[20, 50, 100]}
                 component="div"
                 count={invoices.length}
@@ -685,16 +684,6 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
             </Paper>
-          </Grid>
-
-          <Grid item 
-            sx={{display: activeSingleInvoice ? 'block' : 'none'}}
-              xs = {6}
-            >
-
-            <SingleInvoice userIcon={userIcon} mailFrom={mailFrom} mailTo={mailTo} mailSubject={mailSubject} mailTitle={mailTitle} mailMessage={mailMessage} setActiveSingleInvoice={setActiveSingleInvoice} />
-          
-          
           </Grid>
         </Grid>
       </Box>
@@ -706,7 +695,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseDeleteInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <DeleteInvoicePopup data={selectedRowOption} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
       </Modal>
@@ -717,7 +706,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseEditInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <EditInvoicePopup data={selectedRowOption} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
       </Modal>
@@ -729,7 +718,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseSendEmailPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <SendEmailPopup data={selectedRowOption} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
       </Modal>
@@ -741,7 +730,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseAddPaymentPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <AddPaymentPopup data={selectedRowOption} handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
       </Modal>
@@ -753,7 +742,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseCloneInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <CloneInvoicePopup data={selectedRowOption} handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
       </Modal>
@@ -765,7 +754,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseChangeCategoryPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <ChangeCategoryPopup data={selectedRowOption} handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
       </Modal>
@@ -777,7 +766,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseDetachInvoicePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <DetachInvoicePopup data={selectedRowOption} handleCloseDetachInvoicePopup={handleCloseDetachInvoicePopup} />
       </Modal>
@@ -789,7 +778,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseAttachProjectPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <AttachProjectPopup data={selectedRowOption} handleCloseAttachProjectPopup={handleCloseAttachProjectPopup} />
       </Modal>
@@ -801,7 +790,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseRecurringSettingPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <RecurringSettingPopup data={selectedRowOption} handleCloseRecurringSettingPopup={handleCloseRecurringSettingPopup} />
       </Modal>
@@ -813,7 +802,7 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
         onClose={() => handleCloseInvoiceRecordPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-details_add-modal'
+        className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <InvoiceRecordPopup data={selectedRowOption} handleCloseInvoiceRecordPopup={handleCloseInvoiceRecordPopup} />
       </Modal>
@@ -822,4 +811,4 @@ const InvoiceManagerTable = ({ activeSingleInvoice, setActiveSingleInvoice, invo
   );
 }
 
-export default InvoiceManagerTable; 
+export default InvoicesTable; 

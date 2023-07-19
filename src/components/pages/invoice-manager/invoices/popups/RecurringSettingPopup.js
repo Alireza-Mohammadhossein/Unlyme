@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -64,13 +64,13 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
  
 
   return (
-    <div className='invoice-manager-recurringsettingpopup'>
-      <div className='invoice-manager-recurringsettingpopup-header'>
-        <div className='invoice-manager-recurringsettingpopup-header-title'>
+    <div className='invoices-recurringsettingpopup'>
+      <div className='invoices-recurringsettingpopup-header'>
+        <div className='invoices-recurringsettingpopup-header-title'>
           <p>Recurring setting</p>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-header-btn'>
+        <div className='invoices-recurringsettingpopup-header-btn'>
           <IconButton onClick={handleCloseRecurringSettingPopup}>
             <CloseIcon />
           </IconButton>
@@ -78,18 +78,18 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
 
       </div>
 
-      <div className='invoice-manager-recurringsettingpopup-list'>
+      <div className='invoices-recurringsettingpopup-list'>
 
-        <div className='invoice-manager-recurringsettingpopup-item'>
-            <p className='invoice-manager-recurringsettingpopup-item-title'>
+        <div className='invoices-recurringsettingpopup-item'>
+            <p className='invoices-recurringsettingpopup-item-title'>
               Repeat every
             </p>
 
-            <div className='invoice-manager-recurringsettingpopup-item-double'>
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
+            <div className='invoices-recurringsettingpopup-item-double'>
+                <div className='invoices-recurringsettingpopup-item-double-container'>
                     <FormControl fullWidth>
                         <Select
-                          className="invoice-manager-recurringsettingpopup-item-select"
+                          className="invoices-recurringsettingpopup-item-select"
                           labelId="demo-simple-select-label"
                           id="demo-simple-select"
                           value={repeatNumber}
@@ -105,10 +105,10 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                     </FormControl>
                 </div>
 
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
+                <div className='invoices-recurringsettingpopup-item-double-container'>
                     <FormControl fullWidth>
                         <Select
-                          className="invoice-manager-recurringsettingpopup-item-select"
+                          className="invoices-recurringsettingpopup-item-select"
                           labelId="demo-simple-select-label"
                           id="demo-simple-select"
                           value={repeatUnit}
@@ -125,16 +125,16 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
             </div>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-item'>
-            <p className='invoice-manager-recurringsettingpopup-item-title'>
+        <div className='invoices-recurringsettingpopup-item'>
+            <p className='invoices-recurringsettingpopup-item-title'>
               Cycles
             </p>
 
-            <div className='invoice-manager-recurringsettingpopup-item-double'>
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
+            <div className='invoices-recurringsettingpopup-item-double'>
+                <div className='invoices-recurringsettingpopup-item-double-container'>
                     <FormControl fullWidth>
                         <Select
-                          className="invoice-manager-recurringsettingpopup-item-select"
+                          className="invoices-recurringsettingpopup-item-select"
                           labelId="demo-simple-select-label"
                           id="demo-simple-select"
                           value={cycleNumber}
@@ -150,8 +150,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                     </FormControl>
                 </div>
 
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
-                    <Tooltip className='invoice-manager-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="Invoice will stop recurring after these number of cycles. For infinity, set the value to 0" arrow placement="top">
+                <div className='invoices-recurringsettingpopup-item-double-container'>
+                    <Tooltip className='invoices-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="Invoice will stop recurring after these number of cycles. For infinity, set the value to 0" arrow placement="top">
                         <IconButton>
                           <HelpOutlineIcon />
                         </IconButton>
@@ -160,14 +160,14 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
             </div>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-item'>
-            <p className='invoice-manager-recurringsettingpopup-item-title'>
+        <div className='invoices-recurringsettingpopup-item'>
+            <p className='invoices-recurringsettingpopup-item-title'>
               Next invoice date
             </p>
 
-            <div className='invoice-manager-recurringsettingpopup-item-double'>
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
-                    <div className='invoice-manager-recurringsettingpopup-item-date'>
+            <div className='invoices-recurringsettingpopup-item-double'>
+                <div className='invoices-recurringsettingpopup-item-double-container'>
+                    <div className='invoices-recurringsettingpopup-item-date'>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <MobileDatePicker
                             slotProps={{ textField: { placeholder: '' } }}
@@ -180,8 +180,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                     </div>
                 </div>
 
-                <div className='invoice-manager-recurringsettingpopup-item-double-container'>
-                    <Tooltip className='invoice-manager-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="See information below" arrow placement="top">
+                <div className='invoices-recurringsettingpopup-item-double-container'>
+                    <Tooltip className='invoices-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="See information below" arrow placement="top">
                         <IconButton>
                           <HelpOutlineIcon />
                         </IconButton>
@@ -190,8 +190,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
             </div>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-item'>
-            <div className='invoice-manager-recurringsettingpopup-item-alert'>
+        <div className='invoices-recurringsettingpopup-item'>
+            <div className='invoices-recurringsettingpopup-item-alert'>
                 {
                     firstAlert ? 
                         <Alert
@@ -219,8 +219,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
             </div>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-item'>
-            <div className='invoice-manager-recurringsettingpopup-item-alert'>
+        <div className='invoices-recurringsettingpopup-item'>
+            <div className='invoices-recurringsettingpopup-item-alert'>
                 {
                     secondAlert ? 
                         <Alert
@@ -248,10 +248,10 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
             </div>
         </div>
 
-        <div className='invoice-manager-recurringsettingpopup-btn'>
-          <Button className='invoice-manager-recurringsettingpopup-btn-reset' onClick={handleCancelRecurring}>Cancel</Button>
+        <div className='invoices-recurringsettingpopup-btn'>
+          <Button className='invoices-recurringsettingpopup-btn-reset' onClick={handleCancelRecurring}>Cancel</Button>
 
-          <Button className='invoice-manager-recurringsettingpopup-btn-submit' onClick={handleSubmitRecurring}>Submit</Button>
+          <Button className='invoices-recurringsettingpopup-btn-submit' onClick={handleSubmitRecurring}>Submit</Button>
         </div>
       </div>
 

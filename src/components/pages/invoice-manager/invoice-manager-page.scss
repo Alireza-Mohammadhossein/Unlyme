@@ -1,6 +1,6 @@
 @import '../../../styles/sass/variables.scss';
 
-.invoice-page {
+.invoice-manager-page {
     width: 100%;
     padding-bottom: 10px;
     // height: 75vh;
@@ -119,7 +119,7 @@
         height: 100%;
         padding: 0 10px 0 15px;
 
-        &_invoice {
+        &_invoices {
             width: 100%;
             height: 100%;
             background-color: #ffffff;
@@ -231,7 +231,7 @@
                     }
 
                     &:hover {
-                        .invoice-page_main_invoice-tab-row-actions {
+                        .invoice-manager-page_main_invoices-tab-row-actions {
                             .MuiButtonBase-root:nth-child(1) {
                                 .MuiSvgIcon-root {
                                     color: #FD5162;
@@ -273,12 +273,12 @@
 
     }
 
-    .invoice-table {
+    .invoices-table {
         border-collapse: separate;
     }
 
 
-    .invoice-header {
+    .invoices-header {
         width: 100%;
         position: sticky;
         top: 0;
@@ -322,13 +322,13 @@
         }
     }
 
-    .invoice-pagination {
+    .invoices-pagination {
         border-top: 1px solid rgba(224, 224, 224, 1);
     }
 }
 
 
-.cloud-page__header_invoice-details {
+.cloud-page__header_invoice-manager-details {
     // height: 40px;
     display: flex;
     gap: 10px;

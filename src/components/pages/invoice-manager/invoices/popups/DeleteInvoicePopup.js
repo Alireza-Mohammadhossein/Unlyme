@@ -1,5 +1,5 @@
 import React from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import { toast } from "react-toastify";
 
@@ -13,25 +13,25 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
 
 
   return (
-    <div className='invoice-manager-deletepopup'>
-      <div className='invoice-manager-deletepopup-header'>
-        <div className='invoice-manager-deletepopup-header-title'>
+    <div className='invoices-deletepopup'>
+      <div className='invoices-deletepopup-header'>
+        <div className='invoices-deletepopup-header-title'>
           <p>Delete invoice</p>
         </div>
         
-        <div className='invoice-manager-deletepopup-header-subtitle'>
+        <div className='invoices-deletepopup-header-subtitle'>
           <p>Are you sure you want to delete this invoice?</p>
         </div>
       </div>
 
-      <div className='invoice-manager-deletepopup-content'>
-            <div className='invoice-manager-deletepopup-content-btn'>
+      <div className='invoices-deletepopup-content'>
+            <div className='invoices-deletepopup-content-btn'>
                 <Button onClick={() => handleCloseDeleteInvoicePopup(false)}>
                     Cancel
                 </Button>
             </div>
 
-            <div className='invoice-manager-deletepopup-content-btn'>
+            <div className='invoices-deletepopup-content-btn'>
                 <Button onClick={() => {
                   toast.error(`You have clicked on Delete invoice by id = ${data.id}!`, {
                     position: "top-center",

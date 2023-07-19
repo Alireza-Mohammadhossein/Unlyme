@@ -1,5 +1,5 @@
 import React from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import { toast } from "react-toastify";
 
@@ -11,25 +11,25 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
 
 
   return (
-    <div className='invoice-manager-sendemailpopup'>
-      <div className='invoice-manager-sendemailpopup-header'>
-        <div className='invoice-manager-sendemailpopup-header-title'>
+    <div className='invoices-sendemailpopup'>
+      <div className='invoices-sendemailpopup-header'>
+        <div className='invoices-sendemailpopup-header-title'>
           <p>Email to client</p>
         </div>
         
-        <div className='invoice-manager-sendemailpopup-header-subtitle'>
+        <div className='invoices-sendemailpopup-header-subtitle'>
           <p>Are you sure you want to send this invoice by email to the client?</p>
         </div>
       </div>
 
-      <div className='invoice-manager-sendemailpopup-content'>
-            <div className='invoice-manager-sendemailpopup-content-btn'>
+      <div className='invoices-sendemailpopup-content'>
+            <div className='invoices-sendemailpopup-content-btn'>
                 <Button onClick={() => handleCloseSendEmailPopup(false)}>
                     Cancel
                 </Button>
             </div>
 
-            <div className='invoice-manager-sendemailpopup-content-btn'>
+            <div className='invoices-sendemailpopup-content-btn'>
                 <Button onClick={() => {
                   toast.success(`You have clicked on Send email by id = ${data.data.id}!`, {
                     position: "top-center",

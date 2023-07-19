@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoice-manager-popups.scss';
+import './invoices-popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -88,13 +88,13 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
  
 
   return (
-    <div className='invoice-manager-addpaymentpopup'>
-      <div className='invoice-manager-addpaymentpopup-header'>
-        <div className='invoice-manager-addpaymentpopup-header-title'>
+    <div className='invoices-addpaymentpopup'>
+      <div className='invoices-addpaymentpopup-header'>
+        <div className='invoices-addpaymentpopup-header-title'>
           <p>Add new payment</p>
         </div>
 
-        <div className='invoice-manager-addpaymentpopup-header-btn'>
+        <div className='invoices-addpaymentpopup-header-btn'>
           <IconButton onClick={handleCloseAddPaymentPopup}>
             <CloseIcon />
           </IconButton>
@@ -102,18 +102,18 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
 
       </div>
 
-      <div className='invoice-manager-addpaymentpopup-list'>
-        <div className='invoice-manager-addpaymentpopup-item flex'>
-          <p className="invoice-manager-addpaymentpopup-item-title">
+      <div className='invoices-addpaymentpopup-list'>
+        <div className='invoices-addpaymentpopup-item flex'>
+          <p className="invoices-addpaymentpopup-item-title">
               Invoice Amount
           </p>
 
-          <div className='invoice-manager-addpaymentpopup-item-price'>
+          <div className='invoices-addpaymentpopup-item-price'>
             <TextField
               placeholder="Amount"
               value={invoiceAmount}
               onChange={handleInvoiceAmount}
-              className="invoice-manager-addpaymentpopup-item-input"
+              className="invoices-addpaymentpopup-item-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -122,12 +122,12 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
           </div>
         </div>
         
-        <div className='invoice-manager-addpaymentpopup-item flex'>
-          <p className="invoice-manager-addpaymentpopup-item-title">
+        <div className='invoices-addpaymentpopup-item flex'>
+          <p className="invoices-addpaymentpopup-item-title">
               Date
           </p>
 
-          <div className='invoice-manager-addpaymentpopup-item-date'>
+          <div className='invoices-addpaymentpopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
@@ -140,14 +140,14 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
           </div>
         </div>
 
-        <div className='invoice-manager-addpaymentpopup-item flex'>
-            <p className='invoice-manager-addpaymentpopup-item-title'>
+        <div className='invoices-addpaymentpopup-item flex'>
+            <p className='invoices-addpaymentpopup-item-title'>
               Payment method
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoice-manager-addpaymentpopup-item-select"
+                  className="invoices-addpaymentpopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={paymentMethod}
@@ -161,20 +161,20 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoice-manager-addpaymentpopup-item flex'>
-          <p className='invoice-manager-addpaymentpopup-item-title'>
+        <div className='invoices-addpaymentpopup-item flex'>
+          <p className='invoices-addpaymentpopup-item-title'>
             Transaction ID
           </p>
 
           <TextField
-              className='invoice-manager-addpaymentpopup-item-input'
+              className='invoices-addpaymentpopup-item-input'
               variant="outlined"
               onChange={handleTransactionID}
           />
         </div>
 
-        <div className='invoice-manager-addpaymentpopup-item switch'>
-            <p className='invoice-manager-addpaymentpopup-item-title' onClick={handleAdditionalInfo}>
+        <div className='invoices-addpaymentpopup-item switch'>
+            <p className='invoices-addpaymentpopup-item-title' onClick={handleAdditionalInfo}>
               Additional information
             </p>
 
@@ -188,13 +188,13 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
         {
           additionalInfo ? 
               <>
-                <div className='invoice-manager-addpaymentpopup-item notes'>
-                  <p className='invoice-manager-addpaymentpopup-item-title'>
+                <div className='invoices-addpaymentpopup-item notes'>
+                  <p className='invoices-addpaymentpopup-item-title'>
                     Notes
                   </p>
 
                   <TextField
-                      className='invoice-manager-addpaymentpopup-item-input'
+                      className='invoices-addpaymentpopup-item-input'
                       variant="outlined"
                       onChange={handleNotes}
                       multiline
@@ -206,14 +206,14 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
               ''
         }
 
-        <div className='invoice-manager-addpaymentpopup-item flex'>
+        <div className='invoices-addpaymentpopup-item flex'>
           <FormControlLabel control={<Checkbox sx={{color: '#3089dc'}} defaultChecked />} label="Send the client a Payment received email" sx={{color: '#888888'}} />
         </div>
 
-        <div className='invoice-manager-addpaymentpopup-btn'>
-          <Button className='invoice-manager-addpaymentpopup-btn-reset' onClick={handleCancelPayment}>Cancel</Button>
+        <div className='invoices-addpaymentpopup-btn'>
+          <Button className='invoices-addpaymentpopup-btn-reset' onClick={handleCancelPayment}>Cancel</Button>
 
-          <Button className='invoice-manager-addpaymentpopup-btn-submit' onClick={handleSubmitPayment}>Submit</Button>
+          <Button className='invoices-addpaymentpopup-btn-submit' onClick={handleSubmitPayment}>Submit</Button>
         </div>
       </div>
 
