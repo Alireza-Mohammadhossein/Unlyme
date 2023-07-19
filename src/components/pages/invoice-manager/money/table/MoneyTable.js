@@ -41,6 +41,9 @@ import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
 import RecurringSettingPopup from '../popups/RecurringSettingPopup';
 import InvoiceRecordPopup from '../popups/InvoiceRecord';
+import incomingIcon from '../../../../../assets/images/invoice-manager/incoming.png';
+import outgoingIcon from '../../../../../assets/images/invoice-manager/outgoing.png';
+import totalIcon from '../../../../../assets/images/invoice-manager/total.png';
 
 
 
@@ -488,186 +491,243 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
 
   return (
     <>
+      <div className='money-transactions'>
+        <div className='money-transactions-card'>
+          <div className='money-transactions-card-icon'>
+            <img src={incomingIcon} />
+          </div>
+
+          <div className='money-transactions-card-info'>
+            <p className='money-transactions-card-info-title'>
+              Incoming
+            </p>
+
+            <p className='money-transactions-card-info-subtitle'>
+              Payments in June
+            </p>
+          </div>
+          
+          <div className='money-transactions-card-amount'>
+            0.00 CHF
+          </div>
+        </div>
+
+        <div className='money-transactions-card'>
+          <div className='money-transactions-card-icon'>
+            <img src={outgoingIcon} />
+          </div>
+
+          <div className='money-transactions-card-info'>
+            <p className='money-transactions-card-info-title'>
+              Incoming
+            </p>
+
+            <p className='money-transactions-card-info-subtitle'>
+              Payments in June
+            </p>
+          </div>
+          
+          <div className='money-transactions-card-amount'>
+            0.00 CHF
+          </div>
+        </div>
+
+        <div className='money-transactions-card'>
+          <div className='money-transactions-card-icon'>
+            <img src={totalIcon} />
+          </div>
+
+          <div className='money-transactions-card-info'>
+            <p className='money-transactions-card-info-title'>
+              Incoming
+            </p>
+
+            <p className='money-transactions-card-info-subtitle'>
+              Payments in June
+            </p>
+          </div>
+          
+          <div className='money-transactions-card-amount'>
+            0.00 CHF
+          </div>
+        </div>
+      </div>
+
       <Box sx={{ width: '100%' }}>
-        <Grid container>
-          <Grid item 
-            xs = {12}
+        <Paper sx={{ width: '100%', mb: 2}}>
+          {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
+          <TableContainer
+            sx={{
+              width: '100%',
+              height: '100%'
+            }}
           >
-            <Paper sx={{ width: '100%', mb: 2}}>
-              {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
-              <TableContainer
-                sx={{
-                  width: '100%',
-                  height: '100%'
-                }}
-              >
-                <Table
-                  aria-labelledby="tableTitle"
-                  className='money-table'
-                >
-                  <InvoiceManagerTableHead
-                    numSelected={selected.length}
-                    order={order}
-                    orderBy={orderBy}
-                    onSelectAllClick={handleSelectAllClick}
-                    onRequestSort={handleRequestSort}
-                    rowCount={invoices.length}
-                    setSearchText={setSearchText}
-                    sortByDateHandler={sortByDateHandler}
-                  />
-
-                  <TableBody>
-                    {filteredInvoices.map((row, index) => {
-                      const isItemSelected = isSelected(row.id);
-                      const labelId = `enhanced-table-checkbox-${index}`;
-
-                      return (
-                        <>
-                          <TableRow
-                            hover
-                            // onClick={(event) => handleClick(event, row.id)}
-                            // onClick={() => showSingleInvoiceHanlder(row)}
-                            // role="checkbox"
-                            aria-checked={isItemSelected}
-                            tabIndex={-1}
-                            key={row.id}
-                            selected={isItemSelected}
-                            sx={{ cursor: 'pointer'}}
-                            className='invoice-manager-page_main_money-tab-row'
-                          >
-
-                            <TableCell padding="checkbox"
-                              sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                              onClick={(event) => {
-                                event.stopPropagation();
-
-                                handleClick(event, row.id)
-                              }}
-                            >
-                              <Checkbox
-                                color="primary"
-                                checked={isItemSelected}
-                                inputProps={{
-                                  'aria-labelledby': labelId,
-                                }}
-                              />
-                            </TableCell>
-
-                            <TableCell
-                              // component="th"
-                              id={labelId}
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item'
-                            >
-                              {row.date}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item company'
-                            >
-                              {row.description}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item'
-                            >
-                              {
-                                row.status === 'plus' ?
-                                  <p className='invoice-manager-page_main_money-tab-row-item-plus'>+ {row.amount}</p>
-                                :
-                                  <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
-
-                              }
-                            </TableCell>
-                            
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item client'
-                            >
-                              {row.client}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item'
-                            >
-                              {row.project}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-item invoice'
-                            >
-                              {row.invoice}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_money-tab-row-actions'
-                            >
-                              <IconButton aria-label="delete"
-                                 onClick={(e) => {
-                                  // e.stopPropagation();
-                                  setSelectedRowOption(row);
-                                  handleOpenDeleteInvoicePopup()
-                                }}
-                              >
-                                <DeleteOutlineOutlinedIcon />
-                              </IconButton>
-
-                              <IconButton aria-label="edit" 
-                                onClick={(e) => {
-                                  // e.stopPropagation();
-                                  // console.log('row', row)
-                                  setSelectedRowOption(row)
-                                  handleOpenEditInvoicePopup();
-                                }}
-                              >
-                                <DriveFileRenameOutlineOutlinedIcon />
-                              </IconButton>
-
-                              <IconButton aria-label="open"
-                                onClick={(e) => {
-                                  // e.stopPropagation();
-                                  setSelectedRowOption(row)
-                                  handleOpenInvoiceRecordPopup();
-                                }}
-                              >
-                                <OpenInNewOutlinedIcon />
-                              </IconButton>
-
-                              {/* <MoreOptionsMenu data={row} /> */}
-                            </TableCell>
-                            
-                          </TableRow>
-                        </>
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-              <TablePagination
-                className='money-pagination'
-                rowsPerPageOptions={[20, 50, 100]}
-                component="div"
-                count={invoices.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
+            <Table
+              aria-labelledby="tableTitle"
+              className='money-table'
+            >
+              <InvoiceManagerTableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={invoices.length}
+                setSearchText={setSearchText}
+                sortByDateHandler={sortByDateHandler}
               />
-            </Paper>
-          </Grid>
-        </Grid>
+
+              <TableBody>
+                {filteredInvoices.map((row, index) => {
+                  const isItemSelected = isSelected(row.id);
+                  const labelId = `enhanced-table-checkbox-${index}`;
+
+                  return (
+                    <>
+                      <TableRow
+                        hover
+                        // onClick={(event) => handleClick(event, row.id)}
+                        // onClick={() => showSingleInvoiceHanlder(row)}
+                        // role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.id}
+                        selected={isItemSelected}
+                        sx={{ cursor: 'pointer'}}
+                        className='invoice-manager-page_main_money-tab-row'
+                      >
+
+                        <TableCell padding="checkbox"
+                          sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                          onClick={(event) => {
+                            event.stopPropagation();
+
+                            handleClick(event, row.id)
+                          }}
+                        >
+                          <Checkbox
+                            color="primary"
+                            checked={isItemSelected}
+                            inputProps={{
+                              'aria-labelledby': labelId,
+                            }}
+                          />
+                        </TableCell>
+
+                        <TableCell
+                          // component="th"
+                          id={labelId}
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item'
+                        >
+                          {row.date}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item company'
+                        >
+                          {row.description}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item'
+                        >
+                          {
+                            row.status === 'plus' ?
+                              <p className='invoice-manager-page_main_money-tab-row-item-plus'>+ {row.amount}</p>
+                            :
+                              <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
+
+                          }
+                        </TableCell>
+                        
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item blue'
+                        >
+                          {row.client}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item'
+                        >
+                          {row.project}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-item blue'
+                        >
+                          {row.invoice}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_money-tab-row-actions'
+                        >
+                          <IconButton aria-label="delete"
+                             onClick={(e) => {
+                              // e.stopPropagation();
+                              setSelectedRowOption(row);
+                              handleOpenDeleteInvoicePopup()
+                            }}
+                          >
+                            <DeleteOutlineOutlinedIcon />
+                          </IconButton>
+
+                          <IconButton aria-label="edit" 
+                            onClick={(e) => {
+                              // e.stopPropagation();
+                              // console.log('row', row)
+                              setSelectedRowOption(row)
+                              handleOpenEditInvoicePopup();
+                            }}
+                          >
+                            <DriveFileRenameOutlineOutlinedIcon />
+                          </IconButton>
+
+                          <IconButton aria-label="open"
+                            onClick={(e) => {
+                              // e.stopPropagation();
+                              setSelectedRowOption(row)
+                              handleOpenInvoiceRecordPopup();
+                            }}
+                          >
+                            <OpenInNewOutlinedIcon />
+                          </IconButton>
+
+                          {/* <MoreOptionsMenu data={row} /> */}
+                        </TableCell>
+                        
+                      </TableRow>
+                    </>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+
+          <TablePagination
+            className='money-pagination'
+            rowsPerPageOptions={[20, 50, 100]}
+            component="div"
+            count={invoices.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Paper>
       </Box>
 
 

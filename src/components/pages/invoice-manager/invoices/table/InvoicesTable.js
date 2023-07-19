@@ -488,181 +488,175 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
   return (
     <>
       <Box sx={{ width: '100%' }}>
-        <Grid container>
-          <Grid item 
-            xs = {12}
+        <Paper sx={{ width: '100%', mb: 2}}>
+          {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
+          <TableContainer
+            sx={{
+              width: '100%',
+              height: '100%'
+            }}
           >
-            <Paper sx={{ width: '100%', mb: 2}}>
-              {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
-              <TableContainer
-                sx={{
-                  width: '100%',
-                  height: '100%'
-                }}
-              >
-                <Table
-                  aria-labelledby="tableTitle"
-                  className='invoices-table'
-                >
-                  <InvoiceManagerTableHead
-                    numSelected={selected.length}
-                    order={order}
-                    orderBy={orderBy}
-                    onSelectAllClick={handleSelectAllClick}
-                    onRequestSort={handleRequestSort}
-                    rowCount={invoices.length}
-                    setSearchText={setSearchText}
-                    sortByDateHandler={sortByDateHandler}
-                  />
-
-                  <TableBody>
-                    {filteredInvoices.map((row, index) => {
-                      const isItemSelected = isSelected(row.id);
-                      const labelId = `enhanced-table-checkbox-${index}`;
-
-                      return (
-                        <>
-                          <TableRow
-                            hover
-                            // onClick={(event) => handleClick(event, row.id)}
-                            // onClick={() => showSingleInvoiceHanlder(row)}
-                            // role="checkbox"
-                            aria-checked={isItemSelected}
-                            tabIndex={-1}
-                            key={row.id}
-                            selected={isItemSelected}
-                            sx={{ cursor: 'pointer'}}
-                            className='invoice-manager-page_main_invoices-tab-row'
-                          >
-
-                            <TableCell padding="checkbox"
-                              sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
-                              onClick={(event) => {
-                                event.stopPropagation();
-
-                                handleClick(event, row.id)
-                              }}
-                            >
-                              <Checkbox
-                                color="primary"
-                                checked={isItemSelected}
-                                inputProps={{
-                                  'aria-labelledby': labelId,
-                                }}
-                              />
-                            </TableCell>
-
-                            <TableCell
-                              // component="th"
-                              id={labelId}
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
-                            >
-                              {row.date}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item company'
-                            >
-                              {row.company}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
-                            >
-                              {row.project}
-                            </TableCell>
-                            
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item'
-                            >
-                              {row.amount}
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-item payment'
-                            >
-                              {row.payment}
-                            </TableCell>
-                            
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className={`invoice-manager-page_main_invoices-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
-                            >
-                              <span>
-                                {row.status}
-                              </span>
-                            </TableCell>
-
-                            <TableCell
-                              scope="row"
-                              align="center"
-                              className='invoice-manager-page_main_invoices-tab-row-actions'
-                            >
-                              <IconButton aria-label="delete"
-                                 onClick={(e) => {
-                                  // e.stopPropagation();
-                                  setSelectedRowOption(row);
-                                  handleOpenDeleteInvoicePopup()
-                                }}
-                              >
-                                <DeleteOutlineOutlinedIcon />
-                              </IconButton>
-
-                              <IconButton aria-label="edit" 
-                                onClick={(e) => {
-                                  // e.stopPropagation();
-                                  // console.log('row', row)
-                                  setSelectedRowOption(row)
-                                  handleOpenEditInvoicePopup();
-                                }}
-                              >
-                                <DriveFileRenameOutlineOutlinedIcon />
-                              </IconButton>
-
-                              <IconButton aria-label="open"
-                                onClick={(e) => {
-                                  // e.stopPropagation();
-                                  setSelectedRowOption(row)
-                                  handleOpenInvoiceRecordPopup();
-                                }}
-                              >
-                                <OpenInNewOutlinedIcon />
-                              </IconButton>
-
-                              <MoreOptionsMenu data={row} />
-                            </TableCell>
-                            
-                          </TableRow>
-                        </>
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-              <TablePagination
-                className='invoices-pagination'
-                rowsPerPageOptions={[20, 50, 100]}
-                component="div"
-                count={invoices.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
+            <Table
+              aria-labelledby="tableTitle"
+              className='invoices-table'
+            >
+              <InvoiceManagerTableHead
+                numSelected={selected.length}
+                order={order}
+                orderBy={orderBy}
+                onSelectAllClick={handleSelectAllClick}
+                onRequestSort={handleRequestSort}
+                rowCount={invoices.length}
+                setSearchText={setSearchText}
+                sortByDateHandler={sortByDateHandler}
               />
-            </Paper>
-          </Grid>
-        </Grid>
+
+              <TableBody>
+                {filteredInvoices.map((row, index) => {
+                  const isItemSelected = isSelected(row.id);
+                  const labelId = `enhanced-table-checkbox-${index}`;
+
+                  return (
+                    <>
+                      <TableRow
+                        hover
+                        // onClick={(event) => handleClick(event, row.id)}
+                        // onClick={() => showSingleInvoiceHanlder(row)}
+                        // role="checkbox"
+                        aria-checked={isItemSelected}
+                        tabIndex={-1}
+                        key={row.id}
+                        selected={isItemSelected}
+                        sx={{ cursor: 'pointer'}}
+                        className='invoice-manager-page_main_invoices-tab-row'
+                      >
+
+                        <TableCell padding="checkbox"
+                          sx={{ cursor: 'pointer', maxWidth: 100, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                          onClick={(event) => {
+                            event.stopPropagation();
+
+                            handleClick(event, row.id)
+                          }}
+                        >
+                          <Checkbox
+                            color="primary"
+                            checked={isItemSelected}
+                            inputProps={{
+                              'aria-labelledby': labelId,
+                            }}
+                          />
+                        </TableCell>
+
+                        <TableCell
+                          // component="th"
+                          id={labelId}
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-item'
+                        >
+                          {row.date}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-item blue'
+                        >
+                          {row.company}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-item'
+                        >
+                          {row.project}
+                        </TableCell>
+                        
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-item'
+                        >
+                          {row.amount}
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-item blue'
+                        >
+                          {row.payment}
+                        </TableCell>
+                        
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className={`invoice-manager-page_main_invoices-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
+                        >
+                          <span>
+                            {row.status}
+                          </span>
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_invoices-tab-row-actions'
+                        >
+                          <IconButton aria-label="delete"
+                             onClick={(e) => {
+                              // e.stopPropagation();
+                              setSelectedRowOption(row);
+                              handleOpenDeleteInvoicePopup()
+                            }}
+                          >
+                            <DeleteOutlineOutlinedIcon />
+                          </IconButton>
+
+                          <IconButton aria-label="edit" 
+                            onClick={(e) => {
+                              // e.stopPropagation();
+                              // console.log('row', row)
+                              setSelectedRowOption(row)
+                              handleOpenEditInvoicePopup();
+                            }}
+                          >
+                            <DriveFileRenameOutlineOutlinedIcon />
+                          </IconButton>
+
+                          <IconButton aria-label="open"
+                            onClick={(e) => {
+                              // e.stopPropagation();
+                              setSelectedRowOption(row)
+                              handleOpenInvoiceRecordPopup();
+                            }}
+                          >
+                            <OpenInNewOutlinedIcon />
+                          </IconButton>
+
+                          <MoreOptionsMenu data={row} />
+                        </TableCell>
+                        
+                      </TableRow>
+                    </>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            className='invoices-pagination'
+            rowsPerPageOptions={[20, 50, 100]}
+            component="div"
+            count={invoices.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Paper>
       </Box>
 
 

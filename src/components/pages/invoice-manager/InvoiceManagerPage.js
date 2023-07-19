@@ -182,7 +182,7 @@ const InvoiceManagerContent = () => {
               xs={12}
             >
               <div className='invoice-manager-page_main'>
-                <div className='invoice-manager-page_main_invoices'>
+                <div className='invoice-manager-page_main_tabs'>
                   <TabPanel value={activeTab} index={0} className='invoice-manager-page_main_invoices-tab'>
                     <InvoicesTable
                       invoices={invoices}
