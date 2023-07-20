@@ -137,7 +137,7 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
         <div className='money-editinvoicepopup-item flex'>
           <p className='money-editinvoicepopup-item-title'>
-            Payment method {data.paymentMethod}
+            Payment method
           </p>
 
           <FormControl fullWidth>
@@ -204,7 +204,6 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
             :
               ''
         }
-
 
         <div className='money-editinvoicepopup-btn'>
           <Button className='money-editinvoicepopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>

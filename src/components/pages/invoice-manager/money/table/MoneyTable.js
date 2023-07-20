@@ -40,7 +40,7 @@ import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
 import RecurringSettingPopup from '../popups/RecurringSettingPopup';
-import InvoiceRecordPopup from '../popups/InvoiceRecord';
+import PaymentRecordPopup from '../popups/PaymentRecord';
 import incomingIcon from '../../../../../assets/images/invoice-manager/incoming.png';
 import outgoingIcon from '../../../../../assets/images/invoice-manager/outgoing.png';
 import totalIcon from '../../../../../assets/images/invoice-manager/total.png';
@@ -476,13 +476,13 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
   // end change category popup
 
   // start attach project popup
-  const [invoiceRecordPopup, setInvoiceRecordPopup] = useState(false);
-  const handleOpenInvoiceRecordPopup = () => {
-    setInvoiceRecordPopup(true);
+  const [paymentRecordPopup, setPaymentRecordPopup] = useState(false);
+  const handleOpenPaymentRecordPopup = () => {
+    setPaymentRecordPopup(true);
   };
-  const handleCloseInvoiceRecordPopup = () => {
+  const handleClosePaymentRecordPopup = () => {
     setSelectedRowOption([]);
-    setInvoiceRecordPopup(false);
+    setPaymentRecordPopup(false);
   };
   // end change category popup
   
@@ -709,7 +709,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                             onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row)
-                              handleOpenInvoiceRecordPopup();
+                              handleOpenPaymentRecordPopup();
                             }}
                           >
                             <OpenInNewOutlinedIcon />
@@ -849,13 +849,13 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
 
       {/* edit invoice modal */}
       <Modal
-        open={invoiceRecordPopup}
-        onClose={() => handleCloseInvoiceRecordPopup()}
+        open={paymentRecordPopup}
+        onClose={() => handleClosePaymentRecordPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <InvoiceRecordPopup data={selectedRowOption} handleCloseInvoiceRecordPopup={handleCloseInvoiceRecordPopup} />
+        <PaymentRecordPopup data={selectedRowOption} handleClosePaymentRecordPopup={handleClosePaymentRecordPopup} />
       </Modal>
 
     </>

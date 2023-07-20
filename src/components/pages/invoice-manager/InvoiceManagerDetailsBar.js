@@ -20,7 +20,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
 import { toast } from "react-toastify";
 import AddNewPaymentPopup from './money/popups/AddNewPaymentPopup';
-
+import AddNewExpensesPopup from './money/popups/AddNewExpensesPopup';
 
 
 
@@ -76,17 +76,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
       id: 2,
       text: 'Add Expense',
       clickFunction: function() {
-        toast.error('You have clicked on Add expense!', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        handleOpenAddNewExpensesPopup();
         handleCloseAddNewMoney();
         // setSelectedRowOption(row);
         // handleOpenSendEmailPopup();
@@ -146,7 +136,18 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
   const handleCloseAddNewPaymentPopup = () => {
     setAddNewPaymentPopup(false)
   };
-  // end send email popup
+  // end add payment popup
+
+
+  // start add expenses popup
+  const [addNewExpensesPopup, setAddNewExpensesPopup] = useState(false);
+  const handleOpenAddNewExpensesPopup = () => {
+    setAddNewExpensesPopup(true)
+  };
+  const handleCloseAddNewExpensesPopup = () => {
+    setAddNewExpensesPopup(false)
+  };
+  // end add expenses popup
 
 
   return (
@@ -275,6 +276,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
               </IconButton>
           </Grid>
       </Grid>
+      
 
       {/* add new payment modal */}
       <Modal
@@ -285,6 +287,18 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <AddNewPaymentPopup handleCloseAddNewPaymentPopup={handleCloseAddNewPaymentPopup} />
+      </Modal>
+
+
+      {/* add new expenses modal */}
+      <Modal
+        open={addNewExpensesPopup}
+        onClose={() => handleCloseAddNewExpensesPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <AddNewExpensesPopup handleCloseAddNewExpensesPopup={handleCloseAddNewExpensesPopup} />
       </Modal>
     </>
 
