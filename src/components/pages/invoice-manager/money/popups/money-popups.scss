@@ -203,6 +203,40 @@
             width: 80%;
         }
 
+        &-number {
+            width: 80%;
+            
+            .MuiFormControl-root {
+                width: 100%;
+            }
+
+            & .MuiInputBase-root {
+                width: 100%;
+                border-radius: 8px;
+                background-color: #F8FAFC;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+
+            .MuiInputBase-adornedStart {
+                padding-left: 10px;
+
+                input {
+                    border-left: 1px solid #e3e3e3;
+                }
+            }
+        }
+
         &-input {
 
             & .MuiInputBase-root {

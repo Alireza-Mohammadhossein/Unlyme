@@ -16,11 +16,11 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
     <div className='money-deletepopup'>
       <div className='money-deletepopup-header'>
         <div className='money-deletepopup-header-title'>
-          <p>Delete invoice</p>
+          <p>Delete payment</p>
         </div>
         
         <div className='money-deletepopup-header-subtitle'>
-          <p>Are you sure you want to delete this invoice?</p>
+          <p>Are you sure you want to delete this payment?</p>
         </div>
       </div>
 
