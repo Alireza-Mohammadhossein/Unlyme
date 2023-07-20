@@ -7,26 +7,24 @@ import { toast } from "react-toastify";
 
 
 
-const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
-
-
+const DeleteExpensePopup = ({ handleCloseDeleteExpensePopup, data }) => {
 
 
   return (
     <div className='money-deletepopup'>
       <div className='money-deletepopup-header'>
         <div className='money-deletepopup-header-title'>
-          <p>Delete payment</p>
+          <p>Delete expense</p>
         </div>
         
         <div className='money-deletepopup-header-subtitle'>
-          <p>Are you sure you want to delete this payment?</p>
+          <p>Are you sure you want to delete this expense?</p>
         </div>
       </div>
 
       <div className='money-deletepopup-content'>
             <div className='money-deletepopup-content-btn'>
-                <Button onClick={() => handleCloseDeleteInvoicePopup(false)}>
+                <Button onClick={() => handleCloseDeleteExpensePopup(false)}>
                     Cancel
                 </Button>
             </div>
@@ -44,7 +42,7 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
                     progress: undefined,
                     theme: "light",
                   });
-                  handleCloseDeleteInvoicePopup(false);
+                  handleCloseDeleteExpensePopup(false);
                   }}>
                     Delete
                 </Button>
@@ -58,4 +56,4 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
 }
 
 
-export default DeleteInvoicePopup;
+export default DeleteExpensePopup;

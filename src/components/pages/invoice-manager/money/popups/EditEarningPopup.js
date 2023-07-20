@@ -19,7 +19,7 @@ import dayjs, { Dayjs } from 'dayjs';
 
 
 
-const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
+const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
 
 
   const [amount, setAmount] = useState(data.amount);
@@ -55,14 +55,14 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
   };
 
   const handleCancelEdit = () => {
-    handleCloseEditInvoicePopup();
+    handleCloseEditEarningPopup();
     setDate(null);
     setPaymentMethod('');
     setAdditionalInfo(false);
   }
 
   const handleSubmitEdit = () => {
-    handleCloseEditInvoicePopup();
+    handleCloseEditEarningPopup();
     setDate(null);
     setPaymentMethod('');
     setAdditionalInfo(false);
@@ -84,11 +84,11 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
     <div className='money-editinvoicepopup'>
       <div className='money-editinvoicepopup-header'>
         <div className='money-editinvoicepopup-header-title'>
-          <p>Edit payment</p>
+          <p>Edit earning</p>
         </div>
 
         <div className='money-editinvoicepopup-header-btn'>
-          <IconButton onClick={handleCloseEditInvoicePopup}>
+          <IconButton onClick={handleCloseEditEarningPopup}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -220,4 +220,4 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 }
 
 
-export default EditInvoicePopup;
+export default EditEarningPopup;

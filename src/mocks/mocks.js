@@ -3037,6 +3037,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 2,
@@ -3049,6 +3050,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 3,
@@ -3061,6 +3063,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 4,
@@ -3073,6 +3076,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
 
   {
@@ -3086,6 +3090,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 6,
@@ -3098,6 +3103,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 7,
@@ -3110,6 +3116,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 8,
@@ -3122,6 +3129,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   
 
@@ -3136,6 +3144,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 10,
@@ -3148,6 +3157,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 11,
@@ -3160,6 +3170,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 12,
@@ -3172,6 +3183,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
 
   
@@ -3186,6 +3198,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 14,
@@ -3198,6 +3211,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 15,
@@ -3210,6 +3224,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 16,
@@ -3222,6 +3237,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   
 
@@ -3236,6 +3252,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 18,
@@ -3248,6 +3265,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 19,
@@ -3260,6 +3278,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 20,
@@ -3272,6 +3291,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   
   {
@@ -3285,6 +3305,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 22,
@@ -3297,6 +3318,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 23,
@@ -3309,6 +3331,7 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
   {
     id: 24,
@@ -3321,5 +3344,6 @@ export const money = [
     invoice: 'INV-000010',
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
+    category: 'Category 1',
   },
 ]

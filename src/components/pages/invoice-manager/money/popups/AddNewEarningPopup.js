@@ -18,7 +18,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 
-const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
+const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
 
   const [invoiceID, setInvoiceID] = useState('');
   const handleInvoiceID = (event) => {
@@ -59,15 +59,15 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
 
 
 
-  const handleCancelAddPayment = () => {
-    handleCloseAddNewPaymentPopup();
+  const handleCancelAddEarning = () => {
+    handleCloseAddNewEarningPopup();
     setDate(null);
     setPaymentMethod('');
     setAdditionalInfo(false);
   }
 
-  const handleSubmitAddPayment = () => {
-    handleCloseAddNewPaymentPopup();
+  const handleSubmitAddEarning = () => {
+    handleCloseAddNewEarningPopup();
     setDate(null);
     setPaymentMethod('');
     setAdditionalInfo(false);
@@ -79,11 +79,11 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
     <div className='money-addnewpopup'>
       <div className='money-addnewpopup-header'>
         <div className='money-addnewpopup-header-title'>
-          <p>Create new payment</p>
+          <p>Add new earning</p>
         </div>
 
         <div className='money-addnewpopup-header-btn'>
-          <IconButton onClick={handleCloseAddNewPaymentPopup}>
+          <IconButton onClick={handleCloseAddNewEarningPopup}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -223,9 +223,9 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
 
 
         <div className='money-addnewpopup-btn'>
-          <Button className='money-addnewpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>
+          <Button className='money-addnewpopup-btn-reset' onClick={handleCancelAddEarning}>Cancel</Button>
 
-          <Button className='money-addnewpopup-btn-submit' onClick={handleSubmitAddPayment}>Submit</Button>
+          <Button className='money-addnewpopup-btn-submit' onClick={handleSubmitAddEarning}>Submit</Button>
         </div>
       </div>
 
@@ -237,4 +237,4 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
 }
 
 
-export default AddNewPaymentPopup;
+export default AddNewEarningPopup;

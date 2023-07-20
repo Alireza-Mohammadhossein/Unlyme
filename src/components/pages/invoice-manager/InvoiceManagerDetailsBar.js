@@ -19,7 +19,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
 import { toast } from "react-toastify";
-import AddNewPaymentPopup from './money/popups/AddNewPaymentPopup';
+import AddNewEarningPopup from './money/popups/AddNewEarningPopup';
 import AddNewExpensesPopup from './money/popups/AddNewExpensesPopup';
 
 
@@ -64,11 +64,11 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
   const options = [
     {
       id: 1,
-      text: 'Add Payment',
+      text: 'Add Earning',
       clickFunction: function() {
         // setSelectedRowOption(row);
         // handleOpenEditInvoicePopup();
-        handleOpenAddNewPaymentPopup();
+        handleOpenAddNewEarningPopup();
         handleCloseAddNewMoney();
       }
     },
@@ -85,9 +85,9 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
     },
     {
       id: 3,
-      text: 'Import Payment',
+      text: 'Import Earning',
       clickFunction: function() {
-        toast.error('You have clicked on Import payment!', {
+        toast.error('You have clicked on Import earning!', {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -129,12 +129,12 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
 
 
   // start add payment popup
-  const [addNewPaymentPopup, setAddNewPaymentPopup] = useState(false);
-  const handleOpenAddNewPaymentPopup = () => {
-    setAddNewPaymentPopup(true)
+  const [addNewEarningPopup, setAddNewEarningPopup] = useState(false);
+  const handleOpenAddNewEarningPopup = () => {
+    setAddNewEarningPopup(true)
   };
-  const handleCloseAddNewPaymentPopup = () => {
-    setAddNewPaymentPopup(false)
+  const handleCloseAddNewEarningPopup = () => {
+    setAddNewEarningPopup(false)
   };
   // end add payment popup
 
@@ -276,17 +276,17 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
               </IconButton>
           </Grid>
       </Grid>
-      
+
 
       {/* add new payment modal */}
       <Modal
-        open={addNewPaymentPopup}
-        onClose={() => handleCloseAddNewPaymentPopup()}
+        open={addNewEarningPopup}
+        onClose={() => handleCloseAddNewEarningPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <AddNewPaymentPopup handleCloseAddNewPaymentPopup={handleCloseAddNewPaymentPopup} />
+        <AddNewEarningPopup handleCloseAddNewEarningPopup={handleCloseAddNewEarningPopup} />
       </Modal>
 
 

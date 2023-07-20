@@ -17,7 +17,8 @@ import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRen
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import Modal from '@mui/material/Modal';
-import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
+import DeleteEarningPopup from '../popups/DeleteEarningPopup';
+import DeleteExpensePopup from '../popups/DeleteExpensePopup';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
@@ -32,7 +33,8 @@ import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
 import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import EditInvoicePopup from '../popups/EditInvoicePopup';
+import EditEarningPopup from '../popups/EditEarningPopup';
+import EditExpensesPopup from '../popups/EditExpensesPopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
 import CloneInvoicePopup from '../popups/CloneInvoicePopup';
@@ -254,7 +256,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
       text: 'Quick edit',
       clickFunction: function(row) {
         setSelectedRowOption(row);
-        handleOpenEditInvoicePopup();
+        handleOpenEditEarningPopup();
       }
     },
     {
@@ -368,16 +370,26 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
 
 
 
-  // start delete invoice popup
-  const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
-  // const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
-  const handleOpenDeleteInvoicePopup = () => {
-    // setDeleteInvoiceId(id);
-    setDeleteInvoicePopup(true)
+  // start delete earning popup
+  const [deleteEarningPopup, setDeleteEarningPopup] = useState(false);
+  const handleOpenDeleteEarningPopup = () => {
+    setDeleteEarningPopup(true)
   };
-  const handleCloseDeleteInvoicePopup = () => {
+  const handleCloseDeleteEarningPopup = () => {
     setSelectedRowOption([]);
-    setDeleteInvoicePopup(false)
+    setDeleteEarningPopup(false)
+  };
+  // end delete invoice popup
+
+
+  // start delete earning popup
+  const [deleteExpensePopup, setDeleteExpensePopup] = useState(false);
+  const handleOpenDeleteExpensePopup = () => {
+    setDeleteExpensePopup(true)
+  };
+  const handleCloseDeleteExpensePopup = () => {
+    setSelectedRowOption([]);
+    setDeleteExpensePopup(false)
   };
   // end delete invoice popup
 
@@ -395,14 +407,27 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
 
 
   // start edit invoice popup
-  const [editInvoicePopup, setEditInvoicePopup] = useState(false);
+  const [editEarningPopup, setEditEarningPopup] = useState(false);
 
-  const handleOpenEditInvoicePopup = () => {
-    setEditInvoicePopup(true);
+  const handleOpenEditEarningPopup = () => {
+    setEditEarningPopup(true);
   };
-  const handleCloseEditInvoicePopup = () => {
+  const handleCloseEditEarningPopup = () => {
     setSelectedRowOption([]);
-    setEditInvoicePopup(false)
+    setEditEarningPopup(false)
+  };
+  // end edit invoice popup
+
+
+  // start edit invoice popup
+  const [editExpensesPopup, setEditExpensesPopup] = useState(false);
+
+  const handleOpenEditExpensesPopup = () => {
+    setEditExpensesPopup(true);
+  };
+  const handleCloseEditExpensesPopup = () => {
+    setSelectedRowOption([]);
+    setEditExpensesPopup(false)
   };
   // end edit invoice popup
 
@@ -504,7 +529,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
               </p>
 
               <p className='money-transactions-card-info-text-subtitle'>
-                Payments in June
+                Earning in June
               </p>
             </div>
           </div>
@@ -688,7 +713,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                              onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row);
-                              handleOpenDeleteInvoicePopup()
+                              { row.status === 'plus' ? handleOpenDeleteEarningPopup() : handleOpenDeleteExpensePopup() }
                             }}
                           >
                             <DeleteOutlineOutlinedIcon />
@@ -698,8 +723,9 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                             onClick={(e) => {
                               // e.stopPropagation();
                               // console.log('row', row)
-                              setSelectedRowOption(row)
-                              handleOpenEditInvoicePopup();
+                              setSelectedRowOption(row);
+                              
+                              { row.status === 'plus' ? handleOpenEditEarningPopup() : handleOpenEditExpensesPopup() }
                             }}
                           >
                             <DriveFileRenameOutlineOutlinedIcon />
@@ -740,26 +766,49 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
       </Box>
 
 
-      {/* delete ivoice modal */}
+      {/* delete earning modal */}
       <Modal
-        open={deleteInvoicePopup}
-        onClose={() => handleCloseDeleteInvoicePopup()}
+        open={deleteEarningPopup}
+        onClose={() => handleCloseDeleteEarningPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <DeleteInvoicePopup data={selectedRowOption} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
+        <DeleteEarningPopup data={selectedRowOption} handleCloseDeleteEarningPopup={handleCloseDeleteEarningPopup} />
       </Modal>
 
-      {/* edit invoice modal */}
+      {/* delete expense modal */}
       <Modal
-        open={editInvoicePopup}
-        onClose={() => handleCloseEditInvoicePopup()}
+        open={deleteExpensePopup}
+        onClose={() => handleCloseDeleteExpensePopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <EditInvoicePopup data={selectedRowOption} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
+        <DeleteExpensePopup data={selectedRowOption} handleCloseDeleteExpensePopup={handleCloseDeleteExpensePopup} />
+      </Modal>
+
+      {/* edit earning modal */}
+      <Modal
+        open={editEarningPopup}
+        onClose={() => handleCloseEditEarningPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <EditEarningPopup data={selectedRowOption} handleCloseEditEarningPopup={handleCloseEditEarningPopup} />
+      </Modal>
+
+
+      {/* edit expenses modal */}
+      <Modal
+        open={editExpensesPopup}
+        onClose={() => handleCloseEditExpensesPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <EditExpensesPopup data={selectedRowOption} handleCloseEditExpensesPopup={handleCloseEditExpensesPopup} />
       </Modal>
 
 
