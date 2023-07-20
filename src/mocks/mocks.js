@@ -3035,6 +3035,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 2,
@@ -3045,6 +3046,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 3,
@@ -3055,6 +3057,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 4,
@@ -3065,6 +3068,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
 
   {
@@ -3076,6 +3080,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 6,
@@ -3086,6 +3091,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 7,
@@ -3096,6 +3102,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 8,
@@ -3106,6 +3113,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   
 
@@ -3118,6 +3126,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 10,
@@ -3128,6 +3137,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 11,
@@ -3138,6 +3148,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 12,
@@ -3148,6 +3159,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
 
   
@@ -3160,6 +3172,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 14,
@@ -3170,6 +3183,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 15,
@@ -3180,6 +3194,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 16,
@@ -3190,6 +3205,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   
 
@@ -3202,6 +3218,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 18,
@@ -3212,6 +3229,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 19,
@@ -3222,6 +3240,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 20,
@@ -3232,6 +3251,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   
   {
@@ -3243,6 +3263,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 22,
@@ -3253,6 +3274,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 23,
@@ -3263,6 +3285,7 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
   {
     id: 24,
@@ -3273,5 +3296,6 @@ export const money = [
     client: 'client name',
     project: 'project name',
     invoice: 'INV-000010',
+    paymentMethod: 'Paypal',
   },
 ]

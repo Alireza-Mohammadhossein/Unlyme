@@ -291,7 +291,7 @@
             }
             
             .MuiPaper-root {
-                height: 100%;
+                height: calc(100% - 100px);
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
@@ -423,27 +423,34 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 20px;
 
-            &-icon {
-                width: 30px;
-                height: 30px;
-
-                img {
-                    width: inherit;
-                    height: inherit;
-                }
-            }
-
             &-info {
+                display: flex;
                 font-size: 14px;
-                &-title {
-                    color: #444444;
-                    font-weight: 600;
+                gap: 15px;
+                align-items: center;
+                
+                &-icon {
+                    width: 30px;
+                    height: 30px;
+
+                    img {
+                        width: inherit;
+                        height: inherit;
+                    }
                 }
                 
-                &-subtitle {
-                    color: #888888;
+                &-text {
+                    &-title {
+                        color: #444444;
+                        font-weight: 600;
+                    }
+                    
+                    &-subtitle {
+                        color: #888888;
+                    }
                 }
             }
 

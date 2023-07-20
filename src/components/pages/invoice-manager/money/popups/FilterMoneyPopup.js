@@ -30,49 +30,35 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
     setProject(event.target.value);
   };
 
-  const [invoiceMin, setInvoiceMin] = useState('');
-  const handleInvoiceMin = (event) => {
-    setInvoiceMin(event.target.value);
+  const [invoiceID, setInvoiceID] = useState('');
+  const handleInvoiceID = (event) => {
+    setInvoiceID(event.target.value);
   };
 
-  const [invoiceMax, setInvoiceMax] = useState('');
-  const handleInvoiceMax = (event) => {
-    setInvoiceMax(event.target.value);
+  const [amountMin, setAmountMin] = useState('');
+  const handleAmountMin = (event) => {
+    setAmountMin(event.target.value);
   };
 
-  const [paymentMin, setPaymentMin] = useState('');
-  const handlePaymentMin = (event) => {
-    setPaymentMin(event.target.value);
+  const [amountMax, setAmountMax] = useState('');
+  const handleAmountMax = (event) => {
+    setAmountMax(event.target.value);
   };
 
-  const [paymentMax, setPaymentMax] = useState('');
-  const handlePaymentMax = (event) => {
-    setPaymentMax(event.target.value);
+  const [dateStart, setDateStart] = useState(null);
+  const handleDateStart = (newValue) => {
+    setDateStart(newValue);
   };
 
-  const [createDateStart, setCreateDateStart] = useState(null);
-  const handleCreateDateStart = (newValue) => {
-    setCreateDateStart(newValue);
+  const [dateEnd, setDateEnd] = useState(null);
+  const handleDateEnd = (newValue) => {
+    setDateEnd(newValue);
   };
 
-  const [createDateEnd, setCreateDateEnd] = useState(null);
-  const handleCreateDateEnd = (newValue) => {
-    setCreateDateEnd(newValue);
-  };
 
-  const [dueDateStart, setDueDateStart] = useState(null);
-  const handleDueDateStart = (newValue) => {
-    setDueDateStart(newValue);
-  };
-  
-  const [dueDateEnd, setDueDateEnd] = useState(null);
-  const handleDueDateEnd = (newValue) => {
-    setDueDateEnd(newValue);
-  };
-
-  const [status, setStatus] = useState('');
-  const handleStatus = (event) => {
-    setStatus(event.target.value);
+  const [paymentMethod, setPaymentMethod] = useState('');
+  const handlePaymentMethod = (event) => {
+    setPaymentMethod(event.target.value);
   };
 
   const [creator, setCreator] = useState('');
@@ -85,44 +71,38 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
     setRecurring(event.target.value);
   };
 
-  const [category, setCategory] = useState('');
-  const handleCategory = (event) => {
-    setCategory(event.target.value);
+  const [status, setStatus] = useState('');
+  const handleStatus = (event) => {
+    setStatus(event.target.value);
   };
 
   const handleResetFilters = () => {
     setClient('');
     setProject('');
-    setInvoiceMin('');
-    setInvoiceMax('');
-    setPaymentMin('');
-    setPaymentMax('');
-    setCreateDateStart(null);
-    setCreateDateEnd(null);
-    setDueDateStart(null);
-    setDueDateEnd(null);
-    setStatus('');
+    setInvoiceID('');
+    setAmountMin('');
+    setAmountMax('');
+    setDateStart(null);
+    setDateEnd(null);
+    setPaymentMethod('');
     setCreator('');
     setRecurring('');
-    setCategory('');
+    setStatus('');
   }
 
   const handleSubmitFilters = () => {
     setFilterMoneyPopup(false)
     setClient('');
     setProject('');
-    setInvoiceMin('');
-    setInvoiceMax('');
-    setPaymentMin('');
-    setPaymentMax('');
-    setCreateDateStart(null);
-    setCreateDateEnd(null);
-    setDueDateStart(null);
-    setDueDateEnd(null);
-    setStatus('');
+    setInvoiceID('');
+    setAmountMin('');
+    setAmountMax('');
+    setDateStart(null);
+    setDateEnd(null);
+    setPaymentMethod('');
     setCreator('');
     setRecurring('');
-    setCategory('');
+    setStatus('');
   }
 
 
@@ -131,7 +111,7 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
       <div className='money-filterpopup-header'>
         <div className='money-filterpopup-header-title'>
           <FilterListIcon />
-          <p>Filter money</p>
+          <p>Filter Payments</p>
         </div>
 
         <div className='money-filterpopup-header-btn'>
@@ -188,14 +168,34 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
 
         <div className='money-filterpopup-item'>
           <p className="money-filterpopup-item-title">
-              Invoice Amount
+            Invoice ID
+          </p>
+
+          <div className='money-filterpopup-item-double'>
+            <TextField
+              placeholder=""
+              value={invoiceID}
+              onChange={handleInvoiceID}
+              className="money-filterpopup-item-input"
+              type="number"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">INV-</InputAdornment>,
+              }}
+            />
+
+          </div>
+        </div>
+
+        <div className='money-filterpopup-item'>
+          <p className="money-filterpopup-item-title">
+            Amount
           </p>
 
           <div className='money-filterpopup-item-double'>
             <TextField
               placeholder="Min"
-              value={invoiceMin}
-              onChange={handleInvoiceMin}
+              value={amountMin}
+              onChange={handleAmountMin}
               className="money-filterpopup-item-input"
               type="number"
               InputProps={{
@@ -205,8 +205,8 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
 
             <TextField
               placeholder="Max"
-              value={invoiceMax}
-              onChange={handleInvoiceMax}
+              value={amountMax}
+              onChange={handleAmountMax}
               className="money-filterpopup-item-input"
               type="number"
               InputProps={{
@@ -219,46 +219,15 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
 
         <div className='money-filterpopup-item'>
           <p className="money-filterpopup-item-title">
-              Payments Amount
-          </p>
-
-          <div className='money-filterpopup-item-double'>
-            <TextField
-              placeholder="Min"
-              value={paymentMin}
-              onChange={handlePaymentMin}
-              className="money-filterpopup-item-input"
-              type="number"
-              InputProps={{
-                startAdornment: <InputAdornment position="start">$</InputAdornment>,
-              }}
-            />
-
-            <TextField
-              placeholder="Max"
-              value={paymentMax}
-              onChange={handlePaymentMax}
-              className="money-filterpopup-item-input"
-              type="number"
-              InputProps={{
-                startAdornment: <InputAdornment position="start">$</InputAdornment>,
-              }}
-            />
-
-          </div>
-        </div>
-
-        <div className='money-filterpopup-item'>
-          <p className="money-filterpopup-item-title">
-              Date Created
+              Date
           </p>
 
           <div className='money-filterpopup-item-double'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: 'Start' } }}
-                value={createDateStart} 
-                onChange={handleCreateDateStart}
+                value={dateStart} 
+                onChange={handleDateStart}
                 // defaultValue={dayjs()}
                 // disablePast
               />
@@ -267,8 +236,8 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: 'End' } }}
-                value={createDateEnd}
-                onChange={handleCreateDateEnd}
+                value={dateEnd}
+                onChange={handleDateEnd}
                 // defaultValue={dayjs()}
                 // disablePast
               />
@@ -278,30 +247,23 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
 
         <div className='money-filterpopup-item'>
           <p className="money-filterpopup-item-title">
-              Due Date
+              Payment Method
           </p>
 
-          <div className='money-filterpopup-item-double'>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
-                slotProps={{ textField: { placeholder: 'Start' } }}
-                value={dueDateStart}
-                onChange={handleDueDateStart}
-                // defaultValue={dayjs()}
-                // disablePast
-              />
-            </LocalizationProvider>
+          <FormControl fullWidth>
+            <Select
+              className="money-filterpopup-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={paymentMethod}
+              onChange={handlePaymentMethod}
+            >
+              <MenuItem value='paypal'>Paypal</MenuItem>
+              <MenuItem value='paypal1'>Paypal1</MenuItem>
+              <MenuItem value='paypal2'>Paypal2</MenuItem>
+            </Select>
+          </FormControl>
 
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
-                slotProps={{ textField: { placeholder: 'End' } }}
-                value={dueDateEnd}
-                onChange={handleDueDateEnd}
-                // defaultValue={dayjs()}
-                // disablePast
-              />
-            </LocalizationProvider>
-          </div>
         </div>
 
         <div className='money-filterpopup-item'>
@@ -317,76 +279,10 @@ const FilterMoneyPopup = ({ setFilterMoneyPopup }) => {
               value={status}
               onChange={handleStatus}
             >
-              <MenuItem value='paid'>Paid</MenuItem>
-              <MenuItem value='due'>Due</MenuItem>
-              <MenuItem value='overdue'>Overdue</MenuItem>
-              <MenuItem value='draft'>Draft</MenuItem>
-            </Select>
-          </FormControl>
-
-        </div>
-
-        <div className='money-filterpopup-item'>
-          <p className="money-filterpopup-item-title">
-              Added by
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="money-filterpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={creator}
-              onChange={handleCreator}
-            >
-              <MenuItem value='paid'>Paid</MenuItem>
-              <MenuItem value='due'>Due</MenuItem>
-              <MenuItem value='overdue'>Overdue</MenuItem>
-              <MenuItem value='draft'>Draft</MenuItem>
-            </Select>
-          </FormControl>
-
-        </div>
-
-        <div className='money-filterpopup-item'>
-          <p className="money-filterpopup-item-title">
-              Recurring
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="money-filterpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={recurring}
-              onChange={handleRecurring}
-            >
-              <MenuItem value='option1'>Option 1</MenuItem>
-              <MenuItem value='option2'>Option 2</MenuItem>
-              <MenuItem value='option3'>Option 3</MenuItem>
-              <MenuItem value='option4'>Option 4</MenuItem>
-            </Select>
-          </FormControl>
-
-        </div>
-
-        <div className='money-filterpopup-item'>
-          <p className="money-filterpopup-item-title">
-              Category
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="money-filterpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={category}
-              onChange={handleCategory}
-            >
-              <MenuItem value='category1'>Category 1</MenuItem>
-              <MenuItem value='category2'>Category 2</MenuItem>
-              <MenuItem value='category3'>Category 3</MenuItem>
-              <MenuItem value='category4'>Category 4</MenuItem>
+              <MenuItem value='status1'>Status 1</MenuItem>
+              <MenuItem value='status2'>Status 2</MenuItem>
+              <MenuItem value='status3'>Status 3</MenuItem>
+              <MenuItem value='status4'>Status 4</MenuItem>
             </Select>
           </FormControl>
 

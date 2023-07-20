@@ -44,6 +44,7 @@ import InvoiceRecordPopup from '../popups/InvoiceRecord';
 import incomingIcon from '../../../../../assets/images/invoice-manager/incoming.png';
 import outgoingIcon from '../../../../../assets/images/invoice-manager/outgoing.png';
 import totalIcon from '../../../../../assets/images/invoice-manager/total.png';
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -493,18 +494,19 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
     <>
       <div className='money-transactions'>
         <div className='money-transactions-card'>
-          <div className='money-transactions-card-icon'>
-            <img src={incomingIcon} />
-          </div>
-
           <div className='money-transactions-card-info'>
-            <p className='money-transactions-card-info-title'>
-              Incoming
-            </p>
+            <div className='money-transactions-card-info-icon'>
+              <img src={incomingIcon} />
+            </div>
+            <div className='money-transactions-card-info-text'>
+              <p className='money-transactions-card-info-text-title'>
+                Incoming
+              </p>
 
-            <p className='money-transactions-card-info-subtitle'>
-              Payments in June
-            </p>
+              <p className='money-transactions-card-info-text-subtitle'>
+                Payments in June
+              </p>
+            </div>
           </div>
           
           <div className='money-transactions-card-amount'>
@@ -513,18 +515,19 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
         </div>
 
         <div className='money-transactions-card'>
-          <div className='money-transactions-card-icon'>
-            <img src={outgoingIcon} />
-          </div>
-
           <div className='money-transactions-card-info'>
-            <p className='money-transactions-card-info-title'>
-              Incoming
-            </p>
+            <div className='money-transactions-card-info-icon'>
+              <img src={outgoingIcon} />
+            </div>
+            <div className='money-transactions-card-info-text'>
+              <p className='money-transactions-card-info-text-title'>
+                Outgoing
+              </p>
 
-            <p className='money-transactions-card-info-subtitle'>
-              Payments in June
-            </p>
+              <p className='money-transactions-card-info-text-subtitle'>
+                Expenses in June
+              </p>
+            </div>
           </div>
           
           <div className='money-transactions-card-amount'>
@@ -533,18 +536,19 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
         </div>
 
         <div className='money-transactions-card'>
-          <div className='money-transactions-card-icon'>
-            <img src={totalIcon} />
-          </div>
-
           <div className='money-transactions-card-info'>
-            <p className='money-transactions-card-info-title'>
-              Incoming
-            </p>
+            <div className='money-transactions-card-info-icon'>
+              <img src={totalIcon} />
+            </div>
+            <div className='money-transactions-card-info-text'>
+              <p className='money-transactions-card-info-text-title'>
+                Total profit
+              </p>
 
-            <p className='money-transactions-card-info-subtitle'>
-              Payments in June
-            </p>
+              <p className='money-transactions-card-info-text-subtitle'>
+                June
+              </p>
+            </div>
           </div>
           
           <div className='money-transactions-card-amount'>
@@ -639,9 +643,14 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                         >
                           {
                             row.status === 'plus' ?
+                            <Tooltip title={`Payment method: ${row.paymentMethod}`} arrow placement="top">
                               <p className='invoice-manager-page_main_money-tab-row-item-plus'>+ {row.amount}</p>
+                            </Tooltip>
+                              
                             :
-                              <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
+                              <Tooltip title={`Payment method: ${row.paymentMethod}`} arrow placement="top">
+                                <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
+                              </Tooltip>
 
                           }
                         </TableCell>

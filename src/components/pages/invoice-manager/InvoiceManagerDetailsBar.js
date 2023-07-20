@@ -15,6 +15,11 @@ import FilterInvoicesPopup from './invoices/popups/FilterInvoicesPopup';
 import FilterMoneyPopup from './money/popups/FilterMoneyPopup';
 import Modal from '@mui/material/Modal';
 import AddNewPopup from './invoices/popups/AddNewPopup';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemText from '@mui/material/ListItemText';
+import { toast } from "react-toastify";
+
 
 
 
@@ -43,6 +48,103 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
     const [addNewPopup, setAddNewPopup] = useState(false);
     const handleOpenAddNewPopup = () => setAddNewPopup(true);
     const handleCloseAddNewPopup = () => setAddNewPopup(false);
+
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleAddNewMoney = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleCloseAddNewMoney = () => {
+      setAnchorEl(null);
+    };
+
+      // start more options
+  const options = [
+    {
+      id: 1,
+      text: 'Add Payment',
+      clickFunction: function() {
+        toast.error('You have clicked on Add payment!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        handleCloseAddNewMoney();
+        // setSelectedRowOption(row);
+        // handleOpenEditInvoicePopup();
+      }
+    },
+    {
+      id: 2,
+      text: 'Add Expense',
+      clickFunction: function() {
+        toast.error('You have clicked on Add expense!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        handleCloseAddNewMoney();
+        // setSelectedRowOption(row);
+        // handleOpenSendEmailPopup();
+        // handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 3,
+      text: 'Import Payment',
+      clickFunction: function() {
+        toast.error('You have clicked on Import payment!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        handleCloseAddNewMoney();
+        // setSelectedRowOption(row);
+        // handleOpenAddPaymentPopup()
+        // handleCloseMoreOptions();
+      }
+    },
+    {
+      id: 4,
+      text: 'Import Expense',
+      clickFunction: function() {
+        toast.error('You have clicked on Import expense!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        handleCloseAddNewMoney();
+        // setSelectedRowOption(row);
+        // handleOpenCloneInvoicePopup();
+        // handleCloseMoreOptions();
+      }
+    }
+  ]
 
 
     return (
@@ -127,23 +229,38 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           startIcon={<AddIcon />}
                           className="cloud-page__header_invoice-manager-details_add-btn"
                           aria-label="more"
-                          id="long-button"
+                          aria-controls={open ? "long-menu" : undefined}
+                          aria-expanded={open ? "true" : undefined}
                           aria-haspopup="true"
-                          onClick={handleOpenAddNewPopup}
+                          onClick={handleAddNewMoney}
                         >
                           {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                         </Button>
 
-
-                        <Modal
-                          open={addNewPopup}
-                          onClose={handleCloseAddNewPopup}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                          className='cloud-page__header_invoice-manager-details_add-modal'
+                        <Menu
+                          className='invoice-manager-page_main_money-tab-row-actions_option-list'
+                          id="long-menu"
+                          MenuListProps={{
+                            "aria-labelledby": "long-button",
+                          }}
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleCloseAddNewMoney}
+                          disableScrollLock={true}
                         >
-                          <AddNewPopup handleCloseAddNewPopup={handleCloseAddNewPopup} />
-                        </Modal>
+                          {options.map((option) => (
+                            <MenuItem
+                              key={option.id}
+                              onClick={() => option.clickFunction()}
+                            >
+                              {/* <ListItemIcon>
+                                {option.icon}
+                              </ListItemIcon> */}
+                              <ListItemText>{option.text}</ListItemText>
+                            </MenuItem>
+
+                          ))}
+                        </Menu>
                       </>
                     : 
                      <>
