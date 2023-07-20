@@ -46,45 +46,6 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
       setAdditionalInfo(!additionalInfo);
   };
 
-
-
-  const handleCancelFilters = () => {
-    handleCloseAddNewPaymentPopup();
-    setDate(null);
-    setPaymentMethod('');
-    setAdditionalInfo(false);
-  }
-
-  const handleSubmitFilters = () => {
-    handleCloseAddNewPaymentPopup();
-    setDate(null);
-    setPaymentMethod('');
-    setAdditionalInfo(false);
-  }
-
-
-  const tags = [
-    'Tag 1',
-    'Tag 2',
-    'Tag 3',
-    'Tag 4',
-    'Tag 5',
-    'Tag 6',
-    'Tag 7',
-  ];
-
-  const [tag, setTag] = useState([]);
-  const handleTag = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setTag(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
-  };
-
-
   const [notes, setNotes] = useState('');
   const handleNotes = (event) => {
       setNotes(event.target.value);
@@ -95,6 +56,22 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
   const handleTransactionID = (event) => {
       setTransactionID(event.target.value);
   };
+
+
+
+  const handleCancelAddPayment = () => {
+    handleCloseAddNewPaymentPopup();
+    setDate(null);
+    setPaymentMethod('');
+    setAdditionalInfo(false);
+  }
+
+  const handleSubmitAddPayment = () => {
+    handleCloseAddNewPaymentPopup();
+    setDate(null);
+    setPaymentMethod('');
+    setAdditionalInfo(false);
+  }
 
 
 
@@ -246,9 +223,9 @@ const AddNewPaymentPopup = ({ handleCloseAddNewPaymentPopup }) => {
 
 
         <div className='money-addnewpopup-btn'>
-          <Button className='money-addnewpopup-btn-reset' onClick={handleCancelFilters}>Cancel</Button>
+          <Button className='money-addnewpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>
 
-          <Button className='money-addnewpopup-btn-submit' onClick={handleSubmitFilters}>Submit</Button>
+          <Button className='money-addnewpopup-btn-submit' onClick={handleSubmitAddPayment}>Submit</Button>
         </div>
       </div>
 

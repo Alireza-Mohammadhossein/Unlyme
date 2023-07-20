@@ -11,10 +11,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import Switch from '@mui/material/Switch';
-import LoopIcon from '@mui/icons-material/Loop';
-import Alert from '@mui/material/Alert';
+import InputAdornment from '@mui/material/InputAdornment';
 import { toast } from "react-toastify";
-
+import dayjs, { Dayjs } from 'dayjs';
 
 
 
@@ -22,134 +21,70 @@ import { toast } from "react-toastify";
 
 const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
-    const [savedData, setSavedData] = useState(data.data ? data.data : data)
+
+  const [amount, setAmount] = useState(data.amount);
+  const handleAmount = (event) => {
+    setAmount(event.target.value);
+  };
+
+  const [date, setDate] = useState(dayjs(data.date));
+  const handleDate = (newValue) => {
+    setDate(newValue);
+  };
+
+  const [paymentMethod, setPaymentMethod] = useState(data.paymentMethod);
+  const handlePaymentMethod = (event) => {
+    setPaymentMethod(event.target.value);
+  };
 
 
-    const [client, setClient] = useState('');
-    const handleClient = (event) => {
-      setClient(event.target.value);
-    };
-  
-    const [project, setProject] = useState('');
-    const handleProject = (event) => {
-      setProject(event.target.value);
-    };
-
-    const [companyName, setCompanyName] = useState('');
-    const handleCompanyName = (event) => {
-      setCompanyName(event.target.value);
-    };
-
-    const [firstName, setFirstName] = useState('');
-    const handleFirstName = (event) => {
-      setFirstName(event.target.value);
-    };
+  const [additionalInfo, setAdditionalInfo] = useState(false);
+  const handleAdditionalInfo = () => {
+      setAdditionalInfo(!additionalInfo);
+  };
     
-    
-    const [lastName, setLastName] = useState('');
-    const handleLastName = (event) => {
-      setLastName(event.target.value);
-    };
-
-    
-    const [email, setEmail] = useState('');
-    const handleEmail = (event) => {
-      setEmail(event.target.value);
-    };
-
-    const [clientExistance, setClientExistance] = useState('existing');
-    const handleClientExistance = (event, newAlignment) => {
-        setClientExistance(newAlignment);
-    };
-
-    const [createDate, setCreateDate] = useState(null);
-    const handleCreateDate = (newValue) => {
-      setCreateDate(newValue);
-    };
-
-    const [dueDate, setDueDate] = useState(null);
-    const handleDueDate = (newValue) => {
-      setDueDate(newValue);
-    };
-
-    const [category, setCategory] = useState('');
-    const handleCategory = (event) => {
-      setCategory(event.target.value);
-    };
+  const [notes, setNotes] = useState('');
+  const handleNotes = (event) => {
+      setNotes(event.target.value);
+  };
 
 
-    const [additionalInfo, setAdditionalInfo] = useState(false);
-    const handleAdditionalInfo = () => {
-        setAdditionalInfo(!additionalInfo);
-    };
-    
+  const [transactionID, setTransactionID] = useState(data.transactionID);
+  const handleTransactionID = (event) => {
+      setTransactionID(event.target.value);
+  };
 
+  const handleCancelEdit = () => {
+    handleCloseEditInvoicePopup();
+    setDate(null);
+    setPaymentMethod('');
+    setAdditionalInfo(false);
+  }
 
-    const handleCancelEdit = () => {
-        handleCloseEditInvoicePopup();
-        setClient('');
-        setProject('');
-        setCreateDate(null);
-        setDueDate(null);
-        setCategory('');
-        setAdditionalInfo(false);
-      }
-    
-      const handleSubmitEdit = () => {
-        handleCloseEditInvoicePopup();
-        setClient('');
-        setProject('');
-        setCreateDate(null);
-        setDueDate(null);
-        setCategory('');
-        setAdditionalInfo(false);
-        toast.error(`You have clicked on Edit invoice by id = ${savedData.id}!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-
-
-      const tags = [
-        'Tag 1',
-        'Tag 2',
-        'Tag 3',
-        'Tag 4',
-        'Tag 5',
-        'Tag 6',
-        'Tag 7',
-      ];
-
-      const [tag, setTag] = useState([]);
-      const handleTag = (event) => {
-        const {
-          target: { value },
-        } = event;
-        setTag(
-          // On autofill we get a stringified value.
-          typeof value === 'string' ? value.split(',') : value,
-        );
-      };
-
-
-      const [notes, setNotes] = useState('');
-      const handleNotes = (event) => {
-          setNotes(event.target.value);
-      };
+  const handleSubmitEdit = () => {
+    handleCloseEditInvoicePopup();
+    setDate(null);
+    setPaymentMethod('');
+    setAdditionalInfo(false);
+    toast.success('You have clicked on Submit edits', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      pauseOnFocusLoss: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
  
 
   return (
     <div className='money-editinvoicepopup'>
       <div className='money-editinvoicepopup-header'>
         <div className='money-editinvoicepopup-header-title'>
-          <p>Edit invoice</p>
+          <p>Edit payment</p>
         </div>
 
         <div className='money-editinvoicepopup-header-btn'>
@@ -160,29 +95,40 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
       </div>
 
-      <div className='money-editinvoicepopup-info'>
-        <div className='money-editinvoicepopup-info-creator'>
-          <span>Created by:</span> {savedData.creator}
-        </div>
+      <div className='money-editinvoicepopup-list'>
 
-        <div className='money-editinvoicepopup-info-date'>
-          {savedData.date}
-        </div>
-      </div>
-
-      <div className='money-editinvoicepopup-list'>        
         <div className='money-editinvoicepopup-item flex'>
           <p className="money-editinvoicepopup-item-title">
-              Invoice date
+              Amount
+          </p>
+
+          <div className='money-editinvoicepopup-item-number'>
+            <TextField
+              placeholder=""
+              value={amount}
+              onChange={handleAmount}
+              className="money-editinvoicepopup-item-number-input"
+              type="number"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+              }}
+            />
+          </div>
+        </div>
+
+        <div className='money-editinvoicepopup-item flex'>
+          <p className="money-editinvoicepopup-item-title">
+              Date
           </p>
 
           <div className='money-editinvoicepopup-item-date'>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <MobileDatePicker
                 slotProps={{ textField: { placeholder: '' } }}
-                value={createDate} 
-                onChange={handleCreateDate}
+                value={date} 
+                onChange={handleDate}
                 // defaultValue={dayjs()}
+                // defaultValue={dayjs(`${data.date}`)}
                 // disablePast
               />
             </LocalizationProvider>
@@ -190,42 +136,40 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
         </div>
 
         <div className='money-editinvoicepopup-item flex'>
-          <p className="money-editinvoicepopup-item-title">
-              Due date
+          <p className='money-editinvoicepopup-item-title'>
+            Payment method {data.paymentMethod}
           </p>
 
-          <div className='money-editinvoicepopup-item-date'>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
-                slotProps={{ textField: { placeholder: '' } }}
-                value={dueDate} 
-                onChange={handleDueDate}
-                // defaultValue={dayjs()}
-                // disablePast
-              />
-            </LocalizationProvider>
-          </div>
+          <FormControl fullWidth>
+            <Select
+              className="money-editinvoicepopup-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              // defaultValue={data.paymentMethod}
+              value={paymentMethod}
+              onChange={handlePaymentMethod}
+            >
+              <MenuItem value='Paypal'>Paypal</MenuItem>
+              <MenuItem value='Paypal2'>Paypal 2</MenuItem>
+              <MenuItem value='Paypal3'>Paypal 3</MenuItem>
+              <MenuItem value='Paypal4'>Paypal 4</MenuItem>
+            </Select>
+          </FormControl>
         </div>
 
         <div className='money-editinvoicepopup-item flex'>
-            <p className='money-editinvoicepopup-item-title'>
-              Category
-            </p>
+          <p className='money-editinvoicepopup-item-title'>
+            Transaction ID
+          </p>
 
-            <FormControl fullWidth>
-                <Select
-                  className="money-editinvoicepopup-item-select"
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={category}
-                  onChange={handleCategory}
-                >
-                  <MenuItem value='category1'>Category 1</MenuItem>
-                  <MenuItem value='category2'>Category 2</MenuItem>
-                  <MenuItem value='category3'>Category 3</MenuItem>
-                  <MenuItem value='category4'>Category 4</MenuItem>
-                </Select>
-            </FormControl>
+          <TextField
+            className='money-editinvoicepopup-item-input'
+            variant="outlined"
+            value={transactionID}
+            onChange={handleTransactionID}
+            // multiline
+            // maxRows={5}
+          />
         </div>
 
         <div className='money-editinvoicepopup-item switch'>
@@ -243,29 +187,6 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
         {
           additionalInfo ? 
               <>
-                <div className='money-editinvoicepopup-item tags'>
-                  <p className='money-editinvoicepopup-item-title'>
-                    Tags
-                  </p>
-
-                  <Select
-                    labelId="demo-multiple-chip-label"
-                    id="demo-multiple-chip"
-                    multiple
-                    value={tag}
-                    onChange={handleTag}
-                  >
-                    {tags.map((tag) => (
-                      <MenuItem
-                        key={tag}
-                        value={tag}
-                      >
-                        {tag}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </div>
-
                 <div className='money-editinvoicepopup-item notes'>
                   <p className='money-editinvoicepopup-item-title'>
                     Notes
@@ -284,11 +205,6 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
               ''
         }
 
-        <div className='money-editinvoicepopup-item flex'>
-            <Alert variant="outlined" severity="warning" icon={<LoopIcon sx={{color: "#93742A"}} />}>
-                Recurring invoice options are available after an invoice has been created
-            </Alert>
-        </div>
 
         <div className='money-editinvoicepopup-btn'>
           <Button className='money-editinvoicepopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>
