@@ -166,7 +166,7 @@
 
                 &-item {
                     &.MuiTableCell-root  {
-                        cursor: pointer;
+                        cursor: auto;
                         max-width: 100px;
                         white-space: nowrap;
                         overflow: hidden;
@@ -311,7 +311,7 @@
 
                 &-item {
                     &.MuiTableCell-root  {
-                        cursor: pointer;
+                        cursor: auto;
                         max-width: 100px;
                         white-space: nowrap;
                         overflow: hidden;
@@ -440,7 +440,7 @@
 
                 &-item {
                     &.MuiTableCell-root  {
-                        cursor: pointer;
+                        cursor: auto;
                         max-width: 100px;
                         white-space: nowrap;
                         overflow: hidden;
@@ -448,6 +448,39 @@
                         color: #333333;
                         font-size: 14px;
                         padding: 10px;
+                    }
+
+                    &.tag {
+                        .MuiChip-root {
+                            background-color: #F7F7F7;
+                            color: #A3A3A3;
+                            border-radius: 8px;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    &.category {
+                        .MuiChip-root {
+                            background-color: #F7F7F7;
+                            color: #A3A3A3;
+                            border-radius: 8px;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    &.status {
+                        .MuiChip-root.active {
+                            background-color: #51A3FF1A;
+                            color: #51A3FF;
+                            border-radius: 8px;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    & .owner {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
                     }
                     
                     &.blue {
@@ -504,7 +537,7 @@
                 }
 
                 &:hover {
-                    .invoice-manager-page_main_invoices-tab-row-actions {
+                    .invoice-manager-page_main_clients-tab-row-actions {
                         .MuiButtonBase-root:nth-child(1) {
                             .MuiSvgIcon-root {
                                 color: #FD5162;

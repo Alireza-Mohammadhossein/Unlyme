@@ -13,6 +13,7 @@ import sentIconBlue from '../assets/images/my-services/email/sent-blue.png';
 import starredIconGray from '../assets/images/my-services/email/star-gray.png';
 import starredIconBlue from '../assets/images/my-services/email/star-blue.png';
 import emailLogo from '../assets/images/my-services/email/email-logo.png';
+import clientImage from '../assets/images/invoice-manager/client-image.png';
 
 
 
@@ -3353,7 +3354,8 @@ export const clients = [
     id: 1,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3367,7 +3369,8 @@ export const clients = [
     id: 2,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3381,7 +3384,8 @@ export const clients = [
     id: 3,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3395,7 +3399,8 @@ export const clients = [
     id: 4,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3410,7 +3415,8 @@ export const clients = [
     id: 5,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3424,7 +3430,8 @@ export const clients = [
     id: 6,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3438,7 +3445,8 @@ export const clients = [
     id: 7,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3452,7 +3460,8 @@ export const clients = [
     id: 8,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3468,7 +3477,8 @@ export const clients = [
     id: 9,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3482,7 +3492,8 @@ export const clients = [
     id: 10,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3496,7 +3507,8 @@ export const clients = [
     id: 11,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3510,7 +3522,8 @@ export const clients = [
     id: 12,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3526,7 +3539,8 @@ export const clients = [
     id: 13,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3540,7 +3554,8 @@ export const clients = [
     id: 14,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3554,7 +3569,8 @@ export const clients = [
     id: 15,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3568,7 +3584,8 @@ export const clients = [
     id: 16,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3584,7 +3601,8 @@ export const clients = [
     id: 17,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3598,7 +3616,8 @@ export const clients = [
     id: 18,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3612,7 +3631,8 @@ export const clients = [
     id: 19,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3626,7 +3646,8 @@ export const clients = [
     id: 20,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3641,7 +3662,8 @@ export const clients = [
     id: 21,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3655,7 +3677,8 @@ export const clients = [
     id: 22,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3669,7 +3692,8 @@ export const clients = [
     id: 23,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3683,7 +3707,8 @@ export const clients = [
     id: 24,
     date: '06-21-2023',
     company: 'Company name',
-    client: 'client name',
+    owner: 'Owner name',
+    ownerImage: clientImage,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [

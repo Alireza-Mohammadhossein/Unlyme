@@ -45,7 +45,7 @@ const ClientsTableHead = (props) => {
         id: 2,
         numeric: true,
         disablePadding: true,
-        label: 'Date',
+        label: 'Company Name',
         sortable: false,
         with: 130
       },
@@ -53,7 +53,7 @@ const ClientsTableHead = (props) => {
         id: 3,
         numeric: true,
         disablePadding: true,
-        label: 'Description',
+        label: 'Account owner',
         sortable: false,
         with: 130
       },
@@ -61,7 +61,7 @@ const ClientsTableHead = (props) => {
         id: 4,
         numeric: true,
         disablePadding: true,
-        label: 'Amount',
+        label: 'Projects',
         sortable: false,
         with: 130
       },
@@ -69,7 +69,7 @@ const ClientsTableHead = (props) => {
         id: 5,
         numeric: true,
         disablePadding: true,
-        label: 'Client',
+        label: 'Invoices',
         sortable: false,
         with: 130
       },
@@ -77,18 +77,25 @@ const ClientsTableHead = (props) => {
         id: 6,
         numeric: true,
         disablePadding: true,
-        label: 'Project',
+        label: 'Tags',
         with: 130
       },
       {
         id: 7,
         numeric: true,
         disablePadding: true,
-        label: 'Invoice',
+        label: 'Category',
         with: 130
       },
       {
         id: 8,
+        numeric: true,
+        disablePadding: true,
+        label: 'Status',
+        with: 130
+      },
+      {
+        id: 9,
         numeric: true,
         disablePadding: true,
         label: 'Actions',
@@ -133,7 +140,7 @@ const ClientsTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={4} padding="checkbox" className='money-header-row-option'>
+            <TableCell colSpan={5} padding="checkbox" className='money-header-row-option'>
               {numSelected > 0 ?
                 <div className='money-header-row-option-container'>
                   <Button startIcon={<DeleteOutlineOutlinedIcon />}>

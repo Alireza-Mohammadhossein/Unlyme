@@ -18,9 +18,11 @@ import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import Modal from '@mui/material/Modal';
 import DeleteClientsPopup from '../popups/DeleteClientsPopup';
 import EditClientsPopup from '../popups/EditClientsPopup';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import ClientsRecordPopup from '../popups/ClientsRecord';
-
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
 
 
 
@@ -283,14 +285,6 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           id={labelId}
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_clients-tab-row-item'
-                        >
-                          {row.date}
-                        </TableCell>
-
-                        <TableCell
-                          scope="row"
-                          align="center"
                           className='invoice-manager-page_main_clients-tab-row-item blue'
                         >
                           {row.company}
@@ -301,7 +295,17 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           align="center"
                           className='invoice-manager-page_main_clients-tab-row-item'
                         >
-                          {row.project}
+                          <div className='owner'>
+                            <Avatar alt={row.owner} src={row.ownerImage} /> {row.owner}
+                          </div>
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_clients-tab-row-item'
+                        >
+                          {row.projectsNumber}
                         </TableCell>
                         
                         <TableCell
@@ -309,25 +313,33 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           align="center"
                           className='invoice-manager-page_main_clients-tab-row-item'
                         >
-                          {row.amount}
+                          ${row.invoicesAmount}
                         </TableCell>
 
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_clients-tab-row-item blue'
+                          className='invoice-manager-page_main_clients-tab-row-item tag'
                         >
-                          {row.payment}
+                          <Chip label={row.tags[0]} />
+                        </TableCell>
+
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className='invoice-manager-page_main_clients-tab-row-item category'
+                        >
+                          <Chip label={row.category} />
                         </TableCell>
                         
                         <TableCell
                           scope="row"
                           align="center"
-                          className={`invoice-manager-page_main_clients-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
+                          className='invoice-manager-page_main_clients-tab-row-item status'
                         >
-                          <span>
-                            {row.status}
-                          </span>
+                            {
+                              row.status ? <Chip label="Active" className='active' /> : <Chip label='Not Active' className='notactive' />
+                            }
                         </TableCell>
 
                         <TableCell
@@ -355,15 +367,15 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           >
                             <DriveFileRenameOutlineOutlinedIcon />
                           </IconButton>
-
+                          
                           <IconButton aria-label="open"
                             onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row)
-                              handleOpenClientsRecordPopup();
+                              handleOpenSendEmailPopup();
                             }}
                           >
-                            <OpenInNewOutlinedIcon />
+                            <MailOutlinedIcon />
                           </IconButton>
 
                           <IconButton aria-label="open"
