@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './money-popups.scss';
+import './clients-popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
@@ -30,11 +30,6 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
     setProject(event.target.value);
   };
 
-  const [invoiceID, setInvoiceID] = useState('');
-  const handleInvoiceID = (event) => {
-    setInvoiceID(event.target.value);
-  };
-
   const [amountMin, setAmountMin] = useState('');
   const handleAmountMin = (event) => {
     setAmountMin(event.target.value);
@@ -43,6 +38,16 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
   const [amountMax, setAmountMax] = useState('');
   const handleAmountMax = (event) => {
     setAmountMax(event.target.value);
+  };
+
+  const [paymentsMin, setPaymentsMin] = useState('');
+  const handlePaymentsMin = (event) => {
+    setPaymentsMin(event.target.value);
+  };
+
+  const [paymentsMax, setPaymentsMax] = useState('');
+  const handlePaymentsMax = (event) => {
+    setPaymentsMax(event.target.value);
   };
 
   const [dateStart, setDateStart] = useState(null);
@@ -55,22 +60,6 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
     setDateEnd(newValue);
   };
 
-
-  const [paymentMethod, setPaymentMethod] = useState('');
-  const handlePaymentMethod = (event) => {
-    setPaymentMethod(event.target.value);
-  };
-
-  const [creator, setCreator] = useState('');
-  const handleCreator = (event) => {
-    setCreator(event.target.value);
-  };
-
-  const [recurring, setRecurring] = useState('');
-  const handleRecurring = (event) => {
-    setRecurring(event.target.value);
-  };
-
   const [status, setStatus] = useState('');
   const handleStatus = (event) => {
     setStatus(event.target.value);
@@ -79,14 +68,12 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
   const handleResetFilters = () => {
     setClient('');
     setProject('');
-    setInvoiceID('');
     setAmountMin('');
     setAmountMax('');
+    setPaymentsMin('');
+    setPaymentsMax('');
     setDateStart(null);
     setDateEnd(null);
-    setPaymentMethod('');
-    setCreator('');
-    setRecurring('');
     setStatus('');
   }
 
@@ -94,14 +81,12 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
     setFilterClientsPopup(false)
     setClient('');
     setProject('');
-    setInvoiceID('');
     setAmountMin('');
     setAmountMax('');
+    setPaymentsMin('');
+    setPaymentsMax('');
     setDateStart(null);
     setDateEnd(null);
-    setPaymentMethod('');
-    setCreator('');
-    setRecurring('');
     setStatus('');
   }
 
@@ -111,7 +96,7 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
       <div className='clients-filterpopup-header'>
         <div className='clients-filterpopup-header-title'>
           <FilterListIcon />
-          <p>Filter Payments</p>
+          <p>Filter Clients</p>
         </div>
 
         <div className='clients-filterpopup-header-btn'>
@@ -168,22 +153,24 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
 
         <div className='clients-filterpopup-item'>
           <p className="clients-filterpopup-item-title">
-            Invoice ID
+              Status
           </p>
 
-          <div className='clients-filterpopup-item-double'>
-            <TextField
-              placeholder=""
-              value={invoiceID}
-              onChange={handleInvoiceID}
-              className="clients-filterpopup-item-input"
-              type="number"
-              InputProps={{
-                startAdornment: <InputAdornment position="start">INV-</InputAdornment>,
-              }}
-            />
+          <FormControl fullWidth>
+            <Select
+              className="clients-filterpopup-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={status}
+              onChange={handleStatus}
+            >
+              <MenuItem value='status1'>Status 1</MenuItem>
+              <MenuItem value='status2'>Status 2</MenuItem>
+              <MenuItem value='status3'>Status 3</MenuItem>
+              <MenuItem value='status4'>Status 4</MenuItem>
+            </Select>
+          </FormControl>
 
-          </div>
         </div>
 
         <div className='clients-filterpopup-item'>
@@ -219,7 +206,38 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
 
         <div className='clients-filterpopup-item'>
           <p className="clients-filterpopup-item-title">
-              Date
+            Payments
+          </p>
+
+          <div className='clients-filterpopup-item-double'>
+            <TextField
+              placeholder="Min"
+              value={paymentsMin}
+              onChange={handlePaymentsMin}
+              className="clients-filterpopup-item-input"
+              type="number"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+              }}
+            />
+
+            <TextField
+              placeholder="Max"
+              value={paymentsMax}
+              onChange={handlePaymentsMax}
+              className="clients-filterpopup-item-input"
+              type="number"
+              InputProps={{
+                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+              }}
+            />
+
+          </div>
+        </div>
+
+        <div className='clients-filterpopup-item'>
+          <p className="clients-filterpopup-item-title">
+              Date Created
           </p>
 
           <div className='clients-filterpopup-item-double'>
@@ -245,48 +263,6 @@ const FilterClientsPopup = ({ setFilterClientsPopup }) => {
           </div>
         </div>
 
-        <div className='clients-filterpopup-item'>
-          <p className="clients-filterpopup-item-title">
-              Payment Method
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="clients-filterpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={paymentMethod}
-              onChange={handlePaymentMethod}
-            >
-              <MenuItem value='paypal'>Paypal</MenuItem>
-              <MenuItem value='paypal1'>Paypal1</MenuItem>
-              <MenuItem value='paypal2'>Paypal2</MenuItem>
-            </Select>
-          </FormControl>
-
-        </div>
-
-        <div className='clients-filterpopup-item'>
-          <p className="clients-filterpopup-item-title">
-              Status
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="clients-filterpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={status}
-              onChange={handleStatus}
-            >
-              <MenuItem value='status1'>Status 1</MenuItem>
-              <MenuItem value='status2'>Status 2</MenuItem>
-              <MenuItem value='status3'>Status 3</MenuItem>
-              <MenuItem value='status4'>Status 4</MenuItem>
-            </Select>
-          </FormControl>
-
-        </div>
 
         <div className='clients-filterpopup-btn'>
           <Button className='clients-filterpopup-btn-reset' onClick={handleResetFilters}>Reset</Button>

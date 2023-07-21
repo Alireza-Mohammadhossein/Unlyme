@@ -13,6 +13,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Drawer from '@mui/material/Drawer';
 import FilterInvoicesPopup from './invoices/popups/FilterInvoicesPopup';
 import FilterMoneyPopup from './money/popups/FilterMoneyPopup';
+import FilterClientsPopup from './clients/popups/FilterClientsPopup';
 import Modal from '@mui/material/Modal';
 import AddNewPopup from './invoices/popups/AddNewPopup';
 import Menu from "@mui/material/Menu";
@@ -32,6 +33,8 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
 
   const [filterInvoicesPopup, setFilterInvoicesPopup] = useState(false);
   const [filterMoneyPopup, setFilterMoneyPopup] = useState(false);
+  const [filterClientsPopup, setFilterClientsPopup] = useState(false);
+
 
   useEffect(() => {
     if (filterInvoicesPopup) {
@@ -190,6 +193,16 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           <FilterMoneyPopup setFilterMoneyPopup={setFilterMoneyPopup} />
                       </Drawer>
                     </>
+                  : activeTab === 2 ?
+                  <>
+                    <IconButton aria-label="filter" onClick={() => {setFilterClientsPopup(true)}}>
+                        <FilterListIcon />
+                    </IconButton>
+                    
+                    <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} >
+                        <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
+                    </Drawer>
+                  </>
                   :
                     ''
                 }
