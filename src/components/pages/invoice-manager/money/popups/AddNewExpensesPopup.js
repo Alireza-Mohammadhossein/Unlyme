@@ -54,6 +54,11 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
   const handleCategory = (event) => {
       setCategory(event.target.value);
   };
+
+  const [client, setClient] = useState('');
+  const handleClient = (event) => {
+      setClient(event.target.value);
+  };
   
   const [project, setProject] = useState('');
   const handleProject = (event) => {
@@ -197,6 +202,27 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
 
         <div className='money-addnewexpenses-item flex'>
             <p className='money-addnewexpenses-item-title'>
+              Client
+            </p>
+
+            <FormControl fullWidth>
+                <Select
+                  className="money-addnewexpenses-item-select"
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={client}
+                  onChange={handleClient}
+                >
+                  <MenuItem value='client1'>Client 1</MenuItem>
+                  <MenuItem value='client2'>Client 2</MenuItem>
+                  <MenuItem value='client3'>Client 3</MenuItem>
+                  <MenuItem value='client4'>Client 4</MenuItem>
+                </Select>
+            </FormControl>
+        </div>
+
+        <div className='money-addnewexpenses-item flex'>
+            <p className='money-addnewexpenses-item-title'>
               Project
             </p>
 
@@ -243,7 +269,6 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
           <FormControlLabel control={<Checkbox sx={{color: '#3089dc'}} defaultChecked />} label="Billable" sx={{color: '#888888'}} />
         </div>
 
-
         <div className='money-addnewexpenses-item switch'>
             <p className='money-addnewexpenses-item-title' onClick={handleAdditionalInfo}>
               Attach a receipt
@@ -274,20 +299,8 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
                       showAlerts={true}
                       filesLimit={3}
                       Icon= {CustomUploadIcon}
-                    //   alertSnackbarProps={{horizontal: 'center'}}
-                      
+                    
                     />
-                  {/* <p className='money-addnewexpenses-item-title'>
-                    Notes
-                  </p> */}
-                  {/* 
-                  <TextField
-                      className='money-addnewexpenses-item-input'
-                      variant="outlined"
-                      onChange={handleNotes}
-                      multiline
-                      maxRows={5}
-                  /> */}
                 </div>
               </>
             :

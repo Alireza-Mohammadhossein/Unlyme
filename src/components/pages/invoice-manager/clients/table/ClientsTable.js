@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,21 +11,15 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
-import MoneyTableHead from './MoneyTableHead';
+import ClientsTableHead from './ClientsTableHead';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import Modal from '@mui/material/Modal';
-import DeleteEarningPopup from '../popups/DeleteEarningPopup';
-import DeleteExpensePopup from '../popups/DeleteExpensePopup';
-import EditEarningPopup from '../popups/EditEarningPopup';
-import EditExpensesPopup from '../popups/EditExpensesPopup';
-import EarningRecordPopup from '../popups/EarningRecord';
-import ExpenseRecordPopup from '../popups/ExpenseRecord';
-import incomingIcon from '../../../../../assets/images/invoice-manager/incoming.png';
-import outgoingIcon from '../../../../../assets/images/invoice-manager/outgoing.png';
-import totalIcon from '../../../../../assets/images/invoice-manager/total.png';
-import Tooltip from '@mui/material/Tooltip';
+import DeleteClientsPopup from '../popups/DeleteClientsPopup';
+import EditClientsPopup from '../popups/EditClientsPopup';
+import SendEmailPopup from '../popups/SendEmailPopup';
+import ClientsRecordPopup from '../popups/ClientsRecord';
 
 
 
@@ -65,7 +60,7 @@ function stableSort(array, comparator) {
 
 
 
-const MoneyTable = ({ invoices, searchText, setSearchText }) => {
+const ClientsTable = ({ invoices, searchText, setSearchText }) => {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('date');
   const [selected, setSelected] = useState([]);
@@ -167,31 +162,19 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
   // end sort by date
 
 
- 
 
 
-
-  // start delete earning popup
-  const [deleteEarningPopup, setDeleteEarningPopup] = useState(false);
-  const handleOpenDeleteEarningPopup = () => {
-    setDeleteEarningPopup(true)
+  // start delete invoice popup
+  const [deleteClientsPopup, setDeleteClientsPopup] = useState(false);
+  const handleOpenDeleteClientsPopup = () => {
+    setDeleteClientsPopup(true)
   };
-  const handleCloseDeleteEarningPopup = () => {
+  const handleCloseDeleteClientsPopup = () => {
     setSelectedRowOption([]);
-    setDeleteEarningPopup(false)
+    setDeleteClientsPopup(false)
   };
   // end delete invoice popup
 
-  // start delete earning popup
-  const [deleteExpensePopup, setDeleteExpensePopup] = useState(false);
-  const handleOpenDeleteExpensePopup = () => {
-    setDeleteExpensePopup(true)
-  };
-  const handleCloseDeleteExpensePopup = () => {
-    setSelectedRowOption([]);
-    setDeleteExpensePopup(false)
-  };
-  // end delete invoice popup
 
   // start send email popup
   const [sendEmailPopup, setSendEmailPopup] = useState(false);
@@ -204,51 +187,29 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
   };
   // end send email popup
 
-  // start edit invoice popup
-  const [editEarningPopup, setEditEarningPopup] = useState(false);
 
-  const handleOpenEditEarningPopup = () => {
-    setEditEarningPopup(true);
+  // start edit invoice popup
+  const [editClientsPopup, setEditClientsPopup] = useState(false);
+
+  const handleOpenEditClientsPopup = () => {
+    setEditClientsPopup(true);
   };
-  const handleCloseEditEarningPopup = () => {
+  const handleCloseEditClientsPopup = () => {
     setSelectedRowOption([]);
-    setEditEarningPopup(false)
+    setEditClientsPopup(false)
   };
   // end edit invoice popup
 
-  // start edit invoice popup
-  const [editExpensesPopup, setEditExpensesPopup] = useState(false);
-
-  const handleOpenEditExpensesPopup = () => {
-    setEditExpensesPopup(true);
+  // start attach project popup
+  const [clientsRecordPopup, setClientsRecordPopup] = useState(false);
+  const handleOpenClientsRecordPopup = () => {
+    setClientsRecordPopup(true);
   };
-  const handleCloseEditExpensesPopup = () => {
+  const handleCloseClientsRecordPopup = () => {
     setSelectedRowOption([]);
-    setEditExpensesPopup(false)
+    setClientsRecordPopup(false);
   };
-  // end edit invoice popup
-
-  // start earning record popup
-  const [earningRecordPopup, setEarningRecordPopup] = useState(false);
-  const handleOpenEarningRecordPopup = () => {
-    setEarningRecordPopup(true);
-  };
-  const handleCloseEarningRecordPopup = () => {
-    setSelectedRowOption([]);
-    setEarningRecordPopup(false);
-  };
-  // end earning record popup
-
-  // start expense record popup
-  const [expenseRecordPopup, setExpenseRecordPopup] = useState(false);
-  const handleOpenExpenseRecordPopup = () => {
-    setExpenseRecordPopup(true);
-  };
-  const handleCloseExpenseRecordPopup = () => {
-    setSelectedRowOption([]);
-    setExpenseRecordPopup(false);
-  };
-  // end expense record popup
+  // end change category popup
   
 
 
@@ -256,71 +217,6 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
 
   return (
     <>
-      <div className='money-transactions'>
-        <div className='money-transactions-card'>
-          <div className='money-transactions-card-info'>
-            <div className='money-transactions-card-info-icon'>
-              <img src={incomingIcon} />
-            </div>
-            <div className='money-transactions-card-info-text'>
-              <p className='money-transactions-card-info-text-title'>
-                Incoming
-              </p>
-
-              <p className='money-transactions-card-info-text-subtitle'>
-                Earning in June
-              </p>
-            </div>
-          </div>
-          
-          <div className='money-transactions-card-amount'>
-            0.00 CHF
-          </div>
-        </div>
-
-        <div className='money-transactions-card'>
-          <div className='money-transactions-card-info'>
-            <div className='money-transactions-card-info-icon'>
-              <img src={outgoingIcon} />
-            </div>
-            <div className='money-transactions-card-info-text'>
-              <p className='money-transactions-card-info-text-title'>
-                Outgoing
-              </p>
-
-              <p className='money-transactions-card-info-text-subtitle'>
-                Expenses in June
-              </p>
-            </div>
-          </div>
-          
-          <div className='money-transactions-card-amount'>
-            0.00 CHF
-          </div>
-        </div>
-
-        <div className='money-transactions-card'>
-          <div className='money-transactions-card-info'>
-            <div className='money-transactions-card-info-icon'>
-              <img src={totalIcon} />
-            </div>
-            <div className='money-transactions-card-info-text'>
-              <p className='money-transactions-card-info-text-title'>
-                Total profit
-              </p>
-
-              <p className='money-transactions-card-info-text-subtitle'>
-                June
-              </p>
-            </div>
-          </div>
-          
-          <div className='money-transactions-card-amount'>
-            0.00 CHF
-          </div>
-        </div>
-      </div>
-
       <Box sx={{ width: '100%' }}>
         <Paper sx={{ width: '100%', mb: 2}}>
           {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
@@ -332,9 +228,9 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
           >
             <Table
               aria-labelledby="tableTitle"
-              className='money-table'
+              className='clients-table'
             >
-              <MoneyTableHead
+              <ClientsTableHead
                 numSelected={selected.length}
                 order={order}
                 orderBy={orderBy}
@@ -362,7 +258,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                         key={row.id}
                         selected={isItemSelected}
                         sx={{ cursor: 'pointer'}}
-                        className='invoice-manager-page_main_money-tab-row'
+                        className='invoice-manager-page_main_clients-tab-row'
                       >
 
                         <TableCell padding="checkbox"
@@ -387,7 +283,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                           id={labelId}
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item'
+                          className='invoice-manager-page_main_clients-tab-row-item'
                         >
                           {row.date}
                         </TableCell>
@@ -395,64 +291,55 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item company'
+                          className='invoice-manager-page_main_clients-tab-row-item blue'
                         >
-                          {row.description}
+                          {row.company}
                         </TableCell>
 
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item'
+                          className='invoice-manager-page_main_clients-tab-row-item'
                         >
-                          {
-                            row.status === 'plus' ?
-                            <Tooltip title={`Payment method: ${row.paymentMethod}`} arrow placement="top">
-                              <p className='invoice-manager-page_main_money-tab-row-item-plus'>+ {row.amount}</p>
-                            </Tooltip>
-                              
-                            :
-                              <Tooltip title={`Payment method: ${row.paymentMethod}`} arrow placement="top">
-                                <p className='invoice-manager-page_main_money-tab-row-item-minus'>- {row.amount}</p>
-                              </Tooltip>
-
-                          }
+                          {row.project}
                         </TableCell>
                         
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item blue'
+                          className='invoice-manager-page_main_clients-tab-row-item'
                         >
-                          {row.client}
+                          {row.amount}
                         </TableCell>
 
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item'
+                          className='invoice-manager-page_main_clients-tab-row-item blue'
                         >
-                          {row.project}
+                          {row.payment}
+                        </TableCell>
+                        
+                        <TableCell
+                          scope="row"
+                          align="center"
+                          className={`invoice-manager-page_main_clients-tab-row-item ${row.status === 'paid' ? 'paid' : row.status === 'due' ? 'due' : row.status === 'overdue' ? 'overdue' : 'draft' }`}
+                        >
+                          <span>
+                            {row.status}
+                          </span>
                         </TableCell>
 
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_money-tab-row-item blue'
-                        >
-                          {row.invoice}
-                        </TableCell>
-
-                        <TableCell
-                          scope="row"
-                          align="center"
-                          className='invoice-manager-page_main_money-tab-row-actions'
+                          className='invoice-manager-page_main_clients-tab-row-actions'
                         >
                           <IconButton aria-label="delete"
                              onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row);
-                              { row.status === 'plus' ? handleOpenDeleteEarningPopup() : handleOpenDeleteExpensePopup() }
+                              handleOpenDeleteClientsPopup()
                             }}
                           >
                             <DeleteOutlineOutlinedIcon />
@@ -462,9 +349,8 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                             onClick={(e) => {
                               // e.stopPropagation();
                               // console.log('row', row)
-                              setSelectedRowOption(row);
-                              
-                              { row.status === 'plus' ? handleOpenEditEarningPopup() : handleOpenEditExpensesPopup() }
+                              setSelectedRowOption(row)
+                              handleOpenEditClientsPopup();
                             }}
                           >
                             <DriveFileRenameOutlineOutlinedIcon />
@@ -474,13 +360,22 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                             onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row)
-                              { row.status === 'plus' ? handleOpenEarningRecordPopup() : handleOpenExpenseRecordPopup() }
+                              handleOpenClientsRecordPopup();
                             }}
                           >
                             <OpenInNewOutlinedIcon />
                           </IconButton>
 
-                          {/* <MoreOptionsMenu data={row} /> */}
+                          <IconButton aria-label="open"
+                            onClick={(e) => {
+                              // e.stopPropagation();
+                              setSelectedRowOption(row)
+                              handleOpenClientsRecordPopup();
+                            }}
+                          >
+                            <OpenInNewOutlinedIcon />
+                          </IconButton>
+
                         </TableCell>
                         
                       </TableRow>
@@ -490,9 +385,8 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
               </TableBody>
             </Table>
           </TableContainer>
-
           <TablePagination
-            className='money-pagination'
+            className='invoices-pagination'
             rowsPerPageOptions={[20, 50, 100]}
             component="div"
             count={invoices.length}
@@ -505,77 +399,42 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
       </Box>
 
 
-      {/* delete earning modal */}
+      {/* delete ivoice modal */}
       <Modal
-        open={deleteEarningPopup}
-        onClose={() => handleCloseDeleteEarningPopup()}
+        open={deleteClientsPopup}
+        onClose={() => handleCloseDeleteClientsPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <DeleteEarningPopup data={selectedRowOption} handleCloseDeleteEarningPopup={handleCloseDeleteEarningPopup} />
+        <DeleteClientsPopup data={selectedRowOption} handleCloseDeleteClientsPopup={handleCloseDeleteClientsPopup} />
       </Modal>
 
-      {/* delete expense modal */}
+      {/* edit invoice modal */}
       <Modal
-        open={deleteExpensePopup}
-        onClose={() => handleCloseDeleteExpensePopup()}
+        open={editClientsPopup}
+        onClose={() => handleCloseEditClientsPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <DeleteExpensePopup data={selectedRowOption} handleCloseDeleteExpensePopup={handleCloseDeleteExpensePopup} />
-      </Modal>
-
-      {/* edit earning modal */}
-      <Modal
-        open={editEarningPopup}
-        onClose={() => handleCloseEditEarningPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <EditEarningPopup data={selectedRowOption} handleCloseEditEarningPopup={handleCloseEditEarningPopup} />
+        <EditClientsPopup data={selectedRowOption} handleCloseEditClientsPopup={handleCloseEditClientsPopup} />
       </Modal>
 
 
-      {/* edit expenses modal */}
+      {/* edit invoice modal */}
       <Modal
-        open={editExpensesPopup}
-        onClose={() => handleCloseEditExpensesPopup()}
+        open={clientsRecordPopup}
+        onClose={() => handleCloseClientsRecordPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <EditExpensesPopup data={selectedRowOption} handleCloseEditExpensesPopup={handleCloseEditExpensesPopup} />
-      </Modal>
-
-
-      {/* earning record modal */}
-      <Modal
-        open={earningRecordPopup}
-        onClose={() => handleCloseEarningRecordPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <EarningRecordPopup data={selectedRowOption} handleCloseEarningRecordPopup={handleCloseEarningRecordPopup} />
-      </Modal>
-
-      
-      {/* earning record modal */}
-      <Modal
-        open={expenseRecordPopup}
-        onClose={() => handleCloseExpenseRecordPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <ExpenseRecordPopup data={selectedRowOption} handleCloseExpenseRecordPopup={handleCloseExpenseRecordPopup} />
+        <ClientsRecordPopup data={selectedRowOption} handleCloseClientsRecordPopup={handleCloseClientsRecordPopup} />
       </Modal>
 
     </>
   );
 }
 
-export default MoneyTable; 
+export default ClientsTable; 

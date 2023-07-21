@@ -12,12 +12,14 @@ import { useSelector } from 'react-redux';
 import InvoicesTable from './invoices/table/InvoicesTable';
 import { invoices } from '../../../mocks/mocks';
 import { money } from '../../../mocks/mocks';
+import { clients } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import MoneyTable from './money/table/MoneyTable';
+import ClientsTable from './clients/table/ClientsTable';
 
 
 
@@ -199,8 +201,12 @@ const InvoiceManagerContent = () => {
                     />
                   </TabPanel>
                   
-                  <TabPanel value={activeTab} index={2}>
-                    sent
+                  <TabPanel value={activeTab} index={2} className='invoice-manager-page_main_clients-tab'>
+                    <ClientsTable
+                      invoices={clients}
+                      searchText={searchText}
+                      setSearchText={setSearchText}
+                    />
                   </TabPanel>
                   
                   <TabPanel value={activeTab} index={3}>

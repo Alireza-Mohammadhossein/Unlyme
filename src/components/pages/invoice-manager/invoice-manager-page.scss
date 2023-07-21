@@ -398,6 +398,151 @@
             }
         }
 
+        &_clients-tab {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+
+            .MuiBox-root {
+                height: 100%;
+                box-sizing: border-box;
+                padding: 0;
+            } 
+
+            .MuiTypography-root {
+                height: 100%;
+                box-sizing: border-box;
+            }
+
+            .MuiTablePagination-root {
+                overflow: hidden;
+                min-height: 50px;
+            }
+            
+            .MuiPaper-root {
+                height: 100%;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                box-shadow: unset;
+                padding: 10px;
+                background-color: #ffffff;
+                border-radius: 8px;
+            }
+
+            .MuiTableCell-root {
+                img {
+                    vertical-align: middle;
+                }
+            } 
+
+            &-row {
+
+                &-item {
+                    &.MuiTableCell-root  {
+                        cursor: pointer;
+                        max-width: 100px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        color: #333333;
+                        font-size: 14px;
+                        padding: 10px;
+                    }
+                    
+                    &.blue {
+                        color: #51A3FF;
+                    }
+
+                    &.paid span {
+                        color: #66CFA9;
+                        background-color: #66CFA91A;
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                    }
+
+                    &.due span {
+                        color: #E0B974;
+                        background-color: #E0B97426;
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                    }
+
+                    &.overdue span {
+                        color: #FD5162;
+                        background-color: #F44D251A;
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                    }
+
+                    &.draft span {
+                        color: #A3A3A3;
+                        background-color: #B2B2B21A;
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 8px;
+                    }
+
+                }
+
+                &-actions.MuiTableCell-root {
+                    padding: 10px;
+                    cursor: pointer;
+                    max-width: 100px;
+
+                    .MuiButtonBase-root {
+                        padding: 5px;
+
+                        .MuiSvgIcon-root {
+                            font-size: 20px;
+                            color: #B4B4B4;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .invoice-manager-page_main_invoices-tab-row-actions {
+                        .MuiButtonBase-root:nth-child(1) {
+                            .MuiSvgIcon-root {
+                                color: #FD5162;
+                            }
+                        }
+
+                        .MuiButtonBase-root:nth-child(2) {
+                            .MuiSvgIcon-root {
+                                color: #66CFA9;
+                            }
+                        }
+
+                        .MuiButtonBase-root:nth-child(3) {
+                            .MuiSvgIcon-root {
+                                color: #51A3FF;
+                            }
+                        }
+
+                        .MuiButtonBase-root:nth-child(4) {
+                            .MuiSvgIcon-root {
+                                color: #51A3FF;
+                            }
+                        }
+                    }
+                }
+
+                &-actions_option-list {
+                    .MuiPaper-root {
+                        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1) !important;
+
+                        .MuiButtonBase-root {
+                            padding: 8px 30px 8px 20px;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     .invoices-table {
@@ -405,6 +550,10 @@
     }
 
     .money-table {
+        border-collapse: separate;
+    }
+
+    .clients-table {
         border-collapse: separate;
     }
 
@@ -557,6 +706,10 @@
     }
 
     .money-pagination {
+        border-top: 1px solid rgba(224, 224, 224, 1);
+    }
+
+    .clients-pagination {
         border-top: 1px solid rgba(224, 224, 224, 1);
     }
 }

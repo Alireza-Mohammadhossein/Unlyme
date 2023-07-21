@@ -3347,3 +3347,350 @@ export const money = [
     category: 'Category 1',
   },
 ]
+
+export const clients = [
+  {
+    id: 1,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 2,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 3,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 4,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+
+  {
+    id: 5,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 6,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 7,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 8,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  
+
+  {
+    id: 9,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 10,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 11,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 12,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+
+  
+  {
+    id: 13,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 14,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 15,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 16,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  
+
+  {
+    id: 17,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 18,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 19,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 20,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  
+  {
+    id: 21,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 22,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 23,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+  {
+    id: 24,
+    date: '06-21-2023',
+    company: 'Company name',
+    client: 'client name',
+    projectsNumber: 3,
+    invoicesAmount: '0.00',
+    tags: [
+      'seo-marketing',
+      'web-design'
+    ],
+    category: 'Category 1',
+    status: true,
+  },
+]

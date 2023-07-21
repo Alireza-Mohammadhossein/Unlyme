@@ -8,17 +8,17 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
-const PaymentRecordPopup = ({ handleClosePaymentRecordPopup, data}) => {
+const EarningRecordPopup = ({ handleCloseEarningRecordPopup, data}) => {
 
   return (
     <div className='money-invoicerecordpopup'>
       <div className='money-invoicerecordpopup-header'>
         <div className='money-invoicerecordpopup-header-title'>
-          <p>Payment record</p>
+          <p>Earning record</p>
         </div>
 
         <div className='money-invoicerecordpopup-header-btn'>
-          <IconButton onClick={handleClosePaymentRecordPopup}>
+          <IconButton onClick={handleCloseEarningRecordPopup}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -79,4 +79,4 @@ const PaymentRecordPopup = ({ handleClosePaymentRecordPopup, data}) => {
 }
 
 
-export default PaymentRecordPopup;
+export default EarningRecordPopup;
