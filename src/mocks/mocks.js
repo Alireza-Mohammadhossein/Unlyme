@@ -3378,7 +3378,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   {
     id: 3,
@@ -3424,7 +3424,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   {
     id: 6,
@@ -3486,7 +3486,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   {
     id: 10,
@@ -3531,7 +3531,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
 
   
@@ -3593,7 +3593,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   
 
@@ -3640,7 +3640,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   {
     id: 20,
@@ -3686,7 +3686,7 @@ export const clients = [
       'web-design'
     ],
     category: 'Category 1',
-    status: true,
+    status: false,
   },
   {
     id: 23,

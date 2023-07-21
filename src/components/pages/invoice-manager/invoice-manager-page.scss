@@ -475,6 +475,13 @@
                             border-radius: 8px;
                             text-transform: capitalize;
                         }
+
+                        .MuiChip-root.notactive {
+                            background-color: #FD51621A;
+                            color: #FD5162;
+                            border-radius: 8px;
+                            text-transform: capitalize;
+                        }
                     }
 
                     & .owner {

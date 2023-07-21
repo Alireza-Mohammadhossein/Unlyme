@@ -31,7 +31,7 @@ const DeleteClientsPopup = ({ handleCloseDeleteClientsPopup, data }) => {
 
             <div className='clients-deletepopup-content-btn'>
                 <Button onClick={() => {
-                  toast.error(`You have clicked on Delete invoice by id = ${data.id}!`, {
+                  toast.error(`You have clicked on Delete client by id = ${data.id}!`, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
