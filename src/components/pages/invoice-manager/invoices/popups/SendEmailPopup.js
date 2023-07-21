@@ -44,7 +44,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
                   });
                   handleCloseSendEmailPopup(false);
                   }}>
-                    Delete
+                    Send
                 </Button>
             </div>
       </div>

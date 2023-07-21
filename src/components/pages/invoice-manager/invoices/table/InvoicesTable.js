@@ -671,6 +671,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
         <DeleteInvoicePopup data={selectedRowOption} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
       </Modal>
 
+
       {/* edit invoice modal */}
       <Modal
         open={editInvoicePopup}

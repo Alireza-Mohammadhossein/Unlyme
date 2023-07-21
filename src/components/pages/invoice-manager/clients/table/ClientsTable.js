@@ -422,6 +422,7 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
         <DeleteClientsPopup data={selectedRowOption} handleCloseDeleteClientsPopup={handleCloseDeleteClientsPopup} />
       </Modal>
 
+
       {/* edit invoice modal */}
       <Modal
         open={editClientsPopup}
@@ -434,7 +435,19 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
       </Modal>
 
 
-      {/* edit invoice modal */}
+      {/* send email modal */}
+      <Modal
+        open={sendEmailPopup}
+        onClose={() => handleCloseSendEmailPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <SendEmailPopup data={selectedRowOption} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
+      </Modal>
+
+
+      {/* client record modal */}
       <Modal
         open={clientsRecordPopup}
         onClose={() => handleCloseClientsRecordPopup()}

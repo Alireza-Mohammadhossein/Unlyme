@@ -31,7 +31,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
 
             <div className='clients-sendemailpopup-content-btn'>
                 <Button onClick={() => {
-                  toast.success(`You have clicked on Send email by id = ${data.data.id}!`, {
+                  toast.success(`You have clicked on Send email by id = ${data.id}!`, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -44,7 +44,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
                   });
                   handleCloseSendEmailPopup(false);
                   }}>
-                    Delete
+                    Send
                 </Button>
             </div>
       </div>
