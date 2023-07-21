@@ -29,33 +29,28 @@ const ClientsRecordPopup = ({ handleCloseClientsRecordPopup, data}) => {
         <table className='clients-invoicerecordpopup-table'>
             <tbody className='clients-invoicerecordpopup-table-body'>
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Payment ID</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Company ID</td>
                     <td className='clients-invoicerecordpopup-table-body-tr-value'>#{data.id}</td>
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Amount</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.amount}</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Company name</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.company}</td>
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Invoice ID</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.invoice}</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Account owner</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.owner}</td>
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Date</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.date}</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Email Address</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.email}</td>
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Payment method</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.paymentMethod}</td>
-                </tr>
-
-                <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Client</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.client}</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Category</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.category}</td>
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
@@ -64,8 +59,23 @@ const ClientsRecordPopup = ({ handleCloseClientsRecordPopup, data}) => {
                 </tr>
 
                 <tr className='clients-invoicerecordpopup-table-body-tr'>
-                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Notes</td>
-                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.notes}</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Description</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.description}</td>
+                </tr>
+
+                <tr className='clients-invoicerecordpopup-table-body-tr'>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>Billing address</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.billing}</td>
+                </tr>
+                
+                <tr className='clients-invoicerecordpopup-table-body-tr'>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>App modules</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.modules}</td>
+                </tr>
+                
+                <tr className='clients-invoicerecordpopup-table-body-tr'>
+                    <td className='clients-invoicerecordpopup-table-body-tr-title'>More info</td>
+                    <td className='clients-invoicerecordpopup-table-body-tr-value'>{data.info}</td>
                 </tr>
             </tbody>
         </table>
