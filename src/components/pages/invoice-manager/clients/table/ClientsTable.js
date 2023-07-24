@@ -23,6 +23,7 @@ import SendEmailPopup from '../popups/SendEmailPopup';
 import ClientsRecordPopup from '../popups/ClientsRecord';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
+import CompanyInfoPopup from '../popups/CompanyInfo';
 
 
 
@@ -165,6 +166,18 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
 
 
 
+  // start company info popup
+  const [companyInfoPopup, setCompanyInfoPopup] = useState(false);
+  const handleOpenCompanyInfoPopup = () => {
+    setCompanyInfoPopup(true);
+  };
+  const handleCloseCompanyInfoPopup = () => {
+    setSelectedRowOption([]);
+    setCompanyInfoPopup(false);
+  };
+  // end company info popup
+
+
 
   // start delete invoice popup
   const [deleteClientsPopup, setDeleteClientsPopup] = useState(false);
@@ -202,7 +215,8 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
   };
   // end edit invoice popup
 
-  // start attach project popup
+
+  // start client record popup
   const [clientsRecordPopup, setClientsRecordPopup] = useState(false);
   const handleOpenClientsRecordPopup = () => {
     setClientsRecordPopup(true);
@@ -211,7 +225,7 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
     setSelectedRowOption([]);
     setClientsRecordPopup(false);
   };
-  // end change category popup
+  // end client record popup
   
 
 
@@ -285,7 +299,12 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           id={labelId}
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_clients-tab-row-item blue'
+                          className='invoice-manager-page_main_clients-tab-row-item blue pointer'
+                          onClick={(e) => {
+                            // e.stopPropagation();
+                            setSelectedRowOption(row)
+                            handleOpenCompanyInfoPopup();
+                          }}
                         >
                           {row.company}
                         </TableCell>
@@ -409,6 +428,19 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
           />
         </Paper>
       </Box>
+
+
+
+      {/* company info modal */}
+      <Modal
+        open={companyInfoPopup}
+        onClose={() => handleCloseCompanyInfoPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <CompanyInfoPopup data={selectedRowOption} handleCloseCompanyInfoPopup={handleCloseCompanyInfoPopup} />
+      </Modal>
 
 
       {/* delete ivoice modal */}

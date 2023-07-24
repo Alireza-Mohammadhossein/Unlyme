@@ -494,6 +494,10 @@
                         color: #51A3FF;
                     }
 
+                    &.pointer {
+                        cursor: pointer;
+                    }
+
                     &.paid span {
                         color: #66CFA9;
                         background-color: #66CFA91A;
