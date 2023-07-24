@@ -14,6 +14,7 @@ import starredIconGray from '../assets/images/my-services/email/star-gray.png';
 import starredIconBlue from '../assets/images/my-services/email/star-blue.png';
 import emailLogo from '../assets/images/my-services/email/email-logo.png';
 import clientImage from '../assets/images/invoice-manager/client-image.png';
+import companyLogo from '../assets/images/invoice-manager/company-icon.png';
 
 
 
@@ -3356,6 +3357,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3371,6 +3373,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3386,6 +3389,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3401,6 +3405,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3417,6 +3422,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3432,6 +3438,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3447,6 +3454,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3462,6 +3470,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3479,6 +3488,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3494,6 +3504,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3509,6 +3520,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3524,6 +3536,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3541,6 +3554,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3556,6 +3570,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3571,6 +3586,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3586,6 +3602,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3603,6 +3620,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3618,6 +3636,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3633,6 +3652,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3648,6 +3668,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3664,6 +3685,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3679,6 +3701,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3694,6 +3717,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [
@@ -3709,6 +3733,7 @@ export const clients = [
     company: 'Company name',
     owner: 'Owner name',
     ownerImage: clientImage,
+    companyLogo: companyLogo,
     projectsNumber: 3,
     invoicesAmount: '0.00',
     tags: [

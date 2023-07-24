@@ -41,7 +41,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
       <div className='clients-companyinfopopup-content'>
 
         <div className='clients-companyinfopopup-content-logo'>
-
+          <img src={data.companyLogo} alt={data.company} />
         </div>
 
         <div className='clients-companyinfopopup-content-tabs'>
@@ -137,8 +137,30 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
             
             
             <TabPanel value="2" className='clients-companyinfopopup-content-tab'>
-              <div className='clients-companyinfopopup-content-tab-content'>
+              <div className='clients-companyinfopopup-content-tab-project'>
+                <table className='clients-companyinfopopup-content-tab-project-table'>
+                  <tbody className='clients-companyinfopopup-content-tab-project-table-body'>
+                    <tr className='clients-companyinfopopup-content-tab-project-table-body-tr'>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-title'>Invoices</td>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-value'>{data.invoicesAmount}</td>
+                    </tr>
 
+                    <tr className='clients-companyinfopopup-content-tab-project-table-body-tr'>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-title'>Payments</td>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-value'>{data.payments}</td>
+                    </tr>
+
+                    <tr className='clients-companyinfopopup-content-tab-project-table-body-tr'>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-title'>Completed Projects</td>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-value'>{data.projectsNumber}</td>
+                    </tr>
+
+                    <tr className='clients-companyinfopopup-content-tab-project-table-body-tr'>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-title'>Open Projects</td>
+                        <td className='clients-companyinfopopup-content-tab-project-table-body-tr-value'>{data.projectsNumber}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </TabPanel>
             
