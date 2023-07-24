@@ -10,6 +10,7 @@ import Select from '@mui/material/Select';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { toast } from "react-toastify";
 
 
 
@@ -56,33 +57,6 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
   const handleDescriptionSwitch = () => {
       setDescriptionSwitch(!descriptionSwitch);
   };
-
-
-  const [billingSwitch, setBillingSwitch] = useState(false);
-  const handleBillingSwitch = () => {
-      setBillingSwitch(!billingSwitch);
-  };
-
-
-  const [shippingSwitch, setShippingSwitch] = useState(false);
-  const handleShippingSwitch = () => {
-      setShippingSwitch(!shippingSwitch);
-  };
-
-
-  const [modulesSwitch, setModulesSwitch] = useState(false);
-  const handleModulesSwitch = () => {
-      setModulesSwitch(!modulesSwitch);
-  };
-
-
-  const [moreInfoSwitch, setMoreInfoSwitch] = useState(false);
-  const handleMoreInfoSwitch = () => {
-      setMoreInfoSwitch(!moreInfoSwitch);
-  };
-
-
-
   // start description & details 
   const [notes, setNotes] = useState('');
   const handleNotes = (event) => {
@@ -113,6 +87,10 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
   // end description & details 
 
 
+  const [billingSwitch, setBillingSwitch] = useState(false);
+  const handleBillingSwitch = () => {
+      setBillingSwitch(!billingSwitch);
+  };
   // start billing address
   const [billingStreet, setBillingStreet] = useState('');
   const handleBillingStreet = (event) => {
@@ -156,6 +134,10 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
   // end billing address 
 
 
+  const [shippingSwitch, setShippingSwitch] = useState(false);
+  const handleShippingSwitch = () => {
+      setShippingSwitch(!shippingSwitch);
+  };
   // start shipping address
   const [shippingStreet, setShippingStreet] = useState('');
   const handleShippingStreet = (event) => {
@@ -184,15 +166,23 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
   // end shipping address 
 
 
-  // start shipping address
+  const [modulesSwitch, setModulesSwitch] = useState(false);
+  const handleModulesSwitch = () => {
+      setModulesSwitch(!modulesSwitch);
+  };
+  // start modules app
   const [enabledModules, setEnabledModules] = useState('system');
   const handleEnabledModules = (event) => {
       setEnabledModules(event.target.value);
   };
-  // end shipping address 
+  // end modules app 
 
 
-  // start shipping address
+  const [moreInfoSwitch, setMoreInfoSwitch] = useState(false);
+  const handleMoreInfoSwitch = () => {
+      setMoreInfoSwitch(!moreInfoSwitch);
+  };
+  // start more info
   const [vatInfo, setVatInfo] = useState('');
   const handleVatInfo = (event) => {
       setVatInfo(event.target.value);
@@ -212,9 +202,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
   const handleProjectTypeInfo = (event) => {
       setProjectTypeInfo(event.target.value);
   };
-  // end shipping address 
-  
-
+  // end more info
 
 
 
@@ -225,6 +213,17 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
   const handleSubmitAddClient = () => {
     handleCloseAddNewClientPopup();
+    toast.success('You have clicked on Submit client', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      pauseOnFocusLoss: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
 
