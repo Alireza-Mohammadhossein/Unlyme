@@ -22,6 +22,7 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
         </div>
       </div>
 
+
       <div className='clients-sendemailpopup-content'>
             <div className='clients-sendemailpopup-content-btn'>
                 <Button onClick={() => handleCloseSendEmailPopup(false)}>

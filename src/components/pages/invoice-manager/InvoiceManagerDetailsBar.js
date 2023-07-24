@@ -22,6 +22,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { toast } from "react-toastify";
 import AddNewEarningPopup from './money/popups/AddNewEarningPopup';
 import AddNewExpensesPopup from './money/popups/AddNewExpensesPopup';
+import AddNewClientsPopup from './clients/popups/AddNewClientsPopup';
 
 
 
@@ -151,6 +152,14 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
     setAddNewExpensesPopup(false)
   };
   // end add expenses popup
+
+
+
+  // start add new client
+  const [addNewClientPopup, setAddNewClientPopup] = useState(false);
+  const handleOpenAddNewClientPopup = () => setAddNewClientPopup(true);
+  const handleCloseAddNewClientPopup = () => setAddNewClientPopup(false);
+  // end add new client
 
 
   return (
@@ -286,20 +295,20 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           aria-label="more"
                           id="long-button"
                           aria-haspopup="true"
-                          onClick={handleOpenAddNewPopup}
+                          onClick={handleOpenAddNewClientPopup}
                         >
                           {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                         </Button>
 
 
                         <Modal
-                          open={addNewPopup}
-                          onClose={handleCloseAddNewPopup}
+                          open={addNewClientPopup}
+                          onClose={handleCloseAddNewClientPopup}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                           className='cloud-page__header_invoice-manager-details_add-modal'
                         >
-                          <AddNewPopup handleCloseAddNewPopup={handleCloseAddNewPopup} />
+                          <AddNewClientsPopup handleCloseAddNewClientPopup={handleCloseAddNewClientPopup} />
                         </Modal>
                       </>
                   : 

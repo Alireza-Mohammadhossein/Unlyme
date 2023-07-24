@@ -1,0 +1,152 @@
+.siteWrapperLG .cloud-page.work-drive-cloud-page {
+  margin: 0 auto;
+}
+
+.chonky-chonkyRoot {
+  border: unset !important;
+  background-color: unset !important;
+  padding: 0 !important;
+}
+.chonky-chonkyRoot .cloud-page__header_work-drive-page-details_search {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.chonky-chonkyRoot .MuiGrid-container {
+  align-items: start;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer {
+  align-items: center;
+  justify-content: space-between;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .MuiButton-root {
+  color: #555555 !important;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .MuiButton-root.chonky-activeButton {
+  color: #4382c4 !important;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft {
+  max-width: 35%;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-infoContainer {
+  display: none;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-infoContainer .chonky-infoText {
+  width: -moz-max-content;
+  width: max-content;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer {
+  height: auto !important;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root {
+  border: unset;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  height: 40px;
+  color: rgba(60, 60, 67, 0.7019607843);
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root .MuiInputAdornment-root {
+  background-color: red;
+  width: 18px;
+  height: 18px;
+  background: url("../../../assets/images/header/new-icons/search.png") center center no-repeat;
+  background-size: cover;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root .MuiInputAdornment-root svg {
+  display: none;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root::before, .chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root::after {
+  display: none;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root .MuiInputBase-input {
+  color: rgb(60, 60, 67);
+  opacity: 1;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root .MuiInputBase-input::-moz-placeholder {
+  color: rgb(60, 60, 67);
+  opacity: 1;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiInputBase-root .MuiInputBase-input::placeholder {
+  color: rgb(60, 60, 67);
+  opacity: 1;
+}
+.chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .chonky-chonkyRoot .chonky-toolbarWrapper .chonky-toolbarContainer .chonky-toolbarLeft .chonky-searchFieldContainer .MuiOutlinedInput-notchedOutline {
+  border: unset !important;
+}
+.chonky-chonkyRoot .chonky-navbarWrapper .MuiButton-root {
+  color: #555555 !important;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper {
+  padding: 20px;
+  box-sizing: border-box;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntry-] {
+  background: #FFFFFF;
+  border: 1px solid #F2F2F2;
+  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  box-sizing: border-box;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntry-] [class^=previewFile-] {
+  width: 50%;
+  height: 50%;
+  flex-grow: unset;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntry-] [class^=previewFile-] [class^=folderBackSideMid-] {
+  box-shadow: unset;
+  background-color: unset;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntry-] [class^=previewFile-] [class^=folderBackSideTop-] {
+  background-color: #4382C4;
+  box-shadow: unset;
+  top: -8px;
+  left: 0px;
+  right: 60%;
+  height: 8px;
+  position: absolute;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 10px;
+  width: 50%;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntry-] [class^=previewFile-] [class^=folderFrontSide-] {
+  box-shadow: unset;
+  background-color: #4382C4;
+  inset: 0px 0px 0px;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 0px 5px 5px 5px;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntryNameContainer-] {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .chonky-gridContainer [class^=fillParent-] [class^=gridFileEntryNameContainer-] span {
+  padding: 0 !important;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper [class^=listContainer-] [class^=listFileEntry-] {
+  cursor: pointer;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper [class^=listContainer-] > div {
+  height: 100% !important;
+  overflow: auto;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper [class^=listContainer-] > div div:not([class]) {
+  height: 50px !important;
+  position: relative !important;
+  top: 0 !important;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper .fileIcon-0-2-31 {
+  opacity: 1 !important;
+}
+.chonky-chonkyRoot .chonky-fileListWrapper [class^=selectionIndicator-] {
+  background: rgba(48, 137, 220, 0.3803921569);
+}/*# sourceMappingURL=custom-chonky.css.map */

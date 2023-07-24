@@ -1,0 +1,7 @@
+.isnot-home {
+  display: flex;
+  flex-direction: row;
+}
+.isnot-home .header__popup-area {
+  position: relative;
+}/*# sourceMappingURL=header-popups.css.map */

@@ -1,0 +1,220 @@
+.email-page {
+  width: 100%;
+  padding-bottom: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.email-page .MuiGrid-container {
+  margin: 0;
+}
+.email-page .MuiGrid-item {
+  padding-top: 0 !important;
+}
+.email-page .MuiGrid-root {
+  height: 100%;
+}
+.email-page_sidebar {
+  padding: 0 5px 50px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.email-page_sidebar_create-event_btn.MuiButtonBase-root {
+  background-color: #3089dc;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border-radius: 8px;
+  text-transform: none;
+}
+.email-page_sidebar_create-event_btn.MuiButtonBase-root:hover {
+  background-color: #3089dc;
+}
+.email-page_sidebar-section_category-list .MuiTabs-flexContainer {
+  gap: 5px;
+}
+.email-page_sidebar-section_category-item.MuiButtonBase-root {
+  text-transform: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: 8px;
+  max-width: unset;
+}
+.email-page_sidebar-section_category-item.MuiButtonBase-root:hover {
+  background-color: rgba(67, 130, 196, 0.1);
+}
+.email-page_sidebar-section_category-item.Mui-selected {
+  background-color: rgba(67, 130, 196, 0.1019607843);
+}
+.email-page_sidebar-section_category-item.Mui-selected .email-page_sidebar-section_category-item_content-title {
+  font-weight: bold;
+}
+.email-page_sidebar-section_category-item.Mui-selected .MuiSvgIcon-root {
+  color: #1976d2;
+}
+.email-page_sidebar-section_category-item_content {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.email-page_sidebar-section_category-item_content-icon {
+  width: 20px;
+  height: 20px;
+}
+.email-page_sidebar-section_category-item_content-title {
+  font-size: 15px;
+}
+.email-page_sidebar-section_category-item_content svg {
+  color: rgba(0, 0, 0, 0.54);
+}
+.email-page_sidebar-section_category-item_unreadnum {
+  background-color: #4382C4;
+  border-radius: 5px;
+  padding: 4px 8px;
+  color: white;
+}
+.email-page_sidebar-section_category .MuiTabs-indicator {
+  display: none;
+}
+.email-page_main {
+  height: 100%;
+  padding: 0 10px 0 15px;
+}
+.email-page_main_email {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.email-page_main_email-tab {
+  height: 100%;
+  box-sizing: border-box;
+}
+.email-page_main_email-tab .MuiBox-root {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+.email-page_main_email-tab .MuiTypography-root {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.email-page_main_email-tab .MuiTablePagination-root {
+  overflow: hidden;
+  min-height: 50px;
+}
+.email-page_main_email-tab .MuiPaper-root {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: unset;
+}
+.email-page_main_email-tab .MuiTableCell-root img {
+  vertical-align: middle;
+}
+.email-page .email-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+.email-page .email-header_selected {
+  font-size: 15px;
+  text-align: left;
+}
+
+.cloud-page__header_email-details {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.cloud-page__header_email-details_search .MuiFormControl-root {
+  width: 100%;
+}
+.cloud-page__header_email-details_search_container {
+  position: relative;
+  color: #666666;
+  margin-left: 0;
+  width: 100%;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  border-radius: 8px;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  width: auto;
+  padding: 0 13px;
+}
+.cloud-page__header_email-details_search_container label img {
+  width: 18px;
+}
+.cloud-page__header_email-details_search-input {
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  background-color: transparent;
+  padding: 0 8px;
+  line-height: 33px;
+  border: unset;
+  transition: all 0.3s ease;
+  color: rgba(60, 60, 67, 0.7019607843);
+  transform: translateX(0);
+}
+.cloud-page__header_email-details_search-input::-moz-placeholder {
+  color: rgba(60, 60, 67, 0.7019607843);
+}
+.cloud-page__header_email-details_search-input::placeholder {
+  color: rgba(60, 60, 67, 0.7019607843);
+}
+.cloud-page__header_email-details_actions {
+  width: 100%;
+  display: flex;
+  background-image: linear-gradient(to right, #BBCFFC, #F3A8F5);
+  box-sizing: border-box;
+  height: 40px;
+  gap: 10px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root {
+  height: 25px;
+  padding: 3px 8px;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: unset;
+  flex-grow: 1;
+  flex-shrink: 1;
+  line-height: 11px;
+  font-size: 12px;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root .MuiButton-startIcon {
+  background-color: #E9F0F7;
+  font-size: 11px;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root:hover {
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: unset;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root:hover .MuiButton-startIcon {
+  background-color: #E9F0F7;
+}/*# sourceMappingURL=email-page.css.map */

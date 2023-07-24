@@ -1,0 +1,1020 @@
+.clients-filterpopup {
+  width: 350px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.clients-filterpopup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.clients-filterpopup-header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #51A3FF;
+}
+.clients-filterpopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-filterpopup-list {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.clients-filterpopup-item-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+  color: #000;
+}
+.clients-filterpopup-item .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-filterpopup-item .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-filterpopup-item .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-filterpopup-item .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-filterpopup-item-select {
+  width: 100%;
+}
+.clients-filterpopup-item-select .MuiSelect-select {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-filterpopup-item-select .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-filterpopup-item-select .MuiSvgIcon-root {
+  color: #ACACAC;
+}
+.clients-filterpopup-item-select.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-filterpopup-item-double {
+  display: flex;
+  gap: 10px;
+}
+.clients-filterpopup-item-double .MuiFormControl-root {
+  width: 100%;
+}
+.clients-filterpopup-item-double .MuiInputBase-adornedStart {
+  padding-left: 10px;
+}
+.clients-filterpopup-item-double .MuiInputBase-adornedStart input {
+  border-left: 1px solid #e3e3e3;
+}
+.clients-filterpopup-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-filterpopup-btn-submit.MuiButtonBase-root {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-filterpopup-btn-submit.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-filterpopup-btn-reset.MuiButtonBase-root {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+.clients-filterpopup-btn-reset.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+
+.clients-addnewpopup {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-addnewpopup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-addnewpopup-header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #51A3FF;
+}
+.clients-addnewpopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-addnewpopup-list {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.clients-addnewpopup-item {
+  padding-bottom: 20px;
+}
+.clients-addnewpopup-item.pb-0 {
+  padding-bottom: 0;
+}
+.clients-addnewpopup-item.flex {
+  display: flex;
+  align-items: center;
+}
+.clients-addnewpopup-item-title {
+  width: 20%;
+}
+.clients-addnewpopup-item .MuiFormControl-root {
+  width: 80%;
+}
+.clients-addnewpopup-item-number {
+  width: 80%;
+}
+.clients-addnewpopup-item-number .MuiFormControl-root {
+  width: 100%;
+}
+.clients-addnewpopup-item-number .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-addnewpopup-item-number .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewpopup-item-number .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item-number .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item-number .MuiInputBase-adornedStart {
+  padding-left: 10px;
+}
+.clients-addnewpopup-item-number .MuiInputBase-adornedStart input {
+  border-left: 1px solid #e3e3e3;
+}
+.clients-addnewpopup-item-input .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-addnewpopup-item-input .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewpopup-item-input .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item-input .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item-project_selection {
+  width: 100%;
+  text-align: right;
+}
+.clients-addnewpopup-item-select {
+  width: 100%;
+}
+.clients-addnewpopup-item-select .MuiSelect-select {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-addnewpopup-item-select .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item-select .MuiSvgIcon-root {
+  color: #ACACAC;
+}
+.clients-addnewpopup-item-select.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item-date {
+  width: 80%;
+}
+.clients-addnewpopup-item-date .MuiFormControl-root {
+  width: 100%;
+}
+.clients-addnewpopup-item-date .MuiFormControl-root .MuiInputBase-input {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-addnewpopup-item-date .MuiFormControl-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item-date .MuiFormControl-root .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clients-addnewpopup-item.switch p {
+  cursor: pointer;
+}
+.clients-addnewpopup-item.tags {
+  display: flex;
+  align-items: center;
+}
+.clients-addnewpopup-item.tags .MuiInputBase-root {
+  width: 80%;
+}
+.clients-addnewpopup-item.tags .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item.tags .MuiSelect-select {
+  background-color: #F8FAFC;
+  padding: 10px;
+}
+.clients-addnewpopup-item.tags .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item.notes {
+  display: flex;
+  align-items: top;
+}
+.clients-addnewpopup-item.notes .MuiInputBase-root {
+  border-radius: 8px;
+  background-color: #F8FAFC;
+  width: 100%;
+  min-height: 100px;
+  align-items: start;
+}
+.clients-addnewpopup-item.notes .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewpopup-item.notes .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewpopup-item.notes .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewpopup-item .MuiPaper-root {
+  width: 100%;
+  color: #93742A;
+  background-color: #FCF6EC;
+  border-color: #93742A;
+  border-radius: 8px;
+}
+.clients-addnewpopup-item .MuiToggleButtonGroup-root {
+  justify-content: end;
+  padding: 10px 0;
+}
+.clients-addnewpopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root {
+  background-color: transparent;
+  border: unset;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: none;
+  font-size: 14px;
+}
+.clients-addnewpopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root:last-child {
+  border-left: 1px solid #51A3FF;
+  padding-right: 0;
+}
+.clients-addnewpopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root.Mui-selected {
+  color: #51A3FF;
+}
+.clients-addnewpopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root:hover {
+  background-color: unset;
+}
+.clients-addnewpopup-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-addnewpopup-btn-submit.MuiButtonBase-root {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-addnewpopup-btn-submit.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-addnewpopup-btn-reset.MuiButtonBase-root {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+.clients-addnewpopup-btn-reset.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+
+.clients-addnewexpenses {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-addnewexpenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-addnewexpenses-header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #51A3FF;
+}
+.clients-addnewexpenses-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-addnewexpenses-list {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.clients-addnewexpenses-item {
+  padding-bottom: 20px;
+}
+.clients-addnewexpenses-item.pb-0 {
+  padding-bottom: 0;
+}
+.clients-addnewexpenses-item.flex {
+  display: flex;
+  align-items: center;
+}
+.clients-addnewexpenses-item-title {
+  width: 20%;
+}
+.clients-addnewexpenses-item .MuiFormControl-root {
+  width: 80%;
+}
+.clients-addnewexpenses-item-number {
+  width: 80%;
+}
+.clients-addnewexpenses-item-number .MuiFormControl-root {
+  width: 100%;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-adornedStart {
+  padding-left: 10px;
+}
+.clients-addnewexpenses-item-number .MuiInputBase-adornedStart input {
+  border-left: 1px solid #e3e3e3;
+}
+.clients-addnewexpenses-item-input .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-addnewexpenses-item-input .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewexpenses-item-input .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item-input .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item-project_selection {
+  width: 100%;
+  text-align: right;
+}
+.clients-addnewexpenses-item-select {
+  width: 100%;
+}
+.clients-addnewexpenses-item-select .MuiSelect-select {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-addnewexpenses-item-select .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item-select .MuiSvgIcon-root {
+  color: #ACACAC;
+}
+.clients-addnewexpenses-item-select.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item-date {
+  width: 80%;
+}
+.clients-addnewexpenses-item-date .MuiFormControl-root {
+  width: 100%;
+}
+.clients-addnewexpenses-item-date .MuiFormControl-root .MuiInputBase-input {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-addnewexpenses-item-date .MuiFormControl-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item-date .MuiFormControl-root .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item-attach {
+  border-color: #D7D7D7 !important;
+  border-radius: 8px !important;
+  min-height: 200px !important;
+}
+.clients-addnewexpenses-item-attach .MuiTypography-root.MuiDropzoneArea-text {
+  color: #888888;
+  font-size: 20px;
+}
+.clients-addnewexpenses-item.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clients-addnewexpenses-item.switch p {
+  cursor: pointer;
+}
+.clients-addnewexpenses-item.tags {
+  display: flex;
+  align-items: center;
+}
+.clients-addnewexpenses-item.tags .MuiInputBase-root {
+  width: 80%;
+}
+.clients-addnewexpenses-item.tags .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item.tags .MuiSelect-select {
+  background-color: #F8FAFC;
+  padding: 10px;
+}
+.clients-addnewexpenses-item.tags .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item.notes {
+  display: flex;
+  align-items: top;
+}
+.clients-addnewexpenses-item.notes .MuiInputBase-root {
+  border-radius: 8px;
+  background-color: #F8FAFC;
+  width: 100%;
+  min-height: 100px;
+  align-items: start;
+}
+.clients-addnewexpenses-item.notes .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-addnewexpenses-item.notes .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item.notes .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-addnewexpenses-item .MuiPaper-root {
+  width: 100%;
+  color: #93742A;
+  background-color: #FCF6EC;
+  border-color: #93742A;
+  border-radius: 8px;
+}
+.clients-addnewexpenses-item .MuiToggleButtonGroup-root {
+  justify-content: end;
+  padding: 10px 0;
+}
+.clients-addnewexpenses-item .MuiToggleButtonGroup-root .MuiButtonBase-root {
+  background-color: transparent;
+  border: unset;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: none;
+  font-size: 14px;
+}
+.clients-addnewexpenses-item .MuiToggleButtonGroup-root .MuiButtonBase-root:last-child {
+  border-left: 1px solid #51A3FF;
+  padding-right: 0;
+}
+.clients-addnewexpenses-item .MuiToggleButtonGroup-root .MuiButtonBase-root.Mui-selected {
+  color: #51A3FF;
+}
+.clients-addnewexpenses-item .MuiToggleButtonGroup-root .MuiButtonBase-root:hover {
+  background-color: unset;
+}
+.clients-addnewexpenses-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-addnewexpenses-btn-submit.MuiButtonBase-root {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-addnewexpenses-btn-submit.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-addnewexpenses-btn-reset.MuiButtonBase-root {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+.clients-addnewexpenses-btn-reset.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+
+.clients-deletepopup {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-deletepopup-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 0 10px 0;
+  gap: 10px;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-deletepopup-header-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.clients-deletepopup-header-subtitle {
+  text-align: center;
+  color: #888888;
+}
+.clients-deletepopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-deletepopup-content {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 30px;
+}
+.clients-deletepopup-content-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-deletepopup-content-btn:first-child .MuiButtonBase-root:first-child {
+  border: 1px solid #ECECEC;
+  color: #888888;
+  text-transform: none;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.clients-deletepopup-content-btn:last-child .MuiButtonBase-root:first-child {
+  border: 1px solid #A81C12;
+  color: #A81C12;
+  text-transform: none;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.clients-deletepopup-content-btn:last-child .MuiButtonBase-root:first-child:hover {
+  color: #fff;
+  background-color: #A81C12;
+}
+
+.clients-editinvoicepopup {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-editinvoicepopup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-editinvoicepopup-header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #51A3FF;
+}
+.clients-editinvoicepopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-editinvoicepopup-list {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.clients-editinvoicepopup-item {
+  padding-bottom: 20px;
+}
+.clients-editinvoicepopup-item.pb-0 {
+  padding-bottom: 0;
+}
+.clients-editinvoicepopup-item.flex {
+  display: flex;
+  align-items: center;
+}
+.clients-editinvoicepopup-item-title {
+  width: 20%;
+}
+.clients-editinvoicepopup-item .MuiFormControl-root {
+  width: 80%;
+}
+.clients-editinvoicepopup-item-number {
+  width: 80%;
+}
+.clients-editinvoicepopup-item-number .MuiFormControl-root {
+  width: 100%;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-adornedStart {
+  padding-left: 10px;
+}
+.clients-editinvoicepopup-item-number .MuiInputBase-adornedStart input {
+  border-left: 1px solid #e3e3e3;
+}
+.clients-editinvoicepopup-item-input .MuiInputBase-root {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F8FAFC;
+}
+.clients-editinvoicepopup-item-input .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-editinvoicepopup-item-input .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item-input .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item-project_selection {
+  width: 100%;
+  text-align: right;
+}
+.clients-editinvoicepopup-item-select {
+  width: 100%;
+}
+.clients-editinvoicepopup-item-select .MuiSelect-select {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-editinvoicepopup-item-select .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item-select .MuiSvgIcon-root {
+  color: #ACACAC;
+}
+.clients-editinvoicepopup-item-select.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item-date {
+  width: 80%;
+}
+.clients-editinvoicepopup-item-date .MuiFormControl-root {
+  width: 100%;
+}
+.clients-editinvoicepopup-item-date .MuiFormControl-root .MuiInputBase-input {
+  padding: 10px;
+  background-color: #F8FAFC;
+}
+.clients-editinvoicepopup-item-date .MuiFormControl-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item-date .MuiFormControl-root .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clients-editinvoicepopup-item.switch p {
+  cursor: pointer;
+}
+.clients-editinvoicepopup-item.tags {
+  display: flex;
+  align-items: center;
+}
+.clients-editinvoicepopup-item.tags .MuiInputBase-root {
+  width: 80%;
+}
+.clients-editinvoicepopup-item.tags .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item.tags .MuiSelect-select {
+  background-color: #F8FAFC;
+  padding: 10px;
+}
+.clients-editinvoicepopup-item.tags .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item.notes {
+  display: flex;
+  align-items: top;
+}
+.clients-editinvoicepopup-item.notes .MuiInputBase-root {
+  border-radius: 8px;
+  background-color: #F8FAFC;
+  width: 100%;
+  min-height: 100px;
+  align-items: start;
+}
+.clients-editinvoicepopup-item.notes .MuiInputBase-root input {
+  padding: 10px;
+}
+.clients-editinvoicepopup-item.notes .MuiInputBase-root .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item.notes .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.clients-editinvoicepopup-item .MuiPaper-root {
+  width: 100%;
+  color: #93742A;
+  background-color: #FCF6EC;
+  border-color: #93742A;
+  border-radius: 8px;
+}
+.clients-editinvoicepopup-item .MuiToggleButtonGroup-root {
+  justify-content: end;
+  padding: 10px 0;
+}
+.clients-editinvoicepopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root {
+  background-color: transparent;
+  border: unset;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: none;
+  font-size: 14px;
+}
+.clients-editinvoicepopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root:last-child {
+  border-left: 1px solid #51A3FF;
+  padding-right: 0;
+}
+.clients-editinvoicepopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root.Mui-selected {
+  color: #51A3FF;
+}
+.clients-editinvoicepopup-item .MuiToggleButtonGroup-root .MuiButtonBase-root:hover {
+  background-color: unset;
+}
+.clients-editinvoicepopup-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-editinvoicepopup-btn-submit.MuiButtonBase-root {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-editinvoicepopup-btn-submit.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #fff;
+  background-color: #3089dc;
+  padding: 10px 24px;
+  border-radius: 30px;
+}
+.clients-editinvoicepopup-btn-reset.MuiButtonBase-root {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+.clients-editinvoicepopup-btn-reset.MuiButtonBase-root:hover {
+  text-transform: none;
+  color: #888888;
+  background-color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: 1px solid #cdcdcd;
+}
+
+.clients-invoicerecordpopup {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-invoicerecordpopup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-invoicerecordpopup-header-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: #51A3FF;
+}
+.clients-invoicerecordpopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-invoicerecordpopup-list {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.clients-invoicerecordpopup-table {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.clients-invoicerecordpopup-table-body-tr {
+  display: flex;
+}
+.clients-invoicerecordpopup-table-body-tr:not(:last-child) {
+  border-bottom: 1px solid #E8E7E4;
+}
+.clients-invoicerecordpopup-table-body-tr.expense {
+  background-color: rgba(176, 176, 176, 0.1019607843);
+  border-radius: 0 0 8px 8px;
+}
+.clients-invoicerecordpopup-table-body-tr.expense .money-invoicerecordpopup-table-body-tr-value {
+  font-weight: 600;
+}
+.clients-invoicerecordpopup-table-body-tr-title {
+  width: 50%;
+  padding: 15px;
+  font-weight: 600;
+  color: #000;
+  font-size: 14px;
+}
+.clients-invoicerecordpopup-table-body-tr-value {
+  width: 50%;
+  padding: 15px;
+  color: #000;
+  font-size: 14px;
+  border-left: 1px solid #E8E7E4;
+  text-transform: capitalize;
+  display: flex;
+  gap: 10px;
+}
+.clients-invoicerecordpopup-table-body-tr-value .active-label {
+  color: #51A3FF;
+  background-color: rgba(81, 163, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+.clients-invoicerecordpopup-table-body-tr-value .notactive-label {
+  color: #A6B5BD;
+  background-color: rgba(176, 176, 176, 0.2);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.clients-sendemailpopup {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.clients-sendemailpopup-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 0 10px 0;
+  gap: 10px;
+  border-bottom: 1px solid #ECECEC;
+}
+.clients-sendemailpopup-header-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+.clients-sendemailpopup-header-subtitle {
+  text-align: center;
+  color: #888888;
+}
+.clients-sendemailpopup-header-btn .MuiButtonBase-root {
+  color: #51A3FF;
+}
+.clients-sendemailpopup-content {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 30px;
+}
+.clients-sendemailpopup-content-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.clients-sendemailpopup-content-btn:first-child .MuiButtonBase-root:first-child {
+  border: 1px solid #ECECEC;
+  color: #888888;
+  text-transform: none;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.clients-sendemailpopup-content-btn:last-child .MuiButtonBase-root:first-child {
+  border: 1px solid #3AB29E;
+  color: #3AB29E;
+  text-transform: none;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.clients-sendemailpopup-content-btn:last-child .MuiButtonBase-root:first-child:hover {
+  color: #fff;
+  background-color: #3AB29E;
+}/*# sourceMappingURL=clients-popups.css.map */

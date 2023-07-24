@@ -1,0 +1,78 @@
+.MuiModal-root .MuiBox-root .container {
+  padding: 20px 40px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.MuiTooltip-tooltip {
+  font-size: 12px !important;
+  background-color: #181F33 !important;
+  border-radius: 4px !important;
+  padding: 10px 15px !important;
+}
+
+.MuiTooltip-arrow {
+  color: #181F33 !important;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #4A96EA;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #EAEEF3;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.layoutLG .MuiButtonBase-root.MuiTab-root, .layoutMD .MuiButtonBase-root.MuiTab-root, .layoutSM .MuiButtonBase-root.MuiTab-root, .layoutXS .MuiButtonBase-root.MuiTab-root {
+  padding: 0 16px;
+  font-size: 13px !important;
+  min-height: 35px;
+}
+
+.MuiGrid-container {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.MuiGrid-item {
+  padding-left: 0 !important;
+}
+
+.MuiGrid-item.pl-10 {
+  padding-left: 10px !important;
+}
+
+.MuiTooltip-popper .MuiTooltip-tooltip {
+  font-size: 13px !important;
+}
+
+#recurringsettingpopup_tooltip .MuiTooltip-tooltip {
+  font-size: 14px !important;
+  line-height: 25px;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 10px 15px !important;
+  color: #444444;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1) !important;
+}
+#recurringsettingpopup_tooltip .MuiTooltip-arrow {
+  color: #ffffff !important;
+}/*# sourceMappingURL=custom.css.map */

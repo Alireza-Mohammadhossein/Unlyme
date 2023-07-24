@@ -1,0 +1,81 @@
+.meetnow {
+  padding: 10px;
+}
+.meetnow-actions button.MuiButtonBase-root {
+  border: unset;
+  color: #000;
+}
+.meetnow-content_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.meetnow-content_icon img {
+  width: 60px;
+  height: 60px;
+}
+.meetnow-content_form {
+  padding: 30px 3vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.meetnow-content_form .MuiFormControl-root {
+  width: 100%;
+  background-color: #F8FAFC;
+  border-radius: 8px;
+}
+.meetnow-content_form-item-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+  color: #000;
+}
+.meetnow-content_form-item-title-info {
+  color: #888888;
+  display: block;
+  margin-bottom: 5px;
+}
+.meetnow-content_form-item-input input {
+  border-radius: 8px;
+  background-color: #F8FAFC;
+  padding: 10px;
+}
+.meetnow-content_form-item-input .MuiOutlinedInput-notchedOutline {
+  border-radius: 8px;
+}
+.meetnow-content_form-item-input .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.meetnow-content_form-item-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.meetnow-content_form-item-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.meetnow-content_form-item-switch-label img {
+  width: 20px;
+}
+.meetnow-content_form-item-submit {
+  text-align: right;
+}
+.meetnow-content_form-item-submit-btn.MuiButtonBase-root {
+  padding: 10px 25px;
+  background-color: #51A3FF;
+  color: #ffffff;
+  border-radius: 30px;
+  font-size: 14px;
+  text-transform: none;
+  line-height: unset;
+}
+.meetnow-content_form-item-submit-btn.MuiButtonBase-root:hover {
+  background-color: #51A3FF;
+}/*# sourceMappingURL=meet-now.css.map */
