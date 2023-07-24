@@ -16,7 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import uploadIcon from '../../../../../assets/images/invoice-manager/upload-cloud.png'
+import uploadIcon from '../../../../../assets/images/invoice-manager/upload-cloud.png';
 
 
 
