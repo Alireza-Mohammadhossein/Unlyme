@@ -3744,3 +3744,182 @@ export const clients = [
     status: true,
   },
 ]
+
+export const products = [
+  {
+    id: 1,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 2,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 3,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 4,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+
+  {
+    id: 5,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 6,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 7,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 8,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  
+
+  {
+    id: 9,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 10,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 11,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 12,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+
+  
+  {
+    id: 13,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 14,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 15,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 16,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  
+
+  {
+    id: 17,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 18,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 19,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 20,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  
+  {
+    id: 21,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 22,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 23,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+  {
+    id: 24,
+    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    rate: '125.00',
+    unit: 'Each',
+    category: 'Category 1',
+  },
+]

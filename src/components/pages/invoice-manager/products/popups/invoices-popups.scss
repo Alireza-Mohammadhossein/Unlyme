@@ -1,4 +1,4 @@
-.clients-filterpopup {
+.invoices-filterpopup {
     width: 350px;
     padding: 20px;
     box-sizing: border-box;
@@ -86,10 +86,6 @@
             display: flex;
             gap: 10px;
 
-            .MuiFormControl-root {
-                width: 100%;
-            }
-
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
 
@@ -144,12 +140,10 @@
     }
 }
 
-.clients-addnewpopup {
+.invoices-addnewpopup {
     width: 80%;
     max-width: 800px;
     height: auto;
-    max-height: 70vh;
-    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
     padding: 30px;
@@ -203,40 +197,6 @@
 
         .MuiFormControl-root {
             width: 80%;
-        }
-
-        &-number {
-            width: 80%;
-            
-            .MuiFormControl-root {
-                width: 100%;
-            }
-
-            & .MuiInputBase-root {
-                width: 100%;
-                border-radius: 8px;
-                background-color: #F8FAFC;
-    
-                input {
-                    padding: 10px;
-                }
-    
-                .MuiOutlinedInput-notchedOutline {
-                    border-radius: 8px;
-                }
-    
-                &:hover .MuiOutlinedInput-notchedOutline {
-                    border-color: #1976d2;
-                }
-            }
-
-            .MuiInputBase-adornedStart {
-                padding-left: 10px;
-
-                input {
-                    border-left: 1px solid #e3e3e3;
-                }
-            }
         }
 
         &-input {
@@ -442,7 +402,7 @@
     }
 }
 
-.clients-deletepopup {
+.invoices-deletepopup {
     width: 80%;
     max-width: 500px;
     height: auto;
@@ -519,7 +479,369 @@
     }
 }
 
-.clients-editinvoicepopup {
+.invoices-editinvoicepopup {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 18px;
+            color: #51A3FF;
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-info {
+        padding: 20px 0;
+        display: flex;
+        justify-content: end;
+
+        &-creator {
+            padding-right: 10px;
+            color: #888888;
+            font-size: 14px;
+
+            span {
+                font-weight: 600;
+            }
+        }
+
+        &-date {
+            padding-left: 10px;
+            color: #888888;
+            font-size: 14px;
+            border-left: 1px solid #888888;
+        }
+    }
+
+    &-list {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+    }
+
+    &-item {
+        padding-bottom: 20px;
+
+        &.pb-0 {
+            padding-bottom: 0;
+        }
+
+        &.flex {
+            display: flex;
+            align-items: center;
+        }
+
+        &-title {
+            width: 20%;
+        }
+
+        .MuiFormControl-root {
+            width: 80%;
+        }
+
+        &-input {
+
+            & .MuiInputBase-root {
+                width: 100%;
+                border-radius: 8px;
+                background-color: #F8FAFC;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+        &-project_selection {
+            width: 100%;
+            text-align: right;
+        }
+
+        &-select {
+            width: 100%;
+
+            .MuiSelect-select {
+                padding: 10px;
+                background-color: #F8FAFC;
+            }
+
+            .MuiOutlinedInput-notchedOutline  {
+                border-radius: 8px;
+            }
+
+            .MuiSvgIcon-root {
+                color: #ACACAC;
+            }
+
+            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2;
+            }
+        }
+
+        &-date {
+            width: 80%;
+
+            .MuiFormControl-root {
+                width: 100%;
+
+                .MuiInputBase-input {
+                    padding: 10px;
+                    background-color: #F8FAFC;
+                }
+
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+
+                .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+        &.switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                cursor: pointer;
+            }
+        }
+
+        &.tags {
+            display: flex;
+            align-items: center;
+
+            .MuiInputBase-root {
+                width: 80%;
+
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+
+            .MuiSelect-select {
+                background-color: #F8FAFC;
+                padding: 10px;
+            }
+
+            .MuiOutlinedInput-notchedOutline {
+                border-radius: 8px;
+            }
+        }
+
+        &.notes {
+            display: flex;
+            align-items: center;
+
+            & .MuiInputBase-root {
+                border-radius: 8px;
+                background-color: #F8FAFC;
+                width: 100%;
+                min-height: 100px;
+                align-items: start;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+        .MuiPaper-root {
+            width: 100%;
+            color: #93742A;
+            background-color: #FCF6EC;
+            border-color: #93742A;
+            border-radius: 8px;
+        }
+
+        .MuiToggleButtonGroup-root {
+            justify-content: end;
+            padding: 10px 0;
+
+            .MuiButtonBase-root {
+                background-color: transparent;
+                border: unset;
+                padding-top: 0;
+                padding-bottom: 0;
+                text-transform: none;
+                font-size: 14px;
+
+                &:last-child {
+                    border-left: 1px solid #51A3FF;
+                    padding-right: 0;
+                }
+
+                &.Mui-selected {
+                    color: #51A3FF;
+                }
+
+                &:hover {
+                    background-color: unset;
+                }
+            }
+        }
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+
+        &-submit.MuiButtonBase-root {
+            text-transform: none;
+            color: #fff;
+            background-color: #3089dc;
+            padding: 10px 24px;
+            border-radius: 30px;
+
+            &:hover {
+                text-transform: none;
+                color: #fff;
+                background-color: #3089dc;
+                padding: 10px 24px;
+                border-radius: 30px;
+            }
+        }
+
+        
+        &-reset.MuiButtonBase-root {
+            text-transform: none;
+            color: #888888;    
+            background-color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid #cdcdcd;
+
+            &:hover {
+                text-transform: none;
+                color: #888888;    
+                background-color: #fff;
+                padding: 10px 24px;
+                border-radius: 30px;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+.invoices-sendemailpopup {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 0 10px 0;
+        gap: 10px;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &-subtitle {
+            text-align: center;
+            color: #888888;
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        padding-top: 30px;
+
+        &-btn {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+
+            &:first-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #ECECEC;
+                    color: #888888;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+                }
+            }
+
+            &:last-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #3AB29E;
+                    color: #3AB29E;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+
+                    &:hover {
+                        color: #fff;
+                        background-color: #3AB29E;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.invoices-addpaymentpopup {
     width: 80%;
     max-width: 800px;
     height: auto;
@@ -578,12 +900,7 @@
             width: 80%;
         }
 
-        &-number {
-            width: 80%;
-            
-            .MuiFormControl-root {
-                width: 100%;
-            }
+        &-input {
 
             & .MuiInputBase-root {
                 width: 100%;
@@ -602,6 +919,118 @@
                     border-color: #1976d2;
                 }
             }
+        }
+
+        &-project_selection {
+            width: 100%;
+            text-align: right;
+        }
+
+        &-select {
+            width: 100%;
+
+            .MuiSelect-select {
+                padding: 10px;
+                background-color: #F8FAFC;
+            }
+
+            .MuiOutlinedInput-notchedOutline  {
+                border-radius: 8px;
+            }
+
+            .MuiSvgIcon-root {
+                color: #ACACAC;
+            }
+
+            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2;
+            }
+        }
+
+        &-date {
+            width: 80%;
+
+            .MuiFormControl-root {
+                width: 100%;
+
+                .MuiInputBase-input {
+                    padding: 10px;
+                    background-color: #F8FAFC;
+                }
+
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+
+                .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+        &.switch {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                cursor: pointer;
+            }
+        }
+
+        &.tags {
+            display: flex;
+            align-items: center;
+
+            .MuiInputBase-root {
+                width: 80%;
+
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+
+            .MuiSelect-select {
+                background-color: #F8FAFC;
+                padding: 10px;
+            }
+
+            .MuiOutlinedInput-notchedOutline {
+                border-radius: 8px;
+            }
+        }
+
+        &.notes {
+            display: flex;
+            align-items: top;
+
+            & .MuiInputBase-root {
+                border-radius: 8px;
+                background-color: #F8FAFC;
+                width: 100%;
+                min-height: 100px;
+                align-items: start;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+        &-price {
+            width: 80%;
+
+            .MuiFormControl-root {
+                width: 100%;
+            }
 
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
@@ -610,6 +1039,145 @@
                     border-left: 1px solid #e3e3e3;
                 }
             }
+
+
+        } 
+
+        .MuiPaper-root {
+            width: 100%;
+            color: #93742A;
+            background-color: #FCF6EC;
+            border-color: #93742A;
+            border-radius: 8px;
+        }
+
+        .MuiToggleButtonGroup-root {
+            justify-content: end;
+            padding: 10px 0;
+
+            .MuiButtonBase-root {
+                background-color: transparent;
+                border: unset;
+                padding-top: 0;
+                padding-bottom: 0;
+                text-transform: none;
+                font-size: 14px;
+
+                &:last-child {
+                    border-left: 1px solid #51A3FF;
+                    padding-right: 0;
+                }
+
+                &.Mui-selected {
+                    color: #51A3FF;
+                }
+
+                &:hover {
+                    background-color: unset;
+                }
+            }
+        }
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+
+        &-submit.MuiButtonBase-root {
+            text-transform: none;
+            color: #fff;
+            background-color: #3089dc;
+            padding: 10px 24px;
+            border-radius: 30px;
+
+            &:hover {
+                text-transform: none;
+                color: #fff;
+                background-color: #3089dc;
+                padding: 10px 24px;
+                border-radius: 30px;
+            }
+        }
+
+        
+        &-reset.MuiButtonBase-root {
+            text-transform: none;
+            color: #888888;    
+            background-color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid #cdcdcd;
+
+            &:hover {
+                text-transform: none;
+                color: #888888;    
+                background-color: #fff;
+                padding: 10px 24px;
+                border-radius: 30px;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+.invoices-cloneinvoicepopup {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 18px;
+            color: #51A3FF;
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-list {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+    }
+
+    &-item {
+        padding-bottom: 20px;
+
+        &.pb-0 {
+            padding-bottom: 0;
+        }
+
+        &.flex {
+            display: flex;
+            align-items: center;
+        }
+
+        &-title {
+            width: 20%;
+        }
+
+        .MuiFormControl-root {
+            width: 80%;
         }
 
         &-input {
@@ -815,7 +1383,262 @@
     }
 }
 
-.clients-invoicerecordpopup {
+.invoices-detachpopup {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 0 10px 0;
+        gap: 10px;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        &-subtitle {
+            text-align: center;
+            color: #888888;
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        padding-top: 30px;
+
+        &-btn {
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+
+            &:first-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #ECECEC;
+                    color: #888888;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+                }
+            }
+
+            &:last-child {
+                .MuiButtonBase-root:first-child {
+                    border: 1px solid #FD5162;
+                    color: #FD5162;
+                    text-transform: none;
+                    font-size: 14px;
+                    padding: 8px 20px;
+                    border-radius: 50px;
+
+                    &:hover {
+                        color: #fff;
+                        background-color: #FD5162;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.invoices-recurringsettingpopup {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 18px;
+            color: #51A3FF;
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-list {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+    }
+
+    &-item {
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        &-double {
+            display: flex;
+            gap: 20px;
+
+            &-container {
+                width: 50%;
+            }
+        }
+
+        &-tooltip {
+            color: #51A3FF !important;
+        }
+
+        &-alert {
+            .MuiPaper-root {
+                border-color: #51A3FF;
+                border-radius: 8px;
+            }
+
+            .MuiAlert-message {
+                color: #2E6098;
+
+                .MuiTypography-root {
+                    color: #51A3FF;
+                }
+            }
+
+
+            .MuiAlert-icon {
+                color: #51A3FF !important;
+            }
+
+            .MuiAlert-action {
+                .MuiButtonBase-root {
+                    color: #51A3FF;
+                }
+            }
+        }
+
+        &.pb-0 {
+            padding-bottom: 0;
+        }
+
+        .MuiFormControl-root {
+            width: 100%;
+        }
+
+        &-select {
+            width: 100%;
+
+            .MuiSelect-select {
+                padding: 10px;
+                background-color: #F8FAFC;
+            }
+
+            .MuiOutlinedInput-notchedOutline  {
+                border-radius: 8px;
+            }
+
+            .MuiSvgIcon-root {
+                color: #ACACAC;
+            }
+
+            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2;
+            }
+        }
+
+        &-date {
+            width: 100%;
+
+            .MuiFormControl-root {
+                width: 100%;
+
+                .MuiInputBase-input {
+                    padding: 10px;
+                    background-color: #F8FAFC;
+                }
+
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+
+                .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+        }
+
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+
+        &-submit.MuiButtonBase-root {
+            text-transform: none;
+            color: #fff;
+            background-color: #3089dc;
+            padding: 10px 24px;
+            border-radius: 30px;
+
+            &:hover {
+                text-transform: none;
+                color: #fff;
+                background-color: #3089dc;
+                padding: 10px 24px;
+                border-radius: 30px;
+            }
+        }
+
+        
+        &-reset.MuiButtonBase-root {
+            text-transform: none;
+            color: #888888;    
+            background-color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid #cdcdcd;
+
+            &:hover {
+                text-transform: none;
+                color: #888888;    
+                background-color: #fff;
+                padding: 10px 24px;
+                border-radius: 30px;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+.invoices-invoicerecordpopup {
     width: 80%;
     max-width: 600px;
     height: auto;
@@ -866,15 +1689,6 @@
                     border-bottom: 1px solid #E8E7E4;
                 }
 
-                &.expense {
-                    background-color: #B0B0B01A;
-                    border-radius: 0 0 8px 8px;
-                    
-                    .money-invoicerecordpopup-table-body-tr-value {
-                        font-weight: 600;
-                    }
-                }
-
                 &-title {
                     width: 50%;
                     padding: 15px;
@@ -890,487 +1704,9 @@
                     font-size: 14px;
                     border-left: 1px solid #E8E7E4;
                     text-transform: capitalize;
-                    display: flex;
-                    gap: 10px;
-
-                    .active-label {
-                        color: #51A3FF;
-                        background-color: #51A3FF33;
-                        padding: 5px 15px;
-                        border-radius: 8px;
-                    }
-
-                    .notactive-label {
-                        color: #A6B5BD;
-                        background-color: #B0B0B033;
-                        padding: 5px 15px;
-                        border-radius: 8px;
-                    }
                 }
             }
         }
     }
 
-}
-
-.clients-sendemailpopup {
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px;
-    box-sizing: border-box;
-
-    &-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid #ECECEC;
-
-
-        &-title {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 18px;
-            color: #51A3FF;
-        }
-        
-        &-btn {
-            .MuiButtonBase-root {
-                color: #51A3FF;
-            }
-        }
-    }
-
-    &-list {
-        padding: 20px 0;
-        display: flex;
-        flex-direction: column;
-        // gap: 20px;
-    }
-
-    &-item {
-        padding-bottom: 20px;
-
-        &.pb-0 {
-            padding-bottom: 0;
-        }
-
-        &.flex {
-            display: flex;
-            align-items: center;
-        }
-
-        &-title {
-            width: 20%;
-        }
-
-        .MuiFormControl-root {
-            width: 80%;
-        }
-
-
-        &-input {
-
-            & .MuiInputBase-root {
-                width: 100%;
-                border-radius: 8px;
-                background-color: #F8FAFC;
-    
-                input {
-                    padding: 10px;
-                }
-    
-                .MuiOutlinedInput-notchedOutline {
-                    border-radius: 8px;
-                }
-    
-                &:hover .MuiOutlinedInput-notchedOutline {
-                    border-color: #1976d2;
-                }
-            }
-        }
-
-        &-project_selection {
-            width: 100%;
-            text-align: right;
-        }
-
-        &-select {
-            width: 100%;
-
-            .MuiSelect-select {
-                padding: 10px;
-                background-color: #F8FAFC;
-            }
-
-            .MuiOutlinedInput-notchedOutline  {
-                border-radius: 8px;
-            }
-
-            .MuiSvgIcon-root {
-                color: #ACACAC;
-            }
-
-            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
-                border-color: #1976d2;
-            }
-        }
-
-        &-attach {
-            border-color: #D7D7D7 !important;
-            border-radius: 8px !important;
-            min-height: 170px !important;
-
-            .MuiTypography-root.MuiDropzoneArea-text {
-                color: #888888;
-                font-size: 20px;
-            }
-        }
-
-        &.notes {
-            display: flex;
-            align-items: top;
-
-            & .MuiInputBase-root {
-                border-radius: 8px;
-                background-color: #F8FAFC;
-                width: 100%;
-                min-height: 100px;
-                align-items: start;
-    
-                input {
-                    padding: 10px;
-                }
-    
-                .MuiOutlinedInput-notchedOutline {
-                    border-radius: 8px;
-                }
-    
-                &:hover .MuiOutlinedInput-notchedOutline {
-                    border-color: #1976d2;
-                }
-            }
-        }
-
-        .MuiPaper-root {
-            width: 100%;
-            color: #93742A;
-            background-color: #FCF6EC;
-            border-color: #93742A;
-            border-radius: 8px;
-        }
-
-        .MuiToggleButtonGroup-root {
-            justify-content: end;
-            padding: 10px 0;
-
-            .MuiButtonBase-root {
-                background-color: transparent;
-                border: unset;
-                padding-top: 0;
-                padding-bottom: 0;
-                text-transform: none;
-                font-size: 14px;
-
-                &:last-child {
-                    border-left: 1px solid #51A3FF;
-                    padding-right: 0;
-                }
-
-                &.Mui-selected {
-                    color: #51A3FF;
-                }
-
-                &:hover {
-                    background-color: unset;
-                }
-            }
-        }
-    }
-
-    &-btn {
-        display: flex;
-        justify-content: end;
-        gap: 10px;
-
-        &-submit.MuiButtonBase-root {
-            text-transform: none;
-            color: #fff;
-            background-color: #3089dc;
-            padding: 10px 24px;
-            border-radius: 30px;
-
-            &:hover {
-                text-transform: none;
-                color: #fff;
-                background-color: #3089dc;
-                padding: 10px 24px;
-                border-radius: 30px;
-            }
-        }
-
-        
-        &-reset.MuiButtonBase-root {
-            text-transform: none;
-            color: #888888;    
-            background-color: #fff;
-            padding: 10px 24px;
-            border-radius: 30px;
-            border: 1px solid #cdcdcd;
-
-            &:hover {
-                text-transform: none;
-                color: #888888;    
-                background-color: #fff;
-                padding: 10px 24px;
-                border-radius: 30px;
-                border: 1px solid #cdcdcd;
-            }
-        }
-    }
-}
-
-.clients-companyinfopopup {
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    background-color: white;
-    border-radius: 8px;
-    padding: 30px;
-    box-sizing: border-box;
-
-    &-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        &-btn {
-            .MuiButtonBase-root {
-                color: #51A3FF;
-            }
-        }
-    }
-
-    &-content {
-        &-logo {
-            text-align: center;
-            padding-bottom: 20px;
-
-            img {
-                width: 150px;
-            }
-        }
-
-        &-tabs {
-            &-btn.MuiButtonBase-root {
-                text-transform: none;
-                font-size: 15px;
-
-                &.Mui-selected {
-                    font-weight: 600;
-                }
-            }
-        }
-
-        &-tab {
-            padding-left: 0;
-            padding-right: 0;
-
-            &-info {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                &-item {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-
-                    &-title {
-                        color: #B4B4B4;
-                    }
-    
-                    &-subtitle {
-                        color: #444444;
-                    }
-                }
-
-                &-item.owner {
-                    .clients-companyinfopopup-content-tab-info-item-subtitle {
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                    }
-                }
-
-                
-                &-item.status {
-                    .clients-companyinfopopup-content-tab-info-item-subtitle {
-                        .active {
-                            padding: 8px 15px;
-                            background-color: #58D8C1;
-                            color: #ffffff;
-                            display: inline-block;
-                            border-radius: 30px;
-                        }
-
-                        .notactive {
-                            padding: 8px 15px;
-                            background-color: #FD5162;
-                            color: #ffffff;
-                            display: inline-block;
-                            border-radius: 30px;
-                        }
-                    }
-                }
-
-                &-item.category {
-                    .clients-companyinfopopup-content-tab-info-item-subtitle {
-                        .category {
-                            padding: 8px 15px;
-                            background-color: #51A3FF;
-                            color: #ffffff;
-                            display: inline-block;
-                            border-radius: 30px;
-                        }
-                    }
-                }
-
-                &-item.tags {
-                    .clients-companyinfopopup-content-tab-info-item-subtitle {
-                        display: flex;
-                        gap: 10px;
-
-                        .MuiChip-root {
-                            font-size: 14px;
-                        }
-
-                        .MuiChip-label {
-                            padding-left: 15px;
-                            padding-right: 15px;
-                        }
-                    }
-                }
-            }
-
-            &-project {
-                &-table {
-                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-                    border-radius: 8px;
-            
-                    &-body {
-                        &-tr {
-                            display: flex;
-            
-                            &:not(:last-child) {
-                                border-bottom: 1px solid #E8E7E4;
-                            }
-            
-                            &.expense {
-                                background-color: #B0B0B01A;
-                                border-radius: 0 0 8px 8px;
-                                
-                                .money-invoicerecordpopup-table-body-tr-value {
-                                    font-weight: 600;
-                                }
-                            }
-            
-                            &-title {
-                                width: 50%;
-                                padding: 15px;
-                                font-weight: 600;
-                                color: #000;
-                                font-size: 14px;
-                            }
-            
-                            &-value {
-                                width: 50%;
-                                padding: 15px;
-                                color: #000;
-                                font-size: 14px;
-                                border-left: 1px solid #E8E7E4;
-                                text-transform: capitalize;
-                                display: flex;
-                                gap: 10px;
-            
-                                .active-label {
-                                    color: #51A3FF;
-                                    background-color: #51A3FF33;
-                                    padding: 5px 15px;
-                                    border-radius: 8px;
-                                }
-            
-                                .notactive-label {
-                                    color: #A6B5BD;
-                                    background-color: #B0B0B033;
-                                    padding: 5px 15px;
-                                    border-radius: 8px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &-address {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                &-item {
-                    color: #444444;
-                }
-            }
-
-            &-other {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                &-item {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-
-                    &-title {
-                        color: #B4B4B4;
-                    }
-    
-                    &-subtitle {
-                        color: #444444;
-                    }
-
-                    &.alert {
-                        .MuiPaper-root {
-                            border-color: #51A3FF;
-                            border-radius: 8px;
-                        }
-            
-                        .MuiAlert-message {
-                            color: #2E6098;
-            
-                            .MuiTypography-root {
-                                color: #51A3FF;
-                            }
-                        }
-            
-            
-                        .MuiAlert-icon {
-                            color: #51A3FF !important;
-                        }
-            
-                        .MuiAlert-action {
-                            .MuiButtonBase-root {
-                                color: #51A3FF;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

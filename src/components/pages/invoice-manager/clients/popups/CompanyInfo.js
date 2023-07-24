@@ -9,6 +9,9 @@ import TabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 
 
@@ -22,19 +25,22 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
     setValue(newValue);
   };
 
+  const [alert, setAlert] = useState(true);
+
+
 
 
   return (
     <div className='clients-companyinfopopup'>
       <div className='clients-companyinfopopup-header'>
-        {/* <div className='clients-companyinfopopup-header-title'>
+        <div className='clients-companyinfopopup-header-title'>
         </div>
 
         <div className='clients-companyinfopopup-header-btn'>
           <IconButton onClick={handleCloseCompanyInfoPopup}>
             <CloseIcon />
           </IconButton>
-        </div> */}
+        </div>
 
       </div>
 
@@ -166,15 +172,98 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
             
             
             <TabPanel value="3" className='clients-companyinfopopup-content-tab'>
-              <div className='clients-companyinfopopup-content-tab-content'>
+              <div className='clients-companyinfopopup-content-tab-address'>
+                <div className='clients-companyinfopopup-content-tab-address-item'>
+                  2262 Sunnyside Ridge Rd
+                </div>
+                
+                <div className='clients-companyinfopopup-content-tab-address-item'>
+                  Rancho Palos Verdes
+                </div>
 
+                <div className='clients-companyinfopopup-content-tab-address-item'>
+                  California(CA),
+                </div>
+
+                <div className='clients-companyinfopopup-content-tab-address-item'>
+                  90275
+                </div>
+
+                <div className='clients-companyinfopopup-content-tab-address-item'>
+                  United States
+                </div>
               </div>
             </TabPanel>
             
             
             <TabPanel value="4" className='clients-companyinfopopup-content-tab'>
-              <div className='clients-companyinfopopup-content-tab-content'>
+              <div className='clients-companyinfopopup-content-tab-other'>
+                <div className='clients-companyinfopopup-content-tab-other-item'>
+                  <div className='clients-companyinfopopup-content-tab-other-item-title'>
+                    VAT
+                  </div>
 
+                  <div className='clients-companyinfopopup-content-tab-other-item-subtitle'>
+                    This is a custom data field
+                  </div>
+                </div>
+
+                <div className='clients-companyinfopopup-content-tab-other-item'>
+                  <div className='clients-companyinfopopup-content-tab-other-item-title'>
+                    Last project
+                  </div>
+
+                  <div className='clients-companyinfopopup-content-tab-other-item-subtitle'>
+                    {data.date}
+                  </div>
+                </div>
+
+                <div className='clients-companyinfopopup-content-tab-other-item'>
+                  <div className='clients-companyinfopopup-content-tab-other-item-title'>
+                    Comments
+                  </div>
+
+                  <div className='clients-companyinfopopup-content-tab-other-item-subtitle'>
+                    The last project was delivered on time.
+                  </div>
+                </div>
+                
+                <div className='clients-companyinfopopup-content-tab-other-item'>
+                  <div className='clients-companyinfopopup-content-tab-other-item-title'>
+                    Projects type
+                  </div>
+
+                  <div className='clients-companyinfopopup-content-tab-other-item-subtitle'>
+                    Web design
+                  </div>
+                </div>
+
+                <div className='clients-companyinfopopup-content-tab-other-item alert'>
+                {
+                  alert ? 
+                    <Alert
+                      icon={<HelpOutlineIcon fontSize="inherit" />}
+                      variant="outlined"
+                      action={
+                        <IconButton
+                          aria-label="close"
+                          color="inherit"
+                          size="small"
+                          onClick={() => {
+                            setAlert(false);
+                          }}
+                        >
+                          <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                      }
+                    >
+                      <AlertTitle>Info</AlertTitle>
+                      These are custom field. You can change them or <a href='#'>create your own.</a>
+                    </Alert>
+                  :
+                    ''
+                }
+                </div>
               </div>
             </TabPanel>
           </TabContext>

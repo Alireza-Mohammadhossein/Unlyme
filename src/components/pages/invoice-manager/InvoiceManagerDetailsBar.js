@@ -312,9 +312,29 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                         </Modal>
                       </>
                   : 
-                   <>
-                    <p>asdasas</p>
-                   </>
+                      <>
+                        <Button
+                          startIcon={<AddIcon />}
+                          className="cloud-page__header_invoice-manager-details_add-btn"
+                          aria-label="more"
+                          id="long-button"
+                          aria-haspopup="true"
+                          onClick={handleOpenAddNewClientPopup}
+                        >
+                          {t("INVICE_MANAGER_PAGE.ADD_NEW")}
+                        </Button>
+
+
+                        <Modal
+                          open={addNewClientPopup}
+                          onClose={handleCloseAddNewClientPopup}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                          className='cloud-page__header_invoice-manager-details_add-modal'
+                        >
+                          <AddNewClientsPopup handleCloseAddNewClientPopup={handleCloseAddNewClientPopup} />
+                        </Modal>
+                      </>
                 }
 
               </div>
