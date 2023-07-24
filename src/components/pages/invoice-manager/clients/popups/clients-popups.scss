@@ -1143,30 +1143,118 @@
     padding: 30px;
     box-sizing: border-box;
 
-    &-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid #ECECEC;
+    // &-header {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     padding: 0 0 10px 0;
+    //     border-bottom: 1px solid #ECECEC;
 
 
-        &-title {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 18px;
-            color: #51A3FF;
-        }
+    //     &-title {
+    //         display: flex;
+    //         align-items: center;
+    //         gap: 5px;
+    //         font-size: 18px;
+    //         color: #51A3FF;
+    //     }
         
-        &-btn {
-            .MuiButtonBase-root {
-                color: #51A3FF;
-            }
-        }
-    }
+    //     &-btn {
+    //         .MuiButtonBase-root {
+    //             color: #51A3FF;
+    //         }
+    //     }
+    // }
 
     &-content {
-        
+        &-tabs {
+            &-btn.MuiButtonBase-root {
+                text-transform: none;
+                font-size: 15px;
+
+                &.Mui-selected {
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &-tab {
+            &-info {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                &-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    &-title {
+                        color: #B4B4B4;
+                    }
+    
+                    &-subtitle {
+                        color: #444444;
+                    }
+                }
+
+                &-item.owner {
+                    .clients-companyinfopopup-content-tab-info-item-subtitle {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+
+                
+                &-item.status {
+                    .clients-companyinfopopup-content-tab-info-item-subtitle {
+                        .active {
+                            padding: 8px 15px;
+                            background-color: #58D8C1;
+                            color: #ffffff;
+                            display: inline-block;
+                            border-radius: 30px;
+                        }
+
+                        .notactive {
+                            padding: 8px 15px;
+                            background-color: #FD5162;
+                            color: #ffffff;
+                            display: inline-block;
+                            border-radius: 30px;
+                        }
+                    }
+                }
+
+                &-item.category {
+                    .clients-companyinfopopup-content-tab-info-item-subtitle {
+                        .category {
+                            padding: 8px 15px;
+                            background-color: #51A3FF;
+                            color: #ffffff;
+                            display: inline-block;
+                            border-radius: 30px;
+                        }
+                    }
+                }
+
+                &-item.tags {
+                    .clients-companyinfopopup-content-tab-info-item-subtitle {
+                        display: flex;
+                        gap: 10px;
+
+                        .MuiChip-root {
+                            font-size: 14px;
+                        }
+
+                        .MuiChip-label {
+                            padding-left: 15px;
+                            padding-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
