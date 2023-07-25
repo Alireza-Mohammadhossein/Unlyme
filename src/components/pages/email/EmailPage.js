@@ -62,11 +62,10 @@ function EmailPageContent() {
   // start showing mail category tab
   const [showMail, setShowMail] = useState(0);
   const handleShowMail = (event, newValue) => {
-    if (event.target === event.currentTarget) {
+    // if (event.target === event.currentTarget) {
       setShowMail(newValue);
       // setNewMailToggler(false);
-
-    }
+    // }
   };
   // end showing chat tab
 

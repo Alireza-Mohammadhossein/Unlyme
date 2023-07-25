@@ -29,7 +29,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
 
 
     const [viewMode, setViewMode] = useState('list');
-    const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
+    const [formats, setFormats] = useState(() => ['bold', 'italic']);
 
 
     const handleFormat = (event, newFormats) => {

@@ -77,11 +77,11 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
   // start showing chat tab
   const [showNote, setShowNote] = useState(false);
   const handleShowNote = (event, newValue) => {
-    if (event.target === event.currentTarget) {      
+    // if (event.target === event.currentTarget) {      
       setShowNote(newValue);
       setNewNoteToggler(false);
       dispatch(toggleSecondPopupTab())
-    }
+    // }
   };
   // end showing chat tab
 

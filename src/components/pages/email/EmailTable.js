@@ -160,13 +160,10 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
 
 
  
-const visibleRows = useMemo(
-  () =>
-    stableSort(filteredEmails, getComparator(order, orderBy)).slice(
+const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order, orderBy)).slice(
       page * rowsPerPage,
       page * rowsPerPage + rowsPerPage
-    ),
-  [filteredEmails, order, orderBy, page, rowsPerPage]
+    ),[filteredEmails, order, orderBy, page, rowsPerPage]
 );
 
 

@@ -16,6 +16,7 @@ import { clients } from '../../../mocks/mocks';
 import { products } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -64,11 +65,10 @@ const InvoiceManagerContent = () => {
   // start showing invoice category tab
   const [activeTab, setActiveTab] = useState(0);
   const handleShowInvoice = (event, newValue) => {
-    if (event.target === event.currentTarget) {
+    // if (event.target === event.currentTarget) {
       setActiveTab(newValue);
       // setNewMailToggler(false);
-
-    }
+    // }
   };
   // end showing chat tab
 
@@ -121,19 +121,6 @@ const InvoiceManagerContent = () => {
               }}
             >
               <div className='invoice-manager-page_sidebar'>
-                {/* <div className='invoice-manager-page_sidebar_create-event'>
-                  <Button
-                    startIcon={<AddIcon />}
-                    className="invoice-manager-page_sidebar_create-event_btn"
-                    aria-label="more"
-                    id="long-button"
-                    aria-haspopup="true"
-                    // onClick={handleCreateNote}
-                  >
-                    {t("INVICE_MANAGER_PAGE.ADD_NEW")}
-                  </Button>
-                </div> */}
-
                 <div className='invoice-manager-page_sidebar-section'>
                   <div className='invoice-manager-page_sidebar-section_category'>
                     <Tabs
@@ -153,20 +140,15 @@ const InvoiceManagerContent = () => {
                           label={
                             <>
                               <div className='invoice-manager-page_sidebar-section_category-item_content'>
-                                {/* <Button variant="outlined" startIcon={<InboxOutlinedIcon />}>
-                                  {item.title}
-                                </Button> */}
+
                                 {
                                   item.title === 'Invoices' ? <FeedOutlinedIcon/> :
                                   item.title === 'Money' ? <CreditCardIcon /> :
-                                  item.title === 'Clients' ? <PeopleAltIcon /> :
+                                  item.title === 'Clients' ? <PeopleOutlineIcon /> :
                                   <CheckBoxOutlineBlankIcon />
                                 }
-                                 {/* <InboxOutlinedIcon/> */}
-                                  {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='invoice-manager-page_sidebar-section_category-item_content-icon' /> */}
                                   <p className='invoice-manager-page_sidebar-section_category-item_content-title'>{item.title}</p>
                               </div>
-                              
                             </>
                           } 
                         />
