@@ -5,33 +5,28 @@ import { toast } from "react-toastify";
 
 
 
-
-
-const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
-
-
-
+const DeleteProductPopup = ({ handleCloseDeleteProductPopup, data }) => {
 
   return (
-    <div className='invoices-deletepopup'>
-      <div className='invoices-deletepopup-header'>
-        <div className='invoices-deletepopup-header-title'>
-          <p>Delete invoice</p>
+    <div className='products-deletepopup'>
+      <div className='products-deletepopup-header'>
+        <div className='products-deletepopup-header-title'>
+          <p>Delete product</p>
         </div>
         
-        <div className='invoices-deletepopup-header-subtitle'>
-          <p>Are you sure you want to delete this invoice?</p>
+        <div className='products-deletepopup-header-subtitle'>
+          <p>Are you sure you want to delete this product?</p>
         </div>
       </div>
 
-      <div className='invoices-deletepopup-content'>
-            <div className='invoices-deletepopup-content-btn'>
-                <Button onClick={() => handleCloseDeleteInvoicePopup(false)}>
+      <div className='products-deletepopup-content'>
+            <div className='products-deletepopup-content-btn'>
+                <Button onClick={() => handleCloseDeleteProductPopup(false)}>
                     Cancel
                 </Button>
             </div>
 
-            <div className='invoices-deletepopup-content-btn'>
+            <div className='products-deletepopup-content-btn'>
                 <Button onClick={() => {
                   toast.error(`You have clicked on Delete invoice by id = ${data.id}!`, {
                     position: "top-center",
@@ -44,7 +39,7 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
                     progress: undefined,
                     theme: "light",
                   });
-                  handleCloseDeleteInvoicePopup(false);
+                  handleCloseDeleteProductPopup(false);
                   }}>
                     Delete
                 </Button>
@@ -58,4 +53,4 @@ const DeleteInvoicePopup = ({ handleCloseDeleteInvoicePopup, data }) => {
 }
 
 
-export default DeleteInvoicePopup;
+export default DeleteProductPopup;

@@ -17,7 +17,7 @@ import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRen
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import Modal from '@mui/material/Modal';
-import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
+import DeleteInvoicePopup from '../popups/DeleteProductPopup';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
@@ -32,7 +32,7 @@ import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
 import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import EditInvoicePopup from '../popups/EditInvoicePopup';
+import EditInvoicePopup from '../popups/EditProductPopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
 import CloneInvoicePopup from '../popups/CloneInvoicePopup';
@@ -41,6 +41,8 @@ import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
 import RecurringSettingPopup from '../popups/RecurringSettingPopup';
 import InvoiceRecordPopup from '../popups/InvoiceRecord';
+import DeleteProductPopup from '../popups/DeleteProductPopup';
+import EditProductPopup from '../popups/EditProductPopup';
 
 
 
@@ -249,7 +251,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
       text: 'Quick edit',
       clickFunction: function(row) {
         setSelectedRowOption(row);
-        handleOpenEditInvoicePopup();
+        handleOpenEditProductPopup();
       }
     },
     {
@@ -364,15 +366,13 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
 
 
   // start delete invoice popup
-  const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
-  // const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
-  const handleOpenDeleteInvoicePopup = () => {
-    // setDeleteInvoiceId(id);
-    setDeleteInvoicePopup(true)
+  const [deleteProductPopup, setDeleteProductPopup] = useState(false);
+  const handleOpenDeleteProductPopup = () => {
+    setDeleteProductPopup(true)
   };
-  const handleCloseDeleteInvoicePopup = () => {
+  const handleCloseDeleteProductPopup = () => {
     setSelectedRowOption([]);
-    setDeleteInvoicePopup(false)
+    setDeleteProductPopup(false)
   };
   // end delete invoice popup
 
@@ -389,17 +389,17 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
   // end send email popup
 
 
-  // start edit invoice popup
-  const [editInvoicePopup, setEditInvoicePopup] = useState(false);
+  // start edit product popup
+  const [editProductPopup, setEditProductPopup] = useState(false);
 
-  const handleOpenEditInvoicePopup = () => {
-    setEditInvoicePopup(true);
+  const handleOpenEditProductPopup = () => {
+    setEditProductPopup(true);
   };
-  const handleCloseEditInvoicePopup = () => {
+  const handleCloseEditProductPopup = () => {
     setSelectedRowOption([]);
-    setEditInvoicePopup(false)
+    setEditProductPopup(false)
   };
-  // end edit invoice popup
+  // end edit product popup
 
 
   // start add payment popup
@@ -591,7 +591,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                              onClick={(e) => {
                               // e.stopPropagation();
                               setSelectedRowOption(row);
-                              handleOpenDeleteInvoicePopup()
+                              handleOpenDeleteProductPopup()
                             }}
                           >
                             <DeleteOutlineOutlinedIcon />
@@ -602,7 +602,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                               // e.stopPropagation();
                               // console.log('row', row)
                               setSelectedRowOption(row)
-                              handleOpenEditInvoicePopup();
+                              handleOpenEditProductPopup();
                             }}
                           >
                             <DriveFileRenameOutlineOutlinedIcon />
@@ -642,27 +642,27 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
       </Box>
 
 
-      {/* delete ivoice modal */}
+      {/* delete product modal */}
       <Modal
-        open={deleteInvoicePopup}
-        onClose={() => handleCloseDeleteInvoicePopup()}
+        open={deleteProductPopup}
+        onClose={() => handleCloseDeleteProductPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <DeleteInvoicePopup data={selectedRowOption} handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
+        <DeleteProductPopup data={selectedRowOption} handleCloseDeleteProductPopup={handleCloseDeleteProductPopup} />
       </Modal>
 
 
-      {/* edit invoice modal */}
+      {/* edit product modal */}
       <Modal
-        open={editInvoicePopup}
-        onClose={() => handleCloseEditInvoicePopup()}
+        open={editProductPopup}
+        onClose={() => handleCloseEditProductPopup()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <EditInvoicePopup data={selectedRowOption} handleCloseEditInvoicePopup={handleCloseEditInvoicePopup} />
+        <EditProductPopup data={selectedRowOption} handleCloseEditProductPopup={handleCloseEditProductPopup} />
       </Modal>
 
 

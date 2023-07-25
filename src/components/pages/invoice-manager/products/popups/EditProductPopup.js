@@ -11,23 +11,26 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Switch from '@mui/material/Switch';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
+import { toast } from "react-toastify";
 
 
 
 
-const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
-  const [description, setDescription] = useState('');
+
+const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
+
+  const [description, setDescription] = useState(data.description);
   const handleDescription = (event) => {
     setDescription(event.target.value);
   };
 
-  const [rate, setRate] = useState('');
+  const [rate, setRate] = useState(data.rate);
   const handleRate = (event) => {
     setRate(event.target.value);
   };
 
-  const [units, setUnits] = useState('');
+  const [units, setUnits] = useState(data.unit);
   const handleUnits = (event) => {
     setUnits(event.target.value);
   };
@@ -49,58 +52,70 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
 
   const handleCancelAddPayment = () => {
-    handleCloseAddNewProductsPopup();
+    handleCloseEditProductPopup();
     setAdditionalInfo(false);
   }
 
   const handleSubmitAddPayment = () => {
-    handleCloseAddNewProductsPopup();
+    handleCloseEditProductPopup();
     setAdditionalInfo(false);
+    toast.success('You have clicked on Submit edits', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      pauseOnFocusLoss: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
 
   return (
-    <div className='products-addnewpopup'>
-      <div className='products-addnewpopup-header'>
-        <div className='products-addnewpopup-header-title'>
-          <p>Add new product</p>
+    <div className='products-editproductpopup'>
+      <div className='products-editproductpopup-header'>
+        <div className='products-editproductpopup-header-title'>
+          <p>Edit product</p>
         </div>
 
-        <div className='products-addnewpopup-header-btn'>
-          <IconButton onClick={handleCloseAddNewProductsPopup}>
+        <div className='products-editproductpopup-header-btn'>
+          <IconButton onClick={handleCloseEditProductPopup}>
             <CloseIcon />
           </IconButton>
         </div>
 
       </div>
 
-      <div className='products-addnewpopup-list'>
+      <div className='products-editproductpopup-list'>
 
-        <div className='products-addnewpopup-item description'>
-          <p className='products-addnewpopup-item-title'>
+        <div className='products-editproductpopup-item description'>
+          <p className='products-editproductpopup-item-title'>
             Description
           </p>
 
           <TextField
-              className='products-addnewpopup-item-input'
+              className='products-editproductpopup-item-input'
               variant="outlined"
+              value={description}
               onChange={handleDescription}
               multiline
               maxRows={5}
           />
         </div>
 
-        <div className='products-addnewpopup-item flex'>
-          <p className="products-addnewpopup-item-title">
+        <div className='products-editproductpopup-item flex'>
+          <p className="products-editproductpopup-item-title">
               Rate
           </p>
 
-          <div className='products-addnewpopup-item-number'>
+          <div className='products-editproductpopup-item-number'>
             <TextField
               placeholder=""
               value={rate}
               onChange={handleRate}
-              className="products-addnewpopup-item-number-input"
+              className="products-editproductpopup-item-number-input"
               type="number"
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -109,11 +124,11 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
           </div>
         </div>
 
-        <div className='products-addnewpopup-item notes'>
-          <p className='products-addnewpopup-item-title'>
+        <div className='products-editproductpopup-item notes'>
+          <p className='products-editproductpopup-item-title'>
             Units
 
-            <Tooltip className='tooltip' id='addnewproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
+            <Tooltip className='tooltip' id='editproductproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
               <IconButton>
                 <HelpOutlineIcon />
               </IconButton>
@@ -121,20 +136,21 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
           </p>
 
           <TextField
-              className='products-addnewpopup-item-input'
+              className='products-editproductpopup-item-input'
               variant="outlined"
+              value={units}
               onChange={handleUnits}
           />
         </div>
 
-        <div className='products-addnewpopup-item flex'>
-            <p className='products-addnewpopup-item-title'>
+        <div className='products-editproductpopup-item flex'>
+            <p className='products-editproductpopup-item-title'>
               Category
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="products-addnewpopup-item-select"
+                  className="products-editproductpopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
@@ -148,11 +164,11 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
             </FormControl>
         </div>
 
-        <div className='products-addnewpopup-item switch'>
-            <p className='products-addnewpopup-item-title' onClick={handleAdditionalInfo}>
+        <div className='products-editproductpopup-item switch'>
+            <p className='products-editproductpopup-item-title' onClick={handleAdditionalInfo}>
               Estimate notes
               
-              <Tooltip className='tooltip' id='addnewproductpopup_tooltip' title="These notes will be displayed when editing an estimate or invoice. These notes are not visible to the client. " arrow placement="top-start">
+              <Tooltip className='tooltip' id='editproductproductpopup_tooltip' title="These notes will be displayed when editing an estimate or invoice. These notes are not visible to the client. " arrow placement="top-start">
                 <IconButton>
                   <HelpOutlineIcon />
                 </IconButton>
@@ -169,9 +185,9 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
         {
           additionalInfo ? 
               <>
-                <div className='products-addnewpopup-item estimate'>
+                <div className='products-editproductpopup-item estimate'>
                   <TextField
-                      className='products-addnewpopup-item-input'
+                      className='products-editproductpopup-item-input'
                       variant="outlined"
                       onChange={handleEstimateNotes}
                       multiline
@@ -186,19 +202,16 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
 
 
-        <div className='products-addnewpopup-btn'>
-          <Button className='products-addnewpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>
+        <div className='products-editproductpopup-btn'>
+          <Button className='products-editproductpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>
 
-          <Button className='products-addnewpopup-btn-submit' onClick={handleSubmitAddPayment}>Submit</Button>
+          <Button className='products-editproductpopup-btn-submit' onClick={handleSubmitAddPayment}>Submit</Button>
         </div>
       </div>
 
     </div>
-
-
-
   );
 }
 
 
-export default AddNewProductsPopup;
+export default EditProductPopup;

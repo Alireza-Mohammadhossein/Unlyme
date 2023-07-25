@@ -440,7 +440,6 @@
     }
 }
 
-
 .money-addnewexpenses {
     width: 80%;
     max-width: 800px;
@@ -808,8 +807,8 @@
 
             &:last-child {
                 .MuiButtonBase-root:first-child {
-                    border: 1px solid #A81C12;
-                    color: #A81C12;
+                    border: 1px solid #FD5162;
+                    color: #FD5162;
                     text-transform: none;
                     font-size: 14px;
                     padding: 8px 20px;
@@ -817,7 +816,7 @@
 
                     &:hover {
                         color: #fff;
-                        background-color: #A81C12;
+                        background-color: #FD5162;
                     }
                 }
             }
