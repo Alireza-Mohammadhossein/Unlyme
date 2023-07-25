@@ -99,7 +99,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = invoices.map((n) => n.id);
+      const newSelected = visibleRows.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -132,9 +132,21 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 20));
+    setRowsPerPage(parseInt(event.target.value));
     setPage(0);
   };
+
+  const emptyRows =
+  page > 0 ? Math.max(0, (1 + page) * rowsPerPage - invoices.length) : 0;
+
+  const visibleRows = React.useMemo(
+    () =>
+      stableSort(invoices, getComparator(order, orderBy)).slice(
+        page * rowsPerPage,
+        page * rowsPerPage + rowsPerPage,
+      ),
+    [order, orderBy, page, rowsPerPage],
+  );
 
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
@@ -506,13 +518,14 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                 orderBy={orderBy}
                 onSelectAllClick={handleSelectAllClick}
                 onRequestSort={handleRequestSort}
-                rowCount={invoices.length}
+                rowCount={visibleRows.length}
                 setSearchText={setSearchText}
                 sortByDateHandler={sortByDateHandler}
               />
 
               <TableBody>
-                {filteredInvoices.map((row, index) => {
+                {/* {filteredInvoices.map((row, index) => { */}
+                {visibleRows.map((row, index) => {
                   const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 

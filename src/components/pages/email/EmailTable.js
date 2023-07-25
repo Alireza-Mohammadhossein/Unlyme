@@ -15,6 +15,7 @@ import SingleMail from './single-mail/SingleMail';
 import { useEffect } from 'react';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import EmailTableHead from './EmailTableHead';
+import { useCallback } from 'react';
 
 
 
@@ -73,7 +74,7 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = emails.map((n) => n.id);
+      const newSelected = visibleRows.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -106,7 +107,7 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 20));
+    setRowsPerPage(parseInt(event.target.value));
     setPage(0);
   };
 
@@ -136,7 +137,6 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
   }, [searchText]);
 
 
-
 // start sort by date
   const [isDesc, setIsDesc] = useState(true);
   const sortByDateHandler = () => {
@@ -159,15 +159,15 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
 
 
 
-
-  // const visibleRows = useMemo(
-  //   () =>
-  //     stableSort(filteredEmails, getComparator(order, orderBy)).slice(
-  //       page * rowsPerPage,
-  //       page * rowsPerPage + rowsPerPage,
-  //     ),
-  //   [order, orderBy, page, rowsPerPage],
-  // );
+ 
+const visibleRows = useMemo(
+  () =>
+    stableSort(filteredEmails, getComparator(order, orderBy)).slice(
+      page * rowsPerPage,
+      page * rowsPerPage + rowsPerPage
+    ),
+  [filteredEmails, order, orderBy, page, rowsPerPage]
+);
 
 
   // start showing mail category tab
@@ -180,17 +180,17 @@ export default function EmailTable({ activeSingleMail, setActiveSingleMail, emai
   // end showing chat tab
 
 
-// start show single mail handler 
-const showSingleMailHanlder = (row) => {
-  setActiveSingleMail(true);
-  setUserIcon(row.logo);
-  setMailfrom(row.from);
-  setMailTo(row.to);
-  setMailTitle(row.title);
-  setMailSubject(row.subject);
-  setMailMessage(row.message);
-}
-// end show single mail handler
+  // start show single mail handler 
+  const showSingleMailHanlder = (row) => {
+    setActiveSingleMail(true);
+    setUserIcon(row.logo);
+    setMailfrom(row.from);
+    setMailTo(row.to);
+    setMailTitle(row.title);
+    setMailSubject(row.subject);
+    setMailMessage(row.message);
+  }
+  // end show single mail handler
 
 
 
@@ -218,13 +218,13 @@ const showSingleMailHanlder = (row) => {
                   orderBy={orderBy}
                   onSelectAllClick={handleSelectAllClick}
                   onRequestSort={handleRequestSort}
-                  rowCount={emails.length}
+                  rowCount={visibleRows.length}
                   setSearchText={setSearchText}
                   sortByDateHandler={sortByDateHandler}
                 />
 
                 <TableBody>
-                  {filteredEmails.map((row, index) => {
+                  {visibleRows.map((row, index) => {
                     const isItemSelected = isSelected(row.id);
                     const labelId = `enhanced-table-checkbox-${index}`;
 

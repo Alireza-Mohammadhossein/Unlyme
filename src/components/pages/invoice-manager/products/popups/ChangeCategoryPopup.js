@@ -13,32 +13,32 @@ import { toast } from "react-toastify";
 
 const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
 
-    const [category, setCategory] = useState('');
-    const handleCategory = (event) => {
-      setCategory(event.target.value);
-    };
+  const [category, setCategory] = useState('');
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
 
-    
-    const handleCancelCategory = () => {
-        handleCloseChangeCategoryPopup();
-        setCategory('');
-      }
-    
-      const handleSubmitCategory = () => {
-        handleCloseChangeCategoryPopup();
-        setCategory('');
-        toast.error(`You have clicked on Change category by id = ${data.data.id}!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } 
+  
+  const handleCancelCategory = () => {
+    handleCloseChangeCategoryPopup();
+    setCategory('');
+  }
+  
+  const handleSubmitCategory = () => {
+    handleCloseChangeCategoryPopup();
+    setCategory('');
+    toast.error(`You have clicked on Change category by id = ${data.data.id}!`, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      pauseOnFocusLoss: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  } 
 
   return (
     <div className='products-changecategorypopup'>
@@ -83,11 +83,7 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
           <Button className='products-changecategorypopup-btn-submit' onClick={handleSubmitCategory}>Submit</Button>
         </div>
       </div>
-
     </div>
-
-
-
   );
 }
 

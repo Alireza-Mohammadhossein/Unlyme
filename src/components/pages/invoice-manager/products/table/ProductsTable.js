@@ -22,20 +22,12 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import { toast } from "react-toastify";
-import EditNoteIcon from '@mui/icons-material/EditNote';
-import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
-import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
-import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
 import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
-import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
-import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import EditInvoicePopup from '../popups/EditProductPopup';
 import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DeleteProductPopup from '../popups/DeleteProductPopup';
 import EditProductPopup from '../popups/EditProductPopup';
+import ProductsTableHead from './ProductsTableHead';
 
 
 
@@ -94,11 +86,12 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = invoices.map((n) => n.id);
+      const newSelected = visibleRows.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
     setSelected([]);
+    console.log('first', selected)
   };
 
 
@@ -127,12 +120,26 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 20));
+    setRowsPerPage(parseInt(event.target.value));
     setPage(0);
   };
 
 
   const isSelected = (id) => selected.indexOf(id) !== -1;
+
+  const emptyRows =
+  page > 0 ? Math.max(0, (1 + page) * rowsPerPage - invoices.length) : 0;
+
+  const visibleRows = useMemo(
+    () =>
+      stableSort(invoices, getComparator(order, orderBy)).slice(
+        page * rowsPerPage,
+        page * rowsPerPage + rowsPerPage,
+      ),
+    [order, orderBy, page, rowsPerPage],
+  );
+
+
 
 
 
@@ -388,19 +395,20 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
               aria-labelledby="tableTitle"
               className='products-table'
             >
-              <InvoiceManagerTableHead
+              <ProductsTableHead
                 numSelected={selected.length}
                 order={order}
                 orderBy={orderBy}
                 onSelectAllClick={handleSelectAllClick}
                 onRequestSort={handleRequestSort}
-                rowCount={invoices.length}
+                rowCount={visibleRows.length}
                 setSearchText={setSearchText}
                 sortByDateHandler={sortByDateHandler}
               />
 
               <TableBody>
-                {filteredInvoices.map((row, index) => {
+                {/* {filteredInvoices.map((row, index) => { */}
+                {visibleRows.map((row, index) => {
                   const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
@@ -506,6 +514,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
               </TableBody>
             </Table>
           </TableContainer>
+          
           <TablePagination
             className='invoices-pagination'
             rowsPerPageOptions={[20, 50, 100]}
