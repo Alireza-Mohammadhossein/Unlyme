@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './invoices-popups.scss';
+import './products-popups.scss';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 

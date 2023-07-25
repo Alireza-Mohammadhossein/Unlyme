@@ -1,5 +1,5 @@
 import React from 'react';
-import './invoices-popups.scss';
+import './products-popups.scss';
 import Button from '@mui/material/Button';
 import { toast } from "react-toastify";
 
