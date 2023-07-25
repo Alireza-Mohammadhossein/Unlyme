@@ -631,6 +631,7 @@
                     &.MuiTableCell-root  {
                         cursor: auto;
                         max-width: 100px;
+                        width: 15%;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -680,7 +681,8 @@
                 &-actions.MuiTableCell-root {
                     padding: 10px;
                     cursor: pointer;
-                    max-width: 100px;
+                    max-width: 15%;
+                    width: 15%;
 
                     .MuiButtonBase-root {
                         padding: 5px;
@@ -728,6 +730,11 @@
                             padding: 8px 30px 8px 20px;
                         }
                     }
+                }
+
+                &-item:nth-child(2) {
+                    width: 40%;
+                    max-width: 300px;
                 }
             }
         }

@@ -14,6 +14,7 @@ import Drawer from '@mui/material/Drawer';
 import FilterInvoicesPopup from './invoices/popups/FilterInvoicesPopup';
 import FilterMoneyPopup from './money/popups/FilterMoneyPopup';
 import FilterClientsPopup from './clients/popups/FilterClientsPopup';
+import FilterProductsPopup from './products/popups/FilterProductsPopup';
 import Modal from '@mui/material/Modal';
 import AddNewPopup from './invoices/popups/AddNewPopup';
 import Menu from "@mui/material/Menu";
@@ -35,6 +36,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
   const [filterInvoicesPopup, setFilterInvoicesPopup] = useState(false);
   const [filterMoneyPopup, setFilterMoneyPopup] = useState(false);
   const [filterClientsPopup, setFilterClientsPopup] = useState(false);
+  const [filterProductsPopup, setFilterProductsPopup] = useState(false);
 
 
   useEffect(() => {
@@ -203,17 +205,25 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                       </Drawer>
                     </>
                   : activeTab === 2 ?
-                  <>
-                    <IconButton aria-label="filter" onClick={() => {setFilterClientsPopup(true)}}>
-                        <FilterListIcon />
-                    </IconButton>
-                    
-                    <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} >
-                        <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
-                    </Drawer>
-                  </>
+                    <>
+                      <IconButton aria-label="filter" onClick={() => {setFilterClientsPopup(true)}}>
+                          <FilterListIcon />
+                      </IconButton>
+                      
+                      <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} >
+                          <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
+                      </Drawer>
+                    </>
                   :
-                    ''
+                    <>
+                      <IconButton aria-label="filter" onClick={() => {setFilterProductsPopup(true)}}>
+                          <FilterListIcon />
+                      </IconButton>
+                      
+                      <Drawer anchor='right' open={filterProductsPopup} onClose={() => setFilterProductsPopup(false)} disableScrollLock = {false} >
+                          <FilterProductsPopup setFilterProductsPopup={setFilterProductsPopup} />
+                      </Drawer>
+                    </>
                 }
               </div>
           </Grid>

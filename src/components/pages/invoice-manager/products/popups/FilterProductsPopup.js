@@ -16,7 +16,7 @@ import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
 
 
-const FilterInvoicesPopup = ({ setFilterInvoicesPopup }) => {
+const FilterProductsPopup = ({ setFilterProductsPopup }) => {
 
 
 
@@ -108,7 +108,7 @@ const FilterInvoicesPopup = ({ setFilterInvoicesPopup }) => {
   }
 
   const handleSubmitFilters = () => {
-    setFilterInvoicesPopup(false)
+    setFilterProductsPopup(false)
     setClient('');
     setProject('');
     setInvoiceMin('');
@@ -131,11 +131,11 @@ const FilterInvoicesPopup = ({ setFilterInvoicesPopup }) => {
       <div className='invoices-filterpopup-header'>
         <div className='invoices-filterpopup-header-title'>
           <FilterListIcon />
-          <p>Filter invoices</p>
+          <p>Filter products</p>
         </div>
 
         <div className='invoices-filterpopup-header-btn'>
-          <IconButton onClick={() => setFilterInvoicesPopup(false)}>
+          <IconButton onClick={() => setFilterProductsPopup(false)}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -403,4 +403,4 @@ const FilterInvoicesPopup = ({ setFilterInvoicesPopup }) => {
 }
 
 
-export default FilterInvoicesPopup;
+export default FilterProductsPopup;

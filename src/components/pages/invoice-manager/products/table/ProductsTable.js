@@ -561,9 +561,9 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                         <TableCell
                           scope="row"
                           align="center"
-                          className='invoice-manager-page_main_products-tab-row-item blue'
+                          className='invoice-manager-page_main_products-tab-row-item'
                         >
-                          {row.rate}
+                          ${row.rate}
                         </TableCell>
 
                         <TableCell
