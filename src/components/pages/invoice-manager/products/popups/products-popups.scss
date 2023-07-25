@@ -140,7 +140,7 @@
     }
 }
 
-.invoices-addnewpopup {
+.products-addnewpopup {
     width: 80%;
     max-width: 800px;
     height: auto;
@@ -199,6 +199,40 @@
             width: 80%;
         }
 
+        &-number {
+            width: 80%;
+            
+            .MuiFormControl-root {
+                width: 100%;
+            }
+
+            & .MuiInputBase-root {
+                width: 100%;
+                border-radius: 8px;
+                background-color: #F8FAFC;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+
+            .MuiInputBase-adornedStart {
+                padding-left: 10px;
+
+                input {
+                    border-left: 1px solid #e3e3e3;
+                }
+            }
+        }
+
         &-input {
 
             & .MuiInputBase-root {
@@ -218,11 +252,6 @@
                     border-color: #1976d2;
                 }
             }
-        }
-
-        &-project_selection {
-            width: 100%;
-            text-align: right;
         }
 
         &-select {
@@ -246,27 +275,6 @@
             }
         }
 
-        &-date {
-            width: 80%;
-
-            .MuiFormControl-root {
-                width: 100%;
-
-                .MuiInputBase-input {
-                    padding: 10px;
-                    background-color: #F8FAFC;
-                }
-
-                .MuiOutlinedInput-notchedOutline {
-                    border-radius: 8px;
-                }
-
-                .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
-                    border-color: #1976d2;
-                }
-            }
-        }
-
         &.switch {
             display: flex;
             align-items: center;
@@ -275,33 +283,72 @@
             p {
                 cursor: pointer;
             }
+
+            .tooltip {
+                color: #51A3FF !important;
+            }
         }
 
-        &.tags {
+        &.description {
             display: flex;
-            align-items: center;
+            align-items: top;
 
-            .MuiInputBase-root {
-                width: 80%;
-
+            & .MuiInputBase-root {
+                border-radius: 8px;
+                background-color: #F8FAFC;
+                width: 100%;
+                min-height: 100px;
+                align-items: start;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
                 &:hover .MuiOutlinedInput-notchedOutline {
                     border-color: #1976d2;
                 }
-            }
-
-            .MuiSelect-select {
-                background-color: #F8FAFC;
-                padding: 10px;
-            }
-
-            .MuiOutlinedInput-notchedOutline {
-                border-radius: 8px;
             }
         }
 
         &.notes {
             display: flex;
+            align-items: center;
+
+            & .MuiInputBase-root {
+                border-radius: 8px;
+                background-color: #F8FAFC;
+                width: 100%;
+                align-items: start;
+    
+                input {
+                    padding: 10px;
+                }
+    
+                .MuiOutlinedInput-notchedOutline {
+                    border-radius: 8px;
+                }
+    
+                &:hover .MuiOutlinedInput-notchedOutline {
+                    border-color: #1976d2;
+                }
+            }
+
+            .tooltip {
+                color: #51A3FF !important;
+            }
+        }
+
+        &.estimate {
+            display: flex;
             align-items: top;
+
+            & .MuiFormControl-root{
+                width: 100%;
+            }
 
             & .MuiInputBase-root {
                 border-radius: 8px;

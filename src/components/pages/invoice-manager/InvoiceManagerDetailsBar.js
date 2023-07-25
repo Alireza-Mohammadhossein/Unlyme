@@ -24,6 +24,7 @@ import { toast } from "react-toastify";
 import AddNewEarningPopup from './money/popups/AddNewEarningPopup';
 import AddNewExpensesPopup from './money/popups/AddNewExpensesPopup';
 import AddNewClientsPopup from './clients/popups/AddNewClientsPopup';
+import AddNewProductsPopup from './products/popups/AddNewProductsPopup';
 
 
 
@@ -162,6 +163,13 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
   const handleOpenAddNewClientPopup = () => setAddNewClientPopup(true);
   const handleCloseAddNewClientPopup = () => setAddNewClientPopup(false);
   // end add new client
+
+
+  // start add new product
+  const [addNewProductsPopup, setAddNewProductsPopup] = useState(false);
+  const handleOpenAddNewProductsPopup = () => setAddNewProductsPopup(true);
+  const handleCloseAddNewProductsPopup = () => setAddNewProductsPopup(false);
+  // end add new product
 
 
   return (
@@ -329,20 +337,20 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           aria-label="more"
                           id="long-button"
                           aria-haspopup="true"
-                          onClick={handleOpenAddNewClientPopup}
+                          onClick={handleOpenAddNewProductsPopup}
                         >
                           {t("INVICE_MANAGER_PAGE.ADD_NEW")}
                         </Button>
 
 
                         <Modal
-                          open={addNewClientPopup}
-                          onClose={handleCloseAddNewClientPopup}
+                          open={addNewProductsPopup}
+                          onClose={handleCloseAddNewProductsPopup}
                           aria-labelledby="modal-modal-title"
                           aria-describedby="modal-modal-description"
                           className='cloud-page__header_invoice-manager-details_add-modal'
                         >
-                          <AddNewClientsPopup handleCloseAddNewClientPopup={handleCloseAddNewClientPopup} />
+                          <AddNewProductsPopup handleCloseAddNewProductsPopup={handleCloseAddNewProductsPopup} />
                         </Modal>
                       </>
                 }
