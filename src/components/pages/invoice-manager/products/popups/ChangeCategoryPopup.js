@@ -41,13 +41,13 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
       } 
 
   return (
-    <div className='invoices-cloneinvoicepopup'>
-      <div className='invoices-cloneinvoicepopup-header'>
-        <div className='invoices-cloneinvoicepopup-header-title'>
+    <div className='products-changecategorypopup'>
+      <div className='products-changecategorypopup-header'>
+        <div className='products-changecategorypopup-header-title'>
           <p>Change category</p>
         </div>
 
-        <div className='invoices-cloneinvoicepopup-header-btn'>
+        <div className='products-changecategorypopup-header-btn'>
           <IconButton onClick={handleCloseChangeCategoryPopup}>
             <CloseIcon />
           </IconButton>
@@ -55,15 +55,15 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
 
       </div>
 
-      <div className='invoices-cloneinvoicepopup-list'>
-        <div className='invoices-cloneinvoicepopup-item flex'>
-            <p className='invoices-cloneinvoicepopup-item-title'>
+      <div className='products-changecategorypopup-list'>
+        <div className='products-changecategorypopup-item flex'>
+            <p className='products-changecategorypopup-item-title'>
               Category
             </p>
 
             <FormControl fullWidth>
                 <Select
-                  className="invoices-cloneinvoicepopup-item-select"
+                  className="products-changecategorypopup-item-select"
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={category}
@@ -77,10 +77,10 @@ const ChangeCategoryPopup = ({ handleCloseChangeCategoryPopup, data }) => {
             </FormControl>
         </div>
 
-        <div className='invoices-cloneinvoicepopup-btn'>
-          <Button className='invoices-cloneinvoicepopup-btn-reset' onClick={handleCancelCategory}>Cancel</Button>
+        <div className='products-changecategorypopup-btn'>
+          <Button className='products-changecategorypopup-btn-reset' onClick={handleCancelCategory}>Cancel</Button>
 
-          <Button className='invoices-cloneinvoicepopup-btn-submit' onClick={handleSubmitCategory}>Submit</Button>
+          <Button className='products-changecategorypopup-btn-submit' onClick={handleSubmitCategory}>Submit</Button>
         </div>
       </div>
 

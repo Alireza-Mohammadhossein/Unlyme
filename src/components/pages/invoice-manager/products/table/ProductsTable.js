@@ -33,14 +33,7 @@ import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import EditInvoicePopup from '../popups/EditProductPopup';
-import SendEmailPopup from '../popups/SendEmailPopup';
-import AddPaymentPopup from '../popups/AddPaymentPopup';
-import CloneInvoicePopup from '../popups/CloneInvoicePopup';
 import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
-import DetachInvoicePopup from '../popups/DetachInvoicePopup';
-import AttachProjectPopup from '../popups/AttachProjectPopup';
-import RecurringSettingPopup from '../popups/RecurringSettingPopup';
-import InvoiceRecordPopup from '../popups/InvoiceRecord';
 import DeleteProductPopup from '../popups/DeleteProductPopup';
 import EditProductPopup from '../popups/EditProductPopup';
 
@@ -246,45 +239,6 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
   // start more options
   const options = [
     {
-      id: 1,
-      icon: <EditNoteIcon />,
-      text: 'Quick edit',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenEditProductPopup();
-      }
-    },
-    {
-      id: 2,
-      icon: <MailOutlinedIcon />,
-      text: 'Email to client',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenSendEmailPopup();
-        // handleCloseMoreOptions();
-      }
-    },
-    {
-      id: 3,
-      icon: <AddCardOutlinedIcon />,
-      text: 'Add new payment',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenAddPaymentPopup()
-        // handleCloseMoreOptions();
-      }
-    },
-    {
-      id: 4,
-      icon: <ContentCopyOutlinedIcon />,
-      text: 'Clone invoice',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenCloneInvoicePopup();
-        // handleCloseMoreOptions();
-      }
-    },
-    {
       id: 5,
       icon: <SellOutlinedIcon />,
       text: 'Change category',
@@ -292,72 +246,6 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
         setSelectedRowOption(row);
         handleOpenChangeCategoryPopup();
         // handleCloseMoreOptions();
-      }
-    },
-    {
-      id: 6,
-      icon: <AttachmentOutlinedIcon />,
-      text: 'Detach invoice',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenDetachInvoicePopup();
-      }
-    },
-    {
-      id: 7,
-      icon: <AttachmentOutlinedIcon />,
-      text: 'Attach to a project',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenAttachProjectPopup();
-      }
-    },
-    {
-      id: 8,
-      icon: <LoopOutlinedIcon />,
-      text: 'Recurring settings',
-      clickFunction: function(row) {
-        setSelectedRowOption(row);
-        handleOpenRecurringSettingPopup();
-      }
-    },
-    {
-      id: 9,
-      icon: <RemoveRedEyeOutlinedIcon />,
-      text: 'View payments',
-      clickFunction: function() {
-          toast.error('You have clicked on View payments!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          // handleCloseMoreOptions();
-      }
-    },
-    {
-      id: 10,
-      icon: <FileDownloadOutlinedIcon />,
-      text: 'Download',
-      clickFunction: function() {
-          toast.error('You have clicked on Download!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            pauseOnFocusLoss: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-
-          // handleCloseMoreOptions();
       }
     }
   ]
@@ -608,16 +496,6 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                             <DriveFileRenameOutlineOutlinedIcon />
                           </IconButton>
 
-                          <IconButton aria-label="open"
-                            onClick={(e) => {
-                              // e.stopPropagation();
-                              setSelectedRowOption(row)
-                              handleOpenInvoiceRecordPopup();
-                            }}
-                          >
-                            <OpenInNewOutlinedIcon />
-                          </IconButton>
-
                           <MoreOptionsMenu data={row} />
                         </TableCell>
                         
@@ -666,41 +544,6 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
       </Modal>
 
 
-      {/* send email modal */}
-      <Modal
-        open={sendEmailPopup}
-        onClose={() => handleCloseSendEmailPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <SendEmailPopup data={selectedRowOption} handleCloseSendEmailPopup={handleCloseSendEmailPopup} />
-      </Modal>
-
-
-      {/* add new payment modal */}
-      <Modal
-        open={addPaymentPopup}
-        onClose={() => handleCloseAddPaymentPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <AddPaymentPopup data={selectedRowOption} handleCloseAddPaymentPopup={handleCloseAddPaymentPopup} />
-      </Modal>
-
-
-      {/* clone invoice modal */}
-      <Modal
-        open={cloneInvoicePopup}
-        onClose={() => handleCloseCloneInvoicePopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <CloneInvoicePopup data={selectedRowOption} handleCloseCloneInvoicePopup={handleCloseCloneInvoicePopup} />
-      </Modal>
-
 
       {/* change category modal */}
       <Modal
@@ -711,54 +554,6 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
         <ChangeCategoryPopup data={selectedRowOption} handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
-      </Modal>
-
-      
-      {/* detach invoice modal */}
-      <Modal
-        open={detachInvoicePopup}
-        onClose={() => handleCloseDetachInvoicePopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <DetachInvoicePopup data={selectedRowOption} handleCloseDetachInvoicePopup={handleCloseDetachInvoicePopup} />
-      </Modal>
-
-
-      {/* attach project modal */}
-      <Modal
-        open={attachProjectPopup}
-        onClose={() => handleCloseAttachProjectPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <AttachProjectPopup data={selectedRowOption} handleCloseAttachProjectPopup={handleCloseAttachProjectPopup} />
-      </Modal>
-
-      
-      {/* recurring setting modal */}
-      <Modal
-        open={recurringSettingPopup}
-        onClose={() => handleCloseRecurringSettingPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <RecurringSettingPopup data={selectedRowOption} handleCloseRecurringSettingPopup={handleCloseRecurringSettingPopup} />
-      </Modal>
-
-
-      {/* edit invoice modal */}
-      <Modal
-        open={invoiceRecordPopup}
-        onClose={() => handleCloseInvoiceRecordPopup()}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className='cloud-page__header_invoice-manager-details_add-modal'
-      >
-        <InvoiceRecordPopup data={selectedRowOption} handleCloseInvoiceRecordPopup={handleCloseInvoiceRecordPopup} />
       </Modal>
 
     </>

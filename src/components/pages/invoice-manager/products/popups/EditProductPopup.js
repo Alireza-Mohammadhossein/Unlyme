@@ -199,9 +199,6 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
               ''
         }
 
-
-
-
         <div className='products-editproductpopup-btn'>
           <Button className='products-editproductpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>
 
