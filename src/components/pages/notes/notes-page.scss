@@ -238,7 +238,6 @@
     box-sizing: border-box;
 
     &_actions {
-        text-align: center;
 
         & .MuiButtonBase-root {
             svg {
@@ -251,6 +250,18 @@
                 border: unset;
             }
         }
+
+        &.left {
+            text-align: left;
+        }
+        
+        &.center {
+            text-align: center;
+        }
+        
+        &.right {
+            text-align: right;
+        }
     }
 
     &_close {
@@ -258,8 +269,9 @@
     }
 
     &_search {
-        display: flex;
-        gap: 5px;
+        // display: flex;
+        // gap: 5px;
+        flex: 1;
 
         .MuiFormControl-root {
             width: 100%;

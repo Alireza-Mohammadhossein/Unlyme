@@ -222,8 +222,8 @@
                     & .fc-timegrid-cols {
                         & .fc-timegrid-axis {
                             & .fc-timegrid-now-indicator-arrow {
-                                border-right-color: #AB9BCD;
-                                border-left-color: #AB9BCD;
+                                border-right-color: #653EB9;
+                                border-left-color: #653EB9;
                             }
                         }
 
@@ -234,14 +234,14 @@
                             }
 
                             & .fc-timegrid-now-indicator-line {
-                                border-color: #AB9BCD;
+                                border-color: #653EB9;
                                 border-width: 2px 0 0;
 
                                 &::before {
                                     content: "";
                                     width: 10px;
                                     height: 10px;
-                                    background-color: #AB9BCD;
+                                    background-color: #653EB9;
                                     display: block;
                                     border-radius: 50%;
                                     top: -6px;

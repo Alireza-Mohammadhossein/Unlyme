@@ -191,6 +191,21 @@ function CalendarPageContent() {
                   day:      'Day',
                   list:     'Agenda'
                 }}
+                views = {{
+                  dayGridMonth: { // name of view
+                    titleFormat: {year: 'numeric', month: 'long' },
+                    // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
+                    // other view-specific options here
+                  }
+                }}
+
+                slotLabelFormat={e => `${e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
+                eventTimeFormat={{
+                  hour: '2-digit',
+                  hour12: false,
+                  minute: '2-digit',
+                  meridiem: 'short'
+                }}
                 initialView='dayGridMonth'
                 editable={true}
                 selectable={true}
@@ -212,6 +227,7 @@ function CalendarPageContent() {
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
                 select={handleDateSelect}
                 eventContent={renderEventContent} // custom render function
+                // sideBarEvent={renderSidebarEvent}
                 eventClick={handleEventClick}
                 eventsSet={handleEvents} // called after events are initialized/added/changed/removed
                 /* you can update a remote database when these fire:

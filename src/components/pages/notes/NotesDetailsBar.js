@@ -45,23 +45,10 @@ const NotesDetailsBar = ({ setSearchNote }) => {
     
     return (
         <Grid container spacing={2}>
-            <Grid item lg={4} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_search'>
-                    <FormControl>
-                        <div className="cloud-page__header_notes-details_search_container">
-                            <label><img src={search} /></label>
-                            <input
-                              className="cloud-page__header_notes-details_search-input"
-                              onChange={(e) => setSearchNote(e.target.value)}
-                              placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
-                            />
-                        </div>
-                    </FormControl>
-                </div>
-            </Grid>
+
 
             <Grid item lg={2} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions'>
+                <div className='cloud-page__header_notes-details_actions left'>
                     <ToggleButtonGroup
                         value={viewMode}
                         exclusive
@@ -82,7 +69,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
             </Grid>
 
             <Grid item lg={2} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions'>
+                <div className='cloud-page__header_notes-details_actions center'>
                     <ButtonGroup variant="outlined" aria-label="text formatting">
                         <IconButton value="bold" aria-label="bold">
                             {/* <img src={boldFormat} /> */}
@@ -101,7 +88,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
             </Grid>
             
             <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions'>
+                <div className='cloud-page__header_notes-details_actions center'>
                     <ButtonGroup variant="outlined" aria-label="actions">
                         <IconButton value="bold" aria-label="bold">
                             {/* <img src={imageFormat} /> */}
@@ -119,8 +106,20 @@ const NotesDetailsBar = ({ setSearchNote }) => {
                 </div>
             </Grid>
 
-            
-            <Grid item lg={1} md={6} xs={12}>
+            <Grid item lg={5} md={6} xs={12} sx={{display: 'flex'}}>
+                <div className='cloud-page__header_notes-details_search'>
+                    <FormControl>
+                        <div className="cloud-page__header_notes-details_search_container">
+                            <label><img src={search} /></label>
+                            <input
+                              className="cloud-page__header_notes-details_search-input"
+                              onChange={(e) => setSearchNote(e.target.value)}
+                              placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
+                            />
+                        </div>
+                    </FormControl>
+                </div>
+
                 <div className='cloud-page__header_notes-details_close'>
                     <ButtonGroup variant="outlined" aria-label="actions">
                         <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
