@@ -95,6 +95,7 @@ function TabPanel(props) {
     }, []);
   
     useEffect(() => {
+      // setFilteredNote(notes)
       localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
     // end getting notes from localstorage
@@ -111,6 +112,8 @@ function TabPanel(props) {
             note.message.toLowerCase().match(filterValue)
           );
         }));
+      } else if( searchNote.split('').length === 0) {
+        // setFilteredNote(notes)
       }
     }, [searchNote]);
   
