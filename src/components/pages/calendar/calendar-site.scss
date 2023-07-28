@@ -269,7 +269,7 @@
                     & tbody tr:first-child {
                             & .fc-scroller-harness {
                                 & .fc-scroller {
-                                    overflow: unset !important;
+                                    overflow: auto !important;
                                 }
                             }
                     }

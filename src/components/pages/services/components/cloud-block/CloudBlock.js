@@ -25,6 +25,7 @@ const CloudBlock = ({
 
 
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
+  const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
 
 
   
@@ -58,7 +59,7 @@ const CloudBlock = ({
     <div className="cloud-block">
 
       {/* header */}
-      <div className={`cloud-block__header ${appsModal ? 'back-transparent' : ''}`}>
+      <div className={`cloud-block__header ${appsModal || openNotesWidgetModal ? 'back-transparent' : ''}`}>
           <div
             className="cloud-block__header_icon-container"
             onClick={iconAction || undefined}
@@ -93,7 +94,7 @@ const CloudBlock = ({
 
 
       {/* content */}
-      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}  ${appsModal ? 'back-transparent' : ''}`}>{content}</div>
+      <div className={`cloud-block__content ${isCollapsed ? 'isCollapsed' : ''}  ${appsModal || openNotesWidgetModal ? 'back-transparent' : ''}`}>{content}</div>
       
 
       {/* modal */}

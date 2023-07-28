@@ -41,6 +41,7 @@ const NotesBlock = () => {
 
   
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
+  const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
   const handleOpenNotesModal = () => {
     dispatch(handleOpenNotesWidgetModal());
@@ -58,7 +59,7 @@ const NotesBlock = () => {
 
   return (
     <>
-      <div className='my-services__notes'>
+      <div className={`my-services__notes ${openNotesWidgetModal || appsModal ? 'back-transparent' : ''}`}>
         <div className="my-services__notes_header">
           <div className="my-services__notes_header-view">
             <ToggleButtonGroup
@@ -96,7 +97,6 @@ const NotesBlock = () => {
                     <p className="my-services__notes_content_list-item-details-time">{note.day}/{dayjs(`${note.day}${note.month}${note.year}`).format('MM')}/{note.year}</p>
                     <p className="my-services__notes_content_list-item-details-desctiprion">{note.message}</p>
                   </div>
-    
                 </li>
               ))
             }

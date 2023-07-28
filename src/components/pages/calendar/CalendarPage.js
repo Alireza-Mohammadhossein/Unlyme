@@ -196,7 +196,21 @@ function CalendarPageContent() {
                     titleFormat: {year: 'numeric', month: 'long' },
                     // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
                     // other view-specific options here
-                  }
+                  },
+                  // timeGridWeek: {
+                  //   slotLabelFormat: {
+                  //     hour: "2-digit", 
+                  //     minute: "2-digit", 
+                  //     hour12: false
+                  //   }
+                  // },
+                  // timeGridDay: {
+                  //   slotLabelFormat: {
+                  //     hour: "2-digit", 
+                  //     minute: "2-digit", 
+                  //     hour12: false
+                  //   }
+                  // }
                 }}
                 slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
                 eventTimeFormat={{
