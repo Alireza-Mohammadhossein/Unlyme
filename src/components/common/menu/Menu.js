@@ -233,11 +233,6 @@ const Menu = ({screenSize}) => {
         disableEnforceFocus 
       >
         <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
-          {/* {SelectedComponent && <SelectedComponent />} */}
-          {/* <Tasks /> */}
-          {/* <SelectedComponent /> */}
-          {/* {showSelectedComponent} */}
-
           {
             selectedComponent === 'Calendar' ? <Calendar /> :
             selectedComponent === 'Notes' ? <Notes /> :

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   openAppsModal: false,
+  openNotesWidgetModal: false,
   openMeetingPageModal: false,
   SelectedComponent: null,
   openAppsShortcut: false,
@@ -18,6 +19,15 @@ export const appsModalSlice = createSlice({
     },
     handleCloseAppsModal: (state) => {
         state.openAppsModal = false;
+        state.openNotesWidgetModal = false;
+        // state.SelectedComponent = null;
+    },
+    handleOpenNotesWidgetModal: (state, component) => {
+      state.openNotesWidgetModal = true;
+      // state.SelectedComponent = component.payload;
+    },
+    handleCloseNotesWidgetModal: (state) => {
+        state.openNotesWidgetModal = false;
         // state.SelectedComponent = null;
     },
     handleOpenMeetingPageModal: (state) => {
@@ -39,6 +49,6 @@ export const appsModalSlice = createSlice({
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;

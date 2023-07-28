@@ -218,8 +218,8 @@
         overflow-y: auto;
         overflow-x: hidden;
         list-style: none;    
-        display: flex;
-        flex-direction: column-reverse;
+        // display: flex;
+        // flex-direction: column-reverse;
 
         &-item {
           display: flex;
@@ -228,6 +228,8 @@
           padding-bottom: 15px;
           margin-top: 15px;
           border-bottom: 1px solid #E8E7E4;
+          font-size: 14px;
+          cursor: pointer;
 
           &-title {
             color: #333333;
