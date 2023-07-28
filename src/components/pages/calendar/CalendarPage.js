@@ -198,14 +198,17 @@ function CalendarPageContent() {
                     // other view-specific options here
                   }
                 }}
-
-                slotLabelFormat={e => `${e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
+                slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
                 eventTimeFormat={{
                   hour: '2-digit',
                   hour12: false,
                   minute: '2-digit',
                   meridiem: 'short'
                 }}
+                
+                allDaySlot= {false}
+                allDayText= 'all'
+                
                 initialView='dayGridMonth'
                 editable={true}
                 selectable={true}
