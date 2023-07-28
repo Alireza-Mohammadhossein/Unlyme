@@ -5,6 +5,7 @@ import CalendarBlock from "./components/calendar/CalendarBlock";
 import CloudHostingBlock from "./components/cloudHosting/CloudHostingBlock";
 import DiscBlock from "./components/disc/DiscBlock";
 import DomainsBlock from "./components/domains/DomainsBlock";
+import NotesBlock from "./components/notes/NotesBlock";
 import GuideBlock from "./components/guide/GuideBlock";
 import Services from "./components/services/ServicesBlock";
 import WorkDrive from "./components/workDrive/WorkDrive";
@@ -29,14 +30,14 @@ const MyServices = () => {
   // default layout for all screens
   const layoutXL = [
     { i: "calendar", x: 0, y: 0, w: 3, h: 1 },
-    { i: "domains", x: 3, y: 0, w: 3, h: 1 },
+    { i: "notes", x: 3, y: 0, w: 3, h: 1 },
     { i: "ai", x: 6, y: 0, w: 6, h: 1 },
 
     { i: "tasks", x: 0, y: 1, w: 6, h: 1 },
-    { i: "cloud", x: 6, y: 1, w: 3, h: 1 },
+    { i: "domains", x: 6, y: 1, w: 3, h: 1 },
     { i: "logo-builder", x: 9, y: 1, w: 3, h: 1 },
 
-    { i: "copy-site", x: 0, y: 2, w: 3, h: 1 },
+    { i: "cloud", x: 0, y: 2, w: 3, h: 1 },
     { i: "drive", x: 3, y: 2, w: 6, h: 1 },
     { i: "disc", x: 9, y: 2, w: 3, h: 1 },
 
@@ -44,7 +45,8 @@ const MyServices = () => {
     { i: "website-builder", x: 6, y: 3, w: 6, h: 1 },
 
     { i: "video-conference", x: 0, y: 4, w: 6, h: 1 },
-    { i: "services", x: 6, y: 4, w: 3, h: 1 },
+    { i: "copy-site", x: 6, y: 4, w: 3, h: 1 },
+    { i: "services", x: 9, y: 4, w: 3, h: 1 },
   ];
 
   const layoutLG = [
@@ -52,7 +54,7 @@ const MyServices = () => {
     { i: "ai", x: 4, y: 0, w: 8, h: 1 },
 
     { i: "tasks", x: 0, y: 1, w: 8, h: 1 },
-    { i: "domains", x: 8, y: 1, w: 4, h: 1 },
+    { i: "notes", x: 8, y: 1, w: 4, h: 1 },
 
     { i: "cloud", x: 0, y: 2, w: 4, h: 1 },
     { i: "drive", x: 4, y: 2, w: 8, h: 1 },
@@ -66,12 +68,13 @@ const MyServices = () => {
     { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
     { i: "disc", x: 8, y: 5, w: 4, h: 1 },
 
-    { i: "services", x: 0, y: 6, w: 4, h: 1 },
+    { i: "domains", x: 0, y: 6, w: 4, h: 1 },
+    { i: "services", x: 4, y: 6, w: 4, h: 1 },
   ];
 
   const layoutMD = [
     { i: "calendar", x: 0, y: 0, w: 6, h: 1 },
-    { i: "domains", x: 6, y: 0, w: 6, h: 1 },
+    { i: "notes", x: 6, y: 0, w: 6, h: 1 },
 
     { i: "ai", x: 0, y: 1, w: 6, h: 1 },
     { i: "tasks", x: 6, y: 1, w: 6, h: 1 },
@@ -89,11 +92,13 @@ const MyServices = () => {
     { i: "disc", x: 6, y: 5, w: 6, h: 1 },
 
     { i: "services", x: 0, y: 6, w: 6, h: 1 },
+    { i: "domains", x: 6, y: 6, w: 6, h: 1 },
+
   ];
 
   const layoutSM = [
     { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
-    { i: "domains", x: 0, y: 1, w: 12, h: 1 },
+    { i: "notes", x: 0, y: 1, w: 12, h: 1 },
     { i: "ai", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
@@ -104,12 +109,13 @@ const MyServices = () => {
     { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
-    { i: "services", x: 0, y: 12, w: 12, h: 1 },
+    { i: "domains", x: 0, y: 12, w: 12, h: 1 },
+    { i: "services", x: 0, y: 13, w: 12, h: 1 },
   ];
 
   const layoutXS = [
     { i: "calendar", x: 0, y: 0, w: 12, h: 1 },
-    { i: "domains", x: 0, y: 1, w: 12, h: 1 },
+    { i: "notes", x: 0, y: 1, w: 12, h: 1 },
     { i: "ai", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
@@ -120,7 +126,8 @@ const MyServices = () => {
     { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
     { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
     { i: "disc", x: 0, y: 11, w: 12, h: 1 },
-    { i: "services", x: 0, y: 12, w: 12, h: 1 },
+    { i: "domains", x: 0, y: 11, w: 12, h: 1 },
+    { i: "services", x: 0, y: 13, w: 12, h: 1 },
   ];
 
   // call getFromLS and set layouts to originalLayouts
@@ -198,8 +205,8 @@ const MyServices = () => {
             <CalendarBlock handleCollapse={handleCollapse} />
           </div>
 
-          <div key="domains">
-            <DomainsBlock handleCollapse={handleCollapse} />
+          <div key="notes">
+            <NotesBlock handleCollapse={handleCollapse} />
           </div>
 
           {/* <div key="guide">
@@ -244,6 +251,10 @@ const MyServices = () => {
 
           <div key="disc">
             <DiscBlock />
+          </div>
+
+          <div key="domains">
+            <DomainsBlock handleCollapse={handleCollapse} />
           </div>
 
           <div key="services">
