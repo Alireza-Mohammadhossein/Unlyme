@@ -33,14 +33,153 @@
     & .fc.fc-media-screen {
       height: 100%;
 
+      .fc-header-toolbar {
+        background-color: rgba(248, 250, 252, 0.5019607843);
+
+        .fc-button {
+          background-color: #F8FAFC;
+          border: unset;
+          color: #666666;
+          border-radius: 12px;
+          font-size: 14px;
+        }
+
+        .fc-button-active {
+          background-color: rgba(118, 118, 128, 0.1215686275);
+        }
+
+        .fc-button-primary:not(:disabled).fc-button-active:focus, .fc-button-primary:not(:disabled):active:focus, .fc-button:focus {
+          box-shadow: unset;
+        }
+      }
+
+
       .fc-view-harness {
         .fc-timeGridDay-view {
           .fc-scrollgrid {
             border: unset;
 
-            tbody {
-              background-color: red;
+            thead{
+              th {
+                border: unset;
+              }
             }
+
+            tbody {
+
+              tr {
+                background-color: #ffffff;
+                td {
+                  // border-left: unset;
+                  // border-right: unset;
+                  border: unset;
+                }
+              }
+              
+              & > tr:nth-child(odd){
+                border-bottom: 1px solid #ddd;
+                // td {
+                //   border: unset;
+                // }
+              }
+            }
+          }
+
+          .fc-timegrid-now-indicator-arrow {
+            border-left-color: #51A3FF;
+            border-right-color: #51A3FF;
+          }
+
+          .fc-timegrid-now-indicator-line {
+            border-color: #51A3FF;
+          }
+
+          .fc-timegrid-event-harness {
+            .fc-event {
+              background-color: #f5f5f5;
+              border: unset;
+              border-left: 2px solid #51A3FF;
+              border-radius: 0 3px 3px 0;
+              padding: 4px;
+              
+              .fc-event-main {
+                color: #414141;
+                font-size: 13px;
+
+                .fc-event-title {
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
+
+                .fc-event-time {
+                  margin-bottom: 5px;
+                }
+              }
+            }
+          }
+        }
+
+        .fc-listWeek-view {
+          border: unset;
+        }
+
+        .fc-scroller {
+          overflow: hidden;
+        }
+      }
+
+
+      .fc-list-table {
+        .fc-list-day {
+          th {
+            border: unset;
+
+            .fc-list-day-cushion {
+              background-color: unset;
+              padding-left: 0;
+            }
+
+            .fc-list-day-text, .fc-list-day-side-text {
+              color: #51A3FF;
+            }
+          }
+        }
+
+        .fc-list-day:not(:first-child) {
+          border-top: 1px dashed #CACACA;
+        }
+
+        .fc-event {
+          display: flex;
+
+          td {
+            border: unset;
+          }
+
+          .fc-list-event-dot {
+            height: 10px;
+            width: 0px;
+            border: 2px solid #51A3FF;
+            border-radius: 2px;
+          }
+
+          .fc-list-event-time {
+            color: #999999;
+            padding-left: 0;
+            flex: 0 0 30%;
+          }
+
+          .fc-list-event-graphic {
+            width: 20px;
+          }
+
+          .fc-list-event-title {
+            color: #414141;
+            flex: 0 0 53%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
       }

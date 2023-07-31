@@ -56,7 +56,7 @@ const CalendarBlock = () => {
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
         headerToolbar={{
           // left: 'prev title next today',
-          left: 'dayGridMonth,listWeek,timeGridDay',
+          left: 'timeGridDay,listWeek,dayGridMonth,',
           center: '',
           right: '',
         }}
@@ -93,8 +93,8 @@ const CalendarBlock = () => {
         allDayText= 'all'
         
         initialView='timeGridDay'
-        editable={true}
-        selectable={true}
+        editable={false}
+        selectable={false}
         selectMirror={true}
         dayMaxEvents={true}
         fixedWeekCount={false}
