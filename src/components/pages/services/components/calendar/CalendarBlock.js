@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Calendar from "react-calendar";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -30,6 +30,31 @@ const CalendarBlock = () => {
     dispatch(handleOpenAppsModal(component))
   };
 
+  const [monthHeaderToolbar, setMonthHeaderToolbar] = useState({
+    left: 'timeGridDay,listWeek,dayGridMonth,',
+    center: '',
+    right: '',
+  });
+
+
+  const handleViewChange = (view) => {
+    if (view.view.type === 'dayGridMonth') {
+      setMonthHeaderToolbar({
+        left: 'timeGridDay,listWeek,dayGridMonth',
+        center: '',
+        right: 'prev title next',
+      });
+    } else {
+      setMonthHeaderToolbar({
+        left: 'timeGridDay,listWeek,dayGridMonth',
+        center: '',
+        right: '',
+      });
+    }
+  };
+
+  const currentTime = new Date().toISOString().slice(11, 16);
+
 
   return (
     // <CloudBlock
@@ -54,32 +79,36 @@ const CalendarBlock = () => {
     <div className="my-services__calendar">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-        headerToolbar={{
-          // left: 'prev title next today',
-          left: 'timeGridDay,listWeek,dayGridMonth,',
-          center: '',
-          right: '',
-        }}
+        // headerToolbar={{
+        //   // left: 'prev title next today',
+        //   left: 'timeGridDay,listWeek,dayGridMonth,',
+        //   center: '',
+        //   right: '',
+        // }}
+        headerToolbar={monthHeaderToolbar}
+        viewDidMount={handleViewChange}
+
         buttonText={{
           today:    'Today',
           month:    'Month',
           week:     'Week',
           day:      'Day',
           list:     'Week'
-
         }}
         views = {{
           dayGridMonth: { // name of view
-            titleFormat: {year: 'numeric', month: 'long' },
+            titleFormat: {year: 'numeric', month: 'short' },
+            dayHeaderFormat: {weekday: 'short' },
+            dayHeaders: true,
             // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
-            // other view-specific options here
           },
           // timeGridDay: {
-          //   slotLabelFormat: {
-          //     hour: "2-digit", minute: "2-digit", hour12: false
-          //   }
+          //   dayHeaderFormat: {weekday: 'long' }
           // }
         }}
+
+        scrollTime={currentTime}
+
         initialEvents={INITIAL_EVENTS}
         slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
         eventTimeFormat={{
@@ -107,8 +136,8 @@ const CalendarBlock = () => {
         displayEventTime={true}
         displayEventEnd={true}
         // editable={true}
-        eventStartEditable={true}
-        eventResizableFromStart={true}
+        // eventStartEditable={true}
+        // eventResizableFromStart={true}
         aspectRatio={1}
         
       />

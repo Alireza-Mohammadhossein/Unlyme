@@ -34,7 +34,10 @@
       height: 100%;
 
       .fc-header-toolbar {
-        background-color: rgba(248, 250, 252, 0.5019607843);
+        // background-color: rgba(248, 250, 252, 0.5019607843);
+        flex-direction: column;
+        align-items: start;
+        margin-bottom: 15px;
 
         .fc-button {
           background-color: #F8FAFC;
@@ -43,6 +46,35 @@
           border-radius: 12px;
           font-size: 14px;
         }
+
+        .fc-toolbar-chunk {
+          width: 100%;
+        }
+
+        .fc-toolbar-chunk:first-child {
+          .fc-button-group {
+            background-color: rgba(248, 250, 252, 0.5019607843);
+          }
+        }
+        
+        .fc-toolbar-chunk:last-child {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 10px;
+
+          .fc-button {
+            font-size: 11px;
+            background-color: transparent;
+          }
+
+          .fc-toolbar-title {
+            font-size: 16px;
+            color: #51A3FF;
+          }
+        }
+
+
 
         .fc-button-active {
           background-color: rgba(118, 118, 128, 0.1215686275);
@@ -124,8 +156,86 @@
           border: unset;
         }
 
+        .fc-dayGridMonth-view {
+
+          td, th {
+            border: unset;
+          }
+          .fc-scrollgrid {
+            border: unset;
+
+            .fc-scroller {
+              overflow: hidden !important;
+              
+              thead {
+                .fc-col-header-cell {
+                  border: unset;
+  
+                  .fc-col-header-cell-cushion {
+                    color: #ACACAC;
+                  }
+                }
+              }
+
+              tbody {
+                td {
+                  border: unset;
+                }
+
+                .fc-day {
+                  .fc-daygrid-day-frame {
+                    .fc-daygrid-day-top {
+                      justify-content: center;
+
+                      a {
+                        color: #444444;
+                        display: inline-block;
+                        border-radius: 50px;
+                        padding: 7px;
+                        font-size: 13px;
+                      }
+                    }
+
+                    .fc-daygrid-day-events {
+                      display: none;
+                    }
+                  }
+                }
+
+                .fc-day-today {
+                  background-color: unset;
+
+                  .fc-daygrid-day-top {
+                    a {
+                      color: #ffffff !important;
+                      background-color: #51A3FF;
+                      display: inline-block;
+                      border-radius: 50px;
+                      padding: 7px;
+                      font-size: 13px;
+                    }
+                  }
+                }
+
+                // .fc-day-other {
+                //   a {
+                //     color: #444444;
+                //   }
+                // }
+              }
+
+              .fc-daygrid-body {
+                margin-top: 15px;
+              }
+            }
+          }
+
+        }
+      }
+
+      thead .fc-scroller-harness {
         .fc-scroller {
-          overflow: hidden;
+          overflow: hidden !important;
         }
       }
 
@@ -151,7 +261,15 @@
         }
 
         .fc-event {
-          display: flex;
+          // display: flex;
+          display: grid;
+          grid-template-columns: 30% 6% 65%;
+
+          &:hover {
+            td {
+              background-color: unset;
+            }
+          }
 
           td {
             border: unset;
@@ -167,19 +285,22 @@
           .fc-list-event-time {
             color: #999999;
             padding-left: 0;
-            flex: 0 0 30%;
+            width: 100%;
+            // flex: 0 0 30%;
           }
 
           .fc-list-event-graphic {
-            width: 20px;
+            // width: 20px;
+            width: 100%;
           }
 
           .fc-list-event-title {
             color: #414141;
-            flex: 0 0 53%;
+            // flex: 0 0 53%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            width: 100%;
           }
         }
       }
