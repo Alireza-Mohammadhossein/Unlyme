@@ -29,6 +29,7 @@
     border-radius: 18px;
     padding: 15px;
     box-sizing: border-box;
+    position: relative;
 
     & .fc.fc-media-screen {
       height: 100%;
@@ -303,6 +304,16 @@
             width: 100%;
           }
         }
+      }
+    }
+
+    &_more-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+
+      .MuiButtonBase-root {
+        color: $blue;
       }
     }
   }

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   openAppsModal: false,
   openNotesWidgetModal: false,
+  openCalendarWidgetModal: false,
   openMeetingPageModal: false,
   SelectedComponent: null,
   openAppsShortcut: false,
@@ -20,6 +21,7 @@ export const appsModalSlice = createSlice({
     handleCloseAppsModal: (state) => {
         state.openAppsModal = false;
         state.openNotesWidgetModal = false;
+        state.openCalendarWidgetModal = false;
         // state.SelectedComponent = null;
     },
     handleOpenNotesWidgetModal: (state, component) => {
@@ -30,6 +32,16 @@ export const appsModalSlice = createSlice({
         state.openNotesWidgetModal = false;
         // state.SelectedComponent = null;
     },
+
+    handleOpenCalendarWidgetModal: (state, component) => {
+      state.openCalendarWidgetModal = true;
+      // state.SelectedComponent = component.payload;
+    },
+    handleCloseCalendarWidgetModal: (state) => {
+        state.openCalendarWidgetModal = false;
+        // state.SelectedComponent = null;
+    },
+
     handleOpenMeetingPageModal: (state) => {
       state.openMeetingPageModal = true;
     },
@@ -49,6 +61,6 @@ export const appsModalSlice = createSlice({
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal, handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;
