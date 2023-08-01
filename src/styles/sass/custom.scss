@@ -136,3 +136,27 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #9e9e9e; 
 }
+
+.select-color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+
+  &.blue {
+    background-color: #4382C4;
+  }
+
+  &.red {
+    background-color: #A23051;
+  }
+
+  &.green { 
+    background-color: #008000;
+  }
+
+  &.orange {
+    background-color: #ffa500;
+  }
+}

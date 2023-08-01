@@ -12,6 +12,13 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { SketchPicker } from 'react-color';
 import store from "../../utils/store";
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+
+import { DropzoneArea } from 'material-ui-dropzone';
+import uploadIcon from '../../../../../assets/images/invoice-manager/upload-cloud.png';
 
 
 
@@ -33,6 +40,8 @@ export default function AddModal({
     const [tags, setTags] = useState([]);
     const [members, setMembers] = useState([]);
     const [imageFile, setImageFile] = useState(null);
+    const [color, setColor] = useState('#4382C4');
+
 
 
     const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
@@ -52,7 +61,8 @@ export default function AddModal({
     
 
     const handleImageUpload = (e) => {
-      const file = e.target.files[0];
+      // const file = e.target.files[0];
+      const file = e[0];
       setImageFile(file);
     };
 
@@ -60,10 +70,10 @@ export default function AddModal({
       if (type === "card") {
         if(imageFile) {
             convertImageToDataURL(imageFile, (dataURL) => {
-              addMoreCard(title, description, tags, members, listId, dataURL);
+              addMoreCard(title, description, tags, members, color, listId, dataURL);
             });
           } else {
-            addMoreCard(title, description, tags, members, listId);
+            addMoreCard(title, description, tags, members, color, listId);
           }
       } else {
         // addMoreList(title, description);
@@ -73,6 +83,7 @@ export default function AddModal({
       setOpenAddModal(false);
       setTags([]);
       setMembers([]);
+      setColor('#4382C4');
       setImageFile(null);
     };
 
@@ -85,6 +96,15 @@ export default function AddModal({
         reader.readAsDataURL(file);
       }
     };
+
+
+    const handleChangeColor = (event) => {
+      setColor(event.target.value);
+    };
+
+    const CustomUploadIcon = () => (
+      <img src={uploadIcon} />
+    );
   
 
   return (
@@ -117,39 +137,79 @@ export default function AddModal({
                     <FormControlLabel control={<Checkbox />} label="Jet" onChange={() => tagsHandler('Jet')} />
                 </div>
 
-                <div className="backlog-modal_item">
-                  <Autocomplete
-                    multiple
-                    id="checkboxes-tags-demo"
-                    onChange={(event, value) => {
-                      setMembers(value)
-                    }}
-                    options={data.members}
-                    disableCloseOnSelect
-                    getOptionLabel={(option) => option}
-                    renderOption={(props, option, { selected }) => (
-                      <li {...props}>
-                        <Checkbox
-                          icon={icon}
-                          checkedIcon={checkedIcon}
-                          style={{ marginRight: 8 }}
-                          checked={selected}
-                        />
-                        {option}
-                      </li>
-                    )}
-                    
-                    renderInput={(params) => (
-                      <TextField {...params} label="Assign members" />
-                    )}
-                  />
+                <div className="backlog-modal_item double">
+                  <div className="half">
+                    <Autocomplete
+                      multiple
+                      id="checkboxes-tags-demo"
+                      onChange={(event, value) => {
+                        setMembers(value)
+                      }}
+                      options={data.members}
+                      disableCloseOnSelect
+                      getOptionLabel={(option) => option}
+                      renderOption={(props, option, { selected }) => (
+                        <li {...props}>
+                          <Checkbox
+                            icon={icon}
+                            checkedIcon={checkedIcon}
+                            style={{ marginRight: 8 }}
+                            checked={selected}
+                          />
+                          {option}
+                        </li>
+                      )}
+                      
+                      renderInput={(params) => (
+                        <TextField {...params} label="Assign members" />
+                      )}
+                    />
+                  </div>
+
+                  <div className="half">
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">Color</InputLabel>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={color}
+                        label="Color"
+                        onChange={handleChangeColor}
+                      >
+                        <MenuItem value='#4382C4'><span className="select-color-circle blue"></span>Blue</MenuItem>
+                        <MenuItem value='#A23051'><span className="select-color-circle red"></span>Red</MenuItem>
+                        <MenuItem value='#008000'><span className="select-color-circle green"></span>Green</MenuItem>
+                        <MenuItem value='#ffa500'><span className="select-color-circle orange"></span>Orange</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
                 </div>
 
                 
 
                 <div className="backlog-modal_item">
                   {/* <input type="file" onChange={handleImageUpload} /> */}
-                  <Input type="file" onChange={handleImageUpload} />
+                  {/* <Input type="file" onChange={handleImageUpload} /> */}
+
+                  <DropzoneArea
+                    //   acceptedFiles={['image/*']}
+                      dropzoneClass= 'backlog-modal_item-attach'
+                      dropzoneText={"Drop files here, or click to upload"}
+                      onChange={handleImageUpload}
+                      // onChange={(e) => handleImageUpload(e)}
+                      showPreviews={true}
+                      showPreviewsInDropzone={false}
+                      // showFileNames={true}
+                      // showFileNamesInPreview={true}
+                      useChipsForPreview={true}
+                      // previewGridProps={{container: { spacing: 1, direction: 'row' }}}
+                      // previewChipProps={{classes: { root: classes.previewChip } }}
+                      // previewText="Selected files"
+                      showAlerts={false}
+                      filesLimit={1}
+                      Icon= {CustomUploadIcon}
+                    
+                    />
                 </div>
 
 
@@ -159,9 +219,11 @@ export default function AddModal({
                         className="submit-backlog-btn"
                         // onClick={() => setOpen(!open)}
                         // onClick={handleOpen}
-                        onClick={handleBtnConfirm}
+                        onClick={() => {
+                          handleBtnConfirm()
+                        }}
                     >
-                        Add Backlog
+                        Add Card
                     </Button>
                 </div>
 

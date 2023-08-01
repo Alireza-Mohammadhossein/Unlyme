@@ -53,14 +53,22 @@
               
               .add-backlog-btn.MuiButtonBase-root {
                 // background-color: #3089dc;
-                background-color: #3089dc;
+                background-color: transparent;
                 width: 100%;
                 padding: 8px 20px;
+                padding-left: 7px;
                 text-align: center;
-                color: #ffffff;
+                // color: #ffffff;
+                color: #000;
                 border-radius: 8px;
                 text-transform: none;
                 font-size: 14px;
+
+                .MuiSvgIcon-root {
+                  font-size: 16px;
+                  border: 1px solid #000;
+                  border-radius: 50%;
+                }
               }
 
             }
@@ -76,6 +84,7 @@
           // display: grid;
           // grid-template-columns: 25% 25% 25% 25%;
           display: flex;
+          gap: 10px;
           overflow-x: auto;
 
           & > div {
@@ -103,12 +112,12 @@
                 align-items: center;
               
                 .editable-title {
-                  height: 1.7rem;
+                  // height: 1.7rem;
                   color: #000;
               
                   flex-grow: 1;
-                  font-size: 1.2rem;
-                  font-weight: bold;
+                  font-size: 16px;
+                  font-weight: 600;
 
                   margin-bottom: 0;
                   padding: 7px 0;
@@ -437,13 +446,29 @@
               box-sizing: border-box;
               
               .add-backlog-btn.MuiButtonBase-root {
-                background-color: #3089dc;
+                // background-color: #3089dc;
+                background-color: #ffffff;
                 width: 100%;
                 padding: 10px;
                 text-align: center;
-                color: #fff;
+                color: #000;
                 border-radius: 8px;
                 text-transform: none;
+
+                .MuiSvgIcon-root {
+                  font-size: 16px;
+                  border: 1px solid #000;
+                  border-radius: 50%;
+                }
+              }
+
+              .add-backlog-btn.list.MuiButtonBase-root {
+                // background-color: #3089dc;
+                background-color: transparent;
+                width: auto;
+                text-align: left;
+                font-size: 16px;
+                font-weight: 600;
               }
 
             }
@@ -558,6 +583,38 @@
       border-radius: 8px;
       text-transform: none;
     }
+
+
+    &-attach {
+      min-height: 100px !important;
+
+      .MuiDropzoneArea-text {
+        font-size: 16px;
+        margin: 15px 0;
+      }
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+  }
+
+  &_item.double {
+    display: flex;
+    gap: 10px;
+
+    .half {
+      width: 50%;
+
+      .MuiSelect-select {
+        height: 55px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 
   .view-modal {
@@ -582,6 +639,7 @@
     &_title {
       font-size: 22px;
       color: #000;
+      word-break: break-all;
     }
 
     &_description {

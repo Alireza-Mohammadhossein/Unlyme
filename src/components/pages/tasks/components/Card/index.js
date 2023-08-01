@@ -44,7 +44,6 @@ export default function Card({ card, index, listId }) {
   // };
 
   // setting modals 
-  const ITEM_HEIGHT = 48;
   const [anchorElSetting, setAnchorElSetting] = useState(null);
   const open = Boolean(anchorElSetting);
   const handleOpenSetting = (event) => {
@@ -78,7 +77,7 @@ export default function Card({ card, index, listId }) {
           {...provided.dragHandleProps}
           {...provided.draggableProps}
         >
-          <div className="card-content">
+          <div className="card-content" style={{borderLeft: `3px solid ${card.color ? card.color : '#4382C4'}` }}>
             {/* {openModal ? (
               <>
                 <div>
@@ -181,10 +180,12 @@ export default function Card({ card, index, listId }) {
                       onClose={handleCloseSetting}
                       disableScrollLock={true}
                     >
-                      <MenuItem onClick={() => {
-                        handleOpenViewModal()
-                        handleCloseSetting()
-                        }}>
+                      <MenuItem 
+                        sx={{minWidth: '120px'}}
+                        onClick={() => {
+                          handleOpenViewModal()
+                          handleCloseSetting()
+                          }}>
                         View
                       </MenuItem>
 
@@ -252,6 +253,7 @@ export default function Card({ card, index, listId }) {
                 description={card.description}
                 tags={card.tags}
                 members={card.members}
+                color={card.color}
                 imageFile={card.imageFile}
                 handleCloseUpdateModal={handleCloseUpdateModal}
                 handleOpenUpdateModal={handleOpenUpdateModal}

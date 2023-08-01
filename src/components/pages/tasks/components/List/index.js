@@ -20,15 +20,17 @@ export default function List({ list, index }) {
       {(provided) => (
         <div {...provided.draggableProps} ref={provided.innerRef}>
           <div className="list-cards" {...provided.dragHandleProps}>
-            <div className="title-list">
+            {/* <div className="title-list">
               <Title title={list.title} listId={list.id} collapseColumns={collapseColumns} collapse={collapse} />
-            </div>
+            </div> */}
 
-            {/* {list.id === 'list-1' ?
-                <InputContainer listId={list.id} type="card" />
+            {list.id === 'list-1' ?
+                <InputContainer listId={list.id} type="list" />
               :
-                ''
-            } */}
+              <div className="title-list">
+                <Title title={list.title} listId={list.id} collapseColumns={collapseColumns} collapse={collapse} />
+              </div>
+            }
             <Collapse in={collapse} timeout="auto" unmountOnExit>
               <div className="container-cards">
                 <Droppable droppableId={list.id} type="task">
@@ -51,6 +53,16 @@ export default function List({ list, index }) {
                   )}
                 </Droppable>
               </div>
+              
+              {/* 
+              {list.id === 'list-1' ?
+                <InputContainer listId={list.id} type="card" />
+              :
+                ''
+              } */}
+
+              <InputContainer listId={list.id} type="card" />
+
             </Collapse>
           </div>
         </div>

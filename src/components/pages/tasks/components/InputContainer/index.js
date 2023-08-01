@@ -34,16 +34,16 @@ export default function InputContainer({ listId, type }) {
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddModal}
                 >
-                  Add New Task
+                  Add New Card
                 </Button>
               : 
                 <Button
-                  className="add-backlog-btn"
+                  className="add-backlog-btn list"
                   startIcon={<AddIcon />}
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddListModal}
                 >
-                  Add List
+                  Add list
                 </Button>
             }
         </div>
