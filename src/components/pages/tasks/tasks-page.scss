@@ -211,7 +211,7 @@
                     position: relative;
                 
                     div {
-                      padding: 0.7rem 0.5rem 0.5rem;
+                      // padding: 0.7rem 0.5rem 0.5rem;
                 
                       // max-width: 90%;
                       overflow: hidden;
@@ -228,13 +228,111 @@
                       }
                     }
 
-                    .card-content_title {
+                    .card-content_info {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      padding: 0.7rem 0.5rem 0.5rem;
 
+                      &-title {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        padding: 0;
+                      }
+
+                      &-members {
+                        padding: 0;
+                        display: flex;
+                        justify-content: end;
+                        gap: 5px;
+                        
+                        &-member {
+                          padding: 0;
+                          width: 35px;
+                          height: 35px;
+                        }
+                      }
+                    }
+
+                    .card-content_details {
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      padding: 0.7rem 0.5rem 0.5rem;
+
+                      &-tags {
+                        display: flex;
+                        gap: 6px;
+                        width: 100%;
+                        overflow: auto;
+                        box-sizing: border-box;
+                        padding: 0;
+
+                        &-tag {
+                          font-size: 12px;
+                          background-color: #EBEDF1;
+                          padding: 5px 10px;
+                          display: inline-block;
+                          color: #727272;
+                          border-radius: 30px;
+
+                        }
+                      }
+
+                      &-buttons {
+                        display: flex;
+                        padding: 0;
+                        overflow: unset;
+                        gap: 10px;
+
+                        &-files {
+                          display: flex;
+                          align-items: center;
+                          color: #A8ADB2;
+                          font-size: 13px;
+                        }
+
+                        &-comments {
+                          display: flex;
+                          align-items: center;
+                          overflow: unset;
+                          color: #A8ADB2;
+                          font-size: 13px;
+                        }
+
+                        &-setting {
+                          display: flex;
+                          align-items: center;
+                          overflow: unset;
+                          color: #A8ADB2;
+                          font-size: 13px;
+                        }
+
+                        .MuiSvgIcon-root {
+                          color: #A8ADB2;
+                          font-size: 18px;
+                        }
+
+                        .MuiButtonBase-root {
+                          padding: 1px;
+                        }
+                      }
                     }
 
                     .card-content_description {
-
                     }
+
+                    .card-content_members {
+                      display: flex;
+                      justify-content: end;
+                      gap: 5px;
+
+                      .card-content_member {
+                        padding: 0;
+                      }
+                    }
+
 
                     .card-content_tags {
                         display: flex;
@@ -259,10 +357,10 @@
                       justify-content: end;
                       gap: 5px;
 
-                    .card-content_member {
-                      padding: 0;
+                      .card-content_member {
+                        padding: 0;
+                      }
                     }
-                  }
 
                     .card-content_actions {
                       display: flex;
@@ -317,8 +415,11 @@
                     }
                   }
                 }
+
+
               }
             }
+
           }
 
           .input-container {
@@ -504,6 +605,90 @@
 
     &_image {
       width: 100%;
+    }
+  }
+}
+
+.comments_popover {
+
+  .MuiPaper-root {
+    max-width: 400px;
+    max-height: 450px;
+    border-radius: 8px;
+  }
+
+  &-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+
+
+    &-avatar {
+      .MuiAvatar-root {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    &-comment {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-info {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5px;
+
+        &-name {
+          font-size: 14px;
+          font-weight: 600;
+          color: #000;
+          text-transform: capitalize;
+        }
+
+        &-date {
+          font-size: 14px;
+          color: #BBBBBB;
+        }
+      }
+
+      &-text {
+        font-size: 14px;
+        color: #000;
+        line-height: 21px;
+      }
+    }
+  }
+
+  &-footer {
+    border-top: 1px solid #ECECEC;
+    padding-top: 20px;
+
+    &-input {
+      width: 100%;
+
+      .MuiInputBase-root {
+        border-radius: 50px;
+        padding: 10px 15px;
+
+        &:hover .MuiOutlinedInput-notchedOutline {
+          border-color: #1976d2;
+        }
+      }
     }
   }
 }
