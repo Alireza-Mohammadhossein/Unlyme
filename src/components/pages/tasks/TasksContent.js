@@ -111,7 +111,6 @@ const TasksContent = () => {
   };
 
   const updateCard = (title, description, tags, members, color, index, listId, imageFile) => {
-    console.log('title 2', title);
     const list = data.lists[listId];
     list.cards[index].title = title;
     list.cards[index].description = description;

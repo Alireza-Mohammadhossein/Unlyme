@@ -229,10 +229,10 @@ const Menu = ({screenSize}) => {
         onClose={closeAppsModalHandler}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className="apps-modal"
-        disableEnforceFocus 
+        className={`apps-modal ${firstPopupTab ? 'apps-modal-shift-one' : ''} ${secondPopupTab ? 'apps-modal-shift-two' : ''}`}
+        disableEnforceFocus
       >
-        <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
+        <div className={`apps-modal-container`} >
           {
             selectedComponent === 'Calendar' ? <Calendar /> :
             selectedComponent === 'Notes' ? <Notes /> :

@@ -127,13 +127,13 @@ export default function UpdateModal({
             </div>
 
             <div className="backlog-modal_item">
-                <TextField
-                    label='Description'
-                    value={description}
-                    onChange={handleDescriptionChange}
-                    multiline
-                    rows={4}
-                />
+              <TextField
+                  label='Description'
+                  value={description}
+                  onChange={handleDescriptionChange}
+                  multiline
+                  rows={4}
+              />
             </div>
 
             <div className="backlog-modal_item">
@@ -246,6 +246,7 @@ export default function UpdateModal({
 
                 <DropzoneArea
                   //   acceptedFiles={['image/*']}
+                    value={imageFile}
                     dropzoneClass= 'backlog-modal_item-attach'
                     dropzoneText={"Drop files here, or click to upload"}
                     onChange={handleImageUpload}

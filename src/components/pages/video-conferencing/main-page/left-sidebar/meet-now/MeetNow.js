@@ -197,10 +197,10 @@ const MeetNow = ({handleShowMain}) => {
             onClose={handleCloseMeetingPageModal}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            className="meeting-page-modal"
+            className={`meeting-page-modal ${firstPopupTab ? 'meeting-page-modal-shift-one' : ''} ${secondPopupTab ? 'meeting-page-modal-shift-two' : ''}`}
             disableEnforceFocus 
         >
-            <div className={`meeting-page-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
+            <div className='meeting-page-modal-container' >
                 <MeetingPage />
             </div>
         </Modal>
