@@ -31,6 +31,7 @@ const TasksContent = () => {
 
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
@@ -263,7 +264,7 @@ const TasksContent = () => {
 
 
   return (
-    <div className="tasks-page">
+    <div className={`tasks-page  ${firstPopupTab ? 'tasks-page-zoomout-one' : ''} ${secondPopupTab ? 'tasks-page-zoomout-two' : ''}`}>
       <Grid container spacing={3}>
 
         <Grid
