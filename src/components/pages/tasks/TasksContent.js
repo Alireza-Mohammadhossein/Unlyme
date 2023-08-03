@@ -92,7 +92,6 @@ const TasksContent = () => {
     setData(newState);
     window.localStorage.setItem("tasks", JSON.stringify(newState));
     
-    console.log('data', newState)
   };
   
   const removeCard = (index, listId) => {
@@ -262,6 +261,60 @@ const TasksContent = () => {
   };
 
 
+  
+  const addComment = (card, commentText, index, listId, day, month, year, time) => {
+    if (!commentText) {
+      toast.error('Please write comment', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+
+    const list = data.lists[listId];
+
+    const newCard = list.cards[index];
+
+    const comment = {
+      'id': uuid(),
+      'text': commentText,
+      'day': day,
+      'month': month,
+      'year': year,
+      'time': time
+    }
+
+
+    if(newCard.comments) {
+      newCard.comments.push(comment);
+    } else {
+      newCard.comments=[];
+      newCard.comments.push(comment);
+    }
+
+    const newState = {
+      ...data,
+      lists: {
+        ...data.lists,
+        [listId]: list,
+      },
+    };
+
+    setData(newState);
+
+    window.localStorage.setItem("tasks", JSON.stringify(newState));
+  };
+
+
+
+
 
   return (
     <div className={`tasks-page  ${firstPopupTab ? 'tasks-page-zoomout-one' : ''} ${secondPopupTab ? 'tasks-page-zoomout-two' : ''}`}>
@@ -285,6 +338,7 @@ const TasksContent = () => {
                   updateCard,
                   updateCardDescription,
                   deleteList,
+                  addComment,
                 }}
               >
                 <div className="tasks-page_main_list-actions">

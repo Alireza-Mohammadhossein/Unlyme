@@ -1,13 +1,9 @@
-import React, { useContext, useState } from "react";
-import TextareaAutosize from "react-textarea-autosize";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import React, { useEffect, useContext, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import storeApi from "../../utils/storeApi";
 import IconButton from "@mui/material/IconButton";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import ViewModal from "../Modals/ViewModal";
 import UpdateModal from "../Modals/UpdateModal";
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import Avatar from '@mui/material/Avatar';
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
@@ -16,6 +12,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Popover from '@mui/material/Popover';
 import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
+import dayjs from 'dayjs';
+import Comments from "../Comments/Comments";
+
+
 
 
 
@@ -24,8 +25,9 @@ import TextField from '@mui/material/TextField';
 export default function Card({ card, index, listId }) {
   const [openViewModal, setOpenViewModal] = useState(false);
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
-  const [newTitle, setNewTitle] = useState(card.title);
-  const { removeCard, updateCardTitle } = useContext(storeApi);
+  // const [newTitle, setNewTitle] = useState(card.title);
+  const { removeCard } = useContext(storeApi);
+  
 
   const handleOpenViewModal = () => setOpenViewModal(true);
   const handleCloseViewModal = () => setOpenViewModal(false);
@@ -65,7 +67,6 @@ export default function Card({ card, index, listId }) {
   };
   const openComments = Boolean(anchorElComments);
   const idComments = open ? 'comments-popover' : undefined;
-
 
   
 
@@ -167,7 +168,7 @@ export default function Card({ card, index, listId }) {
                     <IconButton aria-label="comments" aria-describedby={idComments} onClick={handleOpenComments}>
                       <ChatBubbleOutlineOutlinedIcon />
                     </IconButton>
-                    5
+                    {card.comments ? card.comments.length : '0'}
                   </div>
                   <div className="card-content_details-buttons-setting">
                     <IconButton aria-label="setting" onClick={handleOpenSetting}>
@@ -289,62 +290,7 @@ export default function Card({ card, index, listId }) {
                   horizontal: 'left',
                 }}
               >
-                <div className="comments_popover-container">
-                   <div className="comments_popover-list">
-                    <div className="comments_popover-item">
-                      <div className="comments_popover-item-avatar">
-                        <Avatar>A</Avatar>
-                      </div>
-
-                      <div className="comments_popover-item-comment">
-                        <div className="comments_popover-item-comment-info">
-                          <div className="comments_popover-item-comment-info-name">
-                            Elisa Bennet
-                          </div>  
-
-                          <div className="comments_popover-item-comment-info-date">
-                            09 Mar, 10:01
-                          </div>
-                        </div>
-
-                        <div className="comments_popover-item-comment-text">
-                          Greetings, fellow colleagues. I would like to share my insights on this task. I reckon we should deal with at least half of the points in the plan without further delays. I suggest proceeding from one point to the next and notifying the rest of us with at least short notices. This way is best to keep track of who is doing what.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="comments_popover-item">
-                      <div className="comments_popover-item-avatar">
-                        <Avatar>C</Avatar>
-                      </div>
-
-                      <div className="comments_popover-item-comment">
-                        <div className="comments_popover-item-comment-info">
-                          <div className="comments_popover-item-comment-info-name">
-                            Chris Terson
-                          </div>  
-
-                          <div className="comments_popover-item-comment-info-date">
-                            09 Mar, 10:15
-                          </div>
-                        </div>
-
-                        <div className="comments_popover-item-comment-text">
-                          Hi, let's just do what we are supposed to do to get the result
-                        </div>
-                      </div>
-                    </div>
-                   </div>
-
-                   <div className="comments_popover-footer">
-                     <TextField
-                      className="comments_popover-footer-input"
-                      
-                      multiline
-                      maxRows={4}
-                    />
-                   </div>
-                </div>
+                <Comments card={card} index={index} listId={listId} />
               </Popover>
             </div>
           </div>
