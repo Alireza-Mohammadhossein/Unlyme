@@ -38,7 +38,7 @@ const TasksContent = () => {
 
   const [data, setData] = useState(initialState);
 
-  const addMoreCard = (title, description, tags, members, color, listId, imageFile) => {
+  const addMoreCard = (title, description, comments, tags, members, color, listId, imageFile) => {
     if (!title) {
       toast.error('Please write a title!', {
         position: "top-center",
@@ -73,6 +73,7 @@ const TasksContent = () => {
       id: newCardId,
       title,
       description,
+      comments,
       tags,
       members,
       color,
@@ -278,6 +279,9 @@ const TasksContent = () => {
       return;
     }
 
+
+
+
     const list = data.lists[listId];
 
     const newCard = list.cards[index];
@@ -292,12 +296,12 @@ const TasksContent = () => {
     }
 
 
-    if(newCard.comments) {
+    // if(newCard.comments) {
+    //   newCard.comments.push(comment);
+    // } else {
+    //   newCard.comments=[];
       newCard.comments.push(comment);
-    } else {
-      newCard.comments=[];
-      newCard.comments.push(comment);
-    }
+    // }
 
     const newState = {
       ...data,

@@ -19,6 +19,7 @@ import FormControl from '@mui/material/FormControl';
 
 import { DropzoneArea } from 'material-ui-dropzone';
 import uploadIcon from '../../../../../assets/images/invoice-manager/upload-cloud.png';
+import { use } from "i18next";
 
 
 
@@ -37,6 +38,7 @@ export default function AddModal({
     const { addMoreCard, addMoreList } = useContext(storeApi);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [comments, setComments] = useState([]);
     const [tags, setTags] = useState([]);
     const [members, setMembers] = useState([]);
     const [imageFile, setImageFile] = useState(null);
@@ -70,10 +72,10 @@ export default function AddModal({
       if (type === "card") {
         if(imageFile) {
             convertImageToDataURL(imageFile, (dataURL) => {
-              addMoreCard(title, description, tags, members, color, listId, dataURL);
+              addMoreCard(title, description, comments, tags, members, color, listId, dataURL);
             });
           } else {
-            addMoreCard(title, description, tags, members, color, listId);
+            addMoreCard(title, description, comments, tags, members, color, listId);
           }
       } else {
         // addMoreList(title, description);
