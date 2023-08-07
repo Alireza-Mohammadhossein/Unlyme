@@ -95,6 +95,15 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     box-sizing: border-box;
+
+                    span:first-child {
+                        color: #333333;
+                    }
+
+                    span:last-child {
+                        color: #989898;
+                        margin-left: 7px;
+                    }
                 }
             }
 
@@ -114,6 +123,10 @@
                     }
     
                     &_message {
+                        color: $blue;
+                    }
+                    
+                    & span {
                         color: $blue;
                     }
                 }

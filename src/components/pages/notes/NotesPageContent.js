@@ -233,7 +233,8 @@ function TabPanel(props) {
                               {item.title}
                             </p>
                             <p className="notes-page_sidebar-section_notes-item_content_message">
-                              {item.message}
+                              <span>{item.time}</span> 
+                              <span>{item.message}</span>
                             </p>
                           </div>
   
