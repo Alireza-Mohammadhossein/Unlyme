@@ -20,7 +20,7 @@ export default function InputContainer({ listId, type }) {
 
 
   return (
-    <div className="input-container">
+    <div className="input-container" style={{height: '55px'}}>
       {/* <Collapse in={open}>
         <InputCard setOpen={setOpen} listId={listId} type={type} />
       </Collapse> */}

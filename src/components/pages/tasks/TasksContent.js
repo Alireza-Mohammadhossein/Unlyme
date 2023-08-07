@@ -38,7 +38,7 @@ const TasksContent = () => {
 
   const [data, setData] = useState(initialState);
 
-  const addMoreCard = (title, description, comments, tags, members, color, listId, imageFile) => {
+  const addMoreCard = (title, description, comments, tags, members, color, listId, files, imageFile) => {
     if (!title) {
       toast.error('Please write a title!', {
         position: "top-center",
@@ -77,7 +77,8 @@ const TasksContent = () => {
       tags,
       members,
       color,
-      imageFile,
+      files,
+      imageFile
     };
 
     const list = data.lists[listId];
@@ -92,7 +93,6 @@ const TasksContent = () => {
     };
     setData(newState);
     window.localStorage.setItem("tasks", JSON.stringify(newState));
-    
   };
   
   const removeCard = (index, listId) => {

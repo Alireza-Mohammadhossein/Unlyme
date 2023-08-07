@@ -41,6 +41,7 @@ export default function AddModal({
     const [comments, setComments] = useState([]);
     const [tags, setTags] = useState([]);
     const [members, setMembers] = useState([]);
+    const [files, setFiles] = useState([]);
     const [imageFile, setImageFile] = useState(null);
     const [color, setColor] = useState('#4382C4');
 
@@ -62,42 +63,91 @@ export default function AddModal({
     }
     
 
-    const handleImageUpload = (e) => {
+    const handleFilesUpload = (e) => {
       // const file = e.target.files[0];
-      const file = e[0];
-      setImageFile(file);
+      // const file = e[0];
+      const uploadedFile = e;
+      setFiles(uploadedFile);
     };
+
+
+    function findImage(files) {
+      for (const file of files) {
+        if (file.path.toLowerCase().endsWith('.jpg') || file.path.toLowerCase().endsWith('.png') || file.path.toLowerCase().endsWith('.jpeg')) {
+          return file;
+        }
+      }
+      return null; // Return null if no matching file is found
+    }
+
+
+    let img;
+    const handleImageUploaded = (files) => {
+      img = findImage(files)
+      // setImageFile(img);
+
+      // console.log('image file', imageFile)
+    }; 
 
     const handleBtnConfirm = () => {
-      if (type === "card") {
-        if(imageFile) {
-            convertImageToDataURL(imageFile, (dataURL) => {
-              addMoreCard(title, description, comments, tags, members, color, listId, dataURL);
-            });
-          } else {
-            addMoreCard(title, description, comments, tags, members, color, listId);
-          }
-      } else {
-        // addMoreList(title, description);
+      if (files.length === 0) {
+        // Handle case when no files are selected
+        return;
       }
-      setTitle("");
-      setDescription("");
-      setOpenAddModal(false);
-      setTags([]);
-      setMembers([]);
-      setColor('#4382C4');
-      setImageFile(null);
+    
+      const handleConvertedFiles = (convertedFiles) => {
+
+        handleImageUploaded(files);
+    
+        if (img) {
+          const imageIndex = convertedFiles.findIndex(item => item.file === img)
+          
+          addMoreCard(title, description, comments, tags, members, color, listId, convertedFiles, convertedFiles[imageIndex].dataURL);
+          
+        } else {
+          addMoreCard(title, description, comments, tags, members, color, listId, convertedFiles);
+        }
+    
+        setTitle("");
+        setDescription("");
+        setOpenAddModal(false);
+        setTags([]);
+        setMembers([]);
+        setColor('#4382C4');
+        setFiles([]);
+        setImageFile(null);
+      };
+    
+      const convertFilesToBase64 = (files, callback) => {
+        const convertedFiles = [];
+        let processedCount = 0;
+    
+        files.forEach((file) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            convertedFiles.push({ file: file, dataURL: reader.result });
+    
+            processedCount++;
+            if (processedCount === files.length) {
+              callback(convertedFiles);
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      };
+    
+      convertFilesToBase64(files, handleConvertedFiles);
     };
 
-    const convertImageToDataURL = (file, callback) => {
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          callback(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
+    // const convertImageToDataURL = (file, callback) => {
+    //   if (file) {
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
+    //       callback(reader.result);
+    //     };
+    //     reader.readAsDataURL(file);
+    //   }
+    // };
 
 
     const handleChangeColor = (event) => {
@@ -194,10 +244,10 @@ export default function AddModal({
                   {/* <Input type="file" onChange={handleImageUpload} /> */}
 
                   <DropzoneArea
-                    //   acceptedFiles={['image/*']}
+                      // acceptedFiles={['image/*']}
                       dropzoneClass= 'backlog-modal_item-attach'
                       dropzoneText={"Drop files here, or click to upload"}
-                      onChange={handleImageUpload}
+                      onChange={handleFilesUpload}
                       // onChange={(e) => handleImageUpload(e)}
                       showPreviews={true}
                       showPreviewsInDropzone={false}
@@ -207,8 +257,8 @@ export default function AddModal({
                       // previewGridProps={{container: { spacing: 1, direction: 'row' }}}
                       // previewChipProps={{classes: { root: classes.previewChip } }}
                       // previewText="Selected files"
-                      showAlerts={false}
-                      filesLimit={1}
+                      showAlerts={true}
+                      filesLimit={5}
                       Icon= {CustomUploadIcon}
                     
                     />

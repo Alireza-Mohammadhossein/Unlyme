@@ -68,7 +68,45 @@ export default function Card({ card, index, listId }) {
   const openComments = Boolean(anchorElComments);
   const idComments = open ? 'comments-popover' : undefined;
 
+
+
+  const handleDownloadClick = () => {
+    const anchor = document.createElement('a');
+
+    card.files.forEach((file, index) => {
+      // const blob = new Blob([file], { type: file.type });
+
+      // anchor.href = URL.createObjectURL(blob);
+
+      // anchor.download = file.name;
+      // anchor.click();
+
+      // URL.revokeObjectURL(anchor.href);
+
+      
+      // const decodedData = atob(file.dataURL.split('.')[1]);
+      const decodedData = file.dataURL.toString('base64'); // Decode base64 data
+
+      console.log('decodedData',decodedData)
+      const byteArray = new Uint8Array(decodedData.length);
   
+      for (let i = 0; i < decodedData.length; i++) {
+        byteArray[i] = decodedData.charCodeAt(i);
+      }
+
+      const fileType = file.file.path.split('.')[file.file.path.split('.').length - 1]
+  
+      const blob = new Blob([byteArray], { type: fileType });
+  
+      const anchor = document.createElement('a');
+      anchor.href = URL.createObjectURL(blob);
+      anchor.download = file.file.path;
+      anchor.click();
+      URL.revokeObjectURL(anchor.href);
+    })
+
+  };
+
 
   return (
     <Draggable draggableId={card.id} index={index}>
@@ -79,49 +117,14 @@ export default function Card({ card, index, listId }) {
           {...provided.draggableProps}
         >
           <div className="card-content" style={{borderLeft: `3px solid ${card.color ? card.color : '#4382C4'}` }}>
-            {/* {openModal ? (
-              <>
-                <div>
-                  <TextareaAutosize
-                    type="text"
-                    className="input-card-title"
-                    value={newTitle}
-                    onChange={(e) => setNewTitle(e.target.value)}
-                    onBlur={handleTitleOnBlur}
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") {
-                        handleTitleOnBlur();
-                      }
-                      return;
-                    }}
-                    // autoFocus
-                  />
-                </div>
-                <div>
-                  <TextareaAutosize
-                    type="text"
-                    className="input-card-title"
-                    value={newDescription}
-                    onChange={(e) => setNewDescription(e.target.value)}
-                    onBlur={handleDescriptionOnBlur}
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") {
-                        handleDescriptionOnBlur();
-                      }
-                      return;
-                    }}
-                    // autoFocus
-                  />
-                </div>
-              </>
-            ) : (
+            <div className="card-content-container">
+                {/* {
+                  uploadedImage.path ? 
+                    <div>{uploadedImage.path}</div>
+                  :
+                    ''
+                } */}
 
-            )} */}
-
-            <div
-              // onClick={() => setOpenModal(!openModal)}
-              className="card-content-container"
-            >
               {card.imageFile ? (
                 <div className="card-content_img">
                   <img src={card.imageFile} alt={card.title} />
@@ -159,10 +162,10 @@ export default function Card({ card, index, listId }) {
 
                 <div className="card-content_details-buttons">
                   <div className="card-content_details-buttons-files">
-                    <IconButton aria-label="files">
+                    <IconButton aria-label="files" onClick={handleDownloadClick}>
                       <InsertDriveFileOutlinedIcon />
                     </IconButton>
-                    1
+                    {card.files.length}
                   </div>
                   <div className="card-content_details-buttons-comments">
                     <IconButton aria-label="comments" aria-describedby={idComments} onClick={handleOpenComments}>
