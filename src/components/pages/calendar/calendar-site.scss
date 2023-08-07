@@ -191,8 +191,8 @@
     
                                 & .fc-daygrid-day-events {
                                     & .fc-event {
-                                        text-align: center;
-                                        padding: 5px;
+                                        text-align: left;
+                                        padding: 10px 5px;
                                         // background-color: $blue;
                                         background-color: #AB9BCD;
                                         border-color: #AB9BCD;
@@ -201,6 +201,10 @@
                                         overflow: hidden;
                                         text-overflow: ellipsis;
                                         display: block;
+
+                                        b {
+                                            margin-right: 7px;
+                                        }
     
                                         & .fc-event-main {
                                             white-space: nowrap;
@@ -228,15 +232,26 @@
                             & .fc-timegrid-now-indicator-arrow {
                                 border-right-color: #653EB9;
                                 border-left-color: #653EB9;
+                                border-width: 7px 0 7px 7px;
                             }
                         }
 
                         & .fc-day{
                             & .fc-event {
+                               
+                                padding: 5px 0;
                                 background-color: #AB9BCD;
                                 border-color: #AB9BCD;
 
                                 .fc-event-main {
+                                    padding: 8px 5px;
+                                    text-align: left;
+                                    color: #fff;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: block;
+
                                     b {
                                         margin-right: 10px;
                                     }
