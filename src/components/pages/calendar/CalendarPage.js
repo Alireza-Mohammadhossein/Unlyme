@@ -182,7 +182,7 @@ function CalendarPageContent() {
                 headerToolbar={{
                   left: 'prev title next today',
                   center: '',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                  right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
                 }}
                 buttonText={{
                   today:    'Today',

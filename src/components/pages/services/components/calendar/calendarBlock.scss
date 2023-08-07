@@ -52,7 +52,8 @@
     font-weight: 700;
   }
   &__month-view__days__day--weekend {
-    color: #d10000;
+    // color: #d10000;
+    color: #828282;
   }
   &__month-view__weekdays__weekday {
     text-transform: none;
@@ -79,7 +80,7 @@
       // line-height: 40px;
       border-radius: 100%;
       // display: inline-block;
-      padding: 7px;
+      padding: 5px;
       width: 15px;
       height: 15px;
       display: flex;
@@ -93,6 +94,7 @@
 
     abbr {
       background-color: #006edc;
+      background-color: #4373C4;
     }
     &:enabled:hover {
       // background-color: #006edc;

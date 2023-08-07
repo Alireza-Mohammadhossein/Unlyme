@@ -90,10 +90,10 @@ export default function AddModal({
     }; 
 
     const handleBtnConfirm = () => {
-      if (files.length === 0) {
-        // Handle case when no files are selected
-        return;
-      }
+      // if (files.length === 0) {
+      //   // Handle case when no files are selected
+      //   return;
+      // }
     
       const handleConvertedFiles = (convertedFiles) => {
 

@@ -177,6 +177,10 @@
                                     .fc-daygrid-day-number {
                                         color: #333333;
                                         font-size: 13px;
+                                        width: 25px;
+                                        height: 25px;
+                                        text-align: center;
+                                        padding: 6px;
                                     }
                                 }
     
@@ -231,20 +235,26 @@
                             & .fc-event {
                                 background-color: #AB9BCD;
                                 border-color: #AB9BCD;
+
+                                .fc-event-main {
+                                    b {
+                                        margin-right: 10px;
+                                    }
+                                }
                             }
 
                             & .fc-timegrid-now-indicator-line {
                                 border-color: #653EB9;
-                                border-width: 2px 0 0;
+                                border-width: 3px 0 0;
 
                                 &::before {
                                     content: "";
-                                    width: 10px;
-                                    height: 10px;
+                                    width: 13px;
+                                    height: 13px;
                                     background-color: #653EB9;
                                     display: block;
                                     border-radius: 50%;
-                                    top: -6px;
+                                    top: -7px;
                                     position: absolute;
                                 }
                             }
@@ -270,6 +280,31 @@
                             & .fc-scroller-harness {
                                 & .fc-scroller {
                                     overflow: auto !important;
+
+                                    .fc-timegrid-slots {
+                                        table tbody {
+
+                                            tr:nth-child(odd) {
+                                                td:first-child {
+                                                    .fc-timegrid-slot-label-frame {
+                                                        position: relative;
+
+                                                        .fc-timegrid-slot-label-cushion {
+                                                            position: absolute;
+                                                            left: 0;
+                                                            top: 5px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            tr:nth-child(even) {
+                                                td {
+                                                    border: unset;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                     }
