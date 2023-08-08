@@ -82,16 +82,16 @@ import {
 
           <Grid
             item
-            xl={2}
-            lg={3}
-            md={3}
+            xl={secondPopupTab ? 3 : 2}
+            lg={secondPopupTab ? 3 : 3}
+            md={secondPopupTab ? 3 : 3}
             xs={12}
-            sx={{
-              display: {
-                lg: secondPopupTab ? "none" : "block",
-                md: secondPopupTab ? "none" : "block",
-              },
-            }}
+            // sx={{
+            //   display: {
+            //     lg: secondPopupTab ? "none" : "block",
+            //     md: secondPopupTab ? "none" : "block",
+            //   },
+            // }}
           >
             <div className="work-drive-page_sidebar">
               <div className="work-drive-page_sidebar_create-event">
@@ -319,15 +319,19 @@ import {
   
           <Grid
             item
-            xl={secondPopupTab ? 12 : 10}
-            lg={secondPopupTab ? 12 : 9}
-            md={secondPopupTab ? 12 : 9}
+            xl={secondPopupTab ? 9 : 10}
+            lg={secondPopupTab ? 9 : 9}
+            md={secondPopupTab ? 9 : 9}
             xs={12}
           >
             <div className="work-drive-page_main">
               <div className="work-drive-page_main_list">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
+                <div className="work-drive-page_main_list-filters">
+                  <FileNavbar />
+                  <FileToolbar />
+                </div>
                   <FileList />
                   <FileContextMenu />
               </div>

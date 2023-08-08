@@ -233,7 +233,14 @@ const WorkDrivePage = () => {
         <div className="cloud-page work-drive-cloud-page">
           <div className="cloud-page__header">
             <Grid container spacing={2}>  
-              <Grid item xl={2} lg={3} md={3} xs={12} className='cloud-page__header_share'>
+              <Grid
+                item
+                xl={2}
+                lg={3}
+                md={3}
+                xs={12}
+                className='cloud-page__header_share'
+              >
                 <div className='cloud-page__header_share_icon'>
                   <img src={workDriveIcon} />
                 </div>
@@ -242,7 +249,14 @@ const WorkDrivePage = () => {
                   {t("WORK_DRIVE_PAGE.TITLE")}
                 </div>
               </Grid>
-              <Grid item xl={10} lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
+              <Grid
+                item
+                xl={10}
+                lg={9}
+                md={9}
+                xs={12}
+                sx={{display: 'flex', alignItems: 'center'}}
+              >
                 <div className='cloud-page__header_work-drive-page-details'>
                   <WorkDriveDetailsBar/>
                 </div>

@@ -46,19 +46,9 @@ const EmailDetailsBar = ({ setSearchText }) => {
 
             <Grid
                 item
-                xl={secondPopupTab ? 0 : 2}
-                lg={secondPopupTab ? 0 : 2}
-                md={secondPopupTab ? 0 : 2}
-                xs={12}
-                sx={{display: secondPopupTab ? 'none' : 'block'}}
-            >
-            </Grid>
-
-            <Grid
-                item
-                xl={secondPopupTab ? 8 : 6}
-                lg={secondPopupTab ? 8 : 6}
-                md={secondPopupTab ? 8 : 10}
+                xl={secondPopupTab ? 7 : 6}
+                lg={secondPopupTab ? 7 : 6}
+                md={secondPopupTab ? 7 : 10}
                 xs={12}
                 sx={{ display: 'flex', gap: '5px' }}
             >
@@ -73,7 +63,16 @@ const EmailDetailsBar = ({ setSearchText }) => {
                         Smart Search
                     </Button>
                 </div>
+            </Grid>
 
+            <Grid
+                item
+                xl={secondPopupTab ? 1 : 2}
+                lg={secondPopupTab ? 1 : 2}
+                md={secondPopupTab ? 1 : 2}
+                xs={12}
+                sx={{display: secondPopupTab ? '' : '', textAlign: 'right'}}
+            >
                 <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
                     <CloseIcon />
                 </IconButton>

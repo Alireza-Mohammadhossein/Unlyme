@@ -10,6 +10,7 @@ import CustomToolbar from './CustomToolbar';
 
 
 
+
 const WorkDriveDetailsBar = () => {
     const dispatch = useDispatch();
 
@@ -37,7 +38,8 @@ const WorkDriveDetailsBar = () => {
                     </FormControl> */}
 
                     <div>
-                        <FileNavbar />
+                        {/* <FileNavbar />
+                        <FileToolbar /> */}
                     </div>
 
                     <div>

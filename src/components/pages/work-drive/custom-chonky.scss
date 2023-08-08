@@ -26,6 +26,7 @@
 
             & .MuiButton-root {
                 color: #555555 !important;
+                padding: 0px 15px;
             }
 
             & .MuiButton-root.chonky-activeButton {
@@ -97,6 +98,10 @@
     & .chonky-navbarWrapper {
         & .MuiButton-root {
             color: #555555 !important;
+
+            &.Mui-disabled {
+                color: rgba(0, 0, 0, 0.4) !important;
+            }
         }
 
     }
@@ -105,12 +110,18 @@
     .chonky-fileListWrapper {
         padding: 20px;
         box-sizing: border-box;
+        height: calc(100% - 50px);
 
         & .chonky-gridContainer {
         
             & > div {
                 width: 100% !important;
-                height: 100% !important;
+                height: 100% !important;    
+
+                & > div {
+                    padding-right: 15px !important;
+                    padding-bottom: 15px !important;
+                }
             }
     
             & [class^="fillParent-"] {
@@ -118,12 +129,13 @@
                 & [class^="gridFileEntry-"] {
                     background: #FFFFFF;
                     border: 1px solid #F2F2F2;
-                    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.05);
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
                     border-radius: 8px;
                     padding: 15px;
                     box-sizing: border-box;
                     justify-content: space-around;
                     cursor: pointer;
+                    border: 1px solid #F2F2F2;
         
                     & [class^="previewFile-"] {
                         width: 50%;
@@ -193,6 +205,12 @@
                     position: relative !important;
                     top: 0 !important;
                 }
+            }
+
+            & [class^="selectionIndicator-"] {
+                // background: #3089dc61;
+                background: #F5F5F5;
+                opacity: 1;
             }
         }
 
