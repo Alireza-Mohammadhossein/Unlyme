@@ -15,6 +15,8 @@ import SingleMail from './single-mail/SingleMail';
 import { useEffect } from 'react';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import EmailTableHead from './EmailTableHead';
+import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import { useCallback } from 'react';
 
 
@@ -196,7 +198,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
     <Box sx={{ width: '100%' }}>
       <Grid container>
         <Grid item 
-          xs = {activeSingleMail ? 6 : 12}
+          xs = {activeSingleMail ? 5 : 12}
         >
           <Paper sx={{ width: '100%', mb: 2}}>
             {/* <EnhancedTableToolbar numSelected={selected.length} /> */}
@@ -236,6 +238,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                         key={row.id}
                         selected={isItemSelected}
                         sx={{ cursor: 'pointer'}}
+                        className={`${row.unread ? 'unread-mail' : ''}`}
 
                       >
 
@@ -255,6 +258,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                             }}
                           />
                         </TableCell>
+                        
                         <TableCell
                           // component="th"
                           id={labelId}
@@ -287,7 +291,23 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                           align="left"
                           sx={{ cursor: 'pointer',width: '40%', maxWidth: 150, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
                         >
-                          {row.message}
+                          <div
+                            style={{
+                              height: '36px',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                            }}
+                          >
+                            {
+                              row.unread ?
+                                <MailOutlinedIcon className='read-icon' />
+                              :
+                                <DraftsOutlinedIcon className='read-icon' />
+                            }
+
+                            {row.message}
+                          </div>
                         </TableCell>
                         
                         <TableCell
@@ -336,7 +356,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
 
         <Grid item 
           sx={{display: activeSingleMail ? 'block' : 'none'}}
-            xs = {6}
+            xs = {7}
           >
 
           <SingleMail userIcon={userIcon} mailFrom={mailFrom} mailTo={mailTo} mailSubject={mailSubject} mailTitle={mailTitle} mailMessage={mailMessage} setActiveSingleMail={setActiveSingleMail} />

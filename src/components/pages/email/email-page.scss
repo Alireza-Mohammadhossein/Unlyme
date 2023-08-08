@@ -157,6 +157,61 @@
                         vertical-align: middle;
                     }
                 } 
+
+                .MuiTableRow-root {
+                    background-color: #F5F5F5;
+
+                    td {
+                        position: relative;
+
+                        .MuiSvgIcon-root.read-icon {
+                            color: #4141418f;
+                            stroke: #ffffff;
+                            stroke-width: 0.5px;
+                            position: relative;
+                            top: 7px;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    &.unread-mail {
+                        background-color: #ffffff;
+                        
+                        td {
+                            font-weight: 600;
+
+                            .MuiSvgIcon-root.read-icon {
+                                color: rgba(0, 0, 0, 0.79);
+                            }
+
+                            div {
+                                font-weight: 600;
+                            }
+                        }
+
+                        // td:nth-child(2) {
+                        //     position: relative;
+
+                        //     &::before {
+                        //         content: '';
+                        //         width: 8px;
+                        //         height: 8px;
+                        //         border-radius: 50%;
+                        //         background-color: #4382C4;
+                        //         display: inline-block;
+                        //         position: absolute;
+                        //         left: 0;
+                        //         top: 22px;
+                        //     }
+                        // }
+                    }
+                }
+
+                .MuiTableRow-root:first-child {
+                    background-color: #ffffff;
+                }
+
+
             }
         }
 
