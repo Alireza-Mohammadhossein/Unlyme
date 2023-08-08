@@ -16,6 +16,8 @@ import NotesPageContent from './NotesPageContent';
 
 const NotesPage = () => {
   const { t, i18n } = useTranslation();
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
 
   const [searchNote, setSearchNote] = useState('');
 
@@ -30,7 +32,14 @@ const NotesPage = () => {
       <div className="cloud-page">
         <div className="cloud-page__header">
           <Grid container spacing={2}>  
-            <Grid item xl={2} lg={3} md={3} xs={12} className='cloud-page__header_share'>
+            <Grid
+              item
+              xl={2}
+              lg={3}
+              md={3}
+              xs={12}
+              className='cloud-page__header_share'
+            >
               <div className='cloud-page__header_share_icon'>
                 <img src={icon} />
               </div>
@@ -39,7 +48,13 @@ const NotesPage = () => {
                 {t("NOTES_PAGE.TITLE")}
               </div>
             </Grid>
-            <Grid item xl={10} lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
+            <Grid
+              item
+              xl={10}
+              lg={9}
+              md={9}
+              xs={12}
+              sx={{display: 'flex', alignItems: 'center'}}>
               <div className='cloud-page__header_notes-details'>
                 <NotesDetailsBar setSearchNote={setSearchNote} />
               </div>

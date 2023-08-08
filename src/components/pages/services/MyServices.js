@@ -213,7 +213,7 @@ const MyServices = () => {
             <GuideBlock/>
           </div> */}
 
-          <div key="ai">
+          {/* <div key="ai">
             <AIEngine />
           </div>
 
@@ -259,7 +259,7 @@ const MyServices = () => {
 
           <div key="services">
             <Services />
-          </div>
+          </div> */}
         </ResponsiveGridLayout>
       </div>
     </div>

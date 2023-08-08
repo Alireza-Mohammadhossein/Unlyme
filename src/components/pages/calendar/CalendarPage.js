@@ -113,12 +113,12 @@ function CalendarPageContent() {
       <Grid container spacing={3} height='100%'>
         <Grid 
           item 
-          xl={2}
-          lg={3} 
-          md={3} 
+          xl={secondPopupTab ? 4 : 2}
+          lg={secondPopupTab ? 4 : 3}
+          md={secondPopupTab ? 4 : 3} 
           xs={12}
           sx={{
-            display: {lg: secondPopupTab ? 'none' : 'block', md: secondPopupTab ? 'none' : 'block'}
+            // display: {lg: secondPopupTab ? 'none' : 'block', md: secondPopupTab ? 'none' : 'block'}
           }}
         >
           <div className='calendar-page_sidebar'>
@@ -170,9 +170,9 @@ function CalendarPageContent() {
 
         <Grid
           item
-          xl={secondPopupTab ? 12 : 10}
-          lg={secondPopupTab ? 12 : 9}
-          md={secondPopupTab ? 12 : 9}
+          xl={secondPopupTab ? 8 : 10}
+          lg={secondPopupTab ? 8 : 9}
+          md={secondPopupTab ? 8 : 9}
           xs={12}
         >
           <div className='calendar-page_main'>

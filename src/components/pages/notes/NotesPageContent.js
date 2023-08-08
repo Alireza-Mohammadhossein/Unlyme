@@ -188,16 +188,16 @@ function TabPanel(props) {
         <Grid container spacing={3}>
           <Grid
             item
-            xl={2}
-            lg={3}
-            md={3}
+            xl={secondPopupTab ? 4 : 2}
+            lg={secondPopupTab ? 4 : 3}
+            md={secondPopupTab ? 4 : 3}
             xs={12}
-            sx={{
-              display: {
-                lg: secondPopupTab ? "none" : "block",
-                md: secondPopupTab ? "none" : "block",
-              },
-            }}
+            // sx={{
+            //   display: {
+            //     lg: secondPopupTab ? "none" : "block",
+            //     md: secondPopupTab ? "none" : "block",
+            //   },
+            // }}
           >
             <div className="notes-page_sidebar">
               <div className="notes-page_sidebar_create-event">
@@ -264,9 +264,9 @@ function TabPanel(props) {
   
           <Grid
             item
-            xl={secondPopupTab ? 12 : 10}
-            lg={secondPopupTab ? 12 : 9}
-            md={secondPopupTab ? 12 : 9}
+            xl={secondPopupTab ? 8 : 10}
+            lg={secondPopupTab ? 8 : 9}
+            md={secondPopupTab ? 8 : 9}
             xs={12}
           >
             <div className="notes-page_main">
