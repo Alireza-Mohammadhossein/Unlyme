@@ -165,7 +165,7 @@ export default function Card({ card, index, listId }) {
                     <IconButton aria-label="files" onClick={handleDownloadClick}>
                       <InsertDriveFileOutlinedIcon />
                     </IconButton>
-                    {card.files.length}
+                    {card.files ? card.files.length : '0'}
                   </div>
                   <div className="card-content_details-buttons-comments">
                     <IconButton aria-label="comments" aria-describedby={idComments} onClick={handleOpenComments}>

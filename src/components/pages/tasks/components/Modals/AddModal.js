@@ -94,6 +94,7 @@ export default function AddModal({
       //   // Handle case when no files are selected
       //   return;
       // }
+
     
       const handleConvertedFiles = (convertedFiles) => {
 
@@ -135,8 +136,23 @@ export default function AddModal({
           reader.readAsDataURL(file);
         });
       };
-    
-      convertFilesToBase64(files, handleConvertedFiles);
+
+      if(files.length > 0) {
+        convertFilesToBase64(files, handleConvertedFiles)
+      } else {
+        addMoreCard(title, description, comments, tags, members, color, listId);
+
+        setTitle("");
+        setDescription("");
+        setOpenAddModal(false);
+        setTags([]);
+        setMembers([]);
+        setColor('#4382C4');
+        setFiles([]);
+        setImageFile(null);
+      }
+
+      
     };
 
     // const convertImageToDataURL = (file, callback) => {
