@@ -25,6 +25,8 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { useSelector, useDispatch } from "react-redux";
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material/styles';
 import {
   ChonkyActions,
   ChonkyFileActionData,
@@ -61,6 +63,36 @@ import {
       setAnchorEl(null);
     };
 
+    // space progressbar
+    // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
+    //   height: 10,
+    //   borderRadius: 5,
+    //   [`&.${linearProgressClasses.colorPrimary}`]: {
+    //     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+    //   },
+    //   [`& .${linearProgressClasses.bar}`]: {
+    //     borderRadius: 5,
+    //     backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    //   },
+    // }));
+
+
+    // get value of progressbar
+    const totalSpace = 1000;
+    const usedSpace = 586;
+    const freeSpace = totalSpace - usedSpace;
+    const value = calculatePercentageBetweenNumbers(usedSpace, totalSpace)
+    
+    function calculatePercentageBetweenNumbers(usedSpace, totalSpace) {
+      // Calculate the difference between the two numbers
+      const difference = totalSpace - usedSpace;
+    
+      // Calculate the percentage increase or decrease
+      const percentage = (difference / usedSpace) * 100;
+    
+      return percentage;
+    }
+
 
     // sidebar section
       // const [openSubMenu, setOpenSubMenu] = useState(false);
@@ -94,85 +126,86 @@ import {
             // }}
           >
             <div className="work-drive-page_sidebar">
-              <div className="work-drive-page_sidebar_create-event">
+              <div className="work-drive-page_sidebar_actions">
+                <div className="work-drive-page_sidebar_actions_create-event">
 
-                <Button
-                  // variant="outlined"
-                  startIcon={<AddIcon />}
-                  className="work-drive-page_sidebar_create-event_btn"
-                  aria-label="more"
-                  id="long-button"
-                  aria-controls={openAddNewPopup ? "long-menu" : undefined}
-                  aria-expanded={openAddNewPopup ? "true" : undefined}
-                  aria-haspopup="true"
-                  onClick={handleAddNewBtn}
-                  // onClick={handleCreateNote}
-                >
-                  {t("WORK_DRIVE_ADD.NEW")}
-                </Button>
-                <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={openAddNewPopup}
-                      onClose={handleCloseAddNew}
-                      disableScrollLock = {true}
-                      // PaperProps={{
-                      //   style: {
-                      //     // maxHeight: ITEM_HEIGHT * 4.5,
-                      //     // height: 'auto'
-                      //     width: "30ch",
-                      //   },
-                      // }}
-                      className="work-drive-page_sidebar_create-event_list"
-                    >
+                  <Button
+                    // variant="outlined"
+                    startIcon={<AddIcon />}
+                    className="work-drive-page_sidebar_actions_create-event_btn"
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={openAddNewPopup ? "long-menu" : undefined}
+                    aria-expanded={openAddNewPopup ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleAddNewBtn}
+                    // onClick={handleCreateNote}
+                  >
+                    {t("WORK_DRIVE_ADD.NEW")}
+                  </Button>
+                  <Menu
+                        id="long-menu"
+                        anchorEl={anchorEl}
+                        open={openAddNewPopup}
+                        onClose={handleCloseAddNew}
+                        disableScrollLock = {true}
+                        // PaperProps={{
+                        //   style: {
+                        //     // maxHeight: ITEM_HEIGHT * 4.5,
+                        //     // height: 'auto'
+                        //     width: "30ch",
+                        //   },
+                        // }}
+                        className="work-drive-page_sidebar_actions_create-event_list"
+                      >
 
-                      <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                <ListItemIcon>
-                                  <NoteAddOutlinedIcon sx={{ color: '#777777' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Add new file" />
-                      </MenuItem>
+                        <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
+                                  <ListItemIcon>
+                                    <NoteAddOutlinedIcon sx={{ color: '#777777' }} />
+                                  </ListItemIcon>
+                                  <ListItemText primary="Add new file" />
+                        </MenuItem>
 
-                      <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                <ListItemIcon>
-                                  <CreateNewFolderOutlinedIcon sx={{ color: '#777777' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Add new folder" />
-                      </MenuItem>
+                        <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
+                                  <ListItemIcon>
+                                    <CreateNewFolderOutlinedIcon sx={{ color: '#777777' }} />
+                                  </ListItemIcon>
+                                  <ListItemText primary="Add new folder" />
+                        </MenuItem>
 
-                      <Divider />
+                        <Divider />
 
-                      <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                <ListItemIcon>
-                                  <UploadFileOutlinedIcon sx={{ color: '#777777' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Upload file" />
-                          
-                      </MenuItem>
+                        <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
+                                  <ListItemIcon>
+                                    <UploadFileOutlinedIcon sx={{ color: '#777777' }} />
+                                  </ListItemIcon>
+                                  <ListItemText primary="Upload file" />
+                            
+                        </MenuItem>
 
-                      <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                <ListItemIcon>
-                                  <DriveFolderUploadOutlinedIcon sx={{ color: '#777777' }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Upload folder" />
-                      </MenuItem>
-                </Menu>
+                        <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
+                                  <ListItemIcon>
+                                    <DriveFolderUploadOutlinedIcon sx={{ color: '#777777' }} />
+                                  </ListItemIcon>
+                                  <ListItemText primary="Upload folder" />
+                        </MenuItem>
+                  </Menu>
 
 
-              </div>
-  
-              <div className="work-drive-page_sidebar-section">
+                </div>
+
+                <div className="work-drive-page_sidebar_actions-section">
                 <TreeView
                   aria-label="file system navigator"
                   defaultCollapseIcon={<ExpandMoreIcon />}
                   defaultExpandIcon={<ChevronRightIcon />}
-                  className="work-drive-page_sidebar-section_drive-tree"
+                  className="work-drive-page_sidebar_actions-section_drive-tree"
                   // sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
                 >
                   <TreeItem
                     nodeId="1"
                     label={
-                      <div className="work-drive-page_sidebar-section_drive-tree_item">
+                      <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                         <ListItemIcon>
                           <FolderOutlinedIcon />
                         </ListItemIcon>
@@ -183,7 +216,7 @@ import {
                     <TreeItem
                       nodeId="2"
                       label={
-                        <div  className="work-drive-page_sidebar-section_drive-tree_item">
+                        <div  className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
@@ -194,7 +227,7 @@ import {
                       <TreeItem
                         nodeId="3"
                         label={
-                          <div className="work-drive-page_sidebar-section_drive-tree_item">
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
                               <FolderOutlinedIcon />
                             </ListItemIcon>
@@ -207,7 +240,7 @@ import {
                     <TreeItem
                       nodeId="4"
                       label={
-                        <div className="work-drive-page_sidebar-section_drive-tree_item">
+                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
@@ -219,7 +252,7 @@ import {
                     <TreeItem
                       nodeId="5"
                       label={
-                        <div className="work-drive-page_sidebar-section_drive-tree_item">
+                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
@@ -231,7 +264,7 @@ import {
                     <TreeItem
                       nodeId="6"
                       label={
-                        <div className="work-drive-page_sidebar-section_drive-tree_item">
+                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
@@ -242,7 +275,7 @@ import {
                       <TreeItem
                         nodeId="7"
                         label={
-                          <div className="work-drive-page_sidebar-section_drive-tree_item">
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
                               <FolderOutlinedIcon />
                             </ListItemIcon>
@@ -255,7 +288,7 @@ import {
                     <TreeItem
                       nodeId="8"
                       label={
-                        <div className="work-drive-page_sidebar-section_drive-tree_item">
+                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
@@ -266,7 +299,7 @@ import {
                       <TreeItem
                         nodeId="9"
                         label={
-                          <div className="work-drive-page_sidebar-section_drive-tree_item">
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
                               <FolderOutlinedIcon />
                             </ListItemIcon>
@@ -283,36 +316,45 @@ import {
                   sx={{ width: '100%'}}
                   component="nav"
                   aria-labelledby="nested-list-subheader"
-                  className="work-drive-page_sidebar-section_drive-actions"
+                  className="work-drive-page_sidebar_actions-section_drive-actions"
                 >
-                  <ListItemButton className="work-drive-page_sidebar-section_drive-actions_item">
+                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                     <ListItemIcon>
                       <StarBorderOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText primary="Favorite" />
                   </ListItemButton>
 
-                  <ListItemButton className="work-drive-page_sidebar-section_drive-actions_item">
+                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                     <ListItemIcon>
                       <AccessTimeOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText primary="Recent" />
                   </ListItemButton>
 
-                  <ListItemButton className="work-drive-page_sidebar-section_drive-actions_item">
+                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                     <ListItemIcon>
                       <ShareOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText primary="Shared" />
                   </ListItemButton>
 
-                  <ListItemButton className="work-drive-page_sidebar-section_drive-actions_item">
+                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                     <ListItemIcon>
                       <DeleteOutlineOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText primary="Trash" />
                   </ListItemButton>
                 </List>
+                </div>
+              </div>
+
+              <div className="work-drive-page_sidebar_space">
+                <LinearProgress  className="work-drive-page_sidebar_space-progressbar" variant="determinate" value={value} />
+
+                <div className="work-drive-page_sidebar_space-text">
+                  <b>{freeSpace} Mb</b> / {totalSpace} Mb
+                </div>
               </div>
             </div>
           </Grid>

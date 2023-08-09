@@ -24,67 +24,93 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
+    justify-content: space-between;
 
-    &_create-event {
-      &_btn.MuiButtonBase-root {
-        background-color: $blue;
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-        color: #fff;
-        border-radius: 8px;
-        text-transform: none;
+    &_actions {
+      &_create-event {
+        &_btn.MuiButtonBase-root {
+          background-color: $blue;
+          width: 100%;
+          padding: 10px;
+          text-align: center;
+          color: #fff;
+          border-radius: 8px;
+          text-transform: none;
+        }
+  
+        &_btn.MuiButtonBase-root:hover {
+          background-color: $blue;
+        }
+  
+        &_list {
+          .MuiButtonBase-root {
+              width: 100%;
+              padding: 10px;
+              border-radius: 8px;
+            }
+        }
       }
-
-      &_btn.MuiButtonBase-root:hover {
-        background-color: $blue;
-      }
-
-      &_list {
-        .MuiButtonBase-root {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
+  
+      &-section {
+          &_drive-tree {
+              max-height: 300px;
+              overflow: auto;
+              
+              & .MuiTreeItem-content {
+                  box-sizing: border-box;
+                  border-radius: 8px;
+              } 
+              &_item {
+                  display: flex;
+                  padding: 8px 0;
+                  align-items: center;
+  
+                  & .MuiListItemIcon-root {
+                      min-width: 30px;
+                  }
+              }
+          }
+  
+          &_drive-actions {
+              
+              & .MuiButtonBase-root {
+                  box-sizing: border-box;
+                  border-radius: 8px;
+              } 
+              &_item.MuiButtonBase-root {
+                  display: flex;
+                  padding: 8px;
+                  align-items: center;
+  
+                  & .MuiListItemIcon-root {
+                      min-width: 30px;
+                  }
+              }
           }
       }
     }
 
-    &-section {
-        &_drive-tree {
-            max-height: 300px;
-            overflow: auto;
-            
-            & .MuiTreeItem-content {
-                box-sizing: border-box;
-                border-radius: 8px;
-            } 
-            &_item {
-                display: flex;
-                padding: 8px 0;
-                align-items: center;
+    &_space {
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
-                & .MuiListItemIcon-root {
-                    min-width: 30px;
-                }
-            }
+      &-progressbar.MuiLinearProgress-root  {
+        height: 10px;
+        border-radius: 5px;
+        background-color: #4382C433;
+
+        .MuiLinearProgress-bar {
+          background-color: #4382C4;
         }
+      }
 
-        &_drive-actions {
-            
-            & .MuiButtonBase-root {
-                box-sizing: border-box;
-                border-radius: 8px;
-            } 
-            &_item.MuiButtonBase-root {
-                display: flex;
-                padding: 8px;
-                align-items: center;
-
-                & .MuiListItemIcon-root {
-                    min-width: 30px;
-                }
-            }
-        }
+      &-text {
+        color: #4382C4;
+        font-size: 14px;
+      }
     }
   }
 
