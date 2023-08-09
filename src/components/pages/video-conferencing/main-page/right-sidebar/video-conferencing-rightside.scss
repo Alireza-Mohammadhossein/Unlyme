@@ -26,7 +26,7 @@
             & > div {
                 display: flex;
                 flex-direction: column;
-                gap: 35px;
+                gap: 40px;
                 padding: 20px 10px;
             }
         }
@@ -46,7 +46,7 @@
             &_card {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: start;
                 gap: 10px;
 
                 border: 1px solid #ECECEC;
@@ -56,9 +56,13 @@
                 padding: 15px;
 
                 &-icon {
-                    width: 50px;
+                    width: 45px;
+                    height: 45px;
 
                     .MuiAvatar-root {
+                        width: inherit;
+                        height: inherit;
+                        box-sizing: border-box;
                         padding: 5px;
                         font-size: 16px;
                         background-color: #DCD6E8;

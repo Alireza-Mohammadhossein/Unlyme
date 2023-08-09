@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import Calendar from 'react-calendar';
+import Button from '@mui/material/Button';
 import calendarIcon from '../../../../../assets/images/calendarIcon.png';
 import TextField from '@mui/material/TextField';
 import dayjs from 'dayjs';
@@ -98,6 +99,12 @@ const CalendarShortcut = () => {
             </form>
           </Grid>
         </Grid>
+      </div>
+
+      <div className="shortcut-modal_footer">
+        <Button className="shortcut-modal_footer-btn">
+          Save event
+        </Button>
       </div>
     </div>
   );

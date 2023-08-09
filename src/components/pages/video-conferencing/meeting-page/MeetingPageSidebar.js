@@ -9,6 +9,7 @@ import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import SearchIcon from '@mui/icons-material/Search';
+import search from '../../../../assets/images/header/new-icons/search.png';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenShortcut, handleCloseShortcut } from "../../../../redux/app/appsModalSlice";
@@ -126,7 +127,7 @@ function TabPanel(props) {
                 aria-expanded={open ? "true" : undefined}
                 aria-haspopup="true"
                 onClick={handleClick}
-                startIcon={<AddIcon />}
+                // startIcon={<AddIcon />}
                 className="meeting-page_sidebar_open-apps_btn"
             >
                 Open Apps
@@ -155,8 +156,6 @@ function TabPanel(props) {
                 </MenuItem>
               ))}
             </Menu>
-
-            
           </div>
 
           <div className="meeting-page_sidebar-section">
@@ -166,19 +165,19 @@ function TabPanel(props) {
                   <Tab label="Messages" className="meeting-page_sidebar-section_tabs-btn" />
               </Tabs>
 
-              <div className="meeting-page_sidebar-section_search">
-                  <FormControl>
-                      <Input
-                      className='meeting-page_sidebar-section_search-input'
-                      placeholder='Search...'
-                      startAdornment={
-                          <InputAdornment position="start">
-                              <SearchIcon sx={{color: '#3C3C43B2'}} />
-                          </InputAdornment>
-                      }
-                     />
-                  </FormControl>
+              <div className='meeting-page_sidebar-section_search'>
+                <FormControl>
+                    <div className="cloud-page__header_notes-details_search_container">
+                        <label><img src={search} /></label>
+                        <input
+                          className="cloud-page__header_notes-details_search-input"
+                          // onChange={(e) => setSearchNote(e.target.value)}
+                          placeholder='Search...'
+                        />
+                    </div>
+                </FormControl>
               </div>
+             
 
               <TabPanel value={value} index={0}>
                   Item One

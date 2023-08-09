@@ -92,7 +92,7 @@ const Schedule = ({handleShowMain}) => {
 
                     <form className="schedule-content_form-item-date-form">
                       <Grid container spacing={2}>
-                        <Grid item xs={12} md={4} className="schedule-content_form-item-date-form-field">
+                        <Grid item xs={12} md={3} className="schedule-content_form-item-date-form-field">
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <MobileDatePicker
                               defaultValue={dayjs()}
@@ -101,7 +101,7 @@ const Schedule = ({handleShowMain}) => {
                           </LocalizationProvider>
                         </Grid>
 
-                        <Grid item xs={6} md={4} className="schedule-content_form-item-date-form-field">
+                        <Grid item xs={6} md={3} className="schedule-content_form-item-date-form-field">
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <TimeField
                               value={startTimeValue}
@@ -112,7 +112,7 @@ const Schedule = ({handleShowMain}) => {
                           </LocalizationProvider>
                         </Grid>
                         
-                        <Grid item xs={6} md={4} className="schedule-content_form-item-date-form-field">
+                        <Grid item xs={6} md={3} className="schedule-content_form-item-date-form-field">
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <TimeField
                               value={endTimeValue}
@@ -121,6 +121,9 @@ const Schedule = ({handleShowMain}) => {
                               size="small"
                             />
                           </LocalizationProvider>
+                        </Grid>
+
+                        <Grid item xs={12} md={3} className="schedule-content_form-item-date-form-field">
                         </Grid>
 
                         <Grid item xs={12} className="schedule-content_form-item-date-form-field">

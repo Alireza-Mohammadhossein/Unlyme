@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import Calendar from 'react-calendar';
+import Button from '@mui/material/Button';
 import noteIcon from '../../../../../assets/images/tasksIcon.png';
 import TextField from '@mui/material/TextField';
 import CloseIcon from '@mui/icons-material/Close';
@@ -36,29 +37,35 @@ const NotesShortcut = () => {
       </div>
 
       <div className="shortcut-modal_content">
-      <form>
+        <form>
 
-        <Grid container sx={{rowGap: '20px', marginTop: '20px'}}>
-          <Grid item xs={12} className="shortcut-modal_content_task">
+          <Grid container sx={{rowGap: '20px', marginTop: '20px'}}>
+            <Grid item xs={12} className="shortcut-modal_content_task">
+                <div className="shortcut-modal_content_form-item">
+                  <p className="shortcut-modal_content_form-item-title">
+                      Title
+                  </p>
+                  <TextField placeholder="Title" className="shortcut-modal_content_form-item-input" />
+                </div>
+            </Grid>
+
+            <Grid item xs={12} className="shortcut-modal_content_task">
               <div className="shortcut-modal_content_form-item">
                 <p className="shortcut-modal_content_form-item-title">
-                    Title
+                    Note
                 </p>
-                <TextField placeholder="Title" className="shortcut-modal_content_form-item-input" />
+                <TextField placeholder="Add description" className="shortcut-modal_content_form-item-input" multiline rows={4} />
               </div>
+            </Grid>
           </Grid>
+        </form>
 
-          <Grid item xs={12} className="shortcut-modal_content_task">
-            <div className="shortcut-modal_content_form-item">
-              <p className="shortcut-modal_content_form-item-title">
-                  Note
-              </p>
-              <TextField placeholder="Add description" className="shortcut-modal_content_form-item-input" multiline rows={4} />
-            </div>
-          </Grid>
-        </Grid>
-      </form>
+      </div>
 
+      <div className="shortcut-modal_footer">
+        <Button className="shortcut-modal_footer-btn">
+          Save note
+        </Button>
       </div>
     </div>
   );
