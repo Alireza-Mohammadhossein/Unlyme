@@ -19,6 +19,15 @@ import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import TreeView from '@mui/lab/TreeView';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import TreeItem from '@mui/lab/TreeItem';
+import LinearProgress from '@mui/material/LinearProgress';
+import IconButton from '@mui/material/IconButton';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
 
 
@@ -81,6 +90,23 @@ function EmailPageContent() {
   const [searchText, setSearchText] = useState('');
 
 
+
+  // get value of progressbar
+  const totalSpace = 1000;
+  const usedSpace = 586;
+  const freeSpace = totalSpace - usedSpace;
+  const value = calculatePercentageBetweenNumbers(usedSpace, totalSpace)
+  
+  function calculatePercentageBetweenNumbers(usedSpace, totalSpace) {
+    // Calculate the difference between the two numbers
+    const difference = totalSpace - usedSpace;
+  
+    // Calculate the percentage increase or decrease
+    const percentage = (difference / usedSpace) * 100;
+  
+    return percentage;
+  }
+
   
   return (
 
@@ -133,69 +159,199 @@ function EmailPageContent() {
               }}
             >
               <div className='email-page_sidebar'>
-                <div className='email-page_sidebar_create-event'>
-                  <Button
-                    startIcon={<AddIcon />}
-                    className="email-page_sidebar_create-event_btn"
-                    aria-label="more"
-                    id="long-button"
-                    aria-haspopup="true"
-                    // onClick={handleCreateNote}
-                  >
-                    {t("EMAIL_PAGE.CREATE_MAIL_BUTON")}
-                  </Button>
-                  {/* <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button> */}
-                </div>
-
-                <div className='email-page_sidebar-section'>
-                  <div className='email-page_sidebar-section_category'>
-                    <Tabs
-                      orientation="vertical"
-                      // variant="scrollable"
-                      value={showMail}
-                      onChange={handleShowMail}
-                      aria-label="Vertical tabs example"
-                      className='email-page_sidebar-section_category-list'
+                <div className='email-page_sidebar_actions'>
+                  <div className='email-page_sidebar_actions_create-event'>
+                    <Button
+                      // startIcon={<AddIcon />}
+                      className="email-page_sidebar_actions_create-event_btn"
+                      aria-label="more"
+                      id="long-button"
+                      aria-haspopup="true"
+                      // onClick={handleCreateNote}
                     >
-                      {mailsCategory.map((item, index) => (
-                        <Tab
-                          className='email-page_sidebar-section_category-item'
-                          key={item.id}
-                          {...a11yProps(index)}
-                          component={'div'}
-                          label={
-                            <>
-                              <div className='email-page_sidebar-section_category-item_content'>
-                                {/* <Button variant="outlined" startIcon={<InboxOutlinedIcon />}>
-                                  {item.title}
-                                </Button> */}
-                                {
-                                  item.title === 'Inbox' ? <InboxOutlinedIcon/> :
-                                  item.title === 'Drafts' ? <FeedOutlinedIcon /> :
-                                  item.title === 'Sent' ? <SendOutlinedIcon /> :
-                                  <StarBorderOutlinedIcon />
-                                }
-                                 {/* <InboxOutlinedIcon/> */}
-                                  {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar-section_category-item_content-icon' /> */}
-                                  <p className='email-page_sidebar-section_category-item_content-title'>{item.title}</p>
-                              </div>
+                      {t("EMAIL_PAGE.CREATE_MAIL_BUTON")}
+                    </Button>
+                    {/* <button>{t('EMAIL_PAGE.CREATE_MAIL_BUTON')}</button> */}
+                  </div>
 
-                              {item.unreadNum > 0 ?
-                                <div className='email-page_sidebar-section_category-item_unreadnum'>
-                                  <p>{item.unreadNum}</p>
+                  <div className='email-page_sidebar_actions-section'>
+                    <div className='email-page_sidebar_actions-section_category'>
+                      <Tabs
+                        orientation="vertical"
+                        // variant="scrollable"
+                        value={showMail}
+                        onChange={handleShowMail}
+                        aria-label="Vertical tabs example"
+                        className='email-page_sidebar_actions-section_category-list'
+                      >
+                        {mailsCategory.map((item, index) => (
+                          <Tab
+                            className='email-page_sidebar_actions-section_category-item'
+                            key={item.id}
+                            {...a11yProps(index)}
+                            component={'div'}
+                            label={
+                              <>
+                                <div className='email-page_sidebar_actions-section_category-item_content'>
+                                  {/* <Button variant="outlined" startIcon={<InboxOutlinedIcon />}>
+                                    {item.title}
+                                  </Button> */}
+                                  {
+                                    item.title === 'Inbox' ? <InboxOutlinedIcon/> :
+                                    item.title === 'Drafts' ? <FeedOutlinedIcon /> :
+                                    item.title === 'Sent' ? <SendOutlinedIcon /> :
+                                    <StarBorderOutlinedIcon />
+                                  }
+                                   {/* <InboxOutlinedIcon/> */}
+                                    {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar_actions-section_category-item_content-icon' /> */}
+                                    <p className='email-page_sidebar_actions-section_category-item_content-title'>{item.title}</p>
                                 </div>
-                                :
-                                ''
-                              }
+
+                                {item.unreadNum > 0 ?
+                                  <div className='email-page_sidebar_actions-section_category-item_unreadnum'>
+                                    <p>{item.unreadNum}</p>
+                                  </div>
+                                  :
+                                  ''
+                                }
+                                
+                              </>
+                            } 
+                          />
+                        ))}
+                      
+                      </Tabs>
+
+                      <TreeView
+                        aria-label="file system navigator"
+                        defaultCollapseIcon={<ExpandMoreIcon />}
+                        defaultExpandIcon={<ChevronRightIcon />}
+                        className="email-page_sidebar_actions-section_category-tree"
+                      >
+                        <TreeItem
+                          nodeId="1"
+                          label={
+                            <div className="email-page_sidebar_actions-section_category-tree_item">
+                              {/* <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon> */}
+                              <ListItemText primary="More" />
+                            </div>
+                          }
+                        >
+                          <TreeItem
+                            nodeId="2"
+                            label={
+                              <div  className="email-page_sidebar_actions-section_category-tree_item">
+                                {/* <ListItemIcon>
+                                  <FolderOutlinedIcon />
+                                </ListItemIcon> */}
+                                <ListItemText primary="Documents" />
+                              </div>
+                            } 
+                          >
+                          </TreeItem>
+                        </TreeItem>
+                      </TreeView>
+
+                      <Divider />
+
+                      <TreeView
+                        aria-label="file system navigator"
+                        defaultCollapseIcon={<ExpandMoreIcon />}
+                        defaultExpandIcon={<ChevronRightIcon />}
+                        className="email-page_sidebar_actions-section_category-tree"
+                      >
+                        <TreeItem
+                          nodeId="1"
+                          label={
+                            <div className="email-page_sidebar_actions-section_category-tree_item">
+                              {/* <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon> */}
+                              <ListItemText primary="Folders" />
                               
-                            </>
-                          } 
-                        />
-                      ))}
-                    
-                    </Tabs>
+                              <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
+                                <AddIcon />
+                              </IconButton>
+
+                              <IconButton aria-label="setting" onClick={(e) => e.stopPropagation()}>
+                                <SettingsOutlinedIcon />
+                              </IconButton>
+                            </div>
+                          }
+                        >
+                          <TreeItem
+                            nodeId="2"
+                            label={
+                              <div  className="email-page_sidebar_actions-section_category-tree_item">
+                                {/* <ListItemIcon>
+                                  <FolderOutlinedIcon />
+                                </ListItemIcon> */}
+                                <ListItemText primary="Documents" />
+                              </div>
+                            } 
+                          >
+                          </TreeItem>
+                        </TreeItem>
+                      </TreeView>
+
+                      <Divider />
+
+                      <TreeView
+                        aria-label="file system navigator"
+                        defaultCollapseIcon={<ExpandMoreIcon />}
+                        defaultExpandIcon={<ChevronRightIcon />}
+                        className="email-page_sidebar_actions-section_category-tree"
+                      >
+                        <TreeItem
+                          nodeId="1"
+                          label={
+                            <div className="email-page_sidebar_actions-section_category-tree_item">
+                              {/* <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon> */}
+                              <ListItemText primary="Labels" />
+                              
+                              <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
+                                <AddIcon />
+                              </IconButton>
+
+                              <IconButton aria-label="setting" onClick={(e) => e.stopPropagation()}>
+                                <SettingsOutlinedIcon />
+                              </IconButton>
+                            </div>
+                          }
+                        >
+                          <TreeItem
+                            nodeId="2"
+                            label={
+                              <div  className="email-page_sidebar_actions-section_category-tree_item">
+                                {/* <ListItemIcon>
+                                  <FolderOutlinedIcon />
+                                </ListItemIcon> */}
+                                <ListItemText primary="Documents" />
+                              </div>
+                            } 
+                          >
+                          </TreeItem>
+                        </TreeItem>
+                      </TreeView>
+
+                    </div>
                   </div>
                 </div>
+
+
+                <div className="email-page_sidebar_space">
+                  <LinearProgress  className="email-page_sidebar_space-progressbar" variant="determinate" value={value} />
+
+                  <div className="email-page_sidebar_space-text">
+                    <b>{freeSpace} Mb</b> / {totalSpace} Mb
+                  </div>
+                </div>
+
+
               </div>
             </Grid>
 

@@ -124,7 +124,7 @@ function CalendarPageContent() {
           <div className='calendar-page_sidebar'>
             <div className='calendar-page_sidebar_create-event'>
               <Button
-                startIcon={<AddIcon />}
+                // startIcon={<AddIcon />}
                 className="calendar-page_sidebar_create-event_btn"
                 aria-label="more"
                 id="long-button"

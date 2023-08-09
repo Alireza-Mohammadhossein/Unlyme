@@ -203,7 +203,7 @@ function TabPanel(props) {
               <div className="notes-page_sidebar_create-event">
                 <Button
                   // variant="outlined"
-                  startIcon={<AddIcon />}
+                  // startIcon={<AddIcon />}
                   className="notes-page_sidebar_create-event_btn"
                   onClick={handleCreateNote}
                 >

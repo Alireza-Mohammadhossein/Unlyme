@@ -53,6 +53,8 @@
       }
   
       &-section {
+        margin-top: 15px;
+        
           &_drive-tree {
               max-height: 300px;
               overflow: auto;
@@ -92,7 +94,7 @@
     }
 
     &_space {
-      padding-bottom: 20px;
+      padding-bottom: 15px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -116,7 +118,8 @@
 
   &_main {
     height: 100%;
-    padding: 0 10px 0 15px;
+    padding: 0 10px 10px 15px;
+    box-sizing: border-box;
 
     &_list {
         width: 100%;

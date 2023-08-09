@@ -25,8 +25,7 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { useSelector, useDispatch } from "react-redux";
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
-import { styled } from '@mui/material/styles';
+import LinearProgress from '@mui/material/LinearProgress';
 import {
   ChonkyActions,
   ChonkyFileActionData,
@@ -63,18 +62,6 @@ import {
       setAnchorEl(null);
     };
 
-    // space progressbar
-    // const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    //   height: 10,
-    //   borderRadius: 5,
-    //   [`&.${linearProgressClasses.colorPrimary}`]: {
-    //     backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
-    //   },
-    //   [`& .${linearProgressClasses.bar}`]: {
-    //     borderRadius: 5,
-    //     backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
-    //   },
-    // }));
 
 
     // get value of progressbar
@@ -195,157 +182,157 @@ import {
                 </div>
 
                 <div className="work-drive-page_sidebar_actions-section">
-                <TreeView
-                  aria-label="file system navigator"
-                  defaultCollapseIcon={<ExpandMoreIcon />}
-                  defaultExpandIcon={<ChevronRightIcon />}
-                  className="work-drive-page_sidebar_actions-section_drive-tree"
-                  // sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
-                >
-                  <TreeItem
-                    nodeId="1"
-                    label={
-                      <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                        <ListItemIcon>
-                          <FolderOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="My files" />
-                      </div>
-                    }
+                  <TreeView
+                    aria-label="file system navigator"
+                    defaultCollapseIcon={<ExpandMoreIcon />}
+                    defaultExpandIcon={<ChevronRightIcon />}
+                    className="work-drive-page_sidebar_actions-section_drive-tree"
+                    // sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
                   >
                     <TreeItem
-                      nodeId="2"
-                      label={
-                        <div  className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                          <ListItemIcon>
-                            <FolderOutlinedIcon />
-                          </ListItemIcon>
-                          <ListItemText primary="Documents" />
-                        </div>
-                      } 
-                    >
-                      <TreeItem
-                        nodeId="3"
-                        label={
-                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                            <ListItemIcon>
-                              <FolderOutlinedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="New Documents" />
-                          </div>
-                        } 
-                      />
-                    </TreeItem>
-
-                    <TreeItem
-                      nodeId="4"
+                      nodeId="1"
                       label={
                         <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
                             <FolderOutlinedIcon />
                           </ListItemIcon>
-                          <ListItemText primary="Code" />
-                        </div>
-                      } 
-                    />
-
-                    <TreeItem
-                      nodeId="5"
-                      label={
-                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                          <ListItemIcon>
-                            <FolderOutlinedIcon />
-                          </ListItemIcon>
-                          <ListItemText primary="Photos" />
-                        </div>
-                      } 
-                    />
-
-                    <TreeItem
-                      nodeId="6"
-                      label={
-                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                          <ListItemIcon>
-                            <FolderOutlinedIcon />
-                          </ListItemIcon>
-                          <ListItemText primary="Musics" />
+                          <ListItemText primary="My files" />
                         </div>
                       }
                     >
                       <TreeItem
-                        nodeId="7"
+                        nodeId="2"
                         label={
-                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                          <div  className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
                               <FolderOutlinedIcon />
                             </ListItemIcon>
-                            <ListItemText primary="New Documents" />
+                            <ListItemText primary="Documents" />
                           </div>
                         } 
-                      />
-                    </TreeItem>
+                      >
+                        <TreeItem
+                          nodeId="3"
+                          label={
+                            <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                              <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon>
+                              <ListItemText primary="New Documents" />
+                            </div>
+                          } 
+                        />
+                      </TreeItem>
 
-                    <TreeItem
-                      nodeId="8"
-                      label={
-                        <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
-                          <ListItemIcon>
-                            <FolderOutlinedIcon />
-                          </ListItemIcon>
-                          <ListItemText primary="Videos" />
-                        </div>
-                      }
-                    >
                       <TreeItem
-                        nodeId="9"
+                        nodeId="4"
                         label={
                           <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
                               <FolderOutlinedIcon />
                             </ListItemIcon>
-                            <ListItemText primary="New Videos" />
+                            <ListItemText primary="Code" />
                           </div>
                         } 
                       />
+
+                      <TreeItem
+                        nodeId="5"
+                        label={
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                            <ListItemIcon>
+                              <FolderOutlinedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Photos" />
+                          </div>
+                        } 
+                      />
+
+                      <TreeItem
+                        nodeId="6"
+                        label={
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                            <ListItemIcon>
+                              <FolderOutlinedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Musics" />
+                          </div>
+                        }
+                      >
+                        <TreeItem
+                          nodeId="7"
+                          label={
+                            <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                              <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon>
+                              <ListItemText primary="New Documents" />
+                            </div>
+                          } 
+                        />
+                      </TreeItem>
+
+                      <TreeItem
+                        nodeId="8"
+                        label={
+                          <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                            <ListItemIcon>
+                              <FolderOutlinedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Videos" />
+                          </div>
+                        }
+                      >
+                        <TreeItem
+                          nodeId="9"
+                          label={
+                            <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
+                              <ListItemIcon>
+                                <FolderOutlinedIcon />
+                              </ListItemIcon>
+                              <ListItemText primary="New Videos" />
+                            </div>
+                          } 
+                        />
+                      </TreeItem>
+
                     </TreeItem>
+                  </TreeView>
 
-                  </TreeItem>
-                </TreeView>
+                  <List
+                    sx={{ width: '100%'}}
+                    component="nav"
+                    aria-labelledby="nested-list-subheader"
+                    className="work-drive-page_sidebar_actions-section_drive-actions"
+                  >
+                    <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
+                      <ListItemIcon>
+                        <StarBorderOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Favorite" />
+                    </ListItemButton>
 
-                <List
-                  sx={{ width: '100%'}}
-                  component="nav"
-                  aria-labelledby="nested-list-subheader"
-                  className="work-drive-page_sidebar_actions-section_drive-actions"
-                >
-                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
-                    <ListItemIcon>
-                      <StarBorderOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Favorite" />
-                  </ListItemButton>
+                    <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
+                      <ListItemIcon>
+                        <AccessTimeOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Recent" />
+                    </ListItemButton>
 
-                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
-                    <ListItemIcon>
-                      <AccessTimeOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Recent" />
-                  </ListItemButton>
+                    <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
+                      <ListItemIcon>
+                        <ShareOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Shared" />
+                    </ListItemButton>
 
-                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
-                    <ListItemIcon>
-                      <ShareOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Shared" />
-                  </ListItemButton>
-
-                  <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
-                    <ListItemIcon>
-                      <DeleteOutlineOutlinedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Trash" />
-                  </ListItemButton>
-                </List>
+                    <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
+                      <ListItemIcon>
+                        <DeleteOutlineOutlinedIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Trash" />
+                    </ListItemButton>
+                  </List>
                 </div>
               </div>
 
