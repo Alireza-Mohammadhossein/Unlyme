@@ -85,8 +85,19 @@ const HeaderEmailPopup = () => {
   const [showMail, setShowMail] = useState(false);
   const handleShowMail = (event, newShowMail) => {
     setShowMail(newShowMail);
+    setNewMailToggler(false)
     dispatch(toggleSecondPopupTab())
   };
+
+
+  // start create new mail
+  const [newMailToggler, setNewMailToggler] = useState(false);
+  const handleCreateMail = () => {
+    setNewMailToggler(true);
+    setShowMail(false);
+    dispatch(toggleSecondPopupTab())
+  }
+  // end create new mail
 
 
  
@@ -99,7 +110,7 @@ const HeaderEmailPopup = () => {
               <p className='email-popup-list__header-title'>{t('EMAIL_POPUP.TITLE')}</p>
 
               {
-                showMail === false ? 
+                showMail === false && newMailToggler === false? 
                   <div className='email-popup-list__header-actions'>
                     <div className='email-popup-list__header-actions_close'>
                       <IconButton
@@ -125,7 +136,7 @@ const HeaderEmailPopup = () => {
 
         <div className='email-popup-list__body'>
           <div className='email-popup-list__body-create'>
-              <Button variant="outlined" startIcon={<AddIcon />} className='email-popup-list__body-create_btn'>
+              <Button variant="outlined" startIcon={<AddIcon />} className='email-popup-list__body-create_btn' onClick={handleCreateMail}>
                   {t("EMAIL_POPUP.NEW_EMAIL")}
               </Button>
           </div>
@@ -298,6 +309,117 @@ const HeaderEmailPopup = () => {
             </TabPanel>
         ))}
   
+        </div>
+        : 
+          ''
+      }
+
+
+      {newMailToggler !== false
+        ? 
+        <div className='email-popup-messages'>
+          <div value={newMailToggler} className='email-popup-messages-tabpanel'>
+            <div className='email-popup-messages__header'>
+              <div className='email-popup-messages__header-info'>
+                {/* <img src={email.logo} alt={email.title} className='email-popup-messages__header-info_img' /> */}
+
+                <p className='email-popup-messages__header-info_name'>New email</p>
+              </div>
+
+              <div className='email-popup-messages__header-actions'>
+                <div className='email-popup-messages__header-actions_more'>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreHorizIcon sx={{ color: '#000000' }} />
+                  </IconButton>
+
+                  <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                      "aria-labelledby": "long-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    disableScrollLock = {true}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: "20ch",
+                      },
+                    }}
+                  >
+                    {options.map((option) => (
+                      <MenuItem
+                        key={option}
+                        selected={option === "Pyxis"}
+                        onClick={handleClose}
+                      >
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
+                
+                <div className='email-popup-messages__header-actions_close'>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={() => {
+                      setNewMailToggler(false)
+                      dispatch(toggleSecondPopupTab(false))
+                    }}
+                  >
+                    <CloseIcon  sx={{ color: '#000000' }}/>
+                  </IconButton>
+
+                </div>
+              </div>
+            </div>
+
+            <div className='email-popup-messages__body'>
+              <div className='email-popup-messages__body-single-mail'>
+                <div className='email-popup-messages__body-single-mail__header'>
+                    <div className='email-popup-messages__body-single-mail__header-content'>
+                        <div className='email-popup-messages__body-single-mail__header-content-icon'>
+                          <Avatar className='email-popup-messages__body-single-mail__header-content-icon-name'>
+                            {/* {email.from[0]} */}
+                            A
+                          </Avatar>
+                        </div>
+                        
+                        <div className='email-popup-messages__body-single-mail__header-content-info'>
+                            <p className='email-popup-messages__body-single-mail__header-content-info_title'>title</p>
+                            <p className='email-popup-messages__body-single-mail__header-content-info_from'>From: </p>
+                            <p className='email-popup-messages__body-single-mail__header-content-info_to'>To: </p>
+                        </div>
+                    </div>
+                </div>
+
+          
+                <div className='email-popup-messages__body-single-mail__content'>
+                    <div className='email-popup-messages__body-single-mail__content-subject'>
+                        <p>
+                            <b>Subject: </b>
+                        </p>
+                    </div>
+                    
+                    <div className='email-popup-messages__body-single-mail__content-message'>
+                        <p>Message</p>
+                    </div>
+                </div>
+              </div>
+            </div>  
+          </div>
         </div>
         : 
           ''

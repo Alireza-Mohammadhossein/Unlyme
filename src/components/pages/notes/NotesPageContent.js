@@ -14,6 +14,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import trashIcon from "../../../assets/images/notepage/new/trash.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupSlice';
 
@@ -248,7 +249,9 @@ function TabPanel(props) {
                                 aria-haspopup="true"
                                 onClick={() => handleDeleteNote(index)}
                               >
-                                <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+                                <img src={trashIcon} />
+
+                                {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
                               </IconButton>
                             </div>
                           </div>

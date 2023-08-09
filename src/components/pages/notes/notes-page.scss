@@ -268,18 +268,43 @@
                 border: unset;
             }
         }
+        
+        &-right {
+            margin-right: 60px;
+            height: 40px;
 
-        &.left {
-            text-align: left;
+            &-btns {
+                height: 100%;
+
+                .MuiButtonGroup-root {
+                    height: 100%;
+                    gap: 15px;
+                    
+                    .MuiButtonBase-root {
+                        width: 40px;
+                        height: 40px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
         }
-        
-        &.center {
-            text-align: center;
+
+        &-left {
+            height: 40px;
+            margin-right: 218px;
+
+            .MuiButtonGroup-root {
+                height: 100%;
+                gap: 15px;
+
+                .MuiButtonBase-root {
+                    width: 40px;
+                    height: 40px;
+                    box-sizing: border-box;
+                }
+            }
         }
-        
-        &.right {
-            text-align: right;
-        }
+
     }
 
     &_close {
@@ -289,7 +314,12 @@
     &_search {
         // display: flex;
         // gap: 5px;
-        flex: 1;
+        // flex: 1;
+        width: 276px;
+
+        &_wrapper {
+            display: flex;
+        }
 
         .MuiFormControl-root {
             width: 100%;

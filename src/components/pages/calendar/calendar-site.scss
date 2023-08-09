@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        padding-top: 56px;
 
         &_create-event {
             &_btn.MuiButtonBase-root {
@@ -39,6 +40,8 @@
 
         &-section {
             &_filter {
+                margin-top: 28px;
+
                 & .MuiFormControlLabel-root {
                     margin: 0;
                 }
@@ -46,11 +49,16 @@
                 & .MuiFormControlLabel-root:not(:last-child) {
                     border-bottom: 1px solid #D2D2D2;
                 }
-                
 
                 & .MuiTypography-root {
                     color: #333333;
                 }
+            }
+
+            &_add-btn.MuiButtonBase-root {
+                text-transform: none;
+                font-size: 15px;
+                margin-top: 10px;
             }
         }
     }
@@ -298,6 +306,12 @@
 
                                     .fc-timegrid-slots {
                                         table tbody {
+
+                                            tr {
+                                                td:first-child {
+                                                    border: unset;
+                                                }
+                                            }
 
                                             tr:nth-child(odd) {
                                                 td:first-child {

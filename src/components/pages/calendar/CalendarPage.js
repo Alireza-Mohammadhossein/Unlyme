@@ -29,6 +29,7 @@ function CalendarPageContent() {
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
+
   const [weekendsVisible, setWeekendsVisible] = useState(true);
   const [currentEvents, setCurrentEvents] = useState([]);
 
@@ -113,7 +114,9 @@ function CalendarPageContent() {
       <Grid container spacing={3} height='100%'>
         <Grid 
           item 
-          xl={secondPopupTab ? 4 : 2}
+          xl={
+              firstPopupTab && !secondPopupTab ? 3
+             : (firstPopupTab && secondPopupTab) ? 4 : 2}
           lg={secondPopupTab ? 4 : 3}
           md={secondPopupTab ? 4 : 3} 
           xs={12}
@@ -162,6 +165,10 @@ function CalendarPageContent() {
                 ))}
               </FormGroup>
 
+              <Button startIcon={<AddIcon />} className='calendar-page_sidebar-section_add-btn'>
+                Add calendar
+              </Button>
+
               {/* <h2>All Events ({currentEvents.length})</h2> */}
               {/* <ul>{currentEvents.map(renderSidebarEvent)}</ul> */}
             </div>
@@ -170,7 +177,8 @@ function CalendarPageContent() {
 
         <Grid
           item
-          xl={secondPopupTab ? 8 : 10}
+          xl={firstPopupTab && !secondPopupTab ? 9 
+              : firstPopupTab && secondPopupTab ? 8 : 10}
           lg={secondPopupTab ? 8 : 9}
           md={secondPopupTab ? 8 : 9}
           xs={12}
@@ -180,7 +188,8 @@ function CalendarPageContent() {
               <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
                 headerToolbar={{
-                  left: 'prev title next today',
+                  // left: 'prev title next today',
+                  left: 'prev title next',
                   center: '',
                   right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
                 }}
@@ -204,13 +213,9 @@ function CalendarPageContent() {
                   //     hour12: false
                   //   }
                   // },
-                  // timeGridDay: {
-                  //   slotLabelFormat: {
-                  //     hour: "2-digit", 
-                  //     minute: "2-digit", 
-                  //     hour12: false
-                  //   }
-                  // }
+                  timeGridDay: {
+                    titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
+                  }
                 }}
                 slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
                 eventTimeFormat={{

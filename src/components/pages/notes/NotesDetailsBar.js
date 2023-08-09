@@ -19,6 +19,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
 
+import aaIcon from "../../../assets/images/notepage/new/Aa.svg";
+import bulletIcon from "../../../assets/images/notepage/new/bullet-list.svg";
+import copyIcon from "../../../assets/images/notepage/new/copy.svg";
+import gridIcon from "../../../assets/images/notepage/new/grid-view.svg";
+import listIcon from "../../../assets/images/notepage/new/list-view.svg";
+import lockIcon from "../../../assets/images/notepage/new/lock.svg";
+import shareIcon from "../../../assets/images/notepage/new/share.svg";
+import tableIcon from "../../../assets/images/notepage/new/table.svg";
+import trashIcon from "../../../assets/images/notepage/new/trash.svg";
+
+
 
 
 
@@ -45,87 +56,72 @@ const NotesDetailsBar = ({ setSearchNote }) => {
     
     return (
         <Grid container spacing={2}>
+            {/* <Grid item lg={2} md={6} xs={12}>
+  
+            </Grid> */}
 
+            {/* <Grid item lg={6} md={6} xs={12}>
 
-            <Grid item lg={2} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions left'>
-                    <ToggleButtonGroup
-                        value={viewMode}
-                        exclusive
-                        onChange={handleViewMode}
-                        aria-label="text alignment"
-                        className='cloud-page__header_notes-details_actions_toggler'
-                    >
-                        <ToggleButton value="list" aria-label="list view">
-                            {/* <img src={listView} /> */}
-                            <FormatListBulletedOutlinedIcon />
-                        </ToggleButton>
-                        <ToggleButton value="grid" aria-label="grid view">
-                            {/* <img src={gridView} /> */}
-                            <GridViewOutlinedIcon />
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                </div>
-            </Grid>
-
-            <Grid item lg={2} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions center'>
+            </Grid> */}
+            
+            <Grid item lg={12} md={12} xs={12} sx={{display: 'flex', justifyContent: 'end'}}>
+                <div className='cloud-page__header_notes-details_actions-left'>
                     <ButtonGroup variant="outlined" aria-label="text formatting">
                         <IconButton value="bold" aria-label="bold">
-                            {/* <img src={boldFormat} /> */}
-                            <TextFieldsOutlinedIcon />
+                            <img src={aaIcon} />
+                            {/* <TextFieldsOutlinedIcon /> */}
                         </IconButton>
                         <IconButton value="bullet" aria-label="bullet">
-                            {/* <img src={bulletFormat} /> */}
-                            <ChecklistOutlinedIcon />
+                            <img src={bulletIcon} />
+                            {/* <ChecklistOutlinedIcon /> */}
                         </IconButton>
                         <IconButton value="table" aria-label="table">
-                            {/* <img src={tableFormat} /> */}
-                            <TableChartOutlinedIcon />
+                            <img src={tableIcon} />
+                            {/* <TableChartOutlinedIcon /> */}
                         </IconButton>
                     </ButtonGroup>
-                </div>
-            </Grid>
-            
-            <Grid item lg={3} md={6} xs={12}>
-                <div className='cloud-page__header_notes-details_actions center'>
-                    <ButtonGroup variant="outlined" aria-label="actions">
-                        <IconButton value="bold" aria-label="bold">
-                            {/* <img src={imageFormat} /> */}
-                            <InsertPhotoOutlinedIcon />
-                        </IconButton>
-                        <IconButton value="bullet" aria-label="bullet">
-                            {/* <img src={lockFormat} /> */}
-                            <LockOutlinedIcon />
-                        </IconButton>
-                        <IconButton value="table" aria-label="table">
-                            {/* <img src={shareFormat} /> */}
-                            <IosShareOutlinedIcon />
-                        </IconButton>
-                    </ButtonGroup>
-                </div>
-            </Grid>
-
-            <Grid item lg={5} md={6} xs={12} sx={{display: 'flex'}}>
-                <div className='cloud-page__header_notes-details_search'>
-                    <FormControl>
-                        <div className="cloud-page__header_notes-details_search_container">
-                            <label><img src={search} /></label>
-                            <input
-                              className="cloud-page__header_notes-details_search-input"
-                              onChange={(e) => setSearchNote(e.target.value)}
-                              placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
-                            />
-                        </div>
-                    </FormControl>
                 </div>
 
-                <div className='cloud-page__header_notes-details_close'>
-                    <ButtonGroup variant="outlined" aria-label="actions">
-                        <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
-                            <CloseIcon />
-                        </IconButton>
-                    </ButtonGroup>
+                <div className='cloud-page__header_notes-details_actions-right'>
+                    <div className='cloud-page__header_notes-details_actions-right-btns'>
+                        <ButtonGroup variant="outlined" aria-label="actions">
+                            <IconButton value="bold" aria-label="bold">
+                                <img src={copyIcon} />
+                                {/* <InsertPhotoOutlinedIcon /> */}
+                            </IconButton>
+                            <IconButton value="bullet" aria-label="bullet">
+                                <img src={lockIcon} />
+                                {/* <LockOutlinedIcon /> */}
+                            </IconButton>
+                            <IconButton value="table" aria-label="table">
+                                <img src={shareIcon} />
+                                {/* <IosShareOutlinedIcon /> */}
+                            </IconButton>
+                        </ButtonGroup>
+                    </div>
+                </div>
+
+                <div className='cloud-page__header_notes-details_search_wrapper'>
+                    <div className='cloud-page__header_notes-details_search'>
+                        <FormControl>
+                            <div className="cloud-page__header_notes-details_search_container">
+                                <label><img src={search} /></label>
+                                <input
+                                  className="cloud-page__header_notes-details_search-input"
+                                  onChange={(e) => setSearchNote(e.target.value)}
+                                  placeholder={t('NOTES_PAGE.SEARCH_PLACEHOLDER')}
+                                />
+                            </div>
+                        </FormControl>
+                    </div>
+
+                    <div className='cloud-page__header_notes-details_close'>
+                        <ButtonGroup variant="outlined" aria-label="actions">
+                            <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+                                <CloseIcon />
+                            </IconButton>
+                        </ButtonGroup>
+                    </div>
                 </div>
             </Grid>
         </Grid>

@@ -7,6 +7,7 @@ import WorkDriveDetailsBar from './WorkDriveDetailsBar';
 import WorkDriveContent from './WorkDriveContent'
 import { setChonkyDefaults } from 'chonky';
 import { ChonkyIconFA } from 'chonky-icon-fontawesome';
+import { useSelector, useDispatch } from "react-redux";
 import DemoFsMap from './demoApi.json';
 import {
   ChonkyActions,
@@ -81,6 +82,8 @@ export const useFileActionHandler = (setCurrentFolderId) => {
 
 const WorkDrivePage = () => {
   const { t, i18n } = useTranslation();
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
 
   setChonkyDefaults({
     iconComponent: ChonkyIconFA,
@@ -235,7 +238,7 @@ const WorkDrivePage = () => {
             <Grid container spacing={2}>  
               <Grid
                 item
-                xl={2}
+                xl={secondPopupTab ? 3 : 2}
                 lg={3}
                 md={3}
                 xs={12}
@@ -251,7 +254,7 @@ const WorkDrivePage = () => {
               </Grid>
               <Grid
                 item
-                xl={10}
+                xl={secondPopupTab ? 9 : 10}
                 lg={9}
                 md={9}
                 xs={12}
