@@ -221,6 +221,11 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                   rowCount={visibleRows.length}
                   setSearchText={setSearchText}
                   sortByDateHandler={sortByDateHandler}
+                  emails={emails}
+                  rowsPerPage={rowsPerPage}
+                  handleChangePage={handleChangePage}
+                  handleChangeRowsPerPage={handleChangeRowsPerPage}
+                  page={page}
                 />
 
                 <TableBody>

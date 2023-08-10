@@ -108,7 +108,7 @@ return (
 
       <TableCell padding="checkbox" className='email-header_selected'>
         {numSelected > 0 ?
-            <div>
+          <div style={{borderRight: '1px solid rgba(224, 224, 224, 1)'}}>
             <IconButton
               aria-label="more"
               id="long-button"
@@ -151,6 +151,23 @@ return (
           ''
         }
       </TableCell>
+
+
+      {/* <TableCell padding="checkbox" className='email-header_selected'>
+        <TablePagination
+          // rowsPerPageOptions={[20, 50, 100]}
+          rowsPerPageOptions={[]}
+          component="div"
+          count={emails.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          // onRowsPerPageChange={handleChangeRowsPerPage}
+          labelDisplayedRows = {function defaultLabelDisplayedRows({ from, to, count }) { return `${from}–${to} of ${count !== -1 ? count : `more than ${to}`}`; }}
+          
+          
+        />
+      </TableCell> */}
 
 
       

@@ -8,15 +8,21 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 100px;
+        margin-bottom: 67px;
 
         &-content {
             display: flex;
             flex-direction: row;
+            gap: 12px;
 
             &-icon {
                 width: 50px;
                 height: 50px;
+
+                .MuiAvatar-root {
+                    width: 100%;
+                    height: 100%;
+                }
             }
     
             &-info {
@@ -50,6 +56,8 @@
     }
 
     &__content {
+        padding-right: 15px;
+
         &-subject {
             font-size: 15px;
             color: #000000;

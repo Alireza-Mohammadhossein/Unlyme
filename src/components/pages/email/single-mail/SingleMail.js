@@ -16,7 +16,7 @@ const SingleMail = ({userIcon, mailFrom, mailTo, mailSubject, mailTitle, mailMes
                         {userIcon ? 
                             <Avatar alt={mailTitle} src={userIcon} />
                         : 
-                            <Avatar src={AccountCircleIcon} sx={{ backgroundColor: '#E0EFFF', color: '#4382C4'}} />
+                            <Avatar sx={{ backgroundColor: '#E0EFFF', color: '#4382C4', fontSize: '24px'}}>PT</Avatar>
                         }
                     </div>
                     

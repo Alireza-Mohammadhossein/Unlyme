@@ -236,6 +236,7 @@
                         vertical-align: middle;
                         width: 20px;
                         height: auto;
+                        padding-bottom: 2px;
                     }
 
                     .star-icon {
@@ -255,7 +256,7 @@
                         & > div {
                             height: 100%;
                             box-sizing: border-box;
-                            padding-top: 12px;
+                            padding-top: 10px;
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
@@ -329,6 +330,13 @@
         &_selected {
             font-size: 15px;
             text-align: left;
+            padding-bottom: 5px;
+
+            & .MuiTablePagination-root {
+                .MuiToolbar-root {
+                    padding-left: 0;
+                }
+            } 
         }
     }
 }
