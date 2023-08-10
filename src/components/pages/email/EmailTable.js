@@ -17,6 +17,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import EmailTableHead from './EmailTableHead';
 import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import inboxGrayIcon from '../../../assets/images/email/inbox-gray.svg'
 import { useCallback } from 'react';
 
 
@@ -277,7 +278,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                           align="center"
                           sx={{ cursor: 'pointer',width: '5%', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
-                          <img src={row.starred ? activeStar : star} />
+                          <img src={row.starred ? activeStar : star} className='star-icon'/>
                         </TableCell>
                         
                         <TableCell
@@ -291,19 +292,12 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                           align="left"
                           sx={{ cursor: 'pointer',width: '40%', maxWidth: 150, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
                         >
-                          <div
-                            style={{
-                              height: '36px',
-                              whiteSpace: 'nowrap',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                            }}
-                          >
+                          <div>
                             {
                               row.unread ?
-                                <MailOutlinedIcon className='read-icon' />
+                                <img src={inboxGrayIcon} className='read-icon' />
                               :
-                                <DraftsOutlinedIcon className='read-icon' />
+                                <img src={inboxGrayIcon} className='read-icon' />
                             }
 
                             {row.message}

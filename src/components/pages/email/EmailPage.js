@@ -29,6 +29,14 @@ import LinearProgress from '@mui/material/LinearProgress';
 import IconButton from '@mui/material/IconButton';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
+import inboxIcon from '../../../assets/images/email/inbox.svg';
+import draftIcon from '../../../assets/images/email/draft.svg';
+import sentIcon from '../../../assets/images/email/sent.svg';
+import starIcon from '../../../assets/images/email/star.svg';
+import arrowIcon from '../../../assets/images/email/arrow.svg';
+import plusIcon from '../../../assets/images/email/plus.svg';
+import settingIcon from '../../../assets/images/email/settings.svg';
+
 
 
 
@@ -197,10 +205,10 @@ function EmailPageContent() {
                                     {item.title}
                                   </Button> */}
                                   {
-                                    item.title === 'Inbox' ? <InboxOutlinedIcon/> :
-                                    item.title === 'Drafts' ? <FeedOutlinedIcon /> :
-                                    item.title === 'Sent' ? <SendOutlinedIcon /> :
-                                    <StarBorderOutlinedIcon />
+                                    item.title === 'Inbox' ? <img src={inboxIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+                                    item.title === 'Drafts' ? <img src={draftIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+                                    item.title === 'Sent' ? <img src={sentIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+                                    <img src={starIcon} />
                                   }
                                    {/* <InboxOutlinedIcon/> */}
                                     {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar_actions-section_category-item_content-icon' /> */}
@@ -225,7 +233,7 @@ function EmailPageContent() {
                       <TreeView
                         aria-label="file system navigator"
                         defaultCollapseIcon={<ExpandMoreIcon />}
-                        defaultExpandIcon={<ChevronRightIcon />}
+                        defaultExpandIcon={<img src={arrowIcon} />}
                         className="email-page_sidebar_actions-section_category-tree"
                       >
                         <TreeItem
@@ -259,7 +267,7 @@ function EmailPageContent() {
                       <TreeView
                         aria-label="file system navigator"
                         defaultCollapseIcon={<ExpandMoreIcon />}
-                        defaultExpandIcon={<ChevronRightIcon />}
+                        defaultExpandIcon={<img src={arrowIcon} />}
                         className="email-page_sidebar_actions-section_category-tree"
                       >
                         <TreeItem
@@ -271,12 +279,13 @@ function EmailPageContent() {
                               </ListItemIcon> */}
                               <ListItemText primary="Folders" />
                               
+
                               <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
-                                <AddIcon />
+                                <img src={plusIcon}/>
                               </IconButton>
 
                               <IconButton aria-label="setting" onClick={(e) => e.stopPropagation()}>
-                                <SettingsOutlinedIcon />
+                                <img src={settingIcon}/>
                               </IconButton>
                             </div>
                           }
@@ -301,7 +310,7 @@ function EmailPageContent() {
                       <TreeView
                         aria-label="file system navigator"
                         defaultCollapseIcon={<ExpandMoreIcon />}
-                        defaultExpandIcon={<ChevronRightIcon />}
+                        defaultExpandIcon={<img src={arrowIcon} />}
                         className="email-page_sidebar_actions-section_category-tree"
                       >
                         <TreeItem
@@ -314,11 +323,11 @@ function EmailPageContent() {
                               <ListItemText primary="Labels" />
                               
                               <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
-                                <AddIcon />
+                                <img src={plusIcon}/>
                               </IconButton>
 
                               <IconButton aria-label="setting" onClick={(e) => e.stopPropagation()}>
-                                <SettingsOutlinedIcon />
+                                <img src={settingIcon}/>
                               </IconButton>
                             </div>
                           }

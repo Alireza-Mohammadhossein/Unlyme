@@ -30,6 +30,8 @@
         &_actions {
             &_create-event {
                 &_btn.MuiButtonBase-root {
+                  font-size: 16px;
+                  font-weight: 400;
                   background-color: $blue;
                   width: 100%;
                   padding: 10px;
@@ -74,7 +76,7 @@
                         &.Mui-selected {
                             background-color: #4382C41A;
     
-                            .email-page_sidebar-section_category-item_content-title {
+                            .email-page_sidebar_actions-section_category-item_content-title {
                                 font-weight: bold;
                             }
                             .MuiSvgIcon-root {
@@ -88,8 +90,8 @@
                             align-items: center;
     
                             &-icon {
-                                width: 20px;
-                                height: 20px;
+                                width: 16px;
+                                height: 16px;
                             }
     
                             &-title {
@@ -107,6 +109,11 @@
                             border-radius: 5px;
                             padding: 4px 8px;
                             color: white;
+
+                            p {
+                                font-size: 13px;
+                                font-weight: 500;
+                            }
                         }
                     }
     
@@ -121,7 +128,7 @@
                         & .MuiTreeItem-content {
                             box-sizing: border-box;
                             border-radius: 8px;
-                            padding-left: 15px;
+                            padding-left: 12px;
     
                             // &.Mui-selected {
                             //     background-color: unset;
@@ -136,6 +143,11 @@
                                     font-size: 23px;
                                 }
                             }
+
+                            img {
+                                width: 10px;
+                                height: 13px;
+                            }
                         } 
     
                         &_item {
@@ -145,6 +157,13 @@
             
                             & .MuiListItemIcon-root {
                                 min-width: 30px;
+                            }
+
+                            & .MuiButtonBase-root {
+                                img {
+                                    width: 16px;
+                                    height: 16px;
+                                }
                             }
                         }
                     }
@@ -215,6 +234,13 @@
                 .MuiTableCell-root {
                     img {
                         vertical-align: middle;
+                        width: 20px;
+                        height: auto;
+                    }
+
+                    .star-icon {
+                        width: 18px;
+                        height: 18px;
                     }
                 } 
 
@@ -223,6 +249,21 @@
 
                     td {
                         position: relative;
+                        font-size: 13px;
+                        color: #333333;
+
+                        & > div {
+                            height: 100%;
+                            box-sizing: border-box;
+                            padding-top: 12px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            
+                            & img {
+                                margin-right: 5px;
+                            }
+                        }
 
                         .MuiSvgIcon-root.read-icon {
                             color: #4141418f;
@@ -376,11 +417,13 @@
             flex-grow: 1;
             flex-shrink: 1;
             line-height: 11px;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: capitalize;
 
             .MuiButton-startIcon  {
                 background-color: #E9F0F7;
-                font-size: 11px;
+                font-size: 13px;
                 width: 17px;
                 height: 17px;
                 text-align: center;

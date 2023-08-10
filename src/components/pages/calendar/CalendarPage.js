@@ -19,6 +19,9 @@ import Checkbox from '@mui/material/Checkbox';
 import './calendar-site.scss';
 import { Calendar_page_current_events } from '../../../mocks/mocks';
 import { useSelector} from 'react-redux';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 
 
 
@@ -152,6 +155,9 @@ function CalendarPageContent() {
               <Calendar
                 onChange={onChangeDate}
                 value={date}
+                nextLabel= {<ArrowForwardIosIcon />}
+                prevLabel= {<ArrowBackIosNewIcon />}
+                formatShortWeekday={(locale, date) => [ `S`, `M`, `T`, `W`, `T`, `F`, `S` ][date.getDay()]}
               />
 
             </div>
@@ -206,17 +212,16 @@ function CalendarPageContent() {
                     // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
                     // other view-specific options here
                   },
-                  // timeGridWeek: {
-                  //   slotLabelFormat: {
-                  //     hour: "2-digit", 
-                  //     minute: "2-digit", 
-                  //     hour12: false
-                  //   }
-                  // },
+
                   timeGridDay: {
                     titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
+                  },
+
+                  timeGridWeek: {
+                    titleFormat: {year: 'numeric', month: 'long'},
                   }
                 }}
+                
                 slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
                 eventTimeFormat={{
                   hour: '2-digit',

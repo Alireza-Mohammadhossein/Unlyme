@@ -118,7 +118,7 @@ import {
 
                   <Button
                     // variant="outlined"
-                    startIcon={<AddIcon />}
+                    // startIcon={<AddIcon />}
                     className="work-drive-page_sidebar_actions_create-event_btn"
                     aria-label="more"
                     id="long-button"

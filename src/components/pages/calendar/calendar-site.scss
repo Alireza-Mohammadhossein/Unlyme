@@ -24,6 +24,7 @@
 
         &_create-event {
             &_btn.MuiButtonBase-root {
+              font-size: 16px;
               background-color: $blue;
               width: 100%;
               padding: 10px;
@@ -52,12 +53,13 @@
 
                 & .MuiTypography-root {
                     color: #333333;
+                    font-size: 13px;
                 }
             }
 
             &_add-btn.MuiButtonBase-root {
                 text-transform: none;
-                font-size: 15px;
+                font-size: 13px;
                 margin-top: 10px;
             }
         }
@@ -159,6 +161,10 @@
                         border: unset;
     
                         & .fc-scroller {
+
+                            & .fc-timegrid-axis {
+                                border-right: unset;
+                            }
     
                             & .fc-col-header-cell {
                                 border-left: unset;
@@ -170,6 +176,7 @@
                                     .fc-col-header-cell-cushion {
                                         color: #333333;
                                         font-size: 13px;
+                                        font-weight: 500;
                                     } 
                                 }
                             }
@@ -252,7 +259,8 @@
                                 border-color: #AB9BCD;
 
                                 .fc-event-main {
-                                    padding: 8px 5px;
+                                    font-size: 13px;
+                                    padding: 9px 5px;
                                     text-align: left;
                                     color: #fff;
                                     white-space: nowrap;
@@ -317,11 +325,13 @@
                                                 td:first-child {
                                                     .fc-timegrid-slot-label-frame {
                                                         position: relative;
+                                                        text-align: center;
 
                                                         .fc-timegrid-slot-label-cushion {
-                                                            position: absolute;
-                                                            left: 0;
-                                                            top: 5px;
+                                                            font-size: 13px;
+                                                            color: #333;
+                                                            position: relative;
+                                                            top: 10px;
                                                         }
                                                     }
                                                 }
