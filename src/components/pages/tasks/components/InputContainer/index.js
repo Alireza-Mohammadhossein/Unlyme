@@ -43,7 +43,7 @@ export default function InputContainer({ listId, type }) {
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddListModal}
                 >
-                  Add list
+                  Backlog
                 </Button>
             }
         </div>

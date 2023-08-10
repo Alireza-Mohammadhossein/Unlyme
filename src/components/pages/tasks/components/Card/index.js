@@ -15,6 +15,9 @@ import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import dayjs from 'dayjs';
 import Comments from "../Comments/Comments";
+import fileIcon from '../../../../../assets/images/tasks/file.svg';
+import settingIcon from '../../../../../assets/images/tasks/message.svg';
+import messageIcon from '../../../../../assets/images/tasks/settings.svg';
 
 
 
@@ -163,19 +166,24 @@ export default function Card({ card, index, listId }) {
                 <div className="card-content_details-buttons">
                   <div className="card-content_details-buttons-files">
                     <IconButton aria-label="files" onClick={handleDownloadClick}>
-                      <InsertDriveFileOutlinedIcon />
+                      <img src={fileIcon} />
+                      {/* <InsertDriveFileOutlinedIcon /> */}
                     </IconButton>
                     {card.files ? card.files.length : '0'}
                   </div>
                   <div className="card-content_details-buttons-comments">
                     <IconButton aria-label="comments" aria-describedby={idComments} onClick={handleOpenComments}>
-                      <ChatBubbleOutlineOutlinedIcon />
+                      <img src={settingIcon} />
+                       
+                      {/* <ChatBubbleOutlineOutlinedIcon /> */}
                     </IconButton>
                     {card.comments ? card.comments.length : '0'}
                   </div>
                   <div className="card-content_details-buttons-setting">
                     <IconButton aria-label="setting" onClick={handleOpenSetting}>
-                      <SettingsOutlinedIcon />
+                      <img src={messageIcon} />
+                      
+                      {/* <SettingsOutlinedIcon /> */}
                     </IconButton>
 
                     <Menu

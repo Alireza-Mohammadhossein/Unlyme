@@ -134,11 +134,11 @@
               
                 .editable-title {
                   // height: 1.7rem;
-                  color: #000;
+                  color: #333;
               
                   flex-grow: 1;
-                  font-size: 16px;
-                  font-weight: 600;
+                  font-size: 15px;
+                  font-weight: 400;
 
                   margin-bottom: 0;
                   padding: 7px 0;
@@ -265,6 +265,8 @@
                       padding: 0.7rem 0.5rem 0.5rem;
 
                       &-title {
+                        font-size: 13px;
+                        color: #333;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -467,13 +469,13 @@
                 width: 100%;
                 padding: 10px;
                 text-align: center;
-                color: #000;
+                color: #333;
                 border-radius: 8px;
                 text-transform: none;
 
                 .MuiSvgIcon-root {
                   font-size: 16px;
-                  border: 1px solid #000;
+                  border: 1px solid #333;
                   border-radius: 50%;
                 }
               }
@@ -481,10 +483,11 @@
               .add-backlog-btn.list.MuiButtonBase-root {
                 // background-color: #3089dc;
                 background-color: transparent;
+                color: #333;
                 width: auto;
                 text-align: left;
-                font-size: 16px;
-                font-weight: 600;
+                font-size: 15px;
+                font-weight: 400;
                 height: 100%;
               }
 
@@ -742,21 +745,21 @@
         padding-top: 5px;
 
         &-name {
-          font-size: 14px;
-          font-weight: 600;
-          color: #000;
+          font-size: 15px;
+          font-weight: 400;
+          color: #333;
           text-transform: capitalize;
         }
 
         &-date {
-          font-size: 14px;
+          font-size: 13px;
           color: #BBBBBB;
         }
       }
 
       &-text {
-        font-size: 14px;
-        color: #000;
+        font-size: 13px;
+        color: #333;
         line-height: 21px;
         word-break: break-all;
       }
