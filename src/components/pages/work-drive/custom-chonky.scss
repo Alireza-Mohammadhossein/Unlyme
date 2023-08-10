@@ -25,7 +25,7 @@
             justify-content: space-between;
 
             & .MuiButton-root {
-                color: #555555 !important;
+                color: #727272 !important;
                 padding: 0px 15px;
             }
 
@@ -90,6 +90,23 @@
                     }
                 }
             }
+
+            & .chonky-toolbarRight {
+                button:nth-child(1) {
+                    display: none;
+                }
+
+                button:nth-child(4) {
+                    display: none;
+                }
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    stroke: #fff;
+                    stroke-width: 15px;
+                }
+            }
         }
 
 
@@ -100,7 +117,7 @@
             color: #555555 !important;
 
             &.Mui-disabled {
-                color: rgba(0, 0, 0, 0.4) !important;
+                color: #ADABA8 !important;
             }
         }
 
@@ -131,7 +148,7 @@
                     border: 1px solid #F2F2F2;
                     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
                     border-radius: 8px;
-                    padding: 15px;
+                    padding: 10px 15px;
                     box-sizing: border-box;
                     justify-content: space-around;
                     cursor: pointer;
@@ -181,11 +198,15 @@
                 & [class^="gridFileEntryNameContainer-"] {
                     text-align: left;
                     white-space: nowrap;
-                    overflow: hidden;
+                    overflow-x: hidden;
                     text-overflow: ellipsis;
+                    color: #333333;
+                    padding-top: 0;
+                    height: 18px;
 
                     & span {
                         padding: 0 !important;
+                        color: #333333;
                     }
                 }
             }
@@ -201,7 +222,7 @@
                 overflow: auto;
 
                 & div:not([class]) {
-                    height: 50px !important;
+                    height: 45px !important;
                     position: relative !important;
                     top: 0 !important;
                 }

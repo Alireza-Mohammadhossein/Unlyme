@@ -309,10 +309,11 @@
                     }
                 }
 
-                .MuiTableRow-root:first-child {
-                    background-color: #ffffff;
+                .email-header {
+                    .MuiTableRow-root:first-child {
+                        background-color: #ffffff;
+                    }
                 }
-
 
             }
         }

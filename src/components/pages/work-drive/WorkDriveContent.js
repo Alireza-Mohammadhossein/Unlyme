@@ -26,6 +26,17 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { useSelector, useDispatch } from "react-redux";
 import LinearProgress from '@mui/material/LinearProgress';
+import folderGrayIcon from '../../../assets/images/work-drive/folder-gray.svg';
+import folderBlueIcon from '../../../assets/images/work-drive/folder-blue.svg';
+import starIcon from '../../../assets/images/work-drive/star.svg';
+import recentIcon from '../../../assets/images/work-drive/recent.svg';
+import shareIcon from '../../../assets/images/work-drive/share.svg';
+import trashIcon from '../../../assets/images/work-drive/trash.svg';
+import filePlusIcon from '../../../assets/images/work-drive/file-plus.svg';
+import folderPlusIcon from '../../../assets/images/work-drive/folder-plus.svg';
+import fileAddIcon from '../../../assets/images/work-drive/file-add.svg';
+import folderAddIcon from '../../../assets/images/work-drive/folder-add.svg';
+
 import {
   ChonkyActions,
   ChonkyFileActionData,
@@ -147,34 +158,40 @@ import {
                       >
 
                         <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                  <ListItemIcon>
-                                    <NoteAddOutlinedIcon sx={{ color: '#777777' }} />
-                                  </ListItemIcon>
-                                  <ListItemText primary="Add new file" />
+                          <ListItemIcon>
+                            <img src={filePlusIcon} />
+                            {/* <NoteAddOutlinedIcon sx={{ color: '#777777' }} /> */}
+                          </ListItemIcon>
+                          <ListItemText primary="Add new file" />
                         </MenuItem>
 
                         <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                  <ListItemIcon>
-                                    <CreateNewFolderOutlinedIcon sx={{ color: '#777777' }} />
-                                  </ListItemIcon>
-                                  <ListItemText primary="Add new folder" />
+                          <ListItemIcon>
+                            <img src={folderPlusIcon} />
+                            {/* <CreateNewFolderOutlinedIcon sx={{ color: '#777777' }} /> */}
+                          </ListItemIcon>
+                          <ListItemText primary="Add new folder" />
                         </MenuItem>
 
                         <Divider />
 
                         <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                  <ListItemIcon>
-                                    <UploadFileOutlinedIcon sx={{ color: '#777777' }} />
-                                  </ListItemIcon>
-                                  <ListItemText primary="Upload file" />
+                          <ListItemIcon>
+                            <img src={fileAddIcon} />
+
+                            {/* <UploadFileOutlinedIcon sx={{ color: '#777777' }} /> */}
+                          </ListItemIcon>
+                          <ListItemText primary="Upload file" />
                             
                         </MenuItem>
 
                         <MenuItem onClick={handleCloseAddNew} sx={{ padding: '10px 15px' }} >
-                                  <ListItemIcon>
-                                    <DriveFolderUploadOutlinedIcon sx={{ color: '#777777' }} />
-                                  </ListItemIcon>
-                                  <ListItemText primary="Upload folder" />
+                          <ListItemIcon>
+                            <img src={folderAddIcon} />
+
+                            {/* <DriveFolderUploadOutlinedIcon sx={{ color: '#777777' }} /> */}
+                          </ListItemIcon>
+                          <ListItemText primary="Upload folder" />
                         </MenuItem>
                   </Menu>
 
@@ -194,9 +211,11 @@ import {
                       label={
                         <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                           <ListItemIcon>
-                            <FolderOutlinedIcon />
+                            {/* <FolderOutlinedIcon /> */}
+                            <img src={folderGrayIcon} className="gray-icon"/>
+                            <img src={folderBlueIcon} className="blue-icon"/>
                           </ListItemIcon>
-                          <ListItemText primary="My files" />
+                          <ListItemText primary="My Files" />
                         </div>
                       }
                     >
@@ -205,7 +224,8 @@ import {
                         label={
                           <div  className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
-                              <FolderOutlinedIcon />
+                              <img src={folderGrayIcon} className="gray-icon"/>
+                              <img src={folderBlueIcon} className="blue-icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Documents" />
                           </div>
@@ -216,7 +236,8 @@ import {
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                               <ListItemIcon>
-                                <FolderOutlinedIcon />
+                                <img src={folderGrayIcon} className="gray-icon"/>
+                                <img src={folderBlueIcon} className="blue-icon"/>
                               </ListItemIcon>
                               <ListItemText primary="New Documents" />
                             </div>
@@ -229,7 +250,8 @@ import {
                         label={
                           <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
-                              <FolderOutlinedIcon />
+                              <img src={folderGrayIcon} className="gray-icon"/>
+                              <img src={folderBlueIcon} className="blue-icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Code" />
                           </div>
@@ -241,7 +263,8 @@ import {
                         label={
                           <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
-                              <FolderOutlinedIcon />
+                              <img src={folderGrayIcon} className="gray-icon"/>
+                              <img src={folderBlueIcon} className="blue-icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Photos" />
                           </div>
@@ -253,7 +276,8 @@ import {
                         label={
                           <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
-                              <FolderOutlinedIcon />
+                              <img src={folderGrayIcon} className="gray-icon"/>
+                              <img src={folderBlueIcon} className="blue-icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Musics" />
                           </div>
@@ -264,7 +288,8 @@ import {
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                               <ListItemIcon>
-                                <FolderOutlinedIcon />
+                                <img src={folderGrayIcon} className="gray-icon"/>
+                                <img src={folderBlueIcon} className="blue-icon"/>
                               </ListItemIcon>
                               <ListItemText primary="New Documents" />
                             </div>
@@ -277,7 +302,8 @@ import {
                         label={
                           <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                             <ListItemIcon>
-                              <FolderOutlinedIcon />
+                              <img src={folderGrayIcon} className="gray-icon"/>
+                              <img src={folderBlueIcon} className="blue-icon"/>
                             </ListItemIcon>
                             <ListItemText primary="Videos" />
                           </div>
@@ -288,7 +314,8 @@ import {
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
                               <ListItemIcon>
-                                <FolderOutlinedIcon />
+                                <img src={folderGrayIcon} className="gray-icon"/>
+                                <img src={folderBlueIcon} className="blue-icon"/>
                               </ListItemIcon>
                               <ListItemText primary="New Videos" />
                             </div>
@@ -307,28 +334,32 @@ import {
                   >
                     <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                       <ListItemIcon>
-                        <StarBorderOutlinedIcon />
+                        <img src={starIcon} />
+                        {/* <StarBorderOutlinedIcon /> */}
                       </ListItemIcon>
                       <ListItemText primary="Favorite" />
                     </ListItemButton>
 
                     <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                       <ListItemIcon>
-                        <AccessTimeOutlinedIcon />
+                        <img src={recentIcon} />
+                        {/* <AccessTimeOutlinedIcon /> */}
                       </ListItemIcon>
                       <ListItemText primary="Recent" />
                     </ListItemButton>
 
                     <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                       <ListItemIcon>
-                        <ShareOutlinedIcon />
+                        <img src={shareIcon} />
+                        {/* <ShareOutlinedIcon /> */}
                       </ListItemIcon>
                       <ListItemText primary="Shared" />
                     </ListItemButton>
 
                     <ListItemButton className="work-drive-page_sidebar_actions-section_drive-actions_item">
                       <ListItemIcon>
-                        <DeleteOutlineOutlinedIcon />
+                        <img src={trashIcon} />
+                        {/* <DeleteOutlineOutlinedIcon /> */}
                       </ListItemIcon>
                       <ListItemText primary="Trash" />
                     </ListItemButton>
