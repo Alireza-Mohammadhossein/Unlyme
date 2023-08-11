@@ -4,7 +4,9 @@
     &-actions {
         button.MuiButtonBase-root {
             border: unset;
-            color: #000;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
         }
     }
 
@@ -18,8 +20,13 @@
             gap: 10px;
 
             img {
-                width: 60px;
-                height: 60px;
+                width: 54px;
+                height: 54px;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
             }
         }
 
@@ -41,7 +48,7 @@
                     align-items: center;
                     gap: 5px;
                     margin-bottom: 5px;
-                    color: #000;
+                    color: #333;
 
                     &-info {
                         color: #888888;
@@ -76,6 +83,11 @@
                         align-items: center;
                         gap: 8px;
                         cursor: pointer;
+                                                
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: #333;
+
 
                         img {
                             width: 20px;

@@ -316,13 +316,17 @@
                         display: flex;
                         padding: 0;
                         overflow: unset;
-                        gap: 10px;
+                        gap: 14px;
 
                         &-files {
                           display: flex;
                           align-items: center;
                           color: #A8ADB2;
-                          font-size: 13px;
+                          font-size: 13px;  
+
+                          img {
+                            margin-right: 4px;
+                          }
                         }
 
                         &-comments {
@@ -331,6 +335,10 @@
                           overflow: unset;
                           color: #A8ADB2;
                           font-size: 13px;
+                          
+                          img {
+                            margin-right: 4px;
+                          }
                         }
 
                         &-setting {
