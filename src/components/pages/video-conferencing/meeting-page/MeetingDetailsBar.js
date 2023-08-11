@@ -13,10 +13,11 @@ import handIcon from '../../../../assets/images/vide-conferencing/hand.png';
 import shareIcon from '../../../../assets/images/vide-conferencing/share.png';
 import moreIcon from '../../../../assets/images/vide-conferencing/more.png';
 import phoneIcon from '../../../../assets/images/vide-conferencing/phone.png';
-import micOffIcon from '../../../../assets/images/vide-conferencing/mic-off.png';
+import micOffIcon from '../../../../assets/images/vide-conferencing/mic-off.svg';
 import micOnIcon from '../../../../assets/images/vide-conferencing/mic-on.png';
-import videoOffIcon from '../../../../assets/images/vide-conferencing/video-off.png';
+import videoOffIcon from '../../../../assets/images/vide-conferencing/video-off.svg';
 import videoOnIcon from '../../../../assets/images/vide-conferencing/video-on.png';
+
 
 
 const MeetingDetailsBar = () => {

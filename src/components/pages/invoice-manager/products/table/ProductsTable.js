@@ -28,6 +28,14 @@ import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DeleteProductPopup from '../popups/DeleteProductPopup';
 import EditProductPopup from '../popups/EditProductPopup';
 import ProductsTableHead from './ProductsTableHead';
+import trashIcon from '../../../../../assets/images/invoice-manager/trash.svg';
+import editIcon from '../../../../../assets/images/invoice-manager/edit.svg';
+import shareIcon from '../../../../../assets/images/invoice-manager/share.svg';
+import moreIcon from '../../../../../assets/images/invoice-manager/more.svg';
+import trashColorIcon from '../../../../../assets/images/invoice-manager/trash-color.svg';
+import editColorIcon from '../../../../../assets/images/invoice-manager/edit-color.svg';
+import shareColorIcon from '../../../../../assets/images/invoice-manager/share-color.svg';
+import moreColorIcon from '../../../../../assets/images/invoice-manager/more-color.svg';
 
 
 
@@ -210,7 +218,9 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
             handleMoreOptions(e);
           }}
         >
-          <MoreHorizOutlinedIcon />
+          {/* <MoreHorizOutlinedIcon /> */}
+          <img src={moreIcon} className='gray-icon' />
+          <img src={moreColorIcon} className='color-icon' />
         </IconButton>
 
         <Menu
@@ -490,7 +500,9 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                               handleOpenDeleteProductPopup()
                             }}
                           >
-                            <DeleteOutlineOutlinedIcon />
+                            {/* <DeleteOutlineOutlinedIcon /> */}
+                            <img src={trashIcon} className='gray-icon' />
+                            <img src={trashColorIcon} className='color-icon' />
                           </IconButton>
 
                           <IconButton aria-label="edit" 
@@ -501,7 +513,9 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                               handleOpenEditProductPopup();
                             }}
                           >
-                            <DriveFileRenameOutlineOutlinedIcon />
+                            {/* <DriveFileRenameOutlineOutlinedIcon /> */}
+                            <img src={editIcon} className='gray-icon' />
+                            <img src={editColorIcon} className='color-icon' />
                           </IconButton>
 
                           <MoreOptionsMenu data={row} />

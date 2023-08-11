@@ -25,6 +25,14 @@ import incomingIcon from '../../../../../assets/images/invoice-manager/incoming.
 import outgoingIcon from '../../../../../assets/images/invoice-manager/outgoing.png';
 import totalIcon from '../../../../../assets/images/invoice-manager/total.png';
 import Tooltip from '@mui/material/Tooltip';
+import trashIcon from '../../../../../assets/images/invoice-manager/trash.svg';
+import editIcon from '../../../../../assets/images/invoice-manager/edit.svg';
+import shareIcon from '../../../../../assets/images/invoice-manager/share.svg';
+import moreIcon from '../../../../../assets/images/invoice-manager/more.svg';
+import trashColorIcon from '../../../../../assets/images/invoice-manager/trash-color.svg';
+import editColorIcon from '../../../../../assets/images/invoice-manager/edit-color.svg';
+import shareColorIcon from '../../../../../assets/images/invoice-manager/share-color.svg';
+import moreColorIcon from '../../../../../assets/images/invoice-manager/more-color.svg';
 
 
 
@@ -468,7 +476,9 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                               { row.status === 'plus' ? handleOpenDeleteEarningPopup() : handleOpenDeleteExpensePopup() }
                             }}
                           >
-                            <DeleteOutlineOutlinedIcon />
+                            {/* <DeleteOutlineOutlinedIcon /> */}
+                            <img src={trashIcon} className='gray-icon' />
+                            <img src={trashColorIcon} className='color-icon' />
                           </IconButton>
 
                           <IconButton aria-label="edit" 
@@ -480,7 +490,9 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                               { row.status === 'plus' ? handleOpenEditEarningPopup() : handleOpenEditExpensesPopup() }
                             }}
                           >
-                            <DriveFileRenameOutlineOutlinedIcon />
+                            {/* <DriveFileRenameOutlineOutlinedIcon /> */}
+                            <img src={editIcon} className='gray-icon' />
+                            <img src={editColorIcon} className='color-icon' />
                           </IconButton>
 
                           <IconButton aria-label="open"
@@ -490,7 +502,9 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                               { row.status === 'plus' ? handleOpenEarningRecordPopup() : handleOpenExpenseRecordPopup() }
                             }}
                           >
-                            <OpenInNewOutlinedIcon />
+                            <img src={shareIcon} className='gray-icon' />
+                            <img src={shareColorIcon} className='color-icon' />
+                            {/* <OpenInNewOutlinedIcon /> */}
                           </IconButton>
 
                           {/* <MoreOptionsMenu data={row} /> */}

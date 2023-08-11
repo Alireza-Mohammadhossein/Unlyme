@@ -41,6 +41,14 @@ import DetachInvoicePopup from '../popups/DetachInvoicePopup';
 import AttachProjectPopup from '../popups/AttachProjectPopup';
 import RecurringSettingPopup from '../popups/RecurringSettingPopup';
 import InvoiceRecordPopup from '../popups/InvoiceRecord';
+import trashIcon from '../../../../../assets/images/invoice-manager/trash.svg';
+import editIcon from '../../../../../assets/images/invoice-manager/edit.svg';
+import shareIcon from '../../../../../assets/images/invoice-manager/share.svg';
+import moreIcon from '../../../../../assets/images/invoice-manager/more.svg';
+import trashColorIcon from '../../../../../assets/images/invoice-manager/trash-color.svg';
+import editColorIcon from '../../../../../assets/images/invoice-manager/edit-color.svg';
+import shareColorIcon from '../../../../../assets/images/invoice-manager/share-color.svg';
+import moreColorIcon from '../../../../../assets/images/invoice-manager/more-color.svg';
 
 
 
@@ -220,7 +228,9 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
             handleMoreOptions(e);
           }}
         >
-          <MoreHorizOutlinedIcon />
+          {/* <MoreHorizOutlinedIcon /> */}
+          <img src={moreIcon} className='gray-icon' />
+          <img src={moreColorIcon} className='color-icon' />
         </IconButton>
 
         <Menu
@@ -625,7 +635,9 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                               handleOpenDeleteInvoicePopup()
                             }}
                           >
-                            <DeleteOutlineOutlinedIcon />
+                            {/* <DeleteOutlineOutlinedIcon /> */}
+                            <img src={trashIcon} className='gray-icon' />
+                            <img src={trashColorIcon} className='color-icon' />
                           </IconButton>
 
                           <IconButton aria-label="edit" 
@@ -636,7 +648,9 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                               handleOpenEditInvoicePopup();
                             }}
                           >
-                            <DriveFileRenameOutlineOutlinedIcon />
+                            {/* <DriveFileRenameOutlineOutlinedIcon /> */}
+                            <img src={editIcon} className='gray-icon' />
+                            <img src={editColorIcon} className='color-icon' />
                           </IconButton>
 
                           <IconButton aria-label="open"
@@ -646,7 +660,9 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                               handleOpenInvoiceRecordPopup();
                             }}
                           >
-                            <OpenInNewOutlinedIcon />
+                            {/* <OpenInNewOutlinedIcon /> */}
+                            <img src={shareIcon} className='gray-icon' />
+                            <img src={shareColorIcon} className='color-icon' />
                           </IconButton>
 
                           <MoreOptionsMenu data={row} />

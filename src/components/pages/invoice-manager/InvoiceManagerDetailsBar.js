@@ -244,7 +244,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                   activeTab === 0 ?
                     <>
                       <Button
-                        startIcon={<AddIcon />}
+                        // startIcon={<AddIcon />}
                         className="cloud-page__header_invoice-manager-details_add-btn"
                         aria-label="more"
                         id="long-button"
@@ -270,7 +270,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                   activeTab === 1 ?
                     <>
                       <Button
-                        startIcon={<AddIcon />}
+                        // startIcon={<AddIcon />}
                         className="cloud-page__header_invoice-manager-details_add-btn"
                         aria-label="more"
                         aria-controls={open ? "long-menu" : undefined}
@@ -308,7 +308,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                     activeTab === 2 ?
                       <>
                         <Button
-                          startIcon={<AddIcon />}
+                          // startIcon={<AddIcon />}
                           className="cloud-page__header_invoice-manager-details_add-btn"
                           aria-label="more"
                           id="long-button"
@@ -332,7 +332,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                   : 
                       <>
                         <Button
-                          startIcon={<AddIcon />}
+                          // startIcon={<AddIcon />}
                           className="cloud-page__header_invoice-manager-details_add-btn"
                           aria-label="more"
                           id="long-button"

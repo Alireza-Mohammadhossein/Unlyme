@@ -23,6 +23,11 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import MoneyTable from './money/table/MoneyTable';
 import ClientsTable from './clients/table/ClientsTable';
 import ProductsTable from './products/table/ProductsTable';
+import invoiceGrayIcon from '../../../assets/images/invoice-manager/invoice.svg';
+import moneyGrayIcon from '../../../assets/images/invoice-manager/money.svg';
+import clientGrayIcon from '../../../assets/images/invoice-manager/client.svg';
+import productGrayIcon from '../../../assets/images/invoice-manager/product.svg';
+
 
 
 
@@ -142,10 +147,28 @@ const InvoiceManagerContent = () => {
                               <div className='invoice-manager-page_sidebar-section_category-item_content'>
 
                                 {
-                                  item.title === 'Invoices' ? <FeedOutlinedIcon/> :
-                                  item.title === 'Money' ? <CreditCardIcon /> :
-                                  item.title === 'Clients' ? <PeopleOutlineIcon /> :
-                                  <CheckBoxOutlineBlankIcon />
+                                  item.title === 'Invoices' ? 
+                                    <>
+                                      <img src={invoiceGrayIcon} className="gray-icon"/>
+                                      <img src={invoiceGrayIcon} className="blue-icon"/>
+                                    </> :
+
+                                  item.title === 'Money' ? 
+                                    <>
+                                      <img src={moneyGrayIcon} className="gray-icon"/>
+                                      <img src={moneyGrayIcon} className="blue-icon"/>
+                                    </> :
+
+                                  item.title === 'Clients' ? 
+                                    <>
+                                      <img src={clientGrayIcon} className="gray-icon"/>
+                                      <img src={clientGrayIcon} className="blue-icon"/>
+                                    </> :
+
+                                    <>
+                                      <img src={productGrayIcon} className="gray-icon"/>
+                                      <img src={productGrayIcon} className="blue-icon"/>
+                                    </>
                                 }
                                   <p className='invoice-manager-page_sidebar-section_category-item_content-title'>{item.title}</p>
                               </div>
