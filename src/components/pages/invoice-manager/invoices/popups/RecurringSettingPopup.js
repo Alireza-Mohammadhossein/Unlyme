@@ -13,6 +13,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';
 
 
 
@@ -153,7 +154,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                 <div className='invoices-recurringsettingpopup-item-double-container'>
                     <Tooltip className='invoices-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="Invoice will stop recurring after these number of cycles. For infinity, set the value to 0" arrow placement="top">
                         <IconButton>
-                          <HelpOutlineIcon />
+                          {/* <HelpOutlineIcon /> */}
+                          <img src={helpIcon} />
                         </IconButton>
                     </Tooltip>
                 </div>
@@ -183,7 +185,8 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                 <div className='invoices-recurringsettingpopup-item-double-container'>
                     <Tooltip className='invoices-recurringsettingpopup-item-tooltip' id='recurringsettingpopup_tooltip' title="See information below" arrow placement="top">
                         <IconButton>
-                          <HelpOutlineIcon />
+                          {/* <HelpOutlineIcon /> */}
+                          <img src={helpIcon} />
                         </IconButton>
                     </Tooltip>
                 </div>
@@ -195,7 +198,7 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                 {
                     firstAlert ? 
                         <Alert
-                            icon={<HelpOutlineIcon fontSize="inherit" />}
+                            icon={<img src={helpIcon} />}
                             variant="outlined"
                             action={
                                 <IconButton
@@ -224,7 +227,7 @@ const RecurringSettingPopup = ({ handleCloseRecurringSettingPopup }) => {
                 {
                     secondAlert ? 
                         <Alert
-                            icon={<HelpOutlineIcon fontSize="inherit" />}
+                            icon={<img src={helpIcon} />}
                             variant="outlined"
                             action={
                                 <IconButton

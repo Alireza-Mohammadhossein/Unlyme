@@ -207,7 +207,7 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
         }
 
         <div className='invoices-addpaymentpopup-item flex'>
-          <FormControlLabel control={<Checkbox sx={{color: '#3089dc'}} defaultChecked />} label="Send the client a Payment received email" sx={{color: '#888888'}} />
+          <FormControlLabel control={<Checkbox sx={{color: '#51A3FF'}} defaultChecked />} label="Send the client a Payment received email" sx={{color: '#888888', fontSize: '13px'}} />
         </div>
 
         <div className='invoices-addpaymentpopup-btn'>

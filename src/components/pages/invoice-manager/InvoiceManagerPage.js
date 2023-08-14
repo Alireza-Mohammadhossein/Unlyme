@@ -15,18 +15,17 @@ import { money } from '../../../mocks/mocks';
 import { clients } from '../../../mocks/mocks';
 import { products } from '../../../mocks/mocks';
 import InvoiceManagerDetailsBar from './InvoiceManagerDetailsBar';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import MoneyTable from './money/table/MoneyTable';
 import ClientsTable from './clients/table/ClientsTable';
 import ProductsTable from './products/table/ProductsTable';
 import invoiceGrayIcon from '../../../assets/images/invoice-manager/invoice.svg';
+import invoiceColorIcon from '../../../assets/images/invoice-manager/invoice-color.svg';
 import moneyGrayIcon from '../../../assets/images/invoice-manager/money.svg';
+import moneyColorIcon from '../../../assets/images/invoice-manager/money-color.svg';
 import clientGrayIcon from '../../../assets/images/invoice-manager/client.svg';
+import clientColorIcon from '../../../assets/images/invoice-manager/client-color.svg';
 import productGrayIcon from '../../../assets/images/invoice-manager/product.svg';
+import productColorIcon from '../../../assets/images/invoice-manager/product-color.svg';
 
 
 
@@ -150,24 +149,24 @@ const InvoiceManagerContent = () => {
                                   item.title === 'Invoices' ? 
                                     <>
                                       <img src={invoiceGrayIcon} className="gray-icon"/>
-                                      <img src={invoiceGrayIcon} className="blue-icon"/>
+                                      <img src={invoiceColorIcon} className="blue-icon"/>
                                     </> :
 
                                   item.title === 'Money' ? 
                                     <>
                                       <img src={moneyGrayIcon} className="gray-icon"/>
-                                      <img src={moneyGrayIcon} className="blue-icon"/>
+                                      <img src={moneyColorIcon} className="blue-icon"/>
                                     </> :
 
                                   item.title === 'Clients' ? 
                                     <>
                                       <img src={clientGrayIcon} className="gray-icon"/>
-                                      <img src={clientGrayIcon} className="blue-icon"/>
+                                      <img src={clientColorIcon} className="blue-icon"/>
                                     </> :
 
                                     <>
                                       <img src={productGrayIcon} className="gray-icon"/>
-                                      <img src={productGrayIcon} className="blue-icon"/>
+                                      <img src={productColorIcon} className="blue-icon"/>
                                     </>
                                 }
                                   <p className='invoice-manager-page_sidebar-section_category-item_content-title'>{item.title}</p>
