@@ -12,6 +12,8 @@ import Switch from '@mui/material/Switch';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
 import { toast } from "react-toastify";
+import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';
+
 
 
 
@@ -130,7 +132,9 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
 
             <Tooltip className='tooltip' id='editproductproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
               <IconButton>
-                <HelpOutlineIcon />
+                {/* <HelpOutlineIcon /> */}
+
+                <img src={helpIcon} />
               </IconButton>
             </Tooltip>
           </p>
@@ -170,7 +174,8 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
               
               <Tooltip className='tooltip' id='editproductproductpopup_tooltip' title="These notes will be displayed when editing an estimate or invoice. These notes are not visible to the client. " arrow placement="top-start">
                 <IconButton>
-                  <HelpOutlineIcon />
+                  {/* <HelpOutlineIcon /> */}
+                  <img src={helpIcon} />
                 </IconButton>
               </Tooltip>
             </p>

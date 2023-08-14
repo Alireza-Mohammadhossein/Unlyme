@@ -12,6 +12,7 @@ import Chip from '@mui/material/Chip';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';
 
 
 
@@ -32,7 +33,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
 
   return (
     <div className='clients-companyinfopopup'>
-      <div className='clients-companyinfopopup-header'>
+      {/* <div className='clients-companyinfopopup-header'>
         <div className='clients-companyinfopopup-header-title'>
         </div>
 
@@ -42,7 +43,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
           </IconButton>
         </div>
 
-      </div>
+      </div> */}
 
       <div className='clients-companyinfopopup-content'>
 
@@ -88,7 +89,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
                     Email
                   </div>
 
-                  <div className='clients-companyinfopopup-content-tab-info-item-subtitle'>
+                  <div className='clients-companyinfopopup-content-tab-info-item-subtitle linked'>
                     <a href='mailto:info@company.com'>info@company.com</a>
                   </div>
                 </div>
@@ -98,7 +99,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
                     Account owner
                   </div>
 
-                  <div className='clients-companyinfopopup-content-tab-info-item-subtitle'>
+                  <div className='clients-companyinfopopup-content-tab-info-item-subtitle avatar'>
                     <Avatar alt={data.owner} src={data.ownerImage} /> {data.owner}
                   </div>
                 </div>
@@ -242,7 +243,7 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
                 {
                   alert ? 
                     <Alert
-                      icon={<HelpOutlineIcon fontSize="inherit" />}
+                      icon={<img src={helpIcon} />}
                       variant="outlined"
                       action={
                         <IconButton

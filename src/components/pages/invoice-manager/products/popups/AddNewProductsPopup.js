@@ -11,6 +11,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Switch from '@mui/material/Switch';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
+import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';
 
 
 
@@ -115,7 +116,8 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
             <Tooltip className='tooltip' id='addnewproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
               <IconButton>
-                <HelpOutlineIcon />
+                {/* <HelpOutlineIcon /> */}
+                <img src={helpIcon} /> 
               </IconButton>
             </Tooltip>
           </p>
@@ -154,7 +156,9 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
               
               <Tooltip className='tooltip' id='addnewproductpopup_tooltip' title="These notes will be displayed when editing an estimate or invoice. These notes are not visible to the client. " arrow placement="top-start">
                 <IconButton>
-                  <HelpOutlineIcon />
+                  {/* <HelpOutlineIcon /> */}
+
+                  <img src={helpIcon} />
                 </IconButton>
               </Tooltip>
             </p>

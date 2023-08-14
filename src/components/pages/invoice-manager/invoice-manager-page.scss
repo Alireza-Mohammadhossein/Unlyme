@@ -291,6 +291,12 @@
                         }
                     }
                 }
+
+                .MuiCheckbox-root {
+                    .MuiSvgIcon-root {
+                        stroke: #fff;
+                    }
+                }
             }
         }
 
@@ -429,6 +435,12 @@
                         .MuiButtonBase-root {
                             padding: 8px 30px 8px 20px;
                         }
+                    }
+                }
+
+                .MuiCheckbox-root {
+                    .MuiSvgIcon-root {
+                        stroke: #fff;
                     }
                 }
             }
@@ -689,6 +701,12 @@
                         }
                     }
                 }
+
+                .MuiCheckbox-root {
+                    .MuiSvgIcon-root {
+                        stroke: #fff;
+                    }
+                }
             }
         }
 
@@ -853,6 +871,12 @@
                     width: 40%;
                     max-width: 300px;
                 }
+
+                .MuiCheckbox-root {
+                    .MuiSvgIcon-root {
+                        stroke: #fff;
+                    }
+                }
             }
         }
 
@@ -889,7 +913,7 @@
             &-cell {
                 color: #333333;
                 font-weight: 500;
-                padding: 7px;
+                padding: 7px 5px;
                 font-size: 13px;
             
             }
@@ -897,6 +921,7 @@
             &-selected {
                 font-size: 15px;
                 text-align: left;
+                stroke: #fff;
             }
 
             &-option {
@@ -936,12 +961,13 @@
                 color: #333333;
                 font-size: 13px;
                 font-weight: 500;
-                padding: 7px;
+                padding: 7px 5px;
             }
 
             &-selected {
                 font-size: 15px;
                 text-align: left;
+                stroke: #fff;
             }
 
             &-option {
@@ -980,13 +1006,14 @@
             &-cell {
                 color: #333333;
                 font-weight: 500;
-                padding: 7px;
+                padding: 7px 5px;
                 font-size: 13px;
             }
 
             &-selected {
                 font-size: 15px;
                 text-align: left;
+                stroke: #fff;
             }
 
             &-option {

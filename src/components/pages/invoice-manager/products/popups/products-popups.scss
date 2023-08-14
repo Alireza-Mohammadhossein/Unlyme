@@ -13,7 +13,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 18px;
+            font-size: 20px;
             color: #51A3FF;
         }
         
@@ -36,19 +36,30 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            margin-bottom: 5px;
-            color: #000;
+            color: #444;
+            font-size: 13px;
+            line-height: 22px;
         }
 
          
 
         & .MuiInputBase-root {
+            height: 35px;
+            box-sizing: border-box;
             width: 100%;
             border-radius: 8px;
             background-color: #F8FAFC;
 
             input {
                 padding: 10px;
+                color: #444;
+                font-size: 14px;
+
+                &::placeholder {
+                    color: #444;
+                    font-size: 14px;
+                    opacity: 1;
+                }
             }
 
             .MuiOutlinedInput-notchedOutline {
@@ -91,6 +102,10 @@
 
                 input {
                     border-left: 1px solid #e3e3e3;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    box-sizing: border-box;
+                    height: 100%;
                 }
             }
 
@@ -106,9 +121,11 @@
         &-submit.MuiButtonBase-root {
             text-transform: none;
             color: #fff;
-            background-color: #3089dc;
+            background-color: #51A3FF;
             padding: 10px 24px;
             border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -127,6 +144,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -142,11 +161,11 @@
 
 .products-addnewpopup {
     width: 80%;
-    max-width: 800px;
+    max-width: 620px;
     height: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
     &-header {
@@ -161,7 +180,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 18px;
+            font-size: 20px;
             color: #51A3FF;
         }
         
@@ -189,30 +208,41 @@
         &.flex {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         &-title {
-            width: 20%;
+            width: auto;
+            font-size: 14px;
+            color: #444;
         }
 
         .MuiFormControl-root {
             width: 80%;
+            max-width: 380px;
         }
 
         &-number {
             width: 80%;
+            max-width: 380px;
             
             .MuiFormControl-root {
                 width: 100%;
             }
 
             & .MuiInputBase-root {
+                height: 35px;
+                box-sizing: border-box;
                 width: 100%;
                 border-radius: 8px;
                 background-color: #F8FAFC;
     
                 input {
                     padding: 10px;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    box-sizing: border-box;
+                    height: 100%;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -258,6 +288,9 @@
             width: 100%;
 
             .MuiSelect-select {
+                height: 35px;
+                box-sizing: border-box;
+                line-height: 1;
                 padding: 10px;
                 background-color: #F8FAFC;
             }
@@ -292,6 +325,7 @@
         &.description {
             display: flex;
             align-items: top;
+            justify-content: space-between;
 
             & .MuiInputBase-root {
                 border-radius: 8px;
@@ -317,6 +351,7 @@
         &.notes {
             display: flex;
             align-items: center;
+            justify-content: space-between;
 
             & .MuiInputBase-root {
                 border-radius: 8px;
@@ -326,6 +361,8 @@
     
                 input {
                     padding: 10px;
+                    height: 35px;
+                    box-sizing: border-box;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -345,8 +382,10 @@
         &.estimate {
             display: flex;
             align-items: top;
+            justify-content: space-between;
 
             & .MuiFormControl-root{
+                max-width: unset;
                 width: 100%;
             }
 
@@ -415,9 +454,11 @@
         &-submit.MuiButtonBase-root {
             text-transform: none;
             color: #fff;
-            background-color: #3089dc;
+            background-color: #51A3FF;
             padding: 10px 24px;
             border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -436,6 +477,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -464,18 +507,20 @@
         text-align: center;
         padding: 0 0 10px 0;
         gap: 10px;
-        border-bottom: 1px solid #ECECEC;
+        // border-bottom: 1px solid #ECECEC;
 
 
         &-title {
             text-align: center;
             font-size: 20px;
             font-weight: 600;
+            color: #444;
         }
 
         &-subtitle {
             text-align: center;
             color: #888888;
+            font-size: 14px;
         }
         
         &-btn {
@@ -489,7 +534,7 @@
         display: flex;
         gap: 10px;
         justify-content: center;
-        padding-top: 30px;
+        padding-top: 50px;
 
         &-btn {
             display: flex;
@@ -528,11 +573,11 @@
 
 .products-editproductpopup {
     width: 80%;
-    max-width: 800px;
+    max-width: 620px;
     height: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
     &-header {
@@ -547,7 +592,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 18px;
+            font-size: 20px;
             color: #51A3FF;
         }
         
@@ -575,18 +620,23 @@
         &.flex {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         &-title {
-            width: 20%;
+            width: auto;
+            font-size: 14px;
+            color: #444;
         }
 
         .MuiFormControl-root {
             width: 80%;
+            max-width: 380px;
         }
 
         &-number {
             width: 80%;
+            max-width: 380px;
             
             .MuiFormControl-root {
                 width: 100%;
@@ -599,6 +649,9 @@
     
                 input {
                     padding: 10px;
+                    height: 35px;
+                    box-sizing: border-box;
+                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -628,6 +681,9 @@
     
                 input {
                     padding: 10px;
+                    height: 35px;
+                    box-sizing: border-box;
+                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -644,8 +700,12 @@
             width: 100%;
 
             .MuiSelect-select {
+                height: 35px;
+                box-sizing: border-box;
+                line-height: 1;
                 padding: 10px;
                 background-color: #F8FAFC;
+                font-size: 14px;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -678,6 +738,7 @@
         &.description {
             display: flex;
             align-items: top;
+            justify-content: space-between;
 
             & .MuiInputBase-root {
                 border-radius: 8px;
@@ -688,6 +749,7 @@
     
                 input {
                     padding: 10px;
+                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -703,6 +765,7 @@
         &.notes {
             display: flex;
             align-items: center;
+            justify-content: space-between;
 
             & .MuiInputBase-root {
                 border-radius: 8px;
@@ -731,9 +794,11 @@
         &.estimate {
             display: flex;
             align-items: top;
+            justify-content: space-between;
 
             & .MuiFormControl-root{
                 width: 100%;
+                max-width: unset;
             }
 
             & .MuiInputBase-root {
@@ -745,6 +810,7 @@
     
                 input {
                     padding: 10px;
+                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -755,14 +821,6 @@
                     border-color: #1976d2;
                 }
             }
-        }
-
-        .MuiPaper-root {
-            width: 100%;
-            color: #93742A;
-            background-color: #FCF6EC;
-            border-color: #93742A;
-            border-radius: 8px;
         }
 
         .MuiToggleButtonGroup-root {
@@ -801,9 +859,11 @@
         &-submit.MuiButtonBase-root {
             text-transform: none;
             color: #fff;
-            background-color: #3089dc;
+            background-color: #51A3FF;
             padding: 10px 24px;
             border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -813,7 +873,8 @@
                 border-radius: 30px;
             }
         }
-         
+
+        
         &-reset.MuiButtonBase-root {
             text-transform: none;
             color: #888888;    
@@ -821,6 +882,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -836,11 +899,11 @@
 
 .products-changecategorypopup {
     width: 80%;
-    max-width: 800px;
+    max-width: 620px;
     height: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
     &-header {
@@ -855,7 +918,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 18px;
+            font-size: 20px;
             color: #51A3FF;
         }
         
@@ -883,14 +946,18 @@
         &.flex {
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         &-title {
-            width: 20%;
+            width: auto;
+            font-size: 14px;
+            color: #444;
         }
 
         .MuiFormControl-root {
             width: 80%;
+            max-width: 380px;
         }
 
         &-select {
@@ -899,6 +966,10 @@
             .MuiSelect-select {
                 padding: 10px;
                 background-color: #F8FAFC;
+                height: 35px !important;
+                box-sizing: border-box;
+                color: #444;
+                font-size: 14px;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -925,9 +996,11 @@
         &-submit.MuiButtonBase-root {
             text-transform: none;
             color: #fff;
-            background-color: #3089dc;
+            background-color: #51A3FF;
             padding: 10px 24px;
             border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -946,6 +1019,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;

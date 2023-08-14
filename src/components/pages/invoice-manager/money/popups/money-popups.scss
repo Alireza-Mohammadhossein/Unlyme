@@ -135,11 +135,12 @@
             padding: 10px 24px;
             border-radius: 30px;
             font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #51A3FF;
+                background-color: #3089dc;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -153,6 +154,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -433,9 +436,11 @@
         &-submit.MuiButtonBase-root {
             text-transform: none;
             color: #fff;
-            background-color: #3089dc;
+            background-color: #51A3FF;
             padding: 10px 24px;
             border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -454,6 +459,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -777,11 +784,12 @@
             padding: 10px 24px;
             border-radius: 30px;
             font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #51A3FF;
+                background-color: #3089dc;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -795,6 +803,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
@@ -823,7 +833,7 @@
         text-align: center;
         padding: 0 0 10px 0;
         gap: 10px;
-        border-bottom: 1px solid #ECECEC;
+        // border-bottom: 1px solid #ECECEC;
 
 
         &-title {
@@ -850,7 +860,7 @@
         display: flex;
         gap: 10px;
         justify-content: center;
-        padding-top: 30px;
+        padding-top: 50px;
 
         &-btn {
             display: flex;
@@ -1134,11 +1144,12 @@
             padding: 10px 24px;
             border-radius: 30px;
             font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #51A3FF;
+                background-color: #3089dc;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -1152,6 +1163,8 @@
             padding: 10px 24px;
             border-radius: 30px;
             border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
 
             &:hover {
                 text-transform: none;
