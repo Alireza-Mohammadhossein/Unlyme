@@ -198,7 +198,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           <FilterListIcon />
                       </IconButton>
                       
-                      <Drawer anchor='right' open={filterInvoicesPopup} onClose={() => setFilterInvoicesPopup(false)} disableScrollLock = {false} >
+                      <Drawer anchor='right' open={filterInvoicesPopup} onClose={() => setFilterInvoicesPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
                           <FilterInvoicesPopup setFilterInvoicesPopup={setFilterInvoicesPopup} />
                       </Drawer>
                     </>
@@ -208,7 +208,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           <FilterListIcon />
                       </IconButton>
                       
-                      <Drawer anchor='right' open={filterMoneyPopup} onClose={() => setFilterMoneyPopup(false)} disableScrollLock = {false} >
+                      <Drawer anchor='right' open={filterMoneyPopup} onClose={() => setFilterMoneyPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
                           <FilterMoneyPopup setFilterMoneyPopup={setFilterMoneyPopup} />
                       </Drawer>
                     </>
@@ -218,7 +218,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           <FilterListIcon />
                       </IconButton>
                       
-                      <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} >
+                      <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
                           <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
                       </Drawer>
                     </>
@@ -228,7 +228,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                           <FilterListIcon />
                       </IconButton>
                       
-                      <Drawer anchor='right' open={filterProductsPopup} onClose={() => setFilterProductsPopup(false)} disableScrollLock = {false} >
+                      <Drawer anchor='right' open={filterProductsPopup} onClose={() => setFilterProductsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
                           <FilterProductsPopup setFilterProductsPopup={setFilterProductsPopup} />
                       </Drawer>
                     </>

@@ -49,6 +49,15 @@ import trashColorIcon from '../../../../../assets/images/invoice-manager/trash-c
 import editColorIcon from '../../../../../assets/images/invoice-manager/edit-color.svg';
 import shareColorIcon from '../../../../../assets/images/invoice-manager/share-color.svg';
 import moreColorIcon from '../../../../../assets/images/invoice-manager/more-color.svg';
+import moreCopyIcon from '../../../../../assets/images/invoice-manager/more-options/copy.svg';
+import morePaymentIcon from '../../../../../assets/images/invoice-manager/more-options/credit-card.svg';
+import moreDownloadIcon from '../../../../../assets/images/invoice-manager/more-options/download.svg';
+import moreEditIcon from '../../../../../assets/images/invoice-manager/more-options/edit.svg';
+import moreViewIcon from '../../../../../assets/images/invoice-manager/more-options/eye.svg';
+import moreMailIcon from '../../../../../assets/images/invoice-manager/more-options/mail.svg';
+import moreAttachIcon from '../../../../../assets/images/invoice-manager/more-options/paperclip.svg';
+import moreRecurringIcon from '../../../../../assets/images/invoice-manager/more-options/repeat.svg';
+import moreCategoryIcon from '../../../../../assets/images/invoice-manager/more-options/tag.svg';
 
 
 
@@ -267,7 +276,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
   const options = [
     {
       id: 1,
-      icon: <EditNoteIcon />,
+      icon: <img src={moreEditIcon} />,
       text: 'Quick edit',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -276,7 +285,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 2,
-      icon: <MailOutlinedIcon />,
+      icon: <img src={moreMailIcon} />,
       text: 'Email to client',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -286,7 +295,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 3,
-      icon: <AddCardOutlinedIcon />,
+      icon: <img src={morePaymentIcon} />,
       text: 'Add new payment',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -296,7 +305,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 4,
-      icon: <ContentCopyOutlinedIcon />,
+      icon: <img src={moreCopyIcon} />,
       text: 'Clone invoice',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -306,7 +315,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 5,
-      icon: <SellOutlinedIcon />,
+      icon: <img src={moreCategoryIcon} />,
       text: 'Change category',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -316,7 +325,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 6,
-      icon: <AttachmentOutlinedIcon />,
+      icon: <img src={moreAttachIcon} />,
       text: 'Detach invoice',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -325,7 +334,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 7,
-      icon: <AttachmentOutlinedIcon />,
+      icon: <img src={moreAttachIcon} />,
       text: 'Attach to a project',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -334,7 +343,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 8,
-      icon: <LoopOutlinedIcon />,
+      icon: <img src={moreRecurringIcon} />,
       text: 'Recurring settings',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -343,7 +352,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 9,
-      icon: <RemoveRedEyeOutlinedIcon />,
+      icon: <img src={moreViewIcon} />,
       text: 'View payments',
       clickFunction: function() {
           toast.error('You have clicked on View payments!', {
@@ -362,7 +371,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
     },
     {
       id: 10,
-      icon: <FileDownloadOutlinedIcon />,
+      icon: <img src={moreDownloadIcon} />,
       text: 'Download',
       clickFunction: function() {
           toast.error('You have clicked on Download!', {

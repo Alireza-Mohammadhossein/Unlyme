@@ -288,6 +288,12 @@
 
                         .MuiButtonBase-root {
                             padding: 8px 30px 8px 20px;
+
+                            .MuiTypography-root {
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: #444;
+                            }
                         }
                     }
                 }
@@ -434,6 +440,12 @@
 
                         .MuiButtonBase-root {
                             padding: 8px 30px 8px 20px;
+
+                            .MuiTypography-root {
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: #444;
+                            }
                         }
                     }
                 }
@@ -863,6 +875,11 @@
 
                         .MuiButtonBase-root {
                             padding: 8px 30px 8px 20px;
+                            .MuiTypography-root {
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: #444;
+                            }
                         }
                     }
                 }
@@ -1120,6 +1137,31 @@
         .MuiButtonBase-root:hover {
             background-color: unset;
         }   
+    }
+
+    &_drawer {
+
+        top: 90px !important;
+        bottom: 45px !important;
+        align-items: start;
+        display: flex;
+        justify-content: center;
+        padding-top: 45px;
+        margin: 0 auto;
+        max-width: 1600px;
+        
+        @media (max-width:1600px) {
+            right: 100px !important;
+        }
+
+        .MuiDrawer-paper {
+            height: 100%;
+            outline: none;
+            box-sizing: border-box;
+            margin: 0 auto;
+            position: absolute;
+            border-radius: 8px;
+        }
     }
 
     &_add {
