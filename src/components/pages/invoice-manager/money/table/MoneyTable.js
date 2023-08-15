@@ -363,6 +363,12 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
                 rowCount={visibleRows.length}
                 setSearchText={setSearchText}
                 sortByDateHandler={sortByDateHandler}
+                invoices={invoices}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                handleChangePage={handleChangePage}
+                handleChangeRowsPerPage={handleChangeRowsPerPage}
+                setPage={setPage}
               />
 
               <TableBody>
@@ -518,7 +524,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
             </Table>
           </TableContainer>
 
-          <TablePagination
+          {/* <TablePagination
             className='money-pagination'
             rowsPerPageOptions={[20, 50, 100]}
             component="div"
@@ -527,7 +533,7 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+          /> */}
         </Paper>
       </Box>
 

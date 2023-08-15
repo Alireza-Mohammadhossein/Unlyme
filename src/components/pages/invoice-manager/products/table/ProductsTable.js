@@ -11,11 +11,6 @@ import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
-import InvoiceManagerTableHead from './ProductsTableHead';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import Modal from '@mui/material/Modal';
 import DeleteInvoicePopup from '../popups/DeleteProductPopup';
 import Menu from "@mui/material/Menu";
@@ -36,6 +31,8 @@ import trashColorIcon from '../../../../../assets/images/invoice-manager/trash-c
 import editColorIcon from '../../../../../assets/images/invoice-manager/edit-color.svg';
 import shareColorIcon from '../../../../../assets/images/invoice-manager/share-color.svg';
 import moreColorIcon from '../../../../../assets/images/invoice-manager/more-color.svg';
+import moreCategoryIcon from '../../../../../assets/images/invoice-manager/more-options/tag.svg';
+
 
 
 
@@ -257,7 +254,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
   const options = [
     {
       id: 5,
-      icon: <SellOutlinedIcon />,
+      icon: <img src={moreCategoryIcon} />,
       text: 'Change category',
       clickFunction: function(row) {
         setSelectedRowOption(row);
@@ -414,6 +411,12 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
                 rowCount={visibleRows.length}
                 setSearchText={setSearchText}
                 sortByDateHandler={sortByDateHandler}
+                invoices={invoices}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                handleChangePage={handleChangePage}
+                handleChangeRowsPerPage={handleChangeRowsPerPage}
+                setPage={setPage}
               />
 
               <TableBody>
@@ -529,7 +532,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
             </Table>
           </TableContainer>
           
-          <TablePagination
+          {/* <TablePagination
             className='invoices-pagination'
             rowsPerPageOptions={[20, 50, 100]}
             component="div"
@@ -538,7 +541,7 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+          /> */}
         </Paper>
       </Box>
 

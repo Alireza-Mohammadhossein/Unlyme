@@ -11,6 +11,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import TablePagination from '@mui/material/TablePagination';
+import { toast } from "react-toastify";
+
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 
 
 
@@ -28,7 +34,7 @@ const headCells = [
 
   
 const ClientsTableHead = (props) => {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler } =
+    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler, invoices, rowsPerPage, page, handleChangePage, handleChangeRowsPerPage, setPage } =
       props;
  
 
@@ -116,6 +122,15 @@ const ClientsTableHead = (props) => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+
+    const handlePrevClick = () => {
+      setPage(page - 1);
+    };
+  
+    const handleNextClick = () => {
+      setPage(page + 1);
+    };
   
 
     return (
@@ -140,13 +155,44 @@ const ClientsTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={5} padding="checkbox" className='money-header-row-option'>
+            <TableCell colSpan={4} padding="checkbox" className='money-header-row-option'>
               {numSelected > 0 ?
                 <div className='money-header-row-option-container'>
-                  <Button startIcon={<DeleteOutlineOutlinedIcon />}>
+                   <Button
+                    startIcon={<DeleteOutlineOutlinedIcon />}
+                    onClick={() => {
+                      toast.error(`You have clicked on Delete selected rows`, {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        pauseOnFocusLoss: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                      }}
+                    > 
                     Delete
                   </Button>
-                  <Button startIcon={<LocalOfferOutlinedIcon />}>
+                  <Button 
+                    startIcon={<LocalOfferOutlinedIcon />}
+                    onClick={() => {
+                      toast.warning(`You have clicked on Changing category of selected rows`, {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        pauseOnFocusLoss: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                      }}
+
+                  >
                     Change category
                   </Button>
                 </div>
@@ -185,15 +231,59 @@ const ClientsTableHead = (props) => {
                       },
                     }}
                   >
-                    {options.map((option) => (
-                      <MenuItem
-                        key={option}
-                        selected={option === "Pyxis"}
-                        onClick={handleClose}
-                      >
-                        {option}
-                      </MenuItem>
-                    ))}
+                    <MenuItem onClick={() => {
+                      toast.error(`You have clicked on Edit selected rows`, {
+                          position: "top-center",
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: false,
+                          pauseOnFocusLoss: false,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                        });
+                      handleClose()
+                      }}
+                    >
+                      Edit
+                    </MenuItem>
+
+                    <MenuItem onClick={() => {
+                      toast.error(`You have clicked on Add description selected rows`, {
+                          position: "top-center",
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: false,
+                          pauseOnFocusLoss: false,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                        });
+                      handleClose()
+                      }}
+                    >
+                      Add description
+                    </MenuItem>
+                    
+                    <MenuItem onClick={() => {
+                      toast.error(`You have clicked on Delete selected rows`, {
+                          position: "top-center",
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: false,
+                          pauseOnFocusLoss: false,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                        });
+                      handleClose()
+                      }}
+                    >
+                      Delete
+                    </MenuItem>
                   </Menu>
                 </div>
               : 
@@ -203,25 +293,57 @@ const ClientsTableHead = (props) => {
     
     
             
-            {headCells.map((headCell) => (
-                headCell.label === 'Date' ?
-                  <TableCell
-                    key={headCell.id}
+            <TableCell colSpan={2} padding="checkbox" className='email-header_pagination'>
+              <TablePagination
+                className='invoices_pagination'
+                // rowsPerPageOptions={[20, 50, 100]}
+                // labelDisplayedRows = {({from, to, count}) => `${from}–${to} of ${count !== -1 ? count : `more than ${to}`}`}
+                // labelDisplayedRows = {({from, to, count, page}) => `${page + 1} of ${Math.ceil(count / 20)}`}
+                labelDisplayedRows = {({from, to, count, page}) => ``}
+                rowsPerPageOptions={[]}
+                component="div"
+                count={invoices.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                // onPageChange={handleChangePage}
+                ActionsComponent={() => (
+                  <div className='invoices_pagination-container'>
+                    <IconButton
+                      onClick={handlePrevClick}
+                      disabled={page === 0}
+                      aria-label="previous page"
+                    >
+                      <ChevronLeftIcon />
+                    </IconButton>
+
+                    <p><span>{page+1}</span><span>of</span><span>{Math.ceil(invoices.length / 20)}</span></p>
+
+                    <IconButton
+                      onClick={handleNextClick}
+                      disabled={page >= Math.ceil(invoices.length / rowsPerPage) - 1}
+                      aria-label="next page"
+                    >
+                      <ChevronRightIcon />
+                    </IconButton>
+                  </div>
+                )}
+                // onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </TableCell>
+    
+                  {/* <TableCell
                     // align={headCell.numeric ? 'right' : 'left'}
                     align="center"
                     padding={headCell.disablePadding ? 'none' : 'normal'}
-                    sortDirection={orderBy === headCell.id ? order : false}
+                    // sortDirection={orderBy === headCell.id ? order : false}
                     onClick={sortByDateHandler}
                     sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                   >
                       Date
                       <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} />
                   </TableCell>
-                :
-                ''
     
-    
-                /* <TableSortLabel
+                <TableSortLabel
                   active={orderBy === headCell.id}
                   direction={orderBy === headCell.id ? order : 'asc'}
                   onClick={createSortHandler(headCell.id)}
@@ -232,8 +354,7 @@ const ClientsTableHead = (props) => {
                       {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                     </Box>
                   ) : null}
-                </TableSortLabel> */
-            ))}
+                </TableSortLabel>  */}
           </TableRow>
 
           <TableRow className='money-header-row'>

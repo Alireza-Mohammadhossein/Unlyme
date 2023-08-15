@@ -12,10 +12,6 @@ import Checkbox from '@mui/material/Checkbox';
 import { useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import InvoiceManagerTableHead from './InvoicesTableHead';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
-import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import Modal from '@mui/material/Modal';
 import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
 import Menu from "@mui/material/Menu";
@@ -23,15 +19,6 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { toast } from "react-toastify";
-import EditNoteIcon from '@mui/icons-material/EditNote';
-import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
-import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
-import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
-import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
-import AttachmentOutlinedIcon from '@mui/icons-material/AttachmentOutlined';
-import LoopOutlinedIcon from '@mui/icons-material/LoopOutlined';
-import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import EditInvoicePopup from '../popups/EditInvoicePopup';
 import SendEmailPopup from '../popups/SendEmailPopup';
 import AddPaymentPopup from '../popups/AddPaymentPopup';
@@ -540,6 +527,12 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                 rowCount={visibleRows.length}
                 setSearchText={setSearchText}
                 sortByDateHandler={sortByDateHandler}
+                invoices={invoices}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                handleChangePage={handleChangePage}
+                handleChangeRowsPerPage={handleChangeRowsPerPage}
+                setPage={setPage}
               />
 
               <TableBody>
@@ -684,7 +677,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
               </TableBody>
             </Table>
           </TableContainer>
-          <TablePagination
+          {/* <TablePagination
             className='invoices-pagination'
             rowsPerPageOptions={[20, 50, 100]}
             component="div"
@@ -693,7 +686,7 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+          /> */}
         </Paper>
       </Box>
 
