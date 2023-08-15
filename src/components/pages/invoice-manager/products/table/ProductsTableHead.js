@@ -11,11 +11,13 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TablePagination from '@mui/material/TablePagination';
 import { toast } from "react-toastify";
-
+import TablePagination from '@mui/material/TablePagination';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import DeleteProductPopup from '../popups/DeleteProductPopup';
+import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
+import Modal from '@mui/material/Modal';
 
 
 
@@ -154,6 +156,28 @@ const ProductsTableHead = (props) => {
       setPage(page + 1);
     };
 
+
+
+    // start delete invoice popup
+    const [deleteProductPopup, setDeleteProductPopup] = useState(false);
+    const handleOpenDeleteProductPopup = () => {
+      setDeleteProductPopup(true)
+    };
+    const handleCloseDeleteProductPopup = () => {
+      setDeleteProductPopup(false)
+    };
+    // end delete invoice popup
+
+
+    // start change category popup
+    const [changeCategoryPopup, setChangeCategoryPopup] = useState(false);
+    const handleOpenChangeCategoryPopup = () => {
+      setChangeCategoryPopup(true);
+    };
+    const handleCloseChangeCategoryPopup = () => {
+      setChangeCategoryPopup(false)
+    };
+    // end change category popup
   
 
     return (
@@ -183,38 +207,13 @@ const ProductsTableHead = (props) => {
                 <div className='products-header-row-option-container'>
                   <Button
                     startIcon={<DeleteOutlineOutlinedIcon />}
-                    onClick={() => {
-                      toast.error(`You have clicked on Delete selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
-                    > 
+                    onClick={handleOpenDeleteProductPopup}
+                  > 
                     Delete
                   </Button>
                   <Button 
                     startIcon={<LocalOfferOutlinedIcon />}
-                    onClick={() => {
-                      toast.warning(`You have clicked on Changing category of selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
-
+                    onClick={handleOpenChangeCategoryPopup}
                   >
                     Change category
                   </Button>
@@ -399,6 +398,31 @@ const ProductsTableHead = (props) => {
           ))}
           </TableRow>
         </TableHead>
+
+
+        
+      {/* delete product modal */}
+      <Modal
+        open={deleteProductPopup}
+        onClose={() => handleCloseDeleteProductPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <DeleteProductPopup handleCloseDeleteProductPopup={handleCloseDeleteProductPopup} />
+      </Modal>
+
+
+      {/* change category modal */}
+      <Modal
+        open={changeCategoryPopup}
+        onClose={() => handleCloseChangeCategoryPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <ChangeCategoryPopup handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
+      </Modal>
       </>
     );
 }

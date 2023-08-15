@@ -11,11 +11,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TablePagination from '@mui/material/TablePagination';
 import { toast } from "react-toastify";
-
+import TablePagination from '@mui/material/TablePagination';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import DeleteEarningPopup from '../popups/DeleteEarningPopup';
+import Modal from '@mui/material/Modal';
 
 
 
@@ -127,6 +128,17 @@ const MoneyTableHead = (props) => {
     };
 
 
+
+    // start delete earning popup
+    const [deleteEarningPopup, setDeleteEarningPopup] = useState(false);
+    const handleOpenDeleteEarningPopup = () => {
+      setDeleteEarningPopup(true)
+    };
+    const handleCloseDeleteEarningPopup = () => {
+      setDeleteEarningPopup(false)
+    };
+    // end delete invoice popup
+
     
 
     return (
@@ -151,28 +163,16 @@ const MoneyTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={3} padding="checkbox" className='money-header-row-option'>
+            <TableCell colSpan={4} padding="checkbox" className='money-header-row-option'>
               {numSelected > 0 ?
                 <div className='money-header-row-option-container'>
                    <Button
                     startIcon={<DeleteOutlineOutlinedIcon />}
-                    onClick={() => {
-                      toast.error(`You have clicked on Delete selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
+                    onClick={handleOpenDeleteEarningPopup}
                     > 
                     Delete
                   </Button>
-                  <Button 
+                  {/* <Button 
                     startIcon={<LocalOfferOutlinedIcon />}
                     onClick={() => {
                       toast.warning(`You have clicked on Changing category of selected rows`, {
@@ -190,7 +190,7 @@ const MoneyTableHead = (props) => {
 
                   >
                     Change category
-                  </Button>
+                  </Button> */}
                 </div>
               : 
                 ''
@@ -289,7 +289,7 @@ const MoneyTableHead = (props) => {
     
     
             
-            <TableCell colSpan={2} padding="checkbox" className='email-header_pagination'>
+            <TableCell colSpan={1} padding="checkbox" className='email-header_pagination'>
               <TablePagination
                 className='invoices_pagination'
                 // rowsPerPageOptions={[20, 50, 100]}
@@ -372,6 +372,20 @@ const MoneyTableHead = (props) => {
           ))}
           </TableRow>
         </TableHead>
+
+
+        {/* delete earning modal */}
+        <Modal
+          open={deleteEarningPopup}
+          onClose={() => handleCloseDeleteEarningPopup()}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className='cloud-page__header_invoice-manager-details_add-modal'
+        >
+          <DeleteEarningPopup handleCloseDeleteEarningPopup={handleCloseDeleteEarningPopup} />
+        </Modal>
+
+        
       </>
     );
 }

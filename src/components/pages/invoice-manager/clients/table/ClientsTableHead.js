@@ -11,11 +11,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TablePagination from '@mui/material/TablePagination';
 import { toast } from "react-toastify";
-
+import TablePagination from '@mui/material/TablePagination';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import DeleteClientsPopup from '../popups/DeleteClientsPopup';
+import Modal from '@mui/material/Modal';
 
 
 
@@ -131,6 +132,17 @@ const ClientsTableHead = (props) => {
     const handleNextClick = () => {
       setPage(page + 1);
     };
+
+
+    // start delete invoice popup
+    const [deleteClientsPopup, setDeleteClientsPopup] = useState(false);
+    const handleOpenDeleteClientsPopup = () => {
+      setDeleteClientsPopup(true)
+    };
+    const handleCloseDeleteClientsPopup = () => {
+      setDeleteClientsPopup(false)
+    };
+    // end delete invoice popup
   
 
     return (
@@ -155,28 +167,16 @@ const ClientsTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={4} padding="checkbox" className='money-header-row-option'>
+            <TableCell colSpan={5} padding="checkbox" className='money-header-row-option'>
               {numSelected > 0 ?
                 <div className='money-header-row-option-container'>
                    <Button
                     startIcon={<DeleteOutlineOutlinedIcon />}
-                    onClick={() => {
-                      toast.error(`You have clicked on Delete selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
+                    onClick={handleOpenDeleteClientsPopup}
                     > 
                     Delete
                   </Button>
-                  <Button 
+                  {/* <Button 
                     startIcon={<LocalOfferOutlinedIcon />}
                     onClick={() => {
                       toast.warning(`You have clicked on Changing category of selected rows`, {
@@ -194,7 +194,7 @@ const ClientsTableHead = (props) => {
 
                   >
                     Change category
-                  </Button>
+                  </Button> */}
                 </div>
               : 
                 ''
@@ -293,7 +293,7 @@ const ClientsTableHead = (props) => {
     
     
             
-            <TableCell colSpan={2} padding="checkbox" className='email-header_pagination'>
+            <TableCell colSpan={1} padding="checkbox" className='email-header_pagination'>
               <TablePagination
                 className='invoices_pagination'
                 // rowsPerPageOptions={[20, 50, 100]}
@@ -376,6 +376,19 @@ const ClientsTableHead = (props) => {
           ))}
           </TableRow>
         </TableHead>
+
+        
+        {/* delete ivoice modal */}
+        <Modal
+          open={deleteClientsPopup}
+          onClose={() => handleCloseDeleteClientsPopup()}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className='cloud-page__header_invoice-manager-details_add-modal'
+        >
+          <DeleteClientsPopup handleCloseDeleteClientsPopup={handleCloseDeleteClientsPopup} />
+        </Modal>
+      
       </>
     );
 }

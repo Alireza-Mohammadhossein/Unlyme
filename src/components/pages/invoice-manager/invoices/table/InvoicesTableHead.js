@@ -11,11 +11,13 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TablePagination from '@mui/material/TablePagination';
 import { toast } from "react-toastify";
-
+import TablePagination from '@mui/material/TablePagination';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Modal from '@mui/material/Modal';
+import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
+import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
 
 
 
@@ -171,6 +173,32 @@ const InvoicesTableHead = (props) => {
     };
 
 
+
+
+    // start delete invoice popup
+    const [deleteInvoicePopup, setDeleteInvoicePopup] = useState(false);
+    // const [deleteInvoiceId, setDeleteInvoiceId] = useState(false);
+    const handleOpenDeleteInvoicePopup = () => {
+      // setDeleteInvoiceId(id);
+      setDeleteInvoicePopup(true)
+    };
+    const handleCloseDeleteInvoicePopup = () => {
+      setDeleteInvoicePopup(false)
+    };
+    // end delete invoice popup
+
+
+    // start change category popup
+    const [changeCategoryPopup, setChangeCategoryPopup] = useState(false);
+    const handleOpenChangeCategoryPopup = () => {
+      setChangeCategoryPopup(true);
+    };
+    const handleCloseChangeCategoryPopup = () => {
+      setChangeCategoryPopup(false)
+    };
+    // end change category popup
+
+
     return (
       <>
         <TableHead className='invoices-header'>
@@ -193,43 +221,18 @@ const InvoicesTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={3} padding="checkbox" className='invoices-header-row-option'>
+            <TableCell colSpan={4} padding="checkbox" className='invoices-header-row-option'>
               {numSelected > 0 ?
                 <div className='invoices-header-row-option-container'>
                   <Button
                     startIcon={<DeleteOutlineOutlinedIcon />}
-                    onClick={() => {
-                      toast.error(`You have clicked on Delete selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
-                    > 
+                    onClick={handleOpenDeleteInvoicePopup}
+                  > 
                     Delete
                   </Button>
                   <Button 
                     startIcon={<LocalOfferOutlinedIcon />}
-                    onClick={() => {
-                      toast.warning(`You have clicked on Changing category of selected rows`, {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        pauseOnFocusLoss: false,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      }}
-
+                    onClick={handleOpenChangeCategoryPopup}
                   >
                     Change category
                   </Button>
@@ -329,7 +332,7 @@ const InvoicesTableHead = (props) => {
               }
             </TableCell>
     
-            <TableCell colSpan={2} padding="checkbox" className='email-header_pagination'>
+            <TableCell colSpan={1} padding="checkbox" className='email-header_pagination'>
               <TablePagination
                 className='invoices_pagination'
                 // rowsPerPageOptions={[20, 50, 100]}
@@ -412,6 +415,31 @@ const InvoicesTableHead = (props) => {
           ))}
           </TableRow>
         </TableHead>
+
+
+
+        {/* delete ivoice modal */}
+        <Modal
+          open={deleteInvoicePopup}
+          onClose={() => handleCloseDeleteInvoicePopup()}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className='cloud-page__header_invoice-manager-details_add-modal'
+        >
+          <DeleteInvoicePopup handleCloseDeleteInvoicePopup={handleCloseDeleteInvoicePopup} />
+        </Modal>
+
+
+        {/* change category modal */}
+        <Modal
+          open={changeCategoryPopup}
+          onClose={() => handleCloseChangeCategoryPopup()}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className='cloud-page__header_invoice-manager-details_add-modal'
+        >
+          <ChangeCategoryPopup handleCloseChangeCategoryPopup={handleCloseChangeCategoryPopup} />
+        </Modal>
       </>
     );
 }
