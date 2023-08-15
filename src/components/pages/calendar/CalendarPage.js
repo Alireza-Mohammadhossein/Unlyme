@@ -111,6 +111,32 @@ function CalendarPageContent() {
   }
 
 
+
+  
+  const customDayHeaderContent = (info) => {
+    // const day = new Date(info.date).getDate();
+    const day = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+    // const year = new Date(info.date).getFullYear();
+    return (
+      <>
+        {day}
+      </>
+    );
+  };
+
+  const customWeekHeaderContent = (info) => {
+    const dayNum = new Date(info.date).getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'short' });
+    // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
+    // const year = new Date(info.date).getFullYear();
+    return (
+      <>
+        <span>{dayText}</span> <span>{dayNum}</span>
+      </>
+    );
+  };
+
+
   
   return (
     <div className='calendar-page'>
@@ -198,14 +224,19 @@ function CalendarPageContent() {
                   left: 'prev title next',
                   center: '',
                   right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
+
                 }}
+
                 buttonText={{
-                  today:    'Today',
-                  month:    'Month',
-                  week:     'Week',
-                  day:      'Day',
-                  list:     'Agenda'
+                  today: 'Today',
+                  month: 'Month',
+                  week: 'Week',
+                  day: 'Day',
+                  list: 'Agenda'
                 }}
+
+                // dayHeaderContent={customDayHeaderContent}
+
                 views = {{
                   dayGridMonth: { // name of view
                     titleFormat: {year: 'numeric', month: 'long' },
@@ -214,10 +245,12 @@ function CalendarPageContent() {
                   },
 
                   timeGridDay: {
+                    dayHeaderContent: customDayHeaderContent,
                     titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
                   },
 
                   timeGridWeek: {
+                    dayHeaderContent: customWeekHeaderContent,
                     titleFormat: {year: 'numeric', month: 'long'},
                   }
                 }}
@@ -232,7 +265,7 @@ function CalendarPageContent() {
                 
                 allDaySlot= {false}
                 allDayText= 'all'
-                
+                firstDay= {1}
                 initialView='dayGridMonth'
                 editable={true}
                 selectable={true}

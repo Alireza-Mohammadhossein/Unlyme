@@ -169,6 +169,16 @@
                             & .fc-col-header-cell {
                                 border-left: unset;
                                 border-right: unset;
+
+                                &.fc-day-today {
+                                    .fc-col-header-cell-cushion {
+                                        span:last-child {
+                                            padding: 2px 5px;
+                                            border-radius: 16px;
+                                            border: 1px solid #4382C4;
+                                        }
+                                    }
+                                }
     
                                 & .fc-scrollgrid-sync-inner {
                                     padding: 5px 0;
@@ -178,6 +188,20 @@
                                         font-size: 13px;
                                         font-weight: 500;
                                         line-height: 19px;
+
+                                        span{
+                                            color: #333333;
+                                            font-size: 13px;
+                                            line-height: 19px;
+                                            
+                                            &:first-child {
+                                                font-weight: 400;
+                                            }
+
+                                            &:last-child {
+                                                font-weight: 600;
+                                            }
+                                        }
                                     } 
                                 }
                             }
