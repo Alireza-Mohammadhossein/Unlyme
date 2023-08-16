@@ -382,6 +382,93 @@
                             }
                         }
                     }
+
+                    & .fc-listMonth-view {
+                        padding: 25px 15px;
+
+                        tbody {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .fc-list-day {
+                                width: 150px;
+
+                                th {
+                                    border: unset;
+
+                                    .fc-list-day-cushion  {
+                                        background-color: unset;
+                                        padding: 5px;
+    
+                                        div:first-child {
+                                            span {
+                                                color: #333;
+                                                font-size: 13px;
+                                                font-weight: 500;
+                                            }
+                                        }
+    
+                                        div:last-child {
+                                            margin-top: 5px;
+                                            span {
+                                                color: #B8B8B8;
+                                                font-size: 13px;
+                                                font-weight: 400;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .fc-event {
+                                width: 100%;
+                                margin-left: 150px;
+                                position: relative;
+                                bottom: 45px;
+                                box-sizing: border-box;
+
+                                td {
+                                    border: unset;
+
+                                    &:first-child {
+                                        border-radius: 8px 0 0 8px;
+                                    }
+
+                                    
+                                    &:last-child {
+                                        border-radius: 0 8px 8px 0;
+                                    }
+                                }
+
+                                // &:hover {
+                                //     td {
+                                //         background: unset;
+                                //     }
+                                // }
+
+                                .fc-list-event-time {
+                                    color: #414141;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    padding: 10px 10px 10px 10px;
+                                }
+
+                                .fc-list-event-graphic {
+                                    padding: 8px 10px;
+                                    .fc-list-event-dot {
+                                        border-color: #AB9BCD;
+                                    }
+                                }
+
+                                .fc-list-event-title {
+                                    color: #414141;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    padding: 10px 10px 10px 10px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 

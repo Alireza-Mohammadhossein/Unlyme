@@ -136,6 +136,25 @@ function CalendarPageContent() {
     );
   };
 
+  const customAgendaHeaderContent = (info) => {
+    const dayNum = new Date(info.date).getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
+    // const year = new Date(info.date).getFullYear();
+    return (
+      <>
+      <div>
+        <span>{month}</span> <span>{dayNum}</span>
+      </div>
+      
+      <div>
+        <span>{dayText}</span>
+      </div>
+      </>
+    );
+  };
+
 
   
   return (
@@ -223,7 +242,7 @@ function CalendarPageContent() {
                   // left: 'prev title next today',
                   left: 'prev title next',
                   center: '',
-                  right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
+                  right: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
 
                 }}
 
@@ -252,6 +271,10 @@ function CalendarPageContent() {
                   timeGridWeek: {
                     dayHeaderContent: customWeekHeaderContent,
                     titleFormat: {year: 'numeric', month: 'long'},
+                  },
+
+                  listMonth: {
+                    dayHeaderContent: customAgendaHeaderContent,
                   }
                 }}
                 
