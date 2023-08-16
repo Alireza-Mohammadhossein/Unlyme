@@ -84,6 +84,8 @@ function TabPanel(props) {
     const [currentMessage, setCurrentMessage] = useState("");
     const [currentTitle, setCurrentTitle] = useState("");
     const [filteredNote, setFilteredNote] = useState([]);
+    const [hasEntered, setHasEntered] = useState(false);
+    const [inputText, setInputText] = useState('');
   
   
     // start getting notes from localstorage
@@ -142,6 +144,8 @@ function TabPanel(props) {
         setCurrentTitle("");
         setCurrentMessage("");
         setNewNoteToggler(false);
+        setHasEntered(false)
+        setInputText('')
       }
     };
   
@@ -182,6 +186,30 @@ function TabPanel(props) {
     const monthNow = dayjs().format("MMM");
     const yearNow = dayjs().format("YYYY");
     const timeNow = dayjs().format("HH:mm");
+
+
+
+    // getting title from first enter
+    const handleMessageChange = (event) => {
+      const newText = event.target.value;
+      setInputText(newText);
+
+      const lines = newText.split('\n');
+      const firstLine = lines[0];
+      const restLines = lines.slice(1).join('\n');
+
+      if (!hasEntered && newText.includes('\n')) {
+        setCurrentTitle(firstLine);
+        setCurrentMessage(restLines);
+        setHasEntered(true);
+      } else if (hasEntered && currentTitle !== firstLine) {
+        setCurrentTitle(firstLine);
+        setCurrentMessage(restLines);
+      } else if (hasEntered && currentTitle === firstLine) {
+        setCurrentMessage(restLines);
+      }
+    };
+  
   
   
     return (
@@ -202,14 +230,31 @@ function TabPanel(props) {
           >
             <div className="notes-page_sidebar">
               <div className="notes-page_sidebar_create-event">
-                <Button
-                  // variant="outlined"
-                  // startIcon={<AddIcon />}
-                  className="notes-page_sidebar_create-event_btn"
-                  onClick={handleCreateNote}
-                >
-                  {t("NOTES_PAGE.CREATE_NOTE_BUTON")}
-                </Button>
+
+                {
+                  currentTitle && currentMessage ?
+                    <Button
+                      // variant="outlined"
+                      // startIcon={<AddIcon />}
+                      className="notes-page_sidebar_create-event_btn"
+                      onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}
+                    >
+                      {t("NOTES_PAGE.CREATE_NOTE_BUTON")}
+                    </Button>
+
+                  :
+                    <Button
+                      // variant="outlined"
+                      // startIcon={<AddIcon />}
+                      className="notes-page_sidebar_create-event_btn"
+                      onClick={handleCreateNote}
+                    >
+                      {t("NOTES_PAGE.CREATE_NOTE_BUTON")}
+                    </Button>
+
+                }
+
+                
               </div>
   
               <div className="notes-page_sidebar-section">
@@ -332,30 +377,32 @@ function TabPanel(props) {
                             </div>
               
                             <div className='notes-page_main_notes-messages__body-content'> 
-                                <TextField
+                                {/* <TextField
                                   className='notes-page_main_notes-messages__body-content-title'
                                   placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
                                   multiline
                                   value={currentTitle}
                                   onChange={(e) => setCurrentTitle(e.target.value)}
-                                />
+                                /> */}
                                 <TextField
                                   className='notes-page_main_notes-messages__body-content-message'
                                   placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
                                   multiline
-                                  value={currentMessage}
-                                  onChange={(e) => setCurrentMessage(e.target.value)}
+                                  value={inputText}
+                                  autoFocus
+                                  // onChange={(e) => setCurrentMessage(e.target.value)}
+                                  onChange={handleMessageChange}
                                 />
                             </div>
   
-                            <div className='notes-page_main_notes-messages__body-submit' >
+                            {/* <div className='notes-page_main_notes-messages__body-submit' >
                               <button
                                 className='btn'
                                 disabled={!currentTitle || ! currentMessage}
                                 onClick={() => handleAddNote(dayNow, monthNow, yearNow, timeNow, currentTitle, currentMessage)}>
                                 Add
                               </button>
-                            </div>
+                            </div> */}
   
   
   
