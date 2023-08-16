@@ -200,11 +200,9 @@ const ProductsTableHead = (props) => {
               : 
                 ''
               }
-            </TableCell>
 
-            <TableCell colSpan={2} padding="checkbox" className='products-header-row-option'>
               {numSelected > 0 ?
-                <div className='products-header-row-option-container'>
+                <div className='products-header-row-option-container actions'>
                   <Button
                     startIcon={<DeleteOutlineOutlinedIcon />}
                     onClick={handleOpenDeleteProductPopup}
@@ -221,6 +219,10 @@ const ProductsTableHead = (props) => {
               : 
                 ''
               }
+            </TableCell>
+
+            <TableCell colSpan={2} padding="checkbox" className='products-header-row-option'>
+              
             </TableCell>
     
             <TableCell padding="checkbox" className='email-header_selected'>

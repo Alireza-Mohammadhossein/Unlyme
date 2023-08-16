@@ -66,6 +66,8 @@ function TabPanel(props) {
       // if (event.target === event.currentTarget) {
         setShowNote(newValue);
         setNewNoteToggler(false);
+        setNewTitleValue('')
+        setNewMessageValue('')
       // }
     };
     // end showing chat tab
@@ -168,9 +170,9 @@ function TabPanel(props) {
         message: newMessageValue,
       };
       setNotes(updatedNotes);
-      setNewTitleValue("");
-      setNewMessageValue("");
-      setShowNote(false);
+      // setNewTitleValue("");
+      // setNewMessageValue("");
+      // setShowNote(false);
     };
   
     const [anchorEl, setAnchorEl] = useState(null);
@@ -334,11 +336,15 @@ function TabPanel(props) {
   
                               <div className='notes-page_main_notes-messages__body-content'>
                                   <TextField
-                                    className='notes-page_main_notes-messages__body-content-title'
+                                    // className='notes-page_main_notes-messages__body-content-title'
+                                    className='notes-page_main_notes-messages__body-content-message'
                                     placeholder={t('NOTE_POPUP.CREATE_NOTE.TITLE')}
                                     multiline
                                     value={newTitleValue || item.title}
-                                    onChange={(e) => setNewTitleValue(e.target.value)}
+                                    onChange={(e) => {
+                                      setNewTitleValue(e.target.value)
+                                      handleUpdateNote(index, newTitleValue || item.title, newMessageValue || item.message)
+                                    }}
                                   />
             
                                   <TextField
@@ -346,18 +352,21 @@ function TabPanel(props) {
                                     placeholder={t('NOTE_POPUP.CREATE_NOTE.PLACEHOLDER')}
                                     multiline
                                     value={newMessageValue || item.message}
-                                    onChange={(e) => setNewMessageValue(e.target.value)}
+                                    onChange={(e) => {
+                                      setNewMessageValue(e.target.value)
+                                      handleUpdateNote(index, newTitleValue || item.title, newMessageValue || item.message)
+                                    }}
                                   />
                               </div>
   
-                              <div className='notes-page_main_notes-messages__body-submit'>
+                              {/* <div className='notes-page_main_notes-messages__body-submit'>
                                 <button
                                   className='btn'
                                   disabled= {!newTitleValue || !newMessageValue}
                                   onClick={() => handleUpdateNote(index, newTitleValue, newMessageValue)}>
                                     Update note
                                 </button>
-                              </div>
+                              </div> */}
                             </div>
                           
                         </TabPanel>

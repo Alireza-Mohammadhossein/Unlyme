@@ -1038,6 +1038,15 @@
                     display: flex;
                     gap: 10px;
 
+                    &.actions {
+                        display: inline-block;
+                        margin-left: 80px;
+
+                        button:last-child {
+                            margin-left: 10px;
+                        }
+                    }
+
                     .MuiButtonBase-root {
                         background-color: #F0F0F0;
                         color: #888888;
