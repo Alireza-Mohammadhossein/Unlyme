@@ -158,7 +158,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
       <div className='invoices-cloneinvoicepopup-list'>        
         <div className='invoices-cloneinvoicepopup-item flex'>
           <p className="invoices-cloneinvoicepopup-item-title">
-              Invoice date
+              Invoice date*
           </p>
 
           <div className='invoices-cloneinvoicepopup-item-date'>
@@ -176,7 +176,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
         <div className='invoices-cloneinvoicepopup-item flex'>
           <p className="invoices-cloneinvoicepopup-item-title">
-              Due date
+              Due date*
           </p>
 
           <div className='invoices-cloneinvoicepopup-item-date'>
@@ -194,7 +194,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
         <div className='invoices-cloneinvoicepopup-item flex'>
             <p className='invoices-cloneinvoicepopup-item-title'>
-              Client
+              Client*
             </p>
 
             <FormControl fullWidth>
@@ -261,7 +261,7 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
 
         <div className='invoices-cloneinvoicepopup-item flex'>
             <p className='invoices-cloneinvoicepopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -278,6 +278,12 @@ const CloneInvoicePopup = ({ handleCloseCloneInvoicePopup, data }) => {
                   <MenuItem value='category4'>Category 4</MenuItem>
                 </Select>
             </FormControl>
+        </div>
+
+        <div className='invoices-cloneinvoicepopup-item flex'>
+            <p className='invoices-cloneinvoicepopup-item-title'>
+              * Required
+            </p>
         </div>
 
         <div className='invoices-cloneinvoicepopup-btn'>

@@ -173,6 +173,8 @@
     width: 80%;
     max-width: 620px;
     height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
     padding: 40px;
@@ -361,6 +363,20 @@
             align-items: top;
             justify-content: space-between;
 
+            .MuiFormControl-root {
+                width: 100%;
+                max-width: unset;
+            }
+
+            .notif {
+                color: #888;
+                text-align: center;
+                font-size: 13px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 22px;
+            }
+
             & .MuiInputBase-root {
                 border-radius: 8px;
                 background-color: #F8FAFC;
@@ -478,6 +494,8 @@
     width: 80%;
     max-width: 620px;
     height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
     padding: 40px;
@@ -901,6 +919,8 @@
     width: 80%;
     max-width: 620px;
     height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
     padding: 40px;
@@ -1024,6 +1044,20 @@
             display: flex;
             align-items: top;
             justify-content: space-between;
+
+            .MuiFormControl-root {
+                width: 100%;
+                max-width: unset;
+            }
+
+            .notif {
+                color: #888;
+                text-align: center;
+                font-size: 13px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 22px;
+            }
 
             & .MuiInputBase-root {
                 border-radius: 8px;
@@ -1182,9 +1216,11 @@
     width: 80%;
     max-width: 620px;
     height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
     &-header {

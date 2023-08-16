@@ -94,7 +94,7 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
         
         <div className='money-addnewpopup-item flex'>
           <p className="money-addnewpopup-item-title">
-              Invoice ID
+              Invoice ID*
           </p>
 
           <div className='money-addnewpopup-item-number'>
@@ -113,7 +113,7 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
 
         <div className='money-addnewpopup-item flex'>
           <p className="money-addnewpopup-item-title">
-              Amount
+              Amount*
           </p>
 
           <div className='money-addnewpopup-item-number'>
@@ -132,7 +132,7 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
 
         <div className='money-addnewpopup-item flex'>
           <p className="money-addnewpopup-item-title">
-              Date
+              Date*
           </p>
 
           <div className='money-addnewpopup-item-date'>
@@ -150,7 +150,7 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
 
         <div className='money-addnewpopup-item flex'>
             <p className='money-addnewpopup-item-title'>
-              Payment method
+              Payment method*
             </p>
 
             <FormControl fullWidth>
@@ -201,16 +201,22 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
               <>
                 <div className='money-addnewpopup-item notes'>
                   <p className='money-addnewpopup-item-title'>
-                    Notes
+                    Notes**
                   </p>
 
-                  <TextField
-                      className='money-addnewpopup-item-input'
-                      variant="outlined"
-                      onChange={handleNotes}
-                      multiline
-                      maxRows={5}
-                  />
+                  <div>
+                    <TextField
+                        className='money-addnewpopup-item-input'
+                        variant="outlined"
+                        onChange={handleNotes}
+                        multiline
+                        maxRows={5}
+                    />
+
+                    <span className='notif'>
+                      ** Private, not visible to the client
+                    </span>
+                  </div>
                 </div>
               </>
             :
@@ -219,6 +225,12 @@ const AddNewEarningPopup = ({ handleCloseAddNewEarningPopup }) => {
 
         <div className='money-addnewpopup-item flex'>
           <FormControlLabel control={<Checkbox sx={{color: '#51A3FF'}} defaultChecked />} label="Send the client a Payment received email" sx={{color: '#888888', fontSize: '13px'}} />
+        </div>
+
+        <div className='money-addnewpopup-item flex'>
+            <p className='money-addnewpopup-item-title'>
+              * Required
+            </p>
         </div>
 
 

@@ -246,7 +246,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
       <div className='clients-addnewpopup-list'>
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              Company name
+              Company name*
             </p>
 
             <TextField
@@ -260,7 +260,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              First name
+              First name*
             </p>
 
             <TextField
@@ -275,7 +275,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              Last name
+              Last name*
             </p>
             
             <TextField
@@ -290,7 +290,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              Email address
+              Email address*
             </p>
 
             <TextField
@@ -305,7 +305,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -327,7 +327,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
         
         <div className='clients-addnewpopup-item flex'>
             <p className='clients-addnewpopup-item-title'>
-              Project
+              Project*
             </p>
 
             <FormControl fullWidth>
@@ -362,9 +362,9 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
           descriptionSwitch ? 
               <>
                 <div className='clients-addnewpopup-item notes'>
-                  <p className='clients-addnewpopup-item-title'>
+                  {/* <p className='clients-addnewpopup-item-title'>
                     Notes
-                  </p>
+                  </p> */}
 
                   <TextField
                       className='clients-addnewpopup-item-input'
@@ -763,6 +763,13 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
             :
               ''
         }
+
+
+        <div className='clients-addnewpopup-item flex'>
+          <p className='clients-addnewpopup-item-title'>
+            * Required
+          </p>
+        </div>
 
 
         <div className='clients-addnewpopup-btn'>

@@ -99,7 +99,7 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
 
         <div className='money-editinvoicepopup-item flex'>
           <p className="money-editinvoicepopup-item-title">
-              Amount
+              Amount*
           </p>
 
           <div className='money-editinvoicepopup-item-number'>
@@ -118,7 +118,7 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
 
         <div className='money-editinvoicepopup-item flex'>
           <p className="money-editinvoicepopup-item-title">
-              Date
+              Date*
           </p>
 
           <div className='money-editinvoicepopup-item-date'>
@@ -137,7 +137,7 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
 
         <div className='money-editinvoicepopup-item flex'>
           <p className='money-editinvoicepopup-item-title'>
-            Payment method
+            Payment method*
           </p>
 
           <FormControl fullWidth>
@@ -189,21 +189,33 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
               <>
                 <div className='money-editinvoicepopup-item notes'>
                   <p className='money-editinvoicepopup-item-title'>
-                    Notes
+                    Notes**
                   </p>
 
-                  <TextField
-                      className='money-editinvoicepopup-item-input'
-                      variant="outlined"
-                      onChange={handleNotes}
-                      multiline
-                      maxRows={5}
-                  />
+                  <div>
+                    <TextField
+                        className='money-editinvoicepopup-item-input'
+                        variant="outlined"
+                        onChange={handleNotes}
+                        multiline
+                        maxRows={5}
+                    />
+
+                    <span className='notif'>
+                      ** Private, not visible to the client
+                    </span>
+                  </div>
                 </div>
               </>
             :
               ''
         }
+
+        <div className='money-editinvoicepopup-item flex'>
+          <p className='money-editinvoicepopup-item-title'>
+            * Required
+          </p>
+        </div>
 
         <div className='money-editinvoicepopup-btn'>
           <Button className='money-editinvoicepopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>

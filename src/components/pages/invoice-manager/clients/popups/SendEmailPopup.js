@@ -150,9 +150,9 @@ const SendEmailPopup = ({ handleCloseSendEmailPopup, data }) => {
 
 
         <div className='clients-sendemailpopup-item notes'>
-          <p className='clients-sendemailpopup-item-title'>
+          {/* <p className='clients-sendemailpopup-item-title'>
             Message
-          </p>
+          </p> */}
           
           <TextField
               className='clients-sendemailpopup-item-input'

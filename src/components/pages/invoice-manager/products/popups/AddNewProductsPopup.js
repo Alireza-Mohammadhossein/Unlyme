@@ -79,7 +79,7 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
         <div className='products-addnewpopup-item description'>
           <p className='products-addnewpopup-item-title'>
-            Description
+            Description*
           </p>
 
           <TextField
@@ -93,7 +93,7 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
         <div className='products-addnewpopup-item flex'>
           <p className="products-addnewpopup-item-title">
-              Rate
+              Rate*
           </p>
 
           <div className='products-addnewpopup-item-number'>
@@ -112,7 +112,7 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
         <div className='products-addnewpopup-item notes'>
           <p className='products-addnewpopup-item-title'>
-            Units
+            Units*
 
             <Tooltip className='tooltip' id='addnewproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
               <IconButton>
@@ -131,7 +131,7 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
 
         <div className='products-addnewpopup-item flex'>
             <p className='products-addnewpopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -188,6 +188,11 @@ const AddNewProductsPopup = ({ handleCloseAddNewProductsPopup }) => {
         }
 
 
+        <div className='products-addnewpopup-item flex'>
+          <p className='products-addnewpopup-item-title'>
+            * Required
+          </p>
+        </div>
 
 
         <div className='products-addnewpopup-btn'>

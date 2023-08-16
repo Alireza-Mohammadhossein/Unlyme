@@ -139,9 +139,9 @@ const EditExpensesPopup = ({ handleCloseEditExpensesPopup, data}) => {
 
       <div className='money-editinvoicepopup-list'>
 
-      <div className='money-addnewexpenses-item notes'>
+        <div className='money-addnewexpenses-item notes'>
           <p className='money-addnewexpenses-item-title'>
-            Description
+            Description*
           </p>
 
           <TextField
@@ -156,7 +156,7 @@ const EditExpensesPopup = ({ handleCloseEditExpensesPopup, data}) => {
         
         <div className='money-addnewexpenses-item flex'>
           <p className="money-addnewexpenses-item-title">
-              Date
+              Date*
           </p>
 
           <div className='money-addnewexpenses-item-date'>
@@ -174,7 +174,7 @@ const EditExpensesPopup = ({ handleCloseEditExpensesPopup, data}) => {
 
         <div className='money-addnewexpenses-item flex'>
           <p className="money-addnewexpenses-item-title">
-              Amount
+              Amount*
           </p>
 
           <div className='money-addnewexpenses-item-number'>
@@ -193,7 +193,7 @@ const EditExpensesPopup = ({ handleCloseEditExpensesPopup, data}) => {
 
         <div className='money-addnewexpenses-item flex'>
             <p className='money-addnewexpenses-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -322,7 +322,11 @@ const EditExpensesPopup = ({ handleCloseEditExpensesPopup, data}) => {
         }
 
 
-
+        <div className='money-addnewexpenses-item flex'>
+          <p className='money-addnewexpenses-item-title'>
+            * Required
+          </p>
+        </div>
 
 
         <div className='money-editinvoicepopup-btn'>

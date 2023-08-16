@@ -130,7 +130,7 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
 
         <div className='money-addnewexpenses-item notes'>
           <p className='money-addnewexpenses-item-title'>
-            Description
+            Description*
           </p>
 
           <TextField
@@ -144,7 +144,7 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
         
         <div className='money-addnewexpenses-item flex'>
           <p className="money-addnewexpenses-item-title">
-              Date
+              Date*
           </p>
 
           <div className='money-addnewexpenses-item-date'>
@@ -162,7 +162,7 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
 
         <div className='money-addnewexpenses-item flex'>
           <p className="money-addnewexpenses-item-title">
-              Amount
+              Amount*
           </p>
 
           <div className='money-addnewexpenses-item-number'>
@@ -181,7 +181,7 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
 
         <div className='money-addnewexpenses-item flex'>
             <p className='money-addnewexpenses-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -308,6 +308,11 @@ const AddNewExpensesPopup = ({ handleCloseAddNewExpensesPopup }) => {
         }
 
 
+          <div className='money-addnewexpenses-item flex'>
+            <p className='money-addnewexpenses-item-title'>
+              * Required
+            </p>
+          </div>
 
 
         <div className='money-addnewexpenses-btn'>

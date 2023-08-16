@@ -131,6 +131,11 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
       const handleNotes = (event) => {
           setNotes(event.target.value);
       };
+
+      const [terms, setTerms] = useState('');
+      const handleTerms = (event) => {
+          setTerms(event.target.value);
+      };
  
 
   return (
@@ -155,7 +160,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
             <>
                 <div className='invoices-addnewpopup-item flex'>
                     <p className='invoices-addnewpopup-item-title'>
-                      Client
+                      Client*
                     </p>
 
                     <TextField
@@ -192,7 +197,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
             <>
               <div className='invoices-addnewpopup-item flex'>
                   <p className='invoices-addnewpopup-item-title'>
-                    Company name
+                    Company name*
                   </p>
 
                   <TextField
@@ -204,7 +209,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
 
               <div className='invoices-addnewpopup-item flex'>
                   <p className='invoices-addnewpopup-item-title'>
-                    Fist name
+                    Fist name*
                   </p>
 
                   <TextField
@@ -216,7 +221,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
               
               <div className='invoices-addnewpopup-item flex'>
                   <p className='invoices-addnewpopup-item-title'>
-                    Last name
+                    Last name*
                   </p>
 
                   <TextField
@@ -228,7 +233,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
               
               <div className='invoices-addnewpopup-item flex'>
                   <p className='invoices-addnewpopup-item-title'>
-                    Email address
+                    Email address*
                   </p>
 
                   <TextField
@@ -256,7 +261,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
         
         <div className='invoices-addnewpopup-item flex'>
           <p className="invoices-addnewpopup-item-title">
-              Invoice date
+              Invoice date*
           </p>
 
           <div className='invoices-addnewpopup-item-date'>
@@ -274,7 +279,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
 
         <div className='invoices-addnewpopup-item flex'>
           <p className="invoices-addnewpopup-item-title">
-              Due date
+              Due date*
           </p>
 
           <div className='invoices-addnewpopup-item-date'>
@@ -292,7 +297,7 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
 
         <div className='invoices-addnewpopup-item flex'>
             <p className='invoices-addnewpopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -362,6 +367,20 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
                       maxRows={5}
                   />
                 </div>
+
+                <div className='invoices-addnewpopup-item terms'>
+                  <p className='invoices-addnewpopup-item-title'>
+                    Terms and conditions
+                  </p>
+
+                  <TextField
+                      className='invoices-addnewpopup-item-input'
+                      variant="outlined"
+                      onChange={handleTerms}
+                      multiline
+                      maxRows={5}
+                  />
+                </div>
               </>
             :
               ''
@@ -372,6 +391,13 @@ const AddNewPopup = ({ handleCloseAddNewPopup }) => {
                 Recurring invoice options are available after an invoice has been created
             </Alert>
         </div>
+
+        <div className='invoices-addnewpopup-item flex'>
+            <p className='invoices-addnewpopup-item-title'>
+              * Required
+            </p>
+        </div>
+
 
         <div className='invoices-addnewpopup-btn'>
           <Button className='invoices-addnewpopup-btn-reset' onClick={handleCancelFilters}>Cancel</Button>

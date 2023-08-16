@@ -232,7 +232,7 @@ const EditClientsPopup = ({ handleCloseEditClientsPopup, data}) => {
       <div className='clients-editinvoicepopup-list'>
         <div className='clients-editinvoicepopup-item flex'>
           <p className="clients-editinvoicepopup-item-title">
-              Company name
+              Company name*
           </p>
 
           <TextField
@@ -247,7 +247,7 @@ const EditClientsPopup = ({ handleCloseEditClientsPopup, data}) => {
 
         <div className='clients-editinvoicepopup-item flex'>
           <p className='clients-editinvoicepopup-item-title'>
-            Category
+            Category*
           </p>
 
           <FormControl fullWidth>
@@ -302,9 +302,9 @@ const EditClientsPopup = ({ handleCloseEditClientsPopup, data}) => {
           descriptionSwitch ? 
               <>
                 <div className='clients-editinvoicepopup-item notes'>
-                  <p className='clients-editinvoicepopup-item-title'>
+                  {/* <p className='clients-editinvoicepopup-item-title'>
                     Notes
-                  </p>
+                  </p> */}
 
                   <TextField
                       className='clients-editinvoicepopup-item-input'
@@ -699,6 +699,13 @@ const EditClientsPopup = ({ handleCloseEditClientsPopup, data}) => {
             :
               ''
         }
+
+
+        <div className='clients-editinvoicepopup-item flex'>
+          <p className='clients-editinvoicepopup-item-title'>
+            * Required
+          </p>
+        </div>
 
 
         <div className='clients-editinvoicepopup-btn'>

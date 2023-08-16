@@ -105,7 +105,7 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
       <div className='invoices-addpaymentpopup-list'>
         <div className='invoices-addpaymentpopup-item flex'>
           <p className="invoices-addpaymentpopup-item-title">
-              Invoice Amount
+              Invoice Amount*
           </p>
 
           <div className='invoices-addpaymentpopup-item-price'>
@@ -124,7 +124,7 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
         
         <div className='invoices-addpaymentpopup-item flex'>
           <p className="invoices-addpaymentpopup-item-title">
-              Date
+              Date*
           </p>
 
           <div className='invoices-addpaymentpopup-item-date'>
@@ -142,7 +142,7 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
 
         <div className='invoices-addpaymentpopup-item flex'>
             <p className='invoices-addpaymentpopup-item-title'>
-              Payment method
+              Payment method*
             </p>
 
             <FormControl fullWidth>
@@ -190,16 +190,22 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
               <>
                 <div className='invoices-addpaymentpopup-item notes'>
                   <p className='invoices-addpaymentpopup-item-title'>
-                    Notes
+                    Notes**
                   </p>
 
-                  <TextField
-                      className='invoices-addpaymentpopup-item-input'
-                      variant="outlined"
-                      onChange={handleNotes}
-                      multiline
-                      maxRows={5}
-                  />
+                  <div>
+                    <TextField
+                        className='invoices-addpaymentpopup-item-input'
+                        variant="outlined"
+                        onChange={handleNotes}
+                        multiline
+                        maxRows={5}
+                    />
+
+                    <span className='notif'>
+                      ** Private, not visible to the client
+                    </span>
+                  </div>
                 </div>
               </>
             :
@@ -208,6 +214,12 @@ const AddPaymentPopup = ({ handleCloseAddPaymentPopup, data }) => {
 
         <div className='invoices-addpaymentpopup-item flex'>
           <FormControlLabel control={<Checkbox sx={{color: '#51A3FF'}} defaultChecked />} label="Send the client a Payment received email" sx={{color: '#888888', fontSize: '13px'}} />
+        </div>
+
+        <div className='invoices-addpaymentpopup-item flex'>
+            <p className='invoices-addpaymentpopup-item-title'>
+              * Required
+            </p>
         </div>
 
         <div className='invoices-addpaymentpopup-btn'>

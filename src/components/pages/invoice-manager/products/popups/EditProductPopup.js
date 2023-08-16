@@ -94,7 +94,7 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
 
         <div className='products-editproductpopup-item description'>
           <p className='products-editproductpopup-item-title'>
-            Description
+            Description*
           </p>
 
           <TextField
@@ -109,7 +109,7 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
 
         <div className='products-editproductpopup-item flex'>
           <p className="products-editproductpopup-item-title">
-              Rate
+              Rate*
           </p>
 
           <div className='products-editproductpopup-item-number'>
@@ -128,7 +128,7 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
 
         <div className='products-editproductpopup-item notes'>
           <p className='products-editproductpopup-item-title'>
-            Units
+            Units*
 
             <Tooltip className='tooltip' id='editproductproductpopup_tooltip' title="Example: Hr, Each, Item" arrow placement="top-start">
               <IconButton>
@@ -149,7 +149,7 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
 
         <div className='products-editproductpopup-item flex'>
             <p className='products-editproductpopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -203,6 +203,13 @@ const EditProductPopup = ({ handleCloseEditProductPopup, data }) => {
             :
               ''
         }
+
+
+        <div className='products-editproductpopup-item flex'>
+          <p className='products-editproductpopup-item-title'>
+            * Required
+          </p>
+        </div>
 
         <div className='products-editproductpopup-btn'>
           <Button className='products-editproductpopup-btn-reset' onClick={handleCancelAddPayment}>Cancel</Button>

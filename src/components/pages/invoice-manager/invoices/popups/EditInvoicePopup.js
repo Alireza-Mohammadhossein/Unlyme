@@ -143,6 +143,11 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
       const handleNotes = (event) => {
           setNotes(event.target.value);
       };
+
+      const [terms, setTerms] = useState('');
+      const handleTerms = (event) => {
+          setTerms(event.target.value);
+      };
  
 
   return (
@@ -170,10 +175,10 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
         </div>
       </div>
 
-      <div className='invoices-editinvoicepopup-list'>        
+      <div className='invoices-editinvoicepopup-list'>
         <div className='invoices-editinvoicepopup-item flex'>
           <p className="invoices-editinvoicepopup-item-title">
-              Invoice date
+              Invoice date*
           </p>
 
           <div className='invoices-editinvoicepopup-item-date'>
@@ -191,7 +196,7 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
         <div className='invoices-editinvoicepopup-item flex'>
           <p className="invoices-editinvoicepopup-item-title">
-              Due date
+              Due date*
           </p>
 
           <div className='invoices-editinvoicepopup-item-date'>
@@ -209,7 +214,7 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
         <div className='invoices-editinvoicepopup-item flex'>
             <p className='invoices-editinvoicepopup-item-title'>
-              Category
+              Category*
             </p>
 
             <FormControl fullWidth>
@@ -279,6 +284,20 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
                       maxRows={5}
                   />
                 </div>
+
+                <div className='invoices-editinvoicepopup-item terms'>
+                  <p className='invoices-editinvoicepopup-item-title'>
+                    Terms and conditions
+                  </p>
+
+                  <TextField
+                      className='invoices-editinvoicepopup-item-input'
+                      variant="outlined"
+                      onChange={handleTerms}
+                      multiline
+                      maxRows={5}
+                  />
+                </div>
               </>
             :
               ''
@@ -288,6 +307,12 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
             <Alert variant="outlined" severity="warning" icon={<LoopIcon sx={{color: "#93742A"}} />}>
                 Recurring invoice options are available after an invoice has been created
             </Alert>
+        </div>
+
+        <div className='invoices-editinvoicepopup-item flex'>
+            <p className='invoices-editinvoicepopup-item-title'>
+              * Required
+            </p>
         </div>
 
         <div className='invoices-editinvoicepopup-btn'>
