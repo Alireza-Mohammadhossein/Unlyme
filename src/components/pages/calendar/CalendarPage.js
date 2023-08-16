@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import calendarIcon from "../../../assets/images/calendarIcon.png";
 import { formatDate } from '@fullcalendar/core';
 import FullCalendar from '@fullcalendar/react';
@@ -42,7 +42,9 @@ function CalendarPageContent() {
   }
 
 
+
   function handleDateSelect(selectInfo) {
+    
     let title = prompt('Please enter a new title for your event');
     let calendarApi = selectInfo.view.calendar;
 
@@ -112,14 +114,26 @@ function CalendarPageContent() {
 
 
 
-  
+
+
+  const title = document.getElementsByClassName('fc-toolbar-title')[0];
+
   const customDayHeaderContent = (info) => {
-    // const day = new Date(info.date).getDate();
-    const day = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+    const dayNum = new Date(info.date).getDate();
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+
+
+    if(info.view.type === 'timeGridDay') {
+      title.textContent = `${dayNum} ${month} ${year}`;
+    } else {
+      title.textContent = `${month} ${year}`;
+    }
     // const year = new Date(info.date).getFullYear();
     return (
       <>
-        {day}
+        {dayText}
       </>
     );
   };
@@ -127,8 +141,17 @@ function CalendarPageContent() {
   const customWeekHeaderContent = (info) => {
     const dayNum = new Date(info.date).getDate();
     const dayText = new Date(info.date).toLocaleString('default', { weekday: 'short' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
     // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
     // const year = new Date(info.date).getFullYear();
+
+    if (info.view.type === 'timeGridWeek') {
+      title.textContent = `${month} ${year}`;
+    } else {
+      title.textContent = '';
+    }
+
     return (
       <>
         <span>{dayText}</span> <span>{dayNum}</span>
@@ -136,12 +159,50 @@ function CalendarPageContent() {
     );
   };
 
+
+  const customMonthHeaderContent = (info) => {
+    const today = new Date().getDate();
+    const thisMonth = new Date().toLocaleString('default', { month: 'long' });
+    const thisYear = new Date().getFullYear();
+
+    const dayNum = new Date(info.date).getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'short' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
+
+    const html = '<h2 class="fc-toolbar-title" id="fc-dom-312">January 1970</h2>'
+
+    if (title && info.view.type === 'dayGridMonth') {
+      title.textContent = `${thisMonth} ${thisYear}`;
+      console.log('dayGridMonth')
+      console.log('title', title)
+      
+      
+    }
+    
+    return (
+      <>
+        {dayText}
+      </>
+    );
+  };
+
+
+
   const customAgendaHeaderContent = (info) => {
     const dayNum = new Date(info.date).getDate();
     const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
     const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
     // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
-    // const year = new Date(info.date).getFullYear();
+
+    if (info.view.type === 'listMonth') {
+      title.textContent = `${month} ${year}`;
+    } else {
+      title.textContent = '';
+    }
+
+
     return (
       <>
       <div>
@@ -240,12 +301,12 @@ function CalendarPageContent() {
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
                 headerToolbar={{
                   // left: 'prev title next today',
-                  left: 'prev title next',
+                  start: 'prev title next',
                   center: '',
-                  right: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
-
+                  end: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
                 }}
 
+              
                 buttonText={{
                   today: 'Today',
                   month: 'Month',
@@ -259,6 +320,7 @@ function CalendarPageContent() {
                 views = {{
                   dayGridMonth: { // name of view
                     titleFormat: {year: 'numeric', month: 'long' },
+                    dayHeaderContent: customMonthHeaderContent,
                     // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
                     // other view-specific options here
                   },
