@@ -170,14 +170,8 @@ function CalendarPageContent() {
     const month = new Date(info.date).toLocaleString('default', { month: 'long' });
     const year = new Date(info.date).getFullYear();
 
-    const html = '<h2 class="fc-toolbar-title" id="fc-dom-312">January 1970</h2>'
-
     if (title && info.view.type === 'dayGridMonth') {
       title.textContent = `${thisMonth} ${thisYear}`;
-      console.log('dayGridMonth')
-      console.log('title', title)
-      
-      
     }
     
     return (

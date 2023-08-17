@@ -193,6 +193,13 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
   // end show single mail handler
 
 
+const [readMode, setReadMode] = useState('all');
+
+const handleReadMode = (event, newReadMode) => {
+  if (newReadMode !== null) {
+    setReadMode(newReadMode);
+  }
+};
 
 
   return (
@@ -226,6 +233,10 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                   handleChangePage={handleChangePage}
                   handleChangeRowsPerPage={handleChangeRowsPerPage}
                   page={page}
+                  setPage={setPage}
+                  readMode={readMode}
+                  setReadMode={setReadMode}
+                  handleReadMode={handleReadMode}
                 />
 
                 <TableBody>
@@ -341,7 +352,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
                 </TableBody>
               </Table>
             </TableContainer>
-            <TablePagination
+            {/* <TablePagination
               rowsPerPageOptions={[20, 50, 100]}
               component="div"
               count={emails.length}
@@ -349,7 +360,7 @@ const visibleRows = useMemo(() => stableSort(filteredEmails, getComparator(order
               page={page}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
-            />
+            /> */}
           </Paper>
         </Grid>
 

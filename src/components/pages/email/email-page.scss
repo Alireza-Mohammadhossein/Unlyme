@@ -32,7 +32,7 @@
                 &_btn.MuiButtonBase-root {
                   font-size: 16px;
                   font-weight: 400;
-                  background-color: $blue;
+                  background-color: #4382C4;
                   width: 100%;
                   padding: 10px;
                   text-align: center;
@@ -42,7 +42,7 @@
                 }
           
                 &_btn.MuiButtonBase-root:hover {
-                  background-color: $blue;
+                  background-color: #4382C4;
                 }
             }
     
@@ -309,8 +309,14 @@
                     }
                 }
 
+                .MuiTableCell-paddingCheckbox {
+                    .MuiSvgIcon-root {
+                        stroke: #fff;
+                    }
+                }
+
                 .email-header {
-                    .MuiTableRow-root:first-child {
+                    .MuiTableRow-root:nth-child(1), .MuiTableRow-root:nth-child(2) {
                         background-color: #ffffff;
                     }
                 }
@@ -338,6 +344,61 @@
                     padding-left: 0;
                 }
             } 
+        }
+
+        &_pagination {
+            padding: 0;
+
+            &-container {
+                display: flex;
+                align-items: center;
+    
+                p {
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+        }
+
+    }
+
+    .email-filters {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        min-height: unset;
+        height: 37px;
+
+        &_read {
+            &-toggler {
+                background-color: transparent;
+                gap: 10px;
+
+                .MuiButtonBase-root {
+                    border: unset;
+                    padding: 4px 8px;
+                    color: #333;
+                    font-size: 13px;
+                    line-height: normal;
+                    letter-spacing: 0.13px;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+
+                    &.Mui-selected {
+                        border-radius: 4px;
+                        background: rgba(67, 130, 196, 0.10);
+                    }
+                }
+            }
+        }
+
+        &_sort {
+            padding-right: 10px;
         }
     }
 }

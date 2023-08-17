@@ -8,6 +8,12 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import TablePagination from '@mui/material/TablePagination';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import sortIcon from '../../../assets/images/email/date-sort.svg';
 
 
 
@@ -62,7 +68,7 @@ const headCells = [
 ];
   
 const EmailTableHead = (props) => {
-const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler } =
+const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, setSearchText, sortByDateHandler, emails, page, setPage, rowsPerPage, handleChangePage, handleChangeRowsPerPage, setReadMode, readMode, handleReadMode} =
   props;
 const createSortHandler = (property) => (event) => {
   onRequestSort(event, property);
@@ -81,6 +87,22 @@ const handleClick = (event) => {
 const handleClose = () => {
   setAnchorEl(null);
 };
+
+
+
+const handlePrevClick = () => {
+  setPage(page - 1);
+};
+
+const handleNextClick = () => {
+  setPage(page + 1);
+};
+
+
+
+
+
+
 
 return (
   <TableHead className='email-header'>
@@ -153,6 +175,51 @@ return (
       </TableCell>
 
 
+
+      <TableCell
+        // align={headCell.numeric ? 'right' : 'left'}
+        align="center"
+        sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+        className='email-header_pagination'
+      >
+
+      <TablePagination
+        // rowsPerPageOptions={[20, 50, 100]}
+        // component="div"
+        labelDisplayedRows = {({from, to, count, page}) => ``}
+        rowsPerPageOptions={[]}
+        component="div"
+        count={emails.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        // onPageChange={handleChangePage}
+        // onRowsPerPageChange={handleChangeRowsPerPage}
+        ActionsComponent={() => (
+          <div className='email-header_pagination-container'>
+            <IconButton
+              onClick={handlePrevClick}
+              disabled={page === 0}
+              aria-label="previous page"
+            >
+              <ChevronLeftIcon />
+            </IconButton>
+
+            <p><span>{page+1}</span><span>of</span><span>{Math.ceil(emails.length / 20)}</span></p>
+
+            <IconButton
+              onClick={handleNextClick}
+              disabled={page >= Math.ceil(emails.length / rowsPerPage) - 1}
+              aria-label="next page"
+            >
+              <ChevronRightIcon />
+            </IconButton>
+          </div>
+        )}
+      />
+          
+      </TableCell>
+
+
       {/* <TableCell padding="checkbox" className='email-header_selected'>
         <TablePagination
           // rowsPerPageOptions={[20, 50, 100]}
@@ -171,9 +238,9 @@ return (
 
 
       
-      {headCells.map((headCell) => (
-          headCell.label === 'Date' ?
-            <TableCell
+      {/* {headCells.map((headCell) => ( */}
+          {/* headCell.label === 'Date' ? */}
+            {/* <TableCell
               key={headCell.id}
               // align={headCell.numeric ? 'right' : 'left'}
               align="center"
@@ -186,10 +253,10 @@ return (
                 <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} />
             </TableCell>
           :
-          ''
+          '' */}
 
 
-          /* <TableSortLabel
+          {/* <TableSortLabel
             active={orderBy === headCell.id}
             direction={orderBy === headCell.id ? order : 'asc'}
             onClick={createSortHandler(headCell.id)}
@@ -200,8 +267,74 @@ return (
                 {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
               </Box>
             ) : null}
-          </TableSortLabel> */
-      ))}
+          </TableSortLabel> 
+       ))} */}
+
+
+    </TableRow>
+
+
+    <TableRow className='email-filters'>
+      <TableCell padding="checkbox" className='email-filters_read' colSpan={4}>
+        <ToggleButtonGroup
+          value={readMode}
+          exclusive
+          onChange={handleReadMode}
+          aria-label="read mode"
+          align='left'
+          className='email-filters_read-toggler'
+        >
+          <ToggleButton value="all" aria-label="all">
+            All
+          </ToggleButton>
+          <ToggleButton value="read" aria-label="read">
+            Read
+          </ToggleButton>
+          <ToggleButton value="unread" aria-label="unread">
+            Unread
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </TableCell>
+
+      
+
+      
+      {headCells.map((headCell) => (
+          headCell.label === 'Date' ?
+            <TableCell
+              colSpan={3}
+              key={headCell.id}
+              align='right'
+              padding={headCell.disablePadding ? 'none' : 'normal'}
+              sortDirection={orderBy === headCell.id ? order : false}
+              onClick={sortByDateHandler}
+              sx={{ cursor: 'pointer', maxHeight: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+              className='email-filters_sort'
+            >
+                Newest first
+                <img src={sortIcon} />
+                {/* <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} /> */}
+            </TableCell>
+          :
+          '' 
+        ))}
+
+
+          {/* <TableSortLabel
+            active={orderBy === headCell.id}
+            direction={orderBy === headCell.id ? order : 'asc'}
+            onClick={createSortHandler(headCell.id)}
+          >
+            {headCell.label === 'Date' ? 'Date' : ''}
+            {orderBy === headCell.id ? (
+              <Box component="span" sx={visuallyHidden}>
+                {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+              </Box>
+            ) : null}
+          </TableSortLabel> 
+       ))} */}
+
+
     </TableRow>
   </TableHead>
 );
