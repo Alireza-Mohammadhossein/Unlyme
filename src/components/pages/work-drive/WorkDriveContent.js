@@ -36,6 +36,7 @@ import filePlusIcon from '../../../assets/images/work-drive/file-plus.svg';
 import folderPlusIcon from '../../../assets/images/work-drive/folder-plus.svg';
 import fileAddIcon from '../../../assets/images/work-drive/file-add.svg';
 import folderAddIcon from '../../../assets/images/work-drive/folder-add.svg';
+import refreshIcon from '../../../assets/images/work-drive/refresh.svg';
 
 import {
   ChonkyActions,
@@ -389,7 +390,12 @@ import {
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
                 {/* <ReadOnlyVFSBrowser instanceId={storyName} /> */}
                 <div className="work-drive-page_main_list-filters">
-                  <FileNavbar />
+                  {/* <FileNavbar /> */}
+                  <div className="work-drive-page_main_list-filters-refresh">
+                    <img src={refreshIcon} />
+
+                    <span>My Files</span>
+                  </div>
                   <FileToolbar />
                 </div>
                   <FileList />

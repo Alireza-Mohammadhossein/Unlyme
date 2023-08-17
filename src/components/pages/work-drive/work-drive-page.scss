@@ -165,9 +165,29 @@
         &-filters {
           display: flex;
           justify-content: space-between;
-          padding: 10px;
+          padding: 5px 10px;
           border-bottom: 1px solid #ADABA8;
-          padding-bottom: 0;
+          // padding-bottom: 0;
+
+          &-refresh {
+            display: flex;
+            align-items: center;
+            // padding-top: 4px;
+            gap: 10px;
+            padding-left: 10px;
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+
+            span {
+              display: inline-block;
+              padding-top: 2px;
+            }
+
+          }
+
 
           .chonky-toolbarLeft {
             display: none;

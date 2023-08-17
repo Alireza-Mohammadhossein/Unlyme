@@ -97,15 +97,21 @@ const CalendarShortcut = () => {
                 </LocalizationProvider>
               </div>
             </form>
+
+            <div className="shortcut-modal_content_submit">
+              <Button className="shortcut-modal_content_submit-btn">
+                Save event
+              </Button>
+            </div>
           </Grid>
         </Grid>
       </div>
 
-      <div className="shortcut-modal_footer">
+      {/* <div className="shortcut-modal_footer">
         <Button className="shortcut-modal_footer-btn">
           Save event
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

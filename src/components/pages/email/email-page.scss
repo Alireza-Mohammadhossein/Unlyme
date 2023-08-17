@@ -207,6 +207,11 @@
                 height: 100%;
                 box-sizing: border-box;
 
+                .MuiTable-root {
+                    border-collapse: separate;
+
+                } 
+
                 .MuiBox-root {
                     height: 100%;
                     box-sizing: border-box;

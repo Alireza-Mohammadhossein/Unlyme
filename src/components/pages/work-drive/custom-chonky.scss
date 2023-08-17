@@ -45,6 +45,7 @@
                 
                 & .chonky-searchFieldContainer{
                     height: auto !important;
+                    max-width: 350px;
 
                     & .MuiInputBase-root {
                         border: unset;

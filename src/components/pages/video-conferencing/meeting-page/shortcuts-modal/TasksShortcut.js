@@ -106,13 +106,19 @@ const TasksShortcut = () => {
             </Grid>
           </Grid>
         </form>
+
+        <div className="shortcut-modal_content_submit">
+          <Button className="shortcut-modal_content_submit-btn">
+            Save task
+          </Button>
+        </div>
       </div>
 
-      <div className="shortcut-modal_footer">
+      {/* <div className="shortcut-modal_footer">
         <Button className="shortcut-modal_footer-btn">
           Save
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -351,8 +351,10 @@
         box-sizing: border-box;
         padding: 20px 30px 0 30px;
         margin-bottom: -1px;
+        border-radius: 0 0 18px 18px;
 
         &-calendar {
+            padding-top: 15px;
             .react-calendar {
 
                 &__navigation {
@@ -412,7 +414,7 @@
         }
 
         &_form {
-            padding: 30px 3vw;
+            padding: 30px 3vw 0px 3vw;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -467,6 +469,28 @@
                 }
             }
 
+        }
+
+        &_submit {
+            text-align: right;
+            background-color: #ffffff;
+            border-radius: 0 0 18px 18px;
+            padding: 30px;
+
+            &-btn.MuiButtonBase-root {
+                padding: 10px 25px;
+                background-color: #51A3FF;
+                color: #ffffff;
+                border-radius: 30px;
+                font-size: 15px;
+                font-weight: 600;
+                text-transform: none;
+                line-height: unset;
+                
+                &:hover {
+                    background-color: #51A3FF;
+                }
+            }
         }
     }
 
