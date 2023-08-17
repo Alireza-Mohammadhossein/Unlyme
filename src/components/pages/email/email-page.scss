@@ -7,9 +7,13 @@
     height: 100%;
     box-sizing: border-box;
 
+    .grid-content_right{
+        overflow: auto;
+    }
+
     & .MuiGrid-container {
         margin: 0;
-      }
+    } 
     
       & .MuiGrid-item {
         padding-top: 0 !important;
@@ -20,7 +24,7 @@
       }
 
     &_sidebar {
-        padding: 0 5px 50px 5px;
+        padding: 0 5px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -39,6 +43,8 @@
                   color: #fff;
                   border-radius: 8px;
                   text-transform: none;
+                  height: 44px;
+                  box-sizing: border-box;
                 }
           
                 &_btn.MuiButtonBase-root:hover {

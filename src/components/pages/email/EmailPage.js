@@ -120,15 +120,10 @@ function EmailPageContent() {
 
     <div className="cloud-page">
       <div className="cloud-page__header">
-        <Grid container spacing={2}>
-          <Grid 
-            item
-            xl={2}
-            lg={3}
-            md={3}
-            xs={12}
-            className='cloud-page__header_share'
-          >
+
+
+      <div className='grid-content'>
+          <div className='grid-content_left cloud-page__header_share'>
             <div className='cloud-page__header_share_icon'>
               <img src={icon} />
             </div>
@@ -136,36 +131,23 @@ function EmailPageContent() {
             <div className="cloud-page__header_share_title">
               {t("EMAIL_PAGE.TITLE")}
             </div>
-          </Grid>
-          
-          <Grid 
-            item
-            xl={10}
-            lg={9}
-            md={9}
-            xs={12}
-            sx={{display: 'flex', alignItems: 'center'}}
-          >
+          </div>
+
+          <div className='grid-content_right'>
             <div className='cloud-page__header_email-details'>
               <EmailDetailsBar setSearchText={setSearchText} />
             </div>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
+
+
       </div>
 
       <div className="cloud-page__content">
         <div className='email-page'>
-          <Grid container spacing={3}>
-            <Grid 
-              item 
-              xl={activeSingleMail ? 0 : 2} 
-              lg={activeSingleMail ? 0 : 3} 
-              md={activeSingleMail ? 0 : 3} 
-              xs={12}
-              sx={{
-                display: {lg: secondPopupTab || activeSingleMail ? 'none' : 'block', md: secondPopupTab || activeSingleMail ? 'none' : 'block'},
-              }}
-            >
+
+          <div className='grid-content'>
+            <div className='grid-content_left'>
               <div className='email-page_sidebar'>
                 <div className='email-page_sidebar_actions'>
                   <div className='email-page_sidebar_actions_create-event'>
@@ -362,15 +344,9 @@ function EmailPageContent() {
 
 
               </div>
-            </Grid>
+            </div>
 
-            <Grid
-              item
-              xl={secondPopupTab || activeSingleMail ? 12 : 10}
-              lg={secondPopupTab || activeSingleMail ? 12 : 9}
-              md={secondPopupTab || activeSingleMail ? 12 : 9}
-              xs={12}
-            >
+            <div className='grid-content_right'>
               <div className='email-page_main'>
                 <div className='email-page_main_email'>
                   <TabPanel value={showMail} index={0} className='email-page_main_email-tab'>
@@ -390,8 +366,9 @@ function EmailPageContent() {
                   </TabPanel>
                 </div>
               </div>
-            </Grid>
-          </Grid>
+            </div>
+          </div>
+
         </div>  
       </div>
   </div>

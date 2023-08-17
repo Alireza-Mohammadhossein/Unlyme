@@ -216,20 +216,9 @@ function TabPanel(props) {
   
     return (
       <div className="notes-page">
-        <Grid container spacing={3}>
-          <Grid
-            item
-            xl={secondPopupTab ? 4 : 2}
-            lg={secondPopupTab ? 4 : 3}
-            md={secondPopupTab ? 4 : 3}
-            xs={12}
-            // sx={{
-            //   display: {
-            //     lg: secondPopupTab ? "none" : "block",
-            //     md: secondPopupTab ? "none" : "block",
-            //   },
-            // }}
-          >
+
+        <div className='grid-content'>
+          <div className='grid-content_left'>
             <div className="notes-page_sidebar">
               <div className="notes-page_sidebar_create-event">
 
@@ -309,16 +298,9 @@ function TabPanel(props) {
                 </Tabs>
               </div>
             </div>
-          </Grid>
-  
-  
-          <Grid
-            item
-            xl={secondPopupTab ? 8 : 10}
-            lg={secondPopupTab ? 8 : 9}
-            md={secondPopupTab ? 8 : 9}
-            xs={12}
-          >
+          </div>
+
+          <div className='grid-content_right'>
             <div className="notes-page_main">
               <div className="notes-page_main_notes">
   
@@ -423,8 +405,8 @@ function TabPanel(props) {
   
               </div>
             </div>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </div>
     );
   }

@@ -5,11 +5,6 @@ import "./work-drive-page.scss";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
-import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
-import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
-import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
-import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
@@ -19,11 +14,6 @@ import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import { useSelector, useDispatch } from "react-redux";
 import LinearProgress from '@mui/material/LinearProgress';
 import folderGrayIcon from '../../../assets/images/work-drive/folder-gray.svg';
@@ -37,6 +27,8 @@ import folderPlusIcon from '../../../assets/images/work-drive/folder-plus.svg';
 import fileAddIcon from '../../../assets/images/work-drive/file-add.svg';
 import folderAddIcon from '../../../assets/images/work-drive/folder-add.svg';
 import refreshIcon from '../../../assets/images/work-drive/refresh.svg';
+import listIcon from '../../../assets/images/work-drive/list.svg';
+import gridIcon from '../../../assets/images/work-drive/grid.svg';
 
 import {
   ChonkyActions,
@@ -109,21 +101,10 @@ import {
   
     return (
       <div className="work-drive-page">
-        <Grid container spacing={3}>
 
-          <Grid
-            item
-            xl={secondPopupTab ? 3 : 2}
-            lg={secondPopupTab ? 3 : 3}
-            md={secondPopupTab ? 3 : 3}
-            xs={12}
-            // sx={{
-            //   display: {
-            //     lg: secondPopupTab ? "none" : "block",
-            //     md: secondPopupTab ? "none" : "block",
-            //   },
-            // }}
-          >
+
+        <div className='grid-content'>
+          <div className='grid-content_left'>
             <div className="work-drive-page_sidebar">
               <div className="work-drive-page_sidebar_actions">
                 <div className="work-drive-page_sidebar_actions_create-event">
@@ -376,15 +357,9 @@ import {
                 </div>
               </div>
             </div>
-          </Grid>
-  
-          <Grid
-            item
-            xl={secondPopupTab ? 9 : 10}
-            lg={secondPopupTab ? 9 : 9}
-            md={secondPopupTab ? 9 : 9}
-            xs={12}
-          >
+          </div>
+
+          <div className='grid-content_right'>
             <div className="work-drive-page_main">
               <div className="work-drive-page_main_list">
                 {/* <FullFileBrowser files={files} folderChain={folderChain} /> */}
@@ -402,8 +377,10 @@ import {
                   <FileContextMenu />
               </div>
             </div>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
+
+
       </div>
     );
   }

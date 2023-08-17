@@ -2,10 +2,14 @@
 
 .calendar-page {
     width: 100%;
-    overflow: auto;
+    // overflow: auto;
     box-sizing: border-box;
     // height: 75vh;
     height: 100%;
+
+    .grid-content_right {
+        // max-height: calc(100% - 30px);
+    }
 
     & .MuiGrid-container {
         margin: 0;
@@ -23,6 +27,7 @@
         padding-top: 56px;
 
         &_create-event {
+
             &_btn.MuiButtonBase-root {
               font-size: 16px;
               background-color: #4382C4;
@@ -32,6 +37,8 @@
               color: #fff;
               border-radius: 8px;
               text-transform: none;
+              height: 44px;
+              box-sizing: border-box;
             }
       
             &_btn.MuiButtonBase-root:hover {
@@ -335,7 +342,7 @@
                     & tbody tr:first-child {
                             & .fc-scroller-harness {
                                 & .fc-scroller {
-                                    overflow: auto !important;
+                                    // overflow: auto !important;
 
                                     .fc-timegrid-slots {
                                         table tbody {

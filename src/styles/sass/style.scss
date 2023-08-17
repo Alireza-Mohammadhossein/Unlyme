@@ -1157,4 +1157,23 @@ button:disabled {
 }
 
 
+.grid-content {
+  display: grid;
+  grid-template-columns: 234px auto;
+  height: 100%;
+  width: 100%;
+
+  &_left {
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  &_right{
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+}
+
 

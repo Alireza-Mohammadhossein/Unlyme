@@ -6,6 +6,10 @@
 //   height: 75vh;
   height: 100%;
 
+  .grid-content_left {
+    overflow: auto;
+  }
+
   & .MuiGrid-container {
     margin: 0;
   }
@@ -24,6 +28,7 @@
     flex-direction: column;
     gap: 20px;
     height: 100%;
+    box-sizing: border-box;
 
     &_create-event {
       &_btn.MuiButtonBase-root {
@@ -36,6 +41,8 @@
         color: #fff;
         border-radius: 8px;
         text-transform: none;
+        height: 44px;
+        box-sizing: border-box;
       }
 
       &_btn.MuiButtonBase-root:hover {

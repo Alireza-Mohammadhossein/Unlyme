@@ -235,45 +235,33 @@ const WorkDrivePage = () => {
       > 
         <div className="cloud-page work-drive-cloud-page">
           <div className="cloud-page__header">
-            <Grid container spacing={2}>  
-              <Grid
-                item
-                xl={secondPopupTab ? 3 : 2}
-                lg={3}
-                md={3}
-                xs={12}
-                className='cloud-page__header_share'
-              >
-                <div className='cloud-page__header_share_icon'>
-                  <img src={workDriveIcon} />
-                </div>
 
-                <div className="cloud-page__header_share_title">
-                  {t("WORK_DRIVE_PAGE.TITLE")}
-                </div>
-              </Grid>
-              <Grid
-                item
-                xl={secondPopupTab ? 9 : 10}
-                lg={9}
-                md={9}
-                xs={12}
-                sx={{display: 'flex', alignItems: 'center'}}
-              >
-                <div className='cloud-page__header_work-drive-page-details'>
-                  <WorkDriveDetailsBar/>
-                </div>
-              </Grid>
-            </Grid>
+          <div className='grid-content'>
+            <div className='grid-content_left cloud-page__header_share'>
+              <div className='cloud-page__header_share_icon'>
+                <img src={workDriveIcon} />
+              </div>
 
+              <div className="cloud-page__header_share_title">
+                {t("WORK_DRIVE_PAGE.TITLE")}
+              </div>
+            </div>
 
+            <div className='grid-content_right'>
+              <div className='cloud-page__header_work-drive-page-details'>
+                <WorkDriveDetailsBar/>
+              </div>
+            </div>
           </div>
-          <div className="cloud-page__content">
 
-              <WorkDriveContent />
-
-          </div>
         </div>
+
+      <div className="cloud-page__content">
+
+          <WorkDriveContent />
+
+      </div>
+    </div>
       </FileBrowser>
     </div>
   );

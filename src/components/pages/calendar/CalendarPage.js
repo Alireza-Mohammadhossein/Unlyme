@@ -214,19 +214,9 @@ function CalendarPageContent() {
   
   return (
     <div className='calendar-page'>
-      <Grid container spacing={3} height='100%'>
-        <Grid 
-          item 
-          xl={
-              firstPopupTab && !secondPopupTab ? 3
-             : (firstPopupTab && secondPopupTab) ? 4 : 2}
-          lg={secondPopupTab ? 4 : 3}
-          md={secondPopupTab ? 4 : 3} 
-          xs={12}
-          sx={{
-            // display: {lg: secondPopupTab ? 'none' : 'block', md: secondPopupTab ? 'none' : 'block'}
-          }}
-        >
+
+      <div className='grid-content'>
+        <div className='grid-content_left'>
           <div className='calendar-page_sidebar'>
             <div className='calendar-page_sidebar_create-event'>
               <Button
@@ -240,7 +230,6 @@ function CalendarPageContent() {
               </Button>
               {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
             </div>
-
 
             <div className='calendar-page_sidebar-section'>
               {/* <label>
@@ -261,6 +250,7 @@ function CalendarPageContent() {
               />
 
             </div>
+
             <div className='calendar-page_sidebar-section'>
               <FormGroup className='calendar-page_sidebar-section_filter'>
                 {Calendar_page_current_events.map((item) => (
@@ -279,16 +269,9 @@ function CalendarPageContent() {
               {/* <ul>{currentEvents.map(renderSidebarEvent)}</ul> */}
             </div>
           </div>
-        </Grid>
+        </div>
 
-        <Grid
-          item
-          xl={firstPopupTab && !secondPopupTab ? 9 
-              : firstPopupTab && secondPopupTab ? 8 : 10}
-          lg={secondPopupTab ? 8 : 9}
-          md={secondPopupTab ? 8 : 9}
-          xs={12}
-        >
+        <div className='grid-content_right'>
           <div className='calendar-page_main'>
             <div className='calendar-page_main_calendar'>
               <FullCalendar
@@ -377,11 +360,8 @@ function CalendarPageContent() {
               />
             </div>
           </div>
-        </Grid>
-      </Grid>
-
-
-
+        </div>
+      </div>
     </div>
   );
 }

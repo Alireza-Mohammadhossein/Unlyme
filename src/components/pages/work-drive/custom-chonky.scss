@@ -27,6 +27,7 @@
             & .MuiButton-root {
                 color: #727272 !important;
                 padding: 0px 15px;
+                // padding: 0;
             }
 
             & .MuiButton-root.chonky-activeButton {
@@ -93,6 +94,8 @@
             }
 
             & .chonky-toolbarRight {
+                gap: 10px;
+                
                 button:nth-child(1) {
                     display: none;
                 }
@@ -102,10 +105,40 @@
                 }
 
                 svg {
-                    width: 18px;
-                    height: 18px;
-                    stroke: #fff;
-                    stroke-width: 15px;
+                    // width: 18px;
+                    // height: 18px;
+                    // stroke: #fff;
+                    // stroke-width: 15px;
+                    // background: url('../../../assets/images/header/new-icons/list.png');
+                }
+
+                button:nth-child(2) {
+                 
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                        background: url('../../../assets/images/work-drive/list.svg') center center no-repeat;
+                        margin-top: 10px;
+
+                        path {
+                            display: none;
+                        }
+                    }
+                }
+
+                button:nth-child(3) {
+                 
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        background: url('../../../assets/images/work-drive/grid.svg') center center no-repeat;
+                        margin-top: 10px;
+
+
+                        path {
+                            display: none;
+                        }
+                    }
                 }
             }
         }

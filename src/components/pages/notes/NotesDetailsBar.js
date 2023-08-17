@@ -6,7 +6,6 @@ import Grid from "@mui/material/Grid";
 import IconButton from '@mui/material/IconButton';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import FormControl from '@mui/material/FormControl';
-import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import search from "../../../assets/images/header/new-icons/search.png";
@@ -18,7 +17,7 @@ import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
-
+import { useSelector, useDispatch } from "react-redux";
 import aaIcon from "../../../assets/images/notepage/new/Aa.svg";
 import bulletIcon from "../../../assets/images/notepage/new/bullet-list.svg";
 import copyIcon from "../../../assets/images/notepage/new/copy.svg";
@@ -36,6 +35,8 @@ import trashIcon from "../../../assets/images/notepage/new/trash.svg";
 const NotesDetailsBar = ({ setSearchNote }) => {
     const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
+
+    const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
 
@@ -55,6 +56,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
 
     
     return (
+
         <Grid container spacing={2}>
             {/* <Grid item lg={2} md={6} xs={12}>
   
@@ -65,7 +67,10 @@ const NotesDetailsBar = ({ setSearchNote }) => {
             </Grid> */}
             
             <Grid item lg={12} md={12} xs={12} sx={{display: 'flex', justifyContent: 'end'}}>
-                <div className='cloud-page__header_notes-details_actions-left'>
+                <div
+                    className='cloud-page__header_notes-details_actions-left'
+                    style={{marginRight: secondPopupTab ? '30px' : '218px'}}
+                >
                     <ButtonGroup variant="outlined" aria-label="text formatting">
                         <IconButton value="bold" aria-label="bold">
                             <img src={aaIcon} />
