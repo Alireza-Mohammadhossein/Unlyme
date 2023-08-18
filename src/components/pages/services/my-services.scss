@@ -38,14 +38,15 @@
         // background-color: rgba(248, 250, 252, 0.5019607843);
         flex-direction: column;
         align-items: start;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
 
         .fc-button {
           background-color: #F8FAFC;
           border: unset;
           color: #666666;
-          border-radius: 12px;
-          font-size: 14px;
+          border-radius: 8px;
+          font-size: 13px;
+          padding: 0 14px;
         }
 
         .fc-toolbar-chunk {
@@ -55,6 +56,7 @@
         .fc-toolbar-chunk:first-child {
           .fc-button-group {
             background-color: rgba(248, 250, 252, 0.5019607843);
+            height: 27px;
           }
         }
         
@@ -62,7 +64,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-top: 10px;
+          margin-top: 30px;
 
           .fc-button {
             font-size: 11px;
@@ -70,15 +72,16 @@
           }
 
           .fc-toolbar-title {
-            font-size: 16px;
             color: #51A3FF;
+            font-size: 15px;
+            font-weight: 600;
           }
         }
 
 
 
         .fc-button-active {
-          background-color: rgba(118, 118, 128, 0.1215686275);
+          background: rgba(118, 118, 128, 0.12);
         }
 
         .fc-button-primary:not(:disabled).fc-button-active:focus, .fc-button-primary:not(:disabled):active:focus, .fc-button:focus {
@@ -95,6 +98,14 @@
             thead{
               th {
                 border: unset;
+
+                .fc-scrollgrid-sync-inner {
+                  margin-left: -23px;
+                  font-size: 12px;
+                  font-style: normal;
+                  font-weight: 500;
+                  color: #51A3FF;
+                }
               }
             }
 
@@ -106,11 +117,23 @@
                   // border-left: unset;
                   // border-right: unset;
                   border: unset;
+
+                  .fc-timegrid-slot-label-cushion {
+                    position: relative;
+                    top: 11px;
+                  }
                 }
+
+                
               }
               
               & > tr:nth-child(odd){
-                border-bottom: 1px solid #ddd;
+                // background-color: red;
+
+                & > td:nth-child(even) {
+                  border-bottom: 1px solid #ddd;
+                }
+                // border-bottom: 1px solid #ddd;
                 // td {
                 //   border: unset;
                 // }
@@ -129,24 +152,40 @@
 
           .fc-timegrid-event-harness {
             .fc-event {
-              background-color: #f5f5f5;
+              background-color: transparent;
               border: unset;
-              border-left: 2px solid #51A3FF;
+              border-left: 3px solid #51A3FF;
               border-radius: 0 3px 3px 0;
               padding: 4px;
+              box-shadow: unset;
               
               .fc-event-main {
                 color: #414141;
                 font-size: 13px;
 
+                .fc-event-main-frame {
+                  flex-direction: row;
+                  align-items: center;
+                }
+
                 .fc-event-title {
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
+                  color: #414141;
+                  font-size: 14px;
+                  font-weight: 600;
                 }
 
                 .fc-event-time {
                   margin-bottom: 5px;
+                  display: none;
+                }
+
+                .fc-event-title-container {
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
               }
             }
@@ -158,6 +197,8 @@
         }
 
         .fc-dayGridMonth-view {
+
+          margin: 15px 0;
 
           td, th {
             border: unset;
@@ -193,7 +234,8 @@
                         display: inline-block;
                         border-radius: 50px;
                         padding: 7px;
-                        font-size: 13px;
+                        font-size: 14px;
+                        font-weight: 600;
                       }
                     }
 
@@ -226,7 +268,7 @@
               }
 
               .fc-daygrid-body {
-                margin-top: 15px;
+                margin-top: 20px;
               }
             }
           }
@@ -249,16 +291,42 @@
             .fc-list-day-cushion {
               background-color: unset;
               padding-left: 0;
+              text-align: left;
+              padding: 17px 0 12px 0;
+
+              a {
+                color: #999999;
+                font-size: 12px;
+                font-weight: 600;
+              }
+
+              a.today {
+                color: #51A3FF;
+              }
             }
 
             .fc-list-day-text, .fc-list-day-side-text {
               color: #51A3FF;
             }
           }
+
+          &:first-child {
+            th {
+              .fc-list-day-cushion {
+                padding-top: 0;
+              }
+            }
+          }
         }
 
         .fc-list-day:not(:first-child) {
-          border-top: 1px dashed #CACACA;
+          th {
+            padding-top: 13px;
+
+            .fc-list-day-cushion {
+              border-top: 1px dashed #CACACA;
+            }
+          }
         }
 
         .fc-event {
@@ -302,6 +370,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
             width: 100%;
+
+            a {
+              color: #414141;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 600;
+            }
           }
         }
       }
@@ -311,8 +386,11 @@
       position: absolute;
       top: 15px;
       right: 15px;
+      display: flex;
+      gap: 15px;
 
       .MuiButtonBase-root {
+        padding: 5px;
         color: $blue;
       }
     }
@@ -474,7 +552,6 @@
       display: flex;
       justify-content: space-between;
       height: 40px;
-      align-items: center;
 
       &-view {
         .MuiToggleButtonGroup-root {
@@ -484,20 +561,32 @@
           .MuiButtonBase-root {
             background-color: transparent;
             border: unset;
-            border-radius: 12px !important;
+            border-radius: 8px !important;
             color: #9C9C9C;
-            padding: 8px 12px;
+            padding: 0;
+            width: 30px;
+            height: 26px;
   
             &.Mui-selected {
               background-color: #7676801F;
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
             }
           }
         }
       }
 
       &-more {
+        display: flex;
+        gap: 15px;
+        align-items: start;
+
         .MuiButtonBase-root {
             color: $blue;
+            padding: 5px;
         }
       }
     }
@@ -519,9 +608,8 @@
         &-item {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          padding-bottom: 15px;
-          margin-top: 15px;
+          padding-bottom: 10px;
+          padding-top: 8px;
           border-bottom: 1px solid #E8E7E4;
           font-size: 14px;
           cursor: pointer;
@@ -532,11 +620,13 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            line-height: normal;
           }
 
           &-details {
             display: flex;
             gap: 5px;
+            line-height: normal;
 
             &-time {
               color: #333333;
@@ -556,11 +646,14 @@
           grid-template-columns: 50% 50%;
           gap: 8px;
           padding-right: 15px;
+          gap: 6px;
 
           .my-services__notes_content_list-item {
             padding: 8px;
-            border-radius: 8px;
-            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            height: 60px;
           }
         }
       }

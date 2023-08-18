@@ -18,6 +18,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal } from '../../../../../redux/app/appsModalSlice';
+import plusIcon from '../../../../../assets/images/my-services/plus.svg';
+import expandIcon from '../../../../../assets/images/my-services/expand.svg';
 
 
 
@@ -77,6 +79,110 @@ const CalendarBlock = () => {
   };
 
 
+
+
+
+
+  const title = document.getElementsByClassName('fc-list-day-text')[0];
+
+  const customDayHeaderContent = (info) => {
+    const dayNum = new Date(info.date).getDate();
+    const month = new Date(info.date).toLocaleString('default', { month: 'short' });
+    const year = new Date(info.date).getFullYear();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+
+
+    // if(info.view.type === 'timeGridDay') {
+    //   title.textContent = `${dayNum} ${month} ${year}`;
+    // } else {
+    //   title.textContent = `${month} ${year}`;
+    // }
+    // const year = new Date(info.date).getFullYear();
+    return (
+      <>
+        {dayText}, {dayNum}{month}{year}
+      </>
+    );
+  };
+
+  const customWeekHeaderContent = (info) => {
+    const dayNum = new Date(info.date).getDate();
+    const today = new Date().getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
+    // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
+    // const year = new Date(info.date).getFullYear();
+
+    // if (info.view.type === 'listWeek') {
+
+    //   console.log('first')
+    //   title.textContent = `${month} ${year}`;
+    // } else {
+    //   title.textContent = '';
+    // }
+
+    return (
+      <>
+        <a className={today === dayNum ? 'today' : ''}>{dayText}, {dayNum} {month} {year}</a>
+      </>
+    );
+  };
+
+
+  const customMonthHeaderContent = (info) => {
+    const today = new Date().getDate();
+    const thisMonth = new Date().toLocaleString('default', { month: 'long' });
+    const thisYear = new Date().getFullYear();
+
+    const dayNum = new Date(info.date).getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'short' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
+
+    // if (title && info.view.type === 'dayGridMonth') {
+    //   title.textContent = `${thisMonth} ${thisYear}`;
+    // }
+    
+    return (
+      <>
+        {dayText.slice(0, 1)}
+      </>
+    );
+  };
+
+
+
+  const customAgendaHeaderContent = (info) => {
+    const dayNum = new Date(info.date).getDate();
+    const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
+    const year = new Date(info.date).getFullYear();
+    // const dayOfWeek = new Date(info.date).toLocaleString('en-US', { weekday: 'short' });
+
+    // if (info.view.type === 'listMonth') {
+    //   title.textContent = `${month} ${year}`;
+    // } else {
+    //   title.textContent = '';
+    // }
+
+    return (
+      <>
+      <div>
+        <span>{month}</span> <span>{dayNum}</span>
+      </div>
+      
+      <div>
+        <span>{dayText}</span>
+      </div>
+      </>
+    );
+  };
+
+
+
+
+
   return (
     // <CloudBlock
     //   title={t("SERVICES.CALENDAR.TITLE")}
@@ -118,18 +224,49 @@ const CalendarBlock = () => {
             day:      'Day',
             list:     'Week'
           }}
-          views = {{
-            dayGridMonth: { // name of view
-              titleFormat: {year: 'numeric', month: 'short' },
-              dayHeaderFormat: {weekday: 'short' },
-              dayHeaders: true,
-              // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
-            },
-            // timeGridDay: {
-            //   dayHeaderFormat: {weekday: 'long' }
-            // }
-          }}
 
+          views = {{
+            // dayGridMonth: { // name of view
+            //   titleFormat: {year: 'numeric', month: 'short' },
+            //   dayHeaderFormat: {weekday: 'short' },
+            //   dayHeaders: true,
+            //   // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
+            // },
+            dayGridMonth: { // name of view
+              titleFormat: {year: 'numeric', month: 'long' },
+              dayHeaderContent: customMonthHeaderContent,
+              // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
+              // other view-specific options here
+            },
+
+            timeGridDay: {
+              dayHeaderContent: customDayHeaderContent,
+              titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
+            },
+
+            listWeek: {
+              dayHeaderContent: customWeekHeaderContent,
+              titleFormat: {year: 'numeric', month: 'short'},
+            },
+
+            listMonth: {
+              dayHeaderContent: customAgendaHeaderContent,
+            }
+          }}
+          
+          // views = {{
+          //   dayGridMonth: { // name of view
+          //     titleFormat: {year: 'numeric', month: 'short' },
+          //     dayHeaderFormat: {weekday: 'short' },
+          //     dayHeaders: true,
+          //     // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
+          //   },
+          //   // timeGridDay: {
+          //   //   dayHeaderFormat: {weekday: 'long' }
+          //   // }
+          // }}
+
+          firstDay= {1}
           scrollTime={currentTime}
 
           initialEvents={INITIAL_EVENTS}
@@ -165,10 +302,14 @@ const CalendarBlock = () => {
         />
 
         <div className="my-services__calendar_more-btn">
-          <IconButton aria-label="add" onClick={handleOpenCalendarModal}>
-            <AddIcon />
+          <IconButton aria-label="add">
+            <img src={plusIcon} />
           </IconButton>
-          </div>
+
+          <IconButton aria-label="expand" onClick={handleOpenCalendarModal}>
+            <img src={expandIcon} />
+          </IconButton>
+        </div>
       </div>
 
       <Modal

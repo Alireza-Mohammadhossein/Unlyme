@@ -12,6 +12,14 @@ import NotesPage from "../../../notes/NotesPage";
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } from '../../../../../redux/app/appsModalSlice';
+import plusIcon from '../../../../../assets/images/my-services/plus.svg';
+import expandIcon from '../../../../../assets/images/my-services/expand.svg';
+import listActiveIcon from '../../../../../assets/images/my-services/notes/list-active.svg';
+import listNotIcon from '../../../../../assets/images/my-services/notes/list-not.svg';
+import gridActiveIcon from '../../../../../assets/images/my-services/notes/grid-active.svg';
+import gridNotIcon from '../../../../../assets/images/my-services/notes/grid-not.svg';
+
+
 
 
 
@@ -30,13 +38,133 @@ const NotesBlock = () => {
   };
 
 
-  const [notes, setNotes] = useState([]);
+  // const [notes, setNotes] = useState([]);
 
-  // start getting notes from localstorage
-  useEffect(() => {
-    const storedNotes = JSON.parse(localStorage.getItem('notes'));
-    if (storedNotes) setNotes(storedNotes.reverse());
-  }, []);
+  // // start getting notes from localstorage
+  // useEffect(() => {
+  //   const storedNotes = JSON.parse(localStorage.getItem('notes'));
+  //   if (storedNotes) setNotes(storedNotes.reverse());
+  // }, []);
+
+
+  const notes = [
+    {
+      id: 1,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 2,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 3,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 4,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 5,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 6,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 7,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 8,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 9,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 10,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "April",
+      month: "04",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 11,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 12,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+  ];
 
 
   
@@ -70,18 +198,23 @@ const NotesBlock = () => {
               aria-label="text alignment"
             >
               <ToggleButton value="list" aria-label="list mode">
-                <FormatListBulletedIcon />
+                <img src={viewMode === 'list' ? listActiveIcon : listNotIcon} />
               </ToggleButton>
               <ToggleButton value="grid" aria-label="grid mode">
-                <GridViewIcon />
+                <img src={viewMode === 'grid' ? gridActiveIcon : gridNotIcon} />
               </ToggleButton>
             </ToggleButtonGroup>
           </div>
 
           <div className="my-services__notes_header-more">
-            <IconButton aria-label="add" onClick={handleOpenNotesModal}>
-              <AddIcon />
+            <IconButton aria-label="add">
+              <img src={plusIcon} />
             </IconButton>
+
+            <IconButton aria-label="expand" onClick={handleOpenNotesModal}>
+              <img src={expandIcon} />
+            </IconButton>
+
           </div>
         </div>
 
