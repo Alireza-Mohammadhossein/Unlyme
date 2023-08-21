@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import CloudBlock from "../cloud-block/CloudBlock";
-import TabToolbar from "../tab-toolbar/TabToolbar";
+import storeTasks from "../../../tasks/utils/store";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import CircleIcon from "@mui/icons-material/Circle";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import icon from "../../../../../assets/images/my-services/tasks.png";
+import Modal from '@mui/material/Modal';
+import Avatar from '@mui/material/Avatar';
+import AvatarGroup from '@mui/material/AvatarGroup';
+import { sampleTasks } from '../../../../../mocks/mocks';
+import plusIcon from '../../../../../assets/images/my-services/plus.svg';
+import expandIcon from '../../../../../assets/images/my-services/expand.svg';
+import calendarIcon from '../../../../../assets/images/my-services/tasks/calendar.svg';
+import commentsIcon from '../../../../../assets/images/my-services/tasks/message.svg';
+import moreIcon from '../../../../../assets/images/my-services/tasks/settings.svg';
+import { useSelector, useDispatch } from "react-redux";
+import { handleOpenTasksWidgetModal, handleCloseTasksWidgetModal } from '../../../../../redux/app/appsModalSlice';
+
 import TasksPage from "../../../tasks/TasksPage";
-import {
-  backlogLists,
-  inprogressLists,
-  doneLists,
-  closedLists,
-} from "../../../../../mocks/mocks";
+
+
+
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -39,7 +40,26 @@ function TabPanel(props) {
   );
 }
 
+
+
 const TasksBlock = () => {
+
+  // Sample data for columns and tasks
+  // const dataStorage = JSON.parse(window.localStorage.getItem("tasks"));
+  
+  // const initialState = () => {
+  //   if (dataStorage) {
+  //     return dataStorage;
+  //   } else {
+  //     window.localStorage.setItem("tasks", JSON.stringify(storeTasks));
+  //     return storeTasks;
+  //   }
+  // };
+  // const [data, setData] = useState(initialState);
+  const [data, setData] = useState(sampleTasks);
+
+
+
   const ITEM_HEIGHT = 48;
   const { t, i18n } = useTranslation();
   const [value, setValue] = useState(0);
@@ -51,7 +71,7 @@ const TasksBlock = () => {
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const openActions = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -59,249 +79,180 @@ const TasksBlock = () => {
     setAnchorEl(null);
   };
 
-  const content = (
-    <div className="my-services__tasks">
-      <div className="my-services__tasks_container">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-          className="my-services__tasks_tab"
-          variant="scrollable"
-          scrollButtons="auto"
-          allowScrollButtonsMobile
-        >
-          <Tab label={t("SERVICES.TASKS.TAB_BACKLOG")} />
-          <Tab label={t("SERVICES.TASKS.TAB_INPROGRESS")} />
-          <Tab label={t("SERVICES.TASKS.TAB_DONE")} />
-          <Tab label={t("SERVICES.TASKS.TAB_CLOSED")} />
-        </Tabs>
 
-        <TabPanel value={value} index={0}>
-          <List className="my-services__tasks_list">
-            {backlogLists.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon className="my-services__tasks_item-icon">
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
 
-                  <div className="my-services__tasks_item-more">
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
-                    <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                </ListItem>
-              </>
-            ))}
-          </List>
-        </TabPanel>
+  const dispatch = useDispatch();
+  const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
+  const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
+  const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
+  const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
-        <TabPanel value={value} index={1}>
-          <List className="my-services__tasks_list">
-            {inprogressLists.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon className="my-services__tasks_item-icon">
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
+  const handleOpenTasksModal = () => {
+    dispatch(handleOpenTasksWidgetModal());
+  };
+  const handleCloseTasksModal = () => {
+    dispatch(handleCloseTasksWidgetModal());
+  };
 
-                  <div className="my-services__tasks_item-more">
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
-                    <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                </ListItem>
-              </>
-            ))}
-          </List>
-        </TabPanel>
+  
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
-        <TabPanel value={value} index={2}>
-          <List className="my-services__tasks_list">
-            {doneLists.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon className="my-services__tasks_item-icon">
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
 
-                  <div className="my-services__tasks_item-more">
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
-                    <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                </ListItem>
-              </>
-            ))}
-          </List>
-        </TabPanel>
-
-        <TabPanel value={value} index={3}>
-          <List className="my-services__tasks_list">
-            {closedLists.map((item) => (
-              <>
-                <ListItem key={item.id} className="my-services__tasks_item">
-                  <ListItemIcon className="my-services__tasks_item-icon">
-                    <CircleIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.title}
-                    secondary={item.description ? item.description : null}
-                  />
-
-                  <div className="my-services__tasks_item-more">
-                    <IconButton
-                      aria-label="more"
-                      id="long-button"
-                      aria-controls={open ? "long-menu" : undefined}
-                      aria-expanded={open ? "true" : undefined}
-                      aria-haspopup="true"
-                      onClick={handleClick}
-                    >
-                      <MoreHorizIcon />
-                    </IconButton>
-                    <Menu
-                      id="long-menu"
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      disableScrollLock = {true}
-                      PaperProps={{
-                        style: {
-                          maxHeight: ITEM_HEIGHT * 4.5,
-                          width: "20ch",
-                        },
-                      }}
-                    >
-                      {options.map((option) => (
-                        <MenuItem
-                          key={option}
-                          onClick={handleClose}
-                        >
-                          {option}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                </ListItem>
-              </>
-            ))}
-          </List>
-        </TabPanel>
-      </div>
-    </div>
-  );
+  // setting modals 
+  const [anchorElSetting, setAnchorElSetting] = useState(null);
+  const open = Boolean(anchorElSetting);
+  const handleOpenSetting = (event) => {
+    setAnchorElSetting(event.currentTarget);
+  };
+  const handleCloseSetting = () => {
+    setAnchorElSetting(null);
+  };
+  
+ 
 
   return (
-    <CloudBlock
-      title={t("SERVICES.TASKS.TITLE")}
-      subtitle={t("SERVICES.TASKS.SUBTITLE")}
-      content={content}
-      directComponent={TasksPage}
-      infoContent="s"
-      iconName="services/tasks"
-      icon={icon}
-    />
+    <>
+      <div className={`my-services__tasks ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal ? 'back-transparent' : ''}`}>
+        <div className="my-services__tasks_header">
+
+          <div className="my-services__tasks_header-view">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+              className="my-services__tasks_header-view_tab"
+              variant="scrollable"
+              scrollButtons="auto"
+              allowScrollButtonsMobile
+            >
+              {data.listIds.map((listId, index) => {
+                const list = data.lists[listId];
+
+                return (
+                    <Tab key={listId} label={list.title} index={index} />
+                )
+              })}
+            </Tabs>
+          </div>
+
+          <div className="my-services__tasks_header-more">
+            <IconButton aria-label="add">
+              <img src={plusIcon} />
+            </IconButton>
+
+            <IconButton aria-label="expand" onClick={handleOpenTasksModal}>
+              <img src={expandIcon} />
+            </IconButton>
+          </div>
+        </div>
+
+        <div className="my-services__tasks_content">
+            {data.listIds.map((listId, index) => {
+              const list = data.lists[listId];
+
+              return (
+                <TabPanel key={listId} value={value} index={index} className="my-services__tasks_content-list">
+                  {list.cards.map((item) => (
+                    <div key={item.id} className="my-services__tasks_content-item">
+                      <div className="my-services__tasks_content-item-info">
+                        <p className="my-services__tasks_content-item-info-title">{item.title}</p>
+
+                        <p className="my-services__tasks_content-item-info-date">
+                          <img src={calendarIcon} /> 
+                          <span>Due to: 02 June at 17:00</span>
+                         </p>
+                      </div>
+
+                      <div className="my-services__tasks_content-item-details">
+                        <div className="my-services__tasks_content-item-details-members">
+                          <AvatarGroup max={4}>
+                            {item.members.map((member) => (
+                              <Avatar className="my-services__tasks_content-item-details-members-member">{member[0]}</Avatar>
+                            ))}
+                          </AvatarGroup>
+                          
+                        </div>
+
+                        {
+                          item.tags.length > 0 ?
+                            <div className="my-services__tasks_content-item-details-tags">
+                              {item.tags.map((tag) => (
+                                <span key={tag} style={{backgroundColor: item.color}} className="my-services__tasks_content-item-details-tags-tag">{tag}</span>
+                              ))}
+                            </div>
+                          :
+                            ''
+                        }
+
+
+                        <div className="my-services__tasks_content-item-details-comments">
+                          <IconButton aria-label="comments">
+                            <img src={commentsIcon} />
+                          </IconButton>
+                          {item.comments ? item.comments.length : '0'}
+                        </div>
+
+
+                        <div className="my-services__tasks_content-item-details-actions">
+                          <IconButton
+                            aria-label="setting"
+                            onClick={handleOpenSetting}
+                          >
+                            <img src={moreIcon} />
+                            
+                            {/* <SettingsOutlinedIcon /> */}
+                          </IconButton>
+
+                          <Menu
+                            anchorEl={anchorElSetting}
+                            open={open}
+                            onClose={handleCloseSetting}
+                            disableScrollLock={true}
+                            className="my-services__popup"
+                          >
+                            <MenuItem 
+                              sx={{minWidth: '120px'}}
+                            >
+                              View
+                            </MenuItem>
+
+                            <MenuItem>
+                              Edit
+                            </MenuItem>
+
+                            <MenuItem>
+                              Delete
+                            </MenuItem>
+                          </Menu>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </TabPanel>
+              )
+            })}
+        </div>
+      </div>
+
+
+      <Modal
+        open={openTasksWidgetModal}
+        onClose={handleCloseTasksModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className="apps-modal"
+        disableEnforceFocus 
+      >
+        <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
+          
+          <TasksPage handleCloseTasksModal={handleCloseTasksModal} />
+        </div>
+      </Modal>
+    </>
+    
   );
 };
 

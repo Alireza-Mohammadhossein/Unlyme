@@ -14,7 +14,6 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal } from '../../../../../redux/app/appsModalSlice';
@@ -69,6 +68,7 @@ const CalendarBlock = () => {
 
   const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
+  const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
   const handleOpenCalendarModal = () => {
@@ -205,7 +205,7 @@ const CalendarBlock = () => {
     // />
 
     <>
-      <div className={`my-services__calendar ${openCalendarWidgetModal || appsModal || openNotesWidgetModal ? 'back-transparent' : ''}`}>
+      <div className={`my-services__calendar ${openCalendarWidgetModal || appsModal || openNotesWidgetModal || openTasksWidgetModal ? 'back-transparent' : ''}`}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           // headerToolbar={{

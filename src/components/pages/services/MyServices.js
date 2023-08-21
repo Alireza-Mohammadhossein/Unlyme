@@ -215,49 +215,49 @@ const MyServices = () => {
 
           {/* <div key="ai">
             <AIEngine />
-          </div>
+          </div> */}
 
           <div key="tasks">
             <TasksBlock handleCollapse={handleCollapse} />
           </div>
 
-          <div key="cloud">
+          {/* <div key="cloud">
             <CloudHostingBlock />
-          </div>
+          </div> */}
 
-          <div key="logo-builder">
+          {/* <div key="logo-builder">
             <LogoBuilder />
-          </div>
+          </div> */}
 
-          <div key="drive">
+          {/* <div key="drive">
             <WorkDrive />
-          </div>
+          </div> */}
 
-          <div key="website-builder">
+          {/* <div key="website-builder">
             <WebsiteBuilderBlock />
-          </div>
+          </div> */}
 
-          <div key="bank">
+          {/* <div key="bank">
             <BankBlock />
-          </div>
+          </div> */}
 
-          <div key="copy-site">
+          {/* <div key="copy-site">
             <SiteCopyingBlock />
-          </div>
+          </div> */}
 
-          <div key="video-conference">
+          {/* <div key="video-conference">
             <VideoConferencingBlock />
-          </div>
+          </div> */}
 
-          <div key="disc">
+          {/* <div key="disc">
             <DiscBlock />
-          </div>
+          </div> */}
 
-          <div key="domains">
+          {/* <div key="domains">
             <DomainsBlock handleCollapse={handleCollapse} />
-          </div>
+          </div> */}
 
-          <div key="services">
+          {/* <div key="services">
             <Services />
           </div> */}
         </ResponsiveGridLayout>

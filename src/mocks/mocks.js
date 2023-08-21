@@ -3917,3 +3917,270 @@ export const products = [
     category: 'Category 1',
   },
 ]
+
+export const sampleTasks = {
+  "lists": {
+      "list-1": {
+          "id": "list-1",
+          "title": "Backlog",
+          "cards": [
+              {
+                  "id": "69ee76ea-73df-4bd4-9416-c438df394dc9",
+                  "title": "asxsax",
+                  "description": "sxsaxas",
+                  "comments": [
+                      {
+                          "id": "fafc6fd0-faae-4448-9fd0-4220529d30b5",
+                          "text": "sdcsdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "077ec368-0189-4f43-9e8a-cbdca5a228bf",
+                          "text": "scdcsdcsdcsd",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "76fbddd1-d8c4-4b01-b453-970dadd90046",
+                          "text": "sdcsdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "62acf846-c8d0-4744-b07f-eb899738b8cb",
+                          "text": "sdcsdcsdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "297fffde-06a9-426f-a157-2668b49bdc4b",
+                          "text": "sdcsdcsdcsdcs",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "ab9fb1b3-eb53-469b-8fc9-4b29521d8dd3",
+                          "text": "sdcsdcsdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      }
+                  ],
+                  "tags": [
+                      "Easy",
+                      "Normal"
+                  ],
+                  "members": [
+                      "Carlos",
+                      "Rick",
+                      "Martin"
+                  ],
+                  "color": "#BBD5FA"
+              },
+              {
+                  "id": "674325d4-a451-4b00-8fe3-f9684083071e",
+                  "title": "asxasxasx",
+                  "description": "asxasxasx",
+                  "comments": [],
+                  "tags": [
+                      "Webix",
+                      "Hard"
+                  ],
+                  "members": [
+                      "Rick"
+                  ],
+                  "color": "#ADFCF8"
+              },
+              {
+                  "id": "cb5ab410-2b70-4b50-a8ed-38c4b7bb8a35",
+                  "title": "axasx",
+                  "description": "xasxasx",
+                  "comments": [
+                      {
+                          "id": "c2b0a33d-b54f-47d9-a341-f7c37af0fb10",
+                          "text": "asxasxasx",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "12:15"
+                      }
+                  ],
+                  "tags": [
+                      "Normal"
+                  ],
+                  "members": [],
+                  "color": "#ADFCF8"
+              },
+              {
+                  "id": "2b1949e4-3c61-4947-a566-ec4bd9bd8273",
+                  "title": "axsax",
+                  "description": "asxasx",
+                  "comments": [],
+                  "tags": [
+                      "Webix"
+                  ],
+                  "members": [
+                      "David",
+                      "Carlos"
+                  ],
+                  "color": "#ADFCF8"
+              },
+              {
+                  "id": "9248b044-ead3-4b9f-b24c-351beb719e4e",
+                  "title": "asxasxas",
+                  "description": "asxsax",
+                  "comments": [],
+                  "tags": [
+                      "Webix"
+                  ],
+                  "members": [],
+                  "color": "#BBD5FA"
+              },
+              {
+                  "id": "935c1e5e-a66f-4a38-8b1d-03b938580efc",
+                  "title": "asxasx",
+                  "description": "axsx",
+                  "comments": [],
+                  "tags": [
+                      "Webix",
+                      "Hard"
+                  ],
+                  "members": [
+                      "Carlos",
+                      "Mateo"
+                  ],
+                  "color": "#ADFCF8"
+              }
+          ]
+      },
+      "list-2": {
+          "id": "list-2",
+          "title": "In Progress",
+          "cards": [
+              {
+                  "id": "13e71312-ce80-406b-8a36-4529d77251de",
+                  "title": "asxasxasx",
+                  "description": "asxasx",
+                  "comments": [],
+                  "tags": [
+                      "Jet"
+                  ],
+                  "members": [
+                      "Carlos"
+                  ],
+                  "color": "#ADFCF8"
+              },
+              {
+                  "id": "bb3f0b51-f5e7-4732-8380-a296e27c4b6a",
+                  "title": "asxasxasx",
+                  "description": "asxasx",
+                  "comments": [
+                      {
+                          "id": "0aa873bb-e3a9-4c1c-af5b-16597322420a",
+                          "text": "csdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "7af9374d-f133-44b2-8fff-01fe326bab4d",
+                          "text": "sdcsdcs",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      },
+                      {
+                          "id": "595a7de2-a88c-41d3-afd1-142a7194d7a3",
+                          "text": "sdcsdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      }
+                  ],
+                  "tags": [],
+                  "members": [
+                      "Carlos"
+                  ],
+                  "color": "#ADFCF8"
+              }
+          ]
+      },
+      "list-3": {
+          "id": "list-3",
+          "title": "Testing",
+          "cards": [
+              {
+                  "id": "02517a49-b88d-4938-b6f7-8b80bd1cb345",
+                  "title": "asxaxasx",
+                  "description": "saxasx",
+                  "comments": [
+                      {
+                          "id": "e4fd3c40-29cc-407e-8ec4-69e4a2813253",
+                          "text": "sdcsdc",
+                          "day": 21,
+                          "month": "Aug",
+                          "year": "2023",
+                          "time": "11:43"
+                      }
+                  ],
+                  "tags": [
+                      "Hard"
+                  ],
+                  "members": [
+                      "Cristiano",
+                      "Martin",
+                      "Rick",
+                      "Mateo",
+                      "Carlos",
+                      "David"
+                  ],
+                  "color": "#ADFCF8"
+              }
+          ]
+      },
+      "list-4": {
+          "id": "list-4",
+          "title": "Done",
+          "cards": [
+              {
+                  "id": "a29ed881-479b-426b-b2e8-1f9524061348",
+                  "title": "asxasx",
+                  "description": "asxasxa",
+                  "comments": [],
+                  "tags": [],
+                  "members": [],
+                  "color": "#ADFCF8"
+              }
+          ]
+      }
+  },
+  "listIds": [
+      "list-1",
+      "list-2",
+      "list-3",
+      "list-4"
+  ],
+  "members": [
+      "David",
+      "Carlos",
+      "Mateo",
+      "Rick",
+      "Martin",
+      "Cristiano"
+  ]
+}

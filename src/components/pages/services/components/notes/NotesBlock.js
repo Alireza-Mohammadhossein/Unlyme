@@ -170,6 +170,7 @@ const NotesBlock = () => {
   
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
   const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
+  const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
   const handleOpenNotesModal = () => {
@@ -188,7 +189,7 @@ const NotesBlock = () => {
 
   return (
     <>
-      <div className={`my-services__notes ${openNotesWidgetModal || appsModal || openCalendarWidgetModal ? 'back-transparent' : ''}`}>
+      <div className={`my-services__notes ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal ? 'back-transparent' : ''}`}>
         <div className="my-services__notes_header">
           <div className="my-services__notes_header-view">
             <ToggleButtonGroup
