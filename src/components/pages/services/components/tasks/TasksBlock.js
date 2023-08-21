@@ -57,6 +57,7 @@ const TasksBlock = () => {
   // };
   // const [data, setData] = useState(initialState);
   const [data, setData] = useState(sampleTasks);
+  console.log('data', data)
 
 
 
@@ -153,13 +154,13 @@ const TasksBlock = () => {
 
               return (
                 <TabPanel key={listId} value={value} index={index} className="my-services__tasks_content-list">
-                  {list.cards.map((item) => (
+                  {list.cards.map((item, index) => (
                     <div key={item.id} className="my-services__tasks_content-item">
                       <div className="my-services__tasks_content-item-info">
                         <p className="my-services__tasks_content-item-info-title">{item.title}</p>
 
                         <p className="my-services__tasks_content-item-info-date">
-                          <img src={calendarIcon} /> 
+                          <img src={calendarIcon} />
                           <span>Due to: 02 June at 17:00</span>
                          </p>
                       </div>
@@ -168,7 +169,7 @@ const TasksBlock = () => {
                         <div className="my-services__tasks_content-item-details-members">
                           <AvatarGroup max={4}>
                             {item.members.map((member) => (
-                              <Avatar className="my-services__tasks_content-item-details-members-member">{member[0]}</Avatar>
+                              <Avatar src={member} className="my-services__tasks_content-item-details-members-member" />
                             ))}
                           </AvatarGroup>
                           

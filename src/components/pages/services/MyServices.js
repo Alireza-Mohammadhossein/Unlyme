@@ -144,7 +144,7 @@ const MyServices = () => {
         : layoutXS,
   };
 
-  const rowHeight = screenSize === "LG" ? 315 : 380;
+  const rowHeight = screenSize === "LG" ? 315 : 315;
 
   const [layouts, setLayouts] = useState(
     JSON.parse(JSON.stringify(originalLayouts))
@@ -169,7 +169,7 @@ const MyServices = () => {
       parent.style.overflowY = "hidden";
     } else {
       const parent = event.target.parentNode.parentNode.parentNode.parentNode;
-      parent.style.height = "380px";
+      parent.style.height = "315px";
       parent.style.overflowY = "";
     }
 

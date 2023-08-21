@@ -756,7 +756,7 @@
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 
     &_header {
-      height: 40px;
+      height: 31px;
       width: 100%;
       display: flex;
       justify-content: space-between;
@@ -764,11 +764,12 @@
       &-view {
         &_tab {
           min-height: unset !important;
-          height: 40px;
+          height: 25px;
           align-items: end;
 
           .MuiTabs-flexContainer {
             gap: 20px;
+            height: 25px;
           }
 
           .MuiButtonBase-root {
@@ -779,6 +780,9 @@
             font-size: 14px;
             font-weight: 400 !important;
             text-transform: capitalize;
+            font-family: 'OpenSans' !important;
+            height: 25px;
+            min-height: unset;
 
             &.Mui-selected {
               color: #51A3FF;
@@ -787,7 +791,7 @@
           }
 
           .MuiTabs-indicator {
-            bottom: 8px;
+            // bottom: 8px;
             background-color: #51A3FF;
             height: 1.5px;
           }

@@ -15,6 +15,9 @@ import starredIconBlue from '../assets/images/my-services/email/star-blue.png';
 import emailLogo from '../assets/images/my-services/email/email-logo.png';
 import clientImage from '../assets/images/invoice-manager/client-image.png';
 import companyLogo from '../assets/images/invoice-manager/company-icon.png';
+import avatar1 from '../assets/images/my-services/tasks/avatar1.png';
+import avatar2 from '../assets/images/my-services/tasks/avatar2.png';
+import avatar3 from '../assets/images/my-services/tasks/avatar3.png';
 
 
 
@@ -3983,9 +3986,9 @@ export const sampleTasks = {
                       "Normal"
                   ],
                   "members": [
-                      "Carlos",
-                      "Rick",
-                      "Martin"
+                      avatar1,
+                      avatar2,
+                      avatar3,
                   ],
                   "color": "#BBD5FA"
               },
@@ -3999,7 +4002,7 @@ export const sampleTasks = {
                       "Hard"
                   ],
                   "members": [
-                      "Rick"
+                      avatar1
                   ],
                   "color": "#ADFCF8"
               },
@@ -4032,8 +4035,8 @@ export const sampleTasks = {
                       "Webix"
                   ],
                   "members": [
-                      "David",
-                      "Carlos"
+                      avatar3,
+                      avatar2
                   ],
                   "color": "#ADFCF8"
               },
@@ -4058,8 +4061,8 @@ export const sampleTasks = {
                       "Hard"
                   ],
                   "members": [
-                      "Carlos",
-                      "Mateo"
+                      avatar1,
+                      avatar3
                   ],
                   "color": "#ADFCF8"
               }
@@ -4078,7 +4081,7 @@ export const sampleTasks = {
                       "Jet"
                   ],
                   "members": [
-                      "Carlos"
+                      avatar2
                   ],
                   "color": "#ADFCF8"
               },
@@ -4114,7 +4117,7 @@ export const sampleTasks = {
                   ],
                   "tags": [],
                   "members": [
-                      "Carlos"
+                      avatar3
                   ],
                   "color": "#ADFCF8"
               }
@@ -4122,7 +4125,7 @@ export const sampleTasks = {
       },
       "list-3": {
           "id": "list-3",
-          "title": "Testing",
+          "title": "Done",
           "cards": [
               {
                   "id": "02517a49-b88d-4938-b6f7-8b80bd1cb345",
@@ -4142,12 +4145,12 @@ export const sampleTasks = {
                       "Hard"
                   ],
                   "members": [
-                      "Cristiano",
-                      "Martin",
-                      "Rick",
-                      "Mateo",
-                      "Carlos",
-                      "David"
+                      avatar1,
+                      avatar3,
+                      avatar2,
+                      avatar1,
+                      avatar3,
+                      avatar2
                   ],
                   "color": "#ADFCF8"
               }
@@ -4155,7 +4158,7 @@ export const sampleTasks = {
       },
       "list-4": {
           "id": "list-4",
-          "title": "Done",
+          "title": "Closed",
           "cards": [
               {
                   "id": "a29ed881-479b-426b-b2e8-1f9524061348",
