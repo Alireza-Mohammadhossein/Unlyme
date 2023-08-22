@@ -17,19 +17,19 @@ export const INITIAL_EVENTS = [
     id: createEventId(),
     title: 'Test event',
     start: todayStr + 'T12:00:00',
-    end: todayStr + 'T13:00:00'
+    end: todayStr + 'T12:30:00'
   },
   {
     id: createEventId(),
     title: 'this is a test event for dveloping the calendar',
     start: todayStr + 'T15:30:00',
-    end: todayStr + 'T16:30:00'
+    end: todayStr + 'T16:00:00'
   },
   {
     id: createEventId(),
     title: 'this is a test event for tomorrow',
     start: tomorrowStr + 'T15:30:00',
-    end: tomorrowStr + 'T16:30:00'
+    end: tomorrowStr + 'T16:00:00'
   }
 ]
 

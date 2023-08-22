@@ -54,7 +54,7 @@ const NotesBlock = () => {
       message:
         "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description",
       year: "2023",
-      month: "March",
+      month: "October",
       day: "15",
       time: "14:25",
     },
@@ -185,6 +185,15 @@ const NotesBlock = () => {
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
+  function getMonthNumber(monthStr){
+    const monthNum = new Date(monthStr+'-1-01').getMonth()+1
+
+    if(monthNum < 10) {
+      return `0${monthNum}`
+    } else {
+      return monthNum;
+    }
+  }
 
 
   return (
@@ -229,7 +238,8 @@ const NotesBlock = () => {
                   </div>
       
                   <div className="my-services__notes_content_list-item-details">
-                    <p className="my-services__notes_content_list-item-details-time">{note.day}/{dayjs(`${note.day}${note.month}${note.year}`).format('MM')}/{note.year}</p>
+                    {/* <p className="my-services__notes_content_list-item-details-time">{note.day}/{dayjs(`${note.day}${note.month}${note.year}`).format('MM')}/{note.year}</p> */}
+                    <p className="my-services__notes_content_list-item-details-time">{note.day}/{getMonthNumber(note.month)}/{note.year}</p>
                     <p className="my-services__notes_content_list-item-details-desctiprion">{note.message}</p>
                   </div>
                 </li>

@@ -28,6 +28,7 @@
     height: 100%;
     border-radius: 18px;
     padding: 15px;
+    padding-bottom: 0;
     box-sizing: border-box;
     position: relative;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
@@ -42,6 +43,7 @@
         margin-bottom: 5px;
 
         .fc-button {
+          font-family: 'OpenSans' !important;
           background-color: #F8FAFC;
           border: unset;
           color: #666666;
@@ -106,6 +108,10 @@
                   font-style: normal;
                   font-weight: 500;
                   color: #51A3FF;
+
+                  .fc-col-header-cell-cushion {
+                    font-family: 'OpenSans' !important;
+                  }
                 }
               }
             }
@@ -121,7 +127,11 @@
 
                   .fc-timegrid-slot-label-cushion {
                     position: relative;
-                    top: 11px;
+                    top: 10px;
+                    font-family: 'OpenSans' !important;
+                    color: #999999;
+                    font-size: 13px;
+
                   }
                 }
 
@@ -157,7 +167,8 @@
               border: unset;
               border-left: 3px solid #51A3FF;
               border-radius: 0 3px 3px 0;
-              padding: 4px;
+              padding: 0 4px;
+              // margin: 10px 0;
               box-shadow: unset;
               
               .fc-event-main {
@@ -170,12 +181,14 @@
                 }
 
                 .fc-event-title {
+                  font-family: 'OpenSans' !important;
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
                   color: #414141;
                   font-size: 14px;
                   font-weight: 600;
+                  line-height: 22px;
                 }
 
                 .fc-event-time {
@@ -299,6 +312,7 @@
                 color: #999999;
                 font-size: 12px;
                 font-weight: 600;
+                font-family: 'OpenSans' !important;
               }
 
               a.today {
@@ -333,7 +347,7 @@
         .fc-event {
           // display: flex;
           display: grid;
-          grid-template-columns: 30% 6% 65%;
+          grid-template-columns: 23% 6% 70%;
 
           &:hover {
             td {
@@ -343,6 +357,7 @@
 
           td {
             border: unset;
+            padding: 8px 0px 8px 14px;
           }
 
           .fc-list-event-dot {
@@ -356,6 +371,8 @@
             color: #999999;
             padding-left: 0;
             width: 100%;
+            font-size: 12px;
+            font-family: 'OpenSans' !important;
             // flex: 0 0 30%;
           }
 
@@ -544,6 +561,7 @@
     width: 100%;
     border-radius: 18px;
     padding: 15px;
+    padding-bottom: 0;
     box-sizing: border-box;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 
@@ -596,7 +614,7 @@
 
     &_content {
       height: calc(100% - 40px);
-      padding-top: 20px;
+      padding-top: 15px;
       box-sizing: border-box;
 
       &_list {
@@ -611,6 +629,7 @@
         &-item {
           display: flex;
           flex-direction: column;
+          gap: 3px;
           padding-bottom: 10px;
           padding-top: 8px;
           border-bottom: 1px solid #E8E7E4;
@@ -619,6 +638,8 @@
 
           &-title {
             color: #333333;
+            font-size: 14px;
+            font-family: 'OpenSans' !important;
             font-weight: 600;    
             white-space: nowrap;
             overflow: hidden;
@@ -630,16 +651,22 @@
             display: flex;
             gap: 5px;
             line-height: normal;
+            font-family: 'OpenSans' !important;
 
             &-time {
               color: #333333;
+              font-size: 14px;
+              line-height: normal;
+              font-family: 'OpenSans' !important;
             }
 
             &-desctiprion {
+              font-family: 'OpenSans' !important;
               color: #989898;
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
+              font-size: 14px;
             }
           }
         }
@@ -657,6 +684,11 @@
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
             height: 60px;
+            justify-content: space-around;
+          }
+
+          .my-services__notes_content_list-item-details-time, .my-services__notes_content_list-item-details-desctiprion {
+            font-size: 13px;
           }
         }
       }
@@ -752,6 +784,7 @@
     width: 100%;
     border-radius: 18px;
     padding: 15px;
+    padding-bottom: 0;
     box-sizing: border-box;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 
@@ -823,6 +856,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        position: relative;
       }
 
       &-item {
@@ -984,19 +1018,83 @@
   }
 
   &__work-drive {
-    width: 100%;
+    background-color: #ffffff;
     height: 100%;
+    width: 100%;
+    border-radius: 18px;
+    padding: 15px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 
-    &_container {
-      padding: 0 2 * $space;
+    // &.pr-0 {
+    //   padding-right: 0;
+    // }
+
+    &_header {
+      display: flex;
+      justify-content: space-between;
+      height: 40px;
+
+      &-view {
+        .MuiToggleButtonGroup-root {
+          background-color: #F8FAFC;
+          border-radius: 12px !important;
+  
+          .MuiButtonBase-root {
+            background-color: transparent;
+            border: unset;
+            border-radius: 8px !important;
+            color: #9C9C9C;
+            padding: 0;
+            width: 30px;
+            height: 26px;
+  
+            &.Mui-selected {
+              background-color: #7676801F;
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      &-more {
+        display: flex;
+        gap: 15px;
+        align-items: start;
+
+        .MuiButtonBase-root {
+            color: $blue;
+            padding: 5px;
+        }
+      }
+    }
+
+    &_content {
+      height: calc(100% - 40px);
+      padding-top: 15px;
       box-sizing: border-box;
 
-      width: inherit;
-      height: inherit;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      &_list {
+        height: 100%;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        list-style: none;
+
+        &-head {
+          display: grid;
+          grid-template-columns: 55px 150px 150px 150px 70px;
+        }
+
+        &-body {
+
+        }
+      }
     }
   }
 

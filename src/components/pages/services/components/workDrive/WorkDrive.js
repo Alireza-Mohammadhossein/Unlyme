@@ -1,39 +1,250 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import CloudBlock from "../cloud-block/CloudBlock";
-import WorkDrivePage from "../../../work-drive/WorkDrivePage";
-import icon from "../../../../../assets/images/my-services/drive.png";
-import upload from "../../../../../assets/images/my-services/upload.png";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import IconButton from '@mui/material/IconButton';
+import dayjs from 'dayjs';
+import NotesPage from "../../../notes/NotesPage";
+import Modal from '@mui/material/Modal';
+import { useSelector, useDispatch } from "react-redux";
+import { handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } from '../../../../../redux/app/appsModalSlice';
+import plusIcon from '../../../../../assets/images/my-services/plus.svg';
+import expandIcon from '../../../../../assets/images/my-services/expand.svg';
+import listActiveIcon from '../../../../../assets/images/my-services/notes/list-active.svg';
+import listNotIcon from '../../../../../assets/images/my-services/notes/list-not.svg';
+import gridActiveIcon from '../../../../../assets/images/my-services/notes/grid-active.svg';
+import gridNotIcon from '../../../../../assets/images/my-services/notes/grid-not.svg';
+
+
 
 
 
 const WorkDrive = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const content = (
-    <div className="my-services__work-drive">
-      <div className="my-services__work-drive_container">
-        <div className="my-services__work-drive_upload-icon">
-          <img src={upload} />
-        </div>
 
-        <div className="my-services__work-drive_upload-text">
-          <h3>{t("SERVICES.WORKDRIVE.UPLOAD_TEXT")}</h3>
-        </div>
-      </div>
-    </div>
-  );
+  const [viewMode, setViewMode] = useState('list');
+
+  const handleViewMode = (event, newViewMode) => {
+    if (newViewMode !== null) {
+      setViewMode(newViewMode);
+    }
+  };
+
+
+  // const [notes, setNotes] = useState([]);
+
+  // // start getting notes from localstorage
+  // useEffect(() => {
+  //   const storedNotes = JSON.parse(localStorage.getItem('notes'));
+  //   if (storedNotes) setNotes(storedNotes.reverse());
+  // }, []);
+
+
+  const notes = [
+    {
+      id: 1,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 2,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 3,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 4,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 5,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 6,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 7,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 8,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 9,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 10,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "April",
+      month: "04",
+      day: "10",
+      time: "10:25",
+    },
+    {
+      id: 11,
+      title: "Lorem ipsum Note title",
+      message:
+        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
+      year: "2023",
+      month: "March",
+      day: "15",
+      time: "14:25",
+    },
+    {
+      id: 12,
+      title: "Lorem ipsum Note title",
+      message: "Lorem ipsum test description Lorem ipsum test description",
+      year: "2023",
+      month: "April",
+      day: "10",
+      time: "10:25",
+    },
+  ];
+
+
+  
+  // const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
+  // const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
+  // const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
+  // const appsModal = useSelector((state) => state.appsModal.openAppsModal);
+
+  // const handleOpenNotesModal = () => {
+  //   dispatch(handleOpenNotesWidgetModal());
+  // };
+  // const handleCloseNotesModal = () => {
+  //   dispatch(handleCloseNotesWidgetModal());
+  // };
+
+  
+  // const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+  // const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
+
+
 
   return (
-    <CloudBlock
-      title={t("SERVICES.WORKDRIVE.TITLE")}
-      subtitle={t("SERVICES.WORKDRIVE.SUBTITLE")}
-      content={content}
-      directComponent={WorkDrivePage}
-      infoContent="s"
-      iconName="services/workDrive"
-      icon={icon}
-    />
+    <>
+      <div className='my-services__work-drive'>
+        <div className="my-services__work-drive_header">
+          <div className="my-services__work-drive_header-view">
+            <ToggleButtonGroup
+              value={viewMode}
+              exclusive
+              onChange={handleViewMode}
+              aria-label="text alignment"
+            >
+              <ToggleButton value="list" aria-label="list mode">
+                <img src={viewMode === 'list' ? listActiveIcon : listNotIcon} />
+              </ToggleButton>
+              <ToggleButton value="grid" aria-label="grid mode">
+                <img src={viewMode === 'grid' ? gridActiveIcon : gridNotIcon} />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
+
+          <div className="my-services__work-drive_header-more">
+            <IconButton aria-label="add">
+              <img src={plusIcon} />
+            </IconButton>
+
+            <IconButton aria-label="expand">
+              <img src={expandIcon} />
+            </IconButton>
+
+          </div>
+        </div>
+
+        <div className="my-services__work-drive_content">
+          <div className="my-services__work-drive_content_list">
+            <div className="my-services__work-drive_content_list-head">
+            
+            </div>
+
+            <div className="my-services__work-drive_content_list-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/* <Modal
+        open={openNotesWidgetModal}
+        onClose={handleCloseNotesModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className="apps-modal"
+        disableEnforceFocus 
+      >
+        <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
+          
+          <NotesPage handleCloseNotesModal={handleCloseNotesModal} />
+        </div>
+      </Modal> */}
+
+    </>
   );
 };
 
