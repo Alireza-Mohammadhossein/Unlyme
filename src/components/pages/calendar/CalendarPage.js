@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import calendarIcon from "../../../assets/images/calendarIcon.png";
 import { formatDate } from '@fullcalendar/core';
 import FullCalendar from '@fullcalendar/react';
@@ -21,6 +21,7 @@ import { Calendar_page_current_events } from '../../../mocks/mocks';
 import { useSelector} from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import TextField from '@mui/material/TextField';
 
 
 
@@ -114,8 +115,6 @@ function CalendarPageContent() {
 
 
 
-
-
   const title = document.getElementsByClassName('fc-toolbar-title')[0];
 
   const customDayHeaderContent = (info) => {
@@ -159,7 +158,6 @@ function CalendarPageContent() {
     );
   };
 
-
   const customMonthHeaderContent = (info) => {
     const today = new Date().getDate();
     const thisMonth = new Date().toLocaleString('default', { month: 'long' });
@@ -180,8 +178,6 @@ function CalendarPageContent() {
       </>
     );
   };
-
-
 
   const customAgendaHeaderContent = (info) => {
     const dayNum = new Date(info.date).getDate();
@@ -209,6 +205,62 @@ function CalendarPageContent() {
       </>
     );
   };
+
+
+
+  // filtering events by category
+  const [selectedCategories, setSelectedCategories] = useState(['all']);
+
+  const handleCategoryToggle = (category) => {
+    console.log('selectedCategories', selectedCategories)
+    if (category === 'all') {
+      setSelectedCategories(['all']);
+    } else {
+      if (selectedCategories.includes('all')) {
+        setSelectedCategories([category]);
+      } else {
+          setSelectedCategories((prevCategories) => {
+            if (prevCategories.includes(category)) {
+              return prevCategories.filter((cat) => cat !== category);
+            } else {
+              return [...prevCategories, category];
+            }
+          });
+        }
+    }
+  };
+
+  const filteredEvents = selectedCategories.includes('all')
+    ? INITIAL_EVENTS
+      :
+    selectedCategories.length === 0
+      ? INITIAL_EVENTS
+        : INITIAL_EVENTS.filter((event) =>
+        selectedCategories.includes(event.category)
+         
+  );
+
+
+  const [newCategoryTitle, setNewCategoryTitle] = useState('');
+  const [addCategory, setAddCategory] = useState(false);
+
+  const newCategoryTitleHandler = (e) => {
+    setNewCategoryTitle(e.target.value)
+  }
+
+  const pressEnter = (e) => {
+    if(e.keyCode == 13){
+      
+       setNewCategoryTitle('')
+       Calendar_page_current_events.push({
+        id: Calendar_page_current_events.length + 1,
+        name: e.target.value,
+        color: '#4C9FBE',
+        category: e.target.value,
+       })
+      
+    }
+ }
 
 
   
@@ -252,16 +304,32 @@ function CalendarPageContent() {
             </div>
 
             <div className='calendar-page_sidebar-section'>
+
+              {
+                addCategory ? <TextField value={newCategoryTitle} autoFocus variant="outlined" onChange={newCategoryTitleHandler} onKeyDown={pressEnter} /> : ''
+              }
+
               <FormGroup className='calendar-page_sidebar-section_filter'>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={selectedCategories.includes('all') || selectedCategories.length === 0}
+                      onChange={() => handleCategoryToggle('all')}
+                    />
+                  }
+                  label="All"
+                />
+
                 {Calendar_page_current_events.map((item) => (
                   <FormControlLabel
-                    control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} onChange={eventsHandler} />}
+                    control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
                     label={item.name}
+                    // onChange={() => handleCategoryFilter(item.category)}
                   />
                 ))}
               </FormGroup>
 
-              <Button startIcon={<AddIcon />} className='calendar-page_sidebar-section_add-btn'>
+              <Button startIcon={<AddIcon />} className='calendar-page_sidebar-section_add-btn' onClick={() => setAddCategory(true)}>
                 Add calendar
               </Button>
 
@@ -283,7 +351,6 @@ function CalendarPageContent() {
                   end: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
                 }}
 
-              
                 buttonText={{
                   today: 'Today',
                   month: 'Month',
@@ -346,7 +413,7 @@ function CalendarPageContent() {
                 eventStartEditable={true}
                 eventResizableFromStart={true}
                 aspectRatio={2}
-                initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+                events={filteredEvents} // alternatively, use the `events` setting to fetch from a feed
                 select={handleDateSelect}
                 eventContent={renderEventContent} // custom render function
                 // sideBarEvent={renderSidebarEvent}

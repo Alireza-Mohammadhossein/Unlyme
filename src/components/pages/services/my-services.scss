@@ -67,7 +67,9 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-top: 30px;
+          margin-top: 20px;
+          padding: 0 10px;
+
 
           .fc-button {
             font-size: 11px;
@@ -75,9 +77,15 @@
           }
 
           .fc-toolbar-title {
+            font-family: "OpenSans" !important;
             color: #51A3FF;
             font-size: 15px;
             font-weight: 600;
+          }
+
+          .fc-dayGridMonth-view {
+            padding-right: 10px;
+            padding-left: 10px;
           }
         }
 
@@ -165,7 +173,7 @@
             .fc-event {
               background-color: transparent;
               border: unset;
-              border-left: 3px solid #51A3FF;
+              border-left: 3px solid;
               border-radius: 0 3px 3px 0;
               padding: 0 4px;
               // margin: 10px 0;
@@ -185,7 +193,7 @@
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  color: #414141;
+                  // color: #414141;
                   font-size: 14px;
                   font-weight: 600;
                   line-height: 22px;
@@ -212,7 +220,7 @@
 
         .fc-dayGridMonth-view {
 
-          margin: 15px 0;
+          margin: 12px 12px 20px 12px;
 
           td, th {
             border: unset;
@@ -228,7 +236,10 @@
                   border: unset;
   
                   .fc-col-header-cell-cushion {
+                    font-size: 14px;
                     color: #ACACAC;
+                    font-family: "OpenSans" !important;
+                    font-weight: 600  ;
                   }
                 }
               }
@@ -236,6 +247,11 @@
               tbody {
                 td {
                   border: unset;
+
+
+                  .fc-daygrid-day-frame {
+                    position: relative;
+                  }
                 }
 
                 .fc-day {
@@ -244,6 +260,7 @@
                       justify-content: center;
 
                       a {
+                        font-family: "OpenSans" !important;
                         color: #444444;
                         display: inline-block;
                         border-radius: 50px;
@@ -282,7 +299,7 @@
               }
 
               .fc-daygrid-body {
-                margin-top: 20px;
+                margin-top: 10px;
               }
             }
           }
@@ -347,7 +364,8 @@
         .fc-event {
           // display: flex;
           display: grid;
-          grid-template-columns: 23% 6% 70%;
+          // grid-template-columns: 23% 6% 70%;
+          grid-template-columns: 6% 70% 23%;
 
           &:hover {
             td {
@@ -357,7 +375,7 @@
 
           td {
             border: unset;
-            padding: 8px 0px 8px 14px;
+            padding: 8px 14px 8px 0;
           }
 
           .fc-list-event-dot {
@@ -370,18 +388,23 @@
           .fc-list-event-time {
             color: #999999;
             padding-left: 0;
+            padding-right: 0;
+            padding-top: 9px;
             width: 100%;
             font-size: 12px;
             font-family: 'OpenSans' !important;
+            order: 3;
             // flex: 0 0 30%;
           }
 
           .fc-list-event-graphic {
             // width: 20px;
             width: 100%;
+            order: 1;
           }
 
           .fc-list-event-title {
+            order: 2;
             color: #414141;
             // flex: 0 0 53%;
             white-space: nowrap;
@@ -394,6 +417,7 @@
               font-size: 14px;
               font-style: normal;
               font-weight: 600;
+              font-family: "OpenSans" !important;
             }
           }
         }
@@ -878,6 +902,7 @@
           flex-direction: column;
 
           &-title {
+            font-family: "OpenSans" !important;
             color: #444;
             font-size: 14px;
             font-weight: 600;

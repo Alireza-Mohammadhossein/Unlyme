@@ -57,7 +57,6 @@ const TasksBlock = () => {
   // };
   // const [data, setData] = useState(initialState);
   const [data, setData] = useState(sampleTasks);
-  console.log('data', data)
 
 
 
