@@ -236,7 +236,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
 
         <div className='create-eventpopup-item'>
           <p className="create-eventpopup-item-title">
-              Category
+              Calendar
           </p>
 
           <FormControl fullWidth>

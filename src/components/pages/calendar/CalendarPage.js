@@ -24,6 +24,8 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import TextField from '@mui/material/TextField';
 import Drawer from '@mui/material/Drawer';
 import CreateEventsPopup from './popups/CreateEventPopup';
+import settingIcon from '../../../assets/images/calendar/settings.svg';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -344,7 +346,14 @@ function CalendarPageContent() {
                 {Calendar_page_current_events.map((item) => (
                   <FormControlLabel
                     control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
-                    label={item.name}
+                    label={
+                      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                        {item.name} 
+                        
+                        <IconButton>
+                          <img src={settingIcon} />
+                        </IconButton>
+                      </div>}
                     // onChange={() => handleCategoryFilter(item.category)}
                   />
                 ))}
