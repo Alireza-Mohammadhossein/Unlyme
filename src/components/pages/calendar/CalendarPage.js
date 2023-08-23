@@ -28,7 +28,9 @@ import settingIcon from '../../../assets/images/calendar/settings.svg';
 import IconButton from '@mui/material/IconButton';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { TwitterPicker } from 'react-color'
+import { TwitterPicker } from 'react-color';
+import Modal from '@mui/material/Modal';
+import SettingPopup from './popups/SettingPopup';
 
 
 
@@ -289,243 +291,281 @@ function CalendarPageContent() {
 
  
  
- const [categoryIndex, setCategoryIndex] = useState(null)
+ const [categoryIndex, setCategoryIndex] = useState(null);
+ const [selectedCategory, setSelectedCategory] = useState([]); 
 
- const handleChangeCalendarColor = (e, index, item) => {
+ const handleChangeCalendarColor = (e) => {
   Calendar_page_current_events[categoryIndex] = { ...Calendar_page_current_events[categoryIndex], color: e.hex };
   handleCloseOptions();
  }
 
+
+
+   // start delete invoice popup
+   const [settingPopup, setSettingPopup] = useState(false);
+   // const [deleteInvoiceId, setSettingId] = useState(false);
+   const handleOpenSettingPopup = () => {
+     // setSettingId(id);
+     setSettingPopup(true)
+     handleCloseOptions()
+   };
+   const handleCloseSettingPopup = () => {
+     setSettingPopup(false)
+   };
+   // end delete invoice popup
+
   
   return (
-    <div className='calendar-page'>
 
-      <div className='grid-content'>
-        <div className='grid-content_left'>
-          <div className='calendar-page_sidebar'>
-            <div className='calendar-page_sidebar_create-event'>
-              <Button
-                // startIcon={<AddIcon />}
-                className="calendar-page_sidebar_create-event_btn"
-                aria-label="more"
-                id="long-button"
-                aria-haspopup="true"
-                onClick={() => setCreateEventPopup(true)}
-              >
-                {t("CALENDAR_PAGE.CREATE__EVENT_BUTTON")}
-              </Button>
-              {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
+    <>
+      <div className='calendar-page'>
 
-              
-              <Drawer
-                anchor='right'
-                open={createEventPopup}
-                onClose={() => setCreateEventPopup(false)}
-                disableScrollLock = {false}
-                className='calendar-page_sidebar_create-event_drawer'
-              >
-                <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events}/>
-              </Drawer>
-            </div>
+        <div className='grid-content'>
+          <div className='grid-content_left'>
+            <div className='calendar-page_sidebar'>
+              <div className='calendar-page_sidebar_create-event'>
+                <Button
+                  // startIcon={<AddIcon />}
+                  className="calendar-page_sidebar_create-event_btn"
+                  aria-label="more"
+                  id="long-button"
+                  aria-haspopup="true"
+                  onClick={() => setCreateEventPopup(true)}
+                >
+                  {t("CALENDAR_PAGE.CREATE__EVENT_BUTTON")}
+                </Button>
+                {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
 
-            <div className='calendar-page_sidebar-section'>
-              {/* <label>
-                <input
-                  type='checkbox'
-                  checked={weekendsVisible}
-                  onChange={handleWeekendsToggle}
-                ></input>
-                toggle weekends
-              </label> */}
+                
+                <Drawer
+                  anchor='right'
+                  open={createEventPopup}
+                  onClose={() => setCreateEventPopup(false)}
+                  disableScrollLock = {false}
+                  className='calendar-page_sidebar_create-event_drawer'
+                >
+                  <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events}/>
+                </Drawer>
+              </div>
 
-              <Calendar
-                onChange={onChangeDate}
-                value={date}
-                nextLabel= {<ArrowForwardIosIcon />}
-                prevLabel= {<ArrowBackIosNewIcon />}
-                formatShortWeekday={(locale, date) => [ `S`, `M`, `T`, `W`, `T`, `F`, `S` ][date.getDay()]}
-              />
+              <div className='calendar-page_sidebar-section'>
+                {/* <label>
+                  <input
+                    type='checkbox'
+                    checked={weekendsVisible}
+                    onChange={handleWeekendsToggle}
+                  ></input>
+                  toggle weekends
+                </label> */}
 
-            </div>
-
-            <div className='calendar-page_sidebar-section'>
-
-              {
-                addCategory ? <TextField className='calendar-page_sidebar-section_add-calendar' value={newCategoryTitle} autoFocus variant="outlined" onChange={newCategoryTitleHandler} onKeyDown={pressEnter} onBlur={() => setAddCategory(false)} /> : ''
-              }
-
-              <FormGroup className='calendar-page_sidebar-section_filter'>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={selectedCategories.includes('all') || selectedCategories.length === 0}
-                      onChange={() => handleCategoryToggle('all')}
-                    />
-                  }
-                  label="All"
+                <Calendar
+                  onChange={onChangeDate}
+                  value={date}
+                  nextLabel= {<ArrowForwardIosIcon />}
+                  prevLabel= {<ArrowBackIosNewIcon />}
+                  formatShortWeekday={(locale, date) => [ `S`, `M`, `T`, `W`, `T`, `F`, `S` ][date.getDay()]}
                 />
 
-                {Calendar_page_current_events.map((item, index) => (
-                  <>
-                    <FormControlLabel
-                      control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
-                      label={
-                        <div className='calendar-page_sidebar-section_filter-action'>
-                          {item.name} 
-                          
-                          <IconButton
-                            aria-label="setting"
-                            id="long-button"
-                            aria-controls={open ? "long-menu" : undefined}
-                            aria-expanded={open ? "true" : undefined}
-                            aria-haspopup="true"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleOpenOptions(e);
-                              setCategoryIndex(index)
-                              console.log('item1', index)
+              </div>
 
-                            }}
-                          >
-                            <img src={settingIcon} />
-                          </IconButton>
+              <div className='calendar-page_sidebar-section'>
 
-                          <Menu
-                            id="long-menu"
-                            className='calendar-page_sidebar-section_filter-action-popup'
-                            MenuListProps={{
-                              "aria-labelledby": "long-button",
-                            }}
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleCloseOptions}
-                            disableScrollLock={true}
-                          >
-                            <MenuItem
-                             disableRipple={true}
-                            >
-                              <TwitterPicker onChangeComplete={(e) => handleChangeCalendarColor(e, item)}  />
-                            </MenuItem>
+                {
+                  addCategory ? <TextField className='calendar-page_sidebar-section_add-calendar' value={newCategoryTitle} autoFocus variant="outlined" onChange={newCategoryTitleHandler} onKeyDown={pressEnter} onBlur={() => setAddCategory(false)} /> : ''
+                }
 
+                <FormGroup className='calendar-page_sidebar-section_filter'>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={selectedCategories.includes('all') || selectedCategories.length === 0}
+                        onChange={() => handleCategoryToggle('all')}
+                      />
+                    }
+                    label="All"
+                  />
+
+                  {Calendar_page_current_events.map((item, index) => (
+                    <>
+                      <FormControlLabel
+                        control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
+                        label={
+                          <div className='calendar-page_sidebar-section_filter-action'>
+                            {item.name} 
                             
-                            <MenuItem
-                              // onClick={}
+                            <IconButton
+                              aria-label="setting"
+                              id="long-button"
+                              aria-controls={open ? "long-menu" : undefined}
+                              aria-expanded={open ? "true" : undefined}
+                              aria-haspopup="true"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleOpenOptions(e);
+                                setCategoryIndex(index)
+                                setSelectedCategory(item)
+                                console.log('item1', index)
+
+                              }}
                             >
-                              Setting
-                              {/* <ListItemIcon>
-                                {option.icon}
-                              </ListItemIcon>
-                              <ListItemText>{option.text}</ListItemText> */}
-                            </MenuItem>
-                          </Menu>
-                        </div>}
-                      // onChange={() => handleCategoryFilter(item.category)}
-                    />
-                  </>
-                ))}
-              </FormGroup>
+                              <img src={settingIcon} />
+                            </IconButton>
 
-              <Button startIcon={<AddIcon />} className='calendar-page_sidebar-section_add-btn' onClick={() => setAddCategory(true)}>
-                Add calendar
-              </Button>
 
-              {/* <h2>All Events ({currentEvents.length})</h2> */}
-              {/* <ul>{currentEvents.map(renderSidebarEvent)}</ul> */}
+                          </div>}
+                        // onChange={() => handleCategoryFilter(item.category)}
+                      />
+                    </>
+                  ))}
+
+                  <Menu
+                    id="long-menu"
+                    className='calendar-page_sidebar-section_filter-action-popup'
+                    MenuListProps={{
+                      "aria-labelledby": "long-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleCloseOptions}
+                    disableScrollLock={true}
+                  >
+                    <MenuItem
+                     disableRipple={true}
+                    >
+                      <TwitterPicker onChangeComplete={(e) => handleChangeCalendarColor(e)}  />
+                    </MenuItem>
+
+                    
+                    <MenuItem
+                      onClick={() => {
+                        
+                        handleOpenSettingPopup()
+                      }}
+                    >
+                      Setting
+                      {/* <ListItemIcon>
+                        {option.icon}
+                      </ListItemIcon>
+                      <ListItemText>{option.text}</ListItemText> */}
+                    </MenuItem>
+                  </Menu>
+                </FormGroup>
+
+                <Button startIcon={<AddIcon />} className='calendar-page_sidebar-section_add-btn' onClick={() => setAddCategory(true)}>
+                  Add calendar
+                </Button>
+
+                {/* <h2>All Events ({currentEvents.length})</h2> */}
+                {/* <ul>{currentEvents.map(renderSidebarEvent)}</ul> */}
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className='grid-content_right'>
-          <div className='calendar-page_main'>
-            <div className='calendar-page_main_calendar'>
-              <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-                headerToolbar={{
-                  // left: 'prev title next today',
-                  start: 'prev title next',
-                  center: '',
-                  end: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
-                }}
+          <div className='grid-content_right'>
+            <div className='calendar-page_main'>
+              <div className='calendar-page_main_calendar'>
+                <FullCalendar
+                  plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+                  headerToolbar={{
+                    // left: 'prev title next today',
+                    start: 'prev title next',
+                    center: '',
+                    end: 'timeGridDay,timeGridWeek,dayGridMonth,listMonth',
+                  }}
 
-                buttonText={{
-                  today: 'Today',
-                  month: 'Month',
-                  week: 'Week',
-                  day: 'Day',
-                  list: 'Agenda'
-                }}
+                  buttonText={{
+                    today: 'Today',
+                    month: 'Month',
+                    week: 'Week',
+                    day: 'Day',
+                    list: 'Agenda'
+                  }}
 
-                // dayHeaderContent={customDayHeaderContent}
+                  // dayHeaderContent={customDayHeaderContent}
 
-                views = {{
-                  dayGridMonth: { // name of view
-                    titleFormat: {year: 'numeric', month: 'long' },
-                    dayHeaderContent: customMonthHeaderContent,
-                    // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
-                    // other view-specific options here
-                  },
+                  views = {{
+                    dayGridMonth: { // name of view
+                      titleFormat: {year: 'numeric', month: 'long' },
+                      dayHeaderContent: customMonthHeaderContent,
+                      // titleFormat: { year: 'numeric', month: 'short', day: '2-digit' }
+                      // other view-specific options here
+                    },
 
-                  timeGridDay: {
-                    dayHeaderContent: customDayHeaderContent,
-                    titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
-                  },
+                    timeGridDay: {
+                      dayHeaderContent: customDayHeaderContent,
+                      titleFormat: {day: '2-digit', year: 'numeric', month: 'long'},
+                    },
 
-                  timeGridWeek: {
-                    dayHeaderContent: customWeekHeaderContent,
-                    titleFormat: {year: 'numeric', month: 'long'},
-                  },
+                    timeGridWeek: {
+                      dayHeaderContent: customWeekHeaderContent,
+                      titleFormat: {year: 'numeric', month: 'long'},
+                    },
 
-                  listMonth: {
-                    dayHeaderContent: customAgendaHeaderContent,
-                  }
-                }}
-                
-                slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
-                eventTimeFormat={{
-                  hour: '2-digit',
-                  hour12: false,
-                  minute: '2-digit',
-                  meridiem: 'short'
-                }}
-                
-                allDaySlot= {false}
-                allDayText= 'all'
-                firstDay= {1}
-                initialView='dayGridMonth'
-                editable={true}
-                selectable={true}
-                selectMirror={true}
-                dayMaxEvents={true}
-                fixedWeekCount={false}
-                weekends={true}
-                // contentHeight = {700}
-                navLinks={true}
-                selectOverlap={true}
-                nowIndicator={true}
-                showNonCurrentDates={true}
-                displayEventTime={true}
-                displayEventEnd={true}
-                // editable={true}
-                eventStartEditable={true}
-                eventResizableFromStart={true}
-                aspectRatio={2}
-                events={filteredEvents} // alternatively, use the `events` setting to fetch from a feed
-                select={handleDateSelect}
-                eventContent={renderEventContent} // custom render function
-                // sideBarEvent={renderSidebarEvent}
-                eventClick={handleEventClick}
-                eventsSet={handleEvents} // called after events are initialized/added/changed/removed
-                /* you can update a remote database when these fire:
-                eventAdd={function(){}}
-                eventChange={function(){}}
-                eventRemove={function(){}}
-                */
-              />
+                    listMonth: {
+                      dayHeaderContent: customAgendaHeaderContent,
+                    }
+                  }}
+                  
+                  slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
+                  eventTimeFormat={{
+                    hour: '2-digit',
+                    hour12: false,
+                    minute: '2-digit',
+                    meridiem: 'short'
+                  }}
+                  
+                  allDaySlot= {false}
+                  allDayText= 'all'
+                  firstDay= {1}
+                  initialView='dayGridMonth'
+                  editable={true}
+                  selectable={true}
+                  selectMirror={true}
+                  dayMaxEvents={true}
+                  fixedWeekCount={false}
+                  weekends={true}
+                  // contentHeight = {700}
+                  navLinks={true}
+                  selectOverlap={true}
+                  nowIndicator={true}
+                  showNonCurrentDates={true}
+                  displayEventTime={true}
+                  displayEventEnd={true}
+                  // editable={true}
+                  eventStartEditable={true}
+                  eventResizableFromStart={true}
+                  aspectRatio={2}
+                  events={filteredEvents} // alternatively, use the `events` setting to fetch from a feed
+                  select={handleDateSelect}
+                  eventContent={renderEventContent} // custom render function
+                  // sideBarEvent={renderSidebarEvent}
+                  eventClick={handleEventClick}
+                  eventsSet={handleEvents} // called after events are initialized/added/changed/removed
+                  /* you can update a remote database when these fire:
+                  eventAdd={function(){}}
+                  eventChange={function(){}}
+                  eventRemove={function(){}}
+                  */
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+
+
+      {/* setting modal */}
+      <Modal
+        open={settingPopup}
+        onClose={() => handleCloseSettingPopup()}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className='cloud-page__header_invoice-manager-details_add-modal'
+      >
+        <SettingPopup selectedCategory={selectedCategory} handleCloseSettingPopup={handleCloseSettingPopup} />
+      </Modal>
+    </>
   );
 }
 

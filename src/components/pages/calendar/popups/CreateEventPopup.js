@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './create-eventpopup.scss';
+import './popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
