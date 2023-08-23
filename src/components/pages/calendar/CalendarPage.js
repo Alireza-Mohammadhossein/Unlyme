@@ -22,6 +22,9 @@ import { useSelector} from 'react-redux';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import TextField from '@mui/material/TextField';
+import Drawer from '@mui/material/Drawer';
+import CreateEventsPopup from './popups/CreateEventPopup';
+
 
 
 
@@ -252,15 +255,21 @@ function CalendarPageContent() {
     if(e.keyCode == 13){
       
        setNewCategoryTitle('')
+       
        Calendar_page_current_events.push({
         id: Calendar_page_current_events.length + 1,
         name: e.target.value,
         color: '#4C9FBE',
         category: e.target.value,
        })
+
+       setAddCategory(false);
       
     }
  }
+
+
+ const [createEventPopup, setCreateEventPopup] = useState(false);
 
 
   
@@ -277,10 +286,22 @@ function CalendarPageContent() {
                 aria-label="more"
                 id="long-button"
                 aria-haspopup="true"
+                onClick={() => setCreateEventPopup(true)}
               >
                 {t("CALENDAR_PAGE.CREATE__EVENT_BUTTON")}
               </Button>
               {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
+
+              
+              <Drawer
+                anchor='right'
+                open={createEventPopup}
+                onClose={() => setCreateEventPopup(false)}
+                disableScrollLock = {false}
+                className='calendar-page_sidebar_create-event_drawer'
+              >
+                <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events}/>
+              </Drawer>
             </div>
 
             <div className='calendar-page_sidebar-section'>
@@ -306,7 +327,7 @@ function CalendarPageContent() {
             <div className='calendar-page_sidebar-section'>
 
               {
-                addCategory ? <TextField value={newCategoryTitle} autoFocus variant="outlined" onChange={newCategoryTitleHandler} onKeyDown={pressEnter} /> : ''
+                addCategory ? <TextField className='calendar-page_sidebar-section_add-calendar' value={newCategoryTitle} autoFocus variant="outlined" onChange={newCategoryTitleHandler} onKeyDown={pressEnter} onBlur={() => setAddCategory(false)} /> : ''
               }
 
               <FormGroup className='calendar-page_sidebar-section_filter'>

@@ -47,8 +47,13 @@
          }
 
         &-section {
+
+            .react-calendar {
+                margin-bottom: 18px;
+            }
+
             &_filter {
-                margin-top: 28px;
+                margin-top: 10px;
 
                 & .MuiFormControlLabel-root {
                     margin: 0;
@@ -68,6 +73,25 @@
                 text-transform: none;
                 font-size: 13px;
                 margin-top: 10px;
+            }
+
+            &_add-calendar {
+                width: 100%;
+                height: 40px;
+                color: #666666;
+                margin-left: 0;
+                // background-color: rgba(255, 255, 255, 0.5019607843);
+                border-radius: 8px;
+                padding: 0 !important;
+                box-sizing: border-box;
+
+
+                .MuiInputBase-input {
+                    height: 40px;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+                }
+
             }
         }
     }
@@ -481,6 +505,27 @@
 
 
         }
+    }
+}
+
+
+.calendar-page_sidebar_create-event_drawer {
+    top: 90px !important;
+    bottom: 45px !important;
+    align-items: start;
+    display: flex;
+    justify-content: center;
+    padding-top: 45px;
+    margin: 0 auto;
+    max-width: 1600px;
+
+    .MuiDrawer-paper {
+        height: 100%;
+        outline: none;
+        box-sizing: border-box;
+        margin: 0 auto;
+        position: absolute;
+        border-radius: 8px;
     }
 }
 

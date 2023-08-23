@@ -172,3 +172,13 @@
 .MuiButtonBase-root {
   font-weight: 400 !important;
 }
+
+
+.calendar_create-eventpopup-item-select-item {
+  justify-content: space-between !important;
+
+  .color-bullet {
+    width: 20px;
+    height: 20px;
+  }
+}
