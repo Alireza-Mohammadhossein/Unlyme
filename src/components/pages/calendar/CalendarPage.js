@@ -26,6 +26,9 @@ import Drawer from '@mui/material/Drawer';
 import CreateEventsPopup from './popups/CreateEventPopup';
 import settingIcon from '../../../assets/images/calendar/settings.svg';
 import IconButton from '@mui/material/IconButton';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { TwitterPicker } from 'react-color'
 
 
 
@@ -274,6 +277,25 @@ function CalendarPageContent() {
  const [createEventPopup, setCreateEventPopup] = useState(false);
 
 
+
+ const [anchorEl, setAnchorEl] = useState(null);
+ const open = Boolean(anchorEl);
+ const handleOpenOptions = (event) => {
+   setAnchorEl(event.currentTarget);
+ };
+ const handleCloseOptions = () => {
+   setAnchorEl(null);
+ };
+
+ 
+ 
+ const [categoryIndex, setCategoryIndex] = useState(null)
+
+ const handleChangeCalendarColor = (e, index, item) => {
+  Calendar_page_current_events[categoryIndex] = { ...Calendar_page_current_events[categoryIndex], color: e.hex };
+  handleCloseOptions();
+ }
+
   
   return (
     <div className='calendar-page'>
@@ -343,19 +365,63 @@ function CalendarPageContent() {
                   label="All"
                 />
 
-                {Calendar_page_current_events.map((item) => (
-                  <FormControlLabel
-                    control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
-                    label={
-                      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                        {item.name} 
-                        
-                        <IconButton>
-                          <img src={settingIcon} />
-                        </IconButton>
-                      </div>}
-                    // onChange={() => handleCategoryFilter(item.category)}
-                  />
+                {Calendar_page_current_events.map((item, index) => (
+                  <>
+                    <FormControlLabel
+                      control={<Checkbox sx={{color: item.color, '&.Mui-checked': {color: item.color}}} value={item.name} checked={selectedCategories.includes(item.category)} onChange={() => handleCategoryToggle(item.category)} />}
+                      label={
+                        <div className='calendar-page_sidebar-section_filter-action'>
+                          {item.name} 
+                          
+                          <IconButton
+                            aria-label="setting"
+                            id="long-button"
+                            aria-controls={open ? "long-menu" : undefined}
+                            aria-expanded={open ? "true" : undefined}
+                            aria-haspopup="true"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleOpenOptions(e);
+                              setCategoryIndex(index)
+                              console.log('item1', index)
+
+                            }}
+                          >
+                            <img src={settingIcon} />
+                          </IconButton>
+
+                          <Menu
+                            id="long-menu"
+                            className='calendar-page_sidebar-section_filter-action-popup'
+                            MenuListProps={{
+                              "aria-labelledby": "long-button",
+                            }}
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleCloseOptions}
+                            disableScrollLock={true}
+                          >
+                            <MenuItem
+                             disableRipple={true}
+                            >
+                              <TwitterPicker onChangeComplete={(e) => handleChangeCalendarColor(e, item)}  />
+                            </MenuItem>
+
+                            
+                            <MenuItem
+                              // onClick={}
+                            >
+                              Setting
+                              {/* <ListItemIcon>
+                                {option.icon}
+                              </ListItemIcon>
+                              <ListItemText>{option.text}</ListItemText> */}
+                            </MenuItem>
+                          </Menu>
+                        </div>}
+                      // onChange={() => handleCategoryFilter(item.category)}
+                    />
+                  </>
                 ))}
               </FormGroup>
 
