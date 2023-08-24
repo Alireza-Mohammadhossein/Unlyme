@@ -14,36 +14,20 @@ import MeetingPageMain from "./MeetingPageMain";
   
     return (
       <div className="meeting-page">
-        <Grid container spacing={3}>
-          <Grid
-            item
-            lg={3}
-            md={3}
-            xs={12}
-            sx={{
-              display: {
-                lg: secondPopupTab ? "none" : "block",
-                md: secondPopupTab ? "none" : "block",
-              },
-            }}
-          >
+
+        <div className="grid-content">
+          <div className="grid-content_left">
             <div className="meeting-page_sidebar">
               <MeetingPageSidebar />
             </div>
-          </Grid>
-  
-  
-          <Grid
-            item
-            lg={secondPopupTab ? 12 : 9}
-            md={secondPopupTab ? 12 : 9}
-            xs={12}
-          >
+          </div>
+
+          <div className="grid-content_right">
             <div className="meeting-page_main">
-                <MeetingPageMain />
+              <MeetingPageMain />
             </div>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
       </div>
     );
   }

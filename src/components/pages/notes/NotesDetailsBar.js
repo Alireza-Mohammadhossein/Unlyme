@@ -20,7 +20,7 @@ import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
 import { useSelector, useDispatch } from "react-redux";
 import aaIcon from "../../../assets/images/notepage/new/Aa.svg";
 import bulletIcon from "../../../assets/images/notepage/new/bullet-list.svg";
-import copyIcon from "../../../assets/images/notepage/new/copy.svg";
+import copyIcon from "../../../assets/images/notepage/new/image.svg";
 import gridIcon from "../../../assets/images/notepage/new/grid-view.svg";
 import listIcon from "../../../assets/images/notepage/new/list-view.svg";
 import lockIcon from "../../../assets/images/notepage/new/lock.svg";

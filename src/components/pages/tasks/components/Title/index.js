@@ -9,6 +9,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import editIcon from '../../../../../assets/images/tasks/edit.svg';
+import trashIcon from '../../../../../assets/images/tasks/trash.svg';
 
 
 
@@ -37,7 +39,7 @@ export default function Title({ title, listId, collapseColumns, collapse }) {
   return (
     <>
       {open ? (
-        <div>
+        <div className="input-title-edit">
           <input
             type="text"
             className="input-title"
@@ -69,6 +71,7 @@ export default function Title({ title, listId, collapseColumns, collapse }) {
             onClick={() => setOpen(!open)}
           >
             <EditIcon />
+            {/* <img src={editIcon} /> */}
           </IconButton>
 
           <IconButton
@@ -80,6 +83,7 @@ export default function Title({ title, listId, collapseColumns, collapse }) {
             onClick={() => deleteList(listId)}
           >
             <DeleteOutlineOutlinedIcon />
+            {/* <img src={trashIcon} /> */}
           </IconButton>
 
           <IconButton

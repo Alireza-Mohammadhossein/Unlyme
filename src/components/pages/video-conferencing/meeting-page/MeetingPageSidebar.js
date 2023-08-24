@@ -167,10 +167,10 @@ function TabPanel(props) {
 
               <div className='meeting-page_sidebar-section_search'>
                 <FormControl>
-                    <div className="cloud-page__header_notes-details_search_container">
+                    <div className="meeting-page_sidebar-section_search_container">
                         <label><img src={search} /></label>
                         <input
-                          className="cloud-page__header_notes-details_search-input"
+                          className="meeting-page_sidebar-section_search-input"
                           // onChange={(e) => setSearchNote(e.target.value)}
                           placeholder='Search...'
                         />

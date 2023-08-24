@@ -22,23 +22,25 @@ const MeetingPage = () => {
     <div className="page-container">
       <div className="cloud-page">
         <div className="cloud-page__header">
-          <Grid container spacing={2}>  
-            <Grid item lg={3} md={3} xs={12} className='cloud-page__header_share'>
-              <div className='cloud-page__header_share_icon'>
-                <img src={icon} />
-              </div>
+          <div className="grid-content">
+            <div className="grid-content_left">
+              <div className='cloud-page__header_share'>
+                <div className='cloud-page__header_share_icon'>
+                  <img src={icon} />
+                </div>
 
-              <div className="cloud-page__header_share_title">
+                <div className="cloud-page__header_share_title">
                 {t("VIDEO_CONFERENCING_PAGE.TITLE")}
+                </div>
               </div>
-            </Grid>
-            <Grid item lg={9} md={9} xs={12} sx={{display: 'flex', alignItems: 'center'}}>
+            </div>
+
+            <div className="grid-content_right">
               <div className='cloud-page__header_video-conferencing_details'>
                 <MeetingDetailsBar />
               </div>
-            </Grid>
-          </Grid>
-
+            </div>
+          </div>
 
         </div>
         <div className="cloud-page__content">

@@ -9,15 +9,16 @@ import MeetingPage from "../../../meeting-page/MeetingPage";
 import Modal from '@mui/material/Modal';
 import { handleOpenMeetingPageModal } from "../../../../../../redux/app/appsModalSlice";
 import { handleCloseMeetingPageModal } from "../../../../../../redux/app/appsModalSlice";
+import arrowLeftIcon from '../../../../../../assets/images/vide-conferencing/chevron-left.svg';
 import meetIcon from '../../../../../../assets/images/vide-conferencing/meet.png';
-import attendeeIcon from '../../../../../../assets/images/vide-conferencing/attendee.png';
-import nameIcon from '../../../../../../assets/images/vide-conferencing/name.png';
-import micOffIcon from '../../../../../../assets/images/vide-conferencing/mic-off.png';
+import attendeeIcon from '../../../../../../assets/images/vide-conferencing/attendee.svg';
+import nameIcon from '../../../../../../assets/images/vide-conferencing/name.svg';
+import micOffIcon from '../../../../../../assets/images/vide-conferencing/mic-off.svg';
 import micOnIcon from '../../../../../../assets/images/vide-conferencing/mic-on.png';
-import videoOffIcon from '../../../../../../assets/images/vide-conferencing/video-off.png';
+import videoOffIcon from '../../../../../../assets/images/vide-conferencing/video-off.svg';
 import videoOnIcon from '../../../../../../assets/images/vide-conferencing/video-on.png';
-import recordIcon from '../../../../../../assets/images/vide-conferencing/record.png';
-import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.png';
+import recordIcon from '../../../../../../assets/images/vide-conferencing/record.svg';
+import passwordIcon from '../../../../../../assets/images/vide-conferencing/password.svg';
 import './meet-now.scss';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -68,21 +69,26 @@ const MeetNow = ({handleShowMain}) => {
   const IOSSwitch = styled((props) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
-    width: 42,
-    height: 23,
+    width: 31,
+    height: 18,
     padding: 0,
     '& .MuiSwitch-switchBase': {
       padding: 0,
-      marginTop: 3 ,
-      marginBottom: 3 ,
-      marginRight: 5 ,
-      marginLeft: 4 ,
+      height: '100%',
+      marginTop: 0 ,
+      marginBottom: 0 ,
+      marginRight: 0 ,
+      marginLeft: 2 ,
       transitionDuration: '300ms',
       '&.Mui-checked': {
         transform: 'translateX(16px)',
         color: '#fff',
+        marginTop: 0 ,
+        marginBottom: 0 ,
+        marginRight: 2 ,
+        marginLeft: 0 ,
         '& + .MuiSwitch-track': {
-          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#767680E5',
           opacity: 1,
           border: 0,
         },
@@ -106,8 +112,8 @@ const MeetNow = ({handleShowMain}) => {
     },
     '& .MuiSwitch-thumb': {
       boxSizing: 'border-box',
-      width: 17,
-      height: 17,
+      width: 13,
+      height: 13,
     },
     '& .MuiSwitch-track': {
       borderRadius: 26 / 2,
@@ -125,7 +131,7 @@ const MeetNow = ({handleShowMain}) => {
     <>
         <div className="meetnow">
             <div className="meetnow-actions">
-                <Button variant="outlined" startIcon={<ArrowBackIosIcon />} onClick={handleShowMain}>
+                <Button variant="outlined" startIcon={<img src={arrowLeftIcon} />} onClick={handleShowMain}>
                     Back
                 </Button>
             </div>

@@ -104,30 +104,32 @@
           // display: grid;
           // grid-template-columns: 25% 25% 25% 25%;
           display: flex;
-          gap: 10px;
+          gap: 15px;
           overflow-x: auto;
 
           & > div {
-            width: 350px;
-            flex: 0 0 350px;
+            width: 314px;
+            flex: 0 0 314px;
           }
           
 
           & .list-cards {
             // width: 300px;
             // background-color: #ebecf0;
-            margin-right: 0.5rem;
+            // margin-right: 0.5rem;
             border-radius: 5px;
 
           
             .title-list {
-              height: 55px;
+              height: 38px;
               padding: 10px;
               background-color: #ffffff;
               border-radius: 8px;
               box-sizing: border-box;
 
+
               & .editable-title-container {
+                height: 100%;
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -146,15 +148,17 @@
 
                 .editable-title-actions {
                   display: none;
-                  padding: 1px 5px;
+                  padding: 2px 7px;
 
                   & .MuiSvgIcon-root {
-                    font-size: 20px;
+                    font-size: 18px;
                   }
                 }
 
                 &:hover .editable-title-actions {
                   display: inline-block;
+                  width: 32px;
+                  height: 32px;
                 }
               
                 .list-button {
@@ -200,6 +204,7 @@
                 box-sizing: border-box;
                 padding: 8px;
                 font-size: 15px;
+                height: 38px;
               }
             }
           

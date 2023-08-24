@@ -1,0 +1,11 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Screen share" clip-path="url(#clip0_1935_24657)">
+<path id="Vector" d="M15.8337 14.1667H3.33366C2.89163 14.1667 2.46771 13.9911 2.15515 13.6785C1.84259 13.366 1.66699 12.942 1.66699 12.5V4.16667C1.66699 3.72464 1.84259 3.30072 2.15515 2.98816C2.46771 2.67559 2.89163 2.5 3.33366 2.5H10.0003H16.667C17.109 2.5 17.5329 2.67559 17.8455 2.98816C18.1581 3.30072 18.3337 3.72464 18.3337 4.16667V12.5C18.3337 12.942 18.1581 13.366 17.8455 13.6785C17.5329 13.9911 17.109 14.1667 16.667 14.1667H15.8337Z" stroke="#727272" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Line 92" d="M0 15.4167H20.0007" stroke="#727272" stroke-width="2" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1935_24657">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>

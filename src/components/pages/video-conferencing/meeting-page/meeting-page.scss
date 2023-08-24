@@ -1,5 +1,6 @@
 @import "../../../../styles/sass/variables.scss";
 
+
 .meeting-page {
   width: 100%;
   padding-bottom: 10px;
@@ -29,14 +30,19 @@
         gap: 10px;
 
         button.MuiButtonBase-root {
-            height: 40px;
+            width: 114px;
+            height: 36px;
             background: rgba(118, 118, 128, 0.12);
             border-radius: 8px;
             box-shadow: unset;
             color: #727272;
-            padding: 0 15px;
+            padding: 0;
             text-transform: none;
-            font-size: 14px;
+            font-size: 13px;
+        }
+
+        button.MuiButtonBase-root:last-child {
+            width: 36px;
         }
     }
 
@@ -45,21 +51,30 @@
         display: flex;
         background: rgba(248, 250, 252, 0.5);
         border-radius: 8px;
-        gap: 8px;
+        gap: 18px;
         padding: 0 3px;
-        height: 40px;
+        height: 36px;
+        box-sizing: border-box;
     
 
         &-btn {
+            height: 36px;
+            line-height: 36px;
+
+            .MuiButtonBase-root {
+                padding: 4px !important;
+                box-sizing: border-box;
+            }
             img {
-                width: 25px;
+                width: 20px;
+                height: 20px;
             }
         }
     }
   }
 
   &_sidebar {
-    padding: 10px 5px;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -100,14 +115,19 @@
     &-section {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         flex: 1;
 
         &_tabs {
+            height: 32px;
+            min-height: unset !important;
+
             & .MuiTabs-flexContainer {
                 // background-color: #EDE9F8;
                 background: rgba(248, 250, 252, 0.50);
                 border-radius: 30px;
+                height: 32px;
+                box-sizing: border-box;
             }
 
             & .MuiTabs-indicator {
@@ -120,13 +140,14 @@
                 min-width: unset;
                 padding: 10px 20px;
                 min-height: unset;
-                height: unset;
                 max-width: unset;
                 height: fit-content;
                 text-transform: none;
                 font-size: 13px;
                 flex: 1 1 0px;
-                color: #6B686A;
+                color: #6B686A !important;
+                height: 32px;
+                line-height: 32px;
 
                 &.Mui-selected {
                     background: rgba(118, 118, 128, 0.12);
@@ -143,18 +164,17 @@
             &_container {
                 position: relative;
                 color: #666666;
-                margin-left: 0;
+                margin: 0;
                 width: 100%;
-                margin-right: 10px;
                 display: flex;
                 align-items: center;
-                // background: rgba(240, 242, 245, 0.8);
                 background-color: #ffffff80;
                 border-radius: 8px;
                 transform: translateX(0);
                 transition: all 0.3s ease;
                 width: auto;
                 padding: 0 13px;
+                height: 36px;
         
                 label img {
                   width: 18px;
@@ -181,7 +201,6 @@
         }
     }
   }
-
 
   &_main {
     width: 100%;
@@ -516,4 +535,24 @@
             }
         }
     }
+}
+
+.meeting-page-modal-container {
+    .grid-content {
+        display: grid;
+        grid-template-columns: 310px auto;
+        gap: 20px;
+        height: 100%;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    
+        &_left {
+    
+        }
+    
+        &_right {
+    
+        }
+      }
 }
