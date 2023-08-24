@@ -100,7 +100,7 @@ const CalendarBlock = () => {
     // const year = new Date(info.date).getFullYear();
     return (
       <>
-        {dayText}, {dayNum}{month}{year}
+        {dayText}, {dayNum} {month} {year}
       </>
     );
   };
@@ -124,7 +124,7 @@ const CalendarBlock = () => {
 
     return (
       <>
-        <a className={today === dayNum ? 'today' : ''}>{dayText}, {dayNum} {month} {year}</a>
+        <a className={today === dayNum ? 'today' : ''}><span>{dayText}</span>, {dayNum} {month} {year}</a>
       </>
     );
   };

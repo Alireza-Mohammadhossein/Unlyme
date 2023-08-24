@@ -21,14 +21,8 @@ const EmailDetailsBar = ({ setSearchText }) => {
 
 
     return (
-        <Grid container spacing={2}>
-            <Grid
-                item
-                xl={4}
-                lg={4}
-                md={12}
-                xs={12}
-            >
+        <div className='cloud-page__header_email-details_grid-content'>
+            <div className='cloud-page__header_email-details_grid-content_left'>
                 <div className='cloud-page__header_email-details_search'>
                     <FormControl>
                         <div className="cloud-page__header_email-details_search_container">
@@ -42,16 +36,7 @@ const EmailDetailsBar = ({ setSearchText }) => {
                     </FormControl>
 
                 </div>
-            </Grid>
 
-            <Grid
-                item
-                xl={secondPopupTab ? 7 : 6}
-                lg={secondPopupTab ? 7 : 6}
-                md={secondPopupTab ? 7 : 10}
-                xs={12}
-                sx={{ display: 'flex', gap: '5px' }}
-            >
                 <div className='cloud-page__header_email-details_actions'>
                     <Button variant="contained" startIcon="R" className='cloud-page__header_email-details_actions-btn'>
                         Summary Letter
@@ -63,21 +48,47 @@ const EmailDetailsBar = ({ setSearchText }) => {
                         Smart Search
                     </Button>
                 </div>
-            </Grid>
+            </div>
 
-            <Grid
-                item
-                xl={secondPopupTab ? 1 : 2}
-                lg={secondPopupTab ? 1 : 2}
-                md={secondPopupTab ? 1 : 2}
-                xs={12}
-                sx={{display: secondPopupTab ? '' : '', textAlign: 'right'}}
-            >
+            <div className='cloud-page__header_email-details_grid-content_right'>
                 <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
                     <CloseIcon />
                 </IconButton>
-            </Grid>
-        </Grid>
+            </div>
+        </div>
+        // <Grid container spacing={2}>
+        //     <Grid
+        //         item
+        //         xl={4}
+        //         lg={4}
+        //         md={12}
+        //         xs={12}
+        //     >
+
+        //     </Grid>
+
+        //     <Grid
+        //         item
+        //         xl={secondPopupTab ? 7 : 6}
+        //         lg={secondPopupTab ? 7 : 6}
+        //         md={secondPopupTab ? 7 : 10}
+        //         xs={12}
+        //         sx={{ display: 'flex', gap: '5px' }}
+        //     >
+
+        //     </Grid>
+
+        //     <Grid
+        //         item
+        //         xl={secondPopupTab ? 1 : 2}
+        //         lg={secondPopupTab ? 1 : 2}
+        //         md={secondPopupTab ? 1 : 2}
+        //         xs={12}
+        //         sx={{display: secondPopupTab ? '' : '', textAlign: 'right'}}
+        //     >
+
+        //     </Grid>
+        // </Grid>
     );
 };
 

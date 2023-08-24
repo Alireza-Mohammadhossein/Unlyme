@@ -7,8 +7,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Alert from '@mui/material/Alert';
-import { toast } from "react-toastify";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { CirclePicker } from 'react-color';
 import Checkbox from '@mui/material/Checkbox';
@@ -18,7 +16,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 
-const SettingPopup = ({ handleCloseSettingPopup, selectedCategory}) => {
+const SettingPopup = ({ handleCloseSettingPopup, selectedCategory, categoryIndex, Calendar_page_current_events}) => {
 
     const [newSelectedCategory, setNewSelectedCategory] = useState(selectedCategory)
 
@@ -42,28 +40,15 @@ const SettingPopup = ({ handleCloseSettingPopup, selectedCategory}) => {
 
 
     const handleCancelEdit = () => {
+      
+      Calendar_page_current_events.splice(categoryIndex,categoryIndex+1);
+      handleCloseSettingPopup();
+    }
+  
+    const handleSubmitEdit = () => {
+        Calendar_page_current_events[categoryIndex] = { ...Calendar_page_current_events[categoryIndex], color: color, name: title, category: title };
         handleCloseSettingPopup();
-      }
-    
-      const handleSubmitEdit = () => {
-        handleCloseSettingPopup();
-        toast.error(`You have clicked on Edit invoice by id =!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-
-
-    //   const handleChangeColor = (color) => {
-    //     setColor(color.hex)
-    //   }
+    }
 
 
   return (
@@ -108,7 +93,7 @@ const SettingPopup = ({ handleCloseSettingPopup, selectedCategory}) => {
                 >
                   <MenuItem value={color}><div className='settingpopup-item-select-container'>{color} <span style={{backgroundColor: color}} className="bullet"></span></div></MenuItem>
                   
-                  <MenuItem disableRipple={true}>
+                  <MenuItem disableRipple={true} className='settingpopup-item-select-color'>
                       <CirclePicker onChangeComplete={(e) => {
                             setColor(e.hex)
                             console.log(color)
@@ -127,9 +112,9 @@ const SettingPopup = ({ handleCloseSettingPopup, selectedCategory}) => {
 
 
         <div className='settingpopup-btn'>
-          <Button className='settingpopup-btn-reset' onClick={handleCancelEdit}>Cancel</Button>
+          <Button className='settingpopup-btn-reset' onClick={handleCancelEdit}>Delete</Button>
 
-          <Button className='settingpopup-btn-submit' onClick={handleSubmitEdit}>Submit</Button>
+          <Button className='settingpopup-btn-submit' onClick={handleSubmitEdit}>Save</Button>
         </div>
       </div>
 

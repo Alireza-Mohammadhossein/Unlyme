@@ -28,7 +28,7 @@ import settingIcon from '../../../assets/images/calendar/settings.svg';
 import IconButton from '@mui/material/IconButton';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { TwitterPicker } from 'react-color';
+import { CirclePicker } from 'react-color';
 import Modal from '@mui/material/Modal';
 import SettingPopup from './popups/SettingPopup';
 
@@ -432,7 +432,7 @@ function CalendarPageContent() {
                     <MenuItem
                      disableRipple={true}
                     >
-                      <TwitterPicker onChangeComplete={(e) => handleChangeCalendarColor(e)}  />
+                      <CirclePicker onChangeComplete={(e) => handleChangeCalendarColor(e)}  />
                     </MenuItem>
 
                     
@@ -563,7 +563,7 @@ function CalendarPageContent() {
         aria-describedby="modal-modal-description"
         className='cloud-page__header_invoice-manager-details_add-modal'
       >
-        <SettingPopup selectedCategory={selectedCategory} handleCloseSettingPopup={handleCloseSettingPopup} />
+        <SettingPopup selectedCategory={selectedCategory} handleCloseSettingPopup={handleCloseSettingPopup} categoryIndex={categoryIndex} Calendar_page_current_events={Calendar_page_current_events} />
       </Modal>
     </>
   );

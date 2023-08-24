@@ -119,6 +119,10 @@
 
                   .fc-col-header-cell-cushion {
                     font-family: 'OpenSans' !important;
+                    color: #51A3FF;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    margin-right: 20px;
                   }
                 }
               }
@@ -220,7 +224,7 @@
 
         .fc-dayGridMonth-view {
 
-          margin: 12px 12px 20px 12px;
+          margin: 8px 12px 20px 12px;
 
           td, th {
             border: unset;
@@ -239,7 +243,8 @@
                     font-size: 14px;
                     color: #ACACAC;
                     font-family: "OpenSans" !important;
-                    font-weight: 600  ;
+                    font-weight: 600;
+                    line-height: 22px;
                   }
                 }
               }
@@ -323,17 +328,28 @@
               background-color: unset;
               padding-left: 0;
               text-align: left;
-              padding: 17px 0 12px 0;
+              padding: 15px 0 10px 0;
 
               a {
                 color: #999999;
                 font-size: 12px;
                 font-weight: 600;
                 font-family: 'OpenSans' !important;
+                span {
+                  text-transform: uppercase;
+                  color: #999999;
+                  font-size: 12px;
+                  font-weight: 600;
+                  font-family: 'OpenSans' !important;
+                }
               }
 
               a.today {
                 color: #51A3FF;
+
+                span {
+                  color: #51A3FF;
+                }
               }
             }
 
@@ -353,7 +369,7 @@
 
         .fc-list-day:not(:first-child) {
           th {
-            padding-top: 13px;
+            padding-top: 9px;
 
             .fc-list-day-cushion {
               border-top: 1px dashed #CACACA;
@@ -364,8 +380,8 @@
         .fc-event {
           // display: flex;
           display: grid;
-          // grid-template-columns: 23% 6% 70%;
-          grid-template-columns: 6% 70% 23%;
+          // grid-template-columns: 6% 65% 29%;
+          grid-template-columns: 12px calc(100% - 98px) 86px;
 
           &:hover {
             td {
@@ -375,7 +391,7 @@
 
           td {
             border: unset;
-            padding: 8px 14px 8px 0;
+            padding: 8px 6px 8px 0;
           }
 
           .fc-list-event-dot {
@@ -391,10 +407,10 @@
             padding-right: 0;
             padding-top: 9px;
             width: 100%;
-            font-size: 12px;
-            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            font-family: "OpenSans" !important;
             order: 3;
-            // flex: 0 0 30%;
+            font-weight: 400;
           }
 
           .fc-list-event-graphic {
@@ -413,7 +429,7 @@
             width: 100%;
 
             a {
-              color: #414141;
+              color: #444;
               font-size: 14px;
               font-style: normal;
               font-weight: 600;
@@ -661,7 +677,7 @@
           cursor: pointer;
 
           &-title {
-            color: #333333;
+            color: #414141;
             font-size: 14px;
             font-family: 'OpenSans' !important;
             font-weight: 600;    
@@ -696,10 +712,11 @@
         }
 
         &.grid {
+          width: 100%;
           display: grid;
           grid-template-columns: 50% 50%;
           gap: 8px;
-          padding-right: 15px;
+          padding-right: 8px;
           gap: 6px;
 
           .my-services__notes_content_list-item {
@@ -838,7 +855,7 @@
             font-weight: 400 !important;
             text-transform: capitalize;
             font-family: 'OpenSans' !important;
-            height: 25px;
+            height: 22px;
             min-height: unset;
 
             &.Mui-selected {
@@ -903,7 +920,7 @@
 
           &-title {
             font-family: "OpenSans" !important;
-            color: #444;
+            color: #414141;
             font-size: 14px;
             font-weight: 600;
             line-height: 22px;
@@ -917,6 +934,7 @@
             align-items: center;
             gap: 5px;
             line-height: 22px;
+            padding-top: 2px;
 
             span {
               font-family: 'OpenSans' !important;
@@ -938,6 +956,7 @@
               width: 30px;
               height: 30px;
               font-size: 13px;
+              box-sizing: border-box !important;
             }
           }
 
@@ -951,6 +970,9 @@
               display: inline-block;
               color: #727272;
               border-radius: 6px;
+              height: 26px;
+              box-sizing: border-box;
+              line-height: 7px;
             }
           }
 

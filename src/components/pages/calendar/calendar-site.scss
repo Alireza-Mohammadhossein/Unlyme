@@ -555,10 +555,11 @@
 .calendar-page_sidebar-section_filter-action-popup {
     .MuiList-root {
         .MuiButtonBase-root {
-            .twitter-picker {
+            .circle-picker {
                 background: transparent !important;
                 border: unset !important;
                 box-shadow: unset !important;
+                
 
                 & > div:nth-child(1) {
                     display: none;

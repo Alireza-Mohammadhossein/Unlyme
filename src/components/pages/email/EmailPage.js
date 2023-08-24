@@ -122,22 +122,22 @@ function EmailPageContent() {
       <div className="cloud-page__header">
 
 
-      <div className='grid-content'>
-          <div className='grid-content_left cloud-page__header_share'>
-            <div className='cloud-page__header_share_icon'>
-              <img src={icon} />
+        <div className='grid-content'>
+            <div className='grid-content_left cloud-page__header_share'>
+              <div className='cloud-page__header_share_icon'>
+                <img src={icon} />
+              </div>
+
+              <div className="cloud-page__header_share_title">
+                {t("EMAIL_PAGE.TITLE")}
+              </div>
             </div>
 
-            <div className="cloud-page__header_share_title">
-              {t("EMAIL_PAGE.TITLE")}
+            <div className='grid-content_right'>
+              <div className='cloud-page__header_email-details'>
+                <EmailDetailsBar setSearchText={setSearchText} />
+              </div>
             </div>
-          </div>
-
-          <div className='grid-content_right'>
-            <div className='cloud-page__header_email-details'>
-              <EmailDetailsBar setSearchText={setSearchText} />
-            </div>
-          </div>
         </div>
 
 

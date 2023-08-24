@@ -363,6 +363,12 @@
                     display: inline-block;
                 }
             }
+
+            &-color {
+                .circle-picker {
+                    width: 340px !important;
+                }
+            }
         }
 
         &-checkbox {
