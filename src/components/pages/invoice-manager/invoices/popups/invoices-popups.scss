@@ -1,5 +1,5 @@
 .invoices-filterpopup {
-    width: 350px;
+    width: 320px;
     padding: 20px;
     box-sizing: border-box;
 
@@ -15,6 +15,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -39,6 +43,7 @@
             gap: 5px;
             margin-bottom: 5px;
             color: #444;
+            font-family: 'OpenSans' !important;
         }
 
          
@@ -54,10 +59,14 @@
                 font-size: 13px;
                 color: #444;
                 padding: 10px;
+                font-family: 'OpenSans' !important;
+                height: 35px !important;
+                box-sizing: border-box;
 
                 &::placeholder {
                     color: #444;
                     opacity: 1;
+                    font-size: 13px;
                 }
             }
 
@@ -77,6 +86,9 @@
             .MuiSelect-select {
                 padding: 10px;
                 background-color: #F8FAFC;
+                color: #444;
+                font-size: 13px;
+
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -132,11 +144,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -152,6 +167,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -167,7 +185,7 @@
 
 .invoices-addnewpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 580px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -190,6 +208,7 @@
             align-items: center;
             gap: 5px;
             color: #51A3FF;
+            font-family: 'OpenSans' !important;
         }
         
         &-btn {
@@ -223,6 +242,8 @@
             font-size: 14px;
             color: #444;
             width: auto;
+            font-family: 'OpenSans' !important;
+
         }
 
         .MuiFormControl-root {
@@ -233,6 +254,9 @@
         input {
             height: 35px;
             box-sizing: border-box;
+            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            color: #444;
         }
 
         &-input {
@@ -271,6 +295,9 @@
                 padding: 10px;
                 background-color: #F8FAFC;
                 line-height: 1;
+                font-family: 'OpenSans' !important;
+                font-size: 14px;
+                color: #444;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -339,6 +366,9 @@
             .MuiSelect-select {
                 background-color: #F8FAFC;
                 padding: 10px;
+                    font-family: 'OpenSans' !important;
+    font-size: 14px;
+    color: #444;
             }
 
             .MuiOutlinedInput-notchedOutline {
@@ -418,8 +448,14 @@
             padding: 8px;
             color: #93742A;
             background-color: #FCF6EC;
-            border-color: #93742A;
+            border-color: #AB8C3F;
             border-radius: 8px;
+            height: 50px;
+            box-sizing: border-box;
+
+            .MuiAlert-message {
+                font-family: 'OpenSans' !important;
+            }
         }
 
         .MuiToggleButtonGroup-root {
@@ -464,11 +500,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -484,6 +523,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -499,7 +541,7 @@
 
 .invoices-deletepopup {
     width: 80%;
-    max-width: 500px;
+    max-width: 390px;
     height: auto;
     background-color: white;
     border-radius: 8px;
@@ -578,7 +620,7 @@
 
 .invoices-editinvoicepopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -596,11 +638,12 @@
 
 
         &-title {
+            font-size: 20px;
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 20px;
             color: #51A3FF;
+            font-family: 'OpenSans' !important;
         }
         
         &-btn {
@@ -657,11 +700,21 @@
             font-size: 14px;
             color: #444;
             width: auto;
+            font-family: 'OpenSans' !important;
+
         }
 
         .MuiFormControl-root {
             width: 80%;
             max-width: 380px;
+        }
+
+        input {
+            height: 35px;
+            box-sizing: border-box;
+            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            color: #444;
         }
 
         &-input {
@@ -699,6 +752,10 @@
                 box-sizing: border-box;
                 padding: 10px;
                 background-color: #F8FAFC;
+                line-height: 1;
+                font-family: 'OpenSans' !important;
+                font-size: 14px;
+                color: #444;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -725,8 +782,6 @@
                 .MuiInputBase-input {
                     padding: 10px;
                     background-color: #F8FAFC;
-                    height: 35px;
-                    box-sizing: border-box;
                 }
 
                 .MuiOutlinedInput-notchedOutline {
@@ -756,10 +811,10 @@
             gap: 5px;
 
             .MuiInputBase-root {
+                height: 35px !important;
+                box-sizing: border-box;
                 width: 100%;
                 // max-width: 380px;
-                height: 35px;
-                box-sizing: border-box;
 
                 &:hover .MuiOutlinedInput-notchedOutline {
                     border-color: #1976d2;
@@ -769,6 +824,9 @@
             .MuiSelect-select {
                 background-color: #F8FAFC;
                 padding: 10px;
+                    font-family: 'OpenSans' !important;
+    font-size: 14px;
+    color: #444;
             }
 
             .MuiOutlinedInput-notchedOutline {
@@ -783,8 +841,8 @@
             gap: 5px;
 
             .MuiFormControl-root {
-                width: 100%;
                 max-width: unset;
+                width: 100%;
             }
 
             & .MuiInputBase-root {
@@ -813,10 +871,11 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            padding-bottom: 30px;
 
             .MuiFormControl-root {
-                width: 100%;
                 max-width: unset;
+                width: 100%;
             }
 
             & .MuiInputBase-root {
@@ -842,13 +901,19 @@
         }
 
         .MuiPaper-root {
+            font-size: 13px;
             width: 100%;
+            padding: 8px;
             color: #93742A;
             background-color: #FCF6EC;
-            border-color: #93742A;
+            border-color: #AB8C3F;
             border-radius: 8px;
-            font-size: 13px;
-            padding: 8px;
+            height: 50px;
+            box-sizing: border-box;
+
+            .MuiAlert-message {
+                font-family: 'OpenSans' !important;
+            }
         }
 
         .MuiToggleButtonGroup-root {
@@ -861,7 +926,8 @@
                 padding-top: 0;
                 padding-bottom: 0;
                 text-transform: none;
-                font-size: 14px;
+                font-size: 13px;
+                color: #444;
 
                 &:last-child {
                     border-left: 1px solid #51A3FF;
@@ -892,11 +958,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -912,6 +981,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -983,6 +1055,9 @@
                     font-size: 14px;
                     padding: 8px 20px;
                     border-radius: 50px;
+                    height: 40px;
+                    box-sizing: border-box;
+                    font-family: 'OpenSans' !important;
                 }
             }
 
@@ -994,6 +1069,9 @@
                     font-size: 14px;
                     padding: 8px 20px;
                     border-radius: 50px;
+                    height: 40px;
+                    box-sizing: border-box;
+                    font-family: 'OpenSans' !important;
 
                     &:hover {
                         color: #fff;
@@ -1007,7 +1085,7 @@
 
 .invoices-addpaymentpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -1030,6 +1108,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -1114,6 +1196,9 @@
                 box-sizing: border-box;
                 padding: 10px;
                 background-color: #F8FAFC;
+                font-size: 14px;
+                line-height: 15px;
+                color: #444;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -1143,6 +1228,8 @@
                     box-sizing: border-box;
                     padding: 10px;
                     background-color: #F8FAFC;
+                    font-size: 14px;
+                    color: #444;
                 }
 
                 .MuiOutlinedInput-notchedOutline {
@@ -1208,6 +1295,7 @@
                 font-style: italic;
                 font-weight: 400;
                 line-height: 22px;
+                font-family: 'OpenSans' !important;
             }
 
             & .MuiInputBase-root {
@@ -1243,6 +1331,11 @@
 
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
+
+                .MuiTypography-body1 {
+                    font-size: 14px;
+                    color: #ACACAC;
+                }
 
                 input {
                     padding-top: 0;
@@ -1294,6 +1387,13 @@
         .MuiCheckbox-root.Mui-checked {
             color: #51A3FF;
         }
+
+        .MuiFormControlLabel-root {
+            .MuiTypography-root  {
+                font-size: 13px;
+                color: #888;
+            }
+        }
     }
 
     &-btn {
@@ -1309,11 +1409,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -1329,6 +1432,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -1344,7 +1450,7 @@
 
 .invoices-cloneinvoicepopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -1367,6 +1473,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -1400,6 +1510,7 @@
             width: auto;
             font-size: 14px;
             color: #444;
+            font-family: 'OpenSans' !important;
         }
 
         .MuiFormControl-root {
@@ -1446,6 +1557,7 @@
                 font-size: 14px;
                 color: #444;
                 line-height: 1;
+                font-family: 'OpenSans' !important;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -1475,6 +1587,9 @@
                     box-sizing: border-box;
                     padding: 10px;
                     background-color: #F8FAFC;
+                    font-size: 14px;
+                    color: #444;
+                    font-family: 'OpenSans' !important;
                 }
 
                 .MuiOutlinedInput-notchedOutline {
@@ -1521,6 +1636,7 @@
                 font-size: 14px;
                 color: #444;
                 line-height: 1;
+                font-family: 'OpenSans' !important;
 
             }
 
@@ -1607,16 +1723,18 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
         }
-
         
         &-reset.MuiButtonBase-root {
             text-transform: none;
@@ -1627,6 +1745,382 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
+
+            &:hover {
+                text-transform: none;
+                color: #888888;    
+                background-color: #fff;
+                padding: 10px 24px;
+                border-radius: 30px;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+.invoices-changepopup {
+    width: 80%;
+    max-width: 580px;
+    height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 20px;
+            color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-list {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+    }
+
+    &-item {
+        padding-bottom: 20px;
+
+        &.pb-0 {
+            padding-bottom: 0;
+        }
+
+        &.flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-title {
+            width: auto;
+            font-size: 14px;
+            color: #444;
+            font-family: 'OpenSans' !important;
+        }
+
+        .MuiFormControl-root {
+            width: 80%;
+            max-width: 380px;
+        }
+
+        &-select {
+            width: 100%;
+
+            .MuiSelect-select {
+                height: 35px !important;
+                box-sizing: border-box;
+                padding: 10px;
+                background-color: #F8FAFC;
+                font-size: 14px;
+                color: #444;
+                line-height: 1;
+                font-family: 'OpenSans' !important;
+            }
+
+            .MuiOutlinedInput-notchedOutline  {
+                border-radius: 8px;
+                border-color: #ECECEC;
+
+            }
+
+            .MuiSvgIcon-root {
+                color: #ACACAC;
+            }
+
+            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2;
+            }
+        }
+
+        .MuiPaper-root {
+            width: 100%;
+            color: #93742A;
+            background-color: #FCF6EC;
+            border-color: #93742A;
+            border-radius: 8px;
+        }
+
+        .MuiToggleButtonGroup-root {
+            justify-content: end;
+            padding: 10px 0;
+
+            .MuiButtonBase-root {
+                background-color: transparent;
+                border: unset;
+                padding-top: 0;
+                padding-bottom: 0;
+                text-transform: none;
+                font-size: 14px;
+
+                &:last-child {
+                    border-left: 1px solid #51A3FF;
+                    padding-right: 0;
+                }
+
+                &.Mui-selected {
+                    color: #51A3FF;
+                }
+
+                &:hover {
+                    background-color: unset;
+                }
+            }
+        }
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+
+        &-submit.MuiButtonBase-root {
+            text-transform: none;
+            color: #fff;
+            background-color: #51A3FF;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
+
+            &:hover {
+                text-transform: none;
+                color: #fff;
+                background-color: #51A3FF;
+                padding: 10px 24px;
+                border-radius: 30px;
+            }
+        }
+        
+        &-reset.MuiButtonBase-root {
+            text-transform: none;
+            color: #888888;    
+            background-color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
+
+            &:hover {
+                text-transform: none;
+                color: #888888;    
+                background-color: #fff;
+                padding: 10px 24px;
+                border-radius: 30px;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+.invoices-attachpopup {
+    width: 80%;
+    max-width: 580px;
+    height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ECECEC;
+
+
+        &-title {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 20px;
+            color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
+        }
+        
+        &-btn {
+            .MuiButtonBase-root {
+                color: #51A3FF;
+            }
+        }
+    }
+
+    &-list {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        // gap: 20px;
+    }
+
+    &-item {
+        padding-bottom: 20px;
+
+        &.pb-0 {
+            padding-bottom: 0;
+        }
+
+        &.flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-title {
+            width: auto;
+            font-size: 14px;
+            color: #444;
+            font-family: 'OpenSans' !important;
+        }
+
+        .MuiFormControl-root {
+            width: 80%;
+            max-width: 380px;
+        }
+
+
+        &-select {
+            width: 100%;
+
+            .MuiSelect-select {
+                height: 35px !important;
+                box-sizing: border-box;
+                padding: 10px;
+                background-color: #F8FAFC;
+                font-size: 14px;
+                color: #444;
+                line-height: 1;
+                font-family: 'OpenSans' !important;
+            }
+
+            .MuiOutlinedInput-notchedOutline  {
+                border-radius: 8px;
+                border-color: #ECECEC;
+
+            }
+
+            .MuiSvgIcon-root {
+                color: #ACACAC;
+            }
+
+            &.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: #1976d2;
+            }
+        }
+
+        .MuiPaper-root {
+            width: 100%;
+            color: #93742A;
+            background-color: #FCF6EC;
+            border-color: #93742A;
+            border-radius: 8px;
+        }
+
+        .MuiToggleButtonGroup-root {
+            justify-content: end;
+            padding: 10px 0;
+
+            .MuiButtonBase-root {
+                background-color: transparent;
+                border: unset;
+                padding-top: 0;
+                padding-bottom: 0;
+                text-transform: none;
+                font-size: 14px;
+
+                &:last-child {
+                    border-left: 1px solid #51A3FF;
+                    padding-right: 0;
+                }
+
+                &.Mui-selected {
+                    color: #51A3FF;
+                }
+
+                &:hover {
+                    background-color: unset;
+                }
+            }
+        }
+    }
+
+    &-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+
+        &-submit.MuiButtonBase-root {
+            text-transform: none;
+            color: #fff;
+            background-color: #51A3FF;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
+
+            &:hover {
+                text-transform: none;
+                color: #fff;
+                background-color: #51A3FF;
+                padding: 10px 24px;
+                border-radius: 30px;
+            }
+        }
+        
+        &-reset.MuiButtonBase-root {
+            text-transform: none;
+            color: #888888;    
+            background-color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid #cdcdcd;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -1642,11 +2136,11 @@
 
 .invoices-detachpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 390px;
     height: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
 
     &-header {
@@ -1654,22 +2148,25 @@
         flex-direction: column;
         text-align: center;
         padding: 0 0 10px 0;
-        gap: 10px;
+        gap: 15px;
         // border-bottom: 1px solid #ECECEC;
 
 
         &-title {
             text-align: center;
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 400;
             color: #444;
         }
 
         &-subtitle {
+            font-size: 14px;
             text-align: center;
             color: #888888;
-            font-size: 14px;
-            line-height: 22px;
+
+            p {
+                line-height: 22px;
+            }
         }
         
         &-btn {
@@ -1698,6 +2195,10 @@
                     font-size: 14px;
                     padding: 8px 20px;
                     border-radius: 50px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-weight: 400 !important;
+                    font-family: 'OpenSans' !important;
                 }
             }
 
@@ -1709,6 +2210,10 @@
                     font-size: 14px;
                     padding: 8px 20px;
                     border-radius: 50px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-weight: 600 !important;
+                    font-family: 'OpenSans' !important;
 
                     &:hover {
                         color: #fff;
@@ -1722,7 +2227,7 @@
 
 .invoices-recurringsettingpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 580px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -1745,6 +2250,10 @@
             gap: 5px;
             font-size: 18px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -1771,6 +2280,7 @@
             font-size: 14px;
             color: #444;
             line-height: 22px;
+            font-family: 'OpenSans' !important;
         }
 
         &-double {
@@ -1801,6 +2311,8 @@
                 .MuiTypography-root {
                     color: #51A3FF;
                     font-size: 16px;
+                    font-family: 'OpenSans' !important;
+                    font-weight: 400;
                 }
             }
 
@@ -1830,6 +2342,9 @@
             .MuiSelect-select {
                 padding: 10px;
                 background-color: #F8FAFC;
+                color: #444;
+                font-size: 14px;
+                font-family: 'OpenSans' !important;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -1855,6 +2370,9 @@
                 .MuiInputBase-input {
                     padding: 10px;
                     background-color: #F8FAFC;
+                    font-size: 14px;
+                    color: #444;
+                    font-family: 'OpenSans' !important;
                 }
 
                 .MuiOutlinedInput-notchedOutline {
@@ -1884,11 +2402,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -1904,6 +2425,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -1940,6 +2464,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -1957,8 +2485,9 @@
     }
 
     &-table {
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
         border-radius: 8px;
+        
 
         &-body {
             &-tr {

@@ -3054,6 +3054,7 @@ export const money = [
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
     category: 'Category 1',
+    billable: true
   },
   {
     id: 3,
@@ -3080,6 +3081,7 @@ export const money = [
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
     category: 'Category 1',
+    billable: true
   },
 
   {
@@ -3107,6 +3109,7 @@ export const money = [
     paymentMethod: 'Paypal',
     transactionID: 'Jdh37HJDK63837',
     category: 'Category 1',
+    billable: true
   },
   {
     id: 7,
