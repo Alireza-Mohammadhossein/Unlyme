@@ -268,6 +268,19 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
               aria-labelledby="tableTitle"
               className='clients-table'
             >
+
+                <colgroup>
+                  <col style={{width:'45px', boxSizing:'border-box'}}/>
+                  <col style={{width:'300px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'120px', boxSizing:'border-box'}}/>
+               </colgroup>
+              
               <ClientsTableHead
                 numSelected={selected.length}
                 order={order}
@@ -344,7 +357,10 @@ const ClientsTable = ({ invoices, searchText, setSearchText }) => {
                           className='invoice-manager-page_main_clients-tab-row-item'
                         >
                           <div className='owner'>
-                            <Avatar alt={row.owner} src={row.ownerImage} /> {row.owner}
+                            <Avatar alt={row.owner} src={row.ownerImage} />
+                            <p>
+                              {row.owner}
+                            </p>
                           </div>
                         </TableCell>
 

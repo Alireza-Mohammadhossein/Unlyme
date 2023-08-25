@@ -54,7 +54,6 @@ const ClientsTableHead = (props) => {
         disablePadding: true,
         label: 'Company Name',
         sortable: false,
-        with: 130
       },
       {
         id: 3,
@@ -62,7 +61,6 @@ const ClientsTableHead = (props) => {
         disablePadding: true,
         label: 'Account owner',
         sortable: false,
-        with: 130
       },
       {
         id: 4,
@@ -70,7 +68,6 @@ const ClientsTableHead = (props) => {
         disablePadding: true,
         label: 'Projects',
         sortable: false,
-        with: 130
       },
       {
         id: 5,
@@ -78,35 +75,30 @@ const ClientsTableHead = (props) => {
         disablePadding: true,
         label: 'Invoices',
         sortable: false,
-        with: 130
       },
       {
         id: 6,
         numeric: true,
         disablePadding: true,
         label: 'Tags',
-        with: 130
       },
       {
         id: 7,
         numeric: true,
         disablePadding: true,
         label: 'Category',
-        with: 130
       },
       {
         id: 8,
         numeric: true,
         disablePadding: true,
         label: 'Status',
-        with: 130
       },
       {
         id: 9,
         numeric: true,
         disablePadding: true,
-        label: 'Actions',
-        with: 130
+        label: 'Action',
       },
     ];
   

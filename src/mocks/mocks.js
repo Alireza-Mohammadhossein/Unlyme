@@ -3032,7 +3032,7 @@ export const money = [
   {
     id: 1,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3045,7 +3045,7 @@ export const money = [
   {
     id: 2,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3058,7 +3058,7 @@ export const money = [
   {
     id: 3,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3071,7 +3071,7 @@ export const money = [
   {
     id: 4,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3085,7 +3085,7 @@ export const money = [
   {
     id: 5,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3098,7 +3098,7 @@ export const money = [
   {
     id: 6,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3111,7 +3111,7 @@ export const money = [
   {
     id: 7,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3124,7 +3124,7 @@ export const money = [
   {
     id: 8,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3139,7 +3139,7 @@ export const money = [
   {
     id: 9,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3152,7 +3152,7 @@ export const money = [
   {
     id: 10,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3165,7 +3165,7 @@ export const money = [
   {
     id: 11,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3178,7 +3178,7 @@ export const money = [
   {
     id: 12,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3193,7 +3193,7 @@ export const money = [
   {
     id: 13,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3206,7 +3206,7 @@ export const money = [
   {
     id: 14,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3219,7 +3219,7 @@ export const money = [
   {
     id: 15,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3232,7 +3232,7 @@ export const money = [
   {
     id: 16,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3247,7 +3247,7 @@ export const money = [
   {
     id: 17,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3260,7 +3260,7 @@ export const money = [
   {
     id: 18,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3273,7 +3273,7 @@ export const money = [
   {
     id: 19,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3286,7 +3286,7 @@ export const money = [
   {
     id: 20,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3300,7 +3300,7 @@ export const money = [
   {
     id: 21,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3313,7 +3313,7 @@ export const money = [
   {
     id: 22,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3326,7 +3326,7 @@ export const money = [
   {
     id: 23,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'plus',
     amount: '500.00',
     client: 'client name',
@@ -3339,7 +3339,7 @@ export const money = [
   {
     id: 24,
     date: '06-21-2023',
-    description: 'Lorem ipsum Lorem ipsum',
+    description: 'Lorem ipsum',
     status: 'minus',
     amount: '500.00',
     client: 'client name',
@@ -3749,28 +3749,28 @@ export const clients = [
 export const products = [
   {
     id: 1,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 2,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 3,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 4,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
@@ -3778,28 +3778,28 @@ export const products = [
 
   {
     id: 5,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 6,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 7,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 8,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
@@ -3808,28 +3808,28 @@ export const products = [
 
   {
     id: 9,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 10,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 11,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 12,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
@@ -3838,28 +3838,28 @@ export const products = [
   
   {
     id: 13,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 14,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 15,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 16,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
@@ -3868,28 +3868,28 @@ export const products = [
 
   {
     id: 17,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 18,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 19,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 20,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
@@ -3897,28 +3897,28 @@ export const products = [
   
   {
     id: 21,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 22,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 23,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',
   },
   {
     id: 24,
-    description: 'Lorem ipsum dolor sit amet consecteur dolor sit amet consecteur',
+    description: 'Lorem ipsum dolor sit amet consecteur',
     rate: '125.00',
     unit: 'Each',
     category: 'Category 1',

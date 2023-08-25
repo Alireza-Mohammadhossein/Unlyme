@@ -99,7 +99,6 @@ const InvoicesTableHead = (props) => {
         disablePadding: true,
         label: 'Date',
         sortable: false,
-        with: 130
       },
       {
         id: 3,
@@ -107,7 +106,6 @@ const InvoicesTableHead = (props) => {
         disablePadding: true,
         label: 'Company',
         sortable: false,
-        with: 130
       },
       {
         id: 4,
@@ -115,7 +113,6 @@ const InvoicesTableHead = (props) => {
         disablePadding: true,
         label: 'Project',
         sortable: false,
-        with: 130
       },
       {
         id: 5,
@@ -123,28 +120,24 @@ const InvoicesTableHead = (props) => {
         disablePadding: true,
         label: 'Amount',
         sortable: false,
-        with: 130
       },
       {
         id: 6,
         numeric: true,
         disablePadding: true,
         label: 'Payments',
-        with: 130
       },
       {
         id: 7,
         numeric: true,
         disablePadding: true,
         label: 'Status',
-        with: 130
       },
       {
         id: 8,
         numeric: true,
         disablePadding: true,
         label: 'Actions',
-        with: 130
       },
     ];
   

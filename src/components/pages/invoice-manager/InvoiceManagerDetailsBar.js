@@ -174,194 +174,198 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
 
   return (
     <>
-      <Grid container spacing={2}>
-          <Grid item lg={4} md={12} xs={12} sx={{display: 'flex'}}>
-              <div className='cloud-page__header_invoice-manager-details_search'>
-                  <FormControl>
-                      <div className="cloud-page__header_invoice-manager-details_search_container">
-                          <label><img src={search} /></label>
-                          <input
-                            className="cloud-page__header_invoice-manager-details_search-input"
-                            onChange={(e) => setSearchText(e.target.value)}
-                            placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
-                          />
-                      </div>
-                  </FormControl>
+    <div className='cloud-page__header_invoice-manager-details_container'>
+      <div>
+        <div className='cloud-page__header_invoice-manager-details_search'>
+            <FormControl>
+                <div className="cloud-page__header_invoice-manager-details_search_container">
+                    <label><img src={search} /></label>
+                    <input
+                      className="cloud-page__header_invoice-manager-details_search-input"
+                      onChange={(e) => setSearchText(e.target.value)}
+                      placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
+                    />
+                </div>
+            </FormControl>
 
-              </div>
+        </div>
 
-              <div className='cloud-page__header_invoice-manager-details_filter'>
-                {
-                  activeTab === 0 ?
-                    <>
-                      <IconButton aria-label="filter" onClick={() => {setFilterInvoicesPopup(true)}}>
-                          <FilterListIcon />
-                      </IconButton>
-                      
-                      <Drawer anchor='right' open={filterInvoicesPopup} onClose={() => setFilterInvoicesPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
-                          <FilterInvoicesPopup setFilterInvoicesPopup={setFilterInvoicesPopup} />
-                      </Drawer>
-                    </>
-                  : activeTab === 1 ?
-                    <>
-                      <IconButton aria-label="filter" onClick={() => {setFilterMoneyPopup(true)}}>
-                          <FilterListIcon />
-                      </IconButton>
-                      
-                      <Drawer anchor='right' open={filterMoneyPopup} onClose={() => setFilterMoneyPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
-                          <FilterMoneyPopup setFilterMoneyPopup={setFilterMoneyPopup} />
-                      </Drawer>
-                    </>
-                  : activeTab === 2 ?
-                    <>
-                      <IconButton aria-label="filter" onClick={() => {setFilterClientsPopup(true)}}>
-                          <FilterListIcon />
-                      </IconButton>
-                      
-                      <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
-                          <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
-                      </Drawer>
-                    </>
-                  :
-                    <>
-                      <IconButton aria-label="filter" onClick={() => {setFilterProductsPopup(true)}}>
-                          <FilterListIcon />
-                      </IconButton>
-                      
-                      <Drawer anchor='right' open={filterProductsPopup} onClose={() => setFilterProductsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
-                          <FilterProductsPopup setFilterProductsPopup={setFilterProductsPopup} />
-                      </Drawer>
-                    </>
-                }
-              </div>
-          </Grid>
+        <div className='cloud-page__header_invoice-manager-details_filter'>
+          {
+            activeTab === 0 ?
+              <>
+                <IconButton aria-label="filter" onClick={() => {setFilterInvoicesPopup(true)}}>
+                    <FilterListIcon />
+                </IconButton>
+                
+                <Drawer anchor='right' open={filterInvoicesPopup} onClose={() => setFilterInvoicesPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
+                    <FilterInvoicesPopup setFilterInvoicesPopup={setFilterInvoicesPopup} />
+                </Drawer>
+              </>
+            : activeTab === 1 ?
+              <>
+                <IconButton aria-label="filter" onClick={() => {setFilterMoneyPopup(true)}}>
+                    <FilterListIcon />
+                </IconButton>
+                
+                <Drawer anchor='right' open={filterMoneyPopup} onClose={() => setFilterMoneyPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
+                    <FilterMoneyPopup setFilterMoneyPopup={setFilterMoneyPopup} />
+                </Drawer>
+              </>
+            : activeTab === 2 ?
+              <>
+                <IconButton aria-label="filter" onClick={() => {setFilterClientsPopup(true)}}>
+                    <FilterListIcon />
+                </IconButton>
+                
+                <Drawer anchor='right' open={filterClientsPopup} onClose={() => setFilterClientsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
+                    <FilterClientsPopup setFilterClientsPopup={setFilterClientsPopup} />
+                </Drawer>
+              </>
+            :
+              <>
+                <IconButton aria-label="filter" onClick={() => {setFilterProductsPopup(true)}}>
+                    <FilterListIcon />
+                </IconButton>
+                
+                <Drawer anchor='right' open={filterProductsPopup} onClose={() => setFilterProductsPopup(false)} disableScrollLock = {false} className='cloud-page__header_invoice-manager-details_drawer'>
+                    <FilterProductsPopup setFilterProductsPopup={setFilterProductsPopup} />
+                </Drawer>
+              </>
+          }
+        </div>
+      </div>
 
-          <Grid item lg={8} md={12} xs={12} sx={{ display: 'flex', justifyContent: 'end', gap: '10px' }}>
-              <div className='cloud-page__header_invoice-manager-details_add'>
+      <div></div>
 
-                {
-                  // when invoice tab is active
-                  activeTab === 0 ?
-                    <>
-                      <Button
-                        // startIcon={<AddIcon />}
-                        className="cloud-page__header_invoice-manager-details_add-btn"
-                        aria-label="more"
-                        id="long-button"
-                        aria-haspopup="true"
-                        onClick={handleOpenAddNewPopup}
-                      >
-                        {t("INVICE_MANAGER_PAGE.ADD_NEW")}
-                      </Button>
-
-
-                      <Modal
-                        open={addNewPopup}
-                        onClose={handleCloseAddNewPopup}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                        className='cloud-page__header_invoice-manager-details_add-modal'
-                      >
-                        <AddNewPopup handleCloseAddNewPopup={handleCloseAddNewPopup} />
-                      </Modal>
-                    </>
-                  : 
-                  // when money tab is active
-                  activeTab === 1 ?
-                    <>
-                      <Button
-                        // startIcon={<AddIcon />}
-                        className="cloud-page__header_invoice-manager-details_add-btn"
-                        aria-label="more"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleAddNewMoney}
-                      >
-                        {t("INVICE_MANAGER_PAGE.ADD_NEW")}
-                      </Button>
-
-                      <Menu
-                        className='invoice-manager-page_main_money-tab-row-actions_option-list'
-                        id="long-menu"
-                        MenuListProps={{
-                          "aria-labelledby": "long-button",
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleCloseAddNewMoney}
-                        disableScrollLock={true}
-                      >
-                        {options.map((option) => (
-                          <MenuItem
-                            key={option.id}
-                            onClick={() => option.clickFunction()}
-                          >
-                            <ListItemText>{option.text}</ListItemText>
-                          </MenuItem>
-
-                        ))}
-                      </Menu>
-                    </>
-                  : 
-                  // when clients tab is active
-                    activeTab === 2 ?
-                      <>
-                        <Button
-                          // startIcon={<AddIcon />}
-                          className="cloud-page__header_invoice-manager-details_add-btn"
-                          aria-label="more"
-                          id="long-button"
-                          aria-haspopup="true"
-                          onClick={handleOpenAddNewClientPopup}
-                        >
-                          {t("INVICE_MANAGER_PAGE.ADD_NEW")}
-                        </Button>
+      <div>
+        <div className='cloud-page__header_invoice-manager-details_add'>
+          {
+            // when invoice tab is active
+            activeTab === 0 ?
+              <>
+                <Button
+                  // startIcon={<AddIcon />}
+                  className="cloud-page__header_invoice-manager-details_add-btn"
+                  aria-label="more"
+                  id="long-button"
+                  aria-haspopup="true"
+                  onClick={handleOpenAddNewPopup}
+                >
+                  {t("INVICE_MANAGER_PAGE.ADD_NEW")}
+                </Button>
 
 
-                        <Modal
-                          open={addNewClientPopup}
-                          onClose={handleCloseAddNewClientPopup}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                          className='cloud-page__header_invoice-manager-details_add-modal'
-                        >
-                          <AddNewClientsPopup handleCloseAddNewClientPopup={handleCloseAddNewClientPopup} />
-                        </Modal>
-                      </>
-                  : 
-                      <>
-                        <Button
-                          // startIcon={<AddIcon />}
-                          className="cloud-page__header_invoice-manager-details_add-btn"
-                          aria-label="more"
-                          id="long-button"
-                          aria-haspopup="true"
-                          onClick={handleOpenAddNewProductsPopup}
-                        >
-                          {t("INVICE_MANAGER_PAGE.ADD_NEW")}
-                        </Button>
+                <Modal
+                  open={addNewPopup}
+                  onClose={handleCloseAddNewPopup}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  className='cloud-page__header_invoice-manager-details_add-modal'
+                >
+                  <AddNewPopup handleCloseAddNewPopup={handleCloseAddNewPopup} />
+                </Modal>
+              </>
+            : 
+            // when money tab is active
+            activeTab === 1 ?
+              <>
+                <Button
+                  // startIcon={<AddIcon />}
+                  className="cloud-page__header_invoice-manager-details_add-btn"
+                  aria-label="more"
+                  aria-controls={open ? "long-menu" : undefined}
+                  aria-expanded={open ? "true" : undefined}
+                  aria-haspopup="true"
+                  onClick={handleAddNewMoney}
+                >
+                  {t("INVICE_MANAGER_PAGE.ADD_NEW")}
+                </Button>
+
+                <Menu
+                  className='invoice-manager-page_main_money-tab-row-actions_option-list'
+                  id="long-menu"
+                  MenuListProps={{
+                    "aria-labelledby": "long-button",
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleCloseAddNewMoney}
+                  disableScrollLock={true}
+                >
+                  {options.map((option) => (
+                    <MenuItem
+                      key={option.id}
+                      onClick={() => option.clickFunction()}
+                    >
+                      <ListItemText>{option.text}</ListItemText>
+                    </MenuItem>
+
+                  ))}
+                </Menu>
+              </>
+            : 
+            // when clients tab is active
+              activeTab === 2 ?
+              <>
+                <Button
+                  // startIcon={<AddIcon />}
+                  className="cloud-page__header_invoice-manager-details_add-btn"
+                  aria-label="more"
+                  id="long-button"
+                  aria-haspopup="true"
+                  onClick={handleOpenAddNewClientPopup}
+                >
+                  {t("INVICE_MANAGER_PAGE.ADD_NEW")}
+                </Button>
 
 
-                        <Modal
-                          open={addNewProductsPopup}
-                          onClose={handleCloseAddNewProductsPopup}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                          className='cloud-page__header_invoice-manager-details_add-modal'
-                        >
-                          <AddNewProductsPopup handleCloseAddNewProductsPopup={handleCloseAddNewProductsPopup} />
-                        </Modal>
-                      </>
-                }
+                <Modal
+                  open={addNewClientPopup}
+                  onClose={handleCloseAddNewClientPopup}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  className='cloud-page__header_invoice-manager-details_add-modal'
+                >
+                  <AddNewClientsPopup handleCloseAddNewClientPopup={handleCloseAddNewClientPopup} />
+                </Modal>
+              </>
+            : 
+              <>
+                <Button
+                  // startIcon={<AddIcon />}
+                  className="cloud-page__header_invoice-manager-details_add-btn"
+                  aria-label="more"
+                  id="long-button"
+                  aria-haspopup="true"
+                  onClick={handleOpenAddNewProductsPopup}
+                >
+                  {t("INVICE_MANAGER_PAGE.ADD_NEW")}
+                </Button>
 
-              </div>
 
-              <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
-                  <CloseIcon />
-              </IconButton>
-          </Grid>
-      </Grid>
+                <Modal
+                  open={addNewProductsPopup}
+                  onClose={handleCloseAddNewProductsPopup}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  className='cloud-page__header_invoice-manager-details_add-modal'
+                >
+                  <AddNewProductsPopup handleCloseAddNewProductsPopup={handleCloseAddNewProductsPopup} />
+                </Modal>
+              </>
+          }
+
+        </div>
+
+        <IconButton aria-label="delete" onClick={() => dispatch(handleCloseAppsModal())}>
+          <CloseIcon />
+        </IconButton>
+
+      </div>
+
+    </div>
+      
 
 
       {/* add new payment modal */}

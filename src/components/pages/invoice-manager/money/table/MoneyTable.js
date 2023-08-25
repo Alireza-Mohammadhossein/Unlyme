@@ -354,6 +354,17 @@ const MoneyTable = ({ invoices, searchText, setSearchText }) => {
               aria-labelledby="tableTitle"
               className='money-table'
             >
+               <colgroup>
+                  <col style={{width:'45px', boxSizing:'border-box'}}/>
+                  <col style={{width:'128px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'200px', boxSizing:'border-box'}}/>
+                  <col style={{width:'120px', boxSizing:'border-box'}}/>
+               </colgroup>
+
               <MoneyTableHead
                 numSelected={selected.length}
                 order={order}

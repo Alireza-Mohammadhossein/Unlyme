@@ -402,6 +402,16 @@ const ProductsTable = ({ invoices, searchText, setSearchText }) => {
               aria-labelledby="tableTitle"
               className='products-table'
             >
+
+              <colgroup>
+                <col style={{width:'45px', boxSizing:'border-box'}}/>
+                <col style={{width:'400px', boxSizing:'border-box'}}/>
+                <col style={{width:'250px', boxSizing:'border-box'}}/>
+                <col style={{width:'250px', boxSizing:'border-box'}}/>
+                <col style={{width:'250px', boxSizing:'border-box'}}/>
+                <col style={{width:'120px', boxSizing:'border-box'}}/>
+              </colgroup>
+
               <ProductsTableHead
                 numSelected={selected.length}
                 order={order}

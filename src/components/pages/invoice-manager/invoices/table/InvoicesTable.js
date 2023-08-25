@@ -518,6 +518,18 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
               aria-labelledby="tableTitle"
               className='invoices-table'
             >
+
+              <colgroup>
+                <col style={{width:'45px', boxSizing:'border-box'}}/>
+                <col style={{width:'128px', boxSizing:'border-box'}}/>
+                <col style={{width:'200px', boxSizing:'border-box'}}/>
+                <col style={{width:'200px', boxSizing:'border-box'}}/>
+                <col style={{width:'200px', boxSizing:'border-box'}}/>
+                <col style={{width:'200px', boxSizing:'border-box'}}/>
+                <col style={{width:'200px', boxSizing:'border-box'}}/>
+                <col style={{width:'120px', boxSizing:'border-box'}}/>
+              </colgroup>
+              
               <InvoiceManagerTableHead
                 numSelected={selected.length}
                 order={order}
