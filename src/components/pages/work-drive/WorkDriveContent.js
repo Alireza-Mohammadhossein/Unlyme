@@ -44,6 +44,7 @@ import {
   FileNavbar,
   FileToolbar,
 } from 'chonky';
+import CustomListHeader from "./CustomListHeader";
 
 
 
@@ -92,6 +93,10 @@ import {
       //   setOpenSubMenu(!openSubMenu);
       // };
 
+      
+      useEffect(() => {
+        console.log(document.getElementsByClassName(''))
+      })
 
 
     
@@ -213,7 +218,7 @@ import {
                           </div>
                         } 
                       >
-                        <TreeItem
+                        {/* <TreeItem
                           nodeId="3"
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
@@ -224,7 +229,7 @@ import {
                               <ListItemText primary="New Documents" />
                             </div>
                           } 
-                        />
+                        /> */}
                       </TreeItem>
 
                       <TreeItem
@@ -265,7 +270,7 @@ import {
                           </div>
                         }
                       >
-                        <TreeItem
+                        {/* <TreeItem
                           nodeId="7"
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
@@ -276,7 +281,7 @@ import {
                               <ListItemText primary="New Documents" />
                             </div>
                           } 
-                        />
+                        /> */}
                       </TreeItem>
 
                       <TreeItem
@@ -291,7 +296,7 @@ import {
                           </div>
                         }
                       >
-                        <TreeItem
+                        {/* <TreeItem
                           nodeId="9"
                           label={
                             <div className="work-drive-page_sidebar_actions-section_drive-tree_item">
@@ -302,7 +307,7 @@ import {
                               <ListItemText primary="New Videos" />
                             </div>
                           } 
-                        />
+                        /> */}
                       </TreeItem>
 
                     </TreeItem>
@@ -373,6 +378,7 @@ import {
                   </div>
                   <FileToolbar />
                 </div>
+                  {/* <CustomListHeader /> */}
                   <FileList />
                   <FileContextMenu />
               </div>

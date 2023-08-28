@@ -24,7 +24,7 @@ const headCells = [
       disablePadding: true,
       label: 'Logo',
       sortable: false,
-      with: 70
+      // with: 70
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const headCells = [
       disablePadding: true,
       label: 'Starred',
       sortable: false,
-      with: 70
+      // with: 70
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const headCells = [
       disablePadding: true,
       label: 'Title',
       sortable: false,
-      with: 130
+      // with: 130
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ const headCells = [
       disablePadding: true,
       label: 'Message',
       sortable: false,
-      with: 190
+      // with: 190
     },
     {
       id: 5,
@@ -56,14 +56,14 @@ const headCells = [
       disablePadding: true,
       label: 'Attached',
       sortable: false,
-      with: 70
+      // with: 70
     },
     {
       id: 6,
       numeric: true,
       disablePadding: true,
       label: 'Date',
-      with: 130
+      // with: 130
     },
 ];
   

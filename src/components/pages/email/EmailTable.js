@@ -219,6 +219,16 @@ const handleReadMode = (event, newReadMode) => {
               <Table
                 aria-labelledby="tableTitle"
               >
+                <colgroup>
+                  <col style={{width:'45px', boxSizing:'border-box'}}/>
+                  <col style={{width:'50px', boxSizing:'border-box'}}/>
+                  <col style={{width:'50px', boxSizing:'border-box'}}/>
+                  <col style={{width:'140px', boxSizing:'border-box'}}/>
+                  <col style={{width:'250px', boxSizing:'border-box'}}/>
+                  <col style={{width:'50px', boxSizing:'border-box'}}/>
+                  <col style={{width:'100px', boxSizing:'border-box'}}/>
+               </colgroup>
+          
                 <EmailTableHead
                   numSelected={selected.length}
                   order={order}
@@ -260,7 +270,7 @@ const handleReadMode = (event, newReadMode) => {
                       >
 
                         <TableCell padding="checkbox"
-                          sx={{ cursor: 'pointer', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                          sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                           onClick={(event) => {
                             event.stopPropagation();
 
@@ -282,7 +292,7 @@ const handleReadMode = (event, newReadMode) => {
                           scope="row"
                           // padding="none"
                           align="center"
-                          sx={{ cursor: 'pointer',width: '5%', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                          sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
                           <img src={row.logo} />
                         </TableCell>
@@ -292,21 +302,21 @@ const handleReadMode = (event, newReadMode) => {
                             event.stopPropagation();
                           }}
                           align="center"
-                          sx={{ cursor: 'pointer',width: '5%', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                          sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
                           <img src={row.starred ? activeStar : star} className='star-icon'/>
                         </TableCell>
                         
                         <TableCell
                           align="left"
-                          sx={{ cursor: 'pointer',width: '30%', maxWidth: 100, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
+                          sx={{ cursor: 'pointer', width: 230 ,maxWidth: 230, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
                         >
                           {row.title}
                         </TableCell>
                         
                         <TableCell
                           align="left"
-                          sx={{ cursor: 'pointer',width: '40%', maxWidth: 150, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
+                          sx={{ cursor: 'pointer', width: 500, maxWidth: 500, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
                         >
                           <div>
                             {
@@ -316,13 +326,13 @@ const handleReadMode = (event, newReadMode) => {
                                 <img src={inboxGrayIcon} className='read-icon' />
                             }
 
-                            {row.message}
+                            {row.subject}
                           </div>
                         </TableCell>
                         
                         <TableCell
                           align="center"
-                          sx={{ cursor: 'pointer',width: '5%', maxWidth: 50, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
+                          sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
                           {/* {row.attached ? <img src={attached} /> : ''} */}
 
@@ -342,7 +352,7 @@ const handleReadMode = (event, newReadMode) => {
                         
                         <TableCell
                           align="center"
-                          sx={{ cursor: 'pointer',width: '15%', maxWidth: 100, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0 5px 0 0' }}
+                          sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0 5px 0 0', textAlign: 'right', paddingRight: '10px' }}
                         >
                           {row.date}
                         </TableCell>

@@ -160,6 +160,7 @@
 
     .chonky-fileListWrapper {
         padding: 20px;
+        padding-top: 0;
         box-sizing: border-box;
         height: calc(100% - 50px);
 
@@ -249,6 +250,15 @@
         & [class^="listContainer-"] {
             & [class^="listFileEntry-"] {
                 cursor: pointer;
+
+                & [class^="listFileEntryName-"] {
+                    color: #333;
+                    line-height: 22px;
+                }
+
+                & [class^="listFileEntryProperty-"] {
+                    text-align: right;
+                }
             }
 
             & > div {

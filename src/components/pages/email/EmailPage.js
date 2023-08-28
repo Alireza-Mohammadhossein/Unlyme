@@ -29,10 +29,14 @@ import LinearProgress from '@mui/material/LinearProgress';
 import IconButton from '@mui/material/IconButton';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 
-import inboxIcon from '../../../assets/images/email/inbox.svg';
-import draftIcon from '../../../assets/images/email/draft.svg';
-import sentIcon from '../../../assets/images/email/sent.svg';
-import starIcon from '../../../assets/images/email/star.svg';
+import inboxIconActive from '../../../assets/images/email/inbox.png';
+import inboxIconNot from '../../../assets/images/email/inbox-not.png';
+import draftIconActive from '../../../assets/images/email/draft.png';
+import draftIconNot from '../../../assets/images/email/draft-not.png';
+import sentIconActive from '../../../assets/images/email/sent.png';
+import sentIconNot from '../../../assets/images/email/sent-not.png';
+import starIconActive from '../../../assets/images/email/star.png';
+import starIconNot from '../../../assets/images/email/star-not.png';
 import arrowIcon from '../../../assets/images/email/arrow.svg';
 import plusIcon from '../../../assets/images/email/plus.svg';
 import settingIcon from '../../../assets/images/email/settings.svg';
@@ -187,10 +191,13 @@ function EmailPageContent() {
                                     {item.title}
                                   </Button> */}
                                   {
-                                    item.title === 'Inbox' ? <img src={inboxIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
-                                    item.title === 'Drafts' ? <img src={draftIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
-                                    item.title === 'Sent' ? <img src={sentIcon} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
-                                    <img src={starIcon} />
+                                    item.title === 'Inbox' ? <img src={showMail === 0 ? inboxIconActive : inboxIconNot} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+
+                                    item.title === 'Drafts' ? <img src={showMail === 1 ? draftIconActive : draftIconNot} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+                                    
+                                    item.title === 'Sent' ? <img src={showMail === 2 ? sentIconActive : sentIconNot} className='email-page_sidebar_actions-section_category-item_content-icon' /> :
+
+                                    <img src={showMail === 3 ? starIconActive : starIconNot} className='email-page_sidebar_actions-section_category-item_content-icon'/>
                                   }
                                    {/* <InboxOutlinedIcon/> */}
                                     {/* <img src={ showMail !== index ? item.grayIcon : item.blueIcon} alt={item.title} className='email-page_sidebar_actions-section_category-item_content-icon' /> */}
@@ -332,7 +339,6 @@ function EmailPageContent() {
                     </div>
                   </div>
                 </div>
-
 
                 <div className="email-page_sidebar_space">
                   <LinearProgress  className="email-page_sidebar_space-progressbar" variant="determinate" value={value} />
