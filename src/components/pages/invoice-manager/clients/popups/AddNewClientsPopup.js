@@ -11,6 +11,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { toast } from "react-toastify";
+import { styled } from '@mui/material/styles';
 
 
 
@@ -228,6 +229,67 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
 
 
+  const IOSSwitch = styled((props) => (
+    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+  ))(({ theme }) => ({
+    width: 31,
+    height: 18,
+    padding: 0,
+    '& .MuiSwitch-switchBase': {
+      padding: 0,
+      height: '100%',
+      marginTop: 0 ,
+      marginBottom: 0 ,
+      marginRight: 0 ,
+      marginLeft: 2 ,
+      transitionDuration: '300ms',
+      '&.Mui-checked': {
+        transform: 'translateX(16px)',
+        color: '#fff',
+        marginTop: 0 ,
+        marginBottom: 0 ,
+        marginRight: 2 ,
+        marginLeft: 0 ,
+        '& + .MuiSwitch-track': {
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#51A3FFCC',
+          opacity: 1,
+          border: 0,
+        },
+        '&.Mui-disabled + .MuiSwitch-track': {
+          opacity: 0.5,
+        },
+      },
+      '&.Mui-focusVisible .MuiSwitch-thumb': {
+        color: '#33cf4d',
+        border: '6px solid #fff',
+      },
+      '&.Mui-disabled .MuiSwitch-thumb': {
+        color:
+          theme.palette.mode === 'light'
+            ? theme.palette.grey[100]
+            : theme.palette.grey[600],
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      boxSizing: 'border-box',
+      width: 13,
+      height: 13,
+    },
+    '& .MuiSwitch-track': {
+      borderRadius: 26 / 2,
+      backgroundColor: theme.palette.mode === 'light' ? '#7676804D' : '#39393D',
+      opacity: 1,
+      transition: theme.transitions.create(['background-color'], {
+        duration: 500,
+      }),
+    },
+  }));
+
+
+
   return (
     <div className='clients-addnewpopup'>
       <div className='clients-addnewpopup-header'>
@@ -352,7 +414,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               Description & Details
             </p>
 
-            <Switch
+            <IOSSwitch
               checked={descriptionSwitch}
               onChange={handleDescriptionSwitch}
               // inputProps={{ 'aria-label': 'controlled' }}
@@ -408,7 +470,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               Billing address
             </p>
 
-            <Switch
+            <IOSSwitch
               checked={billingSwitch}
               onChange={handleBillingSwitch}
               // inputProps={{ 'aria-label': 'controlled' }}
@@ -546,7 +608,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               Shipping address
             </p>
 
-            <Switch
+            <IOSSwitch
               checked={shippingSwitch}
               onChange={handleShippingSwitch}
               // inputProps={{ 'aria-label': 'controlled' }}
@@ -648,7 +710,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               App modules
             </p>
 
-            <Switch
+            <IOSSwitch
               checked={modulesSwitch}
               onChange={handleModulesSwitch}
               // inputProps={{ 'aria-label': 'controlled' }}
@@ -688,7 +750,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               More information
             </p>
 
-            <Switch
+            <IOSSwitch
               checked={moreInfoSwitch}
               onChange={handleMoreInfoSwitch}
               // inputProps={{ 'aria-label': 'controlled' }}
@@ -766,7 +828,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
 
 
         <div className='clients-addnewpopup-item flex'>
-          <p className='clients-addnewpopup-item-title'>
+          <p className='clients-addnewpopup-item-title required'>
             * Required
           </p>
         </div>

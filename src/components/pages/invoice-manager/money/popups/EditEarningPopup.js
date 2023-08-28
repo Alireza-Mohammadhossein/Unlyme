@@ -104,7 +104,7 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
         marginRight: 2 ,
         marginLeft: 0 ,
         '& + .MuiSwitch-track': {
-          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#767680E5',
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#51A3FFCC',
           opacity: 1,
           border: 0,
         },
@@ -133,7 +133,7 @@ const EditEarningPopup = ({ handleCloseEditEarningPopup, data}) => {
     },
     '& .MuiSwitch-track': {
       borderRadius: 26 / 2,
-      backgroundColor: theme.palette.mode === 'light' ? '#c4bfd2' : '#39393D',
+      backgroundColor: theme.palette.mode === 'light' ? '#7676804D' : '#39393D',
       opacity: 1,
       transition: theme.transitions.create(['background-color'], {
         duration: 500,

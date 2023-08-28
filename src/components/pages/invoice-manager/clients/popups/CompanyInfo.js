@@ -270,8 +270,6 @@ const CompanyInfoPopup = ({ handleCloseCompanyInfoPopup, data}) => {
           </TabContext>
         </div>
 
-
-
       </div>
 
     </div>

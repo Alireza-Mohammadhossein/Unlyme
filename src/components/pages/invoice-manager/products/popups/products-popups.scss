@@ -15,6 +15,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -39,6 +43,7 @@
             color: #444;
             font-size: 13px;
             line-height: 22px;
+            font-family: 'OpenSans' !important;
         }
 
          
@@ -49,11 +54,15 @@
             width: 100%;
             border-radius: 8px;
             background-color: #F8FAFC;
+            color: #444;
+            font-size: 14px;
+            font-family: 'OpenSans' !important;
 
             input {
                 padding: 10px;
                 color: #444;
                 font-size: 14px;
+                font-family: 'OpenSans' !important;
 
                 &::placeholder {
                     color: #444;
@@ -100,6 +109,12 @@
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
 
+                .MuiTypography-body1 {
+                    font-family: 'OpenSans' !important;
+                    font-size: 14px;
+                    color: #ACACAC;
+                }
+
                 input {
                     border-left: 1px solid #e3e3e3;
                     padding-top: 0;
@@ -126,11 +141,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -146,6 +164,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -161,7 +182,7 @@
 
 .products-addnewpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -184,6 +205,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -217,6 +242,11 @@
             width: auto;
             font-size: 14px;
             color: #444;
+            font-family: 'OpenSans' !important;
+
+            &.required {
+                font-size: 13px;
+            }
         }
 
         .MuiFormControl-root {
@@ -245,6 +275,9 @@
                     padding-bottom: 0;
                     box-sizing: border-box;
                     height: 100%;
+                    font-family: 'OpenSans' !important;
+                    color: #444;
+                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -258,6 +291,12 @@
 
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
+
+                .MuiTypography-body1 {
+                    color: #ACACAC;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
+                }
 
                 input {
                     border-left: 1px solid #e3e3e3;
@@ -295,6 +334,9 @@
                 line-height: 1;
                 padding: 10px;
                 background-color: #F8FAFC;
+                font-size: 14px;
+                color: #444;
+                font-family: 'OpenSans' !important;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -335,6 +377,12 @@
                 width: 100%;
                 min-height: 100px;
                 align-items: start;
+
+                textarea {
+                    font-family: 'OpenSans' !important;
+                    color: #444;
+                    font-size: 14px;
+                }
     
                 input {
                     padding: 10px;
@@ -365,6 +413,9 @@
                     padding: 10px;
                     height: 35px;
                     box-sizing: border-box;
+                    color: #444;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -389,6 +440,12 @@
             & .MuiFormControl-root{
                 max-width: unset;
                 width: 100%;
+
+                textarea {
+                    font-family: 'OpenSans' !important;
+                    font-size: 14px;
+                    color: #444;
+                }
             }
 
             & .MuiInputBase-root {
@@ -461,11 +518,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -481,6 +541,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -496,11 +559,11 @@
 
 .products-deletepopup {
     width: 80%;
-    max-width: 500px;
+    max-width: 390px;
     height: auto;
     background-color: white;
     border-radius: 8px;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
 
     &-header {
@@ -523,6 +586,7 @@
             text-align: center;
             color: #888888;
             font-size: 14px;
+            line-height: 22px;
         }
         
         &-btn {
@@ -549,8 +613,12 @@
                     color: #888888;
                     text-transform: none;
                     font-size: 14px;
-                    padding: 8px 20px;
+                    padding: 10px 24px;
                     border-radius: 50px;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
+                    height: 40px;
+                    box-sizing: border-box;
                 }
             }
 
@@ -560,8 +628,12 @@
                     color: #FD5162;
                     text-transform: none;
                     font-size: 14px;
-                    padding: 8px 20px;
+                    padding: 10px 24px;
                     border-radius: 50px;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
+                    height: 40px;
+                    box-sizing: border-box;
 
                     &:hover {
                         color: #fff;
@@ -575,7 +647,7 @@
 
 .products-editproductpopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     max-height: 70vh;
     overflow-y: auto;
@@ -598,6 +670,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -631,6 +707,11 @@
             width: auto;
             font-size: 14px;
             color: #444;
+            font-family: 'OpenSans' !important;
+
+            &.required {
+                font-size: 13px;
+            }
         }
 
         .MuiFormControl-root {
@@ -647,14 +728,20 @@
             }
 
             & .MuiInputBase-root {
+                height: 35px;
+                box-sizing: border-box;
                 width: 100%;
                 border-radius: 8px;
                 background-color: #F8FAFC;
     
                 input {
                     padding: 10px;
-                    height: 35px;
+                    padding-top: 0;
+                    padding-bottom: 0;
                     box-sizing: border-box;
+                    height: 100%;
+                    font-family: 'OpenSans' !important;
+                    color: #444;
                     font-size: 14px;
                 }
     
@@ -669,6 +756,12 @@
 
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
+
+                .MuiTypography-body1 {
+                    color: #ACACAC;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
+                }
 
                 input {
                     border-left: 1px solid #e3e3e3;
@@ -685,9 +778,6 @@
     
                 input {
                     padding: 10px;
-                    height: 35px;
-                    box-sizing: border-box;
-                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -710,6 +800,8 @@
                 padding: 10px;
                 background-color: #F8FAFC;
                 font-size: 14px;
+                color: #444;
+                font-family: 'OpenSans' !important;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -750,10 +842,15 @@
                 width: 100%;
                 min-height: 100px;
                 align-items: start;
+
+                textarea {
+                    font-family: 'OpenSans' !important;
+                    color: #444;
+                    font-size: 14px;
+                }
     
                 input {
                     padding: 10px;
-                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -779,6 +876,11 @@
     
                 input {
                     padding: 10px;
+                    height: 35px;
+                    box-sizing: border-box;
+                    color: #444;
+                    font-size: 14px;
+                    font-family: 'OpenSans' !important;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -801,8 +903,14 @@
             justify-content: space-between;
 
             & .MuiFormControl-root{
-                width: 100%;
                 max-width: unset;
+                width: 100%;
+
+                textarea {
+                    font-family: 'OpenSans' !important;
+                    font-size: 14px;
+                    color: #444;
+                }
             }
 
             & .MuiInputBase-root {
@@ -814,7 +922,6 @@
     
                 input {
                     padding: 10px;
-                    font-size: 14px;
                 }
     
                 .MuiOutlinedInput-notchedOutline {
@@ -825,6 +932,14 @@
                     border-color: #1976d2;
                 }
             }
+        }
+
+        .MuiPaper-root {
+            width: 100%;
+            color: #93742A;
+            background-color: #FCF6EC;
+            border-color: #93742A;
+            border-radius: 8px;
         }
 
         .MuiToggleButtonGroup-root {
@@ -868,11 +983,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -888,6 +1006,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
@@ -903,7 +1024,7 @@
 
 .products-changecategorypopup {
     width: 80%;
-    max-width: 620px;
+    max-width: 630px;
     height: auto;
     background-color: white;
     border-radius: 8px;
@@ -924,6 +1045,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -957,6 +1082,7 @@
             width: auto;
             font-size: 14px;
             color: #444;
+            font-family: 'OpenSans' !important;
         }
 
         .MuiFormControl-root {
@@ -974,6 +1100,8 @@
                 box-sizing: border-box;
                 color: #444;
                 font-size: 14px;
+                font-family: 'OpenSans' !important;
+                line-height: 15px;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -1005,11 +1133,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -1025,6 +1156,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
