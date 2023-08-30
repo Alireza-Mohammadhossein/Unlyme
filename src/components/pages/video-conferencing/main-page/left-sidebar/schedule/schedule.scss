@@ -6,7 +6,13 @@
             border: unset;
             color: #333;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 500 !important;
+            text-transform: capitalize;
+            padding-left: 0;
+
+            &:hover {
+                background-color: transparent;
+            }
         }
     }
 
@@ -40,7 +46,10 @@
             .MuiFormControl-root  {
                 width: 100%;
                 background-color: #F8FAFC;
-                border-radius: 8px;
+                border-radius: 8px;                
+                height: 40px;
+                box-sizing: border-box;
+
             }
 
             &-item {
@@ -51,11 +60,14 @@
                     gap: 5px;
                     margin-bottom: 5px;
                     color: #333;
+                    font-family: 'OpenSans' !important;
+                    font-size: 15px;
 
                     &-info {
                         color: #888888;
                         display: block;
                         margin-bottom: 5px;
+                        font-size: 13px;
                     }
                 }
 
@@ -64,10 +76,15 @@
                         border-radius: 8px;
                         background-color: #F8FAFC;
                         padding: 10px;
+                        height: 40px;
+                        box-sizing: border-box;
+                        font-family: 'OpenSans' !important;
+                        font-size: 15px;
                     }
 
                     .MuiOutlinedInput-notchedOutline {
                         border-radius: 8px;
+                        border-color: #ECECEC;
                     }
 
                     .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
@@ -82,6 +99,8 @@
                         gap: 5px;
                         margin-bottom: 5px;
                         color: #333;
+                        font-family: 'OpenSans' !important;
+                        font-size: 15px;
                     }
 
                     &-form {
@@ -92,10 +111,17 @@
                                 padding: 10px;
                                 background-color: #F8FAFC;
                                 border-radius: 8px;
+                                height: 40px;
+                                box-sizing: border-box;
+                                font-family: 'OpenSans' !important;
+                                border: 1px solid #ECECEC;
                             }
 
                             .MuiOutlinedInput-notchedOutline {
                                 border-radius: 8px;
+                                height: 40px;
+                                box-sizing: border-box;
+                                border: unset;
                             }
         
                             .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
@@ -127,16 +153,33 @@
                         gap: 5px;
                         margin-bottom: 5px;
                         color: #333;
+                        font-family: 'OpenSans' !important;
+                        font-size: 15px;
                     }
 
                     &-select {
                         & > div > div {
                             border-radius: 8px;
                             background-color: #F8FAFC;
+                            line-height: 22px;
+                            border: 1px solid #ECECEC;
+
+                            & > div > div {
+                                height: 32px;
+                                line-height: 32px;
+                            }
+
+                            & div {
+                                font-family: 'OpenSans' !important;
+                            }
                         }
                     }
                     [class^="-control"] {
                         border-radius: 8px;
+                    }
+
+                    [class^="-singleValue"] {
+                        font-family: 'OpenSans' !important;
                     }
                 }
 

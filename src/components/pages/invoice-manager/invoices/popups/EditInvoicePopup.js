@@ -87,128 +87,128 @@ const EditInvoicePopup = ({ handleCloseEditInvoicePopup, data}) => {
 
 
     const handleCancelEdit = () => {
-        handleCloseEditInvoicePopup();
-        setClient('');
-        setProject('');
-        setCreateDate(null);
-        setDueDate(null);
-        setCategory('');
-        setAdditionalInfo(false);
-      }
-    
-      const handleSubmitEdit = () => {
-        handleCloseEditInvoicePopup();
-        setClient('');
-        setProject('');
-        setCreateDate(null);
-        setDueDate(null);
-        setCategory('');
-        setAdditionalInfo(false);
-        toast.error(`You have clicked on Edit invoice by id = ${savedData.id}!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          pauseOnFocusLoss: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
+      handleCloseEditInvoicePopup();
+      setClient('');
+      setProject('');
+      setCreateDate(null);
+      setDueDate(null);
+      setCategory('');
+      setAdditionalInfo(false);
+    }
+  
+    const handleSubmitEdit = () => {
+      handleCloseEditInvoicePopup();
+      setClient('');
+      setProject('');
+      setCreateDate(null);
+      setDueDate(null);
+      setCategory('');
+      setAdditionalInfo(false);
+      toast.error(`You have clicked on Edit invoice by id = ${savedData.id}!`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
 
 
-      const tags = [
-        'Tag 1',
-        'Tag 2',
-        'Tag 3',
-        'Tag 4',
-        'Tag 5',
-        'Tag 6',
-        'Tag 7',
-      ];
+    const tags = [
+      'Tag 1',
+      'Tag 2',
+      'Tag 3',
+      'Tag 4',
+      'Tag 5',
+      'Tag 6',
+      'Tag 7',
+    ];
 
-      const [tag, setTag] = useState([]);
-      const handleTag = (event) => {
-        const {
-          target: { value },
-        } = event;
-        setTag(
-          // On autofill we get a stringified value.
-          typeof value === 'string' ? value.split(',') : value,
-        );
-      };
-
-
-      const [notes, setNotes] = useState('');
-      const handleNotes = (event) => {
-          setNotes(event.target.value);
-      };
-
-      const [terms, setTerms] = useState('');
-      const handleTerms = (event) => {
-          setTerms(event.target.value);
-      };
+    const [tag, setTag] = useState([]);
+    const handleTag = (event) => {
+      const {
+        target: { value },
+      } = event;
+      setTag(
+        // On autofill we get a stringified value.
+        typeof value === 'string' ? value.split(',') : value,
+      );
+    };
 
 
-      const IOSSwitch = styled((props) => (
-        <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
-      ))(({ theme }) => ({
-        width: 31,
-        height: 18,
+    const [notes, setNotes] = useState('');
+    const handleNotes = (event) => {
+        setNotes(event.target.value);
+    };
+
+    const [terms, setTerms] = useState('');
+    const handleTerms = (event) => {
+        setTerms(event.target.value);
+    };
+
+
+    const IOSSwitch = styled((props) => (
+      <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+    ))(({ theme }) => ({
+      width: 31,
+      height: 18,
+      padding: 0,
+      '& .MuiSwitch-switchBase': {
         padding: 0,
-        '& .MuiSwitch-switchBase': {
-          padding: 0,
-          height: '100%',
+        height: '100%',
+        marginTop: 0 ,
+        marginBottom: 0 ,
+        marginRight: 0 ,
+        marginLeft: 2 ,
+        transitionDuration: '300ms',
+        '&.Mui-checked': {
+          transform: 'translateX(16px)',
+          color: '#fff',
           marginTop: 0 ,
           marginBottom: 0 ,
-          marginRight: 0 ,
-          marginLeft: 2 ,
-          transitionDuration: '300ms',
-          '&.Mui-checked': {
-            transform: 'translateX(16px)',
-            color: '#fff',
-            marginTop: 0 ,
-            marginBottom: 0 ,
-            marginRight: 2 ,
-            marginLeft: 0 ,
-            '& + .MuiSwitch-track': {
-              backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#767680E5',
-              opacity: 1,
-              border: 0,
-            },
-            '&.Mui-disabled + .MuiSwitch-track': {
-              opacity: 0.5,
-            },
-          },
-          '&.Mui-focusVisible .MuiSwitch-thumb': {
-            color: '#33cf4d',
-            border: '6px solid #fff',
-          },
-          '&.Mui-disabled .MuiSwitch-thumb': {
-            color:
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[600],
+          marginRight: 2 ,
+          marginLeft: 0 ,
+          '& + .MuiSwitch-track': {
+            backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#51A3FFCC',
+            opacity: 1,
+            border: 0,
           },
           '&.Mui-disabled + .MuiSwitch-track': {
-            opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+            opacity: 0.5,
           },
         },
-        '& .MuiSwitch-thumb': {
-          boxSizing: 'border-box',
-          width: 13,
-          height: 13,
+        '&.Mui-focusVisible .MuiSwitch-thumb': {
+          color: '#33cf4d',
+          border: '6px solid #fff',
         },
-        '& .MuiSwitch-track': {
-          borderRadius: 26 / 2,
-          backgroundColor: theme.palette.mode === 'light' ? '#c4bfd2' : '#39393D',
-          opacity: 1,
-          transition: theme.transitions.create(['background-color'], {
-            duration: 500,
-          }),
+        '&.Mui-disabled .MuiSwitch-thumb': {
+          color:
+            theme.palette.mode === 'light'
+              ? theme.palette.grey[100]
+              : theme.palette.grey[600],
         },
-      }));
+        '&.Mui-disabled + .MuiSwitch-track': {
+          opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+        },
+      },
+      '& .MuiSwitch-thumb': {
+        boxSizing: 'border-box',
+        width: 13,
+        height: 13,
+      },
+      '& .MuiSwitch-track': {
+        borderRadius: 26 / 2,
+        backgroundColor: theme.palette.mode === 'light' ? '#7676804D' : '#39393D',
+        opacity: 1,
+        transition: theme.transitions.create(['background-color'], {
+          duration: 500,
+        }),
+      },
+    }));
  
 
   return (

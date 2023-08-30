@@ -87,7 +87,7 @@ const CalendarBlock = () => {
 
   const customDayHeaderContent = (info) => {
     const dayNum = new Date(info.date).getDate();
-    const month = new Date(info.date).toLocaleString('default', { month: 'short' });
+    const month = new Date(info.date).toLocaleString('default', { month: 'long' });
     const year = new Date(info.date).getFullYear();
     const dayText = new Date(info.date).toLocaleString('default', { weekday: 'long' });
 
@@ -100,7 +100,7 @@ const CalendarBlock = () => {
     // const year = new Date(info.date).getFullYear();
     return (
       <>
-        {dayText}, {dayNum} {month} {year}
+        <span>{dayText}</span>, {dayNum} {month} {year}
       </>
     );
   };

@@ -160,7 +160,7 @@ const MeetNow = ({handleShowMain}) => {
                         <TextField placeholder="Enter attendee name" className="meetnow-content_form-item-input" />
                     </div>
 
-                    <div className="meetnow-content_form-item-switch">
+                    <div style={{marginTop: '15px'}} className="meetnow-content_form-item-switch">
                         <div className="meetnow-content_form-item-switch-label" onClick={handleMic}>
                             <img src={mic ? micOnIcon : micOffIcon} alt="microphone" />
                             <span>Auto enable microphone</span>

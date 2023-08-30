@@ -26,7 +26,7 @@ export const INITIAL_EVENTS = [
   // },
   {
     id: createEventId(),
-    title: 'Test event',
+    title: 'Interview with Elena',
     start: todayStr + 'T12:00:00',
     end: todayStr + 'T13:00:00',
     category: 'Personal',
@@ -36,7 +36,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'Developing event',
+    title: 'Team meeting',
     start: todayStr + 'T15:00:00',
     end: todayStr + 'T16:00:00',
     category: 'Public',
@@ -46,7 +46,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'This is a test event for tomorrow',
+    title: 'Coffee with Anita',
     start: tomorrowStr + 'T15:30:00',
     end: tomorrowStr + 'T16:30:00',
     category: 'Birthday',
@@ -56,7 +56,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'This is a test event for tomorrow',
+    title: 'Weekly management',
     start: tomorrowStr + 'T10:30:00',
     end: tomorrowStr + 'T11:30:00',
     category: 'Personal',
@@ -66,7 +66,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'Test event for a day after tomorrow',
+    title: 'Lunch with Mark',
     start: afterTomorrowStr + 'T10:30:00',
     end: afterTomorrowStr + 'T13:30:00',
     category: 'Holiday',
@@ -76,7 +76,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'Test event for a day after tomorrow',
+    title: 'Interview with Mark',
     start: afterTomorrowStr + 'T18:30:00',
     end: afterTomorrowStr + 'T19:30:00',
     category: 'Public',
@@ -86,7 +86,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'Test event for a day after tomorrow',
+    title: 'Coffee with Mark',
     start: afterTomorrow_4Str + 'T10:30:00',
     end: afterTomorrow_4Str + 'T13:30:00',
     category: 'Holiday',
@@ -96,7 +96,7 @@ export const INITIAL_EVENTS = [
   },
   {
     id: createEventId(),
-    title: 'Test event for a day after tomorrow',
+    title: 'Monthly management',
     start: afterTomorrow_4Str + 'T18:30:00',
     end: afterTomorrow_4Str + 'T19:30:00',
     category: 'Birthday',

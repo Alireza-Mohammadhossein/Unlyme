@@ -120,7 +120,7 @@
                 padding-left: 10px;
 
                 input {
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ececec;
                     padding-top: 0;
                     padding-bottom: 0;
                     height: 100%;
@@ -290,6 +290,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -301,7 +302,7 @@
                 padding-left: 10px;
 
                 input {
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ECECEC;
                     color: #444;
                     padding-top: 0;
                     padding-bottom: 0;
@@ -335,6 +336,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -360,6 +362,7 @@
 
             .MuiOutlinedInput-notchedOutline  {
                 border-radius: 8px;
+                border-color: #ECECEC;
             }
 
             .MuiSvgIcon-root {
@@ -390,6 +393,7 @@
 
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
 
                 .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
@@ -641,6 +645,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -652,7 +657,7 @@
                 padding-left: 10px;
 
                 input {
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ececec;
                     padding-top: 0;
                     padding-bottom: 0;
                     height: 100%;
@@ -704,6 +709,7 @@
 
             .MuiOutlinedInput-notchedOutline  {
                 border-radius: 8px;
+                border-color: #ECECEC;
             }
 
             .MuiSvgIcon-root {
@@ -734,6 +740,7 @@
 
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
 
                 .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
@@ -792,6 +799,7 @@
 
             .MuiOutlinedInput-notchedOutline {
                 border-radius: 8px;
+                border-color: #ECECEC;
             }
         }
 
@@ -816,6 +824,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -1111,6 +1120,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -1121,8 +1131,15 @@
             .MuiInputBase-adornedStart {
                 padding-left: 10px;
 
+
+                .MuiTypography-body-1 {
+                    font-size: 13px;
+                    color: #ACACAC;
+                    font-family: "OpenSans" !important;
+                }
+
                 input {
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ececec;
                 }
             }
         }
@@ -1145,6 +1162,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -1210,6 +1228,7 @@
 
             .MuiOutlinedInput-notchedOutline  {
                 border-radius: 8px;
+                border-color: #ECECEC;
             }
 
             .MuiSvgIcon-root {
@@ -1240,6 +1259,7 @@
 
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ECECEC;
                 }
 
                 .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {

@@ -15,6 +15,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { TimeField } from "@mui/x-date-pickers/TimeField";
+import arrowLeftIcon from '../../../../../../assets/images/vide-conferencing/chevron-left.svg';
 import scheduleIcon from '../../../../../../assets/images/vide-conferencing/schedule.png';
 import dateIcon from '../../../../../../assets/images/vide-conferencing/date.png';
 import nameIcon from '../../../../../../assets/images/vide-conferencing/name.svg';
@@ -64,21 +65,26 @@ const Schedule = ({handleShowMain}) => {
   const IOSSwitch = styled((props) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
   ))(({ theme }) => ({
-    width: 42,
-    height: 23,
+    width: 31,
+    height: 18,
     padding: 0,
     '& .MuiSwitch-switchBase': {
       padding: 0,
-      marginTop: 3 ,
-      marginBottom: 3 ,
-      marginRight: 5 ,
-      marginLeft: 4 ,
+      height: '100%',
+      marginTop: 0 ,
+      marginBottom: 0 ,
+      marginRight: 0 ,
+      marginLeft: 2 ,
       transitionDuration: '300ms',
       '&.Mui-checked': {
         transform: 'translateX(16px)',
         color: '#fff',
+        marginTop: 0 ,
+        marginBottom: 0 ,
+        marginRight: 2 ,
+        marginLeft: 0 ,
         '& + .MuiSwitch-track': {
-          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+          backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#767680E5',
           opacity: 1,
           border: 0,
         },
@@ -102,8 +108,8 @@ const Schedule = ({handleShowMain}) => {
     },
     '& .MuiSwitch-thumb': {
       boxSizing: 'border-box',
-      width: 17,
-      height: 17,
+      width: 13,
+      height: 13,
     },
     '& .MuiSwitch-track': {
       borderRadius: 26 / 2,
@@ -119,9 +125,9 @@ const Schedule = ({handleShowMain}) => {
   return (
     <div className="schedule">
         <div className="schedule-actions">
-            <Button variant="outlined" startIcon={<ArrowBackIosIcon />} onClick={handleShowMain}>
-                Back
-            </Button>
+          <Button variant="outlined" startIcon={<img src={arrowLeftIcon} />} onClick={handleShowMain}>
+              Back
+          </Button>
         </div>
 
         <div className="schedule-content">

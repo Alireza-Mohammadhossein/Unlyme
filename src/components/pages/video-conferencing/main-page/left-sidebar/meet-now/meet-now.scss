@@ -61,6 +61,7 @@
                         color: #888888;
                         display: block;
                         margin-bottom: 5px;
+                        font-size: 13px;
                     }
                 }
 
@@ -69,6 +70,9 @@
                         border-radius: 8px;
                         background-color: #F8FAFC;
                         padding: 10px;
+                        height: 40px;
+                        box-sizing: border-box;
+                        font-family: 'OpenSans' !important;
                     }
 
                     .MuiOutlinedInput-notchedOutline {
@@ -102,6 +106,7 @@
 
                         img {
                             width: 20px;
+                            height: 20px;
                         }
                     }
 

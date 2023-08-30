@@ -3936,7 +3936,7 @@ export const sampleTasks = {
           "cards": [
               {
                   "id": "69ee76ea-73df-4bd4-9416-c438df394dc9",
-                  "title": "asxsax",
+                  "title": "Make new logo",
                   "description": "sxsaxas",
                   "comments": [
                       {
@@ -4001,7 +4001,7 @@ export const sampleTasks = {
               },
               {
                   "id": "674325d4-a451-4b00-8fe3-f9684083071e",
-                  "title": "asxasxasx",
+                  "title": "Test new website",
                   "description": "asxasxasx",
                   "comments": [],
                   "tags": [
@@ -4015,7 +4015,7 @@ export const sampleTasks = {
               },
               {
                   "id": "cb5ab410-2b70-4b50-a8ed-38c4b7bb8a35",
-                  "title": "axasx",
+                  "title": "Make new logo",
                   "description": "xasxasx",
                   "comments": [
                       {
@@ -4035,7 +4035,7 @@ export const sampleTasks = {
               },
               {
                   "id": "2b1949e4-3c61-4947-a566-ec4bd9bd8273",
-                  "title": "axsax",
+                  "title": "Make new logo",
                   "description": "asxasx",
                   "comments": [],
                   "tags": [
@@ -4049,7 +4049,7 @@ export const sampleTasks = {
               },
               {
                   "id": "9248b044-ead3-4b9f-b24c-351beb719e4e",
-                  "title": "asxasxas",
+                  "title": "Make new logo",
                   "description": "asxsax",
                   "comments": [],
                   "tags": [
@@ -4060,7 +4060,7 @@ export const sampleTasks = {
               },
               {
                   "id": "935c1e5e-a66f-4a38-8b1d-03b938580efc",
-                  "title": "asxasx",
+                  "title": "Test new website",
                   "description": "axsx",
                   "comments": [],
                   "tags": [
@@ -4081,7 +4081,7 @@ export const sampleTasks = {
           "cards": [
               {
                   "id": "13e71312-ce80-406b-8a36-4529d77251de",
-                  "title": "asxasxasx",
+                  "title": "Make new logo",
                   "description": "asxasx",
                   "comments": [],
                   "tags": [
@@ -4094,7 +4094,7 @@ export const sampleTasks = {
               },
               {
                   "id": "bb3f0b51-f5e7-4732-8380-a296e27c4b6a",
-                  "title": "asxasxasx",
+                  "title": "Test new website",
                   "description": "asxasx",
                   "comments": [
                       {
@@ -4136,7 +4136,7 @@ export const sampleTasks = {
           "cards": [
               {
                   "id": "02517a49-b88d-4938-b6f7-8b80bd1cb345",
-                  "title": "asxaxasx",
+                  "title": "Make new logo",
                   "description": "saxasx",
                   "comments": [
                       {
@@ -4169,7 +4169,7 @@ export const sampleTasks = {
           "cards": [
               {
                   "id": "a29ed881-479b-426b-b2e8-1f9524061348",
-                  "title": "asxasx",
+                  "title": "Make new logo",
                   "description": "asxasxa",
                   "comments": [],
                   "tags": [],

@@ -85,10 +85,9 @@
 
             .MuiSelect-select {
                 padding: 10px;
-                background-color: #F8FAFC;
+                // background-color: #F8FAFC;
                 color: #444;
                 font-size: 13px;
-
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -118,7 +117,7 @@
                     padding-top: 0;
                     padding-bottom: 0;
                     height: 100%;
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ECECEC;
                 }
 
                 .MuiTypography-body1 {
@@ -366,9 +365,12 @@
             .MuiSelect-select {
                 background-color: #F8FAFC;
                 padding: 10px;
-                    font-family: 'OpenSans' !important;
-    font-size: 14px;
-    color: #444;
+                font-family: "OpenSans" !important;
+                font-size: 14px;
+                color: #444;
+                height: 35px;
+                box-sizing: border-box;
+                line-height: 15px;
             }
 
             .MuiOutlinedInput-notchedOutline {
@@ -824,9 +826,11 @@
             .MuiSelect-select {
                 background-color: #F8FAFC;
                 padding: 10px;
-                    font-family: 'OpenSans' !important;
-    font-size: 14px;
-    color: #444;
+                font-family: "OpenSans" !important;
+                font-size: 14px;
+                color: #444;
+                height: 35px;
+                box-sizing: border-box;
             }
 
             .MuiOutlinedInput-notchedOutline {
@@ -1342,7 +1346,7 @@
                     padding-bottom: 0;
                     height: 100%;
                     box-sizing: border-box;
-                    border-left: 1px solid #e3e3e3;
+                    border-left: 1px solid #ececec;
                 }
             }
 
@@ -2345,6 +2349,9 @@
                 color: #444;
                 font-size: 14px;
                 font-family: 'OpenSans' !important;
+                height: 35px !important;
+                box-sizing: border-box;
+                line-height: 15px;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -2373,6 +2380,9 @@
                     font-size: 14px;
                     color: #444;
                     font-family: 'OpenSans' !important;
+                    height: 35px;
+                    box-sizing: border-box;
+                    line-height: 15px;
                 }
 
                 .MuiOutlinedInput-notchedOutline {
