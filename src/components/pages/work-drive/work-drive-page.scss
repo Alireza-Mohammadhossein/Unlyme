@@ -203,9 +203,10 @@
             padding-left: 8px;
             text-overflow: ellipsis;
           }
+          
           & div:nth-child(3) {
-            flex: 0 1 170px;
-            padding: 2px 8px;
+            flex: 0 1 120px;
+            padding: 2px 6px;
             z-index: 20;
             overflow: hidden;
             font-size: 14px;
@@ -214,16 +215,18 @@
             font-size: 15px;
             color: #333;
             font-weight: 500;
+            text-align: left;
           }
+
           & div:nth-child(4) {
-            flex: 0 1 150px;
-            padding: 2px 8px;
+            flex: 0 1 190px;
+            padding: 2px 6px;
             z-index: 20;
             overflow: hidden;
             font-size: 14px;
             box-sizing: border-box;
             white-space: nowrap;
-            text-align: right;
+            text-align: left;
             padding-right: 25px;
             font-size: 15px;
             color: #333;

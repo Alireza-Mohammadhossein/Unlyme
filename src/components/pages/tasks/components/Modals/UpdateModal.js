@@ -170,16 +170,6 @@ export default function UpdateModal({
                 <FormControlLabel
                     control={
                     <Checkbox
-                        checked={tags.includes('Webix')}
-                        onChange={(event) => handleTagChange(event, 'Webix')}
-                    />
-                    }
-                    label="Webix"
-                />
-                
-                <FormControlLabel
-                    control={
-                    <Checkbox
                         checked={tags.includes('Jet')}
                         onChange={(event) => handleTagChange(event, 'Jet')}
                     />

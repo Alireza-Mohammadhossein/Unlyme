@@ -49,7 +49,7 @@ import CustomListHeader from "./CustomListHeader";
 
 
   
-  const WorkDriveContent = () => {
+  const WorkDriveContent = ({listViewActive}) => {
   
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
@@ -93,13 +93,6 @@ import CustomListHeader from "./CustomListHeader";
       //   setOpenSubMenu(!openSubMenu);
       // };
 
-      
-      useEffect(() => {
-        console.log(document.getElementsByClassName(''))
-      })
-
-
-    
 
     
 
@@ -378,7 +371,9 @@ import CustomListHeader from "./CustomListHeader";
                   </div>
                   <FileToolbar />
                 </div>
-                  {/* <CustomListHeader /> */}
+                {
+                  listViewActive ? <CustomListHeader /> : ''
+                }
                   <FileList />
                   <FileContextMenu />
               </div>

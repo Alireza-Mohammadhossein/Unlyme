@@ -30,6 +30,8 @@ import {
 const rootFolderId = DemoFsMap.rootFolderId;
 const fileMap = DemoFsMap.fileMap;
 
+
+
 export const useFiles = (currentFolderId) => {
   return useMemo(() => {
       const currentFolder = fileMap[currentFolderId];
@@ -61,20 +63,28 @@ export const useFolderChain = (currentFolderId) => {
   }, [currentFolderId]);
 };
 
-export const useFileActionHandler = (setCurrentFolderId) => {
-  return useCallback((data) => {
-      if (data.id === ChonkyActions.OpenFiles.id) {
-          const { targetFile, files } = data.payload;
-          const fileToOpen = targetFile ?? files[0];
-          if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
-              setCurrentFolderId(fileToOpen.id);
-              return;
-          }
-      }
+// export const useFileActionHandler = (setCurrentFolderId) => {
+//   return useCallback((data) => {    
+//       if (data.id === ChonkyActions.OpenFiles.id) {
+//           const { targetFile, files } = data.payload;
+//           const fileToOpen = targetFile ?? files[0];
+//           if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
+//               setCurrentFolderId(fileToOpen.id);
+//               return;
+//           }
+//       }
 
-      // showActionNotification(data);
-  }, [setCurrentFolderId]);
-};
+//       if (data.id === ChonkyActions.EnableGridView.id) {
+//         setListViewActive(false)
+//       }
+
+//       if (data.id === ChonkyActions.EnableListView.id) {
+//         setListViewActive(true)
+//       }
+
+//       // showActionNotification(data);
+//   }, [setCurrentFolderId]);
+// };
 
 
 
@@ -83,13 +93,38 @@ export const useFileActionHandler = (setCurrentFolderId) => {
 const WorkDrivePage = () => {
   const { t, i18n } = useTranslation();
   const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+  const [listViewActive, setListViewActive,] = useState(false);
+
 
 
   setChonkyDefaults({
     iconComponent: ChonkyIconFA,
     // disableSelection: true,
     disableDragAndDropProvider: true,
-});
+  });
+
+  const useFileActionHandler = (setCurrentFolderId) => {
+    return useCallback((data) => {    
+        if (data.id === ChonkyActions.OpenFiles.id) {
+            const { targetFile, files } = data.payload;
+            const fileToOpen = targetFile ?? files[0];
+            if (fileToOpen && FileHelper.isDirectory(fileToOpen)) {
+                setCurrentFolderId(fileToOpen.id);
+                return;
+            }
+        }
+  
+        if (data.id === ChonkyActions.EnableGridView.id) {
+          setListViewActive(false)
+        }
+  
+        if (data.id === ChonkyActions.EnableListView.id) {
+          setListViewActive(true)
+        }
+  
+        // showActionNotification(data);
+    }, [setCurrentFolderId]);
+  };
 
 
     // chonky configs
@@ -229,7 +264,7 @@ const WorkDrivePage = () => {
         // disableDefaultFileActions={true}
         // onFileAction={() => alert('hi')}
         disableDefaultFileActions={actionsToDisable}
-        defaultFileViewActionId={'date'}
+        defaultFileViewActionId={ChonkyActions.EnableGridView.id}
         fileActions={myFileActions}
         onFileAction={handleFileAction}
       > 
@@ -258,7 +293,7 @@ const WorkDrivePage = () => {
 
       <div className="cloud-page__content">
 
-          <WorkDriveContent />
+          <WorkDriveContent listViewActive={listViewActive} />
 
       </div>
     </div>

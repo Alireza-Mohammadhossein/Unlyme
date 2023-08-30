@@ -165,6 +165,8 @@
         height: calc(100% - 50px);
 
         & .chonky-gridContainer {
+
+            margin-top: 30px;
         
             & > div {
                 width: 100% !important;
@@ -254,10 +256,11 @@
                 & [class^="listFileEntryName-"] {
                     color: #333;
                     line-height: 22px;
+                    font-size: 15px;
                 }
 
                 & [class^="listFileEntryProperty-"] {
-                    text-align: right;
+                    text-align: left;
                 }
                 
 
@@ -271,10 +274,14 @@
                 
                 div:nth-child(5) {
                     order: 4;
+                    flex: 0 1 170px;
+                    color: #333;
+                    font-size: 15px;
                 }
                 
                 div:nth-child(6) {
                     order: 3;
+                    flex: 0 1 120px;
                 }
             }
 

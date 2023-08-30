@@ -201,7 +201,6 @@ export default function AddModal({
                     <FormControlLabel control={<Checkbox />} label="Easy" onChange={() => tagsHandler('Easy')} />
                     <FormControlLabel control={<Checkbox />} label="Normal" onChange={() => tagsHandler('Normal')} />
                     <FormControlLabel control={<Checkbox />} label="Hard" onChange={() => tagsHandler('Hard')} />
-                    <FormControlLabel control={<Checkbox />} label="Webix" onChange={() => tagsHandler('Webix')} />
                     <FormControlLabel control={<Checkbox />} label="Jet" onChange={() => tagsHandler('Jet')} />
                 </div>
 
