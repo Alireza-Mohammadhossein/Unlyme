@@ -33,6 +33,7 @@ import search from "../../../../assets/images/header/new-icons/search-1.svg";
 import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
 import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
 import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
+import readIcon from "../../../../assets/images/header/new-icons/tik.svg";
 
 
 
@@ -307,7 +308,8 @@ const HeaderChatPopup = ({ props }) => {
                                   {item.new_messages > 0 ?
                                     <CircleIcon className='chat-popup-list__body-messages_item_status-unread' />
                                     :
-                                    <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
+                                    // <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
+                                    <img src={readIcon}  className='chat-popup-list__body-messages_item_status-read' />
                                   }
                                 </div>
 
@@ -382,7 +384,8 @@ const HeaderChatPopup = ({ props }) => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
                       </IconButton>
     
                       <Menu
@@ -425,7 +428,8 @@ const HeaderChatPopup = ({ props }) => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
                       </IconButton>
     
                     </div>
@@ -590,7 +594,9 @@ const HeaderChatPopup = ({ props }) => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
+
                       </IconButton>
     
                       <Menu
@@ -633,7 +639,9 @@ const HeaderChatPopup = ({ props }) => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
+
                       </IconButton>
     
                     </div>

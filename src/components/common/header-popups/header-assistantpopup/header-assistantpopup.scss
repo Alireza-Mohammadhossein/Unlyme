@@ -3,7 +3,7 @@
   position: relative;
 } 
 .assistant-popup {
-    width: 380px;
+    width: auto;
     display: flex;
     z-index: 3;
     flex-direction: row;
@@ -27,7 +27,7 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px;
+        padding: 20px 30px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
@@ -46,7 +46,7 @@
       }
     
       &__body {
-        padding: 20px;
+        padding: 20px 15px;
         height: calc(100% - 160px);
         box-sizing: border-box;
         display: flex;
@@ -55,6 +55,7 @@
     
         &-search {
             margin-bottom: 20px;
+            padding: 0 15px;
 
             &_form {
               width: 100%;
@@ -73,16 +74,27 @@
               padding: 10px 8px;
               font-size: 15px;
               background-color: #f8fafc;
-      
-              & label {
-                color: #acacac;
+
+              input {
+                color: #ACACAC;
+                font-size: 15px;
+
+                &::placeholder {
+                  color: #ACACAC;
+                  opacity: 1;
+                }
               }
+      
+              
               & .MuiInputBase-root {
                 border-radius: 8px;
+
+                img {
+                  width: 20px;
+                  height: 20px;
+                }
               }
-              & .MuiInput-underline:after {
-                border-bottom-color: green;
-              }
+              
               & .MuiOutlinedInput-root {
                 & fieldset {
                   border-color: #ececec;
@@ -96,18 +108,27 @@
               }
       
               &::placeholder {
-                color: #acacac;
+                color: #ACACAC;
+                opacity: 1;
               }
             }
-          }
+        }
 
         &-create {
+          margin-bottom: 23px;
+          padding: 0 15px;
+
             &_btn {
                 width: 100%;
                 justify-content: left !important;
                 padding: 20px 15px !important;
-                color: $blue !important;
+                color: #51A3FF !important;
                 border-radius: 14px !important;
+                height: 66px;
+                border-color: #CFCFCF !important;
+                font-weight: 500 !important;
+                font-style: 15px !important;
+                text-transform: capitalize !important;
             }
         }
     
@@ -144,8 +165,13 @@
             gap: 15px;
             text-transform: unset !important;
             flex-direction: row !important;
-            padding: 15px 0 !important;
-            border-bottom: 1px solid #ECECEC !important;
+            padding: 12px 15px !important;
+            // border-bottom: 1px solid #ECECEC !important;
+
+            &:hover {
+              border-radius: 14px;
+              background-color: #F2F2F2;
+            }
         
             &_content {
               overflow: hidden;
@@ -178,6 +204,8 @@
             &_actions {
               transition: all 0.3s ease;
               display: none;
+              gap: 10px;
+
               &-edit {
                 & button {
                   padding: 2px !important;
@@ -264,7 +292,7 @@
             padding: 15px;
             font-size: 13px;
             color: #525252;
-            text-align: center;
+            text-align: left;
             border-bottom: 1px solid #ececec;
           }
 
@@ -426,332 +454,332 @@
 }
 
 
-.siteWrapperLG .assistant-popup {
-  &-list {
-    width: 330px;
-    // padding: ;
+// .siteWrapperLG .assistant-popup {
+//   &-list {
+//     width: 330px;
+//     // padding: ;
 
-    &__header {
-      padding: 20px;
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       padding: 20px;
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      padding: 20px;
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-            }
-      }
+//     &__body {
+//       padding: 20px;
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//             }
+//       }
   
-      &-messages {
-        &_container {
-          height: 97%;
-        }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
   
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
     
-      &__header {
-        &-info {
-          &_name {
-            font-size: 20px;
-          }
-        }
-      }
+//       &__header {
+//         &-info {
+//           &_name {
+//             font-size: 20px;
+//           }
+//         }
+//       }
   
-      &__body {
-        &-terms {
-          font-size: 13px;
-        }
+//       &__body {
+//         &-terms {
+//           font-size: 13px;
+//         }
 
-        &-content {  
-          &_friend {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
+//         &-content {  
+//           &_friend {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
   
   
-          &_own {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-      }
-    }   
-  }
+//           &_own {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
+//       }
+//     }   
+//   }
   
-}
+// }
 
-.siteWrapperMD .assistant-popup {
-  &-list {
-    width: 330px;
+// .siteWrapperMD .assistant-popup {
+//   &-list {
+//     width: 330px;
     
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-            }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//             }
+//       }
   
-      &-messages {
-        &_container {
-          height: 97%;
-        }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
   
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
 
-      &__header {
-        &-info {
-          &_name {
-            font-size: 20px;
-          }
-        }
-      }
+//       &__header {
+//         &-info {
+//           &_name {
+//             font-size: 20px;
+//           }
+//         }
+//       }
   
-      &__body {
-        &-terms {
-          font-size: 13px;
-        }
+//       &__body {
+//         &-terms {
+//           font-size: 13px;
+//         }
 
-        &-content {  
-          &_friend {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
+//         &-content {  
+//           &_friend {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
   
   
-          &_own {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-      }
-    }   
-  }
+//           &_own {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
+//       }
+//     }   
+//   }
   
-}
+// }
 
-.siteWrapperSM .assistant-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperSM .assistant-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-            }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//             }
+//       }
   
-      &-messages {
-        &_container {
-          height: 97%;
-        }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
   
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
 
-      &__header {
-        &-info {
-          &_name {
-            font-size: 20px;
-          }
-        }
-      }
+//       &__header {
+//         &-info {
+//           &_name {
+//             font-size: 20px;
+//           }
+//         }
+//       }
   
-      &__body {
-        &-terms {
-          font-size: 13px;
-        }
+//       &__body {
+//         &-terms {
+//           font-size: 13px;
+//         }
 
-        &-content {  
-          &_friend {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
+//         &-content {  
+//           &_friend {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
   
   
-          &_own {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-      }
-    }   
-  }
+//           &_own {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
+//       }
+//     }   
+//   }
   
-}
+// }
 
-.siteWrapperXS .assistant-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperXS .assistant-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-            }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//             }
+//       }
   
-      &-messages {
-        &_container {
-          height: 97%;
-        }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
   
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
 
-      &__header {
-        &-info {
-          &_name {
-            font-size: 20px;
-          }
-        }
-      }
+//       &__header {
+//         &-info {
+//           &_name {
+//             font-size: 20px;
+//           }
+//         }
+//       }
   
-      &__body {
-        &-terms {
-          font-size: 13px;
-        }
+//       &__body {
+//         &-terms {
+//           font-size: 13px;
+//         }
 
-        &-content {  
-          &_friend {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
+//         &-content {  
+//           &_friend {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
   
   
-          &_own {
-            &-message {
-              &_text {
-                & p {
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-      }
-    }   
-  }
+//           &_own {
+//             &-message {
+//               &_text {
+//                 & p {
+//                   font-size: 14px;
+//                 }
+//               }
+//             }
+//           }
+//       }
+//     }   
+//   }
   
-}
+// }
 
 .dark .assistant-popup {
   background-color: $dark-theme-background-color;

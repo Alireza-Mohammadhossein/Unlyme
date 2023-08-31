@@ -24,6 +24,12 @@ import SendIcon from "@mui/icons-material/Send";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleAssistantPopup ,toggleNewAssistantPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+import search from "../../../../assets/images/header/new-icons/search-1.svg";
+import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
+import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
+import editIcon from "../../../../assets/images/header/new-icons/edit-1.svg";
+import trashIcon from "../../../../assets/images/header/new-icons/trash.svg";
+
 
 
 function TabPanel(props) {
@@ -154,7 +160,8 @@ const HeaderAssistantPopup = ({
                     aria-haspopup="true"
                     onClick={handleClick}
                   >
-                    <MoreHorizIcon sx={{ color: "#000000" }} />
+                    {/* <MoreHorizIcon sx={{ color: "#000000" }} /> */}
+                    <img src={moreIcon} />
                   </IconButton>
 
                   <Menu
@@ -197,7 +204,8 @@ const HeaderAssistantPopup = ({
                       // setAssistantPopupToggler(false)
                     }
                   >
-                    <CloseIcon sx={{ color: "#000000" }} />
+                    {/* <CloseIcon sx={{ color: "#000000" }} /> */}
+                    <img src={closeIcon} />
                   </IconButton>
                 </div>
               </div>
@@ -221,7 +229,8 @@ const HeaderAssistantPopup = ({
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SearchIcon sx={{ color: "#ACACAC" }} />
+                      {/* <SearchIcon sx={{ color: "#ACACAC" }} /> */}
+                    <img src={search} />
                     </InputAdornment>
                   ),
                 }}
@@ -275,9 +284,30 @@ const HeaderAssistantPopup = ({
                                 aria-controls={open ? "long-menu" : undefined}
                                 aria-expanded={open ? "true" : undefined}
                                 aria-haspopup="true"
-                                onClick={() => handleDeleteAssistant(index)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                }}
                               >
-                                <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+                                {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
+                                <img src={editIcon} />
+                              </IconButton>
+                            </div>
+
+
+                            <div className="assistant-popup-list__body-messages_item_actions-delete">
+                              <IconButton
+                                aria-label="delete"
+                                id="long-button"
+                                aria-controls={open ? "long-menu" : undefined}
+                                aria-expanded={open ? "true" : undefined}
+                                aria-haspopup="true"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleDeleteAssistant(index)
+                                }}
+                              >
+                                {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
+                                <img src={trashIcon} />
                               </IconButton>
                             </div>
                           </div>
@@ -324,7 +354,8 @@ const HeaderAssistantPopup = ({
                       aria-haspopup="true"
                       onClick={handleClick}
                     >
-                      <MoreHorizIcon sx={{ color: "#000000" }} />
+                      {/* <MoreHorizIcon sx={{ color: "#000000" }} /> */}
+                      <img src={moreIcon} />
                     </IconButton>
 
                     <Menu
@@ -367,7 +398,8 @@ const HeaderAssistantPopup = ({
                         dispatch(toggleSecondPopupTab(false))
                       }}
                     >
-                      <CloseIcon sx={{ color: "#000000" }} />
+                      {/* <CloseIcon sx={{ color: "#000000" }} /> */}
+                      <img src={closeIcon} />
                     </IconButton>
                   </div>
                 </div>

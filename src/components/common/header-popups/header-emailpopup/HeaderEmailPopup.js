@@ -22,6 +22,10 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Avatar from '@mui/material/Avatar';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
+import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
+import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
+import attachIcon from "../../../../assets/images/header/new-icons/attach.svg";
 
 
 
@@ -123,7 +127,8 @@ const HeaderEmailPopup = () => {
                           dispatch(toggleEmailpopup())
                         }
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
                       </IconButton>
 
                     </div>
@@ -173,13 +178,14 @@ const HeaderEmailPopup = () => {
                                 ''
                               } */}
                               {email.attached ? 
-                                <AttachFileIcon
-                                  sx={{
-                                    transform: 'rotate(45deg)',
-                                    color: '#00000080',
-                                    fontSize: '20px'
-                                    }} 
-                                /> 
+                                // <AttachFileIcon
+                                //   sx={{
+                                //     transform: 'rotate(45deg)',
+                                //     color: '#00000080',
+                                //     fontSize: '20px'
+                                //     }} 
+                                // /> 
+                                  <img src={attachIcon} />
                                  : 
                                   ''
                                }
@@ -220,7 +226,8 @@ const HeaderEmailPopup = () => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
                       </IconButton>
     
                       <Menu
@@ -263,7 +270,8 @@ const HeaderEmailPopup = () => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
                       </IconButton>
     
                     </div>
@@ -284,9 +292,15 @@ const HeaderEmailPopup = () => {
                             
                             <div className='email-popup-messages__body-single-mail__header-content-info'>
                                 <p className='email-popup-messages__body-single-mail__header-content-info_title'>{email.title}</p>
-                                <p className='email-popup-messages__body-single-mail__header-content-info_from'>From: {email.from}</p>
-                                <p className='email-popup-messages__body-single-mail__header-content-info_to'>To: {email.to}</p>
+                                <p className='email-popup-messages__body-single-mail__header-content-info_subject'>{email.subject}</p>
+                                {/* <p className='email-popup-messages__body-single-mail__header-content-info_from'>From: {email.from}</p>
+                                <p className='email-popup-messages__body-single-mail__header-content-info_to'>To: {email.to}</p> */}
                             </div>
+                        </div>
+
+                        <div className='email-popup-messages__body-single-mail__header-details'>
+                          <p className='email-popup-messages__body-single-mail__header-details_from'>From: <span></span> {email.from}</p>
+                          <p className='email-popup-messages__body-single-mail__header-details_to'>To: {email.to}</p>
                         </div>
                     </div>
 
