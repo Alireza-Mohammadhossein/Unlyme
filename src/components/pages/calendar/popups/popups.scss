@@ -1,5 +1,5 @@
 .create-eventpopup {
-    width: 350px;
+    width: 320px;
     padding: 20px;
     box-sizing: border-box;
 
@@ -15,6 +15,10 @@
             gap: 5px;
             font-size: 20px;
             color: #51A3FF;
+
+            p {
+                font-family: 'OpenSans' !important;
+            }
         }
         
         &-btn {
@@ -39,6 +43,7 @@
             gap: 5px;
             margin-bottom: 5px;
             color: #444;
+            font-family: 'OpenSans' !important;
         }
 
          
@@ -54,6 +59,9 @@
                 font-size: 13px;
                 color: #444;
                 padding: 12px 10px 10px 10px;
+                height: 35px;
+                box-sizing: border-box;
+                font-family: 'OpenSans' !important;
 
                 &::placeholder {
                     color: #444;
@@ -63,6 +71,7 @@
 
             .MuiOutlinedInput-notchedOutline {
                 border-radius: 8px;
+                border-color: #ececec;
             }
 
             &:hover .MuiOutlinedInput-notchedOutline {
@@ -83,6 +92,7 @@
     
                 .MuiOutlinedInput-notchedOutline {
                     border-radius: 8px;
+                    border-color: #ececec;
                 }
     
                 &:hover .MuiOutlinedInput-notchedOutline {
@@ -96,10 +106,13 @@
 
             .MuiSelect-select {
                 padding: 10px;
-                background-color: #F8FAFC;
+                // background-color: #F8FAFC;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                font-size: 13px;
+                color: #444;
+                font-family: 'OpenSans' !important;
             }
 
             .MuiOutlinedInput-notchedOutline  {
@@ -176,6 +189,12 @@
                 width: 100%;
                 min-height: 100px;
                 align-items: start;
+
+                textarea {
+                    font-family: 'OpenSans' !important;
+                    font-size: 13px;
+                    color: #444;
+                }
     
                 input {
                     padding: 10px;
@@ -188,6 +207,136 @@
                 &:hover .MuiOutlinedInput-notchedOutline {
                     border-color: #1976d2;
                 }
+            }
+        }
+
+        &-repeat-days {
+            width: 40%;
+            height: 35px;
+            display: flex;
+
+            &-decrease {
+                background-color: #f0f0f0;
+                width: 30px;
+                height: 100%;
+                border-radius: 8px 0 0 8px;
+                border-right: 1px solid #ECECEC;
+                cursor: pointer;
+
+                span {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    color: #444;
+                    align-items: center;
+                    justify-content: center;
+                    user-select: none; // chrome and Opera
+                     -moz-user-select: none; // Firefox
+                     -webkit-text-select: none; // IOS Safari
+                     -webkit-user-select: none; // Safari
+                }
+
+            }
+
+            &-number {
+                width: calc(100% - 60px);
+                height: 100%;
+
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
+
+                /* Firefox */
+                input[type=number] {
+                  -moz-appearance: textfield;
+                }
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    color: #444;
+                    border: unset;
+                    background-color: #F8FAFC;
+                    text-align: center;
+
+                }
+            }
+
+            &-increase {
+                background-color: #f0f0f0;
+                width: 30px;
+                height: 100%;
+                border-radius: 0 8px 8px 0;
+                border-left: 1px solid #ECECEC;
+                cursor: pointer;
+
+                span {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    color: #444;
+                    align-items: center;
+                    justify-content: center;
+                    user-select: none; // chrome and Opera
+                     -moz-user-select: none; // Firefox
+                     -webkit-text-select: none; // IOS Safari
+                     -webkit-user-select: none; // Safari
+                }
+            }
+        }
+
+        &-repeat-loop {
+            width: 60%;
+            height: 35px;
+        }
+
+        &-end-select {
+            width: 60%;
+
+            &-radio {
+                .MuiFormControlLabel-root {
+                    width: 100%;
+                    height: 35px;
+                    box-sizing: border-box;
+                }
+
+                .MuiButtonBase-root {
+                    width: 30px;
+                    height: 35px;
+                    box-sizing: border-box;
+                    
+                    &.Mui-checked {
+                        color: #51A3FF;
+                    }
+
+                }
+
+                .MuiSvgIcon-root {
+                    font-size: 18px;
+                }
+
+                .MuiTypography-root {
+                    color: #444;
+                    font-size: 13px;
+                    font-family: 'OpenSans' !important;
+                }
+            }
+
+        }
+
+        &-end-data {
+            width: 40%;
+
+            .MuiTextField-root {
+                padding-top: 35px;
+            }
+            
+            .MuiFormControl-fullWidth {
+                padding-top: 70px;
             }
         }
     }

@@ -550,6 +550,21 @@
         position: absolute;
         border-radius: 8px;
     }
+
+    .MuiBackdrop-root {
+        top: 90px !important;
+        bottom: 45px !important;
+        align-items: start;
+        display: flex;
+        justify-content: center;
+        padding-top: 45px;
+        margin: 0 auto;
+        max-width: 1600px;
+        left: 100px !important;
+        right: 100px;
+        border-radius: 16px;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }
 
 .calendar-page_sidebar-section_filter-action-popup {

@@ -17,6 +17,8 @@ import { DesktopTimePicker } from '@mui/x-date-pickers/DesktopTimePicker';
 import dayjs from "dayjs";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 
 
 
@@ -41,13 +43,13 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
   };
 
   const [endDate, setEndDate] = useState(dayjs(new Date()));
-  const handleEndDate = (event) => {
-    setEndDate(event.target.value);
+  const handleEndDate = (newValue) => {
+    setEndDate(newValue);
   };
 
   const [endTime, setEndTime] = useState(dayjs(new Date()));
-  const handleEndTime = (event) => {
-    setEndTime(event.target.value);
+  const handleEndTime = (newValue) => {
+    setEndTime(newValue);
   };
 
   const [allDay, setAllDay] = useState(false);
@@ -71,6 +73,53 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
   };
 
 
+  const minRepeatNumber = 0;
+  const maxRepeatNumber = 30;
+  
+  const [repeatNumber, setRepeatNumber] = useState(0);
+  const handleRepeatNumber = (event) => {
+    const newValue = parseInt(event.target.value, 10);
+    
+    if (!isNaN(newValue) && newValue >= minRepeatNumber && newValue <= maxRepeatNumber) {
+      setRepeatNumber(newValue);
+    }
+    // setRepeatNumber(event.target.value);
+  };
+
+  const handleDecreaseRepeatNumber = () => {
+    if (repeatNumber > minRepeatNumber) {
+      setRepeatNumber(repeatNumber - 1);
+    }
+  }
+
+  const handleIncreseRepeatNumber = () => {
+    if (repeatNumber < maxRepeatNumber) {
+      setRepeatNumber(repeatNumber + 1);
+    }
+  }
+
+
+  const [repeatLoop, setRepeatLoop] = useState('day');
+  const handleRepeatLoop = (event) => {
+    setRepeatLoop(event.target.value);
+  };
+
+  const [endRepeat, setEndRepeat] = useState('');
+  const handleEndRepeat = (event) => {
+    setEndRepeat(event.target.value);
+  };
+
+  const [endRepeatDate, setEndRepeatDate] = useState(dayjs(new Date()));
+  const handleEndRepeatDate = (newValue) => {
+    setEndRepeatDate(newValue);
+  };
+  
+  const [endLoop, setEndLoop] = useState('day');
+  const handleEndLoop = (event) => {
+    setEndLoop(event.target.value);
+  };
+
+
 
 
   const handleResetEvent = () => {
@@ -83,6 +132,11 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
     setRepeat('')
     setCategory('')
     setNote('')
+    setRepeatNumber(0)
+    setRepeatLoop('day')
+    setEndRepeat('')
+    setEndRepeatDate(dayjs(new Date()))
+    setEndLoop('day')
   }
 
   const handleSubmitEvent = () => {
@@ -96,6 +150,11 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
     setRepeat('')
     setCategory('')
     setNote('')
+    setRepeatNumber(0)
+    setRepeatLoop('day')
+    setEndRepeat('')
+    setEndRepeatDate(dayjs(new Date()))
+    setEndLoop('day')
   }
 
 
@@ -226,13 +285,120 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
               value={repeat}
               onChange={handleRepeat}
             >
-              <MenuItem value='never'>Nevre</MenuItem>
+              <MenuItem value='never'>Never</MenuItem>
               <MenuItem value='daily'>Daily</MenuItem>
               <MenuItem value='weekly'>Weekly</MenuItem>
               <MenuItem value='monthly'>Monthly</MenuItem>
+              <MenuItem value='yearly'>Yearly</MenuItem>
+              <MenuItem value='custom'>Custom</MenuItem>
             </Select>
           </FormControl>
         </div>
+
+        {
+          repeat === 'custom' ?
+          <>
+            <div className='create-eventpopup-item'>
+              <p className="create-eventpopup-item-title">
+                  Every
+              </p>
+
+              <div className='create-eventpopup-item-double'>
+                <div className='create-eventpopup-item-repeat-days'>
+                  <div className='create-eventpopup-item-repeat-days-decrease'>
+                    <span onClick={handleDecreaseRepeatNumber}>-</span>
+                  </div>
+
+                  <div className='create-eventpopup-item-repeat-days-number'>
+                    <input type='number' value={repeatNumber} onChange={handleRepeatNumber} />
+                  </div>
+
+                  <div className='create-eventpopup-item-repeat-days-increase'>
+                    <span onClick={handleIncreseRepeatNumber}>+</span>
+                  </div>
+                </div>
+
+                <div className='create-eventpopup-item-repeat-loop'>
+                  <FormControl fullWidth>
+                    <Select
+                      className="create-eventpopup-item-select"
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={repeatLoop}
+                      onChange={handleRepeatLoop}
+                    >
+                      <MenuItem value='day'>Day</MenuItem>
+                      <MenuItem value='week'>Week</MenuItem>
+                      <MenuItem value='month'>Month</MenuItem>
+                      <MenuItem value='year'>Year</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
+              </div>
+            </div>
+
+
+            <div className='create-eventpopup-item'>
+              <p className="create-eventpopup-item-title">
+                  End repeat
+              </p>
+
+              <div className='create-eventpopup-item-double'>
+                <div className='create-eventpopup-item-end-select'>
+                  <FormControl>
+                    <RadioGroup
+                      className='create-eventpopup-item-end-select-radio'
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      defaultValue="female"
+                      name="radio-buttons-group"
+                      value={endRepeat}
+                      onChange={handleEndRepeat}
+                    >
+                      <FormControlLabel value="never" control={<Radio />} label="Never" />
+                      <FormControlLabel value="date" control={<Radio />} label="Date" />
+                      <FormControlLabel value="after" control={<Radio />} label="After several occurrences" />
+                    </RadioGroup>
+                  </FormControl>
+                </div>
+
+                <div className='create-eventpopup-item-end-data'>
+                  {
+                    endRepeat === 'date' ?
+                      <LocalizationProvider dateAdapter={AdapterDayjs} >
+                        <MobileDatePicker
+                          value={endRepeatDate} 
+                          onChange={handleEndRepeatDate}
+                          // defaultValue={dayjs()}
+                          // disablePast
+                        />
+                      </LocalizationProvider>
+                     :
+                     endRepeat === 'after' ?
+                       <FormControl fullWidth>
+                         <Select
+                           className="create-eventpopup-item-select"
+                           labelId="demo-simple-select-label"
+                           id="demo-simple-select"
+                           value={endLoop}
+                           onChange={handleEndLoop}
+                         >
+                           <MenuItem value='day'>Day</MenuItem>
+                           <MenuItem value='week'>Week</MenuItem>
+                           <MenuItem value='month'>Month</MenuItem>
+                           <MenuItem value='year'>Year</MenuItem>
+                         </Select>
+                       </FormControl>
+                     :
+                        ''
+                  }
+                </div>
+              </div>
+            </div>
+          </>
+
+        :
+          ''
+        }
 
         <div className='create-eventpopup-item'>
           <p className="create-eventpopup-item-title">
