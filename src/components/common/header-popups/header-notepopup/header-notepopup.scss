@@ -4,7 +4,7 @@
 } 
 
 .note-popup {
-    width: 380px;
+    width: auto;
     display: flex;
     z-index: 3;
     flex-direction: row;
@@ -28,7 +28,7 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px;
+        padding: 20px 25px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
@@ -47,22 +47,27 @@
       }
     
       &__body {
-        padding: 20px;
-        height: calc(100% - 110px);
+        padding: 30px 15px 20px 15px;
+        height: calc(100% - 80px);
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     
         &-create {
+          padding: 0 15px;
+          margin-bottom: 10px;
+
             &_btn {
                 width: 100%;
                 justify-content: left !important;
                 padding: 20px 15px !important;
-                color: $blue !important;
+                color: #51A3FF !important;
                 border-radius: 14px !important;
                 text-transform: unset !important;
+                border: 1px solid #CFCFCF !important;
                 font-size: 14px !important;
+                font-weight: 500 !important;
             }
         }
     
@@ -99,8 +104,13 @@
             gap: 15px;
             text-transform: unset !important;
             flex-direction: row !important;
-            padding: 15px 0 !important;
+            padding: 20px 15px !important;
             border-bottom: 1px solid #ECECEC !important;
+            border-radius: 15px !important;
+
+            &:hover {
+              background-color: #F2F2F2;
+            }
         
             &_content {
               overflow: hidden;
@@ -108,7 +118,7 @@
     
               &_name {
                 font-size: 15px;
-                color: #000000;
+                color: #000000E5;
                 font-weight: 500;
     
                 white-space: nowrap;
@@ -133,6 +143,7 @@
             &_actions {
               transition: all 0.3s ease;
               display: none;
+
               &-edit {
                 & button {
                   padding: 2px !important;
@@ -147,7 +158,8 @@
             }
 
             &:hover &_actions {
-                display: flex;
+              display: flex;
+              gap: 10px;
             }
           }
           
@@ -221,7 +233,7 @@
   
           & p {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 400;
             color: #6E6F6F;
           }
         }
@@ -328,305 +340,305 @@
 }
 
 
-.siteWrapperLG .note-popup {
-  &-list {
-    width: 330px;
+// .siteWrapperLG .note-popup {
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      padding: 20px;
+//     &__header {
+//       padding: 20px;
 
-      &-title {
-        font-size: 20px;
-      }
-    }
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      padding: 20px;
+//     &__body {
+//       padding: 20px;
 
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-          }
-      }
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//           }
+//       }
   
-      &-messages {
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//       &-messages {
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
 
-    &__header {
-      padding: 20px;
+//     &__header {
+//       padding: 20px;
 
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 13px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 13px;
+//         }
+//       }
 
-      &-content {
-        padding: 20px;
+//       &-content {
+//         padding: 20px;
         
-        &_text {
-          height: 100%;
+//         &_text {
+//           height: 100%;
 
-          &-title {
-            & textarea {
-              font-size: 14px;
-            }
-          }
+//           &-title {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
 
-          &-message {
-            & textarea {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           &-message {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperMD .note-popup {
-  &-list {
-    width: 330px;
+// .siteWrapperMD .note-popup {
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-          }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//           }
+//       }
   
-      &-messages {
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//       &-messages {
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
 
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 13px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 13px;
+//         }
+//       }
 
-      &-content {
-        &_text {
-          height: 100%;
+//       &-content {
+//         &_text {
+//           height: 100%;
 
-          &-title {
-            & textarea {
-              font-size: 14px;
-            }
-          }
+//           &-title {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
 
-          &-message {
-            & textarea {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           &-message {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperSM .note-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperSM .note-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-          }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//           }
+//       }
   
-      &-messages {
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//       &-messages {
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
     
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 13px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 13px;
+//         }
+//       }
 
-      &-content {
-        &_text {
-          height: 100%;
+//       &-content {
+//         &_text {
+//           height: 100%;
 
-          &-title {
-            & textarea {
-              font-size: 14px;
-            }
-          }
+//           &-title {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
 
-          &-message {
-            & textarea {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           &-message {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperXS .note-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperXS .note-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-create {
-          &_btn {
-              padding: 15px 12px !important;
-          }
-      }
+//     &__body {
+//       &-create {
+//           &_btn {
+//               padding: 15px 12px !important;
+//           }
+//       }
   
-      &-messages {
-        &_item {
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//       &-messages {
+//         &_item {
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
 
-    }
-  }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
     
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 13px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 13px;
+//         }
+//       }
 
-      &-content {
-        &_text {
-          height: 100%;
+//       &-content {
+//         &_text {
+//           height: 100%;
 
-          &-title {
-            & textarea {
-              font-size: 14px;
-            }
-          }
+//           &-title {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
 
-          &-message {
-            & textarea {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//           &-message {
+//             & textarea {
+//               font-size: 14px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 .dark .note-popup {
   background-color: $dark-theme-background-color;

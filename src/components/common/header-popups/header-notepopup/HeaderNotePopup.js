@@ -20,6 +20,13 @@ import EditIcon from '@mui/icons-material/Edit';
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
+import search from "../../../../assets/images/header/new-icons/search-1.svg";
+import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
+import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
+import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
+import editNoteIcon from "../../../../assets/images/header/new-icons/edit-1.svg";
+import readIcon from "../../../../assets/images/header/new-icons/tik.svg";
+import trashIcon from "../../../../assets/images/header/new-icons/trash.svg";
 
 
 
@@ -198,7 +205,8 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
                       </IconButton>
 
                       <Menu
@@ -237,7 +245,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                               aria-haspopup="true"
                               onClick={handleCreateNote}
                             >
-                              <EditIcon sx={{ color: '#51A3FF' }} />
+                              {/* <EditIcon sx={{ color: '#51A3FF' }} /> */}
+                              <img src={editIcon} />
+
                             </IconButton>
                           </div>
                         :
@@ -256,7 +266,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           dispatch(toggleNotePopup())
                         }
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
+
                       </IconButton>
 
                     </div>
@@ -303,7 +315,7 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                                 </div>
                                 
                                 <div className='note-popup-list__body-messages_item_actions'>
-                                    {/* <div className='note-popup-list__body-messages_item_actions-edit'>
+                                    <div className='note-popup-list__body-messages_item_actions-edit'>
                                         <IconButton
                                             aria-label="edit"
                                             id="long-button"
@@ -312,9 +324,10 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                                             aria-haspopup="true"
                                             // onClick={handleClick}
                                         >
-                                            <DriveFileRenameOutlineIcon sx={{ color: '#6E6F6F' }} />
+                                            {/* <DriveFileRenameOutlineIcon sx={{ color: '#6E6F6F' }} /> */}
+                                            <img src={editNoteIcon} />
                                         </IconButton>
-                                    </div> */}
+                                    </div>
                                     
                                     <div className='note-popup-list__body-messages_item_actions-delete'>
                                         <IconButton
@@ -323,9 +336,13 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                                             aria-controls={open ? "long-menu" : undefined}
                                             aria-expanded={open ? "true" : undefined}
                                             aria-haspopup="true"
-                                            onClick={() => handleDeleteNote(index)}
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              handleDeleteNote(index)
+                                            }}
                                         >
-                                            <DeleteOutlineIcon sx={{ color: '#6E6F6F' }} />
+                                            {/* <DeleteOutlineIcon sx={{ color: '#6E6F6F' }} /> */}
+                                            <img src={trashIcon} />
                                         </IconButton>
 
                                     </div>
@@ -364,7 +381,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           aria-haspopup="true"
                           onClick={handleClick}
                         >
-                          <MoreHorizIcon sx={{ color: '#000000' }} />
+                          {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                          <img src={moreIcon} />
+
                         </IconButton>
       
                         <Menu
@@ -407,7 +426,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                             dispatch(toggleSecondPopupTab(false))
                           }}
                         >
-                          <CloseIcon  sx={{ color: '#000000' }}/>
+                          {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                          <img src={closeIcon} />
+
                         </IconButton>
       
                       </div>
@@ -477,7 +498,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
+
                       </IconButton>
     
                       <Menu
@@ -520,7 +543,9 @@ const HeaderNotePopup = ({ setNotePopupToggler, props }) => {
                           dispatch(toggleSecondPopupTab(false))
                         }}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
+
                       </IconButton>
     
                     </div>

@@ -12,6 +12,8 @@ import ListItemText from "@mui/material/ListItemText";
 import CircleIcon from "@mui/icons-material/Circle";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotificationPopup } from '../../../../redux/app/popupSlice';
+import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
+import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
 
 
 
@@ -46,7 +48,8 @@ const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
                       // setNotificationPopupToggler(false)
                     }
                   >
-                    <CloseIcon  sx={{ color: '#000000' }}/>
+                    {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                    <img src={closeIcon} />
                   </IconButton>
 
                 </div>
@@ -65,6 +68,8 @@ const HeaderNotificationPopup = ({ setNotificationPopupToggler }) => {
                       </div>
                       <div className='notification-popup-list__body-messages_item_header-category'>
                         {item.category}
+
+                        <span></span>
                       </div>
                       <div className='notification-popup-list__body-messages_item_header-time'>
                         {item.month} {item.day} at {item.time}

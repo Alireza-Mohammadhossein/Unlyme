@@ -4,7 +4,7 @@
 } 
 
 .notification-popup {
-    width: 380px;
+    width: auto;
     display: flex;
     z-index: 3;
     flex-direction: row;
@@ -28,7 +28,7 @@
       flex-direction: column;
     
       &__header {
-        padding: 20px;
+        padding: 20px 25px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid #ececec;
@@ -57,7 +57,7 @@
         &-messages {
           height: 95%;
           padding: 20px !important;
-          gap: 15px;
+          gap: 20px;
           display: flex;
           flex-direction: column;
           overflow-y: scroll;
@@ -78,7 +78,7 @@
           &_item {
             flex-direction: column;
             padding: 0 !important;
-            gap: 5px;
+            gap: 9px;
             border-bottom: 1px solid #ececec;
     
             & .MuiTabs-flexContainer  {
@@ -88,25 +88,35 @@
             &_header {
                 display: flex;
                 width: 100%;
-                gap: 8px;
+                gap: 6px;
                 align-items: center;
 
                 &-icon {
-
+                  padding-bottom: 3px;
                     & .MuiSvgIcon-root { 
-                    font-size: 12px;
-                    color: #3E6DC5; 
+                    font-size: 6px;
+                    color: #0A72E9; 
                     }
                 }
 
                 &-category {
-                    color: $gray-text;
-                    font-weight: 600;
-                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: #6F6F6F;
+                    font-size: 13px;
+
+                    span {
+                      width: 3px;
+                      height: 3px;
+                      border-radius: 50%;
+                      background-color: #6F6F6F;
+                      display: inline-block;
+                    }
                 }
 
                 &-time {
-                    color: #515154;
+                    color: #6F7574;
                     font-size: 13px;
                 }
             }
@@ -115,16 +125,20 @@
                 & .MuiListItemText-root {
                     display: flex;
                     flex-direction: column;
-                    gap: 5px;
+                    gap: 9px;
+                    margin-bottom: 20px;
+                    margin-top: 0;
                 }
+
                 & .MuiListItemText-primary {
                     color: #000000;
                     font-size: 14px;
+                    font-weight: 500;
                 } 
                 
                 & .MuiListItemText-secondary {
-                    color: $gray-text;
-                    font-size: 13px;
+                    color: #6F6F6F;
+                    font-size: 14px;
                 } 
 
             }
@@ -140,193 +154,193 @@
 }
 
 
-.siteWrapperLG .notification-popup {
+// .siteWrapperLG .notification-popup {
 
-  &-list {
-    width: 330px;
+//   &-list {
+//     width: 330px;
 
 
-    &__header {
-      padding: 20px;
+//     &__header {
+//       padding: 20px;
 
-      &-title {
-        font-size: 20px;
-      }
-    }
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        padding: 20px !important;
+//     &__body {
+//       &-messages {
+//         padding: 20px !important;
 
-        &_item {
-          &_header {
-              &-icon {
-                  & .MuiSvgIcon-root { 
-                  font-size: 11px; 
-                  }
-              }
+//         &_item {
+//           &_header {
+//               &-icon {
+//                   & .MuiSvgIcon-root { 
+//                   font-size: 11px; 
+//                   }
+//               }
 
-              &-category {
-                  font-size: 13px;
-              }
+//               &-category {
+//                   font-size: 13px;
+//               }
 
-              &-time {
-                  font-size: 12px;
-              }
-          }
+//               &-time {
+//                   font-size: 12px;
+//               }
+//           }
 
-          &_content {
-              & .MuiListItemText-primary {
-                  font-size: 13px;
-              } 
+//           &_content {
+//               & .MuiListItemText-primary {
+//                   font-size: 13px;
+//               } 
               
-              & .MuiListItemText-secondary {
-                  font-size: 12px;
-              } 
-          }
-        }
-      }
+//               & .MuiListItemText-secondary {
+//                   font-size: 12px;
+//               } 
+//           }
+//         }
+//       }
 
-    }
-  }  
-}
+//     }
+//   }  
+// }
 
-.siteWrapperMD .notification-popup {
+// .siteWrapperMD .notification-popup {
 
-  &-list {
-    width: 330px;
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        &_item {
-          &_header {
-              &-icon {
-                  & .MuiSvgIcon-root { 
-                  font-size: 11px; 
-                  }
-              }
+//     &__body {
+//       &-messages {
+//         &_item {
+//           &_header {
+//               &-icon {
+//                   & .MuiSvgIcon-root { 
+//                   font-size: 11px; 
+//                   }
+//               }
 
-              &-category {
-                  font-size: 13px;
-              }
+//               &-category {
+//                   font-size: 13px;
+//               }
 
-              &-time {
-                  font-size: 12px;
-              }
-          }
+//               &-time {
+//                   font-size: 12px;
+//               }
+//           }
 
-          &_content {
-              & .MuiListItemText-primary {
-                  font-size: 13px;
-              } 
+//           &_content {
+//               & .MuiListItemText-primary {
+//                   font-size: 13px;
+//               } 
               
-              & .MuiListItemText-secondary {
-                  font-size: 12px;
-              } 
-          }
-        }
-      }
+//               & .MuiListItemText-secondary {
+//                   font-size: 12px;
+//               } 
+//           }
+//         }
+//       }
 
-    }
-  }  
-}
+//     }
+//   }  
+// }
 
-.siteWrapperSM .notification-popup {
+// .siteWrapperSM .notification-popup {
 
-  &-list {
-    width: 350px;
+//   &-list {
+//     width: 350px;
     
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        &_item {
-          &_header {
-              &-icon {
-                  & .MuiSvgIcon-root { 
-                  font-size: 11px; 
-                  }
-              }
+//     &__body {
+//       &-messages {
+//         &_item {
+//           &_header {
+//               &-icon {
+//                   & .MuiSvgIcon-root { 
+//                   font-size: 11px; 
+//                   }
+//               }
 
-              &-category {
-                  font-size: 13px;
-              }
+//               &-category {
+//                   font-size: 13px;
+//               }
 
-              &-time {
-                  font-size: 12px;
-              }
-          }
+//               &-time {
+//                   font-size: 12px;
+//               }
+//           }
 
-          &_content {
-              & .MuiListItemText-primary {
-                  font-size: 13px;
-              } 
+//           &_content {
+//               & .MuiListItemText-primary {
+//                   font-size: 13px;
+//               } 
               
-              & .MuiListItemText-secondary {
-                  font-size: 12px;
-              } 
-          }
-        }
-      }
+//               & .MuiListItemText-secondary {
+//                   font-size: 12px;
+//               } 
+//           }
+//         }
+//       }
 
-    }
-  }  
-}
+//     }
+//   }  
+// }
 
-.siteWrapperXS .notification-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperXS .notification-popup {
+//   &-list {
+//     width: 350px;
     
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        &_item {
-          &_header {
-              &-icon {
-                  & .MuiSvgIcon-root { 
-                  font-size: 11px; 
-                  }
-              }
+//     &__body {
+//       &-messages {
+//         &_item {
+//           &_header {
+//               &-icon {
+//                   & .MuiSvgIcon-root { 
+//                   font-size: 11px; 
+//                   }
+//               }
 
-              &-category {
-                  font-size: 13px;
-              }
+//               &-category {
+//                   font-size: 13px;
+//               }
 
-              &-time {
-                  font-size: 12px;
-              }
-          }
+//               &-time {
+//                   font-size: 12px;
+//               }
+//           }
 
-          &_content {
-              & .MuiListItemText-primary {
-                  font-size: 13px;
-              } 
+//           &_content {
+//               & .MuiListItemText-primary {
+//                   font-size: 13px;
+//               } 
               
-              & .MuiListItemText-secondary {
-                  font-size: 12px;
-              } 
-          }
-        }
-      }
+//               & .MuiListItemText-secondary {
+//                   font-size: 12px;
+//               } 
+//           }
+//         }
+//       }
 
-    }
-  }  
-}
+//     }
+//   }  
+// }
 
 .dark .notification-popup {
   background-color: $dark-theme-background-color;
