@@ -29,7 +29,10 @@ import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/pop
 import Avatar from '@mui/material/Avatar';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import search from "../../../../assets/images/header/new-icons/search.png";
+import search from "../../../../assets/images/header/new-icons/search-1.svg";
+import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
+import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
+import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
 
 
 
@@ -170,7 +173,8 @@ const HeaderChatPopup = ({ props }) => {
                         aria-haspopup="true"
                         onClick={handleClick}
                       >
-                        <MoreHorizIcon sx={{ color: '#000000' }} />
+                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                        <img src={moreIcon} />
                       </IconButton>
 
                       <Menu
@@ -208,7 +212,8 @@ const HeaderChatPopup = ({ props }) => {
                         // onClick={handleClick}
                         onClick={handleCreateChat}
                       >
-                        <EditIcon sx={{ color: '#51A3FF' }} />
+                        {/* <EditIcon sx={{ color: '#51A3FF' }} /> */}
+                        <img src={editIcon} />
                       </IconButton>
                     </div>
                     
@@ -225,7 +230,8 @@ const HeaderChatPopup = ({ props }) => {
                           // document.getElementById('cloud-page').classList.remove('first-shrink');
                         }}
                       >
-                        <CloseIcon  sx={{ color: '#000000' }}/>
+                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                        <img src={closeIcon} />
                       </IconButton>
 
                     </div>

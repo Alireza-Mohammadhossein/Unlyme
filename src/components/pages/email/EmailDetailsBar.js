@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector, useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
-import search from "../../../assets/images/header/new-icons/search.png";
+import search from "../../../assets/images/header/new-icons/search.svg";
 
 
 

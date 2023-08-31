@@ -285,6 +285,10 @@
     width: 100%;
     box-sizing: border-box;
 
+    .MuiGrid-item {
+      padding-left: 10px !important;
+    }
+
     &_search {
         .MuiFormControl-root {
             width: 100%;

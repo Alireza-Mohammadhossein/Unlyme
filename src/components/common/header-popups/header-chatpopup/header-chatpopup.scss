@@ -4,7 +4,7 @@
 } 
 
 .chat-popup {    
-  width: auto;
+  width: 380px;
   display: flex;
   z-index: 3;
   flex-direction: row;
@@ -48,15 +48,17 @@
     }
   
     &__body {
-      padding: 20px 20px;
+      padding: 25px 20px;
       height: calc(100% - 160px);
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 20px;
+      gap: 30px;
   
       &-search {
+        // margin-bottom: 30px;
+
         &_form {
           width: 100%;
         }
@@ -75,11 +77,11 @@
           font-size: 15px;
 
           .MuiInputBase-input {
-            color: #3C3C43;
+            color: #ACACAC;
             
             &::placeholder {
-              color: #3C3C43;
-              opacity: 0.8;
+              color: #ACACAC;
+              opacity: 1;
             }
           }
           
@@ -134,6 +136,10 @@
   
           & .MuiTabs-flexContainerVertical {
             gap: 20px;
+          }
+
+          .MuiTabScrollButton-root {
+            display: none;
           }
         }
   
@@ -195,9 +201,10 @@
   
           &_status {
             &-unread {
-              color: $blue;
-              width: 12px !important;
-              height: 12px !important;
+              color: #51A3FF;
+              // width: 12px !important;
+              // height: 12px !important;
+              font-size: 6px !important;
             }
   
             &-read {
@@ -530,381 +537,381 @@
 }
 
 
-.siteWrapperLG .chat-popup { 
-  &-list {
-    width: 330px;
+// .siteWrapperLG .chat-popup { 
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      padding: 20px;
+//     &__header {
+//       padding: 20px;
 
-      &-title {
-        font-size: 20px;
-      }
-    }
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      padding: 20px;
-      gap: 0;
+//     &__body {
+//       padding: 25px 20px;
+//       gap: 0;
       
-      &-messages {
-        &_container {
-          height: 97%;
-        }
-        &_item {
-          &_avatar {
-            width: 45px;
-            height: 45px;
-          }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
+//         &_item {
+//           &_avatar {
+//             width: 45px;
+//             height: 45px;
+//           }
   
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
+//     }
 
-    &__footer {
-      &_container {
-        padding: 0 20px;
-      }
-    }
-  }
+//     &__footer {
+//       &_container {
+//         padding: 0 20px;
+//       }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
 
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 12px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 12px;
+//         }
+//       }
 
-      &-content {
-        &_friend {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//       &-content {
+//         &_friend {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
+//         }
 
 
-        &_own {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//         &_own {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
-      }
-    }
-  }
+//         }
+//       }
+//     }
+//   }
   
-}
+// }
 
 
-.siteWrapperMD .chat-popup { 
-  &-list {
-    width: 330px;
+// .siteWrapperMD .chat-popup { 
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      gap: 0;
+//     &__body {
+//       gap: 0;
 
-      &-messages {
-        &_container {
-          height: 97%;
-          padding-top: 10px;
-          box-sizing: border-box;
-        }
-        &_item {
-          &_avatar {
-            width: 45px;
-            height: 45px;
-          }
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//           padding-top: 10px;
+//           box-sizing: border-box;
+//         }
+//         &_item {
+//           &_avatar {
+//             width: 45px;
+//             height: 45px;
+//           }
   
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-  }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  &-messages {
-    width: 330px;
+//   &-messages {
+//     width: 330px;
 
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 12px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 12px;
+//         }
+//       }
 
-      &-content {
-        &_friend {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//       &-content {
+//         &_friend {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
+//         }
 
 
-        &_own {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//         &_own {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
-      }
-    }
-  }
+//         }
+//       }
+//     }
+//   }
   
-}
+// }
 
 
-.siteWrapperSM .chat-popup { 
-  &-list {
-    width: 350px;
+// .siteWrapperSM .chat-popup { 
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        &_container {
-          height: 97%;
-        }
-        &_item {
-          &_avatar {
-            width: 45px;
-            height: 45px;
-          }
+//     &__body {
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
+//         &_item {
+//           &_avatar {
+//             width: 45px;
+//             height: 45px;
+//           }
   
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-  }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
 
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 12px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 12px;
+//         }
+//       }
 
-      &-content {
-        &_friend {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//       &-content {
+//         &_friend {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
+//         }
 
 
-        &_own {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//         &_own {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
-      }
-    }
-  }
+//         }
+//       }
+//     }
+//   }
   
-}
+// }
 
-.siteWrapperXS .chat-popup { 
-  &-list {
-    width: 350px;
+// .siteWrapperXS .chat-popup { 
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &-title {
-        font-size: 20px;
-      }
-    }
+//     &__header {
+//       &-title {
+//         font-size: 20px;
+//       }
+//     }
   
-    &__body {
-      &-messages {
-        &_container {
-          height: 97%;
-        }
-        &_item {
-          &_avatar {
-            width: 45px;
-            height: 45px;
-          }
+//     &__body {
+//       &-messages {
+//         &_container {
+//           height: 97%;
+//         }
+//         &_item {
+//           &_avatar {
+//             width: 45px;
+//             height: 45px;
+//           }
   
-          &_content {
-            &_name {
-              font-size: 14px;
-            }
+//           &_content {
+//             &_name {
+//               font-size: 14px;
+//             }
   
-            &_last-message {
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-  }
+//             &_last-message {
+//               font-size: 13px;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  &-messages {
-    width: 350px;
+//   &-messages {
+//     width: 350px;
 
-    &__header {
-      &-info {
-        &_name {
-          font-size: 20px;
-        }
-      }
-    }
+//     &__header {
+//       &-info {
+//         &_name {
+//           font-size: 20px;
+//         }
+//       }
+//     }
 
-    &__body {
-      &-date {
-        & p {
-          font-size: 12px;
-        }
-      }
+//     &__body {
+//       &-date {
+//         & p {
+//           font-size: 12px;
+//         }
+//       }
 
-      &-content {
-        &_friend {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//       &-content {
+//         &_friend {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
+//         }
 
 
-        &_own {
-          &-message {
-            &_text {
-              & p {
-                font-size: 14px;
-              }
+//         &_own {
+//           &-message {
+//             &_text {
+//               & p {
+//                 font-size: 14px;
+//               }
 
-              & span {
-                font-size: 11px;
-              }
-            }
-          }
+//               & span {
+//                 font-size: 11px;
+//               }
+//             }
+//           }
           
-        }
-      }
-    }
-  }
-}
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 .dark .chat-popup {

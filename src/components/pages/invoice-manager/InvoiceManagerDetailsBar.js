@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
-import search from "../../../assets/images/header/new-icons/search.png";
+import search from "../../../assets/images/header/new-icons/search.svg";
 import FilterListIcon from '@mui/icons-material/FilterList';
 import AddIcon from '@mui/icons-material/Add';
 import Drawer from '@mui/material/Drawer';
@@ -183,7 +183,7 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
                     <input
                       className="cloud-page__header_invoice-manager-details_search-input"
                       onChange={(e) => setSearchText(e.target.value)}
-                      placeholder={t('EMAIL_PAGE.SEARCH_PLACEHOLDER')}
+                      placeholder={t('INVICE_MANAGER_PAGE.SEARCH_PLACEHOLDER')}
                     />
                 </div>
             </FormControl>

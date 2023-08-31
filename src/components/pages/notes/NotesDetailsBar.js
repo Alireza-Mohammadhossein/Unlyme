@@ -8,7 +8,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import FormControl from '@mui/material/FormControl';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CloseIcon from '@mui/icons-material/Close';
-import search from "../../../assets/images/header/new-icons/search.png";
+import search from "../../../assets/images/header/new-icons/search.svg";
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';

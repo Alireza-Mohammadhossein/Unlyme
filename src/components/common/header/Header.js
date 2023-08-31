@@ -25,7 +25,7 @@ import {
   setAssistantMessage
 } from '../../../redux/app/popupSlice';
 import searchIcon from "../../../assets/images/header/AI-icon.png";
-import search from "../../../assets/images/header/new-icons/search.png";
+import search from "../../../assets/images/header/new-icons/search.svg";
 import chatIcon from '../../../assets/images/header/new-icons/chat-icon.png';
 import mailIcon from '../../../assets/images/header/new-icons/mails-icon.png';
 import notesIcon from '../../../assets/images/header/new-icons/notes-icon.png';

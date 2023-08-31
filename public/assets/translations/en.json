@@ -162,12 +162,12 @@
 
   "NOTES_PAGE.TITLE": "Notes",
   "NOTES_PAGE.CREATE_NOTE_BUTON": "New note",
-  "NOTES_PAGE.SEARCH_PLACEHOLDER": "Search notes...",
+  "NOTES_PAGE.SEARCH_PLACEHOLDER": "Search",
 
   
   "EMAIL_PAGE.TITLE": "Mail",
   "EMAIL_PAGE.CREATE_MAIL_BUTON": "New message",
-  "EMAIL_PAGE.SEARCH_PLACEHOLDER": "Search Messages...",
+  "EMAIL_PAGE.SEARCH_PLACEHOLDER": "Search Messages",
 
   "WORK_DRIVE_PAGE.TITLE": "Work Drive",
   "WORK_DRIVE_ADD.NEW": "Add New",
@@ -175,6 +175,8 @@
 
   "INVICE_MANAGER_PAGE.TITLE": "Invoice Manager",
   "INVICE_MANAGER_PAGE.ADD_NEW": "Add new",
+  "INVICE_MANAGER_PAGE.TITLE": "Invoice Manager",
+  "INVICE_MANAGER_PAGE.SEARCH_PLACEHOLDER": "Search",
 
 
   "TASKS_PAGE.TITLE": "Tasks",
