@@ -24,7 +24,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding-top: 56px;
+        padding-top: 42px;
 
         &_create-event {
 
@@ -130,6 +130,8 @@
                 height: 100%;
 
                 & .fc-header-toolbar {
+                    margin-bottom: 8px;
+
                     & .fc-toolbar-chunk {
                         display: flex;
                         gap: 10px;
@@ -395,8 +397,16 @@
                                         table tbody {
 
                                             tr {
+                                                display: grid;
+                                                grid-template-columns: 70px calc(100% - 70px);
+
                                                 td:first-child {
                                                     border: unset;
+                                                    width: 70px;
+                                                }
+
+                                                .fc-timegrid-slot.fc-timegrid-slot-lane {
+                                                    border-left: unset;
                                                 }
                                             }
 
@@ -408,7 +418,7 @@
 
                                                         .fc-timegrid-slot-label-cushion {
                                                             font-size: 13px;
-                                                            color: #333;
+                                                            color: #999;
                                                             position: relative;
                                                             top: 10px;
                                                         }
@@ -420,6 +430,14 @@
                                                 td {
                                                     border: unset;
                                                 }
+                                            }
+                                        }
+                                    }
+
+                                    .fc-timegrid-cols {
+                                        colgroup {
+                                            col {
+                                                width: 70px;
                                             }
                                         }
                                     }

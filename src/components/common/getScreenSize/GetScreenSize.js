@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // this part is for getting screensize for react grid layout
 export const GetScreenSize = () => {
-  const [screenSize, setscreenSize] = useState(
+  const [screenSize, setScreenSize] = useState(
     window.innerWidth >= 1600
       ? "XL"
       : window.innerWidth < 1600 && window.innerWidth >= 1200
@@ -17,7 +17,7 @@ export const GetScreenSize = () => {
   useEffect(() => {
     console.log("resize", screenSize);
     const handleResize = () => {
-      setscreenSize(
+      setScreenSize(
         window.innerWidth >= 1600
           ? "XL"
           : window.innerWidth < 1600 && window.innerWidth >= 1200
@@ -31,7 +31,7 @@ export const GetScreenSize = () => {
     };
 
     window.addEventListener("resize", handleResize);
-  }, []);
+  }, [screenSize]);
 
   return screenSize;
 };

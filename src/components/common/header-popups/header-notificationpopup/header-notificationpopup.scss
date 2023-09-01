@@ -106,6 +106,7 @@
                     gap: 6px;
                     color: #6F6F6F;
                     font-size: 13px;
+                    line-height: 20px;
 
                     span {
                       width: 3px;
@@ -119,6 +120,7 @@
                 &-time {
                     color: #6F7574;
                     font-size: 13px;
+                    line-height: 20px;
                 }
             }
 
@@ -133,13 +135,13 @@
 
                 & .MuiListItemText-primary {
                     color: #000000;
-                    font-size: 14px;
+                    font-size: 15px;
                     font-weight: 500;
                 } 
                 
                 & .MuiListItemText-secondary {
                     color: #6F6F6F;
-                    font-size: 14px;
+                    font-size: 15px;
                 } 
 
             }

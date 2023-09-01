@@ -223,7 +223,7 @@ function EmailPageContent() {
                               {/* <ListItemIcon>
                                 <FolderOutlinedIcon />
                               </ListItemIcon> */}
-                              <ListItemText primary="More" />
+                              <ListItemText primary="MORE" />
                             </div>
                           }
                         >
@@ -257,7 +257,7 @@ function EmailPageContent() {
                               {/* <ListItemIcon>
                                 <FolderOutlinedIcon />
                               </ListItemIcon> */}
-                              <ListItemText primary="Folders" />
+                              <ListItemText primary="FOLDERS" />
                               
 
                               <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
@@ -300,7 +300,7 @@ function EmailPageContent() {
                               {/* <ListItemIcon>
                                 <FolderOutlinedIcon />
                               </ListItemIcon> */}
-                              <ListItemText primary="Labels" />
+                              <ListItemText primary="LABELS" />
                               
                               <IconButton aria-label="add" onClick={(e) => e.stopPropagation()}>
                                 <img src={plusIcon}/>

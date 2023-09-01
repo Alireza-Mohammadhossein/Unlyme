@@ -131,7 +131,24 @@ const MyServices = () => {
   ];
 
   // call getFromLS and set layouts to originalLayouts
-  const originalLayouts = getFromLS("layouts") || {
+
+
+  // const originalLayouts = getFromLS("layouts") || {
+  //   lg:
+  //     screenSize === "XL"
+  //       ? layoutXL
+  //       : screenSize === "LG"
+  //       ? layoutLG
+  //       : screenSize === "MD"
+  //       ? layoutMD
+  //       : screenSize === "SM"
+  //       ? layoutSM
+  //       : layoutXS,
+  // };
+
+  const originalLayouts = 
+    // getFromLS("layouts") ||
+  {
     lg:
       screenSize === "XL"
         ? layoutXL
@@ -143,6 +160,7 @@ const MyServices = () => {
         ? layoutSM
         : layoutXS,
   };
+
 
   const rowHeight = screenSize === "LG" ? 315 : 315;
 
