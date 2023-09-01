@@ -1,11 +1,7 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector, useDispatch} from 'react-redux';

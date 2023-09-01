@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Grid from "@mui/material/Grid";
 import IconButton from '@mui/material/IconButton';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -9,24 +7,13 @@ import FormControl from '@mui/material/FormControl';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import search from "../../../assets/images/header/new-icons/search.svg";
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
-import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
-import ChecklistOutlinedIcon from '@mui/icons-material/ChecklistOutlined';
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
-import InsertPhotoOutlinedIcon from '@mui/icons-material/InsertPhotoOutlined';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
-import TextFieldsOutlinedIcon from '@mui/icons-material/TextFieldsOutlined';
 import { useSelector, useDispatch } from "react-redux";
 import aaIcon from "../../../assets/images/notepage/new/Aa.svg";
 import bulletIcon from "../../../assets/images/notepage/new/bullet-list.svg";
 import copyIcon from "../../../assets/images/notepage/new/image.svg";
-import gridIcon from "../../../assets/images/notepage/new/grid-view.svg";
-import listIcon from "../../../assets/images/notepage/new/list-view.svg";
 import lockIcon from "../../../assets/images/notepage/new/lock.svg";
 import shareIcon from "../../../assets/images/notepage/new/share.svg";
 import tableIcon from "../../../assets/images/notepage/new/table.svg";
-import trashIcon from "../../../assets/images/notepage/new/trash.svg";
 
 
 
@@ -69,7 +56,7 @@ const NotesDetailsBar = ({ setSearchNote }) => {
             <Grid item lg={12} md={12} xs={12} sx={{display: 'flex', justifyContent: 'end'}}>
                 <div
                     className='cloud-page__header_notes-details_actions-left'
-                    style={{marginRight: secondPopupTab ? '30px' : '218px'}}
+                    style={{marginRight: secondPopupTab ? '30px' : '205px'}}
                 >
                     <ButtonGroup variant="outlined" aria-label="text formatting">
                         <IconButton value="bold" aria-label="bold">

@@ -9,7 +9,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputAdornment from '@mui/material/InputAdornment';
 import Switch from '@mui/material/Switch';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
 import { toast } from "react-toastify";
 import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';

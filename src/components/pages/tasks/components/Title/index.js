@@ -1,16 +1,10 @@
 import React, { useContext, useState } from "react";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import storeApi from "../../utils/storeApi";
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import editIcon from '../../../../../assets/images/tasks/edit.svg';
-import trashIcon from '../../../../../assets/images/tasks/trash.svg';
 
 
 

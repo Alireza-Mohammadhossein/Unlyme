@@ -55,10 +55,12 @@
                         // background-color: rgba(255, 255, 255, 0.7);
                         background-color: #ffffff80;
                         height: 36px;
-                        color: #3C3C43b3;
+                        color: #3C3C43B2;
+                        width: 310px;
+                        margin: 0;
+                        padding-left: 10px !important;
 
                         & .MuiInputAdornment-root {
-                            background-color: red;
                             width: 18px;
                             height: 18px;
                             background: url('../../../assets/images/header/new-icons/search.svg') center center no-repeat;
@@ -76,13 +78,14 @@
 
                         & .MuiInputBase-input {
                         //   color: #3C3C43b3;
-                        color: #74737B;
+                        color: #3C3C43B2;
                           opacity: 1;
+                          font-size: 15px !important;
                         }
 
                         .MuiInputBase-input::placeholder {
                             // color: #3C3C43b3 !important;
-                            color: #74737B;
+                            color: #3C3C43B2;
                             opacity: 1;
                         }
                     }

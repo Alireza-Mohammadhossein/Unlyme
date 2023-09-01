@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Grid from "@mui/material/Grid";
 import "./work-drive-page.scss";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -27,9 +26,6 @@ import folderPlusIcon from '../../../assets/images/work-drive/folder-plus.svg';
 import fileAddIcon from '../../../assets/images/work-drive/file-add.svg';
 import folderAddIcon from '../../../assets/images/work-drive/folder-add.svg';
 import refreshIcon from '../../../assets/images/work-drive/refresh.svg';
-import listIcon from '../../../assets/images/work-drive/list.svg';
-import gridIcon from '../../../assets/images/work-drive/grid.svg';
-
 import {
   ChonkyActions,
   ChonkyFileActionData,

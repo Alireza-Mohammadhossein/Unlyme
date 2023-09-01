@@ -1,9 +1,5 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
-import { FileNavbar, FileToolbar } from 'chonky';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import CustomToolbar from './CustomToolbar';

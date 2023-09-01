@@ -64,6 +64,10 @@
             .MuiButtonBase-root {
                 padding: 4px !important;
                 box-sizing: border-box;
+
+                &:hover {
+                    background-color: transparent;
+                }
             }
             img {
                 width: 20px;

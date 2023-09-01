@@ -5,7 +5,6 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
@@ -15,10 +14,7 @@ import SingleMail from './single-mail/SingleMail';
 import { useEffect } from 'react';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import EmailTableHead from './EmailTableHead';
-import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
-import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
-import inboxGrayIcon from '../../../assets/images/email/inbox-gray.svg'
-import { useCallback } from 'react';
+import inboxGrayIcon from '../../../assets/images/email/inbox-gray.svg';
 
 
 

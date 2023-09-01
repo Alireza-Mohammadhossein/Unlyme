@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Grid from "@mui/material/Grid";
 import icon from "../../../assets/images/my-services/notes.png";
 import "./notes-page.scss";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,7 +10,6 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import gridIcon from "../../../assets/images/notepage/new/grid-view.svg";
 import listIcon from "../../../assets/images/notepage/new/list-view.svg";
-// import { CustomToolbarQuill } from "./CustomToolbarQuill";
 
 
 

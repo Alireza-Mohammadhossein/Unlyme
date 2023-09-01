@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Grid from "@mui/material/Grid";
 import { useSelector} from "react-redux";
 import MeetingPageSidebar from "./MeetingPageSidebar";
 import MeetingPageMain from "./MeetingPageMain";

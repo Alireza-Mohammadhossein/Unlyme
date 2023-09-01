@@ -152,13 +152,13 @@
     
                             .MuiTreeItem-iconContainer {
                                 .MuiSvgIcon-root {
-                                    font-size: 23px;
+                                    font-size: 18px;
                                 }
                             }
 
                             img {
-                                width: 10px;
-                                height: 13px;
+                                width: 8px;
+                                height: 10px;
                             }
                         } 
     
@@ -166,9 +166,16 @@
                             display: flex;
                             padding: 8px 0;
                             align-items: center;
+                            color: #414141;
+                            font-size: 13px;
+                            padding-left: 7px;
             
                             & .MuiListItemIcon-root {
                                 min-width: 30px;
+                            }
+
+                            .MuiTypography-root  {
+                                font-size: 13px;
                             }
 
                             & .MuiButtonBase-root {
@@ -440,7 +447,7 @@
     gap: 10px;
     align-items: center;
     width: 100%;
-    padding-left: 15px;
+    padding-left: 10px;
     box-sizing: border-box;
 
     &_grid-content {
@@ -490,7 +497,7 @@
             transform: translateX(0);
             transition: all 0.3s ease;
             width: auto;
-            padding: 0 12px;
+            padding: 0 10px;
     
             label img {
               width: 18px;
@@ -500,7 +507,7 @@
         &-input {
             width: 100%;
             height: 36px;
-            font-size: 14px;
+            font-size: 15px;
             background-color: transparent;
             padding: 0 8px;
             line-height: 33px;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Grid from "@mui/material/Grid";
 import icon from "../../../../assets/images/my-services/video-conference.png";
 import "./meeting-page.scss";
 import { useSelector, useDispatch } from "react-redux";

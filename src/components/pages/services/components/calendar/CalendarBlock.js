@@ -1,11 +1,8 @@
 import React, {useState} from "react";
-import Calendar from "react-calendar";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import CloudBlock from "../cloud-block/CloudBlock";
 import { getLangISOFormat } from "../../../../../types";
 import CalendarPage from "../../../calendar/CalendarPage";
-import icon from "../../../../../assets/images/my-services/calendar.png";
 import { handleOpenAppsModal } from '../../../../../redux/app/appsModalSlice';
 import FullCalendar from '@fullcalendar/react';
 import { INITIAL_EVENTS, createEventId } from './../../../calendar/event-utils';

@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch} from 'react-redux';
 import { handleCloseAppsModal } from '../../../redux/app/appsModalSlice';
 import search from "../../../assets/images/header/new-icons/search.svg";
 import FilterListIcon from '@mui/icons-material/FilterList';
-import AddIcon from '@mui/icons-material/Add';
 import Drawer from '@mui/material/Drawer';
 import FilterInvoicesPopup from './invoices/popups/FilterInvoicesPopup';
 import FilterMoneyPopup from './money/popups/FilterMoneyPopup';
@@ -236,7 +234,6 @@ const InvoiceManagerDetailsBar = ({ setSearchText, activeTab }) => {
         </div>
       </div>
 
-      <div></div>
 
       <div>
         <div className='cloud-page__header_invoice-manager-details_add'>

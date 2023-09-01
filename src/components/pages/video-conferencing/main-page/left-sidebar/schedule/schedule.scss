@@ -101,6 +101,11 @@
                         color: #333;
                         font-family: 'OpenSans' !important;
                         font-size: 15px;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
                     }
 
                     &-form {
@@ -155,6 +160,11 @@
                         color: #333;
                         font-family: 'OpenSans' !important;
                         font-size: 15px;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
                     }
 
                     &-select {
@@ -163,6 +173,8 @@
                             background-color: #F8FAFC;
                             line-height: 22px;
                             border: 1px solid #ECECEC;
+                            height: 40px;
+                            box-sizing: border-box;
 
                             & > div > div {
                                 height: 32px;
@@ -171,6 +183,7 @@
 
                             & div {
                                 font-family: 'OpenSans' !important;
+                                padding-bottom: 1px;
                             }
                         }
                     }
@@ -225,6 +238,16 @@
                             color: #333333;
                             padding-left: 5px;
                             font-family: "Open Sans", sans-serif;
+                        }
+
+                        .MuiSvgIcon-root {
+                            color: #333;
+                            font-size: 18px;
+                            stroke: rgba(223, 233, 248, 0.37);
+                        }
+
+                        .Mui-checked .MuiSvgIcon-root {
+                            color: #51A3FF;
                         }
                     }
 

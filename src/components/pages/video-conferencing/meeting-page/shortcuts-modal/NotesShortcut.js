@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
-import Calendar from 'react-calendar';
 import Button from '@mui/material/Button';
 import noteIcon from '../../../../../assets/images/tasksIcon.png';
 import TextField from '@mui/material/TextField';

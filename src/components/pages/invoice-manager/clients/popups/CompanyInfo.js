@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import helpIcon from '../../../../../assets/images/invoice-manager/help-circle.svg';
 
 

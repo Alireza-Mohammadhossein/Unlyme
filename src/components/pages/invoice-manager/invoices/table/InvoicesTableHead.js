@@ -3,14 +3,11 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from '@mui/material/Button';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import { toast } from "react-toastify";
 import TablePagination from '@mui/material/TablePagination';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -18,7 +15,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Modal from '@mui/material/Modal';
 import ChangeCategoryPopup from '../popups/ChangeCategoryPopup';
 import DeleteInvoicePopup from '../popups/DeleteInvoicePopup';
-
+import trashIcon from '../../../../../assets/images/invoice-manager/delete.svg';
+import tagIcon from '../../../../../assets/images/invoice-manager/tag.svg';
 
 
 
@@ -218,13 +216,13 @@ const InvoicesTableHead = (props) => {
               {numSelected > 0 ?
                 <div className='invoices-header-row-option-container'>
                   <Button
-                    startIcon={<DeleteOutlineOutlinedIcon />}
+                    startIcon={<img src={trashIcon} />}
                     onClick={handleOpenDeleteInvoicePopup}
                   > 
                     Delete
                   </Button>
                   <Button 
-                    startIcon={<LocalOfferOutlinedIcon />}
+                    startIcon={<img src={tagIcon} />}
                     onClick={handleOpenChangeCategoryPopup}
                   >
                     Change category

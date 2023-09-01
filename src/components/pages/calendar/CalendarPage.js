@@ -11,7 +11,6 @@ import listPlugin from '@fullcalendar/list';
 import { INITIAL_EVENTS, createEventId } from './event-utils';
 import CloudPage from '../../pages/cloud-page/CloudPage';
 import { useTranslation } from "react-i18next";
-import Grid from '@mui/material/Grid';
 import Calendar from 'react-calendar';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';

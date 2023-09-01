@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import Grid from "@mui/material/Grid";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import InputContainer from "./components/InputContainer";
 import List from "./components/List";
 import { v4 as uuid } from "uuid";
 

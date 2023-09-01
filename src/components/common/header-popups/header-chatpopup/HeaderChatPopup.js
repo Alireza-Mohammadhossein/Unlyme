@@ -6,15 +6,11 @@ import FormControl from '@mui/material/FormControl';
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import EditIcon from '@mui/icons-material/Edit';
-import CloseIcon from '@mui/icons-material/Close';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CircleIcon from '@mui/icons-material/Circle';
-import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { chatMessages } from '../../../../mocks/mocks';
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react';
@@ -28,12 +24,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleChatPopup, toggleSecondPopupTab } from '../../../../redux/app/popupSlice';
 import Avatar from '@mui/material/Avatar';
 import CheckIcon from '@mui/icons-material/Check';
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import search from "../../../../assets/images/header/new-icons/search-1.svg";
 import moreIcon from "../../../../assets/images/header/new-icons/more.svg";
 import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
 import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
 import readIcon from "../../../../assets/images/header/new-icons/tik.svg";
+import trashIcon from "../../../../assets/images/header/new-icons/trash.svg";
 
 
 
@@ -283,7 +279,7 @@ const HeaderChatPopup = ({ props }) => {
                             component={'div'}
                             label={
                               <>
-                                <div className='chat-popup-list__body-messages_item_avatar' 
+                                <div className='chat-popup-list__body-messages_item_avatar'
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     handleselectedMessages(item)
@@ -323,7 +319,8 @@ const HeaderChatPopup = ({ props }) => {
                                     aria-haspopup="true"
                                     onClick={(e) => e.stopPropagation()}
                                   >
-                                    <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} />
+                                    {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
+                                    <img src={trashIcon} />
                                   </IconButton>
                                 </div>
                               </div>

@@ -4,7 +4,7 @@
 } 
 
 .setting-popup {
-    width: 380px;
+    width: auto;
     display: flex;
     z-index: 3;
     flex-direction: row;
@@ -153,183 +153,183 @@
     }
 }
 
-.siteWrapperLG .setting-popup {
-  &-list {
-    width: 330px;
+// .siteWrapperLG .setting-popup {
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      padding: 20px;
+//     &__header {
+//       padding: 20px;
 
-      &_user {
-        &-info {
-          &-name {
-            font-size: 14px;
-          }
-          &-mail {
-            font-size: 13px;
-          }
-        }
-      }
-    }
+//       &_user {
+//         &-info {
+//           &-name {
+//             font-size: 14px;
+//           }
+//           &-mail {
+//             font-size: 13px;
+//           }
+//         }
+//       }
+//     }
   
-    &__body {
-      padding: 20px;
+//     &__body {
+//       padding: 20px;
 
-      &-content {
-        &_item {
-          &-title {
-            font-size: 14px;
-          }
-        }
-      }
+//       &-content {
+//         &_item {
+//           &-title {
+//             font-size: 14px;
+//           }
+//         }
+//       }
 
-    }
+//     }
 
-    &__footer {
-      padding: 20px;
+//     &__footer {
+//       padding: 20px;
       
-      &-options {
+//       &-options {
 
-        &-setting {
-          font-size: 14px !important;
-        }
+//         &-setting {
+//           font-size: 14px !important;
+//         }
         
-        &-logout {
-          font-size: 14px !important;
-        }
-      }
-    }
-  }
-}
+//         &-logout {
+//           font-size: 14px !important;
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperMD .setting-popup {
-  &-list {
-    width: 330px;
+// .siteWrapperMD .setting-popup {
+//   &-list {
+//     width: 330px;
 
-    &__header {
-      &_user {
-        &-info {
-          &-name {
-            font-size: 14px;
-          }
-          &-mail {
-            font-size: 13px;
-          }
-        }
-      }
-    }
+//     &__header {
+//       &_user {
+//         &-info {
+//           &-name {
+//             font-size: 14px;
+//           }
+//           &-mail {
+//             font-size: 13px;
+//           }
+//         }
+//       }
+//     }
   
-    &__body {
-      &-content {
-        &_item {
-          &-title {
-            font-size: 14px;
-          }
-        }
-      }
+//     &__body {
+//       &-content {
+//         &_item {
+//           &-title {
+//             font-size: 14px;
+//           }
+//         }
+//       }
 
-    }
+//     }
 
-    &__footer {
-      &-options {
+//     &__footer {
+//       &-options {
 
-        &-setting {
-          font-size: 14px !important;
-        }
+//         &-setting {
+//           font-size: 14px !important;
+//         }
         
-        &-logout {
-          font-size: 14px !important;
-        }
-      }
-    }
-  }
-}
+//         &-logout {
+//           font-size: 14px !important;
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperSM .setting-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperSM .setting-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &_user {
-        &-info {
-          &-name {
-            font-size: 14px;
-          }
-          &-mail {
-            font-size: 13px;
-          }
-        }
-      }
-    }
+//     &__header {
+//       &_user {
+//         &-info {
+//           &-name {
+//             font-size: 14px;
+//           }
+//           &-mail {
+//             font-size: 13px;
+//           }
+//         }
+//       }
+//     }
   
-    &__body {
-      &-content {
-        &_item {
-          &-title {
-            font-size: 14px;
-          }
-        }
-      }
+//     &__body {
+//       &-content {
+//         &_item {
+//           &-title {
+//             font-size: 14px;
+//           }
+//         }
+//       }
 
-    }
+//     }
 
-    &__footer {
-      &-options {
+//     &__footer {
+//       &-options {
 
-        &-setting {
-          font-size: 14px !important;
-        }
+//         &-setting {
+//           font-size: 14px !important;
+//         }
         
-        &-logout {
-          font-size: 14px !important;
-        }
-      }
-    }
-  }
-}
+//         &-logout {
+//           font-size: 14px !important;
+//         }
+//       }
+//     }
+//   }
+// }
 
-.siteWrapperXS .setting-popup {
-  &-list {
-    width: 350px;
+// .siteWrapperXS .setting-popup {
+//   &-list {
+//     width: 350px;
 
-    &__header {
-      &_user {
-        &-info {
-          &-name {
-            font-size: 14px;
-          }
-          &-mail {
-            font-size: 13px;
-          }
-        }
-      }
-    }
+//     &__header {
+//       &_user {
+//         &-info {
+//           &-name {
+//             font-size: 14px;
+//           }
+//           &-mail {
+//             font-size: 13px;
+//           }
+//         }
+//       }
+//     }
   
-    &__body {
-      &-content {
-        &_item {
-          &-title {
-            font-size: 14px;
-          }
-        }
-      }
+//     &__body {
+//       &-content {
+//         &_item {
+//           &-title {
+//             font-size: 14px;
+//           }
+//         }
+//       }
 
-    }
+//     }
 
-    &__footer {
-      &-options {
+//     &__footer {
+//       &-options {
 
-        &-setting {
-          font-size: 14px !important;
-        }
+//         &-setting {
+//           font-size: 14px !important;
+//         }
         
-        &-logout {
-          font-size: 14px !important;
-        }
-      }
-    }
-  }
-}
+//         &-logout {
+//           font-size: 14px !important;
+//         }
+//       }
+//     }
+//   }
+// }
 
 .dark .setting-popup {
   background-color: $dark-theme-background-color;

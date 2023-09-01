@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from "react-i18next";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Grid from "@mui/material/Grid";
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from "react-redux";
@@ -13,9 +9,9 @@ import handIcon from '../../../../assets/images/vide-conferencing/hand.svg';
 import shareIcon from '../../../../assets/images/vide-conferencing/share.svg';
 import moreIcon from '../../../../assets/images/vide-conferencing/more.svg';
 import phoneIcon from '../../../../assets/images/vide-conferencing/phone.svg';
-import micOffIcon from '../../../../assets/images/vide-conferencing/mic-off.svg';
+import micOffIcon from '../../../../assets/images/vide-conferencing/mic-off.png';
 import micOnIcon from '../../../../assets/images/vide-conferencing/mic-on.png';
-import videoOffIcon from '../../../../assets/images/vide-conferencing/video-off.svg';
+import videoOffIcon from '../../../../assets/images/vide-conferencing/video-off.png';
 import videoOnIcon from '../../../../assets/images/vide-conferencing/video-on.png';
 
 
