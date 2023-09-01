@@ -76,11 +76,12 @@
     font-size: 13px;
     color: #333;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 
     abbr {
       // width: inherit;
@@ -88,9 +89,9 @@
       // line-height: 40px;
       border-radius: 100%;
       // display: inline-block;
-      padding: 5px;
-      width: 15px;
-      height: 15px;
+      // padding: 5px 10px;
+      width: 28px;
+      height: 29px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -99,6 +100,7 @@
   &__tile--active {
     // background-color: #006edc;
     color: #fff;
+    // background-color: #4373C4;
 
     abbr {
       // background-color: #006edc;
