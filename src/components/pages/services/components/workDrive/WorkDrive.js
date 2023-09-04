@@ -4,17 +4,26 @@ import { useTranslation } from "react-i18next";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { driveData } from "../../../../../mocks/mocks";
 import dayjs from 'dayjs';
-import NotesPage from "../../../notes/NotesPage";
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } from '../../../../../redux/app/appsModalSlice';
 import plusIcon from '../../../../../assets/images/my-services/plus.svg';
+import moreIcon from '../../../../../assets/images/my-services/workdrive/more.svg';
+import shareIcon from '../../../../../assets/images/my-services//workdrive/share.svg';
+import uploadIcon from '../../../../../assets/images/my-services/workdrive/upload.svg';
 import expandIcon from '../../../../../assets/images/my-services/expand.svg';
 import listActiveIcon from '../../../../../assets/images/my-services/notes/list-active.svg';
 import listNotIcon from '../../../../../assets/images/my-services/notes/list-not.svg';
 import gridActiveIcon from '../../../../../assets/images/my-services/notes/grid-active.svg';
 import gridNotIcon from '../../../../../assets/images/my-services/notes/grid-not.svg';
+import copyIcon from '../../../../../assets/images/my-services/workdrive/copy.svg';
+import duplicateIcon from '../../../../../assets/images/my-services/workdrive/duplicate.svg';
+import deleteIcon from '../../../../../assets/images/my-services/workdrive/trash.svg';
+import propertiesIcon from '../../../../../assets/images/my-services/workdrive/properties.svg';
 
 
 
@@ -35,133 +44,17 @@ const WorkDrive = () => {
   };
 
 
-  // const [notes, setNotes] = useState([]);
+  // setting modals 
+  const [anchorElMore, setAnchorElMore] = useState(null);
+  const open = Boolean(anchorElMore);
+  const handleOpenMore = (event) => {
+    setAnchorElMore(event.currentTarget);
+  };
+  const handleCloseMore = () => {
+    setAnchorElMore(null);
+  };
 
-  // // start getting notes from localstorage
-  // useEffect(() => {
-  //   const storedNotes = JSON.parse(localStorage.getItem('notes'));
-  //   if (storedNotes) setNotes(storedNotes.reverse());
-  // }, []);
 
-
-  const notes = [
-    {
-      id: 1,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test descriptionLorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 2,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "April",
-      day: "10",
-      time: "10:25",
-    },
-    {
-      id: 3,
-      title: "Lorem ipsum Note title",
-      message: "Lorem ipsum test description Lorem ipsum test description",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 4,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "April",
-      day: "10",
-      time: "10:25",
-    },
-    {
-      id: 5,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 6,
-      title: "Lorem ipsum Note title",
-      message: "Lorem ipsum test description Lorem ipsum test description",
-      year: "2023",
-      month: "April",
-      day: "10",
-      time: "10:25",
-    },
-    {
-      id: 7,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 8,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "April",
-      day: "10",
-      time: "10:25",
-    },
-    {
-      id: 9,
-      title: "Lorem ipsum Note title",
-      message: "Lorem ipsum test description Lorem ipsum test description",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 10,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "April",
-      month: "04",
-      day: "10",
-      time: "10:25",
-    },
-    {
-      id: 11,
-      title: "Lorem ipsum Note title",
-      message:
-        "Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description Lorem ipsum test description ",
-      year: "2023",
-      month: "March",
-      day: "15",
-      time: "14:25",
-    },
-    {
-      id: 12,
-      title: "Lorem ipsum Note title",
-      message: "Lorem ipsum test description Lorem ipsum test description",
-      year: "2023",
-      month: "April",
-      day: "10",
-      time: "10:25",
-    },
-  ];
 
 
   
@@ -205,8 +98,49 @@ const WorkDrive = () => {
           </div>
 
           <div className="my-services__work-drive_header-more">
+            <IconButton
+              aria-label="setting"
+              onClick={handleOpenMore}
+            >
+              <img src={moreIcon} />
+            </IconButton>
+
+            <Menu
+              anchorEl={anchorElMore}
+              open={open}
+              onClose={handleCloseMore}
+              disableScrollLock={true}
+              className="my-services__popup work-drive"
+            >
+              <MenuItem 
+                sx={{minWidth: '130px'}}
+              >
+                <img src={copyIcon} /> Copy
+              </MenuItem>
+
+              <MenuItem>
+                <img src={duplicateIcon} /> Duplicate
+              </MenuItem>
+
+              <MenuItem>
+                <img src={deleteIcon} /> Delete
+              </MenuItem>
+              
+              <MenuItem>
+                <img src={propertiesIcon} /> Properties
+              </MenuItem>
+            </Menu>
+
             <IconButton aria-label="add">
               <img src={plusIcon} />
+            </IconButton>
+
+            <IconButton aria-label="share">
+              <img src={shareIcon} />
+            </IconButton>
+
+            <IconButton aria-label="upload">
+              <img src={uploadIcon} />
             </IconButton>
 
             <IconButton aria-label="expand">
@@ -219,11 +153,58 @@ const WorkDrive = () => {
         <div className="my-services__work-drive_content">
           <div className="my-services__work-drive_content_list">
             <div className="my-services__work-drive_content_list-head">
-            
+              <div className="my-services__work-drive_content_list-head-icon">
+
+              </div>
+              
+              <div className="my-services__work-drive_content_list-head-name">
+                <p>Name</p>
+              </div>
+              
+              <div className="my-services__work-drive_content_list-head-date">
+                <p>Date modified</p>
+              </div>
+              
+              <div className="my-services__work-drive_content_list-head-size">
+                <p>Size</p>
+              </div>
+
+              <div className="my-services__work-drive_content_list-head-type">
+                <p>Type</p>
+              </div>
             </div>
 
             <div className="my-services__work-drive_content_list-body">
+              {
+                driveData.map((item) => (
+                  <div className="my-services__work-drive_content_list-body-item">
+                    <div className="my-services__work-drive_content_list-body-item-icon">
+                      <img src={item.icon} />
+                    </div>
+    
+                    <div className="my-services__work-drive_content_list-body-item-name">
+                      <p>{item.name}</p>
+                    </div>
+    
+                    <div className="my-services__work-drive_content_list-body-item-date">
+                      <p>{item.date}</p>
+                    </div>
+    
+                    <div className="my-services__work-drive_content_list-body-item-size">
+                      <p>{item.size}</p>
+                    </div>
+    
+                    <div className="my-services__work-drive_content_list-body-item-type">
+                      <p>{item.type}</p>
+                    </div>
+                  </div>
+                ))
+              }
 
+            </div>
+
+            <div className="my-services__work-drive_content_list-footer">
+              <p>4.7 GB available</p>
             </div>
           </div>
         </div>

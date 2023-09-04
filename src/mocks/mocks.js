@@ -18,6 +18,13 @@ import companyLogo from '../assets/images/invoice-manager/company-icon.png';
 import avatar1 from '../assets/images/my-services/tasks/avatar1.png';
 import avatar2 from '../assets/images/my-services/tasks/avatar2.png';
 import avatar3 from '../assets/images/my-services/tasks/avatar3.png';
+import driveFolder from '../assets/images/my-services/workdrive/data/folder.svg';
+import driveVideoFolder from '../assets/images/my-services/workdrive/data/video-folder.svg';
+import drivePhoto from '../assets/images/my-services/workdrive/data/photo.svg';
+import driveTxt from '../assets/images/my-services/workdrive/data/txt.svg';
+import driveCodeFolder from '../assets/images/my-services/workdrive/data/code-folder.svg';
+import driveExcel from '../assets/images/my-services/workdrive/data/excel.svg';
+
 
 
 
@@ -4194,3 +4201,102 @@ export const sampleTasks = {
       "Cristiano"
   ]
 }
+
+export const driveData = [
+  {
+    id: 1,
+    name: 'Lorem ipsum',
+    date: '07-08-2023',
+    size: '25.14MB',
+    type: 'Folder',
+    icon: driveFolder,
+  },
+  {
+    id: 4,
+    name: 'Lorem ipsum',
+    date: '14-08-2023',
+    size: '48.15MB',
+    type: 'Folder',
+    icon: driveVideoFolder,
+  },
+  {
+    id: 8,
+    name: 'Lorem ipsum',
+    date: '11-09-2023',
+    size: '01.05MB',
+    type: 'PNG',
+    icon: drivePhoto,
+  },
+  {
+    id: 5,
+    name: 'Lorem ipsum',
+    date: '01-09-2023',
+    size: '25.14MB',
+    type: 'Text',
+    icon: driveTxt,
+  },
+  {
+    id: 2,
+    name: 'Lorem ipsum',
+    date: '08-08-2023',
+    size: '14.02MB',
+    type: 'Folder',
+    icon: driveCodeFolder,
+  },
+  {
+    id: 3,
+    name: 'Lorem ipsum',
+    date: '12-08-2023',
+    size: '06.80MB',
+    type: 'Folder',
+    icon: driveFolder,
+  },
+  {
+    id: 6,
+    name: 'Lorem ipsum',
+    date: '10-09-2023',
+    size: '15.14MB',
+    type: 'Text',
+    icon: driveTxt,
+  },
+  {
+    id: 7,
+    name: 'Lorem ipsum',
+    date: '10-09-2023',
+    size: '01.14MB',
+    type: 'Excel',
+    icon: driveExcel,
+  },
+  {
+    id: 9,
+    name: 'Lorem ipsum',
+    date: '15-09-2023',
+    size: '02.14MB',
+    type: 'Text',
+    icon: driveTxt,
+  },
+  {
+    id: 10,
+    name: 'Lorem ipsum',
+    date: '16-09-2023',
+    size: '07.50MB',
+    type: 'PNG',
+    icon: drivePhoto,
+  },
+  {
+    id: 11,
+    name: 'Lorem ipsum',
+    date: '18-09-2023',
+    size: '03.60MB',
+    type: 'Excel',
+    icon: driveExcel,
+  },
+  {
+    id: 12,
+    name: 'Lorem ipsum',
+    date: '25-09-2023',
+    size: '15.14MB',
+    type: 'PNG',
+    icon: drivePhoto,
+  },
+]

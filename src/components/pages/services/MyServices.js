@@ -231,9 +231,9 @@ const MyServices = () => {
             <TasksBlock handleCollapse={handleCollapse} />
           </div>
 
-          {/* <div key="drive">
+          <div key="drive">
             <WorkDrive />
-          </div> */}
+          </div>
 
           {/* <div key="guide">
             <GuideBlock/>
