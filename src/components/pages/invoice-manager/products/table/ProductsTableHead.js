@@ -18,7 +18,7 @@ import Modal from '@mui/material/Modal';
 import trashIcon from '../../../../../assets/images/invoice-manager/Trash.png';
 import tagIcon from '../../../../../assets/images/invoice-manager/tag.png';
 import desctiptionIcon from '../../../../../assets/images/invoice-manager/description.png';
-import editIcon from '../../../../../assets/images/invoice-manager/edit.svg';
+import editIcon from '../../../../../assets/images/invoice-manager/Edit.png';
 import moreIcon from '../../../../../assets/images/invoice-manager/more.svg';
 import { useSelector, useDispatch } from "react-redux";
 

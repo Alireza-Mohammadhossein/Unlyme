@@ -349,7 +349,7 @@ const HeaderChatPopup = ({ props }) => {
         <div className='chat-popup-list__footer'>
             <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='chat-popup-list__footer_container' >
                 <Tab icon={<ChatIcon />} label="Chats" component={'div'}/>
-                <Tab icon={<PeopleIcon />} label="Chanels" component={'div'} />
+                <Tab icon={<PeopleIcon />} label="Channels" component={'div'} />
                 <Tab icon={<PermContactCalendarIcon />} label="Contacts" component={'div'} />
             </Tabs>
         </div>
