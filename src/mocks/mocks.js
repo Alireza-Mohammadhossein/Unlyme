@@ -4205,7 +4205,7 @@ export const sampleTasks = {
 export const driveData = [
   {
     id: 1,
-    name: 'Lorem ipsum',
+    name: 'Documents',
     date: '07-08-2023',
     size: '25.14MB',
     type: 'Folder',
@@ -4213,7 +4213,7 @@ export const driveData = [
   },
   {
     id: 4,
-    name: 'Lorem ipsum',
+    name: 'Videos',
     date: '14-08-2023',
     size: '48.15MB',
     type: 'Folder',
@@ -4221,7 +4221,7 @@ export const driveData = [
   },
   {
     id: 8,
-    name: 'Lorem ipsum',
+    name: 'logo.png',
     date: '11-09-2023',
     size: '01.05MB',
     type: 'PNG',
@@ -4229,7 +4229,7 @@ export const driveData = [
   },
   {
     id: 5,
-    name: 'Lorem ipsum',
+    name: 'readme.txt',
     date: '01-09-2023',
     size: '25.14MB',
     type: 'Text',
@@ -4237,7 +4237,7 @@ export const driveData = [
   },
   {
     id: 2,
-    name: 'Lorem ipsum',
+    name: 'Code',
     date: '08-08-2023',
     size: '14.02MB',
     type: 'Folder',
@@ -4245,7 +4245,7 @@ export const driveData = [
   },
   {
     id: 3,
-    name: 'Lorem ipsum',
+    name: 'UI Design',
     date: '12-08-2023',
     size: '06.80MB',
     type: 'Folder',
@@ -4253,7 +4253,7 @@ export const driveData = [
   },
   {
     id: 6,
-    name: 'Lorem ipsum',
+    name: 'readme.txt',
     date: '10-09-2023',
     size: '15.14MB',
     type: 'Text',
@@ -4261,7 +4261,7 @@ export const driveData = [
   },
   {
     id: 7,
-    name: 'Lorem ipsum',
+    name: 'Data (12).xlsx',
     date: '10-09-2023',
     size: '01.14MB',
     type: 'Excel',
@@ -4269,7 +4269,7 @@ export const driveData = [
   },
   {
     id: 9,
-    name: 'Lorem ipsum',
+    name: 'readme.txt',
     date: '15-09-2023',
     size: '02.14MB',
     type: 'Text',
@@ -4277,7 +4277,7 @@ export const driveData = [
   },
   {
     id: 10,
-    name: 'Lorem ipsum',
+    name: 'logo-new.png',
     date: '16-09-2023',
     size: '07.50MB',
     type: 'PNG',
@@ -4285,7 +4285,7 @@ export const driveData = [
   },
   {
     id: 11,
-    name: 'Lorem ipsum',
+    name: 'Data (13).xlsx',
     date: '18-09-2023',
     size: '03.60MB',
     type: 'Excel',
@@ -4293,7 +4293,7 @@ export const driveData = [
   },
   {
     id: 12,
-    name: 'Lorem ipsum',
+    name: 'logo-new.png',
     date: '25-09-2023',
     size: '15.14MB',
     type: 'PNG',

@@ -151,7 +151,7 @@ const WorkDrive = () => {
         </div>
 
         <div className="my-services__work-drive_content">
-          <div className="my-services__work-drive_content_list">
+          <div className={`my-services__work-drive_content_list ${viewMode === 'grid' ? 'grid' : ''}`}>
             <div className="my-services__work-drive_content_list-head">
               <div className="my-services__work-drive_content_list-head-icon">
 
