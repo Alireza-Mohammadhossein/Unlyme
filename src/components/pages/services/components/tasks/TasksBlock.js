@@ -85,6 +85,7 @@ const TasksBlock = () => {
   const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
   const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
+  const openWorkDriveWidgetModal = useSelector((state) => state.appsModal.openWorkDriveWidgetModal);
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
   const handleOpenTasksModal = () => {
@@ -113,7 +114,7 @@ const TasksBlock = () => {
 
   return (
     <>
-      <div className={`my-services__tasks ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal ? 'back-transparent' : ''}`}>
+      <div className={`my-services__tasks ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
         <div className="my-services__tasks_header">
 
           <div className="my-services__tasks_header-view">

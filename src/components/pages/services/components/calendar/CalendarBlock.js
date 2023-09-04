@@ -66,6 +66,7 @@ const CalendarBlock = () => {
   const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
   const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
+  const openWorkDriveWidgetModal = useSelector((state) => state.appsModal.openWorkDriveWidgetModal);
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
   const handleOpenCalendarModal = () => {
@@ -202,7 +203,7 @@ const CalendarBlock = () => {
     // />
 
     <>
-      <div className={`my-services__calendar ${openCalendarWidgetModal || appsModal || openNotesWidgetModal || openTasksWidgetModal ? 'back-transparent' : ''}`}>
+      <div className={`my-services__calendar ${openCalendarWidgetModal || appsModal || openNotesWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           // headerToolbar={{

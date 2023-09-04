@@ -14,8 +14,12 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import DeleteEarningPopup from '../popups/DeleteEarningPopup';
 import Modal from '@mui/material/Modal';
-import trashIcon from '../../../../../assets/images/invoice-manager/delete.svg';
-import tagIcon from '../../../../../assets/images/invoice-manager/tag.svg';
+import trashIcon from '../../../../../assets/images/invoice-manager/Trash.png';
+import tagIcon from '../../../../../assets/images/invoice-manager/tag.png';
+import desctiptionIcon from '../../../../../assets/images/invoice-manager/description.png';
+import editIcon from '../../../../../assets/images/invoice-manager/edit.svg';
+import moreIcon from '../../../../../assets/images/invoice-manager/more.svg';
+import { useSelector, useDispatch } from "react-redux";
 
 
 
@@ -138,6 +142,11 @@ const MoneyTableHead = (props) => {
     };
     // end delete invoice popup
 
+
+    
+    const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+    const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
     
 
     return (
@@ -162,7 +171,7 @@ const MoneyTableHead = (props) => {
               }
             </TableCell>
 
-            <TableCell colSpan={4} padding="checkbox" className='money-header-row-option'>
+            <TableCell colSpan={5} padding="checkbox" className='money-header-row-option'>
               {numSelected > 0 ?
                 <div className='money-header-row-option-container'>
                    <Button
@@ -171,6 +180,175 @@ const MoneyTableHead = (props) => {
                     > 
                     Delete
                   </Button>
+
+                  {
+                    secondPopupTab ? 
+                      ''
+                    : 
+                      <Button
+                        startIcon={<img src={editIcon} />}
+                        onClick={() => {
+                          toast.warning(`You have clicked on Changing category of selected rows`, {
+                            position: "top-center",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            pauseOnFocusLoss: false,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                          });
+                          handleClose()
+                        }}
+                        
+                        > 
+                        Edit
+                      </Button>
+                  }
+
+
+                  {
+                    firstPopupTab || secondPopupTab ? 
+                      ''
+                    : 
+                      <Button
+                        startIcon={<img src={desctiptionIcon} />}
+                          onClick={() => {
+                            toast.error(`You have clicked on Add description selected rows`, {
+                              position: "top-center",
+                              autoClose: 5000,
+                              hideProgressBar: false,
+                              closeOnClick: true,
+                              pauseOnHover: false,
+                              pauseOnFocusLoss: false,
+                              draggable: true,
+                              progress: undefined,
+                              theme: "light",
+                            });
+                            handleClose()
+                          }}
+                        > 
+                        Add description
+                      </Button>
+                  }
+
+
+                  {
+                    firstPopupTab && !secondPopupTab ?
+                      <>
+                        <IconButton
+                          aria-label="more"
+                          id="long-button"
+                          aria-controls={open ? "long-menu" : undefined}
+                          aria-expanded={open ? "true" : undefined}
+                          aria-haspopup="true"
+                          onClick={handleClick}
+                          className='more'
+                        >
+                          {/* <MoreHorizIcon sx={{ color: '#00000080' }} /> */}
+                          <img src={moreIcon} />
+                        </IconButton>
+          
+                        <Menu
+                          id="long-menu"
+                          MenuListProps={{
+                            "aria-labelledby": "long-button",
+                          }}
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          disableScrollLock = {true}
+                        >
+                          <MenuItem onClick={() => {
+                            toast.error(`You have clicked on Add description selected rows`, {
+                                position: "top-center",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: false,
+                                pauseOnFocusLoss: false,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                              });
+                            handleClose()
+                            }}
+                          >
+                            <img style={{width: '18px', height: '18px', marginRight: '5px'}} src={desctiptionIcon} /> Add description
+                          </MenuItem>
+                        </Menu>
+                      </>
+
+                     : secondPopupTab && firstPopupTab?
+                      <>
+                         <IconButton
+                           aria-label="more"
+                           id="long-button"
+                           aria-controls={open ? "long-menu" : undefined}
+                           aria-expanded={open ? "true" : undefined}
+                           aria-haspopup="true"
+                           onClick={handleClick}
+                           className='more'
+                         >
+                           {/* <MoreHorizIcon sx={{ color: '#00000080' }} /> */}
+                          <img src={moreIcon} />
+                         </IconButton>
+           
+                         <Menu
+                          id="long-menu"
+                          MenuListProps={{
+                            "aria-labelledby": "long-button",
+                          }}
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          disableScrollLock = {true}
+                          >
+                            <MenuItem onClick={() => {
+                              toast.error(`You have clicked on Edit selected rows`, {
+                                  position: "top-center",
+                                  autoClose: 5000,
+                                  hideProgressBar: false,
+                                  closeOnClick: true,
+                                  pauseOnHover: false,
+                                  pauseOnFocusLoss: false,
+                                  draggable: true,
+                                  progress: undefined,
+                                  theme: "light",
+                                });
+                              handleClose()
+                              }}
+                            >
+                              <img style={{width: '18px', height: '18px', marginRight: '5px'}} src={editIcon} /> Edit
+                            </MenuItem>
+
+                            <MenuItem onClick={() => {
+                              toast.error(`You have clicked on Add description selected rows`, {
+                                  position: "top-center",
+                                  autoClose: 5000,
+                                  hideProgressBar: false,
+                                  closeOnClick: true,
+                                  pauseOnHover: false,
+                                  pauseOnFocusLoss: false,
+                                  draggable: true,
+                                  progress: undefined,
+                                  theme: "light",
+                                });
+                              handleClose()
+                              }}
+                            >
+                              <img style={{width: '18px', height: '18px', marginRight: '5px'}} src={desctiptionIcon} /> Add description
+                            </MenuItem>
+                        </Menu>
+                      </>
+
+                      : ''
+                   }
+
+
+
+
                   {/* <Button 
                     startIcon={<LocalOfferOutlinedIcon />}
                     onClick={() => {
@@ -196,7 +374,7 @@ const MoneyTableHead = (props) => {
               }
             </TableCell>
     
-            <TableCell padding="checkbox" className='email-header_selected'>
+            {/* <TableCell padding="checkbox" className='email-header_selected'>
               {numSelected > 0 ?
                   <div>
                   <IconButton
@@ -284,7 +462,7 @@ const MoneyTableHead = (props) => {
               : 
                 ''
               }
-            </TableCell>
+            </TableCell> */}
     
     
             

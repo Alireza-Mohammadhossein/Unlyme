@@ -4,6 +4,7 @@ const initialState = {
   openAppsModal: false,
   openNotesWidgetModal: false,
   openCalendarWidgetModal: false,
+  openWorkDriveWidgetModal: false,
   openTasksWidgetModal: false,
   openMeetingPageModal: false,
   SelectedComponent: null,
@@ -23,6 +24,7 @@ export const appsModalSlice = createSlice({
         state.openAppsModal = false;
         state.openNotesWidgetModal = false;
         state.openCalendarWidgetModal = false;
+        state.openWorkDriveWidgetModal = false;
         state.openTasksWidgetModal = false;
         // state.SelectedComponent = null;
     },
@@ -41,6 +43,15 @@ export const appsModalSlice = createSlice({
     },
     handleCloseCalendarWidgetModal: (state) => {
         state.openCalendarWidgetModal = false;
+        // state.SelectedComponent = null;
+    },
+
+    handleOpenWorkDriveWidgetModal: (state, component) => {
+      state.openWorkDriveWidgetModal = true;
+      // state.SelectedComponent = component.payload;
+    },
+    handleCloseWorkDriveWidgetModal: (state) => {
+        state.openWorkDriveWidgetModal = false;
         // state.SelectedComponent = null;
     },
 
@@ -72,6 +83,6 @@ export const appsModalSlice = createSlice({
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal, handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal, handleOpenTasksWidgetModal, handleCloseTasksWidgetModal } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal, handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal, handleOpenWorkDriveWidgetModal, handleCloseWorkDriveWidgetModal, handleOpenTasksWidgetModal, handleCloseTasksWidgetModal } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;

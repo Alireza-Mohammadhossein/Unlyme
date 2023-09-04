@@ -1135,8 +1135,17 @@
                         align-items: center;
                         gap: 3px;
 
+                        &.more {
+                            background-color: unset;
+                        }
+
                         .MuiButton-startIcon {
                             margin: 0;
+
+                            img  {
+                                width: 18px;
+                                height: 18px;
+                            }
                         }
                     }
                 }
@@ -1210,8 +1219,101 @@
                         align-items: center;
                         gap: 3px;
 
+                        &.more {
+                            background-color: unset;
+                        }
+
                         .MuiButton-startIcon {
                             margin: 0;
+
+                            img {
+                                width: 18px;
+                                height: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &-row:first-child {
+            height: 44px;
+            box-sizing: border-box;
+            padding: 0;
+
+            .MuiTableCell-root {
+                padding-bottom: 4px;
+                height: 44px;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    .clients-header {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+
+
+
+        &-row {
+            &-cell {
+                color: #333333;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 7px 5px;
+                text-align: left;
+
+                &:last-child {
+                    padding-left: 13px;
+                }
+            }
+
+            &-selected {
+                font-size: 15px;
+                text-align: left;
+                stroke: #fff;
+
+                .MuiSvgIcon-root {
+                    color: #ADABA8;
+                }
+
+                .Mui-checked .MuiSvgIcon-root, .MuiCheckbox-indeterminate .MuiSvgIcon-root {
+                    color: #51A3FF;
+                }
+            }
+
+            &-option {
+                &-container {
+                    display: flex;
+                    gap: 10px;
+                    height: 28px;
+
+                    .MuiButtonBase-root {
+                        background-color: #F0F0F0;
+                        letter-spacing: 0.13px;
+                        font-size: 13px;
+                        color: #666;
+                        border-radius: 8px;
+                        padding: 5px 10px;
+                        text-transform: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 3px;
+
+                        &.more {
+                            background-color: unset;
+                        }
+
+                        .MuiButton-startIcon {
+                            margin: 0;
+
+                            img {
+                                width: 18px;
+                                height: 18px;
+                            }
                         }
                     }
                 }
@@ -1280,7 +1382,7 @@
                         display: flex;
                         align-items: center;
                         display: flex;
-                        gap: 100px;
+                        // gap: 100px;
                     }
 
                     .MuiButtonBase-root {
@@ -1296,9 +1398,22 @@
                         gap: 3px;
                         height: 28px;
 
+                        &.more {
+                            background-color: unset;
+                        }
+
                         .MuiButton-startIcon {
                             margin: 0;
+
+                            img {
+                                width: 18px;
+                                height: 18px;
+                            }
                         }
+                    }
+
+                    .MuiButtonBase-root:nth-child(2) {
+                        margin-left: 100px;
                     }
                 }
             }

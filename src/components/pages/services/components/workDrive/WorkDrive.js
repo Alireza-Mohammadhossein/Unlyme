@@ -6,11 +6,12 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { driveData } from "../../../../../mocks/mocks";
-import dayjs from 'dayjs';
 import Modal from '@mui/material/Modal';
+import { driveData } from "../../../../../mocks/mocks";
+import WorkDrivePage from "../../../work-drive/WorkDrivePage";
+import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { handleOpenNotesWidgetModal, handleCloseNotesWidgetModal } from '../../../../../redux/app/appsModalSlice';
+import { handleOpenWorkDriveWidgetModal, handleCloseWorkDriveWidgetModal } from '../../../../../redux/app/appsModalSlice';
 import plusIcon from '../../../../../assets/images/my-services/plus.svg';
 import moreIcon from '../../../../../assets/images/my-services/workdrive/more.svg';
 import shareIcon from '../../../../../assets/images/my-services//workdrive/share.svg';
@@ -58,28 +59,29 @@ const WorkDrive = () => {
 
 
   
-  // const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
-  // const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
-  // const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
-  // const appsModal = useSelector((state) => state.appsModal.openAppsModal);
+  const openWorkDriveWidgetModal = useSelector((state) => state.appsModal.openWorkDriveWidgetModal);
+  const openCalendarWidgetModal = useSelector((state) => state.appsModal.openCalendarWidgetModal);
+  const openTasksWidgetModal = useSelector((state) => state.appsModal.openTasksWidgetModal);
+  const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
+  const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
-  // const handleOpenNotesModal = () => {
-  //   dispatch(handleOpenNotesWidgetModal());
-  // };
-  // const handleCloseNotesModal = () => {
-  //   dispatch(handleCloseNotesWidgetModal());
-  // };
+  const handleOpenWorkDriveModal = () => {
+    dispatch(handleOpenWorkDriveWidgetModal());
+  };
+  const handleCloseWorkDriveModal = () => {
+    dispatch(handleCloseWorkDriveWidgetModal());
+  };
 
   
-  // const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
-  // const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
 
 
 
 
   return (
     <>
-      <div className='my-services__work-drive'>
+      <div className={`my-services__work-drive ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
         <div className="my-services__work-drive_header">
           <div className="my-services__work-drive_header-view">
             <ToggleButtonGroup
@@ -143,7 +145,7 @@ const WorkDrive = () => {
               <img src={uploadIcon} />
             </IconButton>
 
-            <IconButton aria-label="expand">
+            <IconButton aria-label="expand" onClick={handleOpenWorkDriveModal}>
               <img src={expandIcon} />
             </IconButton>
 
@@ -177,7 +179,7 @@ const WorkDrive = () => {
             <div className="my-services__work-drive_content_list-body">
               {
                 driveData.map((item) => (
-                  <div className="my-services__work-drive_content_list-body-item">
+                  <div key={item.id} className="my-services__work-drive_content_list-body-item">
                     <div className="my-services__work-drive_content_list-body-item-icon">
                       <img src={item.icon} />
                     </div>
@@ -211,9 +213,9 @@ const WorkDrive = () => {
       </div>
 
 
-      {/* <Modal
-        open={openNotesWidgetModal}
-        onClose={handleCloseNotesModal}
+      <Modal
+        open={openWorkDriveWidgetModal}
+        onClose={handleCloseWorkDriveModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className="apps-modal"
@@ -221,9 +223,9 @@ const WorkDrive = () => {
       >
         <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
           
-          <NotesPage handleCloseNotesModal={handleCloseNotesModal} />
+          <WorkDrivePage handleCloseWorkDriveModal={handleCloseWorkDriveModal} />
         </div>
-      </Modal> */}
+      </Modal>
 
     </>
   );
