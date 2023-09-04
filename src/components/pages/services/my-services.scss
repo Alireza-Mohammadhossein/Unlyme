@@ -1249,6 +1249,16 @@
             line-height: 45px;
             box-sizing: border-box;
             border-top: 1px solid #F1F1F1;
+            cursor: pointer;
+            border-radius: 14px;
+
+            &.selected {
+              background-color: rgba(118, 118, 118, 0.05);
+            }
+    
+            &:hover {
+              background-color: rgba(118, 118, 118, 0.05);
+            }
             
             &-icon {
               width: 60px;

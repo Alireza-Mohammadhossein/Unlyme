@@ -12,6 +12,8 @@ import WorkDrivePage from "../../../work-drive/WorkDrivePage";
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenWorkDriveWidgetModal, handleCloseWorkDriveWidgetModal } from '../../../../../redux/app/appsModalSlice';
+import Avatar from '@mui/material/Avatar';
+import CheckIcon from '@mui/icons-material/Check';
 import plusIcon from '../../../../../assets/images/my-services/plus.svg';
 import moreIcon from '../../../../../assets/images/my-services/workdrive/more.svg';
 import shareIcon from '../../../../../assets/images/my-services//workdrive/share.svg';
@@ -65,6 +67,9 @@ const WorkDrive = () => {
   const openNotesWidgetModal = useSelector((state) => state.appsModal.openNotesWidgetModal);
   const appsModal = useSelector((state) => state.appsModal.openAppsModal);
 
+  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
+  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+
   const handleOpenWorkDriveModal = () => {
     dispatch(handleOpenWorkDriveWidgetModal());
   };
@@ -72,9 +77,27 @@ const WorkDrive = () => {
     dispatch(handleCloseWorkDriveWidgetModal());
   };
 
+
   
-  const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
-  const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
+    // start selected rows
+    const [selectedRows, setSelectedRows] = useState([]);
+
+    const handleselectedRows = (item) => {
+      setSelectedRows(prevSelectedItems => {
+        const itemIndex = prevSelectedItems.findIndex(selectedItem => selectedItem.id === item.id);
+        if (itemIndex !== -1) {
+          const updatedSelectedRows = [...prevSelectedItems];
+          updatedSelectedRows.splice(itemIndex, 1);
+  
+          return updatedSelectedRows;
+        } else {
+          return [...prevSelectedItems, item];
+        }
+      });
+    };
+    // end selected rows
+
+  
 
 
 
@@ -100,42 +123,57 @@ const WorkDrive = () => {
           </div>
 
           <div className="my-services__work-drive_header-more">
-            <IconButton
-              aria-label="setting"
-              onClick={handleOpenMore}
-            >
-              <img src={moreIcon} />
-            </IconButton>
 
-            <Menu
-              anchorEl={anchorElMore}
-              open={open}
-              onClose={handleCloseMore}
-              disableScrollLock={true}
-              className="my-services__popup work-drive"
-            >
-              <MenuItem 
-                sx={{minWidth: '130px'}}
-              >
-                <img src={copyIcon} /> Copy
-              </MenuItem>
+            {
+              selectedRows.length > 0 ?
+              <>
+                <IconButton
+                  aria-label="setting"
+                  onClick={handleOpenMore}
+                >
+                  <img src={moreIcon} />
+                </IconButton>
 
-              <MenuItem>
-                <img src={duplicateIcon} /> Duplicate
-              </MenuItem>
+                <Menu
+                  anchorEl={anchorElMore}
+                  open={open}
+                  onClose={handleCloseMore}
+                  disableScrollLock={true}
+                  className="my-services__popup work-drive"
+                >
+                  <MenuItem 
+                    sx={{minWidth: '130px'}}
+                    onClick={handleCloseMore}
+                  >
+                    <img src={copyIcon} /> Copy
+                  </MenuItem>
 
-              <MenuItem>
-                <img src={deleteIcon} /> Delete
-              </MenuItem>
-              
-              <MenuItem>
-                <img src={propertiesIcon} /> Properties
-              </MenuItem>
-            </Menu>
+                  <MenuItem
+                    onClick={handleCloseMore}
+                  >
+                    <img src={duplicateIcon} /> Duplicate
+                  </MenuItem>
 
-            <IconButton aria-label="add">
+                  <MenuItem
+                    onClick={handleCloseMore}
+                  >
+                    <img src={deleteIcon} /> Delete
+                  </MenuItem>
+                  
+                  <MenuItem
+                    onClick={handleCloseMore}
+                  >
+                    <img src={propertiesIcon} /> Properties
+                  </MenuItem>
+                </Menu>              
+              </>
+              :
+                ''
+            }
+
+            {/* <IconButton aria-label="add">
               <img src={plusIcon} />
-            </IconButton>
+            </IconButton> */}
 
             <IconButton aria-label="share">
               <img src={shareIcon} />
@@ -179,9 +217,16 @@ const WorkDrive = () => {
             <div className="my-services__work-drive_content_list-body">
               {
                 driveData.map((item) => (
-                  <div key={item.id} className="my-services__work-drive_content_list-body-item">
+                  <div
+                    key={item.id}
+                    className={`my-services__work-drive_content_list-body-item ${selectedRows.some(selectedItem => selectedItem.id === item.id) ? 'selected' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleselectedRows(item)
+                    }}
+                    >
                     <div className="my-services__work-drive_content_list-body-item-icon">
-                      <img src={item.icon} />
+                      <img src={item.icon} alt={item.name} />
                     </div>
     
                     <div className="my-services__work-drive_content_list-body-item-name">
