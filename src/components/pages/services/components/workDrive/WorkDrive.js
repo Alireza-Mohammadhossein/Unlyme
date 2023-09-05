@@ -276,7 +276,7 @@ const WorkDrive = () => {
                                 file.name.includes('xlsx') ? <img src={driveExcel} /> :
                                 file.name.includes('zip') ? <img src={driveFolder} /> :
                                 file.name.includes('mp4') ? <img src={driveVideoFolder} /> :
-                                <img src={driveFolder} />
+                                <img src={driveTxt} />
                               }
                             </div>
                             
@@ -312,7 +312,7 @@ const WorkDrive = () => {
                     previewGridProps={{container: { spacing: 1, direction: 'row' }}}
                     previewChipProps={{classes: { root: classes.previewChip } }}
                     previewText="Selected files"
-                    showAlerts={true}
+                    showAlerts={false}
                     filesLimit={8}
                     maxFileSize= '50000000'
                     Icon= {CustomUploadIcon}
