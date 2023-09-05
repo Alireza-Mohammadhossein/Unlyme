@@ -215,7 +215,7 @@ const NotesBlock = () => {
           </div>
 
           <div className="my-services__notes_header-more">
-            <IconButton aria-label="add">
+            <IconButton aria-label="add" onClick={handleOpenNotesModal}>
               <img src={plusIcon} />
             </IconButton>
 

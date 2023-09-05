@@ -160,206 +160,203 @@ const HeaderChatPopup = ({ props }) => {
     <div className='header-popup chat-popup'>
       <div className='chat-popup-list'>
         <div className='chat-popup-list__header'>
-              <p className='chat-popup-list__header-title'>{t('CHAT_POPUP.LIST.HEADER.TITLE')}</p>
-              {
-                showChat === false && newChatToggler === false ?
-                  <div className='chat-popup-list__header-actions'>
-                    <div className='chat-popup-list__header-actions_more'>
-                      <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleClick}
-                      >
-                        {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
-                        <img src={moreIcon} />
-                      </IconButton>
+          <p className='chat-popup-list__header-title'>{t('CHAT_POPUP.LIST.HEADER.TITLE')}</p>
+          {
+            showChat === false && newChatToggler === false ?
+              <div className='chat-popup-list__header-actions'>
+                <div className='chat-popup-list__header-actions_more'>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    {/* <MoreHorizIcon sx={{ color: '#000000' }} /> */}
+                    <img src={moreIcon} />
+                  </IconButton>
 
-                      <Menu
-                        id="long-menu"
-                        MenuListProps={{
-                          "aria-labelledby": "long-button",
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        disableScrollLock = {true}
-                        PaperProps={{
-                          style: {
-                            maxHeight: ITEM_HEIGHT * 4.5,
-                            width: "20ch",
-                          },
-                        }}
+                  <Menu
+                    id="long-menu"
+                    MenuListProps={{
+                      "aria-labelledby": "long-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    disableScrollLock = {true}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: "20ch",
+                      },
+                    }}
+                  >
+                    {options.map((option) => (
+                      <MenuItem
+                        key={option}
+                        selected={option === "Pyxis"}
+                        onClick={handleClose}
                       >
-                        {options.map((option) => (
-                          <MenuItem
-                            key={option}
-                            selected={option === "Pyxis"}
-                            onClick={handleClose}
-                          >
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Menu>
-                    </div>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </div>
 
-                    <div className='chat-popup-list__header-actions_edit'>
-                      <IconButton
-                        aria-label="more"
-                        aria-haspopup="true"
-                        // onClick={handleClick}
-                        onClick={handleCreateChat}
-                      >
-                        {/* <EditIcon sx={{ color: '#51A3FF' }} /> */}
-                        <img src={editIcon} />
-                      </IconButton>
-                    </div>
-                    
-                    <div className='chat-popup-list__header-actions_close'>
-                      <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={() => {
-                          dispatch(toggleChatPopup());
-                          // setChatPopupToggler(false)
-                          // document.getElementById('cloud-page').classList.remove('first-shrink');
-                        }}
-                      >
-                        {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
-                        <img src={closeIcon} />
-                      </IconButton>
+                <div className='chat-popup-list__header-actions_edit'>
+                  <IconButton
+                    aria-label="more"
+                    aria-haspopup="true"
+                    // onClick={handleClick}
+                    onClick={handleCreateChat}
+                  >
+                    {/* <EditIcon sx={{ color: '#51A3FF' }} /> */}
+                    <img src={editIcon} />
+                  </IconButton>
+                </div>
+                
+                <div className='chat-popup-list__header-actions_close'>
+                  <IconButton
+                    aria-label="more"
+                    id="long-button"
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={() => {
+                      dispatch(toggleChatPopup());
+                      // setChatPopupToggler(false)
+                      // document.getElementById('cloud-page').classList.remove('first-shrink');
+                    }}
+                  >
+                    {/* <CloseIcon  sx={{ color: '#000000' }}/> */}
+                    <img src={closeIcon} />
+                  </IconButton>
 
-                    </div>
-                  </div>
-                : 
-                  ''
-              }
+                </div>
+              </div>
+            : 
+              ''
+          }
         </div>
 
         <div className='chat-popup-list__body'>
-            <div className='chat-popup-list__body-search'>
-                <FormControl variant="standard" className='chat-popup-list__body-search_form'>
-                    <TextField
-                        className="chat-popup-list__body-search_input"
-                        placeholder={t("CHAT_POPUP.LIST.HEADER.SEARCH")}
-                        variant="outlined"
-                        size="small"
-                        InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                {/* <SearchIcon sx={{ color: '#ACACAC' }}/> */}
-                                <img src={search} style={{width: '20px'}}/>
+          <div className='chat-popup-list__body-search'>
+            <FormControl variant="standard" className='chat-popup-list__body-search_form'>
+              <TextField
+                className="chat-popup-list__body-search_input"
+                placeholder={t("CHAT_POPUP.LIST.HEADER.SEARCH")}
+                variant="outlined"
+                size="small"
+                InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        {/* <SearchIcon sx={{ color: '#ACACAC' }}/> */}
+                        <img src={search} style={{width: '20px'}}/>
 
-                              </InputAdornment>
-                            ),
-                          }}
+                      </InputAdornment>
+                    ),
+                }}
+              />
+            </FormControl>
+          </div>
+          
+          <TabPanel value={maintab} index={0} className='chat-popup-list__body-messages_container' >
+            <div className='chat-popup-list__body-messages'>
+              <div className='chat-popup-list__body-messages_list'>
+                <Tabs
+                  orientation="vertical"
+                  variant="scrollable"
+                  value={showChat}
+                  onChange={handleShowChat}
+                  aria-label="Vertical tabs example"
+                  // sx={{ borderRight: 1, borderColor: 'divider' }}
+                >
+
+                  {chatMessages.map((item, index) => (
+                    <Tab
+                      className='chat-popup-list__body-messages_item'
+                      key={item.id}
+                      {...a11yProps(index)}
+                      component={'div'}
+                      label={
+                        <>
+                          <div className='chat-popup-list__body-messages_item_avatar'
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleselectedMessages(item)
+                            }}>
+                            {
+                              selectedMessages.some(selectedItem => selectedItem.id === item.id) ? 
+                                <Avatar><CheckIcon /></Avatar>
+                              :
+                                <img src={item.avatar} alt={item.name}/>
+                            }
+                          </div>
+                    
+                          <div className='chat-popup-list__body-messages_item_content'>
+                            <p className='chat-popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
+                            <p
+                              className='chat-popup-list__body-messages_item_content_last-message'
+                              style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '500'} : {}}  
+                            >{item.lastMessage}</p>
+                          </div>
+                    
+                          <div className='chat-popup-list__body-messages_item_status'>
+                            {item.new_messages > 0 ?
+                              <CircleIcon className='chat-popup-list__body-messages_item_status-unread' />
+                              :
+                              // <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
+                              <img src={readIcon}  className='chat-popup-list__body-messages_item_status-read' />
+                            }
+                          </div>
+
+                          <div className="chat-popup-list__body-messages_item_actions">
+                          <div className="chat-popup-list__body-messages_item_actions-delete">
+                            <IconButton
+                              aria-label="delete"
+                              id="long-button"
+                              aria-controls={open ? "long-menu" : undefined}
+                              aria-expanded={open ? "true" : undefined}
+                              aria-haspopup="true"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
+                              <img src={trashIcon} />
+                            </IconButton>
+                          </div>
+                        </div>
+                        </>
+                      } 
                     />
-                </FormControl>
+                  ))}
+                </Tabs>
+              </div>
             </div>
-            
-            <TabPanel value={maintab} index={0} className='chat-popup-list__body-messages_container' >
-              <div className='chat-popup-list__body-messages'>
-                  <div className='chat-popup-list__body-messages_list'>
-                    <Tabs
-                      orientation="vertical"
-                      variant="scrollable"
-                      value={showChat}
-                      onChange={handleShowChat}
-                      aria-label="Vertical tabs example"
-                      // sx={{ borderRight: 1, borderColor: 'divider' }}
-                    >
-
-                        {chatMessages.map((item, index) => (
-                          <Tab
-                            className='chat-popup-list__body-messages_item'
-                            key={item.id}
-                            {...a11yProps(index)}
-                            component={'div'}
-                            label={
-                              <>
-                                <div className='chat-popup-list__body-messages_item_avatar'
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleselectedMessages(item)
-                                  }}>
-                                  {
-                                    selectedMessages.some(selectedItem => selectedItem.id === item.id) ? 
-                                      <Avatar><CheckIcon /></Avatar>
-                                    :
-                                      <img src={item.avatar} alt={item.name}/>
-                                  }
-                                </div>
-                          
-                                <div className='chat-popup-list__body-messages_item_content'>
-                                  <p className='chat-popup-list__body-messages_item_content_name'>{item.firstName} {item.lastName}</p>
-                                  <p
-                                    className='chat-popup-list__body-messages_item_content_last-message'
-                                    style={item.new_messages > 0 ? { color:'#51A3FF' , fontWeight: '500'} : {}}  
-                                  >{item.lastMessage}</p>
-                                </div>
-                          
-                                <div className='chat-popup-list__body-messages_item_status'>
-                                  {item.new_messages > 0 ?
-                                    <CircleIcon className='chat-popup-list__body-messages_item_status-unread' />
-                                    :
-                                    // <DoneAllIcon className='chat-popup-list__body-messages_item_status-read' />
-                                    <img src={readIcon}  className='chat-popup-list__body-messages_item_status-read' />
-                                  }
-                                </div>
-
-                                <div className="chat-popup-list__body-messages_item_actions">
-                                <div className="chat-popup-list__body-messages_item_actions-delete">
-                                  <IconButton
-                                    aria-label="delete"
-                                    id="long-button"
-                                    aria-controls={open ? "long-menu" : undefined}
-                                    aria-expanded={open ? "true" : undefined}
-                                    aria-haspopup="true"
-                                    onClick={(e) => e.stopPropagation()}
-                                  >
-                                    {/* <DeleteOutlineIcon sx={{ color: "#6E6F6F" }} /> */}
-                                    <img src={trashIcon} />
-                                  </IconButton>
-                                </div>
-                              </div>
-                              </>
-                            } 
-                          />
-                        ))}
-                    </Tabs>
-                  </div>
-              </div>
-            </TabPanel>
+          </TabPanel>
 
 
-            <TabPanel value={maintab} index={1} className='chat-popup-list__body-chanels_container'>
-              <div className='chat-popup-list__body-chanels'>
-              </div>
-            </TabPanel>
-            
+          <TabPanel value={maintab} index={1} className='chat-popup-list__body-chanels_container'>
+            <div className='chat-popup-list__body-chanels'>
+            </div>
+          </TabPanel>
+          
 
-            <TabPanel value={maintab} index={2} className='chat-popup-list__body-contacts_container'>
-              <div className='chat-popup-list__body-contacts'>
-              </div>
-            </TabPanel>
+          <TabPanel value={maintab} index={2} className='chat-popup-list__body-contacts_container'>
+            <div className='chat-popup-list__body-contacts'>
+            </div>
+          </TabPanel>
         </div>
 
         <div className='chat-popup-list__footer'>
-            <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='chat-popup-list__footer_container' >
-                <Tab icon={<img src={chatIcon} alt='chat icon' />} label="Chats" component={'div'}/>
-                <Tab icon={<img src={channelIcon} alt='channels icon' />} label="Channels" component={'div'} />
-                <Tab icon={<img src={contactIcon} alt='contact icon' />} label="Contacts" component={'div'} />
-            </Tabs>
+          <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='chat-popup-list__footer_container' >
+            <Tab icon={<img src={chatIcon} alt='chat icon' />} label="Chats" component={'div'}/>
+            <Tab icon={<img src={channelIcon} alt='channels icon' />} label="Channels" component={'div'} />
+            <Tab icon={<img src={contactIcon} alt='contact icon' />} label="Contacts" component={'div'} />
+          </Tabs>
         </div>
       </div>
-
-
-
 
 
       {showChat !== false

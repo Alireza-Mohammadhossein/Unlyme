@@ -323,7 +323,7 @@ const WorkDrive = () => {
               <div className={`my-services__work-drive_content_list ${viewMode === 'grid' ? 'grid' : ''}`}>
                  <div className="my-services__work-drive_content_list-head">
                    <div className="my-services__work-drive_content_list-head-icon">
- 
+
                    </div>
                    
                    <div className="my-services__work-drive_content_list-head-name">
@@ -337,12 +337,12 @@ const WorkDrive = () => {
                    <div className="my-services__work-drive_content_list-head-size">
                      <p>Size</p>
                    </div>
- 
+
                    <div className="my-services__work-drive_content_list-head-type">
                      <p>Type</p>
                    </div>
                  </div>
- 
+
                  <div className="my-services__work-drive_content_list-body">
                    {
                      driveData.map((item) => (
@@ -376,7 +376,7 @@ const WorkDrive = () => {
                        </div>
                      ))
                    }
- 
+
                  </div>
               </div>
           }
