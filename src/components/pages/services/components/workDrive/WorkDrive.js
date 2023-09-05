@@ -254,7 +254,7 @@ const WorkDrive = () => {
         <div className="my-services__work-drive_content">
           {
             uploadMode ?
-              <div className={`my-services__work-drive_content_upload-mode ${viewMode === 'grid' ? 'grid' : ''}`}>
+              <div className={`my-services__work-drive_content_upload-mode ${viewMode === 'grid' ? 'grid' : ''}`} style={{paddingTop: uploadedFiles.length === 0 ? '10px' : '0'}}>
                 {
                   uploadedFiles.length > 0 ?
                     <div className="my-services__work-drive_content_upload-mode_files">
@@ -276,7 +276,7 @@ const WorkDrive = () => {
                                 file.name.includes('xlsx') ? <img src={driveExcel} /> :
                                 file.name.includes('zip') ? <img src={driveFolder} /> :
                                 file.name.includes('mp4') ? <img src={driveVideoFolder} /> :
-                                ''
+                                <img src={driveFolder} />
                               }
                             </div>
                             
@@ -294,12 +294,13 @@ const WorkDrive = () => {
                 <div className="my-services__work-drive_content_upload-mode_input">
                   <DropzoneArea
                     // acceptedFiles={['image/*']}
-                    dropzoneClass= 'my-services__work-drive_content_upload-mode_input-attach'
+                    dropzoneClass= {`my-services__work-drive_content_upload-mode_input-attach ${uploadedFiles.length > 1 ? 'selected' : ''}`}
                     dropzoneText={
                       <div>
                         <p className="title">Drop files here, or <span className='blue'>Browse</span></p>
                         <p className="subtitle">Maximum file size 50MB</p>
-                      </div>}
+                      </div>
+                    }
                     onChange={(files) => {
                       // console.log('files', files)
                       handleUploadedFiles(files)
