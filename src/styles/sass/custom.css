@@ -1,0 +1,169 @@
+.MuiModal-root .MuiBox-root .container {
+  padding: 20px 40px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.MuiTooltip-tooltip {
+  font-size: 12px !important;
+  background-color: #181F33 !important;
+  border-radius: 4px !important;
+  padding: 10px 15px !important;
+}
+
+.MuiTooltip-arrow {
+  color: #181F33 !important;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #4A96EA;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #EAEEF3;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.my-services__popup .MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.03);
+  border-radius: 15px;
+}
+
+.my-services__popup.work-drive .MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+}
+.my-services__popup.work-drive .MuiButtonBase-root {
+  color: #414141;
+  font-family: "OpenSans" !important;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  gap: 10px;
+}
+
+.MuiGrid-container {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.MuiGrid-item {
+  padding-left: 0 !important;
+}
+
+.MuiGrid-item.pl-10 {
+  padding-left: 10px !important;
+}
+
+.MuiTooltip-popper .MuiTooltip-tooltip {
+  font-size: 13px !important;
+}
+
+#recurringsettingpopup_tooltip .MuiTooltip-tooltip {
+  font-size: 14px !important;
+  line-height: 25px;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 10px 15px !important;
+  color: #444444;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15) !important;
+  font-family: "OpenSans" !important;
+  font-weight: 400 !important;
+}
+#recurringsettingpopup_tooltip .MuiTooltip-arrow {
+  color: #ffffff !important;
+}
+
+#addnewproductpopup_tooltip .MuiTooltip-tooltip {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 22px;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 10px 15px !important;
+  color: #444444;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15) !important;
+  font-family: "OpenSans" !important;
+  font-weight: 400 !important;
+}
+#addnewproductpopup_tooltip .MuiTooltip-arrow {
+  color: #ffffff !important;
+}
+
+.back-transparent {
+  opacity: 0.3;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+  cursor: pointer;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9e9e9e;
+}
+
+.select-color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+.select-color-circle.blue {
+  background-color: #4382C4;
+}
+.select-color-circle.red {
+  background-color: #A23051;
+}
+.select-color-circle.green {
+  background-color: #008000;
+}
+.select-color-circle.orange {
+  background-color: #ffa500;
+}
+
+.MuiButtonBase-root {
+  font-weight: 400 !important;
+}
+
+.calendar_create-eventpopup-item-select-item {
+  justify-content: space-between !important;
+}
+.calendar_create-eventpopup-item-select-item .color-bullet {
+  width: 20px;
+  height: 20px;
+}/*# sourceMappingURL=custom.css.map */

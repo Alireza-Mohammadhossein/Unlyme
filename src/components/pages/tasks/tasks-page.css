@@ -1,0 +1,641 @@
+.tasks-page {
+  width: 100%;
+  padding-bottom: 10px;
+  height: 100%;
+  overflow: auto;
+}
+@media (min-width: 1600px) {
+  .tasks-page.tasks-page-zoomout-one {
+    zoom: 0.85;
+  }
+  .tasks-page.tasks-page-zoomout-two {
+    zoom: 0.65;
+  }
+}
+@media (max-width: 1600px) {
+  .tasks-page.tasks-page-zoomout-one {
+    zoom: 0.85;
+  }
+  .tasks-page.tasks-page-zoomout-two {
+    zoom: 0.65;
+  }
+}
+.tasks-page .MuiGrid-container {
+  margin: 0;
+}
+.tasks-page .MuiGrid-item {
+  padding-top: 0 !important;
+}
+.tasks-page .MuiGrid-root {
+  height: 100%;
+}
+.tasks-page_main {
+  height: 100%;
+  padding: 0 10px 0 15px;
+}
+.tasks-page_main_list {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.tasks-page_main_list-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.tasks-page_main_list-actions .input-container {
+  width: auto;
+  margin-top: 10px;
+}
+.tasks-page_main_list-actions .input-container .input-content {
+  width: auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.tasks-page_main_list-actions .input-container .input-content .add-backlog-btn.MuiButtonBase-root {
+  background-color: transparent;
+  width: 100%;
+  padding: 8px 20px;
+  padding-left: 7px;
+  text-align: center;
+  color: #000;
+  border-radius: 8px;
+  text-transform: none;
+  font-size: 14px;
+}
+.tasks-page_main_list-actions .input-container .input-content .add-backlog-btn.MuiButtonBase-root .MuiSvgIcon-root {
+  font-size: 16px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.tasks-page_main_list .wrapper {
+  width: 100%;
+  height: 99%;
+  box-sizing: border-box;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+.tasks-page_main_list .wrapper > div {
+  width: 314px;
+  flex: 0 0 314px;
+}
+.tasks-page_main_list .wrapper .list-cards {
+  border-radius: 5px;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list {
+  height: 38px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .editable-title {
+  color: #333;
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 0;
+  padding: 7px 0;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .editable-title-actions {
+  display: none;
+  padding: 2px 7px;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .editable-title-actions .MuiSvgIcon-root {
+  font-size: 18px;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container:hover .editable-title-actions {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .list-button {
+  height: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .list-button:hover {
+  background-color: #ddd;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .menu-card {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  z-index: 999;
+  list-style-type: none;
+  cursor: default;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .menu-card li {
+  color: #333;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0.5rem 0.3rem;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .editable-title-container .menu-card li:hover {
+  background-color: #ddd;
+}
+.tasks-page_main_list .wrapper .list-cards .title-list .input-title {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 15px;
+  height: 38px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards {
+  overflow-x: auto;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container {
+  overflow-y: hidden;
+  margin: 0.5rem 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content {
+  min-height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0.5rem 0 0;
+  background: #fff;
+  border-radius: 8px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container {
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 15px;
+  transition: background-color 0.1s;
+  position: relative;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container div {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_img {
+  width: 100%;
+  padding: 0;
+  border-radius: 8px 8px 0 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_img img {
+  width: 100%;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0.5rem 0.5rem;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_info-title {
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_info-members {
+  padding: 0;
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_info-members-member {
+  padding: 0;
+  width: 35px;
+  height: 35px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0.5rem 0.5rem;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-tags {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-tags-tag {
+  font-size: 12px;
+  background-color: #EBEDF1;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #727272;
+  border-radius: 30px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons {
+  display: flex;
+  padding: 0;
+  overflow: unset;
+  gap: 14px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons-files {
+  display: flex;
+  align-items: center;
+  color: #A8ADB2;
+  font-size: 13px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons-files img {
+  margin-right: 4px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons-comments {
+  display: flex;
+  align-items: center;
+  overflow: unset;
+  color: #A8ADB2;
+  font-size: 13px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons-comments img {
+  margin-right: 4px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons-setting {
+  display: flex;
+  align-items: center;
+  overflow: unset;
+  color: #A8ADB2;
+  font-size: 13px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons .MuiSvgIcon-root {
+  color: #A8ADB2;
+  font-size: 18px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_details-buttons .MuiButtonBase-root {
+  padding: 1px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_members {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_members .card-content_member {
+  padding: 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_tags {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_tags .card-content_tag {
+  font-size: 12px;
+  background-color: #EBEDF1;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #727272;
+  border-radius: 30px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_members {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_members .card-content_member {
+  padding: 0;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_actions {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 5px;
+  gap: 2px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_actions button.MuiButtonBase-root {
+  padding: 5px;
+  background-color: #fff;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_actions button.MuiButtonBase-root:hover {
+  background-color: #d7d6d6;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container .card-content_actions button.MuiButtonBase-root .MuiSvgIcon-root {
+  font-size: 18px;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .card-content-container:hover .card-content_actions {
+  opacity: 1;
+  visibility: visible;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .input-card-title {
+  width: 100%;
+  height: 100%;
+  padding: 0.7rem 0.5rem 0.5rem;
+  resize: none;
+  overflow: hidden;
+  border-color: transparent;
+  border-radius: 3px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+.tasks-page_main_list .wrapper .list-cards .container-cards .card-container .card-content .input-card-title:focus {
+  border: 1px solid #e22bba;
+}
+.tasks-page_main_list .wrapper .input-container {
+  width: 100%;
+}
+.tasks-page_main_list .wrapper .input-container .input-content {
+  width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.tasks-page_main_list .wrapper .input-container .input-content .add-backlog-btn.MuiButtonBase-root {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  border-radius: 8px;
+  text-transform: none;
+}
+.tasks-page_main_list .wrapper .input-container .input-content .add-backlog-btn.MuiButtonBase-root .MuiSvgIcon-root {
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+.tasks-page_main_list .wrapper .input-container .input-content .add-backlog-btn.list.MuiButtonBase-root {
+  background-color: transparent;
+  color: #333;
+  width: auto;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 400;
+  height: 100%;
+}
+.tasks-page_main_list .wrapper .input-container .input-card {
+  background-color: #ebecf0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .input-card-container {
+  width: 100%;
+  margin: auto;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .input-card-container .input-text {
+  width: 100%;
+  height: 4rem;
+  background-color: #fff;
+  padding: 0.5rem;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  resize: none;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm {
+  width: 100%;
+  margin: 0.2rem auto;
+  display: flex;
+  align-items: center;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm .button-confirm {
+  height: 2rem;
+  width: 6rem;
+  background-color: #525252;
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm .button-confirm:hover {
+  background-color: #e22bba;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm .button-cancel {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm .button-cancel svg {
+  transition: color 0.3s;
+}
+.tasks-page_main_list .wrapper .input-container .input-card .confirm .button-cancel svg:hover {
+  color: #e22bba;
+}
+
+.backlog-modal_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+}
+.backlog-modal .MuiFormGroup-root {
+  gap: 15px;
+}
+.backlog-modal_item {
+  width: 100%;
+}
+.backlog-modal_item .MuiFormControl-root {
+  width: 100%;
+}
+.backlog-modal_item .MuiInputBase-root {
+  width: 100%;
+}
+.backlog-modal_item .MuiAutocomplete-root {
+  width: 100%;
+}
+.backlog-modal_item .submit-backlog-btn.MuiButtonBase-root {
+  background-color: #51A3FF;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border-radius: 8px;
+  text-transform: none;
+}
+.backlog-modal_item-attach {
+  min-height: 100px !important;
+}
+.backlog-modal_item-attach .MuiDropzoneArea-text {
+  font-size: 16px;
+  margin: 15px 0;
+}
+.backlog-modal_item-attach img {
+  width: 35px;
+  height: 35px;
+}
+.backlog-modal_item.double {
+  display: flex;
+  gap: 10px;
+}
+.backlog-modal_item.double .half {
+  width: 50%;
+}
+.backlog-modal_item.double .half .MuiSelect-select {
+  height: 55px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.backlog-modal .view-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.backlog-modal .view-modal .backlog-modal_item {
+  padding: 7px 0;
+}
+.backlog-modal .view-modal .backlog-modal_item:first-child {
+  border-bottom: 1px solid #e5e5e5;
+}
+.backlog-modal .view-modal .backlog-modal_item:last-child {
+  text-align: center;
+}
+.backlog-modal .view-modal_title {
+  font-size: 22px;
+  color: #000;
+  word-break: break-all;
+}
+.backlog-modal .view-modal_description {
+  font-size: 18px;
+  word-break: break-all;
+}
+.backlog-modal .view-modal_tags {
+  display: flex;
+  gap: 6px;
+}
+.backlog-modal .view-modal_tags span {
+  font-size: 12px;
+  background-color: #EBEDF1;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #727272;
+  border-radius: 30px;
+}
+.backlog-modal .view-modal_image {
+  width: 100%;
+}
+
+.comments_popover .MuiPaper-root {
+  max-width: 400px;
+  min-width: 400px;
+  max-height: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.comments_popover-container {
+  max-width: 400px;
+  min-width: 100%;
+  max-height: 450px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.comments_popover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.comments_popover-item {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+.comments_popover-item-avatar .MuiAvatar-root {
+  width: 35px;
+  height: 35px;
+}
+.comments_popover-item-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.comments_popover-item-comment-info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+.comments_popover-item-comment-info-name {
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+  text-transform: capitalize;
+}
+.comments_popover-item-comment-info-date {
+  font-size: 13px;
+  color: #BBBBBB;
+}
+.comments_popover-item-comment-text {
+  font-size: 13px;
+  color: #333;
+  line-height: 21px;
+  word-break: break-all;
+}
+.comments_popover-footer {
+  padding: 20px;
+  border-top: 1px solid #ECECEC;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: sticky;
+  bottom: 0;
+  background-color: #ffffff;
+  padding-bottom: 10px;
+}
+.comments_popover-footer-input {
+  width: 100%;
+}
+.comments_popover-footer-input .MuiInputBase-root {
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+.comments_popover-footer-input .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+.comments_popover-footer-submit {
+  text-align: right;
+  transition: all 0.3s ease;
+}
+.comments_popover-footer-submit_btn.MuiButtonBase-root {
+  background-color: #3089dc;
+  color: white;
+  border-radius: 50px;
+  text-transform: capitalize;
+}
+.comments_popover-footer-submit_btn.MuiButtonBase-root:hover {
+  background-color: #3089dc;
+  color: white;
+  border-radius: 50px;
+}
+
+.cloud-page__header_tasks-page_details {
+  text-align: right;
+  width: 100%;
+}
+.cloud-page__header_tasks-page_details-close {
+  text-align: right;
+}/*# sourceMappingURL=tasks-page.css.map */

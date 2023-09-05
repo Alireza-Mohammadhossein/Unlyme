@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Modal from '@mui/material/Modal';
@@ -27,6 +28,19 @@ import copyIcon from '../../../../../assets/images/my-services/workdrive/copy.sv
 import duplicateIcon from '../../../../../assets/images/my-services/workdrive/duplicate.svg';
 import deleteIcon from '../../../../../assets/images/my-services/workdrive/trash.svg';
 import propertiesIcon from '../../../../../assets/images/my-services/workdrive/properties.svg';
+import uploadDriveIcon from '../../../../../assets/images/my-services/workdrive/upload-cloud.svg';
+import { DropzoneArea } from 'material-ui-dropzone';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+
+import driveFolder from '../../../../../assets/images/my-services/workdrive/data/folder.svg';
+import driveVideoFolder from '../../../../../assets/images/my-services/workdrive/data/video-folder.svg';
+import drivePhoto from '../../../../../assets/images/my-services/workdrive/data/photo.svg';
+import driveTxt from '../../../../../assets/images/my-services/workdrive/data/txt.svg';
+import driveCodeFolder from '../../../../../assets/images/my-services/workdrive/data/code-folder.svg';
+import driveExcel from '../../../../../assets/images/my-services/workdrive/data/excel.svg';
+import backIcon from '../../../../../assets/images/my-services/workdrive/back.svg';
+
+
 
 
 
@@ -58,6 +72,8 @@ const WorkDrive = () => {
   };
 
 
+  
+
 
 
   
@@ -79,23 +95,58 @@ const WorkDrive = () => {
 
 
   
-    // start selected rows
-    const [selectedRows, setSelectedRows] = useState([]);
+  // start selected rows
+  const [selectedRows, setSelectedRows] = useState([]);
 
-    const handleselectedRows = (item) => {
-      setSelectedRows(prevSelectedItems => {
-        const itemIndex = prevSelectedItems.findIndex(selectedItem => selectedItem.id === item.id);
-        if (itemIndex !== -1) {
-          const updatedSelectedRows = [...prevSelectedItems];
-          updatedSelectedRows.splice(itemIndex, 1);
+  const handleselectedRows = (item) => {
+    setSelectedRows(prevSelectedItems => {
+      const itemIndex = prevSelectedItems.findIndex(selectedItem => selectedItem.id === item.id);
+      if (itemIndex !== -1) {
+        const updatedSelectedRows = [...prevSelectedItems];
+        updatedSelectedRows.splice(itemIndex, 1);
+
+        return updatedSelectedRows;
+      } else {
+        return [...prevSelectedItems, item];
+      }
+    });
+  };
+  // end selected rows
+
+
+  // start upload mode
+  const [uploadMode, setUploadMode] = useState(false)
+
+  const handleOpenUploadMode = () => {
+    setUploadMode(true)
+  }
+
+  const handleCloseUploadMode = () => {
+    setUploadMode(false)
+  }
+
+  const useStyles = makeStyles(theme => createStyles({
+    previewChip: {
+      minWidth: 160,
+      maxWidth: 210
+    },
+  }));
+
+  const classes = useStyles();
+
+  const CustomUploadIcon = () => (
+    <img src={uploadDriveIcon} />
+  );
+
+  const [uploadedFiles, setUploadedFiles] = useState([])
+
+  const handleUploadedFiles = (files) => {
+    console.log('files', files)
+    setUploadedFiles(files)
+    console.log('uploadedFiles',uploadedFiles)
+  }
   
-          return updatedSelectedRows;
-        } else {
-          return [...prevSelectedItems, item];
-        }
-      });
-    };
-    // end selected rows
+  // end upload mode
 
   
 
@@ -107,6 +158,15 @@ const WorkDrive = () => {
       <div className={`my-services__work-drive ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
         <div className="my-services__work-drive_header">
           <div className="my-services__work-drive_header-view">
+            {
+              uploadMode ? 
+                <Button className="my-services__work-drive_header-view-back" onClick={handleCloseUploadMode}>
+                  <img src={backIcon} /> Back
+                </Button>
+              : 
+                ''
+            }
+
             <ToggleButtonGroup
               value={viewMode}
               exclusive
@@ -171,15 +231,15 @@ const WorkDrive = () => {
                 ''
             }
 
-            {/* <IconButton aria-label="add">
+            <IconButton aria-label="add">
               <img src={plusIcon} />
-            </IconButton> */}
+            </IconButton>
 
             <IconButton aria-label="share">
               <img src={shareIcon} />
             </IconButton>
 
-            <IconButton aria-label="upload">
+            <IconButton aria-label="upload" onClick={handleOpenUploadMode}>
               <img src={uploadIcon} />
             </IconButton>
 
@@ -190,71 +250,141 @@ const WorkDrive = () => {
           </div>
         </div>
 
+
         <div className="my-services__work-drive_content">
-          <div className={`my-services__work-drive_content_list ${viewMode === 'grid' ? 'grid' : ''}`}>
-            <div className="my-services__work-drive_content_list-head">
-              <div className="my-services__work-drive_content_list-head-icon">
+          {
+            uploadMode ?
+              <div className={`my-services__work-drive_content_upload-mode ${viewMode === 'grid' ? 'grid' : ''}`}>
+                {
+                  uploadedFiles.length > 0 ?
+                    <div className="my-services__work-drive_content_upload-mode_files">
 
-              </div>
-              
-              <div className="my-services__work-drive_content_list-head-name">
-                <p>Name</p>
-              </div>
-              
-              <div className="my-services__work-drive_content_list-head-date">
-                <p>Date modified</p>
-              </div>
-              
-              <div className="my-services__work-drive_content_list-head-size">
-                <p>Size</p>
-              </div>
+                      <div className="my-services__work-drive_content_upload-mode_files-header">
+                        <div className="my-services__work-drive_content_upload-mode_files-header-icon"></div>
 
-              <div className="my-services__work-drive_content_list-head-type">
-                <p>Type</p>
-              </div>
-            </div>
+                        <div className="my-services__work-drive_content_upload-mode_files-header-name">Name</div>
+                      </div>
 
-            <div className="my-services__work-drive_content_list-body">
-              {
-                driveData.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`my-services__work-drive_content_list-body-item ${selectedRows.some(selectedItem => selectedItem.id === item.id) ? 'selected' : ''}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleselectedRows(item)
+                      <div className="my-services__work-drive_content_upload-mode_files-list">
+                        {uploadedFiles.map((file) => (
+                          <div className="my-services__work-drive_content_upload-mode_files-list-item">
+                            <div className="my-services__work-drive_content_upload-mode_files-list-item-icon">
+                              {
+                                file.name.includes('png') ? <img src={drivePhoto} /> :
+                                file.name.includes('jpg') ? <img src={drivePhoto} /> :
+                                file.name.includes('jpeg') ? <img src={drivePhoto} /> :
+                                file.name.includes('xlsx') ? <img src={driveExcel} /> :
+                                file.name.includes('zip') ? <img src={driveFolder} /> :
+                                file.name.includes('mp4') ? <img src={driveVideoFolder} /> :
+                                ''
+                              }
+                            </div>
+                            
+                            <div className="my-services__work-drive_content_upload-mode_files-list-item-name">
+                              {file.name}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  : 
+                   ''
+                }
+
+                <div className="my-services__work-drive_content_upload-mode_input">
+                  <DropzoneArea
+                    // acceptedFiles={['image/*']}
+                    dropzoneClass= 'my-services__work-drive_content_upload-mode_input-attach'
+                    dropzoneText={
+                      <div>
+                        <p className="title">Drop files here, or <span className='blue'>Browse</span></p>
+                        <p className="subtitle">Maximum file size 50MB</p>
+                      </div>}
+                    onChange={(files) => {
+                      // console.log('files', files)
+                      handleUploadedFiles(files)
+                      // console.log('uploadedFiles', uploadedFiles)
                     }}
-                    >
-                    <div className="my-services__work-drive_content_list-body-item-icon">
-                      <img src={item.icon} alt={item.name} />
-                    </div>
-    
-                    <div className="my-services__work-drive_content_list-body-item-name">
-                      <p>{item.name}</p>
-                    </div>
-    
-                    <div className="my-services__work-drive_content_list-body-item-date">
-                      <p>{item.date}</p>
-                    </div>
-    
-                    <div className="my-services__work-drive_content_list-body-item-size">
-                      <p>{item.size}</p>
-                    </div>
-    
-                    <div className="my-services__work-drive_content_list-body-item-type">
-                      <p>{item.type}</p>
-                    </div>
-                  </div>
-                ))
-              }
-
-            </div>
-
-            <div className="my-services__work-drive_content_list-footer">
-              <p>4.7 GB available</p>
-            </div>
-          </div>
+                    showPreviews={false}
+                    showPreviewsInDropzone={false}
+                    useChipsForPreview
+                    previewGridProps={{container: { spacing: 1, direction: 'row' }}}
+                    previewChipProps={{classes: { root: classes.previewChip } }}
+                    previewText="Selected files"
+                    showAlerts={true}
+                    filesLimit={8}
+                    maxFileSize= '50000000'
+                    Icon= {CustomUploadIcon}
+                  />
+                </div>
+              </div>
+             :
+              <div className={`my-services__work-drive_content_list ${viewMode === 'grid' ? 'grid' : ''}`}>
+                 <div className="my-services__work-drive_content_list-head">
+                   <div className="my-services__work-drive_content_list-head-icon">
+ 
+                   </div>
+                   
+                   <div className="my-services__work-drive_content_list-head-name">
+                     <p>Name</p>
+                   </div>
+                   
+                   <div className="my-services__work-drive_content_list-head-date">
+                     <p>Date modified</p>
+                   </div>
+                   
+                   <div className="my-services__work-drive_content_list-head-size">
+                     <p>Size</p>
+                   </div>
+ 
+                   <div className="my-services__work-drive_content_list-head-type">
+                     <p>Type</p>
+                   </div>
+                 </div>
+ 
+                 <div className="my-services__work-drive_content_list-body">
+                   {
+                     driveData.map((item) => (
+                       <div
+                         key={item.id}
+                         className={`my-services__work-drive_content_list-body-item ${selectedRows.some(selectedItem => selectedItem.id === item.id) ? 'selected' : ''}`}
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           handleselectedRows(item)
+                         }}
+                         >
+                         <div className="my-services__work-drive_content_list-body-item-icon">
+                           <img src={item.icon} alt={item.name} />
+                         </div>
+         
+                         <div className="my-services__work-drive_content_list-body-item-name">
+                           <p>{item.name}</p>
+                         </div>
+         
+                         <div className="my-services__work-drive_content_list-body-item-date">
+                           <p>{item.date}</p>
+                         </div>
+         
+                         <div className="my-services__work-drive_content_list-body-item-size">
+                           <p>{item.size}</p>
+                         </div>
+         
+                         <div className="my-services__work-drive_content_list-body-item-type">
+                           <p>{item.type}</p>
+                         </div>
+                       </div>
+                     ))
+                   }
+ 
+                 </div>
+              </div>
+          }
         </div>
+
+        <div className="my-services__work-drive_footer">
+          <p>4.7 GB available</p>
+        </div>
+
       </div>
 
 

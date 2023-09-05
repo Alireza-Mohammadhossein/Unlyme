@@ -1,0 +1,428 @@
+.email-page {
+  width: 100%;
+  padding-bottom: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.email-page .grid-content_right {
+  overflow: auto;
+}
+.email-page .MuiGrid-container {
+  margin: 0;
+}
+.email-page .MuiGrid-item {
+  padding-top: 0 !important;
+}
+.email-page .MuiGrid-root {
+  height: 100%;
+}
+.email-page_sidebar {
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  justify-content: space-between;
+}
+.email-page_sidebar_actions_create-event_btn.MuiButtonBase-root {
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #4382C4;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border-radius: 8px;
+  text-transform: none;
+  height: 44px;
+  box-sizing: border-box;
+}
+.email-page_sidebar_actions_create-event_btn.MuiButtonBase-root:hover {
+  background-color: #4382C4;
+}
+.email-page_sidebar_actions-section {
+  margin-top: 15px;
+}
+.email-page_sidebar_actions-section_category-list .MuiTabs-flexContainer {
+  gap: 2px;
+}
+.email-page_sidebar_actions-section_category-item.MuiButtonBase-root {
+  text-transform: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 20px 10px 10px;
+  border-radius: 8px;
+  max-width: unset;
+  height: 40px;
+  min-height: unset;
+}
+.email-page_sidebar_actions-section_category-item.MuiButtonBase-root:hover {
+  background-color: rgba(67, 130, 196, 0.1);
+}
+.email-page_sidebar_actions-section_category-item.Mui-selected {
+  background-color: rgba(67, 130, 196, 0.1019607843);
+}
+.email-page_sidebar_actions-section_category-item.Mui-selected .email-page_sidebar_actions-section_category-item_content-title {
+  font-weight: 600;
+  color: #4382C4;
+}
+.email-page_sidebar_actions-section_category-item.Mui-selected .MuiSvgIcon-root {
+  color: #1976d2;
+}
+.email-page_sidebar_actions-section_category-item_content {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.email-page_sidebar_actions-section_category-item_content-icon {
+  width: 16px;
+  height: 16px;
+}
+.email-page_sidebar_actions-section_category-item_content-title {
+  font-size: 15px;
+}
+.email-page_sidebar_actions-section_category-item_content svg {
+  color: rgba(0, 0, 0, 0.54);
+}
+.email-page_sidebar_actions-section_category-item_unreadnum {
+  background-color: #4382C4;
+  border-radius: 5px;
+  padding: 4px 8px;
+  color: white;
+}
+.email-page_sidebar_actions-section_category-item_unreadnum p {
+  font-size: 13px;
+  font-weight: 500;
+}
+.email-page_sidebar_actions-section_category .MuiTabs-indicator {
+  display: none;
+}
+.email-page_sidebar_actions-section_category-tree {
+  margin-top: 2px !important;
+  max-height: 300px;
+  overflow: auto;
+}
+.email-page_sidebar_actions-section_category-tree .MuiTreeItem-content {
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding-left: 12px;
+  height: 40px;
+  min-height: unset;
+}
+.email-page_sidebar_actions-section_category-tree .MuiTreeItem-content.Mui-focused {
+  background-color: transparent;
+}
+.email-page_sidebar_actions-section_category-tree .MuiTreeItem-content .MuiTreeItem-iconContainer .MuiSvgIcon-root {
+  font-size: 18px;
+}
+.email-page_sidebar_actions-section_category-tree .MuiTreeItem-content img {
+  width: 8px;
+  height: 10px;
+}
+.email-page_sidebar_actions-section_category-tree_item {
+  display: flex;
+  padding: 8px 0;
+  align-items: center;
+  color: #414141;
+  font-size: 13px;
+  padding-left: 7px;
+}
+.email-page_sidebar_actions-section_category-tree_item .MuiListItemIcon-root {
+  min-width: 30px;
+}
+.email-page_sidebar_actions-section_category-tree_item .MuiTypography-root {
+  font-size: 13px;
+}
+.email-page_sidebar_actions-section_category-tree_item .MuiButtonBase-root img {
+  width: 16px;
+  height: 16px;
+}
+.email-page_sidebar_space {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.email-page_sidebar_space-progressbar.MuiLinearProgress-root {
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgba(67, 130, 196, 0.2);
+}
+.email-page_sidebar_space-progressbar.MuiLinearProgress-root .MuiLinearProgress-bar {
+  background-color: #4382C4;
+  border-radius: 5px;
+}
+.email-page_sidebar_space-text {
+  color: #4382C4;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.email-page_sidebar_space-text b {
+  font-weight: 500;
+}
+.email-page_main {
+  height: 100%;
+  padding: 0 10px 0 15px;
+}
+.email-page_main_email {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+.email-page_main_email-tab {
+  height: 100%;
+  box-sizing: border-box;
+}
+.email-page_main_email-tab .MuiTable-root {
+  border-collapse: separate;
+}
+.email-page_main_email-tab .MuiBox-root {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+.email-page_main_email-tab .MuiTypography-root {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.email-page_main_email-tab .MuiTablePagination-root {
+  overflow: hidden;
+  min-height: 50px;
+}
+.email-page_main_email-tab .MuiPaper-root {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: unset;
+}
+.email-page_main_email-tab .MuiTableCell-root img {
+  vertical-align: middle;
+  width: 20px;
+  height: auto;
+  padding-bottom: 2px;
+}
+.email-page_main_email-tab .MuiTableCell-root .star-icon {
+  width: 18px;
+  height: 18px;
+}
+.email-page_main_email-tab .MuiTableRow-root {
+  background-color: #F5F5F5;
+}
+.email-page_main_email-tab .MuiTableRow-root td {
+  position: relative;
+  font-size: 13px;
+  color: #333333;
+}
+.email-page_main_email-tab .MuiTableRow-root td > div {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.email-page_main_email-tab .MuiTableRow-root td > div img {
+  margin-right: 5px;
+}
+.email-page_main_email-tab .MuiTableRow-root td .MuiSvgIcon-root.read-icon {
+  color: rgba(65, 65, 65, 0.5607843137);
+  stroke: #ffffff;
+  stroke-width: 0.5px;
+  position: relative;
+  top: 7px;
+  margin-right: 5px;
+}
+.email-page_main_email-tab .MuiTableRow-root.unread-mail {
+  background-color: #ffffff;
+}
+.email-page_main_email-tab .MuiTableRow-root.unread-mail td {
+  font-weight: 600;
+}
+.email-page_main_email-tab .MuiTableRow-root.unread-mail td .MuiSvgIcon-root.read-icon {
+  color: rgba(0, 0, 0, 0.79);
+}
+.email-page_main_email-tab .MuiTableRow-root.unread-mail td div {
+  font-weight: 600;
+}
+.email-page_main_email-tab .MuiTableCell-paddingCheckbox .MuiSvgIcon-root {
+  stroke: #fff;
+}
+.email-page_main_email-tab .email-header .MuiTableRow-root:nth-child(1), .email-page_main_email-tab .email-header .MuiTableRow-root:nth-child(2) {
+  background-color: #ffffff;
+}
+.email-page .email-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+.email-page .email-header_selected {
+  font-size: 15px;
+  text-align: left;
+  padding-bottom: 5px;
+}
+.email-page .email-header_selected .MuiTablePagination-root .MuiToolbar-root {
+  padding-left: 0;
+}
+.email-page .email-header_pagination {
+  padding: 0;
+}
+.email-page .email-header_pagination-container {
+  display: flex;
+  align-items: center;
+}
+.email-page .email-header_pagination-container p {
+  display: flex;
+  gap: 5px;
+}
+.email-page .email-filters {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  min-height: unset;
+  height: 37px;
+}
+.email-page .email-filters_read-toggler {
+  background-color: transparent;
+  gap: 10px;
+}
+.email-page .email-filters_read-toggler .MuiButtonBase-root {
+  font-family: "Inter" !important;
+  border: unset;
+  padding: 4px 8px;
+  color: #333;
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: 0.13px;
+  text-transform: capitalize;
+}
+.email-page .email-filters_read-toggler .MuiButtonBase-root:hover {
+  background-color: transparent;
+}
+.email-page .email-filters_read-toggler .MuiButtonBase-root.Mui-selected {
+  border-radius: 4px;
+  background: rgba(67, 130, 196, 0.1);
+}
+.email-page .email-filters_sort {
+  font-family: "Inter" !important;
+  padding-right: 10px;
+  font-weight: 400;
+  color: #333;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.cloud-page__header_email-details {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.cloud-page__header_email-details_grid-content {
+  display: grid;
+  grid-template-columns: auto 50px;
+  height: 100%;
+  width: 100%;
+}
+.cloud-page__header_email-details_grid-content_left {
+  display: flex;
+  gap: 15px;
+}
+.cloud-page__header_email-details_grid-content_left .cloud-page__header_email-details_search {
+  width: 310px;
+}
+.cloud-page__header_email-details_grid-content_left .cloud-page__header_email-details_actions {
+  width: 406px;
+}
+.cloud-page__header_email-details_search .MuiFormControl-root {
+  width: 100%;
+}
+.cloud-page__header_email-details_search_container {
+  position: relative;
+  color: #666666;
+  margin-left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  border-radius: 8px;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  width: auto;
+  padding: 0 10px;
+}
+.cloud-page__header_email-details_search_container label img {
+  width: 18px;
+}
+.cloud-page__header_email-details_search-input {
+  width: 100%;
+  height: 36px;
+  font-size: 15px;
+  background-color: transparent;
+  padding: 0 8px;
+  line-height: 33px;
+  border: unset;
+  transition: all 0.3s ease;
+  color: #74737B;
+  transform: translateX(0);
+}
+.cloud-page__header_email-details_search-input::-moz-placeholder {
+  color: #74737B;
+}
+.cloud-page__header_email-details_search-input::placeholder {
+  color: #74737B;
+}
+.cloud-page__header_email-details_actions {
+  display: flex;
+  background-image: linear-gradient(to right, #BBCFFC, #F3A8F5);
+  box-sizing: border-box;
+  height: 36px;
+  gap: 10px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 8px;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root {
+  height: 25px;
+  padding: 0 4px;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: unset;
+  flex-grow: 1;
+  flex-shrink: 1;
+  line-height: 25px;
+  font-size: 13px;
+  font-weight: 400 !important;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root .MuiButton-startIcon {
+  background-color: #E9F0F7;
+  font-size: 13px;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root:hover {
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: unset;
+}
+.cloud-page__header_email-details_actions-btn.MuiButtonBase-root:hover .MuiButton-startIcon {
+  background-color: #E9F0F7;
+}/*# sourceMappingURL=email-page.css.map */
