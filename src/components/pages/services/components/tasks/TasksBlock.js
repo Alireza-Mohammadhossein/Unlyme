@@ -112,6 +112,26 @@ const TasksBlock = () => {
   
  
 
+  const handleOpenCreateNewTaskPopup = () => {
+    const tasksButton = document.querySelector('[aria-label="Tasks"]')  
+    tasksButton.click();
+
+    // const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+    // createEventButton.click();
+
+    const createEventButtonInterval = setInterval(() => {
+      const createEventButton = document.querySelector('[tabindex="0"] [aria-label="add new card"]')
+
+      if (createEventButton) {
+        createEventButton.click();
+
+        clearInterval(createEventButtonInterval)
+      }
+    },500)
+  }
+
+
+
   return (
     <>
       <div className={`my-services__tasks ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
@@ -138,7 +158,7 @@ const TasksBlock = () => {
           </div>
 
           <div className="my-services__tasks_header-more">
-            <IconButton aria-label="add">
+            <IconButton aria-label="add" onClick={handleOpenCreateNewTaskPopup}>
               <img src={plusIcon} />
             </IconButton>
 

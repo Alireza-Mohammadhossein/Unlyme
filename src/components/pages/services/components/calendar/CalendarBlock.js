@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { getLangISOFormat } from "../../../../../types";
@@ -127,6 +127,8 @@ const CalendarBlock = () => {
     );
   };
 
+  
+
 
   const customMonthHeaderContent = (info) => {
     const today = new Date().getDate();
@@ -179,7 +181,32 @@ const CalendarBlock = () => {
 
 
 
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("foo");
+    }, 300);
+  });
 
+
+  const handleOpenCreateEventPopup = () => {
+    const calendarButton = document.querySelector('[aria-label="Calendar"]')  
+    calendarButton.click();
+
+    // const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+    // createEventButton.click();
+
+    const createEventButtonInterval = setInterval(() => {
+      const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+
+      if (createEventButton) {
+        createEventButton.click();
+
+        clearInterval(createEventButtonInterval)
+      }
+    },500)
+  }
+
+  
 
   return (
     // <CloudBlock
@@ -300,7 +327,7 @@ const CalendarBlock = () => {
         />
 
         <div className="my-services__calendar_more-btn">
-          <IconButton aria-label="add">
+          <IconButton aria-label="add" onClick={handleOpenCreateEventPopup}>
             <img src={plusIcon} />
           </IconButton>
 
@@ -310,18 +337,19 @@ const CalendarBlock = () => {
         </div>
       </div>
 
+
+
       <Modal
-      open={openCalendarWidgetModal}
-      onClose={handleCloseCalendarModal}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      className="apps-modal"
-      disableEnforceFocus 
+        open={openCalendarWidgetModal}
+        onClose={handleCloseCalendarModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        className="apps-modal"
+        disableEnforceFocus 
       >
-      <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
-        
-        <CalendarPage handleCloseCalendarModal={handleCloseCalendarModal} />
-      </div>
+        <div className={`apps-modal-container ${firstPopupTab ? 'firstPopupShow' : ''} ${secondPopupTab ? 'secondPopupShow' : ''}`} >
+          <CalendarPage handleCloseCalendarModal={handleCloseCalendarModal} />
+        </div>
       </Modal>
     </>
       

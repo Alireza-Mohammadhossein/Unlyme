@@ -569,6 +569,10 @@
     margin: 0 auto;
     max-width: 1600px;
 
+    @media (max-width:1600px) {
+        right: 100px !important;
+    }
+
     .MuiDrawer-paper {
         height: 100%;
         outline: none;

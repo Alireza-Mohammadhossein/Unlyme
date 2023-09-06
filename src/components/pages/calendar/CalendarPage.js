@@ -326,7 +326,7 @@ function CalendarPageContent() {
                 <Button
                   // startIcon={<AddIcon />}
                   className="calendar-page_sidebar_create-event_btn"
-                  aria-label="more"
+                  aria-label="calendar create event"
                   id="long-button"
                   aria-haspopup="true"
                   onClick={() => setCreateEventPopup(true)}

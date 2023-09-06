@@ -194,6 +194,27 @@ const NotesBlock = () => {
   }
 
 
+
+  const handleOpenNotesPopup = () => {
+    const notesButton = document.querySelector('[aria-label="Notes"]')  
+    notesButton.click();
+
+    // const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+    // createEventButton.click();
+
+    // const createEventButtonInterval = setInterval(() => {
+    //   const createEventButton = document.querySelector('[tabindex="0"] [aria-label="add new card"]')
+
+    //   if (createEventButton) {
+    //     createEventButton.click();
+
+    //     clearInterval(createEventButtonInterval)
+    //   }
+    // },500)
+  }
+
+
+
   return (
     <>
       <div className={`my-services__notes ${openNotesWidgetModal || appsModal || openCalendarWidgetModal || openTasksWidgetModal || openWorkDriveWidgetModal ? 'back-transparent' : ''}`}>
@@ -215,11 +236,11 @@ const NotesBlock = () => {
           </div>
 
           <div className="my-services__notes_header-more">
-            <IconButton aria-label="add" onClick={handleOpenNotesModal}>
+            <IconButton aria-label="add" onClick={handleOpenNotesPopup}>
               <img src={plusIcon} />
             </IconButton>
 
-            <IconButton aria-label="expand" onClick={handleOpenNotesModal}>
+            <IconButton aria-label="expand" onClick={handleOpenNotesPopup}>
               <img src={expandIcon} />
             </IconButton>
 
@@ -230,7 +251,7 @@ const NotesBlock = () => {
           <ul className={`my-services__notes_content_list ${viewMode==='grid' ? 'grid' : ''}`}>
             {
               notes.map((note) => (
-                <li className="my-services__notes_content_list-item" key={note.id} onClick={handleOpenNotesModal}>
+                <li className="my-services__notes_content_list-item" key={note.id} onClick={handleOpenNotesPopup}>
                   <div className="my-services__notes_content_list-item-title">
                     {note.title}
                   </div>
@@ -249,7 +270,7 @@ const NotesBlock = () => {
       </div>
 
 
-      <Modal
+      {/* <Modal
         open={openNotesWidgetModal}
         onClose={handleCloseNotesModal}
         aria-labelledby="modal-modal-title"
@@ -261,7 +282,7 @@ const NotesBlock = () => {
           
           <NotesPage handleCloseNotesModal={handleCloseNotesModal} />
         </div>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

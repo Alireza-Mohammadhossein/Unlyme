@@ -168,6 +168,7 @@ const Header = () => {
                 <img
                   src={notesIcon}
                   alt="notes"
+                  aria-label="Notes header"
                 />
               </Tooltip>
             </div>

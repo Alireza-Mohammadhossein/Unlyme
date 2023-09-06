@@ -30,9 +30,12 @@ import closeIcon from "../../../../assets/images/header/new-icons/close.svg";
 import editIcon from "../../../../assets/images/header/new-icons/edit.svg";
 import readIcon from "../../../../assets/images/header/new-icons/tik.svg";
 import trashIcon from "../../../../assets/images/header/new-icons/trash.svg";
-import chatIcon from "../../../../assets/images/header/chats.svg";
-import channelIcon from "../../../../assets/images/header/channels.svg";
-import contactIcon from "../../../../assets/images/header/contact.svg";
+import chatIconActive from "../../../../assets/images/header/Chat-active.png";
+import channelIconActive from "../../../../assets/images/header/Channel-active.png";
+import contactIconActive from "../../../../assets/images/header/Contacts-active.png";
+import chatIconNotActive from "../../../../assets/images/header/Chat-inactive.png";
+import channelIconNotActive from "../../../../assets/images/header/Channel-inactive.png";
+import contactIconNotActive from "../../../../assets/images/header/Contacts-inactive.png";
 
 
 
@@ -351,9 +354,9 @@ const HeaderChatPopup = ({ props }) => {
 
         <div className='chat-popup-list__footer'>
           <Tabs value={maintab} onChange={handleMainTabs} aria-label="choosing main tab" className='chat-popup-list__footer_container' >
-            <Tab icon={<img src={chatIcon} alt='chat icon' />} label="Chats" component={'div'}/>
-            <Tab icon={<img src={channelIcon} alt='channels icon' />} label="Channels" component={'div'} />
-            <Tab icon={<img src={contactIcon} alt='contact icon' />} label="Contacts" component={'div'} />
+            <Tab icon={<img src={maintab === 0 ? chatIconActive : chatIconNotActive} alt='chat icon' />} label="Chats" component={'div'}/>
+            <Tab icon={<img src={maintab === 1 ? channelIconActive : channelIconNotActive} alt='channels icon' />} label="Channels" component={'div'} />
+            <Tab icon={<img src={maintab === 2 ? contactIconActive : contactIconNotActive} alt='contact icon' />} label="Contacts" component={'div'} />
           </Tabs>
         </div>
       </div>

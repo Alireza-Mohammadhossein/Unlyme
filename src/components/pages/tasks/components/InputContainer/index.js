@@ -32,6 +32,7 @@ export default function InputContainer({ listId, type }) {
                   startIcon={<AddIcon />}
                   // onClick={() => setOpen(!open)}
                   onClick={handleOpenAddModal}
+                  aria-label="add new card"
                 >
                   Add New Card
                 </Button>

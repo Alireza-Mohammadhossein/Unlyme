@@ -226,7 +226,7 @@
             background-color: #F2F2F2;
             border-radius: 14px !important;
 
-              .chat-popup-list__body-messages_item_actions{
+              .chat-popup-list__body-messages_item_actions {
                   display: flex;
               }
 
@@ -268,13 +268,18 @@
           font-size: 13px;
           font-weight: 400 !important;
 
+          img {
+            width: 20px;
+            height: 20px;
+          }
+
           &.Mui-selected {
             color: #51A3FF;
             font-weight: 500 !important;
           }
         }
 
-        & .MuiTabs-indicator  {
+        & .MuiTabs-indicator {
           bottom: 5px;
           display: none;
         }

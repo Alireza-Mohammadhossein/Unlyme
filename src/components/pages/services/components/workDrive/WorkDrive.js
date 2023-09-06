@@ -40,6 +40,29 @@ import driveCodeFolder from '../../../../../assets/images/my-services/workdrive/
 import driveExcel from '../../../../../assets/images/my-services/workdrive/data/excel.svg';
 import backIcon from '../../../../../assets/images/my-services/workdrive/back.svg';
 
+import fileAudio from '../../../../../assets/images/my-services/workdrive/types/audio.png';
+import fileCsv from '../../../../../assets/images/my-services/workdrive/types/csv.png';
+import fileDoc from '../../../../../assets/images/my-services/workdrive/types/doc.png';
+import fileDocx from '../../../../../assets/images/my-services/workdrive/types/docx.png';
+import fileExcel from '../../../../../assets/images/my-services/workdrive/types/excel.png';
+import fileGif from '../../../../../assets/images/my-services/workdrive/types/gif.png';
+import fileJpg from '../../../../../assets/images/my-services/workdrive/types/jpg.png';
+import fileMkv from '../../../../../assets/images/my-services/workdrive/types/mkv.png';
+import fileMpu from '../../../../../assets/images/my-services/workdrive/types/mpu.png';
+import filePdf from '../../../../../assets/images/my-services/workdrive/types/pdf.png';
+import filePng from '../../../../../assets/images/my-services/workdrive/types/png.png';
+import filePpt from '../../../../../assets/images/my-services/workdrive/types/ppt.png';
+import fileRtf from '../../../../../assets/images/my-services/workdrive/types/rtf.png';
+import fileSheets from '../../../../../assets/images/my-services/workdrive/types/sheets.png';
+import fileTtf from '../../../../../assets/images/my-services/workdrive/types/ttf.png';
+import fileTxt from '../../../../../assets/images/my-services/workdrive/types/txt.png';
+import fileWav from '../../../../../assets/images/my-services/workdrive/types/wav.png';
+import fileWebp from '../../../../../assets/images/my-services/workdrive/types/webp.png';
+import fileWord from '../../../../../assets/images/my-services/workdrive/types/word.png';
+import fileXlsx from '../../../../../assets/images/my-services/workdrive/types/xlsx.png';
+import fileXml from '../../../../../assets/images/my-services/workdrive/types/xml.png';
+import fileZip from '../../../../../assets/images/my-services/workdrive/types/zip.png';
+
 
 
 
@@ -150,6 +173,24 @@ const WorkDrive = () => {
 
   
 
+  const handleOpenWorkDrivePopup = () => {
+    const workDriveButton = document.querySelector('[aria-label="Work drive"]')  
+    workDriveButton.click();
+
+    // const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+    // createEventButton.click();
+
+    // const createEventButtonInterval = setInterval(() => {
+    //   const createEventButton = document.querySelector('[aria-label="calendar create event"]')
+
+    //   if (createEventButton) {
+    //     createEventButton.click();
+
+    //     clearInterval(createEventButtonInterval)
+    //   }
+    // },500)
+  }
+
 
 
 
@@ -183,55 +224,54 @@ const WorkDrive = () => {
           </div>
 
           <div className="my-services__work-drive_header-more">
-
             {
               selectedRows.length > 0 ?
-              <>
-                <IconButton
-                  aria-label="setting"
-                  onClick={handleOpenMore}
-                >
-                  <img src={moreIcon} />
-                </IconButton>
+                <>
+                  <IconButton
+                    aria-label="setting"
+                    onClick={handleOpenMore}
+                  >
+                    <img src={moreIcon} />
+                  </IconButton>
 
-                <Menu
-                  anchorEl={anchorElMore}
-                  open={open}
-                  onClose={handleCloseMore}
-                  disableScrollLock={true}
-                  className="my-services__popup work-drive"
-                >
-                  <MenuItem 
-                    sx={{minWidth: '130px'}}
-                    onClick={handleCloseMore}
+                  <Menu
+                    anchorEl={anchorElMore}
+                    open={open}
+                    onClose={handleCloseMore}
+                    disableScrollLock={true}
+                    className="my-services__popup work-drive"
                   >
-                    <img src={copyIcon} /> Copy
-                  </MenuItem>
+                    <MenuItem 
+                      sx={{minWidth: '130px'}}
+                      onClick={handleCloseMore}
+                    >
+                      <img src={copyIcon} /> Copy
+                    </MenuItem>
 
-                  <MenuItem
-                    onClick={handleCloseMore}
-                  >
-                    <img src={duplicateIcon} /> Duplicate
-                  </MenuItem>
+                    <MenuItem
+                      onClick={handleCloseMore}
+                    >
+                      <img src={duplicateIcon} /> Duplicate
+                    </MenuItem>
 
-                  <MenuItem
-                    onClick={handleCloseMore}
-                  >
-                    <img src={deleteIcon} /> Delete
-                  </MenuItem>
-                  
-                  <MenuItem
-                    onClick={handleCloseMore}
-                  >
-                    <img src={propertiesIcon} /> Properties
-                  </MenuItem>
-                </Menu>              
-              </>
+                    <MenuItem
+                      onClick={handleCloseMore}
+                    >
+                      <img src={deleteIcon} /> Delete
+                    </MenuItem>
+                    
+                    <MenuItem
+                      onClick={handleCloseMore}
+                    >
+                      <img src={propertiesIcon} /> Properties
+                    </MenuItem>
+                  </Menu>              
+                </>
               :
                 ''
             }
 
-            <IconButton aria-label="add">
+            <IconButton aria-label="add" onClick={handleOpenWorkDrivePopup}>
               <img src={plusIcon} />
             </IconButton>
 
@@ -243,7 +283,7 @@ const WorkDrive = () => {
               <img src={uploadIcon} />
             </IconButton>
 
-            <IconButton aria-label="expand" onClick={handleOpenWorkDriveModal}>
+            <IconButton aria-label="expand" onClick={handleOpenWorkDrivePopup}>
               <img src={expandIcon} />
             </IconButton>
 
@@ -270,13 +310,30 @@ const WorkDrive = () => {
                           <div className="my-services__work-drive_content_upload-mode_files-list-item">
                             <div className="my-services__work-drive_content_upload-mode_files-list-item-icon">
                               {
-                                file.name.includes('png') ? <img src={drivePhoto} /> :
-                                file.name.includes('jpg') ? <img src={drivePhoto} /> :
-                                file.name.includes('jpeg') ? <img src={drivePhoto} /> :
-                                file.name.includes('xlsx') ? <img src={driveExcel} /> :
-                                file.name.includes('zip') ? <img src={driveFolder} /> :
-                                file.name.includes('mp4') ? <img src={driveVideoFolder} /> :
-                                <img src={driveTxt} />
+                                file.name.includes('mp3') ? <img src={fileAudio} /> :
+                                file.name.includes('csv') ? <img src={fileCsv} /> :
+                                file.name.includes('doc') ? <img src={fileDoc} /> :
+                                file.name.includes('docx') ? <img src={fileDocx} /> :
+                                file.name.includes('excel') ? <img src={fileExcel} /> :
+                                file.name.includes('gif') ? <img src={fileGif} /> :
+                                file.name.includes('jpg') ? <img src={fileJpg} /> :
+                                file.name.includes('jpeg') ? <img src={fileJpg} /> :
+                                file.name.includes('mkv') ? <img src={fileMkv} /> :
+                                file.name.includes('mpu') ? <img src={fileMpu} /> :
+                                file.name.includes('pdf') ? <img src={filePdf} /> :
+                                file.name.includes('png') ? <img src={filePng} /> :
+                                file.name.includes('ppt') ? <img src={filePpt} /> :
+                                file.name.includes('rtf') ? <img src={fileRtf} /> :
+                                file.name.includes('sheets') ? <img src={fileSheets} /> :
+                                file.name.includes('ttf') ? <img src={fileTtf} /> :
+                                file.name.includes('txt') ? <img src={fileTxt} /> :
+                                file.name.includes('wav') ? <img src={fileWav} /> :
+                                file.name.includes('webp') ? <img src={fileWebp} /> :
+                                file.name.includes('word') ? <img src={fileWord} /> :
+                                file.name.includes('xlsx') ? <img src={fileXlsx} /> :
+                                file.name.includes('xml') ? <img src={fileXml} /> :
+                                file.name.includes('zip') ? <img src={fileZip} /> :
+                                <img src={fileTxt} />
                               }
                             </div>
                             
@@ -389,7 +446,7 @@ const WorkDrive = () => {
       </div>
 
 
-      <Modal
+      {/* <Modal
         open={openWorkDriveWidgetModal}
         onClose={handleCloseWorkDriveModal}
         aria-labelledby="modal-modal-title"
@@ -401,7 +458,7 @@ const WorkDrive = () => {
           
           <WorkDrivePage handleCloseWorkDriveModal={handleCloseWorkDriveModal} />
         </div>
-      </Modal>
+      </Modal> */}
 
     </>
   );
