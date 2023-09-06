@@ -354,11 +354,14 @@
             border-radius: 30px;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;
                 color: #fff;
-                background-color: #3089dc;
+                background-color: #51A3FF;
                 padding: 10px 24px;
                 border-radius: 30px;
             }
@@ -374,6 +377,9 @@
             border: 1px solid #cdcdcd;
             font-size: 14px;
             margin-top: 20px;
+            font-family: 'OpenSans' !important;
+            height: 40px;
+            box-sizing: border-box;
 
             &:hover {
                 text-transform: none;

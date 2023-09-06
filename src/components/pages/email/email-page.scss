@@ -251,7 +251,12 @@
 
                 .MuiTablePagination-root {
                     overflow: hidden;
-                    min-height: 50px;
+                    min-height: unset;
+                    height: 40px;
+
+                    .MuiToolbar-root {
+                        min-height: unset;
+                    }
                 }
                 
                 .MuiPaper-root {
@@ -366,7 +371,7 @@
         z-index: 1;
 
         &_selected {
-            font-size: 15px;
+            font-size: 13px;
             text-align: left;
             padding-bottom: 5px;
 
@@ -379,6 +384,7 @@
 
         &_pagination {
             padding: 0;
+            padding-bottom: 5px;
 
             &-container {
                 display: flex;

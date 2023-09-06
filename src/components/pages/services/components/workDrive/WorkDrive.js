@@ -31,15 +31,7 @@ import propertiesIcon from '../../../../../assets/images/my-services/workdrive/p
 import uploadDriveIcon from '../../../../../assets/images/my-services/workdrive/upload-cloud.svg';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-
-import driveFolder from '../../../../../assets/images/my-services/workdrive/data/folder.svg';
-import driveVideoFolder from '../../../../../assets/images/my-services/workdrive/data/video-folder.svg';
-import drivePhoto from '../../../../../assets/images/my-services/workdrive/data/photo.svg';
-import driveTxt from '../../../../../assets/images/my-services/workdrive/data/txt.svg';
-import driveCodeFolder from '../../../../../assets/images/my-services/workdrive/data/code-folder.svg';
-import driveExcel from '../../../../../assets/images/my-services/workdrive/data/excel.svg';
 import backIcon from '../../../../../assets/images/my-services/workdrive/back.svg';
-
 import fileAudio from '../../../../../assets/images/my-services/workdrive/types/audio.png';
 import fileCsv from '../../../../../assets/images/my-services/workdrive/types/csv.png';
 import fileDoc from '../../../../../assets/images/my-services/workdrive/types/doc.png';

@@ -138,6 +138,7 @@ return (
               aria-expanded={open ? "true" : undefined}
               aria-haspopup="true"
               onClick={handleClick}
+              sx={{padding: '5px'}}
             >
               <MoreHorizIcon sx={{ color: '#00000080' }} />
             </IconButton>
