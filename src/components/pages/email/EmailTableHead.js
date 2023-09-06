@@ -1,9 +1,8 @@
-import React, { useState, useMemo }from 'react';
+import React, { useState }from 'react';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Checkbox from '@mui/material/Checkbox';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -152,12 +151,6 @@ return (
               open={open}
               onClose={handleClose}
               disableScrollLock = {true}
-              PaperProps={{
-                style: {
-                  maxHeight: ITEM_HEIGHT * 4.5,
-                  width: "20ch",
-                },
-              }}
             >
               {options.map((option) => (
                 <MenuItem
@@ -313,7 +306,7 @@ return (
               className='email-filters_sort'
             >
                 Newest first
-                <img src={sortIcon} />
+                <img src={sortIcon} alt='filter email' />
                 {/* <ImportExportIcon sx={{color: '#999999', verticalAlign : 'middle'}} /> */}
             </TableCell>
           :
