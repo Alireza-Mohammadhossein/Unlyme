@@ -276,9 +276,9 @@ const handleReadMode = (event, newReadMode) => {
                           <Checkbox
                             color="primary"
                             checked={isItemSelected}
-                            inputProps={{
-                              'aria-labelledby': labelId,
-                            }}
+                            // inputProps={{
+                            //   'aria-labelledby': labelId,
+                            // }}
                           />
                         </TableCell>
                         

@@ -89,7 +89,7 @@ const Header = () => {
                 <input
                   className="header__details-area_searchbar-input"
                   placeholder={t("HEADER.SEARCH_PLACEHOLDER")}
-                  InputProps={{ "aria-label": "search" }}
+                  // InputProps={{ "aria-label": "search" }}
                   value={assistantInputText}
                   onChange={(e) => {
                     // dispatch(setAssistantText(e.target.value))
@@ -106,7 +106,7 @@ const Header = () => {
                   <Tooltip
                     title="Unlyme Assistant"
                     arrow
-                    visible
+                    // visible
                     placement="bottom"
                     className="tooltip">
                     <img src={searchIcon} alt="assistant" />

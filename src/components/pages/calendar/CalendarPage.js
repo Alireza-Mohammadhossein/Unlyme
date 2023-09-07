@@ -30,12 +30,27 @@ import MenuItem from "@mui/material/MenuItem";
 import { CirclePicker } from 'react-color';
 import Modal from '@mui/material/Modal';
 import SettingPopup from './popups/SettingPopup';
+import { getEvents, createEvent, deleteEvent } from '../../../api/Api';
 
 
 
 
 
 function CalendarPageContent() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events from the backend when the component mounts
+    getEvents()
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
+  }, []);
+
+
   const { t, i18n } = useTranslation();
 
   const firstPopupTab = useSelector((state) => state.popup.firstPopupTab);
@@ -53,23 +68,53 @@ function CalendarPageContent() {
 
 
 
-  function handleDateSelect(selectInfo) {
+  // function handleDateSelect(selectInfo) {
     
-    let title = prompt('Please enter a new title for your event');
-    let calendarApi = selectInfo.view.calendar;
+  //   let title = prompt('Please enter a new title for your event');
+  //   let calendarApi = selectInfo.view.calendar;
 
-    calendarApi.unselect(); // clear date selection
+  //   calendarApi.unselect(); // clear date selection
+
+  //   if (title) {
+  //     calendarApi.addEvent({
+  //       id: createEventId(),
+  //       title,
+  //       start: selectInfo.startStr,
+  //       end: selectInfo.endStr,
+  //       allDay: selectInfo.allDay,
+  //     });
+  //   }
+  // }
+
+  const handleDateSelect = (selectInfo) => {
+    let title = prompt('Please enter a new title for your event')
+
+    const eventData = {
+      // Create an event object from selectInfo.start and selectInfo.end
+      title,
+      start: selectInfo.startStr,
+      end: selectInfo.endStr,
+      // Add other event properties as needed
+      // ...
+    };
 
     if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay,
+      createEvent(eventData)
+      .then((response) => {
+        // Handle success (e.g., show a success message)
+        console.log("Event added successfully:", response);
+  
+        // Refresh the calendar events by calling your fetch events function
+        getEvents();
+      })
+      .catch((error) => {
+        // Handle error (e.g., show an error message)
+        console.error("Error adding event:", error);
       });
     }
-  }
+  
+
+  };
 
   
   function handleEventClick(clickInfo) {
@@ -240,11 +285,11 @@ function CalendarPageContent() {
   };
 
   const filteredEvents = selectedCategories.includes('all')
-    ? INITIAL_EVENTS
+    ? events
       :
     selectedCategories.length === 0
-      ? INITIAL_EVENTS
-        : INITIAL_EVENTS.filter((event) =>
+      ? events
+        : events.filter((event) =>
         selectedCategories.includes(event.category)
          
   );
@@ -534,7 +579,8 @@ function CalendarPageContent() {
                   eventStartEditable={true}
                   eventResizableFromStart={true}
                   aspectRatio={2}
-                  events={filteredEvents} // alternatively, use the `events` setting to fetch from a feed
+                  // events={filteredEvents} // alternatively, use the `events` setting to fetch from a feed
+                  events={events} // alternatively, use the `events` setting to fetch from a feed
                   select={handleDateSelect}
                   eventContent={renderEventContent} // custom render function
                   // sideBarEvent={renderSidebarEvent}

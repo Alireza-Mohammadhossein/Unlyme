@@ -40,8 +40,6 @@ const CloudPage = ({
             </div>
           </Grid>
         </Grid>
-
-
       </div>
       <div className="cloud-page__content">{content}</div>
     </div>

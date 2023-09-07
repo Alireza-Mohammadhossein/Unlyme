@@ -577,9 +577,9 @@ const InvoicesTable = ({ invoices, searchText, setSearchText }) => {
                           <Checkbox
                             color="primary"
                             checked={isItemSelected}
-                            inputProps={{
-                              'aria-labelledby': labelId,
-                            }}
+                            // inputProps={{
+                            //   'aria-labelledby': labelId,
+                            // }}
                           />
                         </TableCell>
 

@@ -16,6 +16,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal } from '../../../../../redux/app/appsModalSlice';
 import plusIcon from '../../../../../assets/images/my-services/plus.svg';
 import expandIcon from '../../../../../assets/images/my-services/expand.svg';
+import { getEvents } from '../../../../../api/Api';
+
 
 
 
@@ -23,6 +25,21 @@ import expandIcon from '../../../../../assets/images/my-services/expand.svg';
 
 
 const CalendarBlock = () => {
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    // Fetch events from the backend when the component mounts
+    getEvents()
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      });
+  }, []);
+
+
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
 
@@ -294,7 +311,8 @@ const CalendarBlock = () => {
           firstDay= {1}
           scrollTime={currentTime}
 
-          initialEvents={INITIAL_EVENTS}
+          // initialEvents={INITIAL_EVENTS}
+          events={events}
           slotLabelFormat={e => `${e.date.hour <= 9 ? `0${e.date.hour}` : e.date.hour}:${e.date.minute <= 9 ? `0${e.date.minute}` : e.date.minute}`}
           eventTimeFormat={{
             hour: '2-digit',
