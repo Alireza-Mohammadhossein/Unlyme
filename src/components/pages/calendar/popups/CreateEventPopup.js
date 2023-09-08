@@ -24,34 +24,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 
 
 
-const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
-
-
-  const [eventName, setEventName] = useState('');
-  const handleEventName = (event) => {
-    setEventName(event.target.value);
-  };
-
-  const [startDate, setStartDate] = useState(dayjs(new Date()));
-  const handleStartDate = (newValue) => {
-    setStartDate(newValue);
-  };
-
-  const [startTime, setStartTime] = useState(dayjs(new Date()));
-  const handleStartTime = (newValue) => {
-    setStartTime(newValue);
-  };
-
-  const [endDate, setEndDate] = useState(dayjs(new Date()));
-  const handleEndDate = (newValue) => {
-    setEndDate(newValue);
-  };
-
-  const [endTime, setEndTime] = useState(dayjs(new Date()));
-  const handleEndTime = (newValue) => {
-    setEndTime(newValue);
-  };
-
+const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime, handleSubmitEvent }) => {
   const [allDay, setAllDay] = useState(false);
   const handleAllDay = () => {
     setAllDay(!allDay);
@@ -123,11 +96,11 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
 
 
   const handleResetEvent = () => {
-    setEventName('')
-    setStartDate(dayjs(new Date()))
-    setStartTime(dayjs(new Date()))
-    setEndDate(dayjs(new Date()))
-    setEndTime(dayjs(new Date()))
+    // setEventName('')
+    // setStartDate(dayjs(new Date()))
+    // setStartTime(dayjs(new Date()))
+    // setEndDate(dayjs(new Date()))
+    // setEndTime(dayjs(new Date()))
     setAllDay(false)
     setRepeat('')
     setCategory('')
@@ -139,23 +112,23 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
     setEndLoop('day')
   }
 
-  const handleSubmitEvent = () => {
-    setCreateEventPopup(false)
-    setEventName('')
-    setStartDate(dayjs(new Date()))
-    setStartTime(dayjs(new Date()))
-    setEndDate(dayjs(new Date()))
-    setEndTime(dayjs(new Date()))
-    setAllDay(false)
-    setRepeat('')
-    setCategory('')
-    setNote('')
-    setRepeatNumber(0)
-    setRepeatLoop('day')
-    setEndRepeat('')
-    setEndRepeatDate(dayjs(new Date()))
-    setEndLoop('day')
-  }
+  // const handleSubmitEvent = () => {
+  //   // setCreateEventPopup(false)
+  //   // setEventName('')
+  //   // setStartDate(dayjs(new Date()))
+  //   // setStartTime(dayjs(new Date()))
+  //   // setEndDate(dayjs(new Date()))
+  //   // setEndTime(dayjs(new Date()))
+  //   setAllDay(false)
+  //   setRepeat('')
+  //   setCategory('')
+  //   setNote('')
+  //   setRepeatNumber(0)
+  //   setRepeatLoop('day')
+  //   setEndRepeat('')
+  //   setEndRepeatDate(dayjs(new Date()))
+  //   setEndLoop('day')
+  // }
 
 
   return (
@@ -442,7 +415,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, categories }) => {
 
 
         <div className='create-eventpopup-btn'>
-          <Button className='create-eventpopup-btn-reset' onClick={handleResetEvent}>Reset</Button>
+          <Button className='create-eventpopup-btn-reset' onClick={() => handleResetEvent(dateSelect)}>Reset</Button>
 
           <Button className='create-eventpopup-btn-submit' onClick={handleSubmitEvent}>Submit</Button>
         </div>

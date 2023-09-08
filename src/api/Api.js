@@ -19,6 +19,7 @@ export const deleteEvent = (id) => {
 };
 
 export const createEvent = (eventData) => {
+  console.log('eventData', eventData)
   return api.post("/events", eventData);
 };
 

@@ -31,6 +31,9 @@ import { CirclePicker } from 'react-color';
 import Modal from '@mui/material/Modal';
 import SettingPopup from './popups/SettingPopup';
 import { getEvents, createEvent, deleteEvent } from '../../../api/Api';
+import dayjs from "dayjs";
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -39,15 +42,27 @@ import { getEvents, createEvent, deleteEvent } from '../../../api/Api';
 function CalendarPageContent() {
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    // Fetch events from the backend when the component mounts
+  const fetchEvents = () => {
+    // Call your API function to get events from the backend
     getEvents()
       .then((response) => {
-        setEvents(response.data);
+        // Assuming your API returns an array of events
+        const fetchedEvents = response.data;
+
+        
+        // Update the calendar's events with the fetched data
+        setEvents(fetchedEvents); // Assuming you use state to manage calendar events
+        console.log('events', events)
       })
       .catch((error) => {
+        // Handle error (e.g., show an error message)
         console.error("Error fetching events:", error);
       });
+  };
+
+
+  useEffect(() => {
+    fetchEvents();
   }, []);
 
 
@@ -86,32 +101,129 @@ function CalendarPageContent() {
   //   }
   // }
 
+
+
+  // start add event inputs
+  const [eventName, setEventName] = useState('');
+  const handleEventName = (event) => {
+    setEventName(event.target.value);
+  };
+
+  const [startDate, setStartDate] = useState(dayjs(new Date()));
+  const handleStartDate = (newValue) => {
+    setStartDate(newValue);
+  };
+
+  const [startTime, setStartTime] = useState(dayjs(new Date()));
+  const handleStartTime = (newValue) => {
+    setStartTime(newValue);
+  };
+
+  const [endDate, setEndDate] = useState(dayjs(new Date()));
+  const handleEndDate = (newValue) => {
+    setEndDate(newValue);
+  };
+
+  const [endTime, setEndTime] = useState(dayjs(new Date()));
+  const handleEndTime = (newValue) => {
+    setEndTime(newValue);
+  };
+
+
+  // end add event inputs
+
+  const [dateSelect, setDateSelect] = useState()
   const handleDateSelect = (selectInfo) => {
-    let title = prompt('Please enter a new title for your event')
+
+    setDateSelect(selectInfo)
+    setStartDate(dayjs(selectInfo.startStr))
+    setEndDate(dayjs(selectInfo.endStr))
+    // setStartTime(new Date().getHours)
+    // setEndTime(new Date().getHours)
+
+    
+    setCreateEventPopup(true)
+
+    // let newTitle = prompt('Please enter a new title for your event')
+
+    // let calendarApi = selectInfo.view.calendar;
+
+    // calendarApi.unselect(); // clear date selection
+
+    // const eventData = {
+    //   // Create an event object from selectInfo.start and selectInfo.end
+    //   title: newTitle,
+    //   start: selectInfo,
+    //   end: selectInfo,
+    //   // Add other event properties as needed
+    //   // ...
+    // };
+  
+    // if (newTitle) {
+    //   console.log('eventData',eventData)
+    //   createEvent(eventData)
+    //   .then((response) => {
+    //     // Handle success (e.g., show a success message)
+    //     console.log("Event added successfully:", response);
+  
+    //     // Refresh the calendar events by calling your fetch events function
+    //     fetchEvents();
+    //   })
+    //   .catch((error) => {
+    //     // Handle error (e.g., show an error message)
+    //     console.error("Error adding event:", error);
+    //   });
+    // }
+
+  };
+
+
+  const handleSubmitEvent = (dateSelect) => {
+
+    console.log('startDate', startDate)
+    console.log('starttime', startTime)
+    const normalStartDate = startDate;
+    const normalStartTime = startTime;
+    const normalEndDate = endDate;
+    const normalEndTime = endTime;
+
+    const formattedStartDate = dayjs(new Date(normalStartDate)).format('YYYY-MM-DD');
+    const formattedStartTime = dayjs(new Date(normalStartTime)).format('HH:mm:ss');
+
+    const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD');
+    const formattedEndTime = dayjs(new Date(normalEndTime)).format('HH:mm:ss');
+    // const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD HH:mm:ss');
+    // const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD HH:mm:ss');
+
 
     const eventData = {
       // Create an event object from selectInfo.start and selectInfo.end
-      title,
-      start: selectInfo.startStr,
-      end: selectInfo.endStr,
+      id: uuidv4(),
+      title: eventName,
+      start: `${formattedStartDate} ${formattedStartTime}`,
+      end: `${formattedEndDate} ${formattedEndTime}`,
+      // start: selectInfo.startStr,
+      // end: selectInfo.endStr,
       // Add other event properties as needed
       // ...
     };
 
-    if (title) {
-      createEvent(eventData)
-      .then((response) => {
-        // Handle success (e.g., show a success message)
-        console.log("Event added successfully:", response);
-  
-        // Refresh the calendar events by calling your fetch events function
-        getEvents();
-      })
-      .catch((error) => {
-        // Handle error (e.g., show an error message)
-        console.error("Error adding event:", error);
-      });
-    }
+    // console.log(eventData)
+    
+    createEvent(eventData)
+    .then((response) => {
+      // Handle success (e.g., show a success message)
+      console.log("Event added successfully:", response);
+
+      // Refresh the calendar events by calling your fetch events function
+      fetchEvents();
+    })
+    .catch((error) => {
+      // Handle error (e.g., show an error message)
+      console.error("Error adding event:", error);
+    });
+
+    setCreateEventPopup(false)
   
 
   };
@@ -388,7 +500,7 @@ function CalendarPageContent() {
                   disableScrollLock = {false}
                   className='calendar-page_sidebar_create-event_drawer'
                 >
-                  <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events}/>
+                  <CreateEventsPopup dateSelect={dateSelect} setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events} eventName={eventName} handleEventName={handleEventName} startDate={startDate} handleStartDate={handleStartDate} startTime={startTime} handleStartTime={handleStartTime} endDate={endDate} handleEndDate={handleEndDate} endTime={endTime} handleEndTime={handleEndTime} handleSubmitEvent={handleSubmitEvent} />
                 </Drawer>
               </div>
 
