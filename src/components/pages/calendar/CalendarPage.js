@@ -30,7 +30,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { CirclePicker } from 'react-color';
 import Modal from '@mui/material/Modal';
 import SettingPopup from './popups/SettingPopup';
-import { getEvents, createEvent, deleteEvent } from '../../../api/Api';
+import { getEvents, createEvent, deleteEvent, getCalendars } from '../../../api/Api';
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -64,6 +64,35 @@ function CalendarPageContent() {
   useEffect(() => {
     fetchEvents();
   }, []);
+
+
+  const [calendars, setCalendars] = useState([]);
+
+  const fetchCalendars = () => {
+    // Call your API function to get events from the backend
+    getCalendars()
+      .then((response) => {
+        // Assuming your API returns an array of events
+        const fetchedCalendars = response.data;
+
+        console.log('fetchedCalendars',fetchedCalendars)
+
+        
+        // Update the calendar's events with the fetched data
+        setCalendars(fetchedCalendars); // Assuming you use state to manage calendar events
+      })
+      .catch((error) => {
+        // Handle error (e.g., show an error message)
+        console.error("Error fetching events:", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchCalendars();
+  }, []);
+
+
+
 
 
   const { t, i18n } = useTranslation();
@@ -129,6 +158,27 @@ function CalendarPageContent() {
     setEndTime(newValue);
   };
 
+  const [allDay, setAllDay] = useState(false);
+  const handleAllDay = () => {
+    setAllDay(!allDay);
+  };
+
+  const [repeat, setRepeat] = useState('');
+  const handleRepeat = (event) => {
+    setRepeat(event.target.value);
+  };
+
+  const [calendar, setCalendar] = useState('');
+  const handleCalendar = (event) => {
+    console.log('selected calendar', event.target.value)
+    setCalendar(event.target.value);
+  };
+
+  const [details, setDetails] = useState('');
+  const handleDetails = (event) => {
+    setDetails(event.target.value);
+  };
+
 
   // end add event inputs
 
@@ -178,12 +228,11 @@ function CalendarPageContent() {
   };
 
 
-  const handleSubmitEvent = (dateSelect) => {
+  const handleSubmitEvent = () => {
 
-    console.log('startDate', startDate)
-    console.log('starttime', startTime)
     const normalStartDate = startDate;
     const normalStartTime = startTime;
+    
     const normalEndDate = endDate;
     const normalEndTime = endTime;
 
@@ -192,23 +241,29 @@ function CalendarPageContent() {
 
     const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD');
     const formattedEndTime = dayjs(new Date(normalEndTime)).format('HH:mm:ss');
-    // const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD HH:mm:ss');
-    // const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD HH:mm:ss');
 
+    const eventColor = calendars.find(item => item.id === calendar).color;
+
+    console.log('allDay', allDay)
+    console.log('event color', eventColor)
 
     const eventData = {
       // Create an event object from selectInfo.start and selectInfo.end
       id: uuidv4(),
       title: eventName,
-      start: `${formattedStartDate} ${formattedStartTime}`,
-      end: `${formattedEndDate} ${formattedEndTime}`,
+      start: `${allDay ? `${formattedStartDate} 00:00:00` : `${formattedStartDate} ${formattedStartTime}`}`,
+      end: `${allDay ? `${formattedEndDate} 24:00:00` : `${formattedEndDate} ${formattedEndTime}`}`,
+      details: details,
+      calendar: calendar,
+      color: eventColor,
+      all_day: allDay ? 1 : 0,
       // start: selectInfo.startStr,
       // end: selectInfo.endStr,
       // Add other event properties as needed
       // ...
     };
 
-    // console.log(eventData)
+    console.log(eventData)
     
     createEvent(eventData)
     .then((response) => {
@@ -224,15 +279,40 @@ function CalendarPageContent() {
     });
 
     setCreateEventPopup(false)
+    setEventName('')
+    setStartDate(dayjs(new Date()))
+    setStartTime(dayjs(new Date()))
+    setEndDate(dayjs(new Date()))
+    setEndTime(dayjs(new Date()))
+    setAllDay(false)
+    setRepeat('')
+    setCalendar('')
+    setDetails('')
   
 
   };
 
   
   function handleEventClick(clickInfo) {
+
+    // console.log('clickInfo',clickInfo.event)
     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove();
+      // clickInfo.event.remove();
+      deleteEvent(clickInfo.event._def.extendedProps._id)
+      .then((response) => {
+        // Handle success (e.g., show a success message)
+        console.log("Event deleted successfully:", response);
+  
+        // Refresh the calendar events by calling your fetch events function
+        fetchEvents();
+      })
+      .catch((error) => {
+        // Handle error (e.g., show an error message)
+        console.error("Error deleting event:", error);
+      });
     }
+
+
   }
 
   function handleEvents(events) {
@@ -500,7 +580,7 @@ function CalendarPageContent() {
                   disableScrollLock = {false}
                   className='calendar-page_sidebar_create-event_drawer'
                 >
-                  <CreateEventsPopup dateSelect={dateSelect} setCreateEventPopup={setCreateEventPopup} categories={Calendar_page_current_events} eventName={eventName} handleEventName={handleEventName} startDate={startDate} handleStartDate={handleStartDate} startTime={startTime} handleStartTime={handleStartTime} endDate={endDate} handleEndDate={handleEndDate} endTime={endTime} handleEndTime={handleEndTime} handleSubmitEvent={handleSubmitEvent} />
+                  <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} handleSubmitEvent={handleSubmitEvent} categories={Calendar_page_current_events} eventName={eventName} handleEventName={handleEventName} startDate={startDate} handleStartDate={handleStartDate} startTime={startTime} handleStartTime={handleStartTime} endDate={endDate} handleEndDate={handleEndDate} endTime={endTime} handleEndTime={handleEndTime} allDay={allDay} handleAllDay={handleAllDay} repeat={repeat} handleRepeat={handleRepeat} calendars={calendars} calendar={calendar} handleCalendar={handleCalendar} details={details} handleDetails={handleDetails} />
                 </Drawer>
               </div>
 

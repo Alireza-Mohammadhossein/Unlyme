@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './createevent-popups.scss';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -19,31 +19,20 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import { getCalendars } from '../../../../api/Api';
 
 
 
 
 
-const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime, handleSubmitEvent }) => {
-  const [allDay, setAllDay] = useState(false);
-  const handleAllDay = () => {
-    setAllDay(!allDay);
-  };
 
-  const [repeat, setRepeat] = useState('');
-  const handleRepeat = (event) => {
-    setRepeat(event.target.value);
-  };
+const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime,  allDay, handleAllDay, repeat, handleRepeat, calendars, calendar, handleCalendar, details, handleDetails }) => {
 
-  const [category, setCategory] = useState('');
-  const handleCategory = (event) => {
-    setCategory(event.target.value);
-  };
 
-  const [note, setNote] = useState('');
-  const handleNote = (event) => {
-    setNote(event.target.value);
-  };
+
+
+
+
 
 
   const minRepeatNumber = 0;
@@ -101,10 +90,10 @@ const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventN
     // setStartTime(dayjs(new Date()))
     // setEndDate(dayjs(new Date()))
     // setEndTime(dayjs(new Date()))
-    setAllDay(false)
-    setRepeat('')
-    setCategory('')
-    setNote('')
+    // setAllDay(false)
+    // setRepeat('')
+    // setCalendar('')
+    // setNote('')
     setRepeatNumber(0)
     setRepeatLoop('day')
     setEndRepeat('')
@@ -383,11 +372,11 @@ const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventN
               className="create-eventpopup-item-select"
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={category}
-              onChange={handleCategory}
+              value={calendar}
+              onChange={handleCalendar}
             >
-              {categories.map((category) => (
-                <MenuItem className='calendar_create-eventpopup-item-select-item' value={category.category}>{category.name} <span className='color-bullet' style={{backgroundColor: category.color}}></span></MenuItem>  
+              {calendars.map((calendar) => (
+                <MenuItem className='calendar_create-eventpopup-item-select-item' value={calendar.id}>{calendar.name} <span className='color-bullet' style={{backgroundColor: calendar.color}}></span></MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -403,7 +392,7 @@ const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventN
             <TextField
                 className='create-eventpopup-item-input'
                 variant="outlined"
-                onChange={handleNote}
+                onChange={handleDetails}
                 multiline
                 maxRows={5}
             />
@@ -415,7 +404,7 @@ const CreateEventsPopup = ({ dateSelect, setCreateEventPopup, categories, eventN
 
 
         <div className='create-eventpopup-btn'>
-          <Button className='create-eventpopup-btn-reset' onClick={() => handleResetEvent(dateSelect)}>Reset</Button>
+          <Button className='create-eventpopup-btn-reset' onClick={handleResetEvent}>Reset</Button>
 
           <Button className='create-eventpopup-btn-submit' onClick={handleSubmitEvent}>Submit</Button>
         </div>
