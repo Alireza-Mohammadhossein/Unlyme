@@ -26,7 +26,7 @@ import { getCalendars } from '../../../../api/Api';
 
 
 
-const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime,  allDay, handleAllDay, repeat, handleRepeat, calendars, calendar, handleCalendar, details, handleDetails, handleDeleteEvent }) => {
+const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime,  allDay, handleAllDay, repeat, handleRepeat, calendars, calendar, handleCalendar, details, handleDetails, handleDeleteEvent, closeEventPopup, editEventMode }) => {
 
 
 
@@ -116,11 +116,12 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
       <div className='create-eventpopup-header'>
         <div className='create-eventpopup-header-title'>
           {/* <FilterListIcon /> */}
-          <p>Create event</p>
+          {editEventMode ? <p>Edit event</p> : <p>Create event</p>}
+          {/* <p>Create event</p> */}
         </div>
 
         <div className='create-eventpopup-header-btn'>
-          <IconButton onClick={() => setCreateEventPopup(false)}>
+          <IconButton onClick={closeEventPopup}>
             <CloseIcon />
           </IconButton>
         </div>
@@ -167,6 +168,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
                         value={startTime}
                         onChange={handleStartTime}
                         endAdornment ={<InputAdornment position="end"><FilterListIcon /></InputAdornment>}
+                        ampm={false}
                       />
                     </DemoItem>
                   </DemoContainer>
@@ -207,6 +209,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
                         value={endTime}
                         onChange={handleEndTime}
                         endAdornment ={<InputAdornment position="end"><FilterListIcon /></InputAdornment>}
+                        ampm={false}
                       />
                     </DemoItem>
                   </DemoContainer>
@@ -383,6 +386,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
             <TextField
                 className='create-eventpopup-item-input'
                 variant="outlined"
+                value={details}
                 onChange={handleDetails}
                 multiline
                 maxRows={5}

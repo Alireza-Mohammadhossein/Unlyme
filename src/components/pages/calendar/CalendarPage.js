@@ -30,7 +30,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { CirclePicker } from 'react-color';
 import Modal from '@mui/material/Modal';
 import SettingPopup from './popups/SettingPopup';
-import { getEvents, createEvent, deleteEvent, getCalendars } from '../../../api/Api';
+import { getEvents, createEvent, deleteEvent, getCalendars, updateEvent } from '../../../api/Api';
 import dayjs from "dayjs";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -184,9 +184,10 @@ function CalendarPageContent() {
   const handleDetails = (event) => {
     setDetails(event.target.value);
   };
-
-
   // end add event inputs
+
+
+  const [editEventMode, setEditEventMode] = useState(false);
 
   const [dateSelect, setDateSelect] = useState()
   const handleDateSelect = (selectInfo) => {
@@ -273,19 +274,35 @@ function CalendarPageContent() {
 
     console.log(eventData)
     
-    createEvent(eventData)
-    .then((response) => {
-      // Handle success (e.g., show a success message)
-      console.log("Event added successfully:", response);
+    if(!editEventMode) {
+      createEvent(eventData)
+      .then((response) => {
+        // Handle success (e.g., show a success message)
+        console.log("Event added successfully:", response);
+  
+        // Refresh the calendar events by calling your fetch events function
+        fetchEvents();
+      })
+      .catch((error) => {
+        // Handle error (e.g., show an error message)
+        console.error("Error adding event:", error);
+      });
+    } else {
+        updateEvent(selectedEventID, eventData)
+        .then((response) => {
+          // Handle success (e.g., show a success message)
+          console.log("Event added successfully:", response);
+    
+          // Refresh the calendar events by calling your fetch events function
+          fetchEvents();
+        })
+        .catch((error) => {
+          // Handle error (e.g., show an error message)
+          console.error("Error adding event:", error);
+        });
+    }
 
-      // Refresh the calendar events by calling your fetch events function
-      fetchEvents();
-    })
-    .catch((error) => {
-      // Handle error (e.g., show an error message)
-      console.error("Error adding event:", error);
-    });
-
+    setEditEventMode(false)
     setCreateEventPopup(false)
     setEventName('')
     setStartDate(dayjs(new Date()))
@@ -300,9 +317,6 @@ function CalendarPageContent() {
 
   };
 
-
-
-  const [selectedEvent, setSelectedEvent] = useState()
 
   const handleDeleteEvent = (selectedEvent) => {
     if (window.confirm(`Are you sure you want to delete the event`)) {
@@ -335,31 +349,25 @@ function CalendarPageContent() {
 
   }
 
+
   function handleEventClick(clickInfo) {
-    setSelectedEvent(clickInfo);
+    setEditEventMode(true)
 
     console.log('clickInfo',clickInfo.event)
-    
-    // console.log('start time', String(clickInfo.event._instance.range.start).split(' ')[4])
-    
     const selectedStartDate = dayjs(clickInfo.event._instance.range.start);
-    const selectedStartTime = String(clickInfo.event._instance.range.start).split(' ');
-
     const selectedEndDate = dayjs(clickInfo.event._instance.range.end);
-    const selectedEndTime = String(clickInfo.event._instance.range.end).split(' ');
 
-
-
+    // console.log('selectedStartDate', selectedStartDate.subtract(2, 'hour'))
 
     setSelectedEventID(clickInfo.event._def.extendedProps._id)
     setEventName(clickInfo.event._def.title)
     setStartDate(selectedStartDate)
-    setStartTime(selectedStartDate)
+    setStartTime(selectedStartDate.subtract(2, 'hour'))
     setEndDate(selectedEndDate)
-    setEndTime(selectedEndDate)
+    setEndTime(selectedEndDate.subtract(2, 'hour'))
     setAllDay(clickInfo.event._def.allDay)
     setCalendar(clickInfo.event._def.extendedProps.calendar)
-    setDetails(clickInfo.event._def.extendedProps.detaiils)
+    setDetails(clickInfo.event._def.extendedProps.details)
 
     setCreateEventPopup(true)
   }
@@ -562,6 +570,20 @@ function CalendarPageContent() {
 
 
  const [createEventPopup, setCreateEventPopup] = useState(false);
+ const closeEventPopup = () => {
+  setEditEventMode(false)
+  setCreateEventPopup(false)
+  setEventName('')
+  setStartDate(dayjs(new Date()))
+  setStartTime(dayjs(new Date()))
+  setEndDate(dayjs(new Date()))
+  setEndTime(dayjs(new Date()))
+  setAllDay(false)
+  setRepeat('')
+  setCalendar('')
+  setDetails('')
+
+ }
 
 
 
@@ -619,17 +641,42 @@ function CalendarPageContent() {
                 >
                   {t("CALENDAR_PAGE.CREATE__EVENT_BUTTON")}
                 </Button>
-                {/* <button>{t('CALENDAR_PAGE.CREATE__EVENT_BUTTON')}</button> */}
 
                 
                 <Drawer
                   anchor='right'
                   open={createEventPopup}
-                  onClose={() => setCreateEventPopup(false)}
+                  onClose={closeEventPopup}
                   disableScrollLock = {false}
                   className='calendar-page_sidebar_create-event_drawer'
                 >
-                  <CreateEventsPopup setCreateEventPopup={setCreateEventPopup} handleSubmitEvent={handleSubmitEvent} categories={Calendar_page_current_events} eventName={eventName} handleEventName={handleEventName} startDate={startDate} handleStartDate={handleStartDate} startTime={startTime} handleStartTime={handleStartTime} endDate={endDate} handleEndDate={handleEndDate} endTime={endTime} handleEndTime={handleEndTime} allDay={allDay} handleAllDay={handleAllDay} repeat={repeat} handleRepeat={handleRepeat} calendars={calendars} calendar={calendar} handleCalendar={handleCalendar} details={details} handleDetails={handleDetails} handleDeleteEvent={handleDeleteEvent} />
+                  <CreateEventsPopup
+                    setCreateEventPopup={setCreateEventPopup}
+                    handleSubmitEvent={handleSubmitEvent}
+                    categories={Calendar_page_current_events}
+                    eventName={eventName}
+                    handleEventName={handleEventName}
+                    startDate={startDate}
+                    handleStartDate={handleStartDate}
+                    startTime={startTime}
+                    handleStartTime={handleStartTime}
+                    endDate={endDate}
+                    handleEndDate={handleEndDate}
+                    endTime={endTime}
+                    handleEndTime={handleEndTime}
+                    allDay={allDay}
+                    handleAllDay={handleAllDay}
+                    repeat={repeat}
+                    handleRepeat={handleRepeat}
+                    calendars={calendars}
+                    calendar={calendar}
+                    handleCalendar={handleCalendar}
+                    details={details}
+                    handleDetails={handleDetails}
+                    handleDeleteEvent={handleDeleteEvent}
+                    closeEventPopup={closeEventPopup}
+                    editEventMode={editEventMode}
+                  />
                 </Drawer>
               </div>
 
