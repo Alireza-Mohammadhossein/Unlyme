@@ -26,7 +26,7 @@ import { getCalendars } from '../../../../api/Api';
 
 
 
-const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime,  allDay, handleAllDay, repeat, handleRepeat, calendars, calendar, handleCalendar, details, handleDetails }) => {
+const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories, eventName, handleEventName, startDate, handleStartDate, startTime, handleStartTime, endDate, handleEndDate, endTime, handleEndTime,  allDay, handleAllDay, repeat, handleRepeat, calendars, calendar, handleCalendar, details, handleDetails, handleDeleteEvent }) => {
 
 
 
@@ -85,15 +85,6 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
 
 
   const handleResetEvent = () => {
-    // setEventName('')
-    // setStartDate(dayjs(new Date()))
-    // setStartTime(dayjs(new Date()))
-    // setEndDate(dayjs(new Date()))
-    // setEndTime(dayjs(new Date()))
-    // setAllDay(false)
-    // setRepeat('')
-    // setCalendar('')
-    // setNote('')
     setRepeatNumber(0)
     setRepeatLoop('day')
     setEndRepeat('')
@@ -234,7 +225,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
           </div>
         </div>
 
-        <div className='create-eventpopup-item'>
+        {/* <div className='create-eventpopup-item'>
           <p className="create-eventpopup-item-title">
               Repeat
           </p>
@@ -360,7 +351,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
 
         :
           ''
-        }
+        } */}
 
         <div className='create-eventpopup-item'>
           <p className="create-eventpopup-item-title">
@@ -404,7 +395,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
 
 
         <div className='create-eventpopup-btn'>
-          <Button className='create-eventpopup-btn-reset' onClick={handleResetEvent}>Reset</Button>
+          <Button className='create-eventpopup-btn-reset' onClick={handleDeleteEvent}>Delete</Button>
 
           <Button className='create-eventpopup-btn-submit' onClick={handleSubmitEvent}>Submit</Button>
         </div>
