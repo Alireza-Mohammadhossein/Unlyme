@@ -291,18 +291,43 @@
                                 & .fc-daygrid-day-events {
                                     & .fc-event {
                                         text-align: left;
-                                        padding: 10px 5px;
+                                        // padding: 10px 5px;
                                         // background-color: $blue;
-                                        background-color: #AB9BCD;
-                                        border-color: #AB9BCD;
+                                        // background-color: #AB9BCD;
+                                        // border-color: #AB9BCD;
                                         color: #fff;
-                                        white-space: nowrap;
-                                        overflow: hidden;
-                                        text-overflow: ellipsis;
-                                        display: block;
+                                        // white-space: nowrap;
+                                        // overflow: hidden;
+                                        // text-overflow: ellipsis;
+                                        // display: block;
+                                        background-color: unset !important;
+                                        border: unset !important;
+
+                                        .event-content {
+                                            text-align: left;
+                                            width: 100%;
+                                            height: 100%;
+                                            padding: 10px 5px;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            display: block;
+                                            border-radius: 5px;
+                                            border: 1px solid;
+                                            height: 26px;
+                                            box-sizing: border-box;
+                                            display: flex;
+                                            align-items: center;
+                                        }
 
                                         b {
                                             margin-right: 7px;
+                                        }
+
+                                        i {
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
                                         }
     
                                         & .fc-event-main {

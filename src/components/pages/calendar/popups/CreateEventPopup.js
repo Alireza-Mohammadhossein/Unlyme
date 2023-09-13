@@ -399,7 +399,7 @@ const CreateEventsPopup = ({ setCreateEventPopup, handleSubmitEvent, categories,
 
 
         <div className='create-eventpopup-btn'>
-          <Button className='create-eventpopup-btn-reset' onClick={handleDeleteEvent}>Delete</Button>
+          <Button className='create-eventpopup-btn-reset' onClick={handleDeleteEvent}>{editEventMode ? 'Delete' : 'Reset'}</Button>
 
           <Button className='create-eventpopup-btn-submit' onClick={handleSubmitEvent}>Submit</Button>
         </div>

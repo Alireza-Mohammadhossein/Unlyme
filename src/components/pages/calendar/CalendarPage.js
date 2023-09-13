@@ -52,7 +52,6 @@ function CalendarPageContent() {
         
         // Update the calendar's events with the fetched data
         setEvents(fetchedEvents); // Assuming you use state to manage calendar events
-        console.log('events', events)
       })
       .catch((error) => {
         // Handle error (e.g., show an error message)
@@ -237,6 +236,8 @@ function CalendarPageContent() {
   };
 
 
+  const [selectedEventColor, setSelectedEventColor] = useState('');
+
   const handleSubmitEvent = () => {
 
     const normalStartDate = startDate;
@@ -251,10 +252,10 @@ function CalendarPageContent() {
     const formattedEndDate = dayjs(new Date(normalEndDate)).format('YYYY-MM-DD');
     const formattedEndTime = dayjs(new Date(normalEndTime)).format('HH:mm:ss');
 
-    const eventColor = calendars.find(item => item.id === calendar).color;
+    const eventColor = calendars.find(item => item.id === `${calendar}`).color;
 
-    console.log('allDay', allDay)
-    console.log('event color', eventColor)
+    // console.log('allDay', allDay)
+    // console.log('event color', selectedEventColor)
 
     const eventData = {
       // Create an event object from selectInfo.start and selectInfo.end
@@ -313,12 +314,13 @@ function CalendarPageContent() {
     setRepeat('')
     setCalendar('')
     setDetails('')
+    setSelectedEventColor('')
   
 
   };
 
 
-  const handleDeleteEvent = (selectedEvent) => {
+  const handleDeleteEvent = () => {
     if (window.confirm(`Are you sure you want to delete the event`)) {
       // selectedEvent.event.remove();
       deleteEvent(selectedEventID)
@@ -368,8 +370,10 @@ function CalendarPageContent() {
     setAllDay(clickInfo.event._def.allDay)
     setCalendar(clickInfo.event._def.extendedProps.calendar)
     setDetails(clickInfo.event._def.extendedProps.details)
+    setSelectedEventColor(clickInfo.event._def.ui.backgroundColor)
 
     setCreateEventPopup(true)
+
   }
 
   function handleEvents(events) {
@@ -377,12 +381,22 @@ function CalendarPageContent() {
   }
 
   function renderEventContent(eventInfo) {
-    return (
-      <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
-      </>
-    );
+    if(calendars) {
+      const eventCalendar = eventInfo.event._def.extendedProps.calendar;
+
+      const relatedCalendar = calendars.find((item) => item.id === `${eventCalendar}`);
+
+      console.log('event title', eventInfo.event.title)
+      console.log('eventCalendar', eventCalendar)
+      console.log('relatedCalendar', relatedCalendar)
+
+      return (
+        <div className='event-content' style={{backgroundColor: eventInfo.backgroundColor ? eventInfo.backgroundColor : '#AB9BCD', borderColor: eventInfo.backgroundColor ? eventInfo.backgroundColor : '#AB9BCD'}}>
+          <b>{eventInfo.timeText}</b>
+          <i>{eventInfo.event.title}</i>
+        </div>
+      );
+    }
   }
 
   function renderSidebarEvent(event) {
@@ -847,7 +861,7 @@ function CalendarPageContent() {
                   }}
                   
                   allDaySlot= {false}
-                  allDayText= 'all'
+                  allDayText= 'All day'
                   firstDay= {1}
                   initialView='dayGridMonth'
                   editable={true}
@@ -874,6 +888,7 @@ function CalendarPageContent() {
                   // sideBarEvent={renderSidebarEvent}
                   eventClick={handleEventClick}
                   eventsSet={handleEvents} // called after events are initialized/added/changed/removed
+                  // eventBackgroundColor='#ff0000'
                   /* you can update a remote database when these fire:
                   eventAdd={function(){}}
                   eventChange={function(){}}
