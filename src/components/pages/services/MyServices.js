@@ -17,6 +17,7 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import { GetScreenSize } from "../../common/getScreenSize/GetScreenSize";
 import LogoBuilder from "./components/logoBuilder/LogoBuilder";
 import AIEngine from "./components/aiEngine/AIEngine";
+import Emails from "./components/emails/Emails";
 // import './services.scss';
 // import { Link } from "react-router-dom";
 
@@ -34,8 +35,10 @@ const MyServices = () => {
     { i: "tasks", x: 6, y: 0, w: 6, h: 1 },
 
     { i: "drive", x: 0, y: 1, w: 6, h: 1 },
-    { i: "domains", x: 6, y: 1, w: 3, h: 1 },
-    { i: "logo-builder", x: 9, y: 1, w: 3, h: 1 },
+    { i: "emails", x: 6, y: 1, w: 6, h: 1 },
+
+    { i: "domains", x: 6, y: 1, w: 6, h: 1 },
+    { i: "logo-builder", x: 9, y: 1, w: 6, h: 1 },
 
     { i: "cloud", x: 0, y: 2, w: 3, h: 1 },
     { i: "assas", x: 3, y: 2, w: 6, h: 1 },
@@ -55,6 +58,8 @@ const MyServices = () => {
 
     { i: "drive", x: 0, y: 1, w: 8, h: 1 },
     { i: "notes", x: 8, y: 1, w: 4, h: 1 },
+
+    { i: "emails", x: 0, y: 2, w: 8, h: 1 },
 
     { i: "cloud", x: 0, y: 2, w: 4, h: 1 },
     { i: "asass", x: 4, y: 2, w: 8, h: 1 },
@@ -79,6 +84,8 @@ const MyServices = () => {
     { i: "drive", x: 0, y: 1, w: 6, h: 1 },
     { i: "tasks", x: 6, y: 1, w: 6, h: 1 },
 
+    { i: "emails", x: 0, y: 2, w: 6, h: 1 },
+    
     { i: "cloud", x: 0, y: 2, w: 6, h: 1 },
     { i: "ai", x: 6, y: 2, w: 6, h: 1 },
 
@@ -101,6 +108,7 @@ const MyServices = () => {
     { i: "notes", x: 0, y: 1, w: 12, h: 1 },
     { i: "drive", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
+    { i: "emails", x: 0, y: 4, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
     { i: "ai", x: 0, y: 5, w: 12, h: 1 },
     { i: "bank", x: 0, y: 6, w: 12, h: 1 },
@@ -118,6 +126,7 @@ const MyServices = () => {
     { i: "notes", x: 0, y: 1, w: 12, h: 1 },
     { i: "drive", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
+    { i: "emails", x: 0, y: 4, w: 12, h: 1 },
     { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
     { i: "ai", x: 0, y: 5, w: 12, h: 1 },
     { i: "bank", x: 0, y: 6, w: 12, h: 1 },
@@ -233,6 +242,10 @@ const MyServices = () => {
 
           <div key="drive">
             <WorkDrive />
+          </div>
+
+          <div key="emails">
+            <Emails />
           </div>
 
           {/* <div key="guide">

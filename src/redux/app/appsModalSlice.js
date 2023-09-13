@@ -6,6 +6,7 @@ const initialState = {
   openCalendarWidgetModal: false,
   openWorkDriveWidgetModal: false,
   openTasksWidgetModal: false,
+  openEmailsWidgetModal: false,
   openMeetingPageModal: false,
   SelectedComponent: null,
   openAppsShortcut: false,
@@ -26,6 +27,7 @@ export const appsModalSlice = createSlice({
         state.openCalendarWidgetModal = false;
         state.openWorkDriveWidgetModal = false;
         state.openTasksWidgetModal = false;
+        state.openEmailsWidgetModal = false;
         // state.SelectedComponent = null;
     },
     handleOpenNotesWidgetModal: (state, component) => {
@@ -64,6 +66,15 @@ export const appsModalSlice = createSlice({
         // state.SelectedComponent = null;
     },
 
+    handleOpenEmailsWidgetModal: (state, component) => {
+      state.openEmailsWidgetModal = true;
+      // state.SelectedComponent = component.payload;
+    },
+    handleCloseEmailsWidgetModal: (state) => {
+        state.openEmailsWidgetModal = false;
+        // state.SelectedComponent = null;
+    },
+
     handleOpenMeetingPageModal: (state) => {
       state.openMeetingPageModal = true;
     },
@@ -83,6 +94,6 @@ export const appsModalSlice = createSlice({
 
 
 
-export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal, handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal, handleOpenWorkDriveWidgetModal, handleCloseWorkDriveWidgetModal, handleOpenTasksWidgetModal, handleCloseTasksWidgetModal } = appsModalSlice.actions;
+export const { handleCloseAppsModal, handleOpenAppsModal, handleOpenMeetingPageModal, handleCloseMeetingPageModal, handleOpenShortcut, handleCloseShortcut, handleOpenNotesWidgetModal, handleCloseNotesWidgetModal, handleOpenCalendarWidgetModal, handleCloseCalendarWidgetModal, handleOpenWorkDriveWidgetModal, handleCloseWorkDriveWidgetModal, handleOpenTasksWidgetModal, handleCloseTasksWidgetModal, handleOpenEmailsWidgetModal, handleCloseEmailsWidgetModal } = appsModalSlice.actions;
 
 export default appsModalSlice.reducer;
