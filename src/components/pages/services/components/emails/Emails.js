@@ -15,6 +15,7 @@ import expandIcon from '../../../../../assets/images/my-services/expand.svg';
 import defaultIcon from '../../../../../assets/images/my-services/emails/default-icon.svg';
 import attachIcon from '../../../../../assets/images/my-services/emails/attach.svg';
 import readIcon from '../../../../../assets/images/my-services/emails/read-mail.svg';
+import unreadIcon from '../../../../../assets/images/my-services/emails/unread-mail.svg';
 import trashIcon from '../../../../../assets/images/my-services/emails/trash.svg';
 import archiveIcon from '../../../../../assets/images/my-services/emails/archive.svg';
 import starNotIcon from '../../../../../assets/images/my-services/emails/star-not.svg';
@@ -124,6 +125,42 @@ const Emails = () => {
 
 
 
+  const handleStarredEmail = (clickedItem) => {
+    // Toggle the 'starred' property of the clicked item
+    const updatedData = data.map((item) => {
+      if (item.id === clickedItem.id) {
+        return {
+          ...item,
+          starred: !item.starred, // Toggle the starred property
+        };
+      }
+      return item;
+    });
+
+    // Update the state with the modified data
+    setData(updatedData);
+  };
+
+  
+
+  const handleReadEmail = (clickedItem) => {
+    // Toggle the 'starred' property of the clicked item
+    const updatedData = data.map((item) => {
+      if (item.id === clickedItem.id) {
+        return {
+          ...item,
+          unread: !item.unread, // Toggle the starred property
+        };
+      }
+      return item;
+    });
+
+    // Update the state with the modified data
+    setData(updatedData);
+  };
+
+
+
   return (
     <>
       <div className={`my-services__emails 
@@ -166,7 +203,7 @@ const Emails = () => {
         <div className="my-services__emails_content">
           <TabPanel value={value} index={0} className="my-services__emails_content-list">
             {data.map((item) => (
-              <div key={item.id} className="my-services__emails_content-item">
+              <div key={item.id} className="my-services__emails_content-item" style={{backgroundColor: item.unread ? '#fff' : '#F5F5F5'}}>
                 <div className="my-services__emails_content-item-icon">
                   <img src={item.logo ? item.logo : defaultIcon} />
                 </div>
@@ -185,8 +222,8 @@ const Emails = () => {
                 </div>
                 
                 <div className="my-services__emails_content-item-actions">
-                  <IconButton aria-label="read">
-                    <img src={readIcon} />
+                  <IconButton aria-label="read" onClick={() => handleReadEmail(item)}>
+                    <img src={item.unread ? unreadIcon : readIcon} />
                   </IconButton>
 
                   <IconButton aria-label="trash">
@@ -197,7 +234,7 @@ const Emails = () => {
                     <img src={archiveIcon} />
                   </IconButton>
                   
-                  <IconButton aria-label="star">
+                  <IconButton aria-label="star" onClick={() => handleStarredEmail(item)}>
                     <img src={item.starred ? starActiveIcon : starNotIcon} />
                   </IconButton>
                 </div>

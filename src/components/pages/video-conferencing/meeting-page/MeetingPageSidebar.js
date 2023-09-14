@@ -6,13 +6,13 @@ import AddIcon from "@mui/icons-material/Add";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import FormControl from '@mui/material/FormControl';
-import search from '../../../../assets/images/header/new-icons/search.png';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenShortcut, handleCloseShortcut } from "../../../../redux/app/appsModalSlice";
 import CalendarShortcut from "./shortcuts-modal/CalendarShortcut";
 import TasksShortcut from "./shortcuts-modal/TasksShortcut";
 import NotesShortcut from "./shortcuts-modal/NotesShortcut";
+import searchIcon from "../../../../assets/images/header/new-icons/search.svg";
 
 
 
@@ -165,7 +165,7 @@ function TabPanel(props) {
               <div className='meeting-page_sidebar-section_search'>
                 <FormControl>
                     <div className="meeting-page_sidebar-section_search_container">
-                        <label><img src={search} /></label>
+                        <label><img src={searchIcon} /></label>
                         <input
                           className="meeting-page_sidebar-section_search-input"
                           // onChange={(e) => setSearchNote(e.target.value)}

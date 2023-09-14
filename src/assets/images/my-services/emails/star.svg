@@ -1,6 +1,3 @@
-<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="star">
-<rect width="18" height="18" transform="translate(0 0.5)" fill="#F5F5F5"/>
-<path id="Vector" d="M9 2L11.3175 6.695L16.5 7.4525L12.75 11.105L13.635 16.265L9 13.8275L4.365 16.265L5.25 11.105L1.5 7.4525L6.6825 6.695L9 2Z" fill="#FFC107" stroke="#FFC107" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 1.5L11.3175 6.195L16.5 6.9525L12.75 10.605L13.635 15.765L9 13.3275L4.365 15.765L5.25 10.605L1.5 6.9525L6.6825 6.195L9 1.5Z" fill="#FFC107" stroke="#FFC107" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -754,9 +754,15 @@
         }
 
         &-attach {
-            border-color: #D7D7D7 !important;
+            // border-color: #D7D7D7 !important;
             border-radius: 8px !important;
             min-height: 130px !important;
+
+            
+            border: unset !important;
+            border-image-source: url("../../../../../assets/images/work-drive/line.png") !important;
+            border-image-slice: 30 !important;
+            border-image-width: 8px !important;
 
             .MuiTypography-root.MuiDropzoneArea-text {
                 color: #888888;

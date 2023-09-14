@@ -762,7 +762,7 @@ const AddNewClientsPopup = ({ handleCloseAddNewClientPopup }) => {
               <>
                 <div className='clients-addnewpopup-item flex'>
                     <p className='clients-addnewpopup-item-title'>
-                      Vat
+                      VAT
                     </p>
 
                     <TextField
