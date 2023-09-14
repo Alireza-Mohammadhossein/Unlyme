@@ -270,7 +270,7 @@
                 .MuiTableCell-root {
                     img {
                         vertical-align: middle;
-                        width: 20px;
+                        width: 18px;
                         height: auto;
                         padding-bottom: 2px;
                     }
@@ -292,13 +292,17 @@
                         & > div {
                             height: 100%;
                             box-sizing: border-box;
-                            padding-top: 10px;
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
                             
-                            & img {
-                                margin-right: 5px;
+                            span {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
                             }
                         }
 
@@ -309,6 +313,10 @@
                             position: relative;
                             top: 7px;
                             margin-right: 5px;
+                        }
+
+                        button.MuiButtonBase-root {
+                            padding: 5px;
                         }
                     }
 
@@ -324,6 +332,10 @@
 
                             div {
                                 font-weight: 600;
+
+                                span {
+                                    font-weight: 600;
+                                }
                             }
                         }
 

@@ -8,13 +8,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
-import star from '../../../assets/images/my-services/email/star.png';
-import activeStar from '../../../assets/images/my-services/email/favorite.png';
+import IconButton from "@mui/material/IconButton";
+import star from '../../../assets/images/email/star-not.svg';
+import activeStar from '../../../assets/images/email/star.svg';
 import SingleMail from './single-mail/SingleMail';
 import { useEffect } from 'react';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import EmailTableHead from './EmailTableHead';
 import inboxGrayIcon from '../../../assets/images/email/inbox-gray.svg';
+import readIcon from '../../../assets/images/email/read-mail.svg';
+import unreadIcon from '../../../assets/images/email/unread-mail.svg';
 
 
 
@@ -198,6 +201,45 @@ const handleReadMode = (event, newReadMode) => {
 };
 
 
+const handleStarredEmail = (e, clickedItem) => {
+  // Toggle the 'starred' property of the clicked item
+  e.stopPropagation();
+
+  const updatedData = filteredEmails.map((item) => {
+    if (item.id === clickedItem.id) {
+      return {
+        ...item,
+        starred: !item.starred, // Toggle the starred property
+      };
+    }
+    return item;
+  });
+
+  // Update the state with the modified data
+  setFilteredEmails(updatedData);
+};
+
+
+
+const handleReadEmail = (e, clickedItem) => {
+  // Toggle the 'starred' property of the clicked item
+  e.stopPropagation();
+  
+  const updatedData = filteredEmails.map((item) => {
+    if (item.id === clickedItem.id) {
+      return {
+        ...item,
+        unread: !item.unread, // Toggle the starred property
+      };
+    }
+    return item;
+  });
+
+  // Update the state with the modified data
+  setFilteredEmails(updatedData);
+};
+
+
   return (
     <Box sx={{ width: '100%' }}>
       <Grid container>
@@ -300,7 +342,9 @@ const handleReadMode = (event, newReadMode) => {
                           align="center"
                           sx={{ cursor: 'pointer', height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0' }}
                         >
-                          <img src={row.starred ? activeStar : star} className='star-icon'/>
+                          <IconButton aria-label="star" onClick={(e) => handleStarredEmail(e, row)}>
+                            <img src={row.starred ? activeStar : star} className='star-icon' />
+                          </IconButton>
                         </TableCell>
                         
                         <TableCell
@@ -315,14 +359,17 @@ const handleReadMode = (event, newReadMode) => {
                           sx={{ cursor: 'pointer', width: 500, maxWidth: 500, height: 40, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '5px' }}
                         >
                           <div>
-                            {
+                            <IconButton aria-label="read" onClick={(e) => handleReadEmail(e, row)}>
+                              <img src={row.unread ? unreadIcon : readIcon} className='read-icon' />
+                            </IconButton>
+                            {/* {
                               row.unread ?
-                                <img src={inboxGrayIcon} className='read-icon' />
+                                <img src={unreadIcon} className='read-icon' />
                               :
-                                <img src={inboxGrayIcon} className='read-icon' />
-                            }
+                                <img src={readIcon} className='read-icon' />
+                            } */}
 
-                            {row.subject}
+                            <span>{row.subject}</span>
                           </div>
                         </TableCell>
                         

@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Modal from '@mui/material/Modal';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
-import { emails } from '../../../../../mocks/mocks';
+import { emails, sentEmails, deletedEmails } from '../../../../../mocks/mocks';
 import plusIcon from '../../../../../assets/images/my-services/plus.svg';
 import expandIcon from '../../../../../assets/images/my-services/expand.svg';
 import defaultIcon from '../../../../../assets/images/my-services/emails/default-icon.svg';
@@ -62,6 +62,8 @@ const Emails = () => {
   // };
   // const [data, setData] = useState(initialState);
   const [data, setData] = useState(emails);
+  const [sent, setSent] = useState(sentEmails);
+  const [deleted, setDeleted] = useState(deletedEmails);
 
 
   const [value, setValue] = useState(0);
@@ -160,6 +162,25 @@ const Emails = () => {
   };
 
 
+  const handleStarredSent = (clickedItem) => {
+    // Toggle the 'starred' property of the clicked item
+    const updatedSent = sent.map((item) => {
+      if (item.id === clickedItem.id) {
+        return {
+          ...item,
+          starred: !item.starred, // Toggle the starred property
+        };
+      }
+      return item;
+    });
+
+    // Update the state with the modified data
+    setSent(updatedSent);
+  };
+
+
+
+
 
   return (
     <>
@@ -243,11 +264,85 @@ const Emails = () => {
           </TabPanel>
           
           <TabPanel value={value} index={1} className="my-services__emails_content-list">
-           Sent
+            {sent.map((item) => (
+              <div key={item.id} className="my-services__emails_content-item" style={{backgroundColor: item.unread ? '#fff' : '#F5F5F5'}}>
+                <div className="my-services__emails_content-item-icon">
+                  <img src={item.logo ? item.logo : defaultIcon} />
+                </div>
+
+                <div className="my-services__emails_content-item-info">
+                  <p className="my-services__emails_content-item-info-title">{item.title}</p>
+                  <p className="my-services__emails_content-item-info-subtitle">{item.subject}</p>
+                </div>
+                
+                <div className="my-services__emails_content-item-attach">
+                  {item.attached ? <img src={attachIcon} /> : ''}
+                </div>
+                
+                <div className="my-services__emails_content-item-date">
+                  {item.date}
+                </div>
+                
+                <div className="my-services__emails_content-item-actions">
+                  {/* <IconButton aria-label="read" onClick={() => handleReadEmail(item)}>
+                    <img src={item.unread ? unreadIcon : readIcon} />
+                  </IconButton> */}
+
+                  <IconButton aria-label="trash">
+                    <img src={trashIcon} />
+                  </IconButton>
+
+                  <IconButton aria-label="archive">
+                    <img src={archiveIcon} />
+                  </IconButton>
+                  
+                  <IconButton aria-label="star" onClick={() => handleStarredSent(item)}>
+                    <img src={item.starred ? starActiveIcon : starNotIcon} />
+                  </IconButton>
+                </div>
+              </div>
+            ))}
           </TabPanel>
           
           <TabPanel value={value} index={2} className="my-services__emails_content-list">
-            Trash
+            {deleted.map((item) => (
+              <div key={item.id} className="my-services__emails_content-item trash" style={{backgroundColor: item.unread ? '#fff' : '#F5F5F5'}}>
+                <div className="my-services__emails_content-item-icon">
+                  <img src={item.logo ? item.logo : defaultIcon} />
+                </div>
+
+                <div className="my-services__emails_content-item-info">
+                  <p className="my-services__emails_content-item-info-title">{item.title}</p>
+                  <p className="my-services__emails_content-item-info-subtitle">{item.subject}</p>
+                </div>
+                
+                <div className="my-services__emails_content-item-attach">
+                  {item.attached ? <img src={attachIcon} /> : ''}
+                </div>
+                
+                <div className="my-services__emails_content-item-date">
+                  {item.date}
+                </div>
+                
+                <div className="my-services__emails_content-item-actions">
+                  {/* <IconButton aria-label="read" onClick={() => handleReadEmail(item)}>
+                    <img src={item.unread ? unreadIcon : readIcon} />
+                  </IconButton> */}
+
+                  {/* <IconButton aria-label="trash">
+                    <img src={trashIcon} />
+                  </IconButton>
+
+                  <IconButton aria-label="archive">
+                    <img src={archiveIcon} />
+                  </IconButton>
+                  
+                  <IconButton aria-label="star" onClick={() => handleStarredDeleted(item)}>
+                    <img src={item.starred ? starActiveIcon : starNotIcon} />
+                  </IconButton> */}
+                </div>
+              </div>
+            ))}
           </TabPanel>
         </div>
       </div>

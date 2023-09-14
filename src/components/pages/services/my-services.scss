@@ -1233,6 +1233,20 @@
         }
       }
 
+      &-item.trash {
+        .my-services__emails_content-item-info {
+          flex: 0 1 430px;
+
+          @media (min-width:1600px) {
+            flex: 0 1 485px;
+          }
+        }
+
+        .my-services__emails_content-item-actions {
+          display: none;
+        }
+      }
+
     }
   }
 
