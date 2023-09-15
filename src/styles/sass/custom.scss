@@ -208,3 +208,11 @@
     height: 20px;
   }
 }
+
+
+.MuiAutocomplete-popper #checkboxes-users-demo-listbox {
+  padding: 23px;
+  gap: 23px;
+  display: flex;
+  flex-direction: column;
+}

@@ -25,6 +25,12 @@ import driveTxt from '../assets/images/my-services/workdrive/data/txt.svg';
 import driveCodeFolder from '../assets/images/my-services/workdrive/data/code-folder.svg';
 import driveExcel from '../assets/images/my-services/workdrive/data/excel.svg';
 
+import user1 from '../assets/images/my-services/workdrive/users/user1.svg';
+import user2 from '../assets/images/my-services/workdrive/users/user2.svg';
+import user3 from '../assets/images/my-services/workdrive/users/user3.svg';
+import user4 from '../assets/images/my-services/workdrive/users/user4.svg';
+import user5 from '../assets/images/my-services/workdrive/users/user5.svg';
+
 
 
 
@@ -4950,5 +4956,38 @@ export const driveData = [
     size: '06.80MB',
     type: 'Folder',
     icon: driveFolder,
+  },
+]
+
+export const sampleUsers = [
+  {
+    id: 1,
+    name: 'Karoline Damgaard',
+    email: 'karoline@damgaard.com',
+    image: user1,
+  },
+  {
+    id: 2,
+    name: 'Alice Kirk',
+    email: 'alicekirk@gmail.com',
+    image: user2,
+  },
+  {
+    id: 3,
+    name: 'Danny Jepsen',
+    email: 'dannyjepsen@gmail.com',
+    image: user3,
+  },
+  {
+    id: 4,
+    name: 'Oda Bundgaard',
+    email: 'odabundgaard@mortensen.com',
+    image: user4,
+  },
+  {
+    id: 5,
+    name: 'Jonathan Skov',
+    email: 'kasper@hviid.com',
+    image: user5,
   },
 ]

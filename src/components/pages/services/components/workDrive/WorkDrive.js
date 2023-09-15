@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Modal from '@mui/material/Modal';
-import { driveData } from "../../../../../mocks/mocks";
+import { driveData, sampleUsers } from "../../../../../mocks/mocks";
 import WorkDrivePage from "../../../work-drive/WorkDrivePage";
 import dayjs from 'dayjs';
 import { useSelector, useDispatch } from "react-redux";
@@ -56,8 +56,13 @@ import fileXml from '../../../../../assets/images/my-services/workdrive/types/xm
 import fileZip from '../../../../../assets/images/my-services/workdrive/types/zip.png';
 import arrowDownIcon from '../../../../../assets/images/my-services/workdrive/arrow-down.svg';
 import checkIcon from '../../../../../assets/images/my-services/workdrive/check.svg';
+import user1 from '../../../../../assets/images/my-services/workdrive/users/user1.svg';
+import user2 from '../../../../../assets/images/my-services/workdrive/users/user2.svg';
+import user3 from '../../../../../assets/images/my-services/workdrive/users/user3.svg';
+import user4 from '../../../../../assets/images/my-services/workdrive/users/user4.svg';
+import user5 from '../../../../../assets/images/my-services/workdrive/users/user5.svg';
+import removeIcon from '../../../../../assets/images/my-services/workdrive/remove.svg';
 
-import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -229,6 +234,9 @@ const WorkDrive = () => {
     { title: 'Pulp Fiction', year: 1994 },
   ]
 
+  
+  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [users, setUsers] = useState(sampleUsers)
 
 
 
@@ -422,26 +430,78 @@ const WorkDrive = () => {
                 <div className="my-services__work-drive_header-more_share-popup-search">
                   <Autocomplete
                     multiple
-                    id="checkboxes-tags-demo"
-                    options={top100Films}
+                    className="my-services__work-drive_header-more_share-popup-search-list"
+                    id="checkboxes-users-demo"
+                    options={users}
                     disableCloseOnSelect
                     filterSelectedOptions
-                    getOptionLabel={(option) => option.title}
+                    getOptionLabel={(option) => option.name}
+                    // getOptionLabel={(option) => (
+                    //   <li className="selected-item">
+                    //     <div className="selected-item-icon">
+                    //       <img src={option.image} />
+                    //     </div>
+
+                    //     <div className="selected-item-info">
+                    //       {option.name}
+                    //     </div>
+                    //   </li>
+                    // )}
+
+                    renderTags={(value, getTagProps) =>
+                      value.map((option, index) => (
+                        <li key={index} className="selected-item">
+                          <div className="selected-item-icon">
+                            <img src={option.image} />
+                          </div>
+
+                          <div className="selected-item-info">
+                            {option.name}
+                          </div>
+
+                          <div 
+                            className="selected-item-delete"
+                            onClick={() => {
+                              const updatedUsers = [...selectedUsers];
+                              updatedUsers.splice(index, 1); // Remove the selected chip
+                              setSelectedUsers(updatedUsers);
+                            }}
+                          >
+                            <img src={removeIcon} alt="Remove" />
+                          </div>
+                        </li>
+                      ))
+                    }
+
                     renderOption={(props, option, { selected }) => (
-                      <li {...props}>
-                        <Checkbox
-                          icon={icon}
-                          checkedIcon={checkedIcon}
-                          style={{ marginRight: 8 }}
-                          checked={selected}
-                        />
-                        {option.title}
+                      <li {...props} className="my-services__work-drive_header-more_share-popup-search-item">
+                        <div className="my-services__work-drive_header-more_share-popup-search-item-icon">
+                          <img src={option.image} />
+                        </div>
+
+                        <div className="my-services__work-drive_header-more_share-popup-search-item-info">
+                          <p className="my-services__work-drive_header-more_share-popup-search-item-info-name">{option.name}</p>
+                          <p className="my-services__work-drive_header-more_share-popup-search-item-info-email">{option.email}</p>
+                        </div>
                       </li>
                     )}
-                    // style={{ width: 500 }}
+
                     renderInput={(params) => (
-                      <TextField {...params} label="Add an email or name" placeholder="Type..." />
+                      <TextField
+                        {...params}
+                        label="Add an email or name"
+                        // placeholder="Type..." 
+                      />
                     )}
+
+                    // onChange={(event, newValue) => {
+                    //   setSelectedUsers(newValue);
+                    //   setUsers(users.filter((user) => user.name === newValue.name));
+                    // }}
+                    
+                    // value={selectedUsers}
+                    // blurOnSelect={true}
+
                   />
                 </div>
 
