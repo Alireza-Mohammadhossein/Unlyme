@@ -54,6 +54,17 @@ import fileWord from '../../../../../assets/images/my-services/workdrive/types/w
 import fileXlsx from '../../../../../assets/images/my-services/workdrive/types/xlsx.png';
 import fileXml from '../../../../../assets/images/my-services/workdrive/types/xml.png';
 import fileZip from '../../../../../assets/images/my-services/workdrive/types/zip.png';
+import arrowDownIcon from '../../../../../assets/images/my-services/workdrive/arrow-down.svg';
+import checkIcon from '../../../../../assets/images/my-services/workdrive/check.svg';
+
+import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
 
@@ -184,6 +195,41 @@ const WorkDrive = () => {
   }
 
 
+// share popup
+  const [anchorShareEl, setAnchorShareEl] = useState(null);
+  const sharePopup = Boolean(anchorShareEl);
+  const handleOpenSharePopup = (event) => {
+    setAnchorShareEl(event.currentTarget);
+  };
+  const handleCloseSharePopup = () => {
+    setAnchorShareEl(null);
+  };
+
+
+
+  const [accessType, setAccessType] = useState('view')
+  // access popup
+  const [anchorAccessEl, setAnchorAccessEl] = useState(null);
+  const openAccess = Boolean(anchorAccessEl);
+  const handleOpenAccessPopup = (event) => {
+    setAnchorAccessEl(event.currentTarget);
+  };
+  const handleCloseAccessPopup = () => {
+    setAnchorAccessEl(null);
+  };
+
+
+  const top100Films = [
+    { title: 'The Shawshank Redemption', year: 1994 },
+    { title: 'The Godfather', year: 1972 },
+    { title: 'The Godfather: Part II', year: 1974 },
+    { title: 'The Dark Knight', year: 2008 },
+    { title: '12 Angry Men', year: 1957 },
+    { title: "Schindler's List", year: 1993 },
+    { title: 'Pulp Fiction', year: 1994 },
+  ]
+
+
 
 
   return (
@@ -267,13 +313,146 @@ const WorkDrive = () => {
               <img src={plusIcon} />
             </IconButton>
 
-            <IconButton aria-label="share">
-              <img src={shareIcon} />
-            </IconButton>
-
             <IconButton aria-label="upload" onClick={handleOpenUploadMode}>
               <img src={uploadIcon} />
             </IconButton>
+
+            <IconButton
+              aria-label="share"
+              aria-controls={open ? "share-popup" : undefined}
+              aria-expanded={open ? "true" : undefined}
+              aria-haspopup="true"
+              onClick={handleOpenSharePopup}
+            >
+              <img src={shareIcon} />
+            </IconButton>
+
+            <Menu
+              id="share-popup"
+              // MenuListProps={{
+              //   "aria-labelledby": "long-button",
+              // }}
+              anchorEl={anchorShareEl}
+              open={sharePopup}
+              onClose={handleCloseSharePopup}
+              disableScrollLock = {true}
+              className="my-services__work-drive_header-more_share-popup"
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
+              <div
+                // selected={option === "Pyxis"}
+                // onClick={handleCloseSharePopup}
+                className="my-services__work-drive_header-more_share-popup-container"
+              >
+                <div className="my-services__work-drive_header-more_share-popup-name">File Name</div>
+
+                <div className="my-services__work-drive_header-more_share-popup-access">
+                  <p>Anyone with this link:</p>
+
+                  <Button
+                    // aria-label="share"
+                    // aria-controls={open ? "share-popup" : undefined}
+                    // aria-expanded={open ? "true" : undefined}
+                    // aria-haspopup="true"
+                    onClick={handleOpenAccessPopup}
+                  >
+                    {accessType === 'view' ? 'Can view' : 'Can edit'}
+
+                    <img src={arrowDownIcon} />
+                  </Button>
+
+                  <Menu
+                    id="access-popup"
+                    anchorEl={anchorAccessEl}
+                    open={openAccess}
+                    onClose={handleCloseAccessPopup}
+                    disableScrollLock = {true}
+                    className="my-services__work-drive_header-more_share-popup-access-popup"
+                  >
+                    <MenuItem
+                      className={accessType === 'view' ? 'selected' : ''}
+                      // selected={accessType === 'view'}
+                      onClick={() => {
+                        setAccessType('view')
+                        handleCloseAccessPopup()
+                      }}
+                    >
+                      <span>
+                        {
+                          accessType === 'view' ? <img src={checkIcon} /> : '' 
+                        }
+                      </span>
+
+                      <span>
+                        Can view
+                      </span>
+                      
+                    </MenuItem>
+                    
+                    <MenuItem
+                      className={accessType === 'edit' ? 'selected' : ''}
+                      // selected={accessType === 'edit'}
+                      onClick={() => {
+                        setAccessType('edit')
+                        handleCloseAccessPopup()
+                      }}
+                    >
+                      <span>
+                        {
+                          accessType === 'edit' ? <img src={checkIcon} /> : '' 
+                        }
+                      </span>
+
+                      <span>
+                        Can Edit
+                      </span>
+                      
+                    </MenuItem>
+                  </Menu>
+                </div>
+
+                
+                <div className="my-services__work-drive_header-more_share-popup-search">
+                  <Autocomplete
+                    multiple
+                    id="checkboxes-tags-demo"
+                    options={top100Films}
+                    disableCloseOnSelect
+                    filterSelectedOptions
+                    getOptionLabel={(option) => option.title}
+                    renderOption={(props, option, { selected }) => (
+                      <li {...props}>
+                        <Checkbox
+                          icon={icon}
+                          checkedIcon={checkedIcon}
+                          style={{ marginRight: 8 }}
+                          checked={selected}
+                        />
+                        {option.title}
+                      </li>
+                    )}
+                    // style={{ width: 500 }}
+                    renderInput={(params) => (
+                      <TextField {...params} label="Add an email or name" placeholder="Type..." />
+                    )}
+                  />
+                </div>
+
+                
+                <div className="my-services__work-drive_header-more_share-popup-footer">
+                  
+                </div>
+              </div>
+            </Menu>
+
+
 
             <IconButton aria-label="expand" onClick={handleOpenWorkDrivePopup}>
               <img src={expandIcon} />

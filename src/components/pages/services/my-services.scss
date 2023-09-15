@@ -1393,6 +1393,179 @@
             color: $blue;
             padding: 5px;
         }
+
+        &_share-popup {
+          .MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+            border-radius: 8px;
+            background: #FFF;
+            box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+            width: 377px;
+            box-sizing: border-box;
+
+            .MuiList-root {
+              padding: 0;
+            }
+          }
+          &-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+          }
+
+          &-name {
+            color: #444;
+            font-family: 'OpenSans' !important;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 22px;
+          }
+
+          &-access {
+            display: flex;
+            gap: 5px;
+
+            p {
+              color: #444;
+              font-family: 'OpenSans' !important;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 22px;
+            }
+
+            button.MuiButtonBase-root  {
+              height: 25px;
+              color: #444;
+              font-family: 'OpenSans' !important;
+              font-size: 14px;
+              font-weight: 600 !important;
+              line-height: 22px; 
+              min-height: unset;
+              padding: 0;
+              text-transform: capitalize;
+              border-bottom: 0.5px solid #ACACAC;
+              border-radius: 0;
+
+              &:hover {
+                background-color: unset;
+              }
+
+              img {
+                width: 16px;
+                height: 16px;
+                margin-left: 5px;
+              }
+            }
+
+            &-popup {
+              .MuiPaper-root.MuiMenu-paper.MuiPopover-paper {
+                width: 127px;
+                border-radius: 8px;
+                background: #FFF;
+                box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    
+                .MuiList-root {
+                  padding: 14px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+
+                  .MuiButtonBase-root {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 0;
+
+                    & span:nth-child(1) {
+                      width: 18px;
+
+                      img {
+                        width: 18px;
+                        height: 18px;
+                        vertical-align: middle;
+                      }
+                    }
+
+                    & span:nth-child(2) {
+                      color: #414141;
+                      text-align: right;
+                      font-family: 'OpenSans' !important;
+                      font-size: 14px;
+                      font-weight: 400;
+                      line-height: 19px;
+                    }
+
+                    &.selected {
+
+                      & span:nth-child(2) {
+                        font-weight: 600;
+                        color: #51A3FF;
+                      }
+                    }
+
+                    &:hover {
+                      background-color: unset;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &-search {
+            .MuiFormControl-root {
+              min-height: 40px;
+              box-sizing: border-box;
+            }
+
+
+            .MuiFormLabel-root {
+              color: #888;
+              font-family: 'OpenSans' !important;
+              font-size: 14px;
+              font-weight: 400;
+
+              &.Mui-focused {
+                display: none;
+              }
+            }
+
+            .MuiInputBase-root {
+              min-height: 40px;
+              padding-top: 10px !important;
+              padding-bottom: 10px !important;
+              background: #F8FAFC;
+              border-radius: 8px;
+
+              .MuiOutlinedInput-notchedOutline {
+                border-color: #ECECEC;
+                height: 100%;
+                box-sizing: border-box;
+              }
+
+              &:hover {
+                .MuiOutlinedInput-notchedOutline {
+                  border-color: #51A3FF;
+                } 
+              }
+
+              &.Mui-focused {
+                .MuiOutlinedInput-notchedOutline {
+                  border-color: #51A3FF;
+                  top: 0;
+                } 
+
+                legend {
+                  display: none;
+                }
+              }
+            }
+          }
+
+          &-footer {
+
+          }
+        }
       }
     } 
 
@@ -1855,7 +2028,6 @@
 
 
   }
-
 
   &__bank {
     width: 100%;
