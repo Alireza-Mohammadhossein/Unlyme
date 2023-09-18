@@ -56,23 +56,11 @@ import fileXml from '../../../../../assets/images/my-services/workdrive/types/xm
 import fileZip from '../../../../../assets/images/my-services/workdrive/types/zip.png';
 import arrowDownIcon from '../../../../../assets/images/my-services/workdrive/arrow-down.svg';
 import checkIcon from '../../../../../assets/images/my-services/workdrive/check.svg';
-import user1 from '../../../../../assets/images/my-services/workdrive/users/user1.svg';
-import user2 from '../../../../../assets/images/my-services/workdrive/users/user2.svg';
-import user3 from '../../../../../assets/images/my-services/workdrive/users/user3.svg';
-import user4 from '../../../../../assets/images/my-services/workdrive/users/user4.svg';
-import user5 from '../../../../../assets/images/my-services/workdrive/users/user5.svg';
 import removeIcon from '../../../../../assets/images/my-services/workdrive/remove.svg';
+import copyLinkIcon from '../../../../../assets/images/my-services/workdrive/copy-link.svg';
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
-
-
-
 
 
 
@@ -448,6 +436,10 @@ const WorkDrive = () => {
                     //   </li>
                     // )}
 
+                    // ChipProps={{
+                    //   deleteIcon: <img src={removeIcon} alt="Remove" />
+                    // }}
+
                     renderTags={(value, getTagProps) =>
                       value.map((option, index) => (
                         <li key={index} className="selected-item">
@@ -491,15 +483,16 @@ const WorkDrive = () => {
                         {...params}
                         label="Add an email or name"
                         // placeholder="Type..." 
+                        InputLabelProps={{shrink: false}}
                       />
                     )}
 
-                    // onChange={(event, newValue) => {
-                    //   setSelectedUsers(newValue);
-                    //   setUsers(users.filter((user) => user.name === newValue.name));
-                    // }}
+                    onChange={(event, newValue) => {
+                      setSelectedUsers(newValue);
+                      // setUsers(users.filter((user) => user.name === newValue.name));
+                    }}
                     
-                    // value={selectedUsers}
+                    value={selectedUsers}
                     // blurOnSelect={true}
 
                   />
@@ -507,7 +500,18 @@ const WorkDrive = () => {
 
                 
                 <div className="my-services__work-drive_header-more_share-popup-footer">
-                  
+                  <div className="my-services__work-drive_header-more_share-popup-footer-copy">
+                    <a className="my-services__work-drive_header-more_share-popup-footer-copy-link">
+                      <img src={copyLinkIcon} />
+                      Copy link
+                    </a>
+                  </div>
+
+                  <div className="my-services__work-drive_header-more_share-popup-footer-share">
+                    <Button>
+                      Share
+                    </Button>
+                  </div>
                 </div>
               </div>
             </Menu>
