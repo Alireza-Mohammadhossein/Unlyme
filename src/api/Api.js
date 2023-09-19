@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000"; // Replace with your backend URL
+// const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "http://57.128.35.216:3000";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -19,7 +20,6 @@ export const deleteEvent = (id) => {
 };
 
 export const createEvent = (eventData) => {
-  console.log('eventData', eventData)
   return api.post("/events", eventData);
 };
 
