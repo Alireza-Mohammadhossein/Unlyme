@@ -9,10 +9,15 @@ import FormControl from '@mui/material/FormControl';
 import Modal from '@mui/material/Modal';
 import { useSelector, useDispatch } from "react-redux";
 import { handleOpenShortcut, handleCloseShortcut } from "../../../../redux/app/appsModalSlice";
+import { Calendar_page_current_events } from "../../../../mocks/mocks";
+import CalendarShortcutModal from "./shortcuts-modal/CalendarShortcutModal";
+import TasksShortcutModal from "./shortcuts-modal/TasksShortcutModal";
+import NotesShortcutModal from "./shortcuts-modal/NotesShortcutModal";
 import CalendarShortcut from "./shortcuts-modal/CalendarShortcut";
-import TasksShortcut from "./shortcuts-modal/TasksShortcut";
 import NotesShortcut from "./shortcuts-modal/NotesShortcut";
+import TasksShortcut from "./shortcuts-modal/TasksShortcut";
 import searchIcon from "../../../../assets/images/header/new-icons/search.svg";
+import Drawer from '@mui/material/Drawer';
 
 
 
@@ -49,11 +54,13 @@ function TabPanel(props) {
     
     const openShortcutModalHandler = (componentName) => {
       dispatch(handleOpenShortcut())
+      setShortcutPopup(true)
       setSelectedShortcut(componentName)
     };
     
     const closeShortcutModalHanlder = () => {
       dispatch(handleCloseShortcut())
+      setShortcutPopup(false)
       setSelectedShortcut('')
     };
 
@@ -113,6 +120,17 @@ function TabPanel(props) {
     //   setSelectedShortcut(null);
     //   setOpenShortcut(false);
     // };
+
+
+    const [shortcutPopup, setShortcutPopup] = useState(false);
+
+    const handleOpenShortcutPopup = () => {
+      setShortcutPopup(true)
+    }
+    
+    const handleCloseShortcutPopup = () => {
+      setShortcutPopup(false)
+    }
   
   
     return (
@@ -130,28 +148,92 @@ function TabPanel(props) {
                 Open Apps
             </Button>
             
-            <Menu
+            {/* <Menu
                 id="long-menu"
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
                 disableScrollLock = {true}
             >
-              {options.map((option) => (
                 <MenuItem
-                    key={option.id}
                     onClick={handleClose}
                 >
                   <Button
                     startIcon={<AddIcon />}
                     className="meeting-page_sidebar_open-apps_item-btn"
-                    onClick={() => openShortcutModalHandler(option.componentName)}
+                    onClick={() => openShortcutModalHandler('CalendarShortcut')}
                   >
-                    {option.title}
+                    Add Calendar
                   </Button>
-                    
                 </MenuItem>
-              ))}
+
+                <MenuItem
+                    onClick={handleClose}
+                >
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => openShortcutModalHandler('TasksShortcut')}
+                  >
+                    Add Tasks
+                  </Button>
+                </MenuItem>
+
+                <MenuItem
+                    onClick={handleClose}
+                >
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => openShortcutModalHandler('NotesShortcut')}
+                  >
+                    Add Notes
+                  </Button>
+                </MenuItem>
+            </Menu> */}
+
+              <Menu
+                id="long-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                disableScrollLock = {true}
+            >
+                <MenuItem
+                    onClick={handleClose}
+                >
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => openShortcutModalHandler('CalendarShortcut')}
+                  >
+                    Add Calendar
+                  </Button>
+                </MenuItem>
+
+                <MenuItem
+                    onClick={handleClose}
+                >
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => openShortcutModalHandler('TasksShortcut')}
+                  >
+                    Add Tasks
+                  </Button>
+                </MenuItem>
+
+                <MenuItem
+                    onClick={handleClose}
+                >
+                  <Button
+                    startIcon={<AddIcon />}
+                    className="meeting-page_sidebar_open-apps_item-btn"
+                    onClick={() => openShortcutModalHandler('NotesShortcut')}
+                  >
+                    Add Notes
+                  </Button>
+                </MenuItem>
             </Menu>
           </div>
 
@@ -187,7 +269,7 @@ function TabPanel(props) {
               </TabPanel>
           </div>
 
-          <Modal
+          {/* <Modal
             open={openAppsShortcut}
             onClose={closeShortcutModalHanlder}
             aria-labelledby="modal-modal-title"
@@ -196,8 +278,6 @@ function TabPanel(props) {
             disableEnforceFocus 
           >
             <div className='shortcut-modal-container' >
-              {/* {SelectedShortcut} */}
-              {/* {selectedShortcut && <selectedShortcut />} */}
               {
                 selectedShortcut === 'CalendarShortcut' ? <CalendarShortcut /> :
                 selectedShortcut === 'TasksShortcut' ? <TasksShortcut /> :
@@ -205,7 +285,36 @@ function TabPanel(props) {
                 ''
               }
             </div>
-          </Modal>
+          </Modal> */}
+
+
+          <Drawer
+            id='meeting_shortcut_drawer'
+            anchor='right'
+            open={shortcutPopup}
+            onClose={handleCloseShortcutPopup}
+            disableScrollLock = {false}
+            className='meeting-page_sidebar-section_shortcut_drawer'
+          >
+           {
+              selectedShortcut === 'CalendarShortcut' ? 
+                <CalendarShortcut
+                  setShortcutPopup={setShortcutPopup}
+                  categories={Calendar_page_current_events}
+                /> :
+              selectedShortcut === 'TasksShortcut' ? 
+                <TasksShortcut
+                  setShortcutPopup={setShortcutPopup}
+                  categories={Calendar_page_current_events}
+                /> :
+              selectedShortcut === 'NotesShortcut' ? 
+                <NotesShortcut
+                  setShortcutPopup={setShortcutPopup}
+                  categories={Calendar_page_current_events}
+                /> :
+              ''
+            }
+          </Drawer>
         </>
     );
   }

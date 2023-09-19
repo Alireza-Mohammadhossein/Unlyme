@@ -209,6 +209,14 @@
   }
 }
 
+.meeting-shortcut-item-select-item {
+  justify-content: space-between !important;
+
+  .color-bullet {
+    width: 20px;
+    height: 20px;
+  }
+}
 
 .MuiAutocomplete-popper #checkboxes-users-demo-listbox {
   padding: 23px;

@@ -12,13 +12,13 @@ const MeetingPageMain = () => {
   return (
     <div className="meeting-page_main-wrapper">
       <div className='video_host'>
-        <Webcam
+        {/* <Webcam
           audio={true}
           mirrored={true}
           imageSmoothing={true}
           screenshotFormat='image/webp'
           videoConstraints={videoConstraints}
-        />
+        /> */}
       </div>
     </div>
   );
