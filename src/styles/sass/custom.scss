@@ -224,3 +224,11 @@
   display: flex;
   flex-direction: column;
 }
+
+#video-conference-apps {
+  .MuiPaper-root {
+    .MuiMenuItem-root {
+      padding: 0 !important;
+    }
+  }
+}

@@ -91,6 +91,8 @@
     height: 100%;
 
     &_open-apps {
+
+
       &_btn.MuiButtonBase-root {
         background-color: transparent;
         font-size: 15px;
@@ -109,11 +111,12 @@
       }
 
       &_item-btn.MuiButtonBase-root {
-        font-size: 15px;
-        text-align: center;
+        font-size: 14px;
         text-transform: none;
         color: #000000;
-        padding: 5px;
+        padding: 10px 20px;
+        width: 100%;
+        justify-content: flex-start;
       }
 
       &_item-btn.MuiButtonBase-root:hover {
@@ -588,6 +591,7 @@
         margin: 0 auto;
         position: absolute;
         border-radius: 8px;
+        box-shadow: unset;
     }
 
     .MuiBackdrop-root {

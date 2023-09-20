@@ -20,6 +20,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import { sampleUsers } from '../../../../../mocks/mocks';
+import tasksIcon from '../../../../../assets/images/my-services/tasks.png';
 
 
 
@@ -28,146 +30,70 @@ import RadioGroup from '@mui/material/RadioGroup';
 const TasksShortcut = ({ setShortcutPopup, categories }) => {
 
 
-  const [eventName, setEventName] = useState('');
-  const handleEventName = (event) => {
-    setEventName(event.target.value);
+  const [title, setTitle] = useState('');
+  const handleTitle = (event) => {
+    setTitle(event.target.value);
   };
 
-  const [startDate, setStartDate] = useState(dayjs(new Date()));
-  const handleStartDate = (newValue) => {
-    setStartDate(newValue);
+  const [description, setDescription] = useState('');
+  const handleDescription = (event) => {
+    setDescription(event.target.value);
   };
 
-  const [startTime, setStartTime] = useState(dayjs(new Date()));
-  const handleStartTime = (newValue) => {
-    setStartTime(newValue);
+  const [difficulty, setDifficulty] = useState(-1);
+
+  const [members, setMembers] = useState('');
+  const handleMembers = (event) => {
+    setMembers(event.target.value);
   };
 
-  const [endDate, setEndDate] = useState(dayjs(new Date()));
-  const handleEndDate = (newValue) => {
-    setEndDate(newValue);
+  const [color, setColor] = useState('blue');
+  const handleColor = (event) => {
+    setColor(event.target.value);
   };
 
-  const [endTime, setEndTime] = useState(dayjs(new Date()));
-  const handleEndTime = (newValue) => {
-    setEndTime(newValue);
+  const [duetDate, setDueDate] = useState(dayjs(new Date()));
+  const handleDueDate = (newValue) => {
+    setDueDate(newValue);
   };
 
-  const [allDay, setAllDay] = useState(false);
-  const handleAllDay = () => {
-    setAllDay(!allDay);
+  const [duetTime, setDueTime] = useState(dayjs(new Date()));
+  const handleDueTime = (newValue) => {
+    setDueTime(newValue);
   };
-
-  const [repeat, setRepeat] = useState('');
-  const handleRepeat = (event) => {
-    setRepeat(event.target.value);
-  };
-
-  const [category, setCategory] = useState('');
-  const handleCategory = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const [note, setNote] = useState('');
-  const handleNote = (event) => {
-    setNote(event.target.value);
-  };
-
-
-  const minRepeatNumber = 0;
-  const maxRepeatNumber = 30;
-  
-  const [repeatNumber, setRepeatNumber] = useState(0);
-  const handleRepeatNumber = (event) => {
-    const newValue = parseInt(event.target.value, 10);
-    
-    if (!isNaN(newValue) && newValue >= minRepeatNumber && newValue <= maxRepeatNumber) {
-      setRepeatNumber(newValue);
-    }
-    // setRepeatNumber(event.target.value);
-  };
-
-  const handleDecreaseRepeatNumber = () => {
-    if (repeatNumber > minRepeatNumber) {
-      setRepeatNumber(repeatNumber - 1);
-    }
-  }
-
-  const handleIncreseRepeatNumber = () => {
-    if (repeatNumber < maxRepeatNumber) {
-      setRepeatNumber(repeatNumber + 1);
-    }
-  }
-
-
-  const [repeatLoop, setRepeatLoop] = useState('day');
-  const handleRepeatLoop = (event) => {
-    setRepeatLoop(event.target.value);
-  };
-
-  const [endRepeat, setEndRepeat] = useState('');
-  const handleEndRepeat = (event) => {
-    setEndRepeat(event.target.value);
-  };
-
-  const [endRepeatDate, setEndRepeatDate] = useState(dayjs(new Date()));
-  const handleEndRepeatDate = (newValue) => {
-    setEndRepeatDate(newValue);
-  };
-  
-  const [endLoop, setEndLoop] = useState('day');
-  const handleEndLoop = (event) => {
-    setEndLoop(event.target.value);
-  };
-
 
 
 
   const handleResetEvent = () => {
-    setEventName('')
-    setStartDate(dayjs(new Date()))
-    setStartTime(dayjs(new Date()))
-    setEndDate(dayjs(new Date()))
-    setEndTime(dayjs(new Date()))
-    setAllDay(false)
-    setRepeat('')
-    setCategory('')
-    setNote('')
-    setRepeatNumber(0)
-    setRepeatLoop('day')
-    setEndRepeat('')
-    setEndRepeatDate(dayjs(new Date()))
-    setEndLoop('day')
+    setTitle('')
+    setDescription('')
+    setMembers('')
+    setColor('blue')
+    setDueDate(dayjs(new Date()));
+    setDueTime(dayjs(new Date()));
   }
 
   const handleSubmitEvent = () => {
     setShortcutPopup(false)
-    setEventName('')
-    setStartDate(dayjs(new Date()))
-    setStartTime(dayjs(new Date()))
-    setEndDate(dayjs(new Date()))
-    setEndTime(dayjs(new Date()))
-    setAllDay(false)
-    setRepeat('')
-    setCategory('')
-    setNote('')
-    setRepeatNumber(0)
-    setRepeatLoop('day')
-    setEndRepeat('')
-    setEndRepeatDate(dayjs(new Date()))
-    setEndLoop('day')
+    setTitle('')
+    setDescription('')
+    setMembers('')
+    setColor('blue')
+    setDueDate(dayjs(new Date()));
+    setDueTime(dayjs(new Date()));
   }
 
 
   return (
-    <div className='create-eventpopup'>
-      <div className='create-eventpopup-header'>
-        <div className='create-eventpopup-header-title'>
+    <div className='meeting-shortcut'>
+      <div className='meeting-shortcut-header'>
+      <div className='meeting-shortcut-header-title'>
           {/* <FilterListIcon /> */}
-          <p>Tasks shortcut</p>
+          <img src={tasksIcon} alt='Calendar icon' />
+          <p>Add Tasks</p>
         </div>
 
-        <div className='create-eventpopup-header-btn'>
+        <div className='meeting-shortcut-header-btn'>
           <IconButton onClick={() => setShortcutPopup(false)}>
             <CloseIcon />
           </IconButton>
@@ -175,263 +101,29 @@ const TasksShortcut = ({ setShortcutPopup, categories }) => {
 
       </div>
 
-      <div className='create-eventpopup-list'>
-        <div className='create-eventpopup-item'>
-          <p className="create-eventpopup-item-title">
-              Event
+      <div className='meeting-shortcut-list'>
+        <div className='meeting-shortcut-item'>
+          <p className="meeting-shortcut-item-title">
+              Task
           </p>
 
           <FormControl fullWidth>
-            <TextField className="create-eventpopup-item-input" value={eventName} onChange={handleEventName} />
+            <TextField className="meeting-shortcut-item-input" value={title} onChange={handleTitle} />
           </FormControl>
 
         </div>
 
-        <div className='create-eventpopup-item'>
-          <p className="create-eventpopup-item-title">
-              Start
-          </p>
-
-          <div className='create-eventpopup-item-double'>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
-                value={startDate} 
-                onChange={handleStartDate}
-                // defaultValue={dayjs()}
-                // disablePast
-              />
-            </LocalizationProvider>
-
-            {
-              !allDay ?
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer
-                    components={[
-                      'DesktopTimePicker',
-                    ]}
-                  >
-                    <DemoItem>
-                      <DesktopTimePicker
-                        value={startTime}
-                        onChange={handleStartTime}
-                        endAdornment ={<InputAdornment position="end"><FilterListIcon /></InputAdornment>}
-                      />
-                    </DemoItem>
-                  </DemoContainer>
-                </LocalizationProvider>
-              :
-                ''
-            }
-
-            
-          </div>
-        </div>
-
-        <div className='create-eventpopup-item'>
-          <p className="create-eventpopup-item-title">
-              End
-          </p>
-
-          <div className='create-eventpopup-item-double'>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
-                value={endDate} 
-                onChange={handleEndDate}
-                // defaultValue={dayjs()}
-                // disablePast
-              />
-            </LocalizationProvider>
-
-            {
-              !allDay ?
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer
-                    components={[
-                      'DesktopTimePicker',
-                    ]}
-                  >
-                    <DemoItem>
-                      <DesktopTimePicker
-                        value={endTime}
-                        onChange={handleEndTime}
-                        endAdornment ={<InputAdornment position="end"><FilterListIcon /></InputAdornment>}
-                      />
-                    </DemoItem>
-                  </DemoContainer>
-                </LocalizationProvider>
-              :
-                ''
-            }
-
-            
-          </div>
-        </div>
-
-        <div className='create-eventpopup-item'>
-          <div className='create-eventpopup-item-checkbox'>
-            <FormControlLabel control={<Checkbox value={allDay} onChange={handleAllDay} />} label="All Day" />
-          </div>
-        </div>
-
-        <div className='create-eventpopup-item'>
-          <p className="create-eventpopup-item-title">
-              Repeat
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="create-eventpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={repeat}
-              onChange={handleRepeat}
-            >
-              <MenuItem value='never'>Never</MenuItem>
-              <MenuItem value='daily'>Daily</MenuItem>
-              <MenuItem value='weekly'>Weekly</MenuItem>
-              <MenuItem value='monthly'>Monthly</MenuItem>
-              <MenuItem value='yearly'>Yearly</MenuItem>
-              <MenuItem value='custom'>Custom</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-
-        {
-          repeat === 'custom' ?
-          <>
-            <div className='create-eventpopup-item'>
-              <p className="create-eventpopup-item-title">
-                  Every
-              </p>
-
-              <div className='create-eventpopup-item-double'>
-                <div className='create-eventpopup-item-repeat-days'>
-                  <div className='create-eventpopup-item-repeat-days-decrease'>
-                    <span onClick={handleDecreaseRepeatNumber}>-</span>
-                  </div>
-
-                  <div className='create-eventpopup-item-repeat-days-number'>
-                    <input type='number' value={repeatNumber} onChange={handleRepeatNumber} />
-                  </div>
-
-                  <div className='create-eventpopup-item-repeat-days-increase'>
-                    <span onClick={handleIncreseRepeatNumber}>+</span>
-                  </div>
-                </div>
-
-                <div className='create-eventpopup-item-repeat-loop'>
-                  <FormControl fullWidth>
-                    <Select
-                      className="create-eventpopup-item-select"
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={repeatLoop}
-                      onChange={handleRepeatLoop}
-                    >
-                      <MenuItem value='day'>Day</MenuItem>
-                      <MenuItem value='week'>Week</MenuItem>
-                      <MenuItem value='month'>Month</MenuItem>
-                      <MenuItem value='year'>Year</MenuItem>
-                    </Select>
-                  </FormControl>
-                </div>
-              </div>
-            </div>
-
-
-            <div className='create-eventpopup-item'>
-              <p className="create-eventpopup-item-title">
-                  End repeat
-              </p>
-
-              <div className='create-eventpopup-item-double'>
-                <div className='create-eventpopup-item-end-select'>
-                  <FormControl>
-                    <RadioGroup
-                      className='create-eventpopup-item-end-select-radio'
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      defaultValue="female"
-                      name="radio-buttons-group"
-                      value={endRepeat}
-                      onChange={handleEndRepeat}
-                    >
-                      <FormControlLabel value="never" control={<Radio />} label="Never" />
-                      <FormControlLabel value="date" control={<Radio />} label="Date" />
-                      <FormControlLabel value="after" control={<Radio />} label="After several occurrences" />
-                    </RadioGroup>
-                  </FormControl>
-                </div>
-
-                <div className='create-eventpopup-item-end-data'>
-                  {
-                    endRepeat === 'date' ?
-                      <LocalizationProvider dateAdapter={AdapterDayjs} >
-                        <MobileDatePicker
-                          value={endRepeatDate} 
-                          onChange={handleEndRepeatDate}
-                          // defaultValue={dayjs()}
-                          // disablePast
-                        />
-                      </LocalizationProvider>
-                     :
-                     endRepeat === 'after' ?
-                       <FormControl fullWidth>
-                         <Select
-                           className="create-eventpopup-item-select"
-                           labelId="demo-simple-select-label"
-                           id="demo-simple-select"
-                           value={endLoop}
-                           onChange={handleEndLoop}
-                         >
-                           <MenuItem value='day'>Day</MenuItem>
-                           <MenuItem value='week'>Week</MenuItem>
-                           <MenuItem value='month'>Month</MenuItem>
-                           <MenuItem value='year'>Year</MenuItem>
-                         </Select>
-                       </FormControl>
-                     :
-                        ''
-                  }
-                </div>
-              </div>
-            </div>
-          </>
-
-        :
-          ''
-        }
-
-        <div className='create-eventpopup-item'>
-          <p className="create-eventpopup-item-title">
-              Calendar
-          </p>
-
-          <FormControl fullWidth>
-            <Select
-              className="create-eventpopup-item-select"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={category}
-              onChange={handleCategory}
-            >
-              {categories.map((category) => (
-                <MenuItem className='calendar_create-eventpopup-item-select-item' value={category.category}>{category.name} <span className='color-bullet' style={{backgroundColor: category.color}}></span></MenuItem>  
-              ))}
-            </Select>
-          </FormControl>
-
-        </div>
-
-        <div className='create-eventpopup-item note'>
-          <p className="create-eventpopup-item-title">
-              Note
+        <div className='meeting-shortcut-item note'>
+          <p className="meeting-shortcut-item-title">
+              Description
           </p>
 
           <FormControl fullWidth>
             <TextField
-                className='create-eventpopup-item-input'
+                className='meeting-shortcut-item-input'
                 variant="outlined"
-                onChange={handleNote}
+                value={description}
+                onChange={handleDescription}
                 multiline
                 maxRows={5}
             />
@@ -439,13 +131,97 @@ const TasksShortcut = ({ setShortcutPopup, categories }) => {
 
         </div>
 
+        <div className='meeting-shortcut-item'>
+          <div className='meeting-shortcut-item-checkbox'>
+            <FormControlLabel checked={difficulty === 0} control={<Checkbox onChange={() => {difficulty === 0 ? setDifficulty(-1) : setDifficulty(0)}} />} label="Easy" />
+            <FormControlLabel checked={difficulty === 1} control={<Checkbox onChange={() => {difficulty === 1 ? setDifficulty(-1) : setDifficulty(1)}} />} label="Normal" />
+            <FormControlLabel checked={difficulty === 2} control={<Checkbox onChange={() => {difficulty === 2 ? setDifficulty(-1) : setDifficulty(2)}} />} label="Hard" />
+            <FormControlLabel checked={difficulty === 3} control={<Checkbox onChange={() => {difficulty === 3 ? setDifficulty(-1) : setDifficulty(3)}} />} label="Jet" />
+          </div>
+        </div>
+
+        <div className='meeting-shortcut-item'>
+          <p className="meeting-shortcut-item-title">
+              Assign members
+          </p>
+
+          <FormControl fullWidth>
+            <Select
+              className="meeting-shortcut-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={members}
+              onChange={handleMembers}
+            >
+              {sampleUsers.map((user) => (
+                <MenuItem className='calendar_meeting-shortcut-item-select-item' value={user.name}>{user.name}</MenuItem>  
+              ))}
+            </Select>
+          </FormControl>
+
+        </div>
+
+        <div className='meeting-shortcut-item'>
+          <p className="meeting-shortcut-item-title">
+              Color
+          </p>
+
+          <FormControl fullWidth>
+            <Select
+              className="meeting-shortcut-item-select"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={color}
+              onChange={handleColor}
+            >
+                <MenuItem className='meeting-shortcut-item-select-item' value='blue'>Blue <span className='color-bullet' style={{backgroundColor: '#4382C4'}}></span></MenuItem>
+                <MenuItem className='meeting-shortcut-item-select-item' value='green'>Green <span className='color-bullet' style={{backgroundColor: 'green'}}></span></MenuItem>
+                <MenuItem className='meeting-shortcut-item-select-item' value='red'>Red <span className='color-bullet' style={{backgroundColor: 'red'}}></span></MenuItem>
+                <MenuItem className='meeting-shortcut-item-select-item' value='yellow'>Yellow <span className='color-bullet' style={{backgroundColor: 'yellow'}}></span></MenuItem>
+            </Select>
+          </FormControl>
+
+        </div>
+
+        <div className='meeting-shortcut-item'>
+          <p className="meeting-shortcut-item-title">
+              Due to
+          </p>
+
+          <div className='meeting-shortcut-item-double'>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <MobileDatePicker
+                value={duetDate} 
+                onChange={handleDueDate}
+                // defaultValue={dayjs()}
+                // disablePast
+              />
+            </LocalizationProvider>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DemoContainer
+                components={[
+                  'DesktopTimePicker',
+                ]}
+              >
+                <DemoItem>
+                  <DesktopTimePicker
+                    value={duetTime}
+                    onChange={handleDueTime}
+                    endAdornment ={<InputAdornment position="end"><FilterListIcon /></InputAdornment>}
+                    ampm={false}
+                  />
+                </DemoItem>
+              </DemoContainer>
+            </LocalizationProvider>
+          </div>
+        </div>
 
 
+        <div className='meeting-shortcut-btn'>
+          <Button className='meeting-shortcut-btn-reset' onClick={handleResetEvent}>Reset</Button>
 
-        <div className='create-eventpopup-btn'>
-          <Button className='create-eventpopup-btn-reset' onClick={handleResetEvent}>Reset</Button>
-
-          <Button className='create-eventpopup-btn-submit' onClick={handleSubmitEvent}>Submit</Button>
+          <Button className='meeting-shortcut-btn-submit' onClick={handleSubmitEvent}>Save task</Button>
         </div>
       </div>
     </div>
