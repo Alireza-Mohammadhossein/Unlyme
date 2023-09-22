@@ -92,7 +92,7 @@ const NotesShortcut = ({ setShortcutPopup, categories }) => {
 
       </div>
 
-      <div className='meeting-shortcut-list'>
+      <div className='meeting-shortcut-list notes'>
         <div className='meeting-shortcut-item textarea'>
           <div className='meeting-shortcut-item_edit-note'>
             <div className='meeting-shortcut-item_edit-note-actions'>

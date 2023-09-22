@@ -15,12 +15,14 @@ import calendarIcon from '../../../assets/images/my-services/calendar.png';
 import notesIcon from '../../../assets/images/my-services/notes.png';
 import emailIcon from '../../../assets/images/my-services/email.png';
 import videoConferencingIcon from '../../../assets/images/my-services/video-conference.png';
+import todosIcon from '../../../assets/images/my-services/todos.png';
 
 import Calendar from '../../pages/calendar/CalendarPage';
 import Notes from '../../pages/notes/NotesPage';
 import Emails from '../../pages/email/EmailPage';
 import WorkDrive from '../../pages/work-drive/WorkDrivePage';
 import Tasks from '../../pages/tasks/TasksPage';
+import Todos from '../../pages/todos/TodosPage';
 import VideoConferencing from '../../pages/video-conferencing/main-page/VideoConferencingPage';
 import InvoiceManager from "../../pages/invoice-manager/InvoiceManagerPage";
 
@@ -113,6 +115,15 @@ const Menu = ({screenSize}) => {
       componentName: 'InvoiceManager',
       // component: Tasks,
     },
+    {
+      id: 13,
+      icon: "domain",
+      title: "TODOS",
+      link: "/services/todos",
+      img: `${todosIcon}`,
+      componentName: 'Todos',
+      // component: Tasks,
+    },
     // {
     //   id: 4,
     //   icon: "content_copy",
@@ -194,13 +205,6 @@ const Menu = ({screenSize}) => {
               </div>
             </Tooltip>
           </Link>
-          {/* <Tooltip title={t(`MENU.MY_SERVICES`)} arrow placement="right">
-            <Button>
-                <div className="menu__item-icon">
-                  <img src={dashboardIcon} className="menu__item-img" />
-                </div>
-            </Button>
-          </Tooltip> */}
         </li>
 
         {data.map((item) => (
@@ -213,13 +217,6 @@ const Menu = ({screenSize}) => {
                   </div>
               </Button>
             </Tooltip>
-            {/* <Link to={item.link} className="menu__item-link">
-              <Tooltip title={t(`MENU.${item.title}`)} arrow placement="right">
-                <div className="menu__item-icon">
-                  <img src={item.img} className="menu__item-img" />
-                </div>
-              </Tooltip>
-            </Link> */}
           </li>
         ))}
       </ul>
@@ -230,9 +227,15 @@ const Menu = ({screenSize}) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         className={`apps-modal ${firstPopupTab ? 'apps-modal-shift-one' : ''} ${secondPopupTab ? 'apps-modal-shift-two' : ''}`}
+        style={{justifyContent: `${selectedComponent === 'Todos' ? 'left' : 'center'}`}}
         disableEnforceFocus
       >
-        <div className={`apps-modal-container`} >
+        <div className='apps-modal-container'
+          style={{
+            maxWidth: `${selectedComponent === 'Todos' ? '780px' : '1600px'}`,
+            margin: `${selectedComponent === 'Todos' ? 'unset' : '0 auto'}`
+          }}
+        >
           {
             selectedComponent === 'Calendar' ? <Calendar /> :
             selectedComponent === 'Notes' ? <Notes /> :
@@ -241,6 +244,7 @@ const Menu = ({screenSize}) => {
             selectedComponent === 'Tasks' ? <Tasks /> :
             selectedComponent === 'VideoConferencing' ? <VideoConferencing /> :
             selectedComponent === 'InvoiceManager' ? <InvoiceManager /> :
+            selectedComponent === 'Todos' ? <Todos /> :
             
             ''
           }

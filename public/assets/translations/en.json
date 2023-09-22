@@ -6,6 +6,7 @@
   "MENU.COPY_SITES": "Copy sites",
   "MENU.BANK": "Bank",
   "MENU.TASKS": "Tasks",
+  "MENU.TODOS": "Todos",
   "MENU.SETTINGS": "Settings",
   "MENU.CALENDAR": "Calendar",
   "MENU.NOTES": "Notes",
@@ -175,11 +176,13 @@
 
   "INVICE_MANAGER_PAGE.TITLE": "Invoice Manager",
   "INVICE_MANAGER_PAGE.ADD_NEW": "Add new",
-  "INVICE_MANAGER_PAGE.TITLE": "Invoice Manager",
   "INVICE_MANAGER_PAGE.SEARCH_PLACEHOLDER": "Search",
 
 
   "TASKS_PAGE.TITLE": "Tasks",
+
+  "TODOS_PAGE.TITLE": "To Do List",
+
 
   "VIDEO_CONFERENCING_PAGE.TITLE": "Video Conferencing"
 

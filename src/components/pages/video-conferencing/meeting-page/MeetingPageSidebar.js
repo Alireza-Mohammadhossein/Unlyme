@@ -189,7 +189,7 @@ function TabPanel(props) {
                 </MenuItem>
             </Menu> */}
 
-              <Menu
+            <Menu
                 id="video-conference-apps"
                 anchorEl={anchorEl}
                 open={open}
