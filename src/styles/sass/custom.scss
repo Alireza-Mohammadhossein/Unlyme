@@ -237,3 +237,134 @@
   max-width: 780px;
   margin: unset;
 }
+
+#todos-project-popup {
+  .MuiPaper-root {
+    border-radius: 8px;
+    background-color: #FFF;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+
+    .MuiList-root {
+      .MuiButtonBase-root {
+        min-width: 215px;
+        padding: 0;
+        height: 34px;
+        box-sizing: border-box;
+
+        &:hover {
+          background: rgba(81, 163, 255, 0.05);
+        }
+        
+        button.MuiButtonBase-root {
+          width: 100%;
+          height: 34px;
+          padding: 8px 14px;
+          justify-content: space-between;
+          color: #414141;
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: capitalize;
+          
+
+          &.selected {
+            color: #51A3FF !important;
+            font-weight: 600 !important;
+            background: rgba(81, 163, 255, 0.05);
+          }
+          
+          &:hover {
+            background-color: unset;
+          }
+        } 
+      }
+    }
+  }
+}
+
+#todos-show-popup {
+  .MuiPaper-root {
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+
+    .MuiList-root {
+      .MuiButtonBase-root {
+        min-width: 152px;
+        padding: 0;
+        height: 34px;
+        box-sizing: border-box;
+
+        &:hover {
+          background: rgba(81, 163, 255, 0.05);
+        }
+        
+        button.MuiButtonBase-root {
+          width: 100%;
+          height: 34px;
+          padding: 8px 14px;
+          justify-content: space-between;
+          color: #414141;
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: capitalize;
+          
+
+          &.selected {
+            color: #51A3FF !important;
+            font-weight: 600 !important;
+            background: rgba(81, 163, 255, 0.05);
+          }
+          
+          &:hover {
+            background-color: unset;
+          }
+        } 
+      }
+    }
+  }
+}
+
+#todos-sort-popup {
+  .MuiPaper-root {
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+
+    .MuiList-root {
+      .MuiButtonBase-root {
+        min-width: 245px;
+        padding: 0;
+        height: 34px;
+        box-sizing: border-box;
+
+        &:hover {
+          background: rgba(81, 163, 255, 0.05);
+        }
+        
+        button.MuiButtonBase-root {
+          width: 100%;
+          height: 34px;
+          padding: 8px 14px;
+          justify-content: start;
+          color: #414141;
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: capitalize;
+          align-items: center;
+          gap: 8px;
+          
+
+          &.selected {
+            color: #51A3FF !important;
+            font-weight: 600 !important;
+            background: rgba(81, 163, 255, 0.05);
+          }
+          
+          &:hover {
+            background-color: unset;
+          }
+        } 
+      }
+    }
+  }
+}

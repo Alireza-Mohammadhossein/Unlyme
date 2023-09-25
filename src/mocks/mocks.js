@@ -4992,6 +4992,25 @@ export const sampleUsers = [
   },
 ]
 
+
+export const sampleProjectsTodos = [
+  {
+    id: 1,
+    name: 'No project'
+  },
+  {
+    id: 2,
+    name: 'Project one'
+  },
+  {
+    id: 3,
+    name: 'Project two'
+  },
+  {
+    id: 4,
+    name: 'Project three'
+  }
+]
 export const sampleTodos = [
   {
     id: 1,

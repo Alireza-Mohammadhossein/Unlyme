@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from '@mui/material/Checkbox';
+import { sampleTodos, sampleProjectsTodos } from "../../../mocks/mocks";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupSlice';
 import arrowDownIcon from '../../../assets/images/todos/arrow-down.svg';
@@ -22,9 +23,13 @@ import editGrayIcon from '../../../assets/images/todos/edit-gray.svg';
 import moreIcon from '../../../assets/images/todos/more.svg';
 import checkedIcon from '../../../assets/images/todos/checked.svg';
 import noCheckedIcon from '../../../assets/images/todos/nochecked.svg';
+import upToDownIcon from '../../../assets/images/todos/uptodown.svg';
+import downToUpIcon from '../../../assets/images/todos/downtoup.svg';
 import InputAdornment from '@mui/material/InputAdornment';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -36,21 +41,81 @@ import AvatarGroup from '@mui/material/AvatarGroup';
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
     const secondPopupTab = useSelector((state) => state.popup.secondPopupTab);
-  
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+    
+    const [projects, setProjects] = useState(sampleProjectsTodos)
+    const [todos, setTodos] = useState(sampleTodos);
 
-    const [selectedProject, setSelectedProject] = useState('No project');
+
+    // handle project popup
+    const [anchorElProject, setAnchorElProject] = useState(null);
+    const openProject = Boolean(anchorElProject);
+    const handleProjectClick = (event) => {
+      setAnchorElProject(event.currentTarget);
+    };
+    const handleCloseProject = () => {
+      setAnchorElProject(null);
+    };
+    const [selectedProject, setSelectedProject] = useState(projects[0].name);
+
+
+
+    // handle show all popup
+    const [anchorElShow, setAnchorElShow] = useState(null);
+    const openShow = Boolean(anchorElShow);
+    const handleShowClick = (event) => {
+      setAnchorElShow(event.currentTarget);
+    };
+    const handleCloseShow = () => {
+      setAnchorElShow(null);
+    };
+    const [selectedShow, setSelectedShow] = useState('All');
+
+
+    // handle sort popup
+    const [anchorElSort, setAnchorElSort] = useState(null);
+    const openSort = Boolean(anchorElSort);
+    const handleSortClick = (event) => {
+      setAnchorElSort(event.currentTarget);
+    };
+    const handleCloseSort = () => {
+      setAnchorElSort(null);
+    };
+    const [selectedSort, setSelectedSort] = useState('');
+
+
 
     const [addTask, setAddTask] = useState(false)
 
+    const [newTaskTitle, setNewTaskTitle] = useState('');
 
+
+
+    const handleSubmitNewTask = (e) => {
+
+      if (e.key === 'Enter') {
+        const newTask = {
+          id: uuidv4(),
+          done: false,
+          title: newTaskTitle,
+        };
+
+        setTodos([...todos, newTask]);
+
+        setAddTask(false);
+        setNewTaskTitle('');
+        
+      }
+    }
+
+    const handleDone = (id) => {
+      const updated = todos.map((todo) => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+        return todo;
+      });
+      setTodos(updated);
+    };
 
   
     return (
@@ -61,7 +126,7 @@ import AvatarGroup from '@mui/material/AvatarGroup';
             <div className="todos-page-main_header-filter">
               <div className="todos-page-main_header-filter-project">
                 <Button
-                  onClick={handleClick}
+                  onClick={handleProjectClick}
                   // startIcon={<AddIcon />}
                 >
                   {selectedProject}
@@ -71,41 +136,29 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 
 
                 <Menu
-                  id="video-conference-apps"
-                  anchorEl={anchorEl}
-                  open={open}
-                  onClose={handleClose}
+                  id="todos-project-popup"
+                  anchorEl={anchorElProject}
+                  open={openProject}
+                  onClose={handleCloseProject}
                   disableScrollLock = {true}
                 >
-                  <MenuItem onClick={handleClose}>
-                    <Button
-                      // startIcon={<AddIcon />}
-                      className="meeting-page_sidebar_open-apps_item-btn"
-                      onClick={() => setSelectedProject('No project')}
-                    >
-                      No project
-                    </Button>
-                  </MenuItem>
+                  {
+                    projects.map((project) => (
+                      <MenuItem onClick={handleCloseProject} key={project.id}>
+                        <Button
+                          className={`todos-page-main_header-filter-project-btn ${selectedProject === project.name ? 'selected' : ''}`}
+                          onClick={() => setSelectedProject(project.name)}
+                        >
+                          {project.name}
 
-                  <MenuItem onClick={handleClose}>
-                    <Button
-                      // startIcon={<AddIcon />}
-                      className="meeting-page_sidebar_open-apps_item-btn"
-                      onClick={() => setSelectedProject('Project one')}
-                    >
-                      Project one
-                    </Button>
-                  </MenuItem>
+                          {
+                            selectedProject === project.name ? <img src={checkIcon} /> : ''
+                          }
+                        </Button>
+                      </MenuItem>
+                    ))
+                  }
 
-                  <MenuItem onClick={handleClose}>
-                    <Button
-                      // startIcon={<AddIcon />}
-                      className="meeting-page_sidebar_open-apps_item-btn"
-                      onClick={() => setSelectedProject('Project two')}
-                    >
-                      Project Two
-                    </Button>
-                  </MenuItem>
                 </Menu>
               </div>
               
@@ -115,10 +168,55 @@ import AvatarGroup from '@mui/material/AvatarGroup';
                   Add New
                 </Button>
 
-                <Button className="todos-page-main_header-filter-actions-btn">
+                <Button className="todos-page-main_header-filter-actions-btn" onClick={handleShowClick}>
                   <img src={eyeIcon} />
-                  Show All
+                  Show {selectedShow}
                 </Button>
+
+                <Menu
+                  id="todos-show-popup"
+                  anchorEl={anchorElShow}
+                  open={openShow}
+                  onClose={handleCloseShow}
+                  disableScrollLock = {true}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <MenuItem onClick={handleCloseShow}>
+                    <Button
+                      className='todos-page-main_header-filter-project-btn'
+                      onClick={() => setSelectedShow('All')}
+                    >
+                      All
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseShow}>
+                    <Button
+                      className='todos-page-main_header-filter-project-btn'
+                      onClick={() => setSelectedShow('Active')}
+                    >
+                      Active
+                    </Button>
+                  </MenuItem>
+                  
+                  <MenuItem onClick={handleCloseShow}>
+                    <Button
+                      className='todos-page-main_header-filter-project-btn'
+                      onClick={() => setSelectedShow('Completed')}
+                    >
+                      Completed
+                    </Button>
+                  </MenuItem>
+                </Menu>
+
+
 
                 <Button className="todos-page-main_header-filter-actions-btn">
                   <img src={editIcon} />
@@ -141,10 +239,87 @@ import AvatarGroup from '@mui/material/AvatarGroup';
               </div>
 
               <div className="todos-page-main_header-task-sort">
-                <Button className="todos-page-main_header-task-sort-btn">
+                <Button className="todos-page-main_header-task-sort-btn" onClick={handleSortClick}>
                   <img src={sortIcon} />
                   Sort by
                 </Button>
+
+
+                <Menu
+                  id="todos-sort-popup"
+                  anchorEl={anchorElSort}
+                  open={openSort}
+                  onClose={handleCloseSort}
+                  disableScrollLock = {true}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('text a to z')}
+                    >
+                      <img src={downToUpIcon} alt='down to up' />
+                      Text (a-z)
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('text z to a')}
+                    >
+                      <img src={upToDownIcon} alt='down to up' />
+                      Text (z-a)
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('priority low to high')}
+                    >
+                      <img src={downToUpIcon} alt='down to up' />
+                      Priority (low to high)
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('priority high to low')}
+                    >
+                      <img src={upToDownIcon} alt='up to down' />
+                      Priority (high to down)
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('due date old to new')}
+                    >
+                      <img src={downToUpIcon} alt='down to up' />
+                      Due date (old to new)
+                    </Button>
+                  </MenuItem>
+
+                  <MenuItem onClick={handleCloseSort}>
+                    <Button
+                      className='todos-page-main_header-task-sort-item'
+                      onClick={() => setSelectedSort('due date new to old')}
+                    >
+                      <img src={upToDownIcon} alt='up to down' />
+                      Due date (new to old)
+                    </Button>
+                  </MenuItem>
+                </Menu>
               </div>
             </div>
 
@@ -154,6 +329,9 @@ import AvatarGroup from '@mui/material/AvatarGroup';
                   <TextField
                     autoFocus
                     // onBlur={() => setAddTask(false)}
+                    value={newTaskTitle}
+                    onKeyDown={handleSubmitNewTask}
+                    onChange={(e) => setNewTaskTitle(e.target.value)}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
@@ -170,61 +348,45 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 
           
           <div className="todos-page-main_list">
-            <div className="todos-page-main_list-task">
-              <Checkbox
-                className="todos-page-main_list-task-checkbox"
-                icon={<img src={noCheckedIcon} alt='no checked' />}
-                checkedIcon={<img src={checkedIcon} alt='checked' />}
-              />
+            {
+              todos.map((todo) => (
+                <div className="todos-page-main_list-task" key={todo.id}>
+                  <Checkbox
+                    className="todos-page-main_list-task-checkbox"
+                    checked={todo.done}
+                    icon={<img src={noCheckedIcon} alt='no checked' />}
+                    checkedIcon={<img src={checkedIcon} alt='checked' />}
+                    onClick={() => handleDone(todo.id)}
+                  />
+    
+                  <div className="todos-page-main_list-task-title">
+                    <p className={`${todo.done ? 'done' : ''}`}>
+                      {todo.title}
+                    </p>
+                  </div>
+                  
+                  <div className="todos-page-main_list-task-members">
+                    <AvatarGroup max={3}>
+                        {
+                          todo.members ? 
+                            todo.members.map((member) => (
+                              <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
+                            ))
+                          :
+                            ''
+                        }
+                    </AvatarGroup>
+                  </div>
+    
+                  <div className="todos-page-main_list-task-action">
+                    <IconButton>
+                      <img src={moreIcon} alt="more" />
+                    </IconButton>
+                  </div>
+                </div>
+              ))
+            }
 
-              <div className="todos-page-main_list-task-title">
-                <p>
-                  Lorem ipsum dolor sit amet
-                </p>
-              </div>
-              
-              <div className="todos-page-main_list-task-members">
-                <AvatarGroup max={3}>
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                </AvatarGroup>
-              </div>
-
-              <div className="todos-page-main_list-task-action">
-                <IconButton>
-                  <img src={moreIcon} alt="more" />
-                </IconButton>
-              </div>
-            </div>
-
-            <div className="todos-page-main_list-task">
-              <Checkbox
-                className="todos-page-main_list-task-checkbox"
-                icon={<img src={noCheckedIcon} alt='no checked' />}
-                checkedIcon={<img src={checkedIcon} alt='checked' />}
-              />
-
-              <div className="todos-page-main_list-task-title">
-                <p className="done">
-                  Lorem ipsum dolor sit amet
-                </p>
-              </div>
-              
-              <div className="todos-page-main_list-task-members">
-                <AvatarGroup max={3}>
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                    <Avatar className="my-services__tasks_content-item-details-members-member" />
-                </AvatarGroup>
-              </div>
-
-              <div className="todos-page-main_list-task-action">
-                <IconButton>
-                  <img src={moreIcon} alt="more" />
-                </IconButton>
-              </div>
-            </div>
           </div>        
         </div>
       </div>

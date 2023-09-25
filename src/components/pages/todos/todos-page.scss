@@ -22,7 +22,7 @@
                 justify-content: space-between;
 
                 &-project {
-                    & button.MuiButtonBase-root  {
+                    & button.MuiButtonBase-root {
                         color: #333;
                         font-size: 13px;
                         text-transform: capitalize;
@@ -110,6 +110,24 @@
                         img {
                             width: 18px;
                             height: 18px;
+                        }
+                    }
+
+                    &-item.MuiButtonBase-root {
+                        color: #333;
+                        font-size: 13px;
+                        text-transform: capitalize;
+                        font-weight: 400 !important;
+                        padding: 0;
+
+                        &:hover {
+                            background-color: unset;
+                        }
+
+                        img {
+                            width: 18px;
+                            height: 18px;
+                            margin-left: 8px;
                         }
                     }
                 }
@@ -215,6 +233,8 @@
                         .MuiAvatar-root {
                             width: 26px;
                             height: 26px;
+                            font-size: 13px;
+                            box-sizing: border-box !important;
                         }
                     }
                 }
