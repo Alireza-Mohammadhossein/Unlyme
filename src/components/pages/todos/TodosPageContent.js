@@ -25,9 +25,24 @@ import checkedIcon from '../../../assets/images/todos/checked.svg';
 import noCheckedIcon from '../../../assets/images/todos/nochecked.svg';
 import upToDownIcon from '../../../assets/images/todos/uptodown.svg';
 import downToUpIcon from '../../../assets/images/todos/downtoup.svg';
+
+import assignIcon from '../../../assets/images/todos/more/assign.svg';
+import calendarIcon from '../../../assets/images/todos/more/calendar.svg';
+import copyIcon from '../../../assets/images/todos/more/copy.svg';
+import duplicateIcon from '../../../assets/images/todos/more/duplicate.svg';
+import folderIcon from '../../../assets/images/todos/more/folder.svg';
+import helpIcon from '../../../assets/images/todos/more/help.svg';
+import indentIcon from '../../../assets/images/todos/more/indent.svg';
+import pasteIcon from '../../../assets/images/todos/more/paste.svg';
+import plusIcon from '../../../assets/images/todos/more/plus.svg';
+import subtaskIcon from '../../../assets/images/todos/more/subtask.svg';
+import deleteIcon from '../../../assets/images/todos/more/trash.svg';
+import unindentIcon from '../../../assets/images/todos/more/unindent.svg';
+
 import InputAdornment from '@mui/material/InputAdornment';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
+import Divider from '@mui/material/Divider';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -81,6 +96,18 @@ import { v4 as uuidv4 } from 'uuid';
       setAnchorElSort(null);
     };
     const [selectedSort, setSelectedSort] = useState('');
+
+
+    // handle more option popup
+    const [anchorElMoreOption, setAnchorElMoreOption] = useState(null);
+    const openMoreOption = Boolean(anchorElMoreOption);
+    const handleMoreOptionClick = (event) => {
+      setAnchorElMoreOption(event.currentTarget);
+    };
+    const handleCloseMoreOption = () => {
+      setAnchorElMoreOption(null);
+    };
+    const [selectedMoreOption, setSelectedMoreOption] = useState('');
 
 
 
@@ -379,9 +406,150 @@ import { v4 as uuidv4 } from 'uuid';
                   </div>
     
                   <div className="todos-page-main_list-task-action">
-                    <IconButton>
+                    <IconButton onClick={handleMoreOptionClick}>
                       <img src={moreIcon} alt="more" />
                     </IconButton>
+
+                    <Menu
+                      id="todos-more-option-popup"
+                      anchorEl={anchorElMoreOption}
+                      open={openMoreOption}
+                      onClose={handleCloseMoreOption}
+                      disableScrollLock = {true}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                    >
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={plusIcon} alt='Add task below' />
+                          Add task below
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={subtaskIcon} alt='Add subtask' />
+                          Add subtask
+                        </Button>
+                      </MenuItem>
+
+                      <Divider />
+                      
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={indentIcon} alt='Indent' />
+                          Indent
+                        </Button>
+                      </MenuItem>
+                      
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={unindentIcon} alt='Unindent' />
+                          Unindent
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={calendarIcon} alt='Set due date' />
+                          Set due date
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={helpIcon} alt='Priority' />
+                          Priority
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={assignIcon} alt='Assign to' />
+                          Assign to
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={folderIcon} alt='Move to' />
+                          Move to
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={duplicateIcon} alt='Duplicate' />
+                          Duplicate
+                        </Button>
+                      </MenuItem>
+                      
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={copyIcon} alt='Copy' />
+                          Copy
+                        </Button>
+                      </MenuItem>
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item'
+                          // onClick={}
+                        >
+                          <img src={pasteIcon} alt='Paste' />
+                          Paste
+                        </Button>
+                      </MenuItem>
+
+                      <Divider />
+
+                      <MenuItem onClick={handleCloseMoreOption}>
+                        <Button
+                          className='todos-page-main_list-task-action-item delete'
+                          // onClick={}
+                        >
+                          <img src={deleteIcon} alt='Delete' />
+                          Delete
+                        </Button>
+                      </MenuItem>
+
+                    </Menu>
                   </div>
                 </div>
               ))

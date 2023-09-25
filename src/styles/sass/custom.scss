@@ -368,3 +368,55 @@
     }
   }
 }
+
+#todos-more-option-popup {
+  .MuiPaper-root {
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.10);
+
+    .MuiList-root {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .MuiButtonBase-root {
+        min-width: 245px;
+        padding: 0;
+        height: 34px;
+        box-sizing: border-box;
+
+        &:hover {
+          background: rgba(81, 163, 255, 0.05);
+        }
+        
+        button.MuiButtonBase-root {
+          width: 100%;
+          height: 34px;
+          padding: 8px 14px;
+          justify-content: start;
+          color: #414141;
+          font-size: 14px;
+          font-weight: 400;
+          text-transform: capitalize;
+          align-items: center;
+          gap: 8px;
+          
+          
+          &:hover {
+            background-color: unset;
+          }
+        }
+
+        button.delete {
+          color: #FD5162;
+        }
+      }
+
+      .MuiDivider-root {
+        margin: 0 14px;
+        border-color: #E8E7E4;
+      }
+    }
+  }
+}
