@@ -4991,3 +4991,46 @@ export const sampleUsers = [
     image: user5,
   },
 ]
+
+export const sampleTodos = [
+  {
+    id: 1,
+    done: false,
+    title: 'Lorem ipsum dolor sit amet',
+    members : [
+      
+      {
+        id: 1,
+        icon: avatar1,
+      },
+      {
+        id: 2,
+        icon: avatar2,
+      },
+      {
+        id: 3,
+        icon: avatar3,
+      }
+    ],
+  },
+  {
+    id: 2,
+    done: true,
+    title: 'Lorem ipsum dolor sit amet consecteur',
+  },
+  {
+    id: 3,
+    done: false,
+    title: 'Lorem ipsum dolor sit amet consecteur amer lorem',
+    members : [
+      {
+        id: 1,
+        icon: avatar1,
+      },
+      {
+        id: 2,
+        icon: avatar2,
+      }
+    ],
+  }
+]
