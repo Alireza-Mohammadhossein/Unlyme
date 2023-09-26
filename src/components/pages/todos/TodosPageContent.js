@@ -39,6 +39,9 @@ import subtaskIcon from '../../../assets/images/todos/more/subtask.svg';
 import deleteIcon from '../../../assets/images/todos/more/trash.svg';
 import unindentIcon from '../../../assets/images/todos/more/unindent.svg';
 import arrowRightIcon from '../../../assets/images/todos/more/arrow-right.svg';
+import calendarArrowRightIcon from '../../../assets/images/todos/more/calendar-arrow-right.svg';
+import calendarArrowLeftIcon from '../../../assets/images/todos/more/calendar-arrow-left.svg';
+import reloadIcon from '../../../assets/images/todos/more/reload.svg';
 
 import InputAdornment from '@mui/material/InputAdornment';
 import Avatar from '@mui/material/Avatar';
@@ -189,6 +192,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
     };
 
   
+    const [selectedTaskProject, setSelectedTaskProject] = useState('No project');
+
+
     return (
       <>
 
@@ -529,9 +535,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
             </Button>
           </MenuItem>
 
-          <MenuItem {...bindHover(dueDatePopupState)}>
+          <MenuItem {...bindHover(dueDatePopupState)} disableRipple>
             <Button
               className='todos-page-main_list-task-action-item'
+              disableRipple
               // onClick={}
             >
               <span>
@@ -560,17 +567,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 <Calendar
                   onChange={onChangeDueDate}
                   value={dueDate}
-                  nextLabel= {<ArrowForwardIosIcon />}
-                  prevLabel= {<ArrowBackIosNewIcon />}
+                  nextLabel= {<img src={calendarArrowRightIcon} />}
+                  prevLabel= {<img src={calendarArrowLeftIcon} />}
                   formatShortWeekday={(locale, date) => [ `S`, `M`, `T`, `W`, `T`, `F`, `S` ][date.getDay()]}
                 />
+
+                <Divider />
+
+                <div className="todos-more-option-submenu-calendar-actions">
+                  <Button className="todos-more-option-submenu-calendar-actions-cancel" onClick={dueDatePopupState.close}>Cancel</Button>
+                  <Button className="todos-more-option-submenu-calendar-actions-save" onClick={dueDatePopupState.close}>Save</Button>
+                </div>
               </div>
             </HoverPopover>
           </MenuItem>
 
-          <MenuItem {...bindHover(priorityPopupState)}>
+          <MenuItem {...bindHover(priorityPopupState)} disableRipple>
             <Button
               className='todos-page-main_list-task-action-item'
+              disableRipple
               // onClick={}
             >
               <span>
@@ -595,15 +610,45 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 horizontal: 'right',
               }}
             >
-              <p style={{ margin: 10 }}>
-                The content of the priorityPopupState.
-              </p>
+              <div className="todos-more-option-submenu-priority">
+                <div className="todos-more-option-submenu-priority-item">
+                  <Button className="todos-more-option-submenu-priority-item-btn" onClick={priorityPopupState.close} >
+                    <span className="circle low"></span>
+                    <p>Low</p>
+                  </Button>
+                </div>
+                
+                <div className="todos-more-option-submenu-priority-item">
+                  <Button className="todos-more-option-submenu-priority-item-btn" onClick={priorityPopupState.close} >
+                    <span className="circle medium"></span>
+                    <p>Medium</p>
+                  </Button>
+                </div>
+                
+                <div className="todos-more-option-submenu-priority-item">
+                  <Button className="todos-more-option-submenu-priority-item-btn" onClick={priorityPopupState.close} >
+                    <span className="circle high"></span>
+                    <p>High</p>
+                  </Button>
+                </div>
+
+                <Divider />
+
+                <div className="todos-more-option-submenu-priority-item">
+                  <Button className="todos-more-option-submenu-priority-item-btn reset" onClick={priorityPopupState.close} >
+                    <img src={reloadIcon} alt="reset priority" />
+                    <p>Reset priority</p>
+                  </Button>
+                </div>
+
+              </div>
             </HoverPopover>
           </MenuItem>
 
-          <MenuItem {...bindHover(assignPopupState)}>
+          <MenuItem {...bindHover(assignPopupState)} disableRipple>
             <Button
               className='todos-page-main_list-task-action-item'
+              disableRipple
               // onClick={}
             >
               <span>
@@ -634,9 +679,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
             </HoverPopover>
           </MenuItem>
 
-          <MenuItem {...bindHover(movePopupState)}>
+          <MenuItem {...bindHover(movePopupState)} disableRipple>
             <Button
               className='todos-page-main_list-task-action-item'
+              disableRipple
               // onClick={}
             >
               <span>
@@ -661,9 +707,71 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 horizontal: 'right',
               }}
             >
-              <p style={{ margin: 10 }}>
-                The content of the priorityPopupState.
-              </p>
+              <div className="todos-more-option-submenu-move">
+                <div className="todos-more-option-submenu-move-item">
+                  <Button
+                    className={`todos-more-option-submenu-move-item-btn ${selectedTaskProject === 'No project' ? 'active' : ''}`}
+                    onClick={() => {
+                      movePopupState.close()
+                      setSelectedTaskProject('No project')
+                    }} 
+                  >
+                    No project
+
+                    {
+                      selectedTaskProject === 'No project' ? <img src={checkIcon} /> : ''
+                    }
+                  </Button>
+                </div>
+
+                <div className="todos-more-option-submenu-move-item">
+                  <Button
+                    className={`todos-more-option-submenu-move-item-btn ${selectedTaskProject === 'Project one' ? 'active' : ''}`}
+                    onClick={() => {
+                      movePopupState.close()
+                      setSelectedTaskProject('Project one')
+                    }}
+                  >
+                    Project one
+
+                    {
+                      selectedTaskProject === 'Project one' ? <img src={checkIcon} /> : ''
+                    }
+                  </Button>
+                </div>
+
+                <div className="todos-more-option-submenu-move-item">
+                  <Button
+                    className={`todos-more-option-submenu-move-item-btn ${selectedTaskProject === 'Project two' ? 'active' : ''}`}
+                    onClick={() => {
+                      movePopupState.close()
+                      setSelectedTaskProject('Project two')
+                    }} 
+                  >
+                    Project two
+
+                    {
+                      selectedTaskProject === 'Project two' ? <img src={checkIcon} /> : ''
+                    }
+                  </Button>
+                </div>
+
+                <div className="todos-more-option-submenu-move-item">
+                  <Button
+                    className={`todos-more-option-submenu-move-item-btn ${selectedTaskProject === 'Project three' ? 'active' : ''}`}
+                    onClick={() => {
+                      movePopupState.close()
+                      setSelectedTaskProject('Project three')
+                    }} 
+                  >
+                    Project three
+
+                    {
+                      selectedTaskProject === 'Project three' ? <img src={checkIcon} /> : ''
+                    }
+                  </Button>
+                </div>
+              </div>
             </HoverPopover>
           </MenuItem>
 

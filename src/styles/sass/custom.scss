@@ -439,10 +439,15 @@
 
   &-calendar {
     width: 300px;
-    padding: 10px 15px;
+    min-height: 314px;
     box-sizing: border-box;
+    padding: 10px 15px 15px 15px;
+    box-sizing: border-box;
+
     
     .react-calendar {
+      height: auto;
+
       &__navigation {
 
         &__arrow {
@@ -469,7 +474,192 @@
             line-height: 22px;
           }
         }
+
+        &__days {
+          &__day {
+            color: #444;
+            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 22px;
+          }
+
+          &__day--neighboringMonth {
+            color: #ACACAC;
+            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+          }
+
+          &__day--weekend {
+            color: #777;
+          }
+        }
+      }
+
+      &__tile {
+        width: 25px;
+        height: 30px;
+        box-sizing: border-box;
+
+        abbr {
+          width: 25px;
+          height: 25px;
+        }
+        &--active {
+          abbr {
+            font-weight: 600;
+            background-color: #51A3FF;
+            color: #fff;
+          }
+
+          &:hover abbr {
+            background-color: #51A3FF !important;
+            color: #fff;
+          }
+        }
       }
     }
+
+    .MuiDivider-root {
+      margin: 15px 0;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+
+      &-cancel.MuiButtonBase-root {
+        height: 28px;
+        padding: 0px 14px;
+        border-radius: 20px;
+        border: 1px solid #E0E0E0;
+        background-color: #fff;
+        color: #888;
+        font-family: 'OpenSans' !important;
+        font-size: 14px;
+        font-weight: 400 !important;
+        text-transform: capitalize;
+
+        &:hover {
+          background-color: #fff;
+        }
+      }
+
+      &-save.MuiButtonBase-root {
+        height: 28px;
+        padding: 0px 14px;
+        border-radius: 20px;
+        background-color: #51A3FF;
+        color: #fff;
+        font-family: 'OpenSans' !important;
+        font-size: 14px;
+        font-weight: 400 !important;
+        text-transform: capitalize;
+
+        &:hover {
+          background-color: #51A3FF;
+        }
+      }
+    }
+  }
+
+  &-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px 0;
+    width: 217px;
+    box-sizing: border-box;
+
+    &-item {
+      // height: 20px;
+
+      &-btn.MuiButtonBase-root {
+        width: 100%;
+        padding: 5px 15px;
+        // height: 20px;
+        box-sizing: border-box;
+        min-height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: start  !important;
+        gap: 8px;
+
+        .circle {
+          width: 10px;
+          height: 10px;
+          display: inline-block;
+          border-radius: 50%;
+
+          &.low {
+            background-color: #66CFA9;
+          }
+
+          &.medium {
+            background-color: #E0B974;
+          }
+
+          &.high {
+            background-color: #FD5162;
+          }
+        }
+
+        p {
+          color: #414141;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 19px;
+          text-transform: capitalize; 
+        }
+
+        &.reset {
+
+        }
+      }
+    }
+
+    .MuiDivider-root {
+      border-color: #E8E7E4;
+    }
+  }
+
+  &-move {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px 0;
+    width: 217px;
+    box-sizing: border-box;
+
+    &-item {
+      &-btn.MuiButtonBase-root {
+        width: 100%;
+        padding: 5px 15px;
+        font-size: 14px;
+        color: #414141;
+        box-sizing: border-box;
+        min-height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: capitalize;
+
+        &.active {
+          color: #51A3FF;
+          font-weight: 600 !important;
+        }
+  
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
   }
 }
