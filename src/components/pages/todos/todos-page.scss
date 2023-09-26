@@ -242,9 +242,11 @@
                 &-action {
                     width: 18px;
                     margin-left: 20px;
+                    box-sizing: border-box;
+                    margin-right: 5px;
 
                     button.MuiButtonBase-root {
-                        padding: 0;
+                        padding: 5px;
                     }
 
                     &-item.MuiButtonBase-root {

@@ -378,7 +378,7 @@
     .MuiList-root {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      // gap: 5px;
 
       .MuiButtonBase-root {
         min-width: 245px;
@@ -393,14 +393,23 @@
         button.MuiButtonBase-root {
           width: 100%;
           height: 34px;
-          padding: 8px 14px;
+          padding: 8px 20px 8px 14px;
           justify-content: start;
           color: #414141;
           font-size: 14px;
           font-weight: 400;
           text-transform: capitalize;
+          display: flex;
+          justify-content: space-between;
           align-items: center;
-          gap: 8px;
+
+          span {
+            height: 100%;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+          }
+          
           
           
           &:hover {
@@ -414,8 +423,52 @@
       }
 
       .MuiDivider-root {
-        margin: 0 14px;
+        margin: 0 20px 0 14px;
         border-color: #E8E7E4;
+      }
+    }
+  }
+}
+
+.todos-more-option-submenu {
+  .MuiPaper-root {
+    border-radius: 8px 0 0 8px;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.10);
+  }
+
+  &-calendar {
+    width: 300px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    
+    .react-calendar {
+      &__navigation {
+
+        &__arrow {
+          color: #444;
+        }
+
+        &__label {
+          color: #51A3FF;
+          text-align: center;
+          font-family: 'OpenSans' !important;
+          font-size: 15px;
+          font-weight: 600;
+        }
+
+      }
+
+      &__month-view {
+        &__weekdays {
+          &__weekday {
+            color: #ACACAC;
+            font-family: 'OpenSans' !important;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 22px;
+          }
+        }
       }
     }
   }

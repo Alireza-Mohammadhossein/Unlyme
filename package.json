@@ -45,6 +45,7 @@
     "lodash": "^4.17.21",
     "material-icons": "^1.13.3",
     "material-ui-dropzone": "^3.5.0",
+    "material-ui-popup-state": "^5.0.9",
     "memoize-one": "^6.0.0",
     "moment": "^2.29.4",
     "nanoid": "^4.0.1",
