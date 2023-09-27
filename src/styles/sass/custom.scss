@@ -628,6 +628,15 @@
     }
   }
 
+  &-assign {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 10px;
+    width: 275px;
+    box-sizing: border-box;
+  }
+
   &-move {
     display: flex;
     flex-direction: column;

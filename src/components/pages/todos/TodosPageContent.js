@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from '@mui/material/Checkbox';
-import { sampleTodos, sampleProjectsTodos } from "../../../mocks/mocks";
+import { sampleTodos, sampleProjectsTodos, sampleUsers } from "../../../mocks/mocks";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleNotePopup, toggleSecondPopupTab } from '../../../redux/app/popupSlice';
 import arrowDownIcon from '../../../assets/images/todos/arrow-down.svg';
@@ -194,6 +194,22 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
   
     const [selectedTaskProject, setSelectedTaskProject] = useState('No project');
 
+
+    const [users, setUsers] = useState(sampleUsers);
+    const [userChecked, setUserChecked] = useState([]);
+
+    const handleAssignUser = (value) => () => {
+      const currentIndex = userChecked.indexOf(value);
+      const newChecked = [...userChecked];
+
+      if (currentIndex === -1) {
+        newChecked.push(value);
+      } else {
+        newChecked.splice(currentIndex, 1);
+      }
+
+      setUserChecked(newChecked);
+    };
 
     return (
       <>
@@ -673,9 +689,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 horizontal: 'right',
               }}
             >
-              <p style={{ margin: 10 }}>
-                The content of the priorityPopupState.
-              </p>
+              <div className="todos-more-option-submenu-assign">
+
+              </div>
             </HoverPopover>
           </MenuItem>
 
