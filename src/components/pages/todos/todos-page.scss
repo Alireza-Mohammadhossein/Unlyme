@@ -270,6 +270,12 @@
             }
         }
     }
+
+    &-modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .cloud-page__header-todos {
@@ -358,6 +364,4 @@
     &_close {
         text-align: right;
     }
-
-
 }

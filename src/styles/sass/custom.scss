@@ -631,10 +631,55 @@
   &-assign {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 14px 10px;
+    // gap: 5px;
+    padding: 10px 0;
     width: 275px;
     box-sizing: border-box;
+
+    &-item {
+      width: 100%;
+      height: 36px;
+      padding: 0 10px;
+      box-sizing: border-box;
+
+      &:hover {
+        background-color: rgba(81, 163, 255, 0.05);
+      }
+
+      & .MuiFormControlLabel-root {
+        height: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+
+        & .MuiButtonBase-root {
+          width: 36px;
+          padding: 0;
+        }
+
+        & .MuiTypography-root {
+          flex: 1 1 100%;
+
+          div {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            img {
+              width: 26px;
+              height: 26px;
+            }
+
+            p {
+              color: #444;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
   }
 
   &-move {
@@ -670,5 +715,84 @@
       }
     }
 
+  }
+}
+
+.todos-deletepopup {
+  width: 80%;
+  max-width: 390px;
+  height: auto;
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  box-sizing: border-box;
+
+  &-header {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 0 0 10px 0;
+      gap: 15px;
+      // border-bottom: 1px solid #ECECEC;
+
+
+      &-title {
+          text-align: center;
+          font-size: 20px;
+          font-weight: 400;
+          color: #444;
+      }
+
+      &-subtitle {
+          font-size: 14px;
+          text-align: center;
+          color: #888888;
+      }
+      
+      &-btn {
+          .MuiButtonBase-root {
+              color: #51A3FF;
+          }
+      }
+  }
+
+  &-content {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding-top: 50px;
+
+      &-btn {
+          display: flex;
+          justify-content: end;
+          gap: 10px;
+
+          &:first-child {
+              .MuiButtonBase-root:first-child {
+                  border: 1px solid #ECECEC;
+                  color: #888888;
+                  text-transform: none;
+                  font-size: 14px;
+                  padding: 8px 20px;
+                  border-radius: 50px;
+              }
+          }
+
+          &:last-child {
+              .MuiButtonBase-root:first-child {
+                  border: 1px solid #FD5162;
+                  color: #FD5162;
+                  text-transform: none;
+                  font-size: 14px;
+                  padding: 8px 20px;
+                  border-radius: 50px;
+
+                  &:hover {
+                      color: #fff;
+                      background-color: #FD5162;
+                  }
+              }
+          }
+      }
   }
 }

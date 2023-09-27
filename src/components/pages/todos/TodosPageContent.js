@@ -42,6 +42,7 @@ import arrowRightIcon from '../../../assets/images/todos/more/arrow-right.svg';
 import calendarArrowRightIcon from '../../../assets/images/todos/more/calendar-arrow-right.svg';
 import calendarArrowLeftIcon from '../../../assets/images/todos/more/calendar-arrow-left.svg';
 import reloadIcon from '../../../assets/images/todos/more/reload.svg';
+import checkedUsersIcon from '../../../assets/images/todos/more/check-user.svg';
 
 import InputAdornment from '@mui/material/InputAdornment';
 import Avatar from '@mui/material/Avatar';
@@ -57,8 +58,10 @@ import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import { v4 as uuidv4 } from 'uuid';
 
 import Calendar from 'react-calendar';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Modal from '@mui/material/Modal';
+import { toast } from "react-toastify";
+
 
 
 
@@ -195,21 +198,40 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
     const [selectedTaskProject, setSelectedTaskProject] = useState('No project');
 
 
+    // start selecting assign user
     const [users, setUsers] = useState(sampleUsers);
     const [userChecked, setUserChecked] = useState([]);
 
-    const handleAssignUser = (value) => () => {
-      const currentIndex = userChecked.indexOf(value);
+    const handleAssignUser = (user) => () => {
+      const isUserChecked = userChecked.some((checkedUser) => checkedUser.id === user.id);
       const newChecked = [...userChecked];
-
-      if (currentIndex === -1) {
-        newChecked.push(value);
+    
+      if (!isUserChecked) {
+        newChecked.push(user);
       } else {
-        newChecked.splice(currentIndex, 1);
+        const indexToRemove = newChecked.findIndex((checkedUser) => checkedUser.id === user.id);
+        newChecked.splice(indexToRemove, 1);
       }
-
+    
       setUserChecked(newChecked);
+
+      console.log('userChecked',userChecked)
     };
+
+
+    const [selectedTask, setSelectedTask] = useState([]);
+
+    // start delete invoice popup
+    const [deleteTaskPopup, setDeleteTaskPopup] = useState(false);
+    const handleOpenDeleteTaskPopup = () => {
+      // setDeleteTaskId(id);
+      setDeleteTaskPopup(true)
+    };
+    const handleCloseDeleteTaskPopup = () => {
+      setSelectedTask([]);
+      setDeleteTaskPopup(false)
+    };
+    // end delete Task popup
 
     return (
       <>
@@ -474,7 +496,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                     </div>
       
                     <div className="todos-page-main_list-task-action">
-                      <IconButton onClick={handleMoreOptionClick}>
+                      <IconButton onClick={(e) => {
+                        setSelectedTask(todo)
+                        handleMoreOptionClick(e)
+                      }}>
                         <img src={moreIcon} alt="more" />
                       </IconButton>
                     </div>
@@ -691,6 +716,35 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
             >
               <div className="todos-more-option-submenu-assign">
 
+                {
+                  users.map((user) => (
+                    <div
+                      className="todos-more-option-submenu-assign-item"
+                      key={user.id}
+                      style={{backgroundColor: userChecked.findIndex((checkedUser) => checkedUser.id === user.id) !== -1 ? 'rgba(81, 163, 255, 0.05)' : '' }}
+                    >
+                      <FormControlLabel
+
+                        control={
+                          <Checkbox
+                            checked={userChecked.findIndex((checkedUser) => checkedUser.id === user.id) !== -1}
+                            icon={<></>}
+                            checkedIcon={<img src={checkedUsersIcon} alt='checked' />}
+                            onChange={handleAssignUser(user)}
+                          />
+                        }
+
+                        label={
+                          <div>
+                            <img src={user.image} alt={user.name} />
+
+                            <p>{user.name}</p>
+                          </div>
+                        }
+                      />
+                    </div>
+                  ))
+                }
               </div>
             </HoverPopover>
           </MenuItem>
@@ -800,6 +854,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 <img src={duplicateIcon} alt='Duplicate' />
                 Duplicate
               </span>
+
+              <span style={{color: '#B4B4B4'}}>
+                Ctrl + D
+              </span>
             </Button>
           </MenuItem>
           
@@ -811,6 +869,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
               <span>
                 <img src={copyIcon} alt='Copy' />
                 Copy
+              </span>
+
+              <span style={{color: '#B4B4B4'}}>
+                Ctrl + C
               </span>
             </Button>
           </MenuItem>
@@ -824,6 +886,10 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
                 <img src={pasteIcon} alt='Paste' />
                 Paste
               </span>
+
+              <span style={{color: '#B4B4B4'}}>
+                Ctrl + V
+              </span>
             </Button>
           </MenuItem>
 
@@ -832,7 +898,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
           <MenuItem onClick={handleCloseMoreOption}>
             <Button
               className='todos-page-main_list-task-action-item delete'
-              // onClick={}
+              onClick={(e) => {
+                handleOpenDeleteTaskPopup()
+              }}
             >
               <span>
                 <img src={deleteIcon} alt='Delete' />
@@ -842,6 +910,53 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
           </MenuItem>
 
         </Menu>
+
+
+        <Modal
+          open={deleteTaskPopup}
+          onClose={() => handleCloseDeleteTaskPopup()}
+          className='todos-page-modal'
+        >
+          <div className='todos-deletepopup'>
+            <div className='todos-deletepopup-header'>
+              <div className='todos-deletepopup-header-title'>
+                <p>Delete Task</p>
+              </div>
+              
+              <div className='todos-deletepopup-header-subtitle'>
+                <p>This task will be deleted permanently. Are you sure?</p>
+              </div>
+            </div>
+
+            <div className='todos-deletepopup-content'>
+              <div className='todos-deletepopup-content-btn'>
+                  <Button onClick={() => handleCloseDeleteTaskPopup(false)}>
+                      Cancel
+                  </Button>
+              </div>
+
+              <div className='todos-deletepopup-content-btn'>
+                  <Button onClick={() => {
+                    toast.error(`You have clicked on Delete invoice by id = ${selectedTask.id}!`, {
+                      position: "top-center",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: false,
+                      pauseOnFocusLoss: false,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                    });
+                    handleCloseDeleteTaskPopup(false);
+                    }}>
+                      Delete
+                  </Button>
+              </div>
+            </div>
+          </div>
+        </Modal>
+        
 
       </>
 
