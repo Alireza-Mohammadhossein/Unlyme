@@ -5051,5 +5051,49 @@ export const sampleTodos = [
         icon: avatar2,
       }
     ],
-  }
+  },
+  {
+    id: 4,
+    done: false,
+    title: 'Lorem ipsum dolor sit amet consecteur',
+    subtask : [
+      {
+        id: 1,
+        done: true,
+        title: 'Lorem ipsum dolor sit amet'
+      },
+      {
+        id: 2,
+        done: false,
+        title: 'Lorem ipsum dolor sit'
+      },
+      {
+        id: 3,
+        done: false,
+        title: 'Lorem ipsum dolor sit amet consecteur dolor'
+      }
+    ]
+  },
+  {
+    id: 5,
+    done: false,
+    title: 'Lorem ipsum dolor sit amet consecteur dolor',
+    subtask : [
+      {
+        id: 1,
+        done: true,
+        title: 'Lorem ipsum dolor sit amet'
+      },
+      {
+        id: 2,
+        done: false,
+        title: 'Lorem ipsum dolor sit'
+      },
+      {
+        id: 3,
+        done: false,
+        title: 'Lorem ipsum dolor sit amet consecteur dolor'
+      }
+    ]
+  },
 ]

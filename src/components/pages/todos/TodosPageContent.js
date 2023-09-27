@@ -61,7 +61,10 @@ import Calendar from 'react-calendar';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Modal from '@mui/material/Modal';
 import { toast } from "react-toastify";
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 
@@ -183,7 +186,7 @@ import { toast } from "react-toastify";
         
       }
     }
-
+    
     const handleDone = (id) => {
       const updated = todos.map((todo) => {
         if (todo.id === id) {
@@ -194,9 +197,30 @@ import { toast } from "react-toastify";
       setTodos(updated);
     };
 
-  
-    const [selectedTaskProject, setSelectedTaskProject] = useState('No project');
+    const handleSubtaskDone = (todoToUpdate, subtaskId) => {
+      const updatedTodos = todos.map((todo) => {
+        if (todo.id === todoToUpdate.id) {
+          const updatedTodo = { ...todo };
+    
+          updatedTodo.subtask = updatedTodo.subtask.map((subtask) => {
+            if (subtask.id === subtaskId) {
+              subtask.done = !subtask.done;
+            }
+            return subtask;
+          });
+    
+          return updatedTodo;
+        } else {
+          return todo;
+        }
+      });
+    
+      setTodos(updatedTodos);
+    };
 
+  
+
+    const [selectedTaskProject, setSelectedTaskProject] = useState('No project');
 
     // start selecting assign user
     const [users, setUsers] = useState(sampleUsers);
@@ -235,7 +259,6 @@ import { toast } from "react-toastify";
 
     return (
       <>
-
         <div className="todos-page">
           <div className="todos-page-main">
             
@@ -467,43 +490,118 @@ import { toast } from "react-toastify";
             <div className="todos-page-main_list">
               {
                 todos.map((todo) => (
-                  <div className="todos-page-main_list-task" key={todo.id}>
-                    <Checkbox
-                      className="todos-page-main_list-task-checkbox"
-                      checked={todo.done}
-                      icon={<img src={noCheckedIcon} alt='no checked' />}
-                      checkedIcon={<img src={checkedIcon} alt='checked' />}
-                      onClick={() => handleDone(todo.id)}
-                    />
-      
-                    <div className="todos-page-main_list-task-title">
-                      <p className={`${todo.done ? 'done' : ''}`}>
-                        {todo.title}
-                      </p>
+                  todo.subtask ?
+                    <Accordion className="accordion">
+                      <AccordionSummary
+                        expandIcon={<img src={arrowRightIcon} />}
+                        aria-controls="panel1a-content"
+                        className="accordion-summary"
+                      >
+                        <div className="todos-page-main_list-task" key={todo.id}>
+                          <Checkbox
+                            className="todos-page-main_list-task-checkbox"
+                            checked={todo.done}
+                            icon={<img src={noCheckedIcon} alt='no checked' />}
+                            checkedIcon={<img src={checkedIcon} alt='checked' />}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDone(todo.id)
+                            }}
+                          />
+            
+                          <div className="todos-page-main_list-task-title">
+                            <p className={`${todo.done ? 'done' : ''}`}>
+                              {todo.title}
+                            </p>
+                          </div>
+                          
+                          <div className="todos-page-main_list-task-members">
+                            <AvatarGroup max={3}>
+                                {
+                                  todo.members ? 
+                                    todo.members.map((member) => (
+                                      <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
+                                    ))
+                                  :
+                                    ''
+                                }
+                            </AvatarGroup>
+                          </div>
+            
+                          <div className="todos-page-main_list-task-action">
+                            <IconButton onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedTask(todo)
+                              handleMoreOptionClick(e)
+                            }}>
+                              <img src={moreIcon} alt="more" />
+                            </IconButton>
+                          </div>
+                        </div>
+                      </AccordionSummary>
+                      <AccordionDetails className="accordion-details">
+                        {
+                          todo.subtask.map((item) => (
+                            <div className="todos-page-main_list-task" key={item.id}>
+                              <Checkbox
+                                className="todos-page-main_list-task-checkbox"
+                                checked={item.done}
+                                icon={<img src={noCheckedIcon} alt='no checked' />}
+                                checkedIcon={<img src={checkedIcon} alt='checked' />}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleSubtaskDone(todo, item.id)
+                                }}
+                              />
+                
+                              <div className="todos-page-main_list-task-title">
+                                <p className={`${item.done ? 'done' : ''}`}>
+                                  {item.title}
+                                </p>
+                              </div>
+                            </div>
+                          ))
+                        }
+                      </AccordionDetails>
+                    </Accordion>
+                  :
+                    <div className="todos-page-main_list-task" key={todo.id}>
+                      <Checkbox
+                        className="todos-page-main_list-task-checkbox"
+                        checked={todo.done}
+                        icon={<img src={noCheckedIcon} alt='no checked' />}
+                        checkedIcon={<img src={checkedIcon} alt='checked' />}
+                        onClick={() => handleDone(todo.id)}
+                      />
+        
+                      <div className="todos-page-main_list-task-title">
+                        <p className={`${todo.done ? 'done' : ''}`}>
+                          {todo.title}
+                        </p>
+                      </div>
+                      
+                      <div className="todos-page-main_list-task-members">
+                        <AvatarGroup max={3}>
+                            {
+                              todo.members ? 
+                                todo.members.map((member) => (
+                                  <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
+                                ))
+                              :
+                                ''
+                            }
+                        </AvatarGroup>
+                      </div>
+        
+                      <div className="todos-page-main_list-task-action">
+                        <IconButton onClick={(e) => {
+                          setSelectedTask(todo)
+                          handleMoreOptionClick(e)
+                        }}>
+                          <img src={moreIcon} alt="more" />
+                        </IconButton>
+                      </div>
                     </div>
-                    
-                    <div className="todos-page-main_list-task-members">
-                      <AvatarGroup max={3}>
-                          {
-                            todo.members ? 
-                              todo.members.map((member) => (
-                                <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
-                              ))
-                            :
-                              ''
-                          }
-                      </AvatarGroup>
-                    </div>
-      
-                    <div className="todos-page-main_list-task-action">
-                      <IconButton onClick={(e) => {
-                        setSelectedTask(todo)
-                        handleMoreOptionClick(e)
-                      }}>
-                        <img src={moreIcon} alt="more" />
-                      </IconButton>
-                    </div>
-                  </div>
                 ))
               }
 
@@ -911,7 +1009,6 @@ import { toast } from "react-toastify";
 
         </Menu>
 
-
         <Modal
           open={deleteTaskPopup}
           onClose={() => handleCloseDeleteTaskPopup()}
@@ -922,7 +1019,7 @@ import { toast } from "react-toastify";
               <div className='todos-deletepopup-header-title'>
                 <p>Delete Task</p>
               </div>
-              
+
               <div className='todos-deletepopup-header-subtitle'>
                 <p>This task will be deleted permanently. Are you sure?</p>
               </div>
