@@ -190,7 +190,7 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-                height: 50px;
+                min-height: 50px;
                 box-sizing: border-box;
                 border-top: 1px solid #E8E7E4;
                 padding: 0 14px;
@@ -309,8 +309,12 @@
                     padding: 0;
                     flex-direction: row-reverse;
                     border-top: 1px solid #E8E7E4;
-                    height: 50px;
+                    min-height: 50px;
                     box-sizing: border-box;
+
+                    &.Mui-focusVisible {
+                        background-color: unset;
+                    }
 
                     .MuiAccordionSummary-content {
                         margin: 0;

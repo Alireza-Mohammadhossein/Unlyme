@@ -9,6 +9,7 @@ import NotesBlock from "./components/notes/NotesBlock";
 import GuideBlock from "./components/guide/GuideBlock";
 import Services from "./components/services/ServicesBlock";
 import WorkDrive from "./components/workDrive/WorkDrive";
+import Todos from "./components/todos/Todos";
 import SiteCopyingBlock from "./components/site-copying/SiteCopyingBlock";
 import WebsiteBuilderBlock from "./components/websiteBuilder/WebsiteBuilderBlock";
 import TasksBlock from "./components/tasks/TasksBlock";
@@ -37,19 +38,19 @@ const MyServices = () => {
     { i: "drive", x: 0, y: 1, w: 6, h: 1 },
     { i: "emails", x: 6, y: 1, w: 6, h: 1 },
 
-    { i: "domains", x: 6, y: 1, w: 6, h: 1 },
-    { i: "logo-builder", x: 9, y: 1, w: 6, h: 1 },
+    { i: "todos", x: 0, y: 2, w: 6, h: 1 },
+    // { i: "logo-builder", x: 9, y: 1, w: 6, h: 1 },
 
-    { i: "cloud", x: 0, y: 2, w: 3, h: 1 },
-    { i: "assas", x: 3, y: 2, w: 6, h: 1 },
-    { i: "disc", x: 9, y: 2, w: 3, h: 1 },
+    // { i: "cloud", x: 0, y: 2, w: 3, h: 1 },
+    // { i: "assas", x: 3, y: 2, w: 6, h: 1 },
+    // { i: "disc", x: 9, y: 2, w: 3, h: 1 },
 
-    { i: "bank", x: 0, y: 3, w: 6, h: 1 },
-    { i: "website-builder", x: 6, y: 3, w: 6, h: 1 },
+    // { i: "bank", x: 0, y: 3, w: 6, h: 1 },
+    // { i: "website-builder", x: 6, y: 3, w: 6, h: 1 },
 
-    { i: "video-conference", x: 0, y: 4, w: 6, h: 1 },
-    { i: "copy-site", x: 6, y: 4, w: 3, h: 1 },
-    { i: "services", x: 9, y: 4, w: 3, h: 1 },
+    // { i: "video-conference", x: 0, y: 4, w: 6, h: 1 },
+    // { i: "copy-site", x: 6, y: 4, w: 3, h: 1 },
+    // { i: "services", x: 9, y: 4, w: 3, h: 1 },
   ];
 
   const layoutLG = [
@@ -61,20 +62,22 @@ const MyServices = () => {
 
     { i: "emails", x: 0, y: 2, w: 8, h: 1 },
 
-    { i: "cloud", x: 0, y: 2, w: 4, h: 1 },
-    { i: "asass", x: 4, y: 2, w: 8, h: 1 },
+    { i: "todos", x: 0, y: 3, w: 8, h: 1 },
 
-    { i: "bank", x: 0, y: 3, w: 8, h: 1 },
-    { i: "logo-builder", x: 8, y: 3, w: 4, h: 1 },
+    // { i: "cloud", x: 0, y: 2, w: 4, h: 1 },
+    // { i: "asass", x: 4, y: 2, w: 8, h: 1 },
 
-    { i: "copy-site", x: 0, y: 4, w: 4, h: 1 },
-    { i: "website-builder", x: 4, y: 4, w: 8, h: 1 },
+    // { i: "bank", x: 0, y: 3, w: 8, h: 1 },
+    // { i: "logo-builder", x: 8, y: 3, w: 4, h: 1 },
 
-    { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
-    { i: "disc", x: 8, y: 5, w: 4, h: 1 },
+    // { i: "copy-site", x: 0, y: 4, w: 4, h: 1 },
+    // { i: "website-builder", x: 4, y: 4, w: 8, h: 1 },
 
-    { i: "domains", x: 0, y: 6, w: 4, h: 1 },
-    { i: "services", x: 4, y: 6, w: 4, h: 1 },
+    // { i: "video-conference", x: 0, y: 5, w: 8, h: 1 },
+    // { i: "disc", x: 8, y: 5, w: 4, h: 1 },
+
+    // { i: "domains", x: 0, y: 6, w: 4, h: 1 },
+    // { i: "services", x: 4, y: 6, w: 4, h: 1 },
   ];
 
   const layoutMD = [
@@ -85,21 +88,22 @@ const MyServices = () => {
     { i: "tasks", x: 6, y: 1, w: 6, h: 1 },
 
     { i: "emails", x: 0, y: 2, w: 6, h: 1 },
-    
-    { i: "cloud", x: 0, y: 2, w: 6, h: 1 },
-    { i: "ai", x: 6, y: 2, w: 6, h: 1 },
+    { i: "todos", x: 6, y: 2, w: 6, h: 1 },
 
-    { i: "bank", x: 0, y: 3, w: 6, h: 1 },
-    { i: "logo-builder", x: 6, y: 3, w: 6, h: 1 },
+    // { i: "cloud", x: 0, y: 2, w: 6, h: 1 },
+    // { i: "ai", x: 6, y: 2, w: 6, h: 1 },
 
-    { i: "copy-site", x: 0, y: 4, w: 6, h: 1 },
-    { i: "website-builder", x: 6, y: 4, w: 6, h: 1 },
+    // { i: "bank", x: 0, y: 3, w: 6, h: 1 },
+    // { i: "logo-builder", x: 6, y: 3, w: 6, h: 1 },
 
-    { i: "video-conference", x: 0, y: 5, w: 6, h: 1 },
-    { i: "disc", x: 6, y: 5, w: 6, h: 1 },
+    // { i: "copy-site", x: 0, y: 4, w: 6, h: 1 },
+    // { i: "website-builder", x: 6, y: 4, w: 6, h: 1 },
 
-    { i: "services", x: 0, y: 6, w: 6, h: 1 },
-    { i: "domains", x: 6, y: 6, w: 6, h: 1 },
+    // { i: "video-conference", x: 0, y: 5, w: 6, h: 1 },
+    // { i: "disc", x: 6, y: 5, w: 6, h: 1 },
+
+    // { i: "services", x: 0, y: 6, w: 6, h: 1 },
+    // { i: "domains", x: 6, y: 6, w: 6, h: 1 },
 
   ];
 
@@ -109,16 +113,17 @@ const MyServices = () => {
     { i: "drive", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "emails", x: 0, y: 4, w: 12, h: 1 },
-    { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
-    { i: "ai", x: 0, y: 5, w: 12, h: 1 },
-    { i: "bank", x: 0, y: 6, w: 12, h: 1 },
-    { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
-    { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
-    { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
-    { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
-    { i: "disc", x: 0, y: 11, w: 12, h: 1 },
-    { i: "domains", x: 0, y: 12, w: 12, h: 1 },
-    { i: "services", x: 0, y: 13, w: 12, h: 1 },
+    { i: "todos", x: 0, y: 5, w: 12, h: 1 },
+    // { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
+    // { i: "ai", x: 0, y: 5, w: 12, h: 1 },
+    // { i: "bank", x: 0, y: 6, w: 12, h: 1 },
+    // { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
+    // { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
+    // { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
+    // { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
+    // { i: "disc", x: 0, y: 11, w: 12, h: 1 },
+    // { i: "domains", x: 0, y: 12, w: 12, h: 1 },
+    // { i: "services", x: 0, y: 13, w: 12, h: 1 },
   ];
 
   const layoutXS = [
@@ -127,16 +132,17 @@ const MyServices = () => {
     { i: "drive", x: 0, y: 2, w: 12, h: 1 },
     { i: "tasks", x: 0, y: 3, w: 12, h: 1 },
     { i: "emails", x: 0, y: 4, w: 12, h: 1 },
-    { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
-    { i: "ai", x: 0, y: 5, w: 12, h: 1 },
-    { i: "bank", x: 0, y: 6, w: 12, h: 1 },
-    { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
-    { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
-    { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
-    { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
-    { i: "disc", x: 0, y: 11, w: 12, h: 1 },
-    { i: "domains", x: 0, y: 11, w: 12, h: 1 },
-    { i: "services", x: 0, y: 13, w: 12, h: 1 },
+    { i: "todos", x: 0, y: 5, w: 12, h: 1 },
+    // { i: "cloud", x: 0, y: 4, w: 12, h: 1 },
+    // { i: "ai", x: 0, y: 5, w: 12, h: 1 },
+    // { i: "bank", x: 0, y: 6, w: 12, h: 1 },
+    // { i: "logo-builder", x: 7, y: 3, w: 12, h: 1 },
+    // { i: "copy-site", x: 0, y: 8, w: 12, h: 1 },
+    // { i: "website-builder", x: 0, y: 9, w: 12, h: 1 },
+    // { i: "video-conference", x: 0, y: 10, w: 12, h: 1 },
+    // { i: "disc", x: 0, y: 11, w: 12, h: 1 },
+    // { i: "domains", x: 0, y: 11, w: 12, h: 1 },
+    // { i: "services", x: 0, y: 13, w: 12, h: 1 },
   ];
 
   // call getFromLS and set layouts to originalLayouts
@@ -246,6 +252,10 @@ const MyServices = () => {
 
           <div key="emails">
             <Emails />
+          </div>
+
+          <div key="todos">
+            <Todos />
           </div>
 
           {/* <div key="guide">

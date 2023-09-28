@@ -129,7 +129,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
     const handleCloseMoreOption = () => {
       setAnchorElMoreOption(null);
     };
-    const [selectedMoreOption, setSelectedMoreOption] = useState('');
 
 
 
@@ -166,8 +165,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
     const [addTask, setAddTask] = useState(false)
+    const [addSubtask, setAddSubtask] = useState(false)
 
     const [newTaskTitle, setNewTaskTitle] = useState('');
+    const [newSubtaskTitle, setNewSubtaskTitle] = useState('');
 
 
 
@@ -184,6 +185,33 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
         setAddTask(false);
         setNewTaskTitle('');
+        
+      }
+    }
+
+    const handleSubmitNewSubtask = (e) => {
+
+      if (e.key === 'Enter' && selectedTask && newSubtaskTitle) {
+        const newSubtask = {
+          id: uuidv4(),
+          done: false,
+          title: newSubtaskTitle,
+        };
+
+        const updatedTodos = todos.map((todo) => {
+          if (todo === selectedTask) {
+            return {
+              ...todo,
+              subtask: [...(todo.subtask || []), newSubtask],
+            };
+          }
+          return todo;
+        });
+
+        setTodos(updatedTodos);
+        setAddSubtask(false);
+        setNewSubtaskTitle('');
+        setSelectedTask(null);
         
       }
     }
@@ -496,9 +524,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                         expandIcon={<img src={arrowRightIcon} />}
                         aria-controls="panel1a-content"
                         className="accordion-summary"
-                        style={{height: todo.duedate ? '68px' : '50px'}}
+                        style={{height: 'auto'}}
                       >
-                        <div className="todos-page-main_list-task" key={todo.id} style={{height: todo.duedate ? '68px' : '50px'}}>
+                        <div className="todos-page-main_list-task" key={todo.id} style={{minHeight: todo.duedate ? '68px' : '50px'}}>
                           <Checkbox
                             className="todos-page-main_list-task-checkbox"
                             checked={todo.done}
@@ -525,6 +553,32 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                               :
                                 ''
                             }
+
+{
+                          addSubtask && selectedTask.id === todo.id ? 
+                            <div className="todos-page-main_header-input">
+                              <TextField
+                                autoFocus
+                                // onBlur={() => {
+                                //   setAddSubtask(false)
+                                //   setSelectedTask(null)
+                                // }}
+                                onClick={(e) => e.stopPropagation()}
+                                value={newSubtaskTitle}
+                                onKeyDown={handleSubmitNewSubtask}
+                                onChange={(e) => setNewSubtaskTitle(e.target.value)}
+                                InputProps={{
+                                  startAdornment: (
+                                    <InputAdornment position="start">
+                                      <img src={editGrayIcon} alt="Edit Icon" />
+                                    </InputAdornment>
+                                  ),
+                                }}
+                                placeholder='Enter a description' />
+                            </div>
+                          :
+                            ''
+                        }
                           </div>
                           
                           <div className="todos-page-main_list-task-members">
@@ -550,6 +604,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                             </IconButton>
                           </div>
                         </div>
+
                       </AccordionSummary>
                       <AccordionDetails className="accordion-details">
                         {
@@ -577,54 +632,81 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                       </AccordionDetails>
                     </Accordion>
                   :
-                    <div className="todos-page-main_list-task" key={todo.id} style={{height: todo.duedate ? '68px' : '50px'}}>
-                      <Checkbox
-                        className="todos-page-main_list-task-checkbox"
-                        checked={todo.done}
-                        icon={<img src={noCheckedIcon} alt='no checked' />}
-                        checkedIcon={<img src={checkedIcon} alt='checked' />}
-                        onClick={() => handleDone(todo.id)}
-                      />
-        
-                      <div className="todos-page-main_list-task-title">
-                        <p className={`${todo.done ? 'done' : ''}`}>
-                          {todo.title}
-                        </p>
+                    <>
+                      <div className="todos-page-main_list-task" key={todo.id} style={{minHeight: todo.duedate ? '68px' : '50px'}}>
+                        <Checkbox
+                          className="todos-page-main_list-task-checkbox"
+                          checked={todo.done}
+                          icon={<img src={noCheckedIcon} alt='no checked' />}
+                          checkedIcon={<img src={checkedIcon} alt='checked' />}
+                          onClick={() => handleDone(todo.id)}
+                        />
+          
+                        <div className="todos-page-main_list-task-title">
+                          <p className={`${todo.done ? 'done' : ''}`}>
+                            {todo.title}
+                          </p>
 
-                        {
-                          todo.duedate ?
-                            <span className="todos-page-main_list-task-title-date">
-                              <img src={dueDateIcon} alt='due date' />
+                          {
+                            todo.duedate ?
+                              <span className="todos-page-main_list-task-title-date">
+                                <img src={dueDateIcon} alt='due date' />
 
-                              {todo.duedate.date} at {todo.duedate.time}
-                            </span>
-                          :
-                            ''
-                        }
+                                {todo.duedate.date} at {todo.duedate.time}
+                              </span>
+                            :
+                              ''
+                          }
+                        </div>
+                        
+                        <div className="todos-page-main_list-task-members">
+                          <AvatarGroup max={3}>
+                              {
+                                todo.members ? 
+                                  todo.members.map((member) => (
+                                    <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
+                                  ))
+                                :
+                                  ''
+                              }
+                          </AvatarGroup>
+                        </div>
+          
+                        <div className="todos-page-main_list-task-action">
+                          <IconButton onClick={(e) => {
+                            setSelectedTask(todo)
+                            handleMoreOptionClick(e)
+                          }}>
+                            <img src={moreIcon} alt="more" />
+                          </IconButton>
+                        </div>
                       </div>
-                      
-                      <div className="todos-page-main_list-task-members">
-                        <AvatarGroup max={3}>
-                            {
-                              todo.members ? 
-                                todo.members.map((member) => (
-                                  <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
-                                ))
-                              :
-                                ''
-                            }
-                        </AvatarGroup>
-                      </div>
-        
-                      <div className="todos-page-main_list-task-action">
-                        <IconButton onClick={(e) => {
-                          setSelectedTask(todo)
-                          handleMoreOptionClick(e)
-                        }}>
-                          <img src={moreIcon} alt="more" />
-                        </IconButton>
-                      </div>
-                    </div>
+
+                      {
+                        addSubtask && selectedTask.id === todo.id ? 
+                          <div className="todos-page-main_header-input">
+                            <TextField
+                              autoFocus
+                              // onBlur={() => {
+                              //   setAddSubtask(false)
+                              //   setSelectedTask(null)
+                              // }}
+                              value={newSubtaskTitle}
+                              onKeyDown={handleSubmitNewSubtask}
+                              onChange={(e) => setNewSubtaskTitle(e.target.value)}
+                              InputProps={{
+                                startAdornment: (
+                                  <InputAdornment position="start">
+                                    <img src={editGrayIcon} alt="Edit Icon" />
+                                  </InputAdornment>
+                                ),
+                              }}
+                              placeholder='Enter a description' />
+                          </div>
+                        :
+                          ''
+                      }
+                    </>
                 ))
               }
 
@@ -647,7 +729,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
             horizontal: 'right',
           }}
         >
-          <MenuItem onClick={handleCloseMoreOption}>
+          <MenuItem onClick={() => {
+            handleCloseMoreOption()
+          }}>
             <Button
               className='todos-page-main_list-task-action-item'
               // onClick={}
@@ -659,10 +743,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
             </Button>
           </MenuItem>
 
-          <MenuItem onClick={handleCloseMoreOption}>
+          <MenuItem>
             <Button
               className='todos-page-main_list-task-action-item'
-              // onClick={}
+              onClick={() => {
+                handleCloseMoreOption()
+                setAddSubtask(!addSubtask)
+              }}
             >
               <span>
                 <img src={subtaskIcon} alt='Add subtask' />
