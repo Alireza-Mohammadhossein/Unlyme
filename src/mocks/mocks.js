@@ -4992,7 +4992,6 @@ export const sampleUsers = [
   },
 ]
 
-
 export const sampleProjectsTodos = [
   {
     id: 1,
@@ -5011,6 +5010,7 @@ export const sampleProjectsTodos = [
     name: 'Project three'
   }
 ]
+
 export const sampleTodos = [
   {
     id: 1,
@@ -5051,6 +5051,10 @@ export const sampleTodos = [
         icon: avatar2,
       }
     ],
+    duedate: {
+      date: '12 June',
+      time: '08:00'
+    },
   },
   {
     id: 4,
@@ -5072,7 +5076,11 @@ export const sampleTodos = [
         done: false,
         title: 'Lorem ipsum dolor sit amet consecteur dolor'
       }
-    ]
+    ],
+    duedate: {
+      date: '12 June',
+      time: '08:00'
+    },
   },
   {
     id: 5,
@@ -5094,6 +5102,10 @@ export const sampleTodos = [
         done: false,
         title: 'Lorem ipsum dolor sit amet consecteur dolor'
       }
-    ]
+    ],
+    duedate: {
+      date: '12 June',
+      time: '08:00'
+    },
   },
 ]

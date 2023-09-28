@@ -25,6 +25,7 @@ import checkedIcon from '../../../assets/images/todos/checked.svg';
 import noCheckedIcon from '../../../assets/images/todos/nochecked.svg';
 import upToDownIcon from '../../../assets/images/todos/uptodown.svg';
 import downToUpIcon from '../../../assets/images/todos/downtoup.svg';
+import dueDateIcon from '../../../assets/images/todos/duedate.svg';
 
 import assignIcon from '../../../assets/images/todos/more/assign.svg';
 import calendarIcon from '../../../assets/images/todos/more/calendar.svg';
@@ -496,8 +497,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                         expandIcon={<img src={arrowRightIcon} />}
                         aria-controls="panel1a-content"
                         className="accordion-summary"
+                        style={{height: todo.duedate ? '68px' : '50px'}}
                       >
-                        <div className="todos-page-main_list-task" key={todo.id}>
+                        <div className="todos-page-main_list-task" key={todo.id} style={{height: todo.duedate ? '68px' : '50px'}}>
                           <Checkbox
                             className="todos-page-main_list-task-checkbox"
                             checked={todo.done}
@@ -513,6 +515,17 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                             <p className={`${todo.done ? 'done' : ''}`}>
                               {todo.title}
                             </p>
+
+                            {
+                              todo.duedate ?
+                                <span className="todos-page-main_list-task-title-date">
+                                  <img src={dueDateIcon} alt='due date' />
+                                  
+                                  {todo.duedate.date} at {todo.duedate.time}
+                                </span>
+                              :
+                                ''
+                            }
                           </div>
                           
                           <div className="todos-page-main_list-task-members">
@@ -565,7 +578,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                       </AccordionDetails>
                     </Accordion>
                   :
-                    <div className="todos-page-main_list-task" key={todo.id}>
+                    <div className="todos-page-main_list-task" key={todo.id} style={{height: todo.duedate ? '68px' : '50px'}}>
                       <Checkbox
                         className="todos-page-main_list-task-checkbox"
                         checked={todo.done}
@@ -578,6 +591,17 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                         <p className={`${todo.done ? 'done' : ''}`}>
                           {todo.title}
                         </p>
+
+                        {
+                          todo.duedate ?
+                            <span className="todos-page-main_list-task-title-date">
+                              <img src={dueDateIcon} alt='due date' />
+
+                              {todo.duedate.date} at {todo.duedate.time}
+                            </span>
+                          :
+                            ''
+                        }
                       </div>
                       
                       <div className="todos-page-main_list-task-members">

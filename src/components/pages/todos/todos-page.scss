@@ -213,6 +213,9 @@
                 &-title {
                     flex: 1 1 100%;
                     overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
 
                     p {
                         width: 100%;
@@ -225,6 +228,20 @@
                         &.done {
                             color: #ADABA8;
                             text-decoration: line-through;
+                        }
+                    }
+
+                    &-date {
+                        display: flex;
+                        gap: 5px;
+                        align-items: center;
+                        color: #51A3FF;
+                        font-family: 'OpenSans' !important;
+                        font-size: 13px;
+
+                        img {
+                            width: 16px;
+                            height: 16px;
                         }
                     }
                 }
