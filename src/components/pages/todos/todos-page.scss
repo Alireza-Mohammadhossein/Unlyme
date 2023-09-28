@@ -189,99 +189,162 @@
             &-task {
                 width: 100%;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
                 min-height: 50px;
                 box-sizing: border-box;
                 border-top: 1px solid #E8E7E4;
-                padding: 0 14px;
+                padding: 10px 14px;
+                box-sizing: border-box;
+                justify-content: center;
 
                 // &:first-child {
                 //     border-top: 1px solid #E8E7E4;
                 // }
 
-                &-checkbox {
-                    width: 25px;
-                    margin-right: 10px !important;
-                    padding: 0 !important;
-
-                    img {
-                        width: 18px;
-                        height: 18px;
-                    }
-                }
-
-                &-title {
-                    flex: 1 1 100%;
-                    overflow: hidden;
+                &-info {
+                    width: 100%;
                     display: flex;
-                    flex-direction: column;
-                    gap: 8px;
+                    align-items: center;
 
-                    p {
-                        width: 100%;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        color: #333;
-                        font-size: 14px;
-
-                        &.done {
-                            color: #ADABA8;
-                            text-decoration: line-through;
-                        }
-                    }
-
-                    &-date {
-                        display: flex;
-                        gap: 5px;
-                        align-items: center;
-                        color: #51A3FF;
-                        font-family: 'OpenSans' !important;
-                        font-size: 13px;
-
-                        img {
-                            width: 16px;
-                            height: 16px;
-                        }
-                    }
-                }
-
-                &-members {
-                    .MuiAvatarGroup-root {
-                        .MuiAvatar-root {
-                            width: 26px;
-                            height: 26px;
-                            font-size: 13px;
-                            box-sizing: border-box !important;
-                        }
-                    }
-                }
-
-                &-action {
-                    width: 18px;
-                    margin-left: 20px;
-                    box-sizing: border-box;
-                    margin-right: 5px;
-
-                    button.MuiButtonBase-root {
-                        padding: 5px;
-                    }
-
-                    &-item.MuiButtonBase-root {
-                        color: #333;
-                        font-size: 13px;
-                        text-transform: capitalize;
-                        font-weight: 400 !important;
-                        padding: 0;
-
-                        &:hover {
-                            background-color: unset;
-                        }
-
+                    &-checkbox {
+                        width: 25px;
+                        margin-right: 10px !important;
+                        padding: 0 !important;
+    
                         img {
                             width: 18px;
                             height: 18px;
-                            margin-left: 8px;
+                        }
+                    }
+    
+                    &-title {
+                        flex: 1 1 100%;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+    
+                        p {
+                            width: 100%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            color: #333;
+                            font-size: 14px;
+    
+                            &.done {
+                                color: #ADABA8;
+                                text-decoration: line-through;
+                            }
+                        }
+    
+                        &-date {
+                            display: flex;
+                            gap: 5px;
+                            align-items: center;
+                            color: #51A3FF;
+                            font-family: 'OpenSans' !important;
+                            font-size: 13px;
+    
+                            img {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                    }
+    
+                    &-members {
+                        margin-right: 18px;
+
+                        .MuiAvatarGroup-root {
+                            .MuiAvatar-root {
+                                width: 26px;
+                                height: 26px;
+                                font-size: 13px;
+                                box-sizing: border-box !important;
+                            }
+                        }
+                    }
+
+                    &-numbers {
+                        margin-right: 20px;
+                        color: #ADABA8;
+                        font-size: 14px;
+                        text-wrap: nowrap;
+                    }
+    
+                    &-action {
+                        width: 18px;
+                        box-sizing: border-box;
+                        margin-right: 5px;
+    
+                        button.MuiButtonBase-root {
+                            padding: 5px;
+                        }
+    
+                        &-item.MuiButtonBase-root {
+                            color: #333;
+                            font-size: 13px;
+                            text-transform: capitalize;
+                            font-weight: 400 !important;
+                            padding: 0;
+    
+                            &:hover {
+                                background-color: unset;
+                            }
+    
+                            img {
+                                width: 18px;
+                                height: 18px;
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                }
+
+                &-input {
+                    margin-top: 15px;
+    
+                    .MuiFormControl-root {
+                        width: 100%;
+                        background-color: #F8FAFC;
+                        height: 40px;
+                        box-sizing: border-box;
+    
+                        .MuiInputBase-root {
+                            height: 40px;
+                            box-sizing: border-box;
+    
+                            &:hover {
+                                .MuiOutlinedInput-notchedOutline {
+                                    border-color: #51A3FF;
+                                }
+                            }
+    
+                            &.Mui-focused {
+                                .MuiOutlinedInput-notchedOutline {
+                                    border-color: #51A3FF;
+                                }
+                            }
+    
+                            .MuiInputBase-input {
+                                padding: 0;
+                                color: #333;
+                                font-size: 14px;
+    
+                                &::placeholder {
+                                    color: #ACACAC;
+                                    font-size: 14px;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+    
+                        .MuiOutlinedInput-notchedOutline {
+                            border-radius: 8px;
+                            border: 1px solid #ECECEC;
+                            height: 45px;
+                            box-sizing: border-box;
                         }
                     }
                 }
@@ -318,8 +381,9 @@
 
                     .MuiAccordionSummary-content {
                         margin: 0;
+                        overflow: hidden;
 
-                        .todos-page-main_list-task {
+                        .todos-page-main_list-task-info {
                             border-top: unset;
                         }
                     }

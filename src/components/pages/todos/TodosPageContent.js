@@ -286,6 +286,20 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
     };
     // end delete Task popup
 
+
+    // count number of done subtasks
+    function countDoneSubtasks(subtasks) {
+      return subtasks.reduce((doneTasksNumber, subtask) => {
+        if (subtask.done) {
+          return doneTasksNumber + 1;
+        }
+        return doneTasksNumber;
+      }, 0);
+    }
+
+
+
+
     return (
       <>
         <div className="todos-page">
@@ -527,43 +541,186 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                         style={{height: 'auto'}}
                       >
                         <div className="todos-page-main_list-task" key={todo.id} style={{minHeight: todo.duedate ? '68px' : '50px'}}>
+                          <div className="todos-page-main_list-task-info">
+                            <Checkbox
+                              className="todos-page-main_list-task-info-checkbox"
+                              checked={todo.done}
+                              icon={<img src={noCheckedIcon} alt='no checked' />}
+                              checkedIcon={<img src={checkedIcon} alt='checked' />}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDone(todo.id)
+                              }}
+                            />
+              
+                            <div className="todos-page-main_list-task-info-title">
+                              <p className={`${todo.done ? 'done' : ''}`}>
+                                {todo.title}
+                              </p>
+
+                              {
+                                todo.duedate ?
+                                  <span className="todos-page-main_list-task-info-title-date">
+                                    <img src={dueDateIcon} alt='due date' />
+                                    
+                                    {todo.duedate.date} at {todo.duedate.time}
+                                  </span>
+                                :
+                                  ''
+                              }
+
+
+                            </div>
+
+                            <div className="todos-page-main_list-task-info-numbers">
+                              {countDoneSubtasks(todo.subtask)} / {todo.subtask.length}
+                            </div>
+                            
+                            {
+                              todo.members ?
+                                <div className="todos-page-main_list-task-info-members">
+                                  <AvatarGroup max={3}>
+                                      {
+                                        todo.members ? 
+                                          todo.members.map((member) => (
+                                            <Avatar src={member.icon} className="todos-page-main_list-task-info-members-member" />
+                                          ))
+                                        :
+                                          ''
+                                      }
+                                  </AvatarGroup>
+                                </div>
+                              :
+                                ''
+                            }
+              
+                            <div className="todos-page-main_list-task-info-action">
+                              <IconButton onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedTask(todo)
+                                handleMoreOptionClick(e)
+                              }}>
+                                <img src={moreIcon} alt="more" />
+                              </IconButton>
+                            </div>
+                          </div>
+
+                          {
+                            addSubtask && selectedTask.id === todo.id ? 
+                              <div className="todos-page-main_list-task-input">
+                                <TextField
+                                  autoFocus
+                                  // onBlur={() => {
+                                  //   setAddSubtask(false)
+                                  //   setSelectedTask(null)
+                                  // }}
+                                  onClick={(e) => e.stopPropagation()}
+                                  value={newSubtaskTitle}
+                                  onKeyDown={handleSubmitNewSubtask}
+                                  onChange={(e) => setNewSubtaskTitle(e.target.value)}
+                                  InputProps={{
+                                    startAdornment: (
+                                      <InputAdornment position="start">
+                                        <img src={editGrayIcon} alt="Edit Icon" />
+                                      </InputAdornment>
+                                    ),
+                                  }}
+                                  placeholder='Enter a description' />
+                              </div>
+                            :
+                              ''
+                          }
+                        </div>
+
+                      </AccordionSummary>
+                      <AccordionDetails className="accordion-details">
+                        {
+                          todo.subtask.map((item) => (
+                            <div className="todos-page-main_list-task" key={item.id}>
+                              <div className="todos-page-main_list-task-info">
+                                <Checkbox
+                                  className="todos-page-main_list-task-info-checkbox"
+                                  checked={item.done}
+                                  icon={<img src={noCheckedIcon} alt='no checked' />}
+                                  checkedIcon={<img src={checkedIcon} alt='checked' />}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleSubtaskDone(todo, item.id)
+                                  }}
+                                />
+                  
+                                <div className="todos-page-main_list-task-info-title">
+                                  <p className={`${item.done ? 'done' : ''}`}>
+                                    {item.title}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          ))
+                        }
+                      </AccordionDetails>
+                    </Accordion>
+                  :
+                    <>
+                      <div className="todos-page-main_list-task" key={todo.id} style={{minHeight: todo.duedate ? '68px' : '50px'}}>
+                        <div className="todos-page-main_list-task-info">
                           <Checkbox
-                            className="todos-page-main_list-task-checkbox"
+                            className="todos-page-main_list-task-info-checkbox"
                             checked={todo.done}
                             icon={<img src={noCheckedIcon} alt='no checked' />}
                             checkedIcon={<img src={checkedIcon} alt='checked' />}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDone(todo.id)
-                            }}
+                            onClick={() => handleDone(todo.id)}
                           />
             
-                          <div className="todos-page-main_list-task-title">
+                          <div className="todos-page-main_list-task-info-title">
                             <p className={`${todo.done ? 'done' : ''}`}>
                               {todo.title}
                             </p>
 
                             {
                               todo.duedate ?
-                                <span className="todos-page-main_list-task-title-date">
+                                <span className="todos-page-main_list-task-info-title-date">
                                   <img src={dueDateIcon} alt='due date' />
-                                  
+
                                   {todo.duedate.date} at {todo.duedate.time}
                                 </span>
                               :
                                 ''
                             }
+                          </div>
+                          
+                          <div className="todos-page-main_list-task-info-members">
+                            <AvatarGroup max={3}>
+                                {
+                                  todo.members ? 
+                                    todo.members.map((member) => (
+                                      <Avatar src={member.icon} className="todos-page-main_list-task-info-members-member" />
+                                    ))
+                                  :
+                                    ''
+                                }
+                            </AvatarGroup>
+                          </div>
+            
+                          <div className="todos-page-main_list-task-info-action">
+                            <IconButton onClick={(e) => {
+                              setSelectedTask(todo)
+                              handleMoreOptionClick(e)
+                            }}>
+                              <img src={moreIcon} alt="more" />
+                            </IconButton>
+                          </div>
+                        </div>
 
-{
+                        {
                           addSubtask && selectedTask.id === todo.id ? 
-                            <div className="todos-page-main_header-input">
+                            <div className="todos-page-main_list-task-input">
                               <TextField
                                 autoFocus
                                 // onBlur={() => {
                                 //   setAddSubtask(false)
                                 //   setSelectedTask(null)
                                 // }}
-                                onClick={(e) => e.stopPropagation()}
                                 value={newSubtaskTitle}
                                 onKeyDown={handleSubmitNewSubtask}
                                 onChange={(e) => setNewSubtaskTitle(e.target.value)}
@@ -579,138 +736,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                           :
                             ''
                         }
-                          </div>
-                          
-                          <div className="todos-page-main_list-task-members">
-                            <AvatarGroup max={3}>
-                                {
-                                  todo.members ? 
-                                    todo.members.map((member) => (
-                                      <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
-                                    ))
-                                  :
-                                    ''
-                                }
-                            </AvatarGroup>
-                          </div>
-            
-                          <div className="todos-page-main_list-task-action">
-                            <IconButton onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedTask(todo)
-                              handleMoreOptionClick(e)
-                            }}>
-                              <img src={moreIcon} alt="more" />
-                            </IconButton>
-                          </div>
-                        </div>
 
-                      </AccordionSummary>
-                      <AccordionDetails className="accordion-details">
-                        {
-                          todo.subtask.map((item) => (
-                            <div className="todos-page-main_list-task" key={item.id}>
-                              <Checkbox
-                                className="todos-page-main_list-task-checkbox"
-                                checked={item.done}
-                                icon={<img src={noCheckedIcon} alt='no checked' />}
-                                checkedIcon={<img src={checkedIcon} alt='checked' />}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleSubtaskDone(todo, item.id)
-                                }}
-                              />
-                
-                              <div className="todos-page-main_list-task-title">
-                                <p className={`${item.done ? 'done' : ''}`}>
-                                  {item.title}
-                                </p>
-                              </div>
-                            </div>
-                          ))
-                        }
-                      </AccordionDetails>
-                    </Accordion>
-                  :
-                    <>
-                      <div className="todos-page-main_list-task" key={todo.id} style={{minHeight: todo.duedate ? '68px' : '50px'}}>
-                        <Checkbox
-                          className="todos-page-main_list-task-checkbox"
-                          checked={todo.done}
-                          icon={<img src={noCheckedIcon} alt='no checked' />}
-                          checkedIcon={<img src={checkedIcon} alt='checked' />}
-                          onClick={() => handleDone(todo.id)}
-                        />
-          
-                        <div className="todos-page-main_list-task-title">
-                          <p className={`${todo.done ? 'done' : ''}`}>
-                            {todo.title}
-                          </p>
-
-                          {
-                            todo.duedate ?
-                              <span className="todos-page-main_list-task-title-date">
-                                <img src={dueDateIcon} alt='due date' />
-
-                                {todo.duedate.date} at {todo.duedate.time}
-                              </span>
-                            :
-                              ''
-                          }
-                        </div>
-                        
-                        <div className="todos-page-main_list-task-members">
-                          <AvatarGroup max={3}>
-                              {
-                                todo.members ? 
-                                  todo.members.map((member) => (
-                                    <Avatar src={member.icon} className="todos-page-main_list-task-members-member" />
-                                  ))
-                                :
-                                  ''
-                              }
-                          </AvatarGroup>
-                        </div>
-          
-                        <div className="todos-page-main_list-task-action">
-                          <IconButton onClick={(e) => {
-                            setSelectedTask(todo)
-                            handleMoreOptionClick(e)
-                          }}>
-                            <img src={moreIcon} alt="more" />
-                          </IconButton>
-                        </div>
                       </div>
-
-                      {
-                        addSubtask && selectedTask.id === todo.id ? 
-                          <div className="todos-page-main_header-input">
-                            <TextField
-                              autoFocus
-                              // onBlur={() => {
-                              //   setAddSubtask(false)
-                              //   setSelectedTask(null)
-                              // }}
-                              value={newSubtaskTitle}
-                              onKeyDown={handleSubmitNewSubtask}
-                              onChange={(e) => setNewSubtaskTitle(e.target.value)}
-                              InputProps={{
-                                startAdornment: (
-                                  <InputAdornment position="start">
-                                    <img src={editGrayIcon} alt="Edit Icon" />
-                                  </InputAdornment>
-                                ),
-                              }}
-                              placeholder='Enter a description' />
-                          </div>
-                        :
-                          ''
-                      }
                     </>
                 ))
               }
 
-            </div>        
+            </div>
           </div>
         </div>
 
