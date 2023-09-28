@@ -486,7 +486,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
                   ''
               }
             </div>
-
             
             <div className="todos-page-main_list">
               {
