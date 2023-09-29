@@ -185,6 +185,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            height: calc(100% - 60px);
+            overflow: auto;
 
             &-task {
                 width: 100%;
